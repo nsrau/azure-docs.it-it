@@ -1,7 +1,7 @@
 ---
-title: Metodo BreakSentence dell'API Traduzione testuale
+title: Translator BreakSentence (metodo)
 titleSuffix: Azure Cognitive Services
-description: Il API Traduzione testuale metodo BreakSentence identifica il posizionamento dei limiti di frase in una porzione di testo.
+description: Il metodo Translator BreakSentence identifica il posizionamento dei limiti di frase in una porzione di testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548119"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588633"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
+# <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
 Identifica il posizionamento dei delimitatori di frase in una porzione di testo.
 
@@ -41,7 +41,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 Le intestazioni della richiesta includono:
 
-| Headers | Descrizione |
+| Intestazioni | Descrizione |
 | ------- | ----------- |
 | Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
 | Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
@@ -96,7 +96,7 @@ Una risposta JSON di esempio è:
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>X-RequestId</td>
@@ -113,11 +113,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Esito positivo.</td>
+    <td>Operazione completata.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query non è presente o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -141,9 +141,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 L'esempio seguente mostra come ottenere i delimitatori di frase per una singola frase. La lingua della frase viene rilevata automaticamente dal servizio.
 

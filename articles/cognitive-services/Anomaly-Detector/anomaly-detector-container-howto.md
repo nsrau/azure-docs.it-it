@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875046"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589959"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Installare ed eseguire contenitori di rilevatori di anomalie (anteprima)
 
 Il rilevatore di anomalie presenta le funzionalità del contenitore seguenti:
 
-| Funzione | Caratteristiche |
+| Funzione | Funzionalità |
 |--|--|
 | Rilevamento anomalie | <li> Rileva le anomalie che si verificano in tempo reale. <li> Rileva le anomalie nel set di dati come batch. <li> Deduce l'intervallo normale dei dati previsto. <li> Supporta la regolazione della sensibilità del rilevamento anomalie per adattarsi meglio ai dati. |
 
@@ -34,21 +34,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Risorsa rilevamento anomalie |Per usare questi contenitori, è necessario avere:<br><br>Risorsa di _Rilevamento anomalie_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica del **rilevatore di anomalie** del portale di Azure e alle pagine delle chiavi e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
-
-È necessario prima completare e inviare il [modulo di richiesta del contenitore del rilevatore di anomalie](https://aka.ms/adcontainer) per richiedere l'accesso al contenitore.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>Computer host
 
@@ -60,7 +52,7 @@ Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfar
 
 La tabella seguente descrive i core CPU minimi e consigliati e la memoria da allocare per il contenitore del rilevatore di anomalie.
 
-| QUERY al secondo (query al secondo) | Minima | Consigliato |
+| QUERY al secondo (query al secondo) | Minimo | Consigliato |
 |-----------|---------|-------------|
 | 10 QUERY AL SECONDO | 4 core, 1 GB di memoria | 8 Core 2-GB di memoria |
 | 20 QUERY AL SECONDO | 8 core, 2 GB di memoria | 16 core da 4 GB di memoria |
@@ -73,9 +65,9 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
-| Contenitore | Archivio |
+| Contenitore | Repository |
 |-----------|------------|
-| cognitive-Services-anomalie-Detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitive-Services-anomalie-Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -85,7 +77,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>Pull di Docker per il contenitore del rilevatore di anomalie
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Come usare il contenitore
@@ -97,13 +89,13 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori e, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) `{ENDPOINT_URI}` `{API_KEY}` .
 
-[Examples](anomaly-detector-container-configuration.md#example-docker-run-commands) Sono disponibili esempi `docker run` di comando.
+[Examples](anomaly-detector-container-configuration.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -180,7 +172,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](ano
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di rilevamento anomalie. In sintesi:
 

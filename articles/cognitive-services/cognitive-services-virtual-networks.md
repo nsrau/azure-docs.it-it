@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202084"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588342"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare le reti virtuali dei servizi cognitivi di Azure
 
@@ -45,12 +45,12 @@ Il supporto per la rete virtuale per servizi cognitivi elencati di seguito è li
 > * [Rilevamento anomalie](./anomaly-detector/index.yml)
 > * [Visione artificiale](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Servizio visione artificiale personalizzato](./custom-vision-service/index.yml)
+> * [Visione personalizzata](./custom-vision-service/index.yml)
 > * [Viso](./face/index.yml)
 > * [Riconoscimento modulo](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizza esperienze](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
+> * [Analisi del testo](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 
 Il supporto per la rete virtuale per servizi cognitivi elencati di seguito è limitato alle aree di Azure *Stati Uniti centrali*, Stati Uniti *centro-meridionali*, *Stati Uniti orientali*, *stati Uniti occidentali 2*, *globali*e *US gov Virginia* .
@@ -63,14 +63,14 @@ Oltre a supportare gli endpoint servizio di rete virtuale per i servizi preceden
 > * [Rilevamento anomalie](./anomaly-detector/index.yml)
 > * [Visione artificiale](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Servizio visione artificiale personalizzato](./custom-vision-service/index.yml)
+> * [Visione personalizzata](./custom-vision-service/index.yml)
 > * [Viso](./face/index.yml)
 > * [Riconoscimento modulo](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizza esperienze](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
+> * [Analisi del testo](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Traduzione testuale](./translator/index.yml)
+> * [Traduttore](./translator/index.yml)
 > * [Servizio di riconoscimento vocale](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificare la regola predefinita di accesso alla rete

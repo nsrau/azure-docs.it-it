@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0413c15c025e554ab8465736dfdb5607149c5ed2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836604"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588684"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Domande frequenti sul traduttore personalizzato
 
@@ -41,7 +41,7 @@ La distribuzione richiede in genere meno di un'ora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Come si accede a un sistema distribuito?
 
-È possibile accedere ai modelli distribuiti tramite l'API Traduzione testuale V3 di Microsoft specificando il CategoryID. Altre informazioni sull'API Traduzione testuale sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+È possibile accedere ai sistemi distribuiti tramite Microsoft Translator V3 specificando il CategoryID. Altre informazioni sul convertitore sono disponibili nella pagina Web di [riferimento](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) per le API.
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Com'è possibile evitare le fasi di allineamento e segmentazione delle frasi se i miei file sono già allineati?
 

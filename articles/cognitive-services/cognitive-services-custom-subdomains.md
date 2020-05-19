@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590639"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomi di sottodominio personalizzati per servizi cognitivi
 
@@ -51,7 +51,7 @@ Sì. L'uso di un nome di sottodominio personalizzato non comporta la modifica de
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Quali sono i requisiti per un nome di sottodominio personalizzato?
 
-Un nome di sottodominio personalizzato è univoco per la risorsa. Il nome può includere solo caratteri alfanumerici e `-` il carattere; deve avere una lunghezza compresa tra 2 e 64 caratteri e non può terminare con `-`un.
+Un nome di sottodominio personalizzato è univoco per la risorsa. Il nome può includere solo caratteri alfanumerici e il `-` carattere. deve avere una lunghezza compresa tra 2 e 64 caratteri e non può terminare con un `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>È possibile modificare un nome di dominio personalizzato?
 
@@ -66,11 +66,11 @@ Ogni nome di sottodominio personalizzato è univoco, quindi, per riutilizzare un
 Sì. Questo è un elenco di endpoint internazionali che è possibile usare con le risorse dei servizi cognitivi di Azure.
 
 > [!NOTE]
-> Il API Traduzione testuale e API di ricerca Bing utilizzano endpoint globali.
+> Il servizio di conversione e API di ricerca Bing utilizzano endpoint globali.
 
-| Tipo di endpoint | Region | Endpoint |
+| Tipo di endpoint | Area | Endpoint |
 |---------------|--------|----------|
-| Pubblico | Globale (Traduzione testuale & Bing) | `https://api.cognitive.microsoft.com` |
+| Pubblico | Globale (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia orientale | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brasile meridionale | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canada centrale | `https://canadacentral.api.cognitive.microsoft.com` |

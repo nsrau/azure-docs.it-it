@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f751aa947988544977f9baf2746191921c1aa9d4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876828"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590664"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -28,7 +28,7 @@ Il supporto dei contenitori nei servizi cognitivi di Azure consente agli svilupp
 > * [Riconoscimento modulo][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
 > * [API servizio Voce][sp-containers]
-> * [Text Analytics][ta-containers]
+> * [Analisi del testo][ta-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -50,19 +50,19 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
 | Service | Piano tariffario supportato | Contenitore | Descrizione |
-|---------|----------|----------|-------------|
-|[Rilevamento anomalie][ad-containers] |F0, S0|**Rilevamento anomalie** |L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedi accesso](https://aka.ms/adcontainer)|
-|[Visione artificiale][cv-containers] |F0, S1|**Lettura** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese.|
-|[Viso][fa-containers] |F0, S0|**Viso** |Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.<br>[Richiedi accesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[Riconoscimento moduli][fr-containers] |F0, S0|**Riconoscimento modulo** |La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli.<br>[Richiedi accesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
-|[LUIS][lu-containers] |F0, S0|**LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app.|
-|[API servizio Voce][sp-containers-stt] |F0, S0|**Riconoscimento vocale** |Esegue la trascrizione del parlato continuo in tempo reale in testo.|
-|[API servizio Voce][sp-containers-cstt] |F0, S0|**Da Riconoscimento vocale personalizzato a testo** |Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato.|
-|[API servizio Voce][sp-containers-tts] |F0, S0|**Sintesi vocale** |Converte il testo scritto in un audio che suona naturale.|
-|[API servizio Voce][sp-containers-ctts] |F0, S0|**Sintesi vocale personalizzata** |Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato.|
-|[Text Analytics][ta-containers-keyphrase] |F0, S|**Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
-|[Text Analytics][ta-containers-language]|F0, S|**Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
-|[Text Analytics][ta-containers-sentiment]|F0, S|**Analisi del sentiment** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo. Viene eseguito un training preliminare dei modelli di analisi usando un ampio corpus di testi e tecnologie per l'elaborazione del linguaggio naturale di Microsoft. Per [alcune lingue](./text-analytics/language-support.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. |
+|--|--|--|--|
+| [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedi accesso][request-access] |
+| [Visione artificiale][cv-containers] | F0, S1 | **Lettura** | Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese. |
+| [Viso][fa-containers] | F0, S0 | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.<br>[Richiedi accesso][request-access] |
+| [Riconoscimento moduli][fr-containers] | F0, S0 | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli.<br>[Richiedi accesso][request-access] |
+| [LUIS][lu-containers] | F0, S0 | **LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app. |
+| [API servizio Voce][sp-containers-stt] | F0, S0 | **Riconoscimento vocale** | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
+| [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da Riconoscimento vocale personalizzato a testo** | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** | Converte il testo scritto in un audio che suona naturale. |
+| [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
+| [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
+| [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
+| [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo*, per ogni documento e frase al suo interno. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -73,19 +73,11 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Text Analytics
+* Analisi del testo
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
 I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attraverso la sottoscrizione di Azure e le immagini dei contenitori Docker possono essere estratte da Registro contenitori di Microsoft o dall'hub Docker. È possibile usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro appropriato.
-
-> [!IMPORTANT]
-> Attualmente, è necessario completare un processo di iscrizione per accedere ai contenitori seguenti, in cui si compila e si invia un questionario con domande sull'utente, sulla società e sul caso di utilizzo per il quale si desidera implementare i contenitori. Dopo aver concesso l'accesso e le credenziali fornite, è possibile eseguire il pull delle immagini del contenitore da un registro contenitori privato ospitato da Azure Container Registry.
-> * [Rilevamento anomalie](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
-> * [Viso](Face/face-how-to-install-containers.md)
-> * [Riconoscimento modulo](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
-> * [Lettura](computer-vision/computer-vision-how-to-install-containers.md)
-> * [Sintesi vocale e sintesi vocale](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
@@ -138,3 +130,4 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u

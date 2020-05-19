@@ -1,190 +1,329 @@
 ---
 title: Glossario-LUIS
-titleSuffix: Azure Cognitive Services
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099360"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589670"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
-Il glossario Language Understanding (LUIS) contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
+Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
 
-## <a name="active-version"></a><a name="active-version"></a>Versione attiva
+## <a name="active-version"></a>Versione attiva
 
-La versione di LUIS attiva è quella che riceve le modifiche apportate al modello. Nel portale [Luis](luis-reference-regions.md) , se si desidera apportare modifiche a una versione che non è la versione attiva, è necessario prima impostare tale versione come attiva.
+La versione attiva è la [versione](luis-how-to-manage-versions.md) dell'app che viene aggiornata quando si apportano modifiche al modello tramite il portale Luis. Nel portale LUIS, se si desidera apportare modifiche a una versione che non è la versione attiva, è necessario prima impostare tale versione come attiva.
 
-## <a name="authoring"></a><a name="authoring"></a>Creazione
+## <a name="active-learning"></a>Apprendimento attivo
 
-La creazione è la possibilità di creare, gestire e distribuire un' [app Luis](#luis-app), usando il portale [Luis](luis-reference-regions.md) o le [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087).
+L'apprendimento attivo è una tecnica di apprendimento automatico in cui viene usato il modello di apprendimento automatico per identificare nuovi esempi informativi da etichettare. In LUIS, l'apprendimento attivo si riferisce all'aggiunta di espressioni dal traffico dell'endpoint le cui stime correnti non sono chiare per migliorare il modello. Fare clic su "verifica espressioni endpoint" per visualizzare le espressioni da etichettare.
 
-## <a name="authoring-key"></a><a name="authoring-key"></a>Chiave di creazione
+Vedere anche la pagina relativa alla
+* [Informazioni concettuali](luis-concept-review-endpoint-utterances.md)
+* [Esercitazione per la revisione di espressioni endpoint](luis-tutorial-review-endpoint-utterances.md)
+* Come migliorare l'app LUIS esaminando gli [enunciati degli endpoint](luis-how-to-review-endpoint-utterances.md)
 
-In precedenza denominata chiave "programmatica". Utilizzata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-limits.md#key-limits).
+## <a name="application-app"></a>Applicazione (app)
 
-## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>File JSON di test batch
+In LUIS, l'applicazione, o l'app, è una raccolta di modelli di Machine Learn, basata sullo stesso set di dati, che interagisce per stimare le finalità e le entità per uno scenario specifico. Ogni applicazione dispone di un endpoint di stima separato.
 
-Il test batch è la possibilità di convalidare un modello di app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](luis-concept-batch-test.md#batch-file-format).
+Se si sta compilando un bot HR, è possibile che si disponga di un set di Intent, ad esempio "tempo di congedo pianificazione", "Richiedi i vantaggi" e "Aggiorna informazioni personali" ed entità per ognuno di questi Intent raggruppati in un'unica applicazione.
+
+## <a name="authoring"></a>Creazione
+
+La creazione è la possibilità di creare, gestire e distribuire un'app LUIS, usando il portale LUIS o le API di creazione.
+
+### <a name="authoring-key"></a>Chiave di creazione
+
+La [chiave di creazione](luis-concept-keys.md) viene usata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-limits.md#key-limits).
+
+### <a name="authoring-resource"></a>Creazione di una risorsa
+
+La [risorsa Luis authoring](luis-concept-keys.md#azure-resources-for-luis) è un elemento gestibile disponibile tramite Azure. La risorsa è l'accesso alle funzionalità di creazione, formazione e pubblicazione associate del servizio di Azure. La risorsa include le informazioni di autenticazione, autorizzazione e sicurezza necessarie per accedere al servizio di Azure associato.
+
+La risorsa di creazione ha una "tipologia" di Azure `LUIS-Authoring` .
+
+## <a name="batch-test"></a>Test in batch
+
+Il test batch è la possibilità di convalidare i modelli di un'app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](luis-concept-batch-test.md#batch-file-format).
 
 Vedere anche la pagina relativa alla
 * [Concetti](luis-concept-batch-test.md)
-* [Procedure](luis-how-to-batch-test.md)
-* [Esercitazione](luis-tutorial-batch-testing.md)
+* [Procedura:](luis-how-to-batch-test.md) eseguire un test batch
+* [Esercitazione](luis-tutorial-batch-testing.md) : creare ed eseguire un test batch
 
-## <a name="collaborator"></a><a name="collaborator"></a>Collaboratore
+### <a name="f-measure"></a>Misura F
 
-Un collaboratore/collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni.
+Nei test batch è una misura dell'accuratezza del test.
 
-## <a name="contributor"></a><a name="contributor"></a>Collaboratore
+### <a name="false-negative-fn"></a>Falso negativo (FN)
 
-Un collaboratore è uguale a quello di un [collaboratore](#collaborator).
+Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
 
-## <a name="descriptor"></a><a name="descriptor"></a>Descrittore
+### <a name="false-positive-fp"></a>Falso positivo (FP)
 
-Un descrittore è una [funzionalità](#features) applicata a un modello in fase di training, inclusi [elenchi di frasi](#phrase-list) ed [entità](#entity).
+Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
-## <a name="domain"></a><a name="domain"></a>Dominio
+### <a name="precision"></a>Precision
+Nei test in batch, la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
 
-Nel contesto di LUIS, un **dominio** è un'area di conoscenza. Il dominio è specifico per l'area di conoscenza dell'app. Può trattarsi di un'area generale, ad esempio l'app di un agente di viaggi. L'app di un agente di viaggi può anche essere specifica solo per le aree di informazioni dell'azienda, ad esempio località geografiche, lingue e servizi specifici.
+Un esempio di test batch di animali è il numero di pecore stimate divise per il numero totale di animali (pecore e non pecore).
 
-## <a name="endpoint"></a><a name="endpoint"></a>Endpoint
+### <a name="recall"></a>Richiamo
 
-L'URL dell'[endpoint LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) è l'indirizzo a cui si inviano le query LUIS dopo la creazione e la pubblicazione dell'[app LUIS](#luis-app). L'URL dell'endpoint contiene la regione dell'app pubblicata, nonché l'ID dell'app. È possibile trovare l'endpoint nella pagina **[Keys and endpoints](luis-how-to-azure-subscription.md)** (Chiavi ed endpoint) dell'app, oppure è possibile ottenere l'URL dell'endpoint dall'API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) (Ottieni informazioni sull'app).
+Nei test in batch il richiamo (anche detto sensibilità) è la capacità di LUIS di generalizzare.
 
-## <a name="entity"></a><a name="entity"></a>Entità
+Un esempio di test batch di animali è il numero di pecore stimate divise per il numero totale di pecore disponibili.
 
-Le [entità](luis-concept-entity-types.md) sono parole importanti nelle [espressioni](luis-concept-utterance.md) che descrivono le informazioni rilevanti per la [finalità](luis-concept-intent.md) alla quale talvolta sono essenziali. Un'entità è essenzialmente un tipo di dati in LUIS.
+### <a name="true-negative-tn"></a>Falso negativo (TN)
 
-## <a name="f-measure"></a><a name="f-measure"></a>Misura F
+Un vero negativo è quando l'app stima correttamente nessuna corrispondenza. Nei test batch, un vero negativo si verifica quando l'app stima uno scopo o un'entità per un esempio che non è stato etichettato con tale finalità o entità.
 
-Nei [test batch](luis-interactive-test.md#batch-testing) è una misura dell'accuratezza del test.
+### <a name="true-positive-tp"></a>Falso positivo (TP)
 
-## <a name="false-negative-fn"></a><a name="false-negative"></a>Falso negativo (FN)
+Vero positivo (TP) un vero positivo è quando l'app stima correttamente una corrispondenza. Nei test batch, un vero positivo si verifica quando l'app stima uno scopo o un'entità per un esempio che è stato etichettato con tale finalità o entità.
 
-Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
+## <a name="classifier"></a>Classificatore
 
-## <a name="false-positive-fp"></a><a name="false-positive"></a>Falso positivo (FP)
+Un classificatore è un modello di apprendimento automatico che prevede la categoria o la classe in cui si inserisce un input.
 
-Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
+Uno [scopo](#intent) è un esempio di classificatore.
 
-## <a name="features"></a><a name="features"></a>Caratteristiche
+## <a name="collaborator"></a>Collaboratore
 
-Nell'apprendimento automatico, una [funzionalità](luis-concept-feature.md) è un tratto distintivo o un attributo di dati rilevato dal sistema.
+Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con l'accesso in base al ruolo (RBAC). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con RBAC.
 
-## <a name="intent"></a><a name="intent"></a>Finalità
+## <a name="contributor"></a>Autore di contributi
 
-Uno [scopo](luis-concept-intent.md) rappresenta un'attività o un'azione che l'utente desidera eseguire. È uno scopo o un obiettivo manifestato nell'input di un utente, come prenotare un volo, pagare una bolletta o trovare un articolo di giornale. In LUIS la stima della finalità è basata sull'intera espressione. Le entità, in confronto, sono parti di un'espressione.
+Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce l'accesso in base al ruolo (RBAC) a un'app LUIS.
 
-## <a name="labeling"></a><a name="labeling"></a>Assegnazione di etichette
+Vedere anche la pagina relativa alla
+* [Procedura:](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) aggiungere collaboratori
 
-L'assegnazione di etichette o il contrassegno è il processo di associazione di una parola o di una frase in un' [espressione](#utterance) di finalità con un' [entità](#entity) (DataType).
+## <a name="descriptor"></a>Descrittore
 
-## <a name="luis-app"></a><a name="luis-app"></a>App LUIS
+Un descrittore è il termine usato in precedenza per una [funzionalità](#features)di machine learning.
 
-Un'app LUIS è una raccolta di modelli di linguaggio per l'elaborazione del linguaggio naturale, inclusi [Intent](#intent), [entità](#entity)e [espressioni](#utterance)con etichetta.
+## <a name="domain"></a>Dominio
 
-## <a name="owner"></a><a name="owner"></a>Proprietario
+Nel contesto di LUIS, un dominio è un'area di conoscenza. Il dominio è specifico per lo scenario. Domini diversi usano linguaggi e terminologia specifici che hanno un significato nel contesto del dominio. Se, ad esempio, si sta compilando un'applicazione per la riproduzione di musica, l'applicazione avrà termini e linguaggi specifici per la musica: parole come "Song, Track, album, lyrics, b-side, Artist". Per esempi di domini, vedere [domini predefiniti](#prebuilt-domain).
 
-Ogni app ha un proprietario, ossia la persona che ha creato l'app. Il proprietario può aggiungere [collaboratori](#collaborator).
+## <a name="endpoint"></a>Endpoint
 
-## <a name="patterns"></a><a name="pattern"></a>Modelli
-La precedente funzionalità Criterio è stata sostituita con [Criteri](luis-concept-patterns.md). Utilizzare i criteri per migliorare l'accuratezza della stima fornendo meno esempi di training.
+### <a name="authoring-endpoint"></a>Endpoint di creazione
 
-## <a name="phrase-list"></a><a name="phrase-list"></a>Elenco di frasi
+L'URL dell'endpoint di authoring LUIS è il punto in cui si crea, si esegue il training e si pubblica l'app. L'URL dell'endpoint contiene l'area o il sottodominio personalizzato dell'app pubblicata e l'ID app.
 
-Un [elenco](luis-concept-feature.md) di frasi include un gruppo di valori (parole o frasi) che appartengono alla stessa classe e che devono essere trattati in modo analogo (ad esempio, nomi di città o prodotti). Un elenco interscambiabile è considerato un insieme di sinonimi.
+Altre informazioni sulla creazione di un'app a livello di codice dal riferimento per gli [sviluppatori](developer-reference-resource.md#rest-endpoints)
 
-## <a name="prebuilt-domain"></a><a name="prebuilt-domains"></a>Dominio predefinito
+### <a name="prediction-endpoint"></a>Endpoint di stima
 
-Un [dominio predefinito](luis-how-to-use-prebuilt-domains.md) è un'app LUIS configurata per un dominio specifico, ad esempio di domotica (HomeAutomation) o di prenotazione di ristoranti (RestaurantReservation). Le finalità, le espressioni e le entità sono configurate per questo dominio.
+L'URL dell'endpoint di stima LUIS è il punto in cui si inviano le query LUIS dopo che l' [app Luis](#application-app) è stata creata e pubblicata. L'URL dell'endpoint contiene l'area o il sottodominio personalizzato dell'app pubblicata e l'ID app. È possibile trovare l'endpoint nella pagina delle **[risorse di Azure](luis-how-to-azure-subscription.md)** dell'app oppure è possibile ottenere l'URL dell'endpoint dall'API [Get app info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) .
 
-## <a name="prebuilt-entity"></a><a name="prebuilt-entity"></a>Entità predefinita
+L'accesso all'endpoint di stima è autorizzato con la chiave di stima LUIS.
 
-Un'[entità predefinita](luis-prebuilt-entities.md) è un'entità fornita da LUIS per tipi di informazioni comuni quali numeri, URL e posta elettronica. Si sceglie di aggiungere un'entità predefinita all'applicazione.
+## <a name="entity"></a>Entità
 
-## <a name="precision"></a><a name="precision"></a>Precisione
-Nei [test in batch](luis-interactive-test.md#batch-testing), la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
+Le [entità](luis-concept-entity-types.md) sono parole in espressioni che descrivono le informazioni usate per soddisfare o identificare uno scopo. Se l'entità è complessa e si desidera che il modello identifichi parti specifiche, è possibile suddividere il modello in sottoentità. È possibile, ad esempio, che si desideri modellare per stimare un indirizzo, ma anche le sottoentità di via, città, stato e Cap. Le entità possono essere utilizzate anche come funzionalità per i modelli. La risposta dell'app LUIS includerà sia gli Intent previsti che tutte le entità.
 
-## <a name="programmatic-key"></a><a name="programmatic-key"></a>Chiave programmatica
+### <a name="entity-extractor"></a>Estrattore entità
+
+Un estrattore di entità talvolta noto solo come estrattore è il tipo di modello di computer imparato che LUIS USA per stimare le entità.
+
+### <a name="entity-schema"></a>Schema dell'entità
+
+Lo schema dell'entità è la struttura definita per le entità apprese dal computer con sottoentità. L'endpoint di stima restituisce tutte le entità estratte e le sottoentità definite nello schema.
+
+### <a name="entitys-subentity"></a>Sottoentità dell'entità
+
+Una sottoentità è un'entità figlio di un'entità appresa dal computer.
+
+### <a name="non-machine-learned-entity"></a>Entità non appresa dal computer
+
+Entità che utilizza la corrispondenza del testo per estrarre i dati:
+* Entità elenco
+* Entità di espressione regolare
+
+### <a name="list-entity"></a>Entità elenco
+
+Un' [entità list](reference-entity-list.md) rappresenta un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. Le entità dell'elenco sono corrispondenze esatte, a differenza delle entità apprese dal computer.
+
+L'entità verrà stimata se una parola nell'entità elenco è inclusa nell'elenco. Se, ad esempio, si dispone di un'entità list denominata "size" e si hanno le parole "Small, medium, large" nell'elenco, l'entità Size verrà stimata per tutte le espressioni in cui vengono usate le parole "Small", "medium" o "large", indipendentemente dal contesto.
+
+### <a name="regular-expression"></a>Espressione regolare‏
+
+Un' [entità di espressione regolare](reference-entity-regular-expression.md) rappresenta un'espressione regolare. Le entità delle espressioni regolari sono corrispondenze esatte, a differenza delle entità apprese dal computer.
+### <a name="prebuilt-entity"></a>Entità predefinita
+
+Vedere la voce del modello predefinito per l' [entità](#prebuilt-entity) precompilata
+
+## <a name="features"></a>Funzionalità
+
+In Machine Learning, una caratteristica è una caratteristica che consente al modello di riconoscere un particolare concetto. È un suggerimento che LUIS può usare, ma non una regola rigida.
+
+Questo termine è noto anche come **[funzionalità appresa dal computer](luis-concept-feature.md)**.
+
+Questi hint vengono usati insieme alle etichette per apprendere come prevedere i nuovi dati. LUIS supporta entrambi gli elenchi di frasi e l'uso di altri modelli come funzionalità.
+
+### <a name="required-feature"></a>Funzionalità obbligatoria
+
+Una funzionalità obbligatoria è un modo per vincolare l'output di un modello LUIS. Quando una funzionalità per un'entità è contrassegnata come obbligatoria, è necessario che la funzionalità sia presente nell'esempio per l'entità da stimare, indipendentemente dalle stime del modello appreso dal computer.
+
+Si consideri un esempio in cui è presente una funzionalità di numero predefinito contrassegnata come richiesta nell'entità Quantity per un bot per l'ordine dei menu. Quando il bot vede `I want a bajillion large pizzas?` , bajillion non verrà stimato come quantità indipendentemente dal contesto in cui viene visualizzato. Bajillion non è un numero valido e non verrà stimato dal numero di entità precompilate.
+
+## <a name="intent"></a>Finalità
+
+Uno [scopo](luis-concept-intent.md) rappresenta un'attività o un'azione che l'utente desidera eseguire. Si tratta di uno scopo o obiettivo espresso nell'input di un utente, ad esempio la prenotazione di un volo o il pagamento di una fattura. In LUIS, un enunciato nel suo complesso è classificato come scopo, ma le parti dell'espressione vengono estratte come entità
+
+## <a name="labeling-examples"></a>Esempi di etichette
+
+L'assegnazione di etichette o il contrassegno è il processo di associazione di un esempio positivo o negativo a un modello.
+
+### <a name="labeling-for-intents"></a>Assegnazione di etichette per gli Intent
+In LUIS, gli Intent all'interno di un'app si escludono a vicenda. Ciò significa che quando si aggiunge un enunciato a un preventivo, viene considerato un esempio _positivo_ per tale finalità e un esempio _negativo_ per tutti gli altri scopi. Gli esempi negativi non devono essere confusi con lo scopo "None", che rappresenta espressioni che esulano dall'ambito dell'app.
+
+### <a name="labeling-for-entities"></a>Assegnazione di etichette per le entità
+In LUIS si [etichetta](label-entity-example-utterance.md) una parola o una frase nell'espressione di esempio di un Intent con un'entità come esempio _positivo_ . L'assegnazione di etichette Mostra lo scopo che deve prevedere per tale espressione. Le espressioni con etichetta vengono usate per eseguire il training dello scopo.
+
+## <a name="luis-app"></a>App LUIS
+
+Vedere la definizione dell' [applicazione (app)](#application-app).
+
+## <a name="model"></a>Modello
+
+Un modello (Machine Learn) è una funzione che esegue una stima sui dati di input. In LUIS, si fa riferimento ai classificatori intenzionali e agli estrattori di entità in modo generico come "modelli" e si fa riferimento a una raccolta di modelli sottoposti a training, pubblicati e sottoposti a query insieme come "app".
+
+## <a name="normalized-value"></a>Valore normalizzato
+
+È possibile aggiungere valori alle entità dell' [elenco](#list-entity) . Ognuno di questi valori può avere un elenco di uno o più sinonimi. Nella risposta viene restituito solo il valore normalizzato.
+
+## <a name="owner"></a>Proprietario
+
+Ogni app ha un proprietario, ossia la persona che ha creato l'app. Il proprietario gestisce le autorizzazioni per l'applicazione nella portale di Azure.
+
+## <a name="phrase-list"></a>Elenco di frasi
+
+Un [elenco di frasi](luis-concept-feature.md) è un tipo specifico di funzionalità di Machine Learning che include un gruppo di valori (parole o frasi) che appartengono alla stessa classe e che devono essere trattati in modo analogo (ad esempio, nomi di città o prodotti).
+
+## <a name="prebuilt-model"></a>Modello predefinito
+
+Un [modello predefinito](luis-concept-prebuilt-model.md) è un Intent, un'entità o una raccolta di entrambi, insieme ad esempi con etichetta. Questi modelli predefiniti comuni possono essere aggiunti all'app per ridurre il lavoro di sviluppo del modello necessario per l'app.
+
+### <a name="prebuilt-domain"></a>Dominio predefinito
+
+Un dominio predefinito è un'app LUIS configurata per un dominio specifico, ad esempio di domotica (HomeAutomation) o di prenotazione di ristoranti (RestaurantReservation). Le finalità, le espressioni e le entità sono configurate per questo dominio.
+
+### <a name="prebuilt-entity"></a>Entità predefinita
+
+Un'entità predefinita è un'entità fornita da LUIS per tipi di informazioni comuni quali numeri, URL e posta elettronica. Questi vengono creati in base ai dati pubblici. È possibile scegliere di aggiungere un'entità predefinita come entità autonoma o come funzionalità a un'entità
+
+### <a name="prebuilt-intent"></a>Finalità precompilata
+
+Una finalità precompilata è costituita da una finalità che LUIS fornisce per i tipi di informazioni comuni e con le proprie espressioni di esempio con etichetta.
+
+## <a name="prediction"></a>Previsione
+
+Una stima è una richiesta REST al servizio di stima di Azure LUIS che accetta i nuovi dati (enunciato dall'utente) e applica l'applicazione sottoposta a training e pubblicata a tali dati per determinare quali Intent ed entità vengono trovati.
+
+### <a name="prediction-key"></a>Chiave di stima
+
+La [chiave di stima](luis-concept-keys.md) , nota in precedenza come chiave di sottoscrizione, è la chiave associata al servizio Luis creato in Azure che autorizza l'utilizzo dell'endpoint di stima.
+
+Questa chiave non è la chiave di crezione. Se si dispone di una chiave dell'endpoint di stima, è consigliabile utilizzarla per tutte le richieste endpoint anziché per la chiave di creazione. È possibile visualizzare la chiave di stima corrente all'interno dell'URL dell'endpoint nella parte inferiore della pagina delle risorse di Azure nel sito Web LUIS. Si tratta del valore della coppia nome/valore della chiave di sottoscrizione.
+
+### <a name="prediction-resource"></a>Risorsa di stima
+
+La risorsa LUIS Prediction è un elemento gestibile disponibile tramite Azure. La risorsa è l'accesso alla stima associata del servizio di Azure. La risorsa include stime.
+
+La risorsa di stima ha una "tipologia" di Azure `LUIS` .
+
+### <a name="prediction-score"></a>Punteggio di previsione
+
+Il [Punteggio](luis-concept-prediction-score.md) è un numero compreso tra 0 e 1 che rappresenta una misura della fiducia del sistema nel fatto che una particolare espressione di input corrisponde a un particolare scopo. Un punteggio più vicino a 1 indica che il sistema è molto sicuro sull'output e un punteggio più vicino a 0 indica che il sistema è fiducioso che l'input non corrisponda a un determinato output. I punteggi in media indicano che il sistema non è sicuro di come prendere la decisione.
+
+Si prenda, ad esempio, un modello usato per identificare se il testo del cliente include un ordine di cibo. Potrebbe dare un punteggio pari a 1 per "Vorrei ordinare un caffè" (il sistema è molto sicuro che si tratta di un ordine) e un punteggio pari a 0 per "il team ha vinto il gioco la notte scorsa" (il sistema è molto fiducioso che non si tratta di un ordine). E potrebbe avere un punteggio di 0,5 per "Let ' s have some tea" (non è certo che si tratti di un ordine o meno).
+
+## <a name="programmatic-key"></a>Chiave programmatica
 
 Rinominata [chiave di creazione](#authoring-key).
 
-## <a name="publish"></a><a name="publish"></a>Pubblicare
+## <a name="publish"></a>Pubblicazione
 
-Pubblicare significa rendere una versione attiva di LUIS disponibile nell'[endpoint](#endpoint) di gestione temporanea o di produzione.
+Per [pubblicazione](luis-how-to-publish-app.md) si intende rendere disponibile una versione di Luis Active nell' [endpoint](#endpoint)di gestione temporanea o di produzione.
 
-## <a name="quota"></a><a name="quota"></a>Quota
+## <a name="quota"></a>Quota
 
-La quota LUIS è la limitazione del [livello di sottoscrizione di Azure](https://aka.ms/luis-price-tier). La quota LUIS può essere limitata sia dalle richieste al secondo (stato HTTP 429) che dalle richieste totali in un mese (stato HTTP 403).
+La quota LUIS è la limitazione del livello di sottoscrizione di Azure. La quota LUIS può essere limitata sia dalle richieste al secondo (stato HTTP 429) che dalle richieste totali in un mese (stato HTTP 403).
 
-## <a name="recall"></a><a name="recall"></a>Richiamo
-Nei [test in batch](luis-interactive-test.md#batch-testing) il richiamo (anche detto sensibilità) è la capacità di LUIS di generalizzare.
+## <a name="schema"></a>SCHEMA
 
-## <a name="semantic-dictionary"></a><a name="semantic-dictionary"></a>Dizionario semantico
-Un dizionario semantico viene fornito nella pagina List entity (Elenca entità) e nella pagina Phrase list (Elenco frasi). Il dizionario semantico fornisce suggerimenti di parole in base all'ambito corrente.
+Lo schema include gli Intent e le entità insieme alle sottoentità. Lo schema viene inizialmente pianificato per l'iterazione nel tempo. Lo schema non include le impostazioni dell'app, le funzionalità o le espressioni di esempio. 
 
-## <a name="sentiment-analysis"></a><a name="sentiment-analysis"></a>Analisi del sentiment
-L'analisi del sentiment fornisce valori positivi o negativi delle espressioni fornite da [Analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+## <a name="sentiment-analysis"></a>Analisi del sentiment
+L'analisi del sentiment fornisce valori positivi o negativi delle espressioni fornite da [Analisi del testo](../text-analytics/overview.md).
 
-## <a name="speech-priming"></a><a name="speech-priming"></a>Priming vocale
+## <a name="speech-priming"></a>Priming del riconoscimento vocale
 
-Il priming del riconoscimento vocale consente la preparazione del servizio di riconoscimento vocale con il modello LUIS.
+L'innesco vocale migliora il riconoscimento di parole e frasi pronunciate comunemente usate nello scenario con servizi di [riconoscimento vocale](../speech-service/overview.md). Per le applicazioni abilitate per l'attivazione del riconoscimento vocale, tutti gli esempi etichettati di LUIS vengono usati per migliorare l'accuratezza del riconoscimento vocale creando un modello di riconoscimento vocale personalizzato per questa applicazione specifica. Ad esempio, in un gioco di scacchi è necessario assicurarsi che, quando l'utente dice "Move Knight", non venga interpretato come "Move Night". L'app LUIS deve includere esempi in cui "knight" è etichettato come entità.
 
-## <a name="spelling-correction"></a><a name="spelling-correction"></a>Correzione di errori di ortografia
-
-Attivare Bing spell checker (Controllo ortografico Bing) per correggere gli errori di ortografia nelle espressioni prima della stima.
-
-## <a name="starter-key"></a><a name="starter-key"></a>Chiave di avvio
+## <a name="starter-key"></a>Chiave di avvio
 
 Chiave gratuita da usare per il primo avvio con LUIS.
 
-## <a name="structure"></a><a name="structure"></a>Struttura
+## <a name="synonyms"></a>Sinonimi
 
-Aggiungere la struttura a un'entità appresa dal computer per fornire sottocomponenti con descrittori (funzionalità) e vincoli (espressione regolare o entità elenco).
+Nelle entità di LUIS [List](reference-entity-list.md)è possibile creare un valore normalizzato, che può avere un elenco di sinonimi. Se, ad esempio, si crea un'entità size con valori normalizzati di Small, medium, large e extra large. È possibile creare sinonimi per ogni valore analogo al seguente:
 
-## <a name="subscription-key"></a><a name="subscription-key"></a>Chiave di sottoscrizione
+|Valore Nomalized| Sinonimi|
+|--|--|
+|Piccola| il piccolo, 8 once|
+|Media| normale, 12 once|
+|Grande| grande, 16 once|
+|Xtra Large| quello più grande, 24 once|
 
-La chiave di sottoscrizione è la chiave dell' **endpoint di stima** associata al servizio Luis [creato in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave endpoint, essa deve essere usata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave endpoint corrente all'interno dell'URL dell'endpoint in fondo alla pagina [**Keys and endpoints** (Chiavi ed endpoint)](luis-how-to-azure-subscription.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**.
+Il modello restituirà il valore normalizzato per l'entità quando uno dei sinonimi viene visualizzato nell'input.
 
-## <a name="test"></a><a name="test"></a>Test
+## <a name="test"></a>Test
 
-Eseguire il [test](luis-interactive-test.md#test-your-app) di un'app LUIS significa passare un'espressione a LUIS e visualizzare i risultati JSON.
+Il [test](luis-concept-test.md) di un'app Luis significa visualizzare le stime del modello.
 
-## <a name="timezone-offset"></a><a name="timezoneoffset"></a>Differenza fuso orario
+## <a name="timezone-offset"></a>Differenza fuso orario
 
-L'endpoint include timezoneOffset. È il numero di minuti da aggiungere o rimuovere dall'entità predefinita datetimeV2. Ad esempio, se l'espressione è "che ore sono?", il valore datetimeV2 restituito è l'ora corrente per la richiesta del client. Se la richiesta client proviene da un bot o un'altra applicazione che non corrisponde all'utente del bot, si deve passare la differenza tra il bot e l'utente.
+L'endpoint include [timezoneOffset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). È il numero di minuti da aggiungere o rimuovere dall'entità predefinita datetimeV2. Ad esempio, se l'espressione è "che ore sono?", il valore datetimeV2 restituito è l'ora corrente per la richiesta del client. Se la richiesta client proviene da un bot o un'altra applicazione che non corrisponde all'utente del bot, si deve passare la differenza tra il bot e l'utente.
 
 Vedere [Cambiare il fuso orario dell'entità datetimeV2 predefinita](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a><a name="token"></a>Token
-Un token è l'unità più piccola che può essere etichettata in un'entità. La suddivisione in token è basata sulle [impostazioni cultura](luis-language-support.md#tokenization) dell'applicazione.
+## <a name="token"></a>Token
+Un [token](luis-language-support.md#tokenization) è la più piccola unità di testo che Luis può riconoscere. Questo comportamento differisce leggermente tra le lingue.
 
-## <a name="train"></a><a name="train"></a>Eseguire il training
+Per l' **inglese**, un token è un intervallo continuo (senza spazi o punteggiatura) di lettere e numeri. Uno spazio non è un token.
 
-Il training è il processo con cui si insegnano a LUIS le modifiche apportate alla versione attiva dopo l'ultimo training.
+|Frase|Conteggio token|Spiegazione|
+|--|--|--|
+|`Dog`|1|Una singola parola senza segni di punteggiatura o spazi.|
+|`RMT33W`|1|Numero del localizzatore di record. Può contenere numeri e lettere, ma non presenta segni di punteggiatura.|
+|`425-555-5555`|5|Numero di telefono. Ogni segno di punteggiatura è `425-555-5555` costituito da un singolo token, quindi da 5 token:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="true-negative-tn"></a><a name="true-negative"></a>Falso negativo (TN)
+## <a name="train"></a>Eseguire il training
 
-Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha correttamente stimato l'assenza della finalità/entità di destinazione.
+Il [Training](luis-how-to-train.md) è il processo che consente di insegnare a Luis le modifiche apportate alla versione attiva dopo l'ultimo training.
 
-## <a name="true-positive-tp"></a><a name="true-positive"></a>Falso positivo (TP)
+### <a name="training-data"></a>Dati di training
 
-Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha correttamente stimato la presenza della finalità/entità di destinazione.
+I dati di training sono il set di informazioni necessarie per eseguire il training di un modello. Sono inclusi lo schema, le espressioni con etichetta, le funzionalità e le impostazioni dell'applicazione.
 
-## <a name="utterance"></a><a name="utterance"></a>Espressione
+### <a name="training-errors"></a>Errori di training
 
-Un'espressione è una frase nel linguaggio naturale, ad esempio "prenota 2 biglietti per Parigi per martedì prossimo". Espressioni di esempio vengono aggiunte alla finalità.
+Gli errori di training sono stime dei dati di training che non corrispondono alle rispettive etichette.
 
-## <a name="version"></a><a name="version"></a>Versione
+## <a name="utterance"></a>Espressione
 
-Una [versione](luis-how-to-manage-versions.md) di LUIS è un modello di dati specifico associato a un ID app LUIS e all'endpoint pubblicato. Ogni app LUIS ha almeno una versione.
+Un [enunciato](luis-concept-utterance.md) è un input utente che è un testo breve rappresentativo di una frase in una conversazione. Si tratta di una frase in linguaggio naturale, ad esempio "Book 2 Tickets to Seattle Next Tuesday". Vengono aggiunte espressioni di esempio per eseguire il training del modello e il modello esegue la stima in un nuovo enunciato in fase di esecuzione
+
+## <a name="version"></a>Versione
+
+Una [versione](luis-how-to-manage-versions.md) Luis è un'istanza specifica di un'applicazione Luis associata a un ID app Luis e all'endpoint pubblicato. Ogni app LUIS ha almeno una versione.

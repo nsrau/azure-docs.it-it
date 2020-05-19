@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220138"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589194"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -23,42 +23,40 @@ Alcune funzionalità di Visione artificiale supportano più lingue; le funzional
 
 ## <a name="text-recognition"></a>Riconoscimento di testo
 
-Visione artificiale possibile riconoscere il testo in molte lingue. In particolare, l'API [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) supporta un'ampia gamma di linguaggi, mentre l'API di [lettura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e l'API di [riconoscimento del testo](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) supportano solo l'inglese. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) .
+Visione artificiale possibile riconoscere il testo in molte lingue. Per le API OCR e Read non è necessario specificare un codice di lingua. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) .
 
-OCR rileva automaticamente la lingua del materiale di input, pertanto non è necessario specificare un codice della lingua nella chiamata API. Tuttavia, i codici di lingua vengono sempre restituiti come valore del `"language"` nodo nella risposta JSON.
-
-|Linguaggio| Codice lingua | API OCR |
-|:-----|:----:|:-----:|
-|Arabo | `ar`|✔ |
-|Cinese (semplificato) | `zh-Hans`|✔ |
-|Cinese (tradizionale) | `zh-Hant`|✔ |
-|Ceco | `cs` |✔ |
-|Danese | `da` |✔ |
-|Olandese | `nl` |✔ |
-|Inglese | `en` |✔ |
-|Finlandese | `fi` |✔ |
-|Francese | `fr` |✔ |
-|Tedesco | `de` |✔ |
-|Greco | `el` |✔ |
-|Ungherese | `hu` |✔ |
-|Italiano | `it` |✔ |
-|Giapponese | `ja` |✔ |
-|Coreano | `ko` |✔ |
-|Norvegese | `nb` |✔ |
-|Polacco | `pl` |✔ |
-|Portoghese | `pt` |✔ |
-|Rumeno | `ro` |✔ |
-|Russo | `ru` |✔ |
-|Serbo (alfabeto cirillico) | `sr-Cyrl` |✔ |
-|Serbo (alfabeto latino) | `sr-Latn` |✔ |
-|Slovacco | `sk` |✔ |
-|Spagnolo | `es` |✔ |
-|Svedese | `sw` |✔ |
-|Turco | `tr` |✔ |
+|Linguaggio| Codice lingua | API OCR | API di lettura |
+|:-----|:----:|:-----:|:---:|
+|Arabo | `ar`|✔ | |
+|Cinese (semplificato) | `zh-Hans`|✔ | |
+|Cinese (tradizionale) | `zh-Hant`|✔ | |
+|Ceco | `cs` |✔ | |
+|Danese | `da` |✔ | |
+|Olandese | `nl` |✔ |✔ |
+|Inglese | `en` |✔ |✔ |
+|Finlandese | `fi` |✔ | |
+|Francese | `fr` |✔ |✔ |
+|Tedesco | `de` |✔ |✔ |
+|Greco | `el` |✔ | |
+|Ungherese | `hu` |✔ | |
+|Italiano | `it` |✔ |✔ |
+|Giapponese | `ja` |✔ | |
+|Coreano | `ko` |✔ | |
+|Norvegese | `nb` |✔ | |
+|Polacco | `pl` |✔ | |
+|Portoghese | `pt` |✔ |✔ |
+|Romeno | `ro` |✔ | |
+|Russo | `ru` |✔ | |
+|Serbo (alfabeto cirillico) | `sr-Cyrl` |✔ | |
+|Serbo (alfabeto latino) | `sr-Latn` |✔ | |
+|Slovacco | `sk` |✔ | |
+|Spagnolo | `es` |✔ |✔ |
+|Svedese | `sw` |✔ | |
+|Turco | `tr` |✔ | |
 
 ## <a name="image-analysis"></a>Analisi immagini
 
-Alcune azioni dell'API [Analyze-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) possono restituire i risultati in altri linguaggi, specificati con `language` il parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](home.md) .
+Alcune azioni dell'API [Analyze-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) possono restituire i risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](home.md) .
 
 |Linguaggio | Codice lingua | Categorie | Tag | Descrizione | Adult (Adulti) | Marchi | Colore | Smile | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

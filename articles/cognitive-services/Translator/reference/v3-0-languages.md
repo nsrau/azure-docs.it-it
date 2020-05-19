@@ -1,7 +1,7 @@
 ---
-title: Metodo Languages dell'API Traduzione testuale
+title: Metodo per le lingue di traduzione
 titleSuffix: Azure Cognitive Services
-description: Il metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni del API Traduzione testuale.
+description: Il metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni del traduttore.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73835840"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588599"
 ---
-# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
+# <a name="translator-30-languages"></a>Translator 3,0: lingue
 
-Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
+Ottiene il set di lingue attualmente supportate da altre operazioni del traduttore. 
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -48,7 +48,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta sono le seguenti:
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>ETag</td>
@@ -251,7 +251,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Esito positivo.</td>
+    <td>Operazione completata.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -259,7 +259,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query non è presente o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -275,9 +275,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 

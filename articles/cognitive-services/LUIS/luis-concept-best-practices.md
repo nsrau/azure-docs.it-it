@@ -2,14 +2,14 @@
 title: Procedure consigliate per la creazione dell'app LUIS
 description: Informazioni sulle procedure consigliate per ottenere risultati ottimali dal modello dell'app LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382380"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589806"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedure consigliate per la creazione di un'app LUIS (Language Understanding)
 Usare il processo di creazione di app per compilare l'app LUIS:
@@ -31,11 +31,11 @@ L'elenco seguente include le procedure consigliate per le app LUIS:
 
 |Cosa fare|Cosa non fare|
 |--|--|
-|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungi descrittori a Intent](#do-add-descriptors-to-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o entità semplici](#dont-use-few-or-simple-entities) |
+|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungere funzionalità agli Intent](#do-add-features-to-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o entità semplici](#dont-use-few-or-simple-entities) |
 |[Trovare un compromesso tra troppo generico e troppo specifico per ogni finalità](#do-find-sweet-spot-for-intents)|[Usare LUIS come piattaforma di training](#dont-use-luis-as-a-training-platform)|
 |[Compilare l'app in modo iterativo con le versioni](#do-build-your-app-iteratively-with-versions)<br>[Entità di compilazione per la scomposizione dei modelli](#do-build-for-model-decomposition)|[Aggiungere molte espressioni di esempio dello stesso formato, ignorando gli altri](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Aggiungere modelli nelle iterazioni successive](#do-add-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
-|[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare descrittori con tutti i valori possibili](#dont-create-descriptors-with-all-the-possible-values)|
+|[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare elenchi di frasi con tutti i valori possibili](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Usare la funzionalità suggerimento per l'apprendimento attivo](#do-leverage-the-suggest-feature-for-active-learning)|[Aggiungere troppi criteri](#dont-add-many-patterns)|
 |[Monitorare le prestazioni dell'app con test batch](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicare con ogni singola espressione di esempio aggiunta](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -51,11 +51,11 @@ Considerare le espressioni di esempio seguenti:
 |Prenota un volo|
 |Prenota un hotel|
 
-`Book a flight`e `Book a hotel` usano lo stesso vocabolario `book a `di. Questo formato è lo stesso, quindi deve essere lo stesso scopo con le diverse parole di `flight` e `hotel` come entità estratte.
+`Book a flight`e `Book a hotel` usano lo stesso vocabolario di `book a ` . Questo formato è lo stesso, quindi deve essere lo stesso scopo con le diverse parole di `flight` e `hotel` come entità estratte.
 
-## <a name="do-add-descriptors-to-intents"></a>Aggiungi descrittori a Intent
+## <a name="do-add-features-to-intents"></a>Aggiungere funzionalità agli Intent
 
-I descrittori consentono di descrivere le funzionalità per finalità. Un descrittore può essere un elenco di parole che sono significative per tale finalità o un'entità che è significativa per tale finalità.
+Le funzionalità descrivono i concetti per uno scopo. Una funzionalità può essere un elenco di parole che sono significative per tale finalità o un'entità che è significativa per tale finalità.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Trovare un compromesso per le finalità
 Usare i dati di stima LUIS per determinare se le finalità si sovrappongono. Le finalità sovrapposte confondono LUIS. Il risultato è che la finalità con il punteggio più alto è troppo vicina a un'altra finalità. Poiché LUIS non usa ogni volta lo stesso percorso esatto attraverso i dati per il training, una finalità sovrapposta ha la possibilità di essere la prima o la seconda nel training. Si vuole che il punteggio dell'espressione per ogni finalità sia più distante affinché questo non si verifichi. La distinzione ottimale tra le finalità dovrebbe produrre ogni volta la finalità principale prevista.
@@ -73,17 +73,22 @@ La scomposizione dei modelli ha un processo tipico:
 * Crea **finalità** basate sulle intenzioni dell'utente dell'app client
 * aggiungere espressioni di esempio 15-30 in base all'input utente reale
 * etichettare il concetto di dati di primo livello nell'espressione di esempio
-* suddividere il concetto di dati in sottocomponenti
-* aggiungere descrittori (funzionalità) a sottocomponenti
-* Aggiungi descrittori (funzionalità) a finalità
+* suddividere il concetto di dati in sottoentità
+* aggiungere funzionalità alle sottoentità
+* aggiungere funzionalità agli Intent
 
 Dopo aver creato la finalità e aggiunto le espressioni di esempio, nell'esempio seguente viene descritta la scomposizione delle entità.
 
-Per iniziare, è necessario identificare i concetti di dati completi da estrarre in un enunciato. Si tratta dell'entità appresa dal computer. Quindi scomporre la frase nelle relative parti. Ciò include l'identificazione dei sottocomponenti (entità), nonché i descrittori e i vincoli.
+Per iniziare, è necessario identificare i concetti di dati completi da estrarre in un enunciato. Si tratta dell'entità appresa dal computer. Quindi scomporre la frase nelle relative parti. Ciò include l'identificazione di sottoentità e funzionalità.
 
-Se, ad esempio, si desidera estrarre un indirizzo, è possibile chiamare `Address`l'entità Machine-learned top. Durante la creazione dell'indirizzo, identificare alcuni dei relativi sottocomponenti, ad esempio via indirizzo, città, stato e codice postale.
+Se, ad esempio, si desidera estrarre un indirizzo, è possibile chiamare l'entità Machine-learned Top `Address` . Durante la creazione dell'indirizzo, identificare alcune delle relative sottoentità, ad esempio via indirizzo, città, stato e codice postale.
 
-Continuare a scomporre tali elementi **vincolando** il codice postale a un'espressione regolare. Scomporre la strada in parti di un numero civico (usando un numero predefinito), un nome via e un tipo di strada. Il tipo di strada può essere descritto con un elenco di **descrittori** , ad esempio Avenue, Circle, Road e Lane.
+Continuare a scomporre gli elementi per:
+* Aggiunta di una funzionalità obbligatoria del Cap come entità di espressione regolare.
+* Scomposizione del numero civico in parti:
+    * **Numero civico** con una funzionalità obbligatoria di un'entità di numero predefinita.
+    * **Nome della strada**.
+    * **Tipo di strada** con una funzionalità obbligatoria di un'entità di elenco che include parole come Avenue, Circle, Road e Lane.
 
 L'API di creazione di V3 consente la scomposizione dei modelli.
 
@@ -145,9 +150,9 @@ Creare una finalità per qualsiasi azione che eseguirà il bot. Usare le entità
 
 Per un bot che scriverà i voli Airline, creare una finalità **BookFlight** . Non creare una finalità per ogni compagnia aerea o per ogni destinazione. Usare questi dati come [entità](luis-concept-entity-types.md) e contrassegnarle nelle espressioni di esempio.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Non creare descrittori con tutti i valori possibili
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Non creare elenchi di frasi con tutti i valori possibili
 
-Fornire alcuni esempi negli [elenchi di frasi](luis-concept-feature.md) del descrittore, ma non in tutte le parole. LUIS generalizza e tiene conto del contesto.
+Fornire alcuni esempi negli elenchi di [frasi](luis-concept-feature.md) ma non in tutte le parole o frasi. LUIS generalizza e tiene conto del contesto.
 
 ## <a name="dont-add-many-patterns"></a>Non aggiungere molti criteri
 

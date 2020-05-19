@@ -1,5 +1,5 @@
 ---
-title: Personalizzazione della traduzione - API Traduzione testuale
+title: Personalizzazione della traduzione-Translator
 titleSuffix: Azure Cognitive Services
 description: Usare l'hub di Microsoft Translator per creare il proprio sistema di traduzione automatica usando la terminologia e lo stile preferiti.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71257616"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588650"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
-Il traduttore personalizzato Microsoft è una funzionalità del servizio Microsoft Translator che consente agli utenti di personalizzare la traduzione automatica neurale avanzata durante la traduzione di testo tramite l'API Traduzione testuale (solo versione 3).
+Il convertitore personalizzato è una funzionalità del servizio di conversione, che consente agli utenti di personalizzare la traduzione avanzata dei computer neurali di Microsoft Translator durante la conversione del testo tramite Translator (solo versione 3).
 
 La funzionalità può anche essere usata per personalizzare la traduzione vocale quando usata con i [servizi Voce di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -27,13 +27,13 @@ La funzionalità può anche essere usata per personalizzare la traduzione vocale
 
 Con Custom Translator è possibile creare sistemi di traduzione neurali che comprendono la terminologia usata per la propria attività e azienda. Il sistema di traduzione personalizzata verrà quindi integrato nelle applicazioni, flussi di lavoro e siti Web esistenti.
 
-### <a name="how-does-it-work"></a>Funzionamento
+### <a name="how-does-it-work"></a>Come funziona?
 
 USA i documenti tradotti in precedenza (volantini, pagine Web, documentazione e così via) per creare un sistema di traduzione che rispecchi la terminologia e lo stile specifici del dominio, meglio di un sistema di conversione standard. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
 
 Il sistema accetta anche i dati paralleli a livello di documento, ma non ancora allineati a livello di frase. Se gli utenti hanno accesso alle versioni dello stesso contenuto in più lingue, ma in documenti separati, Custom Translator sarà in grado di associare automaticamente frasi tra documenti.  Il sistema può anche usare dati monolingue in una o entrambe le lingue per integrare i dati di training paralleli per migliorare le traduzioni.
 
-Il sistema personalizzato diventa quindi disponibile tramite una chiamata normale per l'API Traduzione testuale di Microsoft usando il parametro di categoria.
+Il sistema personalizzato è quindi disponibile tramite una normale chiamata a Translator utilizzando il parametro category.
 
 Usando Custom Translator, con il tipo e la quantità appropriati di dati di training, non è insolito prevedere guadagni compresi tra 5 e 10 o anche di più punti BLEU nella qualità della traduzione.
 
@@ -59,7 +59,7 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 
 > [!NOTE]
-> A partire da 1 febbraio 2018 AddTranslation() e AddTranslationArray() non sono più disponibili per l'uso con l'API Traduzione testuale versione 2.0. Questi metodi non riusciranno e non verrà scritto nulla. L'API Traduzione testuale V3.0 non supporta questi metodi.
+> A partire dal 1 ° febbraio 2018, AddTranslation () e AddTranslationArray () non sono più disponibili per l'utilizzo con Translator v 2.0. Questi metodi non riusciranno e non verrà scritto nulla. Translator v 3.0 non supporta questi metodi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

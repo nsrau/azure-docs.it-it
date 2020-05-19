@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219434"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588667"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Che cos'è un'area di lavoro di Custom Translator?
 
@@ -39,7 +39,7 @@ Nella stessa area di lavoro, è possibile creare progetti per la stessa coppia d
 
 Custom Translator consente di assegnare un'etichetta al progetto. L'etichetta del progetto consente di distinguere tra più progetti con la stessa coppia di lingue e categoria. Come procedura consigliata, evitare di usare etichette di progetto a meno che non sia necessario.
 
-L'etichetta di progetto viene usata come parte dell'ID di categoria. Se l'etichetta di progetto non viene impostata o è impostata in modo identico tra più progetti, i progetti con la stessa categoria e *diversa* coppia di lingue condividono lo stesso ID di categoria. Questo approccio è vantaggioso perché consente all'utente o al cliente di alternare le lingue quando si usa l'API di traduzione del testo, senza doversi preoccupare di un ID di categoria univoco per ogni progetto.
+L'etichetta di progetto viene usata come parte dell'ID di categoria. Se l'etichetta di progetto non viene impostata o è impostata in modo identico tra più progetti, i progetti con la stessa categoria e *diversa* coppia di lingue condividono lo stesso ID di categoria. Questo approccio è vantaggioso perché consente all'utente o al cliente di spostarsi tra le lingue quando si usa il traduttore senza preoccuparsi di un CategoryID univoco per ogni progetto.
 
 Ad esempio, se si vogliono abilitare traduzioni nel dominio tecnologia dall'inglese al francese e dal francese all'inglese, si creano due progetti: uno per inglese -\> francese e uno per francese -\> inglese. Si specifica la stessa categoria (tecnologia) per entrambi e si lascia vuota l'etichetta di progetto. L'ID di categoria per entrambi i progetti corrisponderebbe, quindi è possibile eseguire una query all'API per le traduzioni in inglese e francese senza dover modificare l'ID di categoria.
 

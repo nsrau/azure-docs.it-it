@@ -1,18 +1,18 @@
 ---
 title: Passaggi per la creazione di un'app pizza
 description: Passaggi per creare un'app pizza in LUIS.
-ms.date: 03/25/2020
+ms.date: 05/05/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05a7b15aeae8cd2939cf594c272e847c7411b735
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 583394a31d220878eb403f702ba82b2f525d4dda
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80286728"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588947"
 ---
-1. Accedere al portale di anteprima LUIS con l'URL [https://preview.luis.ai](https://preview.luis.ai).
+1. Accedere al portale LUIS con l'URL [https://www.luis.ai](https://www.luis.ai).
 
 1. Selezionare **Create new app** (Crea nuova app).
 

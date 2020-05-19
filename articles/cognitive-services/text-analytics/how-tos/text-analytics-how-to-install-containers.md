@@ -9,20 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877089"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588397"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
-I contenitori consentono di eseguire le API analitiche del testo nel proprio ambiente e sono perfette per i requisiti specifici di sicurezza e governance dei dati. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. Il collegamento di entità non è attualmente supportato in un contenitore.
+> [!NOTE]
+> * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori di estrazione di frasi chiave e rilevamento della lingua sono disponibili come [anteprima pubblica non gestita](../../cognitive-services-gating-process.md).
+> * Il collegamento di entità e NER non sono attualmente disponibili come contenitore.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+I contenitori consentono di eseguire le API analitiche del testo nel proprio ambiente e sono perfette per i requisiti specifici di sicurezza e governance dei dati. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. 
+
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > L'account gratuito è limitato a 5.000 transazioni al mese e solo i <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">piani <span class="docon docon-navigate-external x-hidden-focus"></span> tariffari</a> **gratuiti** e **standard** sono validi per i contenitori. Per ulteriori informazioni sulle frequenze delle richieste di transazioni, vedere [limiti dei dati](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
@@ -35,7 +39,7 @@ Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre de
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -49,60 +53,32 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-La tabella seguente indica i core CPU minimi e consigliati, per una velocità di 2,6 gigahertz (GHz) o superiore, e la memoria, espressa in gigabyte (GB), da allocare per ogni contenitore di Analisi del testo.
+Nella tabella seguente vengono descritte le specifiche minime e consigliate per i contenitori di Analisi del testo. Sono necessari almeno 2 gigabyte (GB) di memoria e ogni core CPU deve essere almeno 2,6 gigahertz (GHz) o superiore. Sono elencate anche le transazioni consentite per sezione (TPS).
 
-# <a name="key-phrase-extraction"></a>[Estrazione frasi chiave](#tab/keyphrase)
+|  | Specifiche host minime | Specifiche host consigliate | Numero minimo di transazioni | Numero massimo di transazioni|
+|---|---------|-------------|--|--|
+| **Rilevamento della lingua, estrazione di frasi chiave**   | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15 | 30|
+| **Analisi del sentiment v3**   | 1 core, 2 GB di memoria | 4 core, 8 GB di memoria |15 | 30|
 
-[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
-
-# <a name="language-detection"></a>[Rilevamento lingua](#tab/language)
-
-[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
-
-# <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
-
-***
-
-* Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
-* TPS - transazioni al secondo
-
-Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
+Core CPU e memoria corrispondono alle `--cpus` Impostazioni e `--memory` , che vengono usate come parte del `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Le immagini del contenitore per Analisi del testo sono disponibili in Microsoft Container Registry.
-
-# <a name="key-phrase-extraction"></a>[Estrazione frasi chiave](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
-
-# <a name="language-detection"></a>[Rilevamento lingua](#tab/language)
-
-[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
-
-# <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
-
-***
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-text-analytics-containers"></a>Pull Docker per i contenitori di Analisi del testo
+Le immagini del contenitore per Analisi del testo sono disponibili in Microsoft Container Registry.
 
-# <a name="key-phrase-extraction"></a>[Estrazione frasi chiave](#tab/keyphrase)
+# <a name="sentiment-analysis-v3"></a>[Analisi del sentiment v3](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+# <a name="key-phrase-extraction-preview"></a>[Estrazione frasi chiave (anteprima)](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[Rilevamento lingua](#tab/language)
+# <a name="language-detection-preview"></a>[Rilevamento lingua (anteprima)](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
-
-[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
 ***
 
@@ -110,31 +86,38 @@ Le immagini del contenitore per Analisi del testo sono disponibili in Microsoft 
 
 Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usare il contenitore.
 
-1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie. Sono disponibili altri [esempi](../text-analytics-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
+1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie.
 1. [Eseguire una query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
+Usare il comando [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire i contenitori. Il contenitore continuerà a essere eseguito fino a quando non lo si arresta.
 
-[Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) Sono disponibili esempi `docker run` di comando.
+Sostituire i segnaposto seguenti con valori personalizzati:
 
-# <a name="key-phrase-extraction"></a>[Estrazione frasi chiave](#tab/keyphrase)
+| Segnaposto | Valore | Formato o esempio |
+|-------------|-------|---|
+| **{API_KEY}** | Chiave per la risorsa Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Endpoint per l'accesso alla API Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
-[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+> [!IMPORTANT]
+> * I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
+> * È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
+> * Il contenitore analisi del sentimento V3 è ora disponibile a livello generale, che restituisce le [etichette dei sentimenti](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) nella risposta. I contenitori di estrazione di frasi chiave e rilevamento della lingua usano V2 dell'API e sono in anteprima.
 
-# <a name="language-detection"></a>[Rilevamento lingua](#tab/language)
-
-[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
+# <a name="sentiment-analysis-v3"></a>[Analisi del sentiment v3](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
-***
+# <a name="key-phrase-extraction-preview"></a>[Estrazione frasi chiave (anteprima)](#tab/keyphrase)
 
-> [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+
+# <a name="language-detection-preview"></a>[Rilevamento lingua (anteprima)](#tab/language)
+
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -170,21 +153,22 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Analisi del testo. In sintesi:
 
 * Analisi del testo offre tre contenitori Linux per Docker, incapsulando varie funzionalità:
-   * *Estrazione frasi chiave*
-   * *Rilevamento lingua*
    * *Analisi del sentiment*
+   * *Estrazione frasi chiave (anteprima)* 
+   * *Rilevamento lingua (anteprima)*
+   
 * Le immagini dei contenitori vengono scaricate da Registro Container Microsoft in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
 * È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di Analisi del testo specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]
-> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano i dati dei clienti (ad esempio, l'immagine o il testo analizzato) a Microsoft.
+> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di servizi cognitivi non inviano i dati dei clienti (ad esempio, il testo analizzato) a Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

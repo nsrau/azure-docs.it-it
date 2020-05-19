@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690806"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589857"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Riconoscere il testo stampato e scritto a mano
 
@@ -26,10 +26,9 @@ Visione artificiale fornisce una serie di servizi che rilevano ed estraggono tes
 
 L'API Read rileva il contenuto di testo in un'immagine usando i modelli di riconoscimento più recenti e converte il testo identificato in un flusso di caratteri leggibile dal computer. È ottimizzato per immagini con un numero elevato di testo, ad esempio documenti digitalizzati digitalmente, e per immagini con molto rumore visivo. Determinerà il modello di riconoscimento da usare per ogni riga di testo, supportando immagini con testo stampato e scritto a mano. L'API Read viene eseguita in modo asincrono perché i documenti di dimensioni maggiori possono richiedere diversi minuti per restituire un risultato.
 
-L'operazione di lettura mantiene i raggruppamenti di righe originali delle parole riconosciute nell'output. Ogni riga include le coordinate del rettangolo di delimitazione e ogni parola all'interno della riga presenta anche le proprie coordinate. Se una parola è stata riconosciuta con una bassa confidenza, vengono trasmesse anche le informazioni. Per altre informazioni, vedere documentazione di riferimento per l' [API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) o [leggere la documentazione di riferimento dell'API v 3.0 Preview](https://go.microsoft.com/fwlink/?linkid=2118322) .
+L'operazione di lettura mantiene i raggruppamenti di righe originali delle parole riconosciute nell'output. Ogni riga include le coordinate del rettangolo di delimitazione e ogni parola all'interno della riga presenta anche le proprie coordinate. Se una parola è stata riconosciuta con una bassa confidenza, vengono trasmesse anche le informazioni. Per ulteriori informazioni, vedere la documentazione di riferimento relativa all' [API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) o leggere la documentazione di riferimento per l' [API v 3.0](https://aka.ms/computer-vision-v3-ref) .
 
-> [!NOTE]
-> Questa funzionalità è disponibile solo per l'inglese e il testo spagnolo (anteprima v 3.0).
+L'operazione di lettura può riconoscere il testo in inglese, spagnolo, tedesco, francese, italiano, portoghese e olandese.
 
 ### <a name="image-requirements"></a>Requisiti dell'immagine
 

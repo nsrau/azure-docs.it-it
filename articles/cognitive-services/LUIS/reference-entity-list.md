@@ -2,13 +2,13 @@
 title: Elencare il tipo di entità-LUIS
 description: Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione consigliata per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097575"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588888"
 ---
 # <a name="list-entity"></a>Entità elenco
 
@@ -84,7 +84,7 @@ Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 
-Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
+Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query
 }
 ```
 
-Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
+Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -132,4 +132,7 @@ Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](tutorial-list-entity.md)si apprenderà come usare un' **entità list** per estrarre corrispondenze esatte del testo da un elenco di elementi noti.
+Altre informazioni sulle entità:
+
+* [Concetti](luis-concept-entity-types.md)
+* [Modalità di creazione](luis-how-to-add-entities.md)

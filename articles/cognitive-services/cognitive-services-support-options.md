@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258429"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590537"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opzioni di supporto e commenti per servizi cognitivi di Azure
 
 Si sta iniziando a esplorare solo le funzionalità dei servizi cognitivi di Azure? Probabilmente si sta implementando una nuova funzionalità nell'applicazione. O dopo aver usato il servizio, sono disponibili suggerimenti su come migliorarlo? Di seguito sono riportate le opzioni per la posizione in cui è possibile ottenere supporto, rimanere aggiornati, inviare commenti e segnalare bug per servizi cognitivi.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 ### <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
 
@@ -28,12 +28,12 @@ Si sta iniziando a esplorare solo le funzionalità dei servizi cognitivi di Azur
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Esplorare la gamma di [opzioni di supporto tecnico di Azure e scegliere il piano](https://azure.microsoft.com/support/plans) più adatto, a seconda che l'utente sia uno sviluppatore alle prime armi con la tecnologia cloud o il titolare di una grande impresa che distribuisce applicazioni aziendali strategiche. I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
+Esplora la gamma di [Opzioni di supporto di Azure e scegli il piano](https://azure.microsoft.com/support/plans) più adatto, che tu sia uno sviluppatore che sta iniziando a sviluppare il tuo percorso Cloud o un'organizzazione di grandi dimensioni che distribuisce applicazioni strategiche e cruciali per l'azienda. I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
 
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -78,12 +78,12 @@ Per informazioni sulle funzionalità di una nuova versione o notizie nel Blog di
 
 Le note sulla versione di servizi cognitivi vengono aggiornate in base alla disponibilità di nuove versioni. Le note contengono informazioni su nuove funzionalità, miglioramenti e correzioni di bug.
 
- - [Servizio visione artificiale personalizzato](custom-vision-service/release-notes.md)
+ - [Visione personalizzata](custom-vision-service/release-notes.md)
  - [Viso](face/releasenotes.md)
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Servizi vocali](speech-service/releasenotes.md)
  - [SDK per servizi vocali](speech-service/devices-sdk-release-notes.md)
- - [Text Analytics](text-analytics/whats-new.md)
+ - [Analisi del testo](text-analytics/whats-new.md)
  - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog di Azure
@@ -102,7 +102,7 @@ Le notizie sui servizi cognitivi vengono condivise nel [Blog di Azure](https://a
 
 Reddit è un sito Web di discussione basato sulla community, che offre le ultime conversazioni su notizie, guida, informazioni, suggerimenti e consigli per [Servizi cognitivi di Azure](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) . I membri registrati possono inviare il contenuto e altri utenti possono votarlo, che eleva organicamente il contenuto più rilevante all'inizio dei propri feed.
 
-## <a name="give-feedback"></a>Commenti e suggerimenti
+## <a name="give-feedback"></a>Invia commenti
 
 ### <a name="uservoice-forum"></a>Forum UserVoice
 
@@ -116,7 +116,7 @@ Per richiedere nuove funzionalità, pubblicarle in UserVoice. Condividi le tue i
 > Sebbene si tratti di un forum pubblico, non è previsto il supporto da Microsoft, ma è opportuno discutere delle nuove funzionalità che si desidera visualizzare nelle prossime versioni di servizi cognitivi.
 
 
-| Servizio                       | URL UserVoice di servizi cognitivi |
+| Service                       | URL UserVoice di servizi cognitivi |
 |-------------------------------|---------------|
 | Rilevamento anomalie              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
 | Servizi Bing                 | https://cognitive.uservoice.com/forums/555907-bing-search |
@@ -131,8 +131,8 @@ Per richiedere nuove funzionalità, pubblicarle in UserVoice. Condividi le tue i
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Servizi Voce               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Riconoscimento vocale personalizzato                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Traduzione testuale               | https://cognitive.uservoice.com/forums/558796-translator |
+| Analisi del testo                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Traduttore               | https://cognitive.uservoice.com/forums/558796-translator |
 | Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Segnala bug
