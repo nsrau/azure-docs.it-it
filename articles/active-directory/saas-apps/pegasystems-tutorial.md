@@ -89,7 +89,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con Pegasystems, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [Pegasystems](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**:
+1. Nella pagina di integrazione dell'applicazione **Pegasystems** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 

@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare Single Sign-On di Microsoft Azure AD con eDigitalResearch, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [eDigitalResearch](https://portal.azure.com/) del **portale di Azure** selezionare **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **eDigitalResearch** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

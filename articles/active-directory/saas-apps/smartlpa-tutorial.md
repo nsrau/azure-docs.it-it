@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con SmartLPA, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [SmartLPA](https://portal.azure.com/) del **portale di Azure** fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **SmartLPA** del [portale di Azure](https://portal.azure.com/) fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

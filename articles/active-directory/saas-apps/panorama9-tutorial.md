@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Panorama9, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [Panorama9](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Panorama9** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
