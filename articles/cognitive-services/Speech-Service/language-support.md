@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587375"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682148"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Supporto della lingua e della voce per il servizio di riconoscimento vocale
 
@@ -24,7 +24,7 @@ Il supporto della lingua varia in base alla funzionalità del servizio vocale. N
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi. La personalizzazione della pronuncia è attualmente disponibile solo per `en-US` e `de-DE` . Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
+Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi. La personalizzazione della pronuncia viene offerta tramite il caricamento del testo correlato: pronuncia. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -39,7 +39,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabo (UAE)                      | Sì       | No                                                |
 | `ar-BH` | Arabo (Bahrain), standard moderno | Sì       | Modello linguistico                                    |
 | `ar-EG` | Arabo (Egitto)                    | Sì       | Modello linguistico                                    |
+| `ar-IL` | Arabo (Israele)                   | Sì       | No                                                |
 | `ar-KW` | Arabo (Kuwait)                   | Sì       | No                                                |
+| `ar-PS` | Arabo (Palestina)                | Sì       | No                                                |
 | `ar-QA` | Arabo (Qatar)                    | Sì       | No                                                |
 | `ar-SA` | Arabo (Arabia Saudita)             | Sì       | No                                                |
 | `ar-SY` | Arabo (Siria)                    | Sì       | Modello linguistico                                    |

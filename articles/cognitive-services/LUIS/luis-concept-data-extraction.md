@@ -4,17 +4,17 @@ description: Estrae i dati da testo enunciato con Intent ed entità. Informazion
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589721"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682197"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
-I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti.
+I dati più difficili da estrarre sono i dati di Machine Learning perché non corrispondono esattamente al testo. L'estrazione dei dati delle [entità](luis-concept-entity-types.md) di Machine Learning deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) fino a quando non si è certi di ricevere i dati previsti.
 
 ## <a name="data-location-and-key-usage"></a>Posizione dei dati e uso di chiavi
 LUIS estrae i dati dall'espressione dell'utente nell' [endpoint](luis-glossary.md#endpoint)pubblicato. La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione.
@@ -245,7 +245,7 @@ Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
 
-[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità. Per poter applicare il modello, è necessario trovare l'entità utilizzata nel modello. 
+[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità. Per poter applicare il modello, è necessario trovare l'entità utilizzata nel modello.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi dei sentimenti viene configurata durante la [pubblicazione](luis-how-to-publish-app.md#sentiment-analysis), la risposta di Luis JSON include l'analisi dei sentimenti. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

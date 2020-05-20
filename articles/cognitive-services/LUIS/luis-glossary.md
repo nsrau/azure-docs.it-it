@@ -3,12 +3,12 @@ title: Glossario-LUIS
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589670"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681606"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -139,9 +139,9 @@ Lo schema dell'entità è la struttura definita per le entità apprese dal compu
 
 ### <a name="entitys-subentity"></a>Sottoentità dell'entità
 
-Una sottoentità è un'entità figlio di un'entità appresa dal computer.
+Una sottoentità è un'entità figlio di un'entità di machine learning.
 
-### <a name="non-machine-learned-entity"></a>Entità non appresa dal computer
+### <a name="non-machine-learning-entity"></a>Entità non Machine Learning
 
 Entità che utilizza la corrispondenza del testo per estrarre i dati:
 * Entità elenco
@@ -164,7 +164,7 @@ Vedere la voce del modello predefinito per l' [entità](#prebuilt-entity) precom
 
 In Machine Learning, una caratteristica è una caratteristica che consente al modello di riconoscere un particolare concetto. È un suggerimento che LUIS può usare, ma non una regola rigida.
 
-Questo termine è noto anche come **[funzionalità appresa dal computer](luis-concept-feature.md)**.
+Questo termine viene anche definito **[funzionalità di Machine Learning](luis-concept-feature.md)**.
 
 Questi hint vengono usati insieme alle etichette per apprendere come prevedere i nuovi dati. LUIS supporta entrambi gli elenchi di frasi e l'uso di altri modelli come funzionalità.
 
@@ -199,6 +199,10 @@ Un modello (Machine Learn) è una funzione che esegue una stima sui dati di inpu
 ## <a name="normalized-value"></a>Valore normalizzato
 
 È possibile aggiungere valori alle entità dell' [elenco](#list-entity) . Ognuno di questi valori può avere un elenco di uno o più sinonimi. Nella risposta viene restituito solo il valore normalizzato.
+
+## <a name="overfitting"></a>Overfitting
+
+L'overfitting si verifica quando il modello è fissato agli esempi specifici e non è in grado di generalizzare correttamente.
 
 ## <a name="owner"></a>Proprietario
 
@@ -260,7 +264,7 @@ La quota LUIS è la limitazione del livello di sottoscrizione di Azure. La quota
 
 ## <a name="schema"></a>SCHEMA
 
-Lo schema include gli Intent e le entità insieme alle sottoentità. Lo schema viene inizialmente pianificato per l'iterazione nel tempo. Lo schema non include le impostazioni dell'app, le funzionalità o le espressioni di esempio. 
+Lo schema include gli Intent e le entità insieme alle sottoentità. Lo schema viene inizialmente pianificato per l'iterazione nel tempo. Lo schema non include le impostazioni dell'app, le funzionalità o le espressioni di esempio.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 L'analisi del sentiment fornisce valori positivi o negativi delle espressioni fornite da [Analisi del testo](../text-analytics/overview.md).

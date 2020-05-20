@@ -2,17 +2,17 @@
 title: Espressioni di esempio valide-LUIS
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592866"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685265"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
-Le **espressioni** sono gli input dell'utente che l'app ha bisogno di interpretare. Per insegnare a LUIS a estrarre le finalità e le entità, è importante acquisire una varietà di espressioni di esempio diverse per ogni finalità. L'apprendimento attivo, o processo di training continuativo di nuove espressioni, è fondamentale per l'intelligenza con apprendimento automatico fornito da LUIS.
+Le **espressioni** sono gli input dell'utente che l'app ha bisogno di interpretare. Per insegnare a LUIS a estrarre le finalità e le entità, è importante acquisire una varietà di espressioni di esempio diverse per ogni finalità. L'apprendimento attivo, o il processo di continuare a eseguire il training su nuovi enunciati, è essenziale per l'intelligence di Machine Learning fornita da LUIS.
 
 Raccogliere le espressioni che si ritiene verranno immesse dagli utenti. Includere espressioni che hanno lo stesso significato ma vengono costruite in modi diversi:
 
@@ -84,7 +84,7 @@ Impostare le impostazioni della versione tramite il portale LUIS, nella sezione 
 
 ### <a name="word-forms"></a>Moduli di Word
 
-La normalizzazione di **Word form** ignora le differenze nelle parole che si espandono oltre la radice. Ad esempio, le parole `run` , `running` e `runs` cambiano in base al verbo teso.
+La normalizzazione di **Word form** ignora le differenze nelle parole che si espandono oltre la radice.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

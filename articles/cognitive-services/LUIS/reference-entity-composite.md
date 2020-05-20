@@ -10,19 +10,19 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588905"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681400"
 ---
 # <a name="composite-entity"></a>Entità composita
 
 Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera.
 
 > [!CAUTION]
-> Questa entità è **deprecata**. Eseguire la migrazione all' [entità appresa dal computer](reference-entity-machine-learned-entity.md).
+> Questa entità è **deprecata**. Eseguire la migrazione all' [entità Machine Learning](reference-entity-machine-learned-entity.md).
 
 **Questa entità è idonea quando i dati:**
 

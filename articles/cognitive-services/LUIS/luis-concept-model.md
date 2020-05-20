@@ -3,12 +3,12 @@ title: Progettare con i modelli-LUIS
 description: La comprensione del linguaggio offre diversi tipi di modelli. Alcuni modelli possono essere usati in più modi.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591880"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683925"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Progettazione con modelli di entità e finalità
 
@@ -36,9 +36,9 @@ Il seguente enunciato è un **esempio positivo** per lo `OrderBook` scopo e un *
 
 ## <a name="entities-extract-data"></a>Entità Estrai dati
 
-Un'entità rappresenta un'unità di dati che si desidera estrarre dall'espressione. Un'entità appresa dal computer è un'entità di primo livello che contiene sottoentità, che sono anche entità apprese dal computer.
+Un'entità rappresenta un'unità di dati che si desidera estrarre dall'espressione. Un'entità di Machine Learning è un'entità di primo livello che contiene sottoentità, che sono anche entità di machine learning.
 
-Un esempio di entità appresa dal computer è un ordine per un ticket del piano. Concettualmente si tratta di una singola transazione con molte unità di dati più piccole, ad esempio data, ora, quantità di sedili, tipo di posto, ad esempio prima classe o allenatore, posizione di origine, posizione di destinazione e scelta pasto.
+Un esempio di un'entità di Machine Learning è un ordine per un ticket del piano. Concettualmente si tratta di una singola transazione con molte unità di dati più piccole, ad esempio data, ora, quantità di sedili, tipo di posto, ad esempio prima classe o allenatore, posizione di origine, posizione di destinazione e scelta pasto.
 
 ## <a name="intents-versus-entities"></a>Intent rispetto a entità
 
@@ -65,11 +65,11 @@ La scomposizione dei modelli include le parti seguenti:
 
 * [Intent](#intents-classify-utterances)
     * [funzionalità](#features)
-* [entità apprese dal computer](reference-entity-machine-learned-entity.md)
-    * sottoentità (anche entità apprese dal computer)
+* [entità di Machine Learning](reference-entity-machine-learned-entity.md)
+    * sottoentità (anche entità di machine learning)
         * [funzionalità](#features)
             * [elenco frasi](luis-concept-feature.md)
-            * [entità non apprese dal computer](luis-concept-feature.md) , ad [esempio espressioni regolari](reference-entity-regular-expression.md), [elenchi](reference-entity-list.md)e [entità predefinite](luis-reference-prebuilt-entities.md)
+            * [entità non di apprendimento automatico](luis-concept-feature.md) , ad esempio [espressioni regolari](reference-entity-regular-expression.md), [elenchi](reference-entity-list.md)e [entità predefinite](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

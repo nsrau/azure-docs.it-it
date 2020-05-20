@@ -2,13 +2,13 @@
 title: Tipi di entità-LUIS
 description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585641"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682178"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
 
@@ -16,11 +16,11 @@ Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo s
 
 Esistono diversi tipi di entità:
 
-* [Entità basata su Machine Learning](reference-entity-machine-learned-entity.md)
-* Non-Machine-learned usato come [funzionalità](luis-concept-feature.md) obbligatoria: per le corrispondenze esatte del testo, i criteri di ricerca o il rilevamento da entità predefinite
+* [entità Machine Learning](reference-entity-machine-learned-entity.md) : questa è l'entità primaria. È consigliabile progettare lo schema con questo tipo di entità prima di usare altre entità.
+* Non Machine Learning usato come [funzionalità](luis-concept-feature.md) obbligatoria: per le corrispondenze esatte del testo, i criteri di ricerca o il rilevamento da entità predefinite
 * [Pattern. any](#patternany-entity) : per estrarre il testo in formato libero, ad esempio i titoli dei libri da un [modello](reference-entity-pattern-any.md)
 
-Le entità apprese dal computer forniscono la più ampia gamma di opzioni di estrazione dei dati. Le entità non apprese dal computer funzionano in base ai criteri di ricerca del testo e vengono usate come [funzionalità obbligatorie](#design-entities-for-decomposition) per un'entità o finalità appresa dal computer.
+le entità di Machine Learning offrono la più ampia gamma di opzioni di estrazione dei dati. Le entità non di apprendimento automatico funzionano in base alla corrispondenza del testo e vengono usate come [funzionalità obbligatorie](#design-entities-for-decomposition) per un'entità o una finalità di machine learning.
 
 ## <a name="entities-represent-data"></a>Le entità rappresentano dati
 
@@ -51,18 +51,26 @@ Si considerino le quattro espressioni seguenti:
 |--|--|--|--|
 |Guida|help|-|Nessun elemento da estrarre.|
 |Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Il modello non dispone di una funzionalità obbligatoria da estrarre `something` in questo contesto e non è stato dichiarato alcun destinatario.|
-|Invia Bob a presente|sendSomething|`Bob`, `present`|Il modello estrae `Bob` aggiungendo una funzionalità obbligatoria dell'entità predefinita `personName` . Per estrarre è stata usata un'entità appresa dal computer `present` .|
-|Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|I due elementi importanti dei dati, `Bob` e `box of chocolates` , sono stati estratti dalle entità apprese dal computer.|
+|Invia Bob a presente|sendSomething|`Bob`, `present`|Il modello estrae `Bob` aggiungendo una funzionalità obbligatoria dell'entità predefinita `personName` . Per estrarre è stata usata un'entità Machine Learning `present` .|
+|Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|I due elementi importanti dei dati, `Bob` e `box of chocolates` , sono stati estratti dalle entità di machine learning.|
 
 ## <a name="design-entities-for-decomposition"></a>Progetta entità per la scomposizione
 
-Le entità acquisite dal computer consentono di progettare lo schema dell'app per la scomposizione, suddividendo un concetto di grandi dimensioni in sottoentità.
+le entità di Machine Learning consentono di progettare lo schema dell'app per la scomposizione, suddividendo un concetto di grandi dimensioni in sottoentità.
 
 La progettazione per la scomposizione consente a LUIS di restituire un livello di risoluzione approfondito dell'entità all'applicazione client. Ciò consente all'applicazione client di concentrarsi sulle regole business e lasciare la risoluzione dei dati a LUIS.
 
-Trigger di entità appresa dal computer in base al contesto appreso tramite espressioni di esempio.
+Un'entità di Machine Learning viene attivata in base al contesto acquisito tramite espressioni di esempio.
 
-Le [**entità apprese dal computer**](tutorial-machine-learned-entity.md) sono gli estrattori di primo livello. Le sottoentità sono entità figlio di entità apprese dal computer.
+le [**entità di Machine Learning**](tutorial-machine-learned-entity.md) sono gli estrattori di primo livello. Le sottoentità sono entità figlio di entità di machine learning.
+
+## <a name="effective-machine-learned-entities"></a>Entità di apprendimento automatico valide
+
+Per compilare efficacemente le entità apprese dal computer:
+
+* Le etichette devono essere coerenti tra gli Intent. Sono incluse anche le espressioni fornite nell'intento **None** che includono questa entità. In caso contrario, il modello non sarà in grado di determinare in modo efficace le sequenze.
+* Se si dispone di un'entità Machine learned con sottoentità, assicurarsi che i diversi ordini e varianti delle entità e delle sottoentità siano presentati nelle espressioni con etichetta. Le espressioni di esempio con etichetta devono includere tutti i moduli validi e includere le entità che vengono visualizzate e sono assenti e riordinate all'interno dell'espressione.
+* È consigliabile evitare di sovramontare le entità a un set molto fisso. L' **overfitting** si verifica quando il modello non generalizza correttamente ed è un problema comune nei modelli di machine learning. Ciò implica che l'app non funzionerà in modo adeguato ai nuovi dati. A sua volta, è necessario variare le espressioni di esempio con etichetta in modo che l'app possa generalizzare oltre gli esempi limitati forniti. È necessario variare le diverse sottoentità con un numero sufficiente di modifiche affinché il modello pensi a un maggior numero di concetti anziché solo agli esempi mostrati.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -73,7 +81,7 @@ Le [**entità apprese dal computer**](tutorial-machine-learned-entity.md) sono g
 
 ## <a name="types-of-entities"></a>Tipi di entità
 
-Una sottoentità di un elemento padre deve essere un'entità appresa dal computer. La sottoentità può utilizzare come [funzionalità](luis-concept-feature.md)un'entità non appresa dal computer.
+Una sottoentità di un elemento padre deve essere un'entità di machine learning. La sottoentità può usare un'entità non machine learning come una [funzionalità](luis-concept-feature.md).
 
 Scegliere l'entità in base a come devono essere estratti i dati e a come devono essere rappresentati dopo l'estrazione.
 
@@ -85,6 +93,15 @@ Scegliere l'entità in base a come devono essere estratti i dati e a come devono
 |[**Predefinita**](luis-reference-prebuilt-entities.md)|È già stato eseguito il training per estrarre un tipo specifico di dati, ad esempio URL o posta elettronica. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
 |[**Espressione regolare**](reference-entity-regular-expression.md)|Usa l'espressione regolare per la **corrispondenza esatta del testo**.|
 
+
+## <a name="extraction-versus-resolution"></a>Estrazione rispetto alla risoluzione
+
+Le entità estraggono i dati quando i dati vengono visualizzati nell'espressione. Le entità non modificano o non risolvono i dati. L'entità non fornirà alcuna soluzione se il testo è un valore valido per l'entità.
+
+Ci sono modi per portare la risoluzione nell'estrazione, ma è necessario tenere presente che questo limita la capacità dell'app di essere immune a variazioni ed errori.
+
+Le entità elenco ed espressioni regolari (corrispondenti al testo) possono essere utilizzate come [funzionalità necessarie](luis-concept-feature.md#required-features) per una sottoentità e che funge da filtro per l'estrazione. È consigliabile usarlo con cautela per non ostacolare la capacità dell'app di prevedere.
+
 ## <a name="extracting-contextually-related-data"></a>Estrazione di dati correlati al contesto
 
 Un'espressione può contenere due o più occorrenze di un'entità in cui il significato dei dati è basato sul contesto all'interno dell'espressione. Un esempio è un enunciato per la prenotazione di un volo con due posizioni geografiche, Origin e Destination.
@@ -93,7 +110,7 @@ Un'espressione può contenere due o più occorrenze di un'entità in cui il sign
 
 È necessario estrarre le due posizioni in modo che l'applicazione client conosca il tipo di ogni località per completare l'acquisto del ticket.
 
-Per estrarre l'origine e la destinazione, creare due sottoentità come parte dell'entità del ticket order Machine-Learned. Per ognuna delle sottoentità, creare una funzionalità obbligatoria che usa geographyV2.
+Per estrarre l'origine e la destinazione, creare due sottoentità come parte dell'entità di Machine Learning Order Order. Per ognuna delle sottoentità, creare una funzionalità obbligatoria che usa geographyV2.
 
 <a name="using-component-constraints-to-help-define-entity"></a>
 <a name="using-subentity-constraints-to-help-define-entity"></a>
@@ -124,5 +141,5 @@ Informazioni sui concetti delle [espressioni](luis-concept-utterance.md) valide.
 
 Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
 
-Per informazioni su come estrarre i dati strutturati da un enunciato usando l'entità di Machine Learning, vedere [esercitazione: estrarre dati strutturati da un enunciato utente con entità apprese dal computer in Language Understanding (Luis)](tutorial-machine-learned-entity.md) .
+Per informazioni su come estrarre i dati strutturati da un enunciato usando l'entità Machine Learning, vedere [esercitazione: estrarre dati strutturati da un enunciato utente con entità di Machine Learning in Language Understanding (Luis)](tutorial-machine-learned-entity.md) .
 

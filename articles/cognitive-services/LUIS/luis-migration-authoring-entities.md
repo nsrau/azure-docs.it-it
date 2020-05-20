@@ -1,24 +1,24 @@
 ---
-title: Eseguire la migrazione a un'entità appresa dal computer V3
-description: La creazione di V3 fornisce un nuovo tipo di entità, l'entità appresa dal computer, oltre alla possibilità di aggiungere relazioni all'entità appresa dal computer e ad altre entità o funzionalità dell'applicazione.
+title: Eseguire la migrazione a un'entità di Machine Learning V3
+description: La creazione di V3 fornisce un nuovo tipo di entità, l'entità Machine Learning, oltre alla possibilità di aggiungere relazioni all'entità Machine Learning e ad altre entità o funzionalità dell'applicazione.
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593223"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684585"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Eseguire la migrazione all'entità di creazione V3
 
-La creazione di V3 fornisce un nuovo tipo di entità, l'entità appresa dal computer, oltre alla possibilità di aggiungere relazioni all'entità appresa dal computer e ad altre entità o funzionalità dell'applicazione.
+La creazione di V3 fornisce un nuovo tipo di entità, l'entità Machine Learning, oltre alla possibilità di aggiungere relazioni all'entità Machine Learning e ad altre entità o funzionalità dell'applicazione.
 
 ## <a name="entities-are-decomposable-in-v3"></a>Le entità sono decomponibili in V3
 
-Le entità create con le API di creazione di V3, usando le [API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) o il portale, consentono di compilare un modello di entità a più livelli con un elemento padre e figlio. L'elemento padre è noto come **entità appresa dal computer** e gli elementi figlio sono noti come **sottoentità** dell'entità appresa dal computer.
+Le entità create con le API di creazione di V3, usando le [API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) o il portale, consentono di compilare un modello di entità a più livelli con un elemento padre e figlio. L'elemento padre è noto come **entità di Machine Learning** e gli elementi figlio sono noti come **sottoentità** dell'entità appresa dal computer.
 
-Ogni sottoentità è anche un'entità appresa dal computer, ma con le opzioni di configurazione aggiunte delle funzionalità.
+Ogni sottoentità è anche un'entità di Machine Learning, ma con le opzioni di configurazione aggiunte delle funzionalità.
 
 * Le **funzionalità necessarie** sono regole che assicurano che un'entità venga estratta quando corrisponde a una funzionalità. La regola è definita dalla funzionalità obbligatoria per il modello:
     * [Entità predefinita](luis-reference-prebuilt-entities.md)
@@ -54,36 +54,36 @@ Quando si esegue la migrazione, tenere presente quanto segue nel piano di migraz
     * Entità
         * Entità gerarchica
         * Entità composita
-    * Roles: i ruoli possono essere applicati solo a un'entità con apprendimento automatico (padre). Non è possibile applicare i ruoli alle sottoentità
+    * Roles: i ruoli possono essere applicati solo a un'entità di Machine Learning (padre). Non è possibile applicare i ruoli alle sottoentità
     * Test e modelli batch che usano le entità gerarchiche e composite
 
-Quando si progetta il piano di migrazione, lasciare il tempo necessario per rivedere le entità apprese dal computer finale, dopo la migrazione di tutte le entità gerarchiche e composite. Mentre è possibile eseguire una migrazione diretta, dopo aver apportato la modifica ed esaminato i risultati dei test di batch e la stima JSON, il JSON più unificato può comportare la modifica in modo che le informazioni finali inviate all'app sul lato client siano organizzate in modo diverso. Questa operazione è simile al refactoring del codice e deve essere trattata con lo stesso processo di revisione dell'organizzazione.
+Quando si progetta il piano di migrazione, lasciare il tempo necessario per rivedere le entità di Machine Learning finali, dopo la migrazione di tutte le entità gerarchiche e composite. Mentre è possibile eseguire una migrazione diretta, dopo aver apportato la modifica ed esaminato i risultati dei test di batch e la stima JSON, il JSON più unificato può comportare la modifica in modo che le informazioni finali inviate all'app sul lato client siano organizzate in modo diverso. Questa operazione è simile al refactoring del codice e deve essere trattata con lo stesso processo di revisione dell'organizzazione.
 
 Se non si dispone di test batch per il modello V2 e si esegue la migrazione dei test batch al modello V3 come parte della migrazione, non sarà possibile convalidare il modo in cui la migrazione influirà sui risultati della stima dell'endpoint.
 
 ## <a name="migrating-from-v2-entities"></a>Migrazione da entità V2
 
-Quando si inizia a passare al modello di creazione e modifica V3, è necessario considerare come passare all'entità appresa dal computer e alle relative sottoentità e funzionalità.
+Quando si inizia a passare al modello di creazione e modifica V3, è necessario considerare come passare all'entità Machine Learning e alle relative sottoentità e funzionalità.
 
 Nella tabella seguente sono riportate le entità di cui è necessario eseguire la migrazione da V2 a una progettazione di entità V3.
 
 |V2 tipo di entità di creazione|Tipo di entità authoring V3|Esempio|
 |--|--|--|
 |Entità composita|Entità appresa dal computer|[Ulteriori informazioni](#migrate-v2-composite-entity)|
-|Entità gerarchica|Ruolo dell'entità Machine-Learned|[Ulteriori informazioni](#migrate-v2-hierarchical-entity)|
+|Entità gerarchica|ruolo dell'entità Machine Learning|[Ulteriori informazioni](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Esegui migrazione dell'entità composita V2
 
-Ogni elemento figlio del composto V2 deve essere rappresentato con una sottoentità dell'entità Machine-Learn V3. Se l'elemento figlio composito è un'entità predefinita, un'espressione regolare o un elenco, è necessario applicarla come funzionalità obbligatoria nella sottoentità.
+Ogni elemento figlio del composto V2 deve essere rappresentato con una sottoentità dell'entità Machine Learning V3. Se l'elemento figlio composito è un'entità predefinita, un'espressione regolare o un elenco, è necessario applicarla come funzionalità obbligatoria nella sottoentità.
 
-Considerazioni sulla pianificazione della migrazione di un'entità composita a un'entità appresa dal computer:
+Considerazioni sulla pianificazione della migrazione di un'entità composita a un'entità di Machine Learning:
 * Le entità figlio non possono essere utilizzate nei modelli
 * Le entità figlio non sono più condivise
 * Le entità figlio devono essere etichettate se non sono state apprese da computer
 
 ### <a name="existing-features"></a>Funzionalità esistenti
 
-Qualsiasi elenco di frasi usato per incrementare le parole nell'entità composita deve essere applicato come funzionalità all'entità (padre) appresa dal computer, all'entità di sottoentità (figlio) o allo scopo (se l'elenco di frasi si applica solo a uno scopo). Pianificare l'aggiunta della funzionalità all'entità in cui deve essere incrementata significativamente. Non aggiungere la funzionalità in modo generico all'entità Machine-learned (Parent), se aumenterà significativamente la stima di una sottoentità (figlio).
+Qualsiasi elenco di frasi usato per aumentare le parole nell'entità composita deve essere applicato come funzionalità all'entità di Machine Learning (padre), all'entità di sottoentità (figlio) o allo scopo (se l'elenco di frasi si applica solo a uno scopo). Pianificare l'aggiunta della funzionalità all'entità in cui deve essere incrementata significativamente. Non aggiungere la funzionalità in modo generico all'entità di Machine Learning (padre), se aumenterà significativamente la stima di una sottoentità (figlio).
 
 ### <a name="new-features"></a>Nuove funzionalità
 
@@ -106,7 +106,7 @@ Nella tabella seguente viene illustrata la migrazione:
 
 |Modelli v2|Modelli V3|
 |--|--|
-|Entità componente padre denominata`Order`|Entità padre-Machine-Learn denominata`Order`|
+|Entità componente padre denominata`Order`|Entità padre-Machine-Learning denominata`Order`|
 |DatetimeV2 precompilata figlio|* Eseguire la migrazione di un'entità predefinita a una nuova app.<br>* Aggiungere la funzionalità richiesta nell'elemento padre per datetimeV2 predefiniti.|
 |Entità elenco elementi figlio per i superping|* Eseguire la migrazione dell'entità elenco alla nuova app.<br>* Aggiungere quindi una funzionalità obbligatoria nell'elemento padre per l'entità List.|
 
@@ -116,7 +116,7 @@ Nella tabella seguente viene illustrata la migrazione:
 Nella creazione V2 è stata fornita un'entità gerarchica prima dei ruoli esistenti in LUIS. Entrambi hanno servito lo stesso scopo dell'estrazione delle entità in base all'utilizzo del contesto. Se si dispone di entità gerarchiche, è possibile considerarle come entità semplici con ruoli.
 
 Nella creazione di V3:
-* Un ruolo può essere applicato nell'entità di apprendimento automatico (padre).
+* Un ruolo può essere applicato all'entità di Machine Learning (padre).
 * Non è possibile applicare un ruolo ad alcuna sottoentità.
 
 Questa entità è solo un esempio. La migrazione delle entità potrebbe richiedere altre considerazioni.
@@ -132,7 +132,7 @@ Nella tabella seguente viene illustrata la migrazione:
 
 |Modelli v2|Modelli V3|
 |--|--|
-|Entità componente padre denominata`Order`|Entità padre-Machine-Learn denominata`Order`|
+|Entità componente padre denominata`Order`|Entità padre-Machine-Learning denominata`Order`|
 |Entità figlio-gerarchica con topping iniziale e finale della pizza|* Aggiungere un ruolo a `Order` per ogni topping.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Vincolo di modifica API sostituito con la funzionalità richiesta

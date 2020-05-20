@@ -2,13 +2,13 @@
 title: Funzionalità-LUIS
 description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591897"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682155"
 ---
 # <a name="machine-learning-ml-features"></a>Funzionalità di Machine Learning (ML)
 
@@ -38,9 +38,9 @@ Quando è necessario che l'app LUIS sia in grado di generalizzare e identificare
 Con un elenco di frasi, LUIS considera il contesto e generalizza per identificare gli elementi simili a, ma non una corrispondenza esatta del testo.
 
 Passaggi per l'utilizzo di un elenco di frasi:
-* Inizia con un'entità appresa dal computer
+* Inizia con un'entità di Machine Learning
     * Aggiungere espressioni di esempio
-    * Etichetta con un'entità appresa dal computer
+    * Etichetta con un'entità Machine Learning
 * Aggiungere un elenco di frasi
     * Aggiungere parole con un significato simile: **non** aggiungere tutte le parole o frasi possibili. Aggiungere invece alcune parole o frasi alla volta, quindi ripetere il training e pubblicare.
     * Esaminare e aggiungere parole suggerite
@@ -54,7 +54,7 @@ Un esempio di parole che potrebbero richiedere un elenco di frasi per migliorare
 Se si desidera estrarre le condizioni mediche:
 * Creare prima di tutto espressioni di esempio ed etichettare i termini medici all'interno di tali enunciazioni.
 * Creare quindi un elenco di frasi con esempi dei termini all'interno del dominio dell'oggetto. Questo elenco di frasi deve includere il termine effettivo etichettato e altri termini che descrivono lo stesso concetto.
-* Aggiungere l'elenco di frasi all'entità o alla sottoentità che estrae il concetto usato nell'elenco di frasi. Lo scenario più comune è un componente (figlio) di un'entità appresa dal computer. Se l'elenco di frasi deve essere applicato a tutti gli Intent o alle entità, contrassegnare l'elenco di frasi come elenco di frasi globali. Il `enabledForAllModels` flag controlla questo ambito del modello nell'API.
+* Aggiungere l'elenco di frasi all'entità o alla sottoentità che estrae il concetto usato nell'elenco di frasi. Lo scenario più comune è un componente (figlio) di un'entità di machine learning. Se l'elenco di frasi deve essere applicato a tutti gli Intent o alle entità, contrassegnare l'elenco di frasi come elenco di frasi globali. Il `enabledForAllModels` flag controlla questo ambito del modello nell'API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -88,9 +88,21 @@ Se, ad esempio, l'entità Address di spedizione contiene una sottoentità Addres
     * Country (sottoentità)
     * Cap (sottoentità)
 
+## <a name="nested-subentities-with-features"></a>Sottoentità nidificate con funzionalità
+
+Una sottoentità appresa dal computer indica che è presente un concetto per l'entità padre, se tale elemento padre è un'altra sottoentità o l'entità superiore. Il valore della sottoentità funge da funzionalità per il relativo elemento padre.
+
+Una sottoentità può avere sia un elenco di frasi come funzionalità che un modello (un'altra entità) come una funzionalità.
+
+Quando la sottoentità ha un elenco di frasi, il vocabolario del concetto verrà incrementato, ma non verranno aggiunte informazioni alla risposta JSON della stima.
+
+Quando la sottoentità ha una funzionalità di un'altra entità, la risposta JSON include i dati estratti di quell'altra entità.
+
 ## <a name="required-features"></a>Funzionalità necessarie
 
 È necessario trovare una funzionalità obbligatoria affinché il modello venga restituito dall'endpoint di stima. Usare una funzionalità obbligatoria quando si è certi che i dati in ingresso devono corrispondere alla funzionalità.
+
+Se il testo dell'espressione non corrisponde alla funzionalità richiesta, non verrà estratto.
 
 **Una funzionalità obbligatoria usa un'entità non acquisita nel computer**:
 * Entità di espressione regolare

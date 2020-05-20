@@ -1,7 +1,7 @@
 ---
-title: Tipo di entità Machine-learned-LUIS
+title: Tipo di entità Machine Learning-LUIS
 titleSuffix: Azure Cognitive Services
-description: L'entità Machine-Learned è l'entità preferita per la compilazione di applicazioni LUIS.
+description: L'entità Machine Learning è l'entità preferita per la creazione di applicazioni LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585590"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684572"
 ---
-# <a name="machine-learned-entity"></a>Entità basata su Machine Learning
+# <a name="machine-learning-entity"></a>Entità Machine Learning
 
-L'entità Machine-Learned è l'entità preferita per la compilazione di applicazioni LUIS.
+L'entità Machine Learning è l'entità preferita per la creazione di applicazioni LUIS.
 
 
 ## <a name="example-json"></a>JSON di esempio
@@ -38,7 +38,7 @@ Le espressioni di esempio includono:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Poiché un'entità appresa dal computer può avere molte sottoentità con le funzionalità richieste, questo è solo un esempio. Deve essere considerata una guida per ciò che verrà restituito dall'entità.
+Poiché un'entità di machine learning può avere molte sottoentità con le funzionalità richieste, questo è solo un esempio. Deve essere considerata una guida per ciò che verrà restituito dall'entità.
 
 Si consideri la query:
 
@@ -348,6 +348,6 @@ Questa entità non è disponibile nel runtime di stima V2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sull'entità appresa dal computer, tra cui un' [esercitazione](tutorial-machine-learned-entity.md), [concetti](luis-concept-entity-types.md#design-entities-for-decomposition)e [procedure guidate](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Scopri di più sull'entità Machine Learning, tra cui un' [esercitazione](tutorial-machine-learned-entity.md), i [concetti](luis-concept-entity-types.md#design-entities-for-decomposition)e la [Guida alle procedure](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Informazioni sull'entità [List](reference-entity-list.md) e sull'entità di [espressioni regolari](reference-entity-regular-expression.md) .

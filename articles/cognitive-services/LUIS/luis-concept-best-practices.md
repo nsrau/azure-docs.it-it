@@ -2,14 +2,14 @@
 title: Procedure consigliate per la creazione dell'app LUIS
 description: Informazioni sulle procedure consigliate per ottenere risultati ottimali dal modello dell'app LUIS.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589806"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683767"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedure consigliate per la creazione di un'app LUIS (Language Understanding)
 Usare il processo di creazione di app per compilare l'app LUIS:
@@ -31,13 +31,27 @@ L'elenco seguente include le procedure consigliate per le app LUIS:
 
 |Cosa fare|Cosa non fare|
 |--|--|
-|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungere funzionalità agli Intent](#do-add-features-to-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o entità semplici](#dont-use-few-or-simple-entities) |
+|[Pianificare lo schema](#do-plan-your-schema)|[Compilazione e pubblicazione senza piano](#dont-publish-too-quickly)|
+|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungere funzionalità agli Intent](#do-add-features-to-intents)<br>
+[Usare le entità apprese dal computer](#do-use-machine-learned-entities) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o entità semplici](#dont-use-few-or-simple-entities) |
 |[Trovare un compromesso tra troppo generico e troppo specifico per ogni finalità](#do-find-sweet-spot-for-intents)|[Usare LUIS come piattaforma di training](#dont-use-luis-as-a-training-platform)|
 |[Compilare l'app in modo iterativo con le versioni](#do-build-your-app-iteratively-with-versions)<br>[Entità di compilazione per la scomposizione dei modelli](#do-build-for-model-decomposition)|[Aggiungere molte espressioni di esempio dello stesso formato, ignorando gli altri](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Aggiungere modelli nelle iterazioni successive](#do-add-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
 |[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare elenchi di frasi con tutti i valori possibili](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Usare la funzionalità suggerimento per l'apprendimento attivo](#do-leverage-the-suggest-feature-for-active-learning)|[Aggiungere troppi criteri](#dont-add-many-patterns)|
 |[Monitorare le prestazioni dell'app con test batch](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicare con ogni singola espressione di esempio aggiunta](#dont-train-and-publish-with-every-single-example-utterance)|
+
+## <a name="do-plan-your-schema"></a>Pianificare lo schema
+
+Prima di iniziare a compilare lo schema dell'app, è necessario identificare l'elemento e il percorso in cui si intende usare questa app. La pianificazione più approfondita e specifica, migliore sarà l'app.
+
+* Ricerca di utenti mirati
+* Definizione di persone di tipo end-to-end per rappresentare l'App-Voice, l'avatar, la gestione dei problemi (proattivo, reattivo)
+* Identificare le interazioni utente (testo, sintesi vocale) attraverso i canali, passando a soluzioni esistenti o creando una nuova soluzione per questa app
+* Percorso utente end-to-end
+    * Cosa è necessario aspettarsi da questa app? * Quali sono le priorità di quello che dovrebbe fare?
+    * Quali sono i casi d'uso principali?
+* Raccolta di dati: [informazioni](data-collection.md) sulla raccolta e la preparazione dei dati
 
 ## <a name="do-define-distinct-intents"></a>Definire finalità distinte
 Assicurarsi che il vocabolario per ogni finalità sia specifico di quella finalità e che non si sovrapponga a un'altra. Ad esempio, se si vuole realizzare un'app per gestire i viaggi, ad esempio i voli aerei e gli hotel, è possibile scegliere di definire queste aree di interesse come finalità separate o una sola finalità con entità per dati specifici all'interno dell'espressione.
@@ -60,6 +74,14 @@ Le funzionalità descrivono i concetti per uno scopo. Una funzionalità può ess
 ## <a name="do-find-sweet-spot-for-intents"></a>Trovare un compromesso per le finalità
 Usare i dati di stima LUIS per determinare se le finalità si sovrappongono. Le finalità sovrapposte confondono LUIS. Il risultato è che la finalità con il punteggio più alto è troppo vicina a un'altra finalità. Poiché LUIS non usa ogni volta lo stesso percorso esatto attraverso i dati per il training, una finalità sovrapposta ha la possibilità di essere la prima o la seconda nel training. Si vuole che il punteggio dell'espressione per ogni finalità sia più distante affinché questo non si verifichi. La distinzione ottimale tra le finalità dovrebbe produrre ogni volta la finalità principale prevista.
 
+## <a name="do-use-machine-learned-entities"></a>Usare le entità apprese dal computer
+
+Le entità apprese dal computer sono personalizzate per l'app e richiedono l'assegnazione di etichette per avere esito positivo. Se non si utilizzano le entità apprese dal computer, è possibile utilizzare lo strumento errato.
+
+Le entità apprese dal computer possono usare altre entità come funzionalità. Queste altre entità possono essere entità personalizzate, ad esempio entità di espressioni regolari o entità dell'elenco, oppure è possibile utilizzare le entità predefinite come funzionalità.
+
+Informazioni sulle [entità efficaci apprese dal computer](luis-concept-entity-types.md#effective-machine-learned-entities).
+
 <a name="#do-build-the-app-iteratively"></a>
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Compilare l'app in modo iterativo con le versioni
@@ -79,9 +101,9 @@ La scomposizione dei modelli ha un processo tipico:
 
 Dopo aver creato la finalità e aggiunto le espressioni di esempio, nell'esempio seguente viene descritta la scomposizione delle entità.
 
-Per iniziare, è necessario identificare i concetti di dati completi da estrarre in un enunciato. Si tratta dell'entità appresa dal computer. Quindi scomporre la frase nelle relative parti. Ciò include l'identificazione di sottoentità e funzionalità.
+Per iniziare, è necessario identificare i concetti di dati completi da estrarre in un enunciato. Si tratta dell'entità di machine learning. Quindi scomporre la frase nelle relative parti. Ciò include l'identificazione di sottoentità e funzionalità.
 
-Se, ad esempio, si desidera estrarre un indirizzo, è possibile chiamare l'entità Machine-learned Top `Address` . Durante la creazione dell'indirizzo, identificare alcune delle relative sottoentità, ad esempio via indirizzo, città, stato e codice postale.
+Se ad esempio si vuole estrarre un indirizzo, è possibile chiamare l'entità di Machine Learning di livello superiore `Address` . Durante la creazione dell'indirizzo, identificare alcune delle relative sottoentità, ad esempio via indirizzo, città, stato e codice postale.
 
 Continuare a scomporre gli elementi per:
 * Aggiunta di una funzionalità obbligatoria del Cap come entità di espressione regolare.
@@ -122,13 +144,21 @@ Monitorare la precisione della stima usando un set di [test batch](luis-concept-
 
 Mantieni un set separato di espressioni che non vengono usate come [espressioni di esempio](luis-concept-utterance.md) o espressioni di endpoint. Continuare a migliorare l'app per il set di test. Adattare il set di test per riflettere espressioni utente reali. Usare questo set di test per valutare ogni iterazione o versione dell'app.
 
+## <a name="dont-publish-too-quickly"></a>Non pubblicare troppo rapidamente
+
+La pubblicazione dell'app troppo rapidamente, senza una [pianificazione corretta](#do-plan-your-schema), può causare diversi problemi, ad esempio:
+
+* L'app non funzionerà nello scenario effettivo a un livello di prestazioni accettabile.
+* Lo schema (Intent ed entità) non è appropriato e, se è stata sviluppata la logica dell'app client dopo lo schema, potrebbe essere necessario riscriverla da zero. Ciò provocherebbe ritardi imprevisti e un costo aggiuntivo per il progetto su cui si sta lavorando.
+* Le espressioni che si aggiungono al modello possono causare la distorsione verso il set di espressioni di esempio difficili da eseguire il debug e l'identificazione. La rimozione dell'ambiguità sarà anche difficile dopo aver eseguito il commit in un determinato schema.
+
 ## <a name="dont-add-many-example-utterances-to-intents"></a>Non aggiungere molte espressioni di esempio alle finalità
 
 Dopo la pubblicazione dell'app, aggiungere solo espressioni di apprendimento attivo nel processo del ciclo di vita di sviluppo. Se le espressioni sono troppo simili, aggiungere un criterio.
 
 ## <a name="dont-use-few-or-simple-entities"></a>Non usare poche o entità semplici
 
-Le entità sono compilate per l'estrazione e la stima dei dati. È importante che ogni finalità disponga di entità apprese dal computer che descrivono i dati nella finalità. Questo consente a LUIS di prevedere lo scopo, anche se l'applicazione client non deve usare l'entità estratta.
+Le entità sono compilate per l'estrazione e la stima dei dati. È importante che ogni finalità includa entità di Machine Learning che descrivano i dati nella finalità. Questo consente a LUIS di prevedere lo scopo, anche se l'applicazione client non deve usare l'entità estratta.
 
 ## <a name="dont-use-luis-as-a-training-platform"></a>Non usare LUIS come piattaforma di training
 

@@ -3,12 +3,12 @@ title: Limiti-LUIS
 description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS presenta diverse aree di limiti. Il limite di modelli controlla gli Intent, le entità e le funzionalità di LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
 ms.topic: reference
 ms.date: 05/06/2020
-ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593240"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684614"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limiti per il modello e le chiavi LUIS
 LUIS presenta diverse aree di limite. Il primo è il [limite del modello](#model-limits), che controlla gli Intent, le entità e le funzionalità in Luis. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area dei limiti è la [combinazione di tasti](#keyboard-controls) per il controllo del sito Web Luis. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
@@ -28,7 +28,7 @@ Se l'app supera i limiti del modello LUIS, provare a usare un'app [Luis dispatch
 | Entità esterne | Nessun limite |
 | [Finalità][intents]|500 per applicazione: 499 Intent personalizzati e la finalità obbligatoria _None_ .<br>L'applicazione [basata su dispatch](https://aka.ms/dispatch-tool) ha origini di invio 500 corrispondenti.|
 | [Elencare le entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [Entità e ruoli appresi dal computer](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.<br>Le sottoentità possono essere annidate fino a 5 livelli.|
+| [entità e ruoli di Machine Learning](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.<br>Le sottoentità possono essere annidate fino a 5 livelli.|
 |Modello come funzionalità| Numero massimo di modelli che possono essere utilizzati come funzionalità per un modello specifico come 10 modelli. Il numero massimo di elenchi di frasi usati come funzionalità per un modello specifico come un elenco di 10 frasi.|
 | [Anteprima-entità elenco dinamico](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di ~ 1K per richiesta dell'endpoint di stima di query|
 | [Modelli](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
@@ -53,7 +53,7 @@ I nomi degli oggetti devono essere univoci rispetto ad altri oggetti dello stess
 |Oggetti|Restrizioni|
 |--|--|
 |Finalità, entità|Tutte le finalità e i nomi di entità devono essere univoci in una versione di un'app.|
-|Componenti dell'entità ML|Tutti i componenti di entità appresi dal computer (entità figlio) devono essere univoci all'interno di tale entità per i componenti allo stesso livello.|
+|Componenti dell'entità ML|Tutti i componenti dell'entità Machine Learning (entità figlio) devono essere univoci all'interno di tale entità per i componenti allo stesso livello.|
 |Funzionalità | Tutte le funzionalità denominate, ad esempio gli elenchi di frasi, devono essere univoche all'interno di una versione di un'app.|
 |Ruoli entità|Tutti i ruoli in un componente entità o entità devono essere univoci quando sono allo stesso livello di entità (padre, figlio, nipote e così via).|
 
@@ -106,7 +106,7 @@ L' [integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | Descrizione |
+|Input tastiera | Description |
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

@@ -8,14 +8,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8be5dac2d1d5e8a5a3ceafff6b51b2d89e03993f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593283"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685293"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati
 
@@ -25,24 +25,28 @@ L'entità rappresenta una parola o una frase all'interno dell'espressione che si
 
 ## <a name="plan-entities-then-create-and-label"></a>Pianificare entità, quindi creare ed etichettare
 
-Le entità apprese dal computer possono essere create dalle espressioni di esempio o create dalla pagina **entità** .
+le entità di machine learning possono essere create a partire dalle espressioni di esempio o create dalla pagina delle **entità** .
 
-In generale, una procedura consigliata consiste nel dedicare tempo alla pianificazione delle entità prima di creare un'entità appresa dal computer nel portale. Creare quindi l'entità Machine-learned dall'espressione di esempio con tutti i dettagli delle sottoentità e delle funzionalità che si conoscono al momento. Nell' [esercitazione sull'entità decomponibile](tutorial-machine-learned-entity.md) viene illustrato come utilizzare questo metodo.
+In generale, una procedura consigliata consiste nel dedicare tempo alla pianificazione delle entità prima di creare un'entità di machine learning nel portale. Quindi, creare l'entità Machine Learning dall'espressione di esempio con tutti i dettagli delle sottoentità e delle funzionalità che si conoscono al momento. Nell' [esercitazione sull'entità decomponibile](tutorial-machine-learned-entity.md) viene illustrato come utilizzare questo metodo.
 
 Come parte della pianificazione delle entità, è possibile che siano necessarie entità corrispondenti al testo (ad esempio, entità predefinite, entità di espressioni regolari o entità di elenco). È possibile crearli dalla pagina **entità** prima che vengano etichettati in espressioni di esempio.
 
-Quando si etichetta, è possibile etichettare singole entità, quindi creare fino a un'entità padre appresa dal computer. In alternativa, è possibile iniziare con un'entità padre acquisita dal computer e decomporre le entità figlio.
+Quando si etichetta, è possibile etichettare singole entità, quindi crearle in un'entità di Machine Learning padre. In alternativa, è possibile iniziare con un'entità di Machine Learning padre e decomporre le entità figlio.
 
 > [!TIP]
 >Etichettare tutte le parole che possono indicare un'entità, anche se le parole non vengono utilizzate quando vengono estratte nell'applicazione client.
 
-## <a name="creating-an-entity-before-or-with-labeling"></a>Creazione di un'entità prima o con l'assegnazione di etichette
+## <a name="when-to-create-an-entity"></a>Quando creare un'entità
 
-Usare la tabella seguente per comprendere quali entità devono creare o aggiungere ogni entità all'app.
+Dopo aver pianificato le entità, è necessario creare le entità e le sottoentità di machine learning. Potrebbe essere necessario aggiungere entità predefinite o entità corrispondenti al testo per fornire funzionalità per le entità di machine learning. Queste operazioni devono essere eseguite prima dell'assegnazione di etichette.
+
+Quando si inizia a etichettare espressioni di esempio, è possibile creare entità apprese dal computer o estendere le entità dell'elenco.
+
+Usare la tabella seguente per comprendere dove creare o aggiungere ogni tipo di entità all'app.
 
 |Tipo di entità|Dove creare un'entità nel portale LUIS|
 |--|--|
-|Entità basata su Machine Learning|Entità o dettagli finalità|
+|entità Machine Learning|Entità o dettagli finalità|
 |Entità elenco|Entità o dettagli finalità|
 |Entità di espressione regolare|Entità|
 |Entità pattern.any|Entità|
@@ -51,27 +55,11 @@ Usare la tabella seguente per comprendere quali entità devono creare o aggiunge
 
 È possibile creare tutte le entità dalla pagina **entità** oppure creare un paio di entità nell'ambito dell'assegnazione di etichette all'entità nell'enunciato di esempio nella pagina dei dettagli dello **scopo** . È possibile _assegnare un'etichetta_ a un'entità solo in un enunciato di esempio dalla pagina dei **dettagli dello scopo** .
 
-## <a name="create-a-machine-learned-entity"></a>Creare un'entità Machine-Learned
 
-[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## <a name="create-a-text-matching-entity"></a>Creare un'entità corrispondente al testo
+## <a name="how-to-create-a-new-custom-entity"></a>Come creare una nuova entità personalizzata
 
-Usare le entità di corrispondenza testo per estrarre i dati in diversi modi:
-
-|Entità corrispondenti al testo|Scopo|
-|--|--|
-|[Entità elenco](reference-entity-list.md)|elenco di nomi canonici insieme a sinonimi come form alternativi|
-|Entità di espressione regolare|trovare la corrispondenza con il testo usando un'entità di espressione regolare|
-|[Entità predefinita](luis-reference-prebuilt-entities.md)|corrispondenza tra tipi di dati comuni, ad esempio numero, posta elettronica, data|
-|Entità di dominio predefinita|corrispondenza con i domini oggetto selezionati|
-|[Pattern.any](reference-entity-pattern-any.md)| per individuare le entità che possono essere confuse facilmente con il testo circostante|
-
-Le entità predefinite funzionano senza fornire dati di training personalizzati. Per le altre entità è necessario fornire i dati di training del cliente (ad esempio, gli elementi dell'entità elenco) o un'espressione (ad esempio, un'espressione regolare o un modello. Any).
-
-<a name="add-list-entities"></a>
-
-### <a name="how-to-create-a-new-custom-entity"></a>Come creare una nuova entità personalizzata
+Questo processo funziona per entità, elenco ed entità di espressioni regolari apprese dal computer.
 
 1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
@@ -79,7 +67,50 @@ Le entità predefinite funzionano senza fornire dati di training personalizzati.
 1. Selezionare **+ Crea**, quindi selezionare il tipo di entità.
 1. Continuare la configurazione dell'entità, quindi selezionare **Crea** al termine dell'operazione.
 
-### <a name="add-list-entities-for-exact-matches"></a>Aggiungere entità elenco per corrispondenze esatte
+## <a name="create-a-machine-learned-entity"></a>Creare un'entità Machine Learned
+
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Crea**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della creazione di un'entità Machine Learned.](media/add-entities/machine-learned-entity-with-structure.png)
+
+1. In **Aggiungi sottoentità**aggiungere una sottoentità selezionando nella **+** riga entità padre.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot dell'aggiunta di sottoentità.](media/add-entities/machine-learned-entity-with-subentities.png)
+
+1. Selezionare **Crea** per completare il processo di creazione.
+
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>Aggiungere una funzionalità a un'entità appresa dal computer
+
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare l'entità Machine Learned.
+1. Aggiungere una funzionalità selezionando **+ Aggiungi funzionalità** nella riga entità o sottoentità.
+1. Consente di selezionare tra le entità e gli elenchi di frasi esistenti.
+1. Se l'entità deve essere estratta solo se la funzionalità viene trovata, selezionare l'asterisco `*` per la funzionalità.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot dell'aggiunta della funzionalità all'entità.](media/add-entities/machine-learned-entity-schema-with-features.png)
+
+## <a name="create-a-regular-expression-entity"></a>Creare un'entità di espressione regolare
+
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
+
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **Regex**, immettere l'espressione regolare nel campo **Regex** e selezionare **Crea**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della creazione di un'entità di espressione regolare.](media/add-entities/add-regular-expression-entity.png)
+
+
+<a name="add-list-entities"></a>
+
+## <a name="create-a-list-entity"></a>Creare un'entità elenco
 
 Le entità elenco rappresentano un set fisso e chiuso di parole correlate. Mentre l'autore può modificare l'elenco, LUIS non aumenterà o ridurrà l'elenco. È anche possibile importare in un'entità List esistente usando un [formato Entity. JSON list](reference-entity-list.md#example-json-to-import-into-list-entity).
 
@@ -88,7 +119,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 |Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
 |Rosso|Crimson, Blood, Apple, Fire-Engine|
-|Blu|Sky, Azure, Cobalt|
+|Blu|Sky, cobalto|
 |Green|Kelly, limone|
 
 Utilizzare la procedura per creare un'entità elenco. Una volta creata l'entità dell'elenco, non è necessario etichettare espressioni di esempio in uno scopo. Gli elementi dell'elenco e i sinonimi vengono confrontati con il testo esatto.
@@ -138,47 +169,38 @@ In questa procedura aggiungere i `origin` `destination` ruoli e a un'entità geo
     Il ruolo viene aggiunto all'entità precompilata, ma non viene aggiunto a espressioni con tale entità.
 
 ### <a name="label-text-with-a-role-in-an-example-utterance"></a>Testo etichetta con un ruolo in un enunciato di esempio
+
+> [!TIP]
+> I ruoli possono essere sostituiti con l'assegnazione di etichette alle sottoentità di un'entità di machine learning.
+
 1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Passare alla pagina Dettagli finalità, che contiene espressioni di esempio che usano il ruolo.
-1. Per assegnare un'etichetta con il ruolo, selezionare l'etichetta dell'entità (linea continua sotto testo) nell'espressione di esempio, quindi selezionare **Visualizza in tavolozza entità** nell'elenco a discesa.
+1. Per etichettare con il ruolo, selezionare l'etichetta dell'entità (linea continua sotto testo) nell'espressione di esempio, quindi selezionare **Visualizza nel riquadro entità** nell'elenco a discesa.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)
+    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/add-entities/view-in-entity-pane.png)
 
     La tavolozza entità si apre a destra.
 
 1. Selezionare l'entità, quindi passare alla parte inferiore della tavolozza e selezionare il ruolo.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
+<a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="add-a-patternany-entity"></a>Aggiungere un pattern. Any (entità)
+## <a name="create-a-patternany-entity"></a>Creare un modello. qualsiasi entità
 
-[Modello. le](luis-concept-entity-types.md) entità sono valide solo nei [modelli](luis-how-to-model-intent-pattern.md), non negli enunciati di esempio. Questo tipo di entità consente a LUIS di trovare la fine di entità di lunghezza e scelta delle parole variabili. Poiché questa entità viene usata in un criterio, LUIS sa dove si trova la fine dell'entità nel modello dell'espressione.
+Il **modello. qualsiasi** entità è disponibile solo con i [modelli](luis-how-to-model-intent-pattern.md).
 
-### <a name="steps-to-create-a-patternany-entity"></a>Procedura per creare un modello. qualsiasi entità
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
-1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
-1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
-
-1. Nella finestra di dialogo **scegliere un tipo di entità** immettere il nome dell'entità nella **casella nome** e selezionare **pattern. any** come **tipo** e quindi selezionare **Crea**.
-
-    Una volta [creato un modello di espressione](luis-how-to-model-intent-pattern.md) usando questa entità, l'entità viene estratta con un algoritmo combinato di ricerca di computer e di corrispondenza del testo.
-
-### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Creare un'espressione modello di modello per usare pattern. any Entity
-
-Per usare l'entità pattern.any, aggiungere un criterio nella pagina **Patterns** (Criteri) nella sezione **Improve app performance** (Migliora prestazioni app) con la sintassi con parentesi graffe corretta, ad esempio `Where is **{HumanResourcesFormTitle}** on the server?`.
-
-Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](reference-pattern-syntax.md#explicit-lists) per risolvere il problema.
 
 ## <a name="do-not-change-entity-type"></a>Non modificare il tipo di entità
 
 LUIS non consente di modificare il tipo di entità perché non conoscere gli elementi da aggiungere o rimuovere per costruire tale entità. Per modificare il tipo, è preferibile creare una nuova entità del tipo corretto con un nome leggermente diverso. Dopo aver creato l'entità, in ogni espressione rimuovere il vecchio nome dell'entità con etichetta e aggiungere quello nuovo. Dopo che tutte le espressioni sono stata nuovamente etichettate, eliminare l'entità precedente.
 
-<a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

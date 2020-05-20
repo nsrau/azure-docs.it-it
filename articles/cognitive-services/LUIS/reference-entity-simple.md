@@ -1,7 +1,7 @@
 ---
 title: Tipo di entità semplice-LUIS
 titleSuffix: Azure Cognitive Services
-description: Un'entità semplice descrive un singolo concetto dal contesto acquisito dal computer. Aggiungere un elenco di frasi quando si usa un'entità semplice per migliorare i risultati.
+description: Un'entità semplice descrive un singolo concetto dal contesto di machine learning. Aggiungere un elenco di frasi quando si usa un'entità semplice per migliorare i risultati.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74894768"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684566"
 ---
 # <a name="simple-entity"></a>Entità semplice
 
-Un'entità semplice è un'entità generica che descrive un singolo concetto e che viene appresa dal contesto basato su Machine Learning. Poiché le entità semplici sono in genere nomi, come nomi di società, nomi di prodotto o altre categorie di nomi, è consigliabile aggiungere un [elenco di frasi](luis-concept-feature.md) quando si usa un'entità semplice per migliorare il segnale dei nomi usati.
+Una semplice entità è un'entità generica che descrive un singolo concetto ed è appresa dal contesto di machine learning. Poiché le entità semplici sono in genere nomi, come nomi di società, nomi di prodotto o altre categorie di nomi, è consigliabile aggiungere un [elenco di frasi](luis-concept-feature.md) quando si usa un'entità semplice per migliorare il segnale dei nomi usati.
 
 **Questa entità è idonea quando:**
 
@@ -51,7 +51,7 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
+Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
 
 ```json
 "entities": {

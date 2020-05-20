@@ -7,15 +7,15 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081f512fd421bf46a86f3789eadd75e178e1b6f5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72755228"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685302"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizzare contenuto video per individuare materiale inappropriato in C#
 
@@ -40,7 +40,7 @@ Passare alla nuova sottoscrizione AMS di AZURE nel portale di Azure e selezionar
 
 Nella sezione **App Azure AD** selezionare **Crea nuovo** e assegnare un nome alla nuova registrazione dell'applicazione di Azure AD, ad esempio "VideoModADApp". Fare clic su **Salva** e attendere qualche minuto mentre l'applicazione viene configurata. Quindi si dovrebbe vedere la nuova registrazione dell'app nella sezione **App di Azure AD** della pagina.
 
-Selezionare la registrazione dell'app e fare clic sul pulsante **Gestisci applicazione** sottostante. Annotare il valore nel campo **ID applicazione** che sarà necessario in seguito. Selezionare **Impostazioni** > **chiavi**e immettere una descrizione per una nuova chiave, ad esempio "VideoModKey". Fare clic su **Salva** e quindi annotare il nuovo valore della chiave. Copiare questa stringa e conservarla in un luogo sicuro.
+Selezionare la registrazione dell'app e fare clic sul pulsante **Gestisci applicazione** sottostante. Annotare il valore nel campo **ID applicazione** che sarà necessario in seguito. Selezionare **Impostazioni**  >  **chiavi**e immettere una descrizione per una nuova chiave, ad esempio "VideoModKey". Fare clic su **Salva** e quindi annotare il nuovo valore della chiave. Copiare questa stringa e conservarla in un luogo sicuro.
 
 Per una procedura dettagliata più completa del processo precedente, vedere [Introduzione all'autenticazione di Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 

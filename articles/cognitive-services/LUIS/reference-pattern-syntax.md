@@ -4,19 +4,19 @@ description: Creare entità per estrarre i dati chiave da espressioni utente nel
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684538"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
 La sintassi dei criteri è un modello per un'espressione. Il modello deve contenere parole ed entità per le quali si desidera trovare una corrispondenza, oltre a parole e [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) che si desidera ignorare. **Non** si tratta di un'espressione regolare.
 
 > [!CAUTION]
-> I modelli includono solo gli elementi padre di entità apprese dal computer, non le sottoentità.
+> I modelli includono solo gli elementi padre dell'entità di Machine Learning, non le sottoentità.
 
 Le entità nei criteri sono racchiuse tra parentesi graffe, `{}`. I criteri possono includere entità ed entità con ruoli. [Pattern. any](luis-concept-entity-types.md#patternany-entity) è un'entità usata solo nei modelli.
 

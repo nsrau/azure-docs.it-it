@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404256"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684058"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
 
-Usa la moderazione delle immagini assistita da computer di Content Moderator e [lo strumento di revisione umana in loop](Review-Tool-User-Guide/human-in-the-loop.md) per moderare le immagini per contenuti per adulti e per gli utenti. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
+USA [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) per la moderazione e la revisione delle immagini assistite da un content moderator per moderare le immagini per contenuti per adulti e in modo audace. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Valutazione dei contenuti spinti e per adulti
 
@@ -147,4 +147,4 @@ Per i casi più sfumati, usare lo [strumento di revisione](Review-Tool-User-Guid
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e C#, vedere anche la sezione relativa alla moderazione delle immagini della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .
+Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Vedere anche [recensioni, flussi di lavoro e processi](./review-api.md) per apprendere come configurare le recensioni umane.
