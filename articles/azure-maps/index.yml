@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132455"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589262"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Visualizzare le metriche di utilizzo dell'API Mappe di Azure
       url: how-to-view-api-usage.md
+- title: Sviluppo con Creator
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Concetti relativi alle piante di interni
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Usare Creator per creare dati delle piante di interni
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire le piante di interni di Creator
+      url: how-to-manage-creator.md
+    - text: Implementare stili dinamici per le piante di interni
+      url: indoor-map-dynamic-styling.md
+    - text: Usare il visualizzatore errori di disegno di Mappe di Azure
+      url: drawing-error-visualizer.md
+    - text: Usare il modulo di piante di interni
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: Servizio di conversione
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: Servizio Dataset
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: Servizio Tileset
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: Servizio Feature State
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Sviluppo con l'SDK Web
   linkLists:
   - linkListType: concept

@@ -67,6 +67,8 @@
           href: cdn-restrict-access-by-country.md
         - name: Compressione dei file per migliorare le prestazioni
           href: cdn-improve-performance.md
+        - name: Endpoint multiorigine
+          href: endpoint-multiorigin.md
         - name: Controllare il comportamento di memorizzazione nella cache
           items:
             - name: Controllare il comportamento di memorizzazione nella cache con regole di memorizzazione nella cache

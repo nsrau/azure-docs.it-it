@@ -1,28 +1,30 @@
 ### YamlMime:Landing
-title: Documentazione delle funzionalità B2B di Azure Active Directory
-summary: Informazioni su come usare le funzionalità di Collaborazione B2B (Business-to-Business) di Azure AD per condividere in modo sicuro le applicazioni e i servizi aziendali con utenti guest e partner esterni da qualsiasi organizzazione, mantenendo al tempo stesso il controllo sui dati aziendali.
+title: Documentazione di Identità esterne
+summary: Il servizio Identità esterne è composto da una serie di funzionalità che consentono alle organizzazioni di proteggere e gestire qualsiasi utente esterno, tra cui clienti e partner. Sulla base della collaborazione B2B, Identità esterne offre funzionalità aggiuntive per interagire e comunicare con utenti esterni all'organizzazione.
 metadata:
-  title: Documentazione della gestione delle applicazioni
-  description: Informazioni su come usare le funzionalità di Collaborazione B2B (Business-to-Business) di Azure AD per condividere in modo sicuro le applicazioni e i servizi aziendali con utenti guest e partner esterni da qualsiasi organizzazione, mantenendo al tempo stesso il controllo sui dati aziendali.
+  title: Documentazione di Identità esterne
+  description: Il servizio Identità esterne è composto da una serie di funzionalità che consentono alle organizzazioni di proteggere e gestire qualsiasi utente esterno, tra cui clienti e partner. Sulla base della collaborazione B2B, Identità esterne offre funzionalità aggiuntive per interagire e comunicare con utenti esterni all'organizzazione.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2019
+  ms.date: 05/19/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74272689"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83587477"
 landingContent:
-- title: Informazioni su Collaborazione B2B
+- title: Informazioni su Identità esterne
   linkLists:
   - linkListType: overview
     links:
+    - text: Confrontare le soluzioni per Identità esterne
+      url: compare-with-b2c.md
     - text: Informazioni sull'accesso utente guest B2B
       url: what-is-b2b.md
 - title: Invitare utenti guest B2B

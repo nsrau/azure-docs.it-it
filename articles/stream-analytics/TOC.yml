@@ -58,6 +58,7 @@
       items:
         - name: Panoramica degli output
           href: stream-analytics-define-outputs.md
+          displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
         - name: Output in Cosmos DB
           href: stream-analytics-documentdb-output.md
         - name: Output nel database SQL di Azure
@@ -127,14 +128,22 @@
           href: copy-job.md
         - name: Associare processi per l'affidabilità
           href: stream-analytics-job-reliability.md
-        - name: Eseguire l'autenticazione con un'identità gestita - Output di ADLS Gen1
-          href: stream-analytics-managed-identities-adls.md
         - name: Usare dati di riferimento SQL
           href: sql-reference-data.md
-        - name: Eseguire l'autenticazione con un'identità gestita - Output di BLOB
-          href: blob-output-managed-identity.md
-        - name: Eseguire l'autenticazione con un'identità gestita - Power BI
-          href: powerbi-output-managed-identity.md
+        - name: Eseguire l'autenticazione con un'identità gestita
+          items:
+            - name: ADLS Gen 1
+              href: stream-analytics-managed-identities-adls.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Archiviazione BLOB
+              href: blob-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Power BI
+              href: powerbi-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Database SQL di Azure
+              href: sql-database-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
         - name: Crittografare i dati
           href: data-protection.md
     - name: Creare soluzioni
@@ -226,6 +235,18 @@
           href: stream-analytics-job-diagnostic-logs.md
         - name: Errori nei dati
           href: data-errors.md
+        - name: Codici di errore
+          items:
+            - name: Errori di configurazione
+              href: configuration-error-codes.md
+            - name: Errori nei dati
+              href: data-error-codes.md
+            - name: Errori di disponibilità esterni
+              href: external-availability-error-codes.md
+            - name: Errori esterni
+              href: external-error-codes.md
+            - name: Errori interni
+              href: internal-error-codes.md
     - name: Integrazione con Machine Learning
       items:
         - name: Analisi del sentiment con modelli di Machine Learning

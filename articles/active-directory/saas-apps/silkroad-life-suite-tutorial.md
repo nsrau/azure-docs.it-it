@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare Single Sign-On di Azure AD con SilkRoad Life Suite, eseguire i passaggi seguenti:
 
-1. Nella pagina di integrazione dell'applicazione [SilkRoad Life Suite](https://portal.azure.com/) del **portale di Azure** fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **SilkRoad Life Suite** del [portale di Azure](https://portal.azure.com/) fare clic su **Single sign-on**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

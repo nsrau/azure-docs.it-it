@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 84000016af4b16bd0716c15e7c27b4ab56614532
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591022"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702161"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -47,7 +47,8 @@ I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore.
+Compilare e inviare il [modulo di richiesta](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
+
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -262,7 +263,7 @@ Questo comando:
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizzare i sentimenti nell'output di sintesi vocale 
 
-A partire da v 2.2.0 del contenitore di riconoscimento vocale, è possibile chiamare l' [API analisi del sentimento V3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) nell'output. Per chiamare l'analisi dei sentimenti, è necessario un endpoint di risorsa API Analisi del testo. ad esempio: 
+A partire da v 2.2.0 del contenitore di riconoscimento vocale, è possibile chiamare l' [API analisi del sentimento V3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) nell'output. Per chiamare l'analisi dei sentimenti, è necessario un endpoint di risorsa API Analisi del testo. Ad esempio: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -309,7 +310,7 @@ Ottenere l' **ID modello** da usare come argomento per il `ModelId` parametro de
 
 La tabella seguente rappresenta i vari `docker run` parametri e le relative descrizioni:
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | [Montaggio del volume](https://docs.docker.com/storage/volumes/)del computer host, usato da Docker per salvare in modo permanente il modello personalizzato. Ad esempio *C:\CustomSpeech* , in cui l' *unità C* si trova nel computer host. |
 | `{MODEL_ID}` | ID del **modello** di riconoscimento vocale personalizzato dalla pagina **Training** del portale di riconoscimento vocale personalizzato. |
@@ -371,7 +372,7 @@ Ottenere l' **ID modello** da usare come argomento per il `ModelId` parametro de
 
 La tabella seguente rappresenta i vari `docker run` parametri e le relative descrizioni:
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | [Montaggio del volume](https://docs.docker.com/storage/volumes/)del computer host, usato da Docker per salvare in modo permanente il modello personalizzato. Ad esempio *C:\CustomSpeech* , in cui l' *unità C* si trova nel computer host. |
 | `{MODEL_ID}` | ID del **modello** di riconoscimento vocale personalizzato dalla pagina **Training** del portale vocale personalizzato. |

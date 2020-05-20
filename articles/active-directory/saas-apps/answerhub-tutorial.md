@@ -90,7 +90,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD nel portale 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con AnswerHub:**
 
-1. Nella pagina di integrazione dell'applicazione [AnswerHub](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **AnswerHub** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Pulsante per l'accesso Single Sign-On](common/select-sso.png)
 

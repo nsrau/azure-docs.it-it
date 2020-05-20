@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Documentazione di Traduzione testuale
-summary: Traduzione testuale è un servizio di traduzione automatica basato su cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. L'API usa la moderna tecnologia di traduzione automatica neurale, oltre a offrire tecnologia per la traduzione automatica basata su statistiche. Traduttore personalizzato è un'estensione dell'API Traduzione testuale che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con l'API Traduzione testuale o con i servizi Voce Microsoft.
+title: Documentazione di Traduttore
+summary: Traduttore è un servizio di traduzione automatica basato sul cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. Il servizio usa la moderna tecnologia di traduzione automatica neurale, oltre a una tecnologia per la traduzione automatica basata su statistiche. Traduttore personalizzato è un'estensione di Traduttore che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con Traduttore o con i servizi Voce Microsoft.
 metadata:
-  title: Documentazione di Traduzione testuale - Guide di avvio rapido, esercitazioni, informazioni di riferimento per le API
+  title: Documentazione di Traduttore - Guide di avvio rapido, esercitazioni, informazioni di riferimento per le API
   titleSuffix: Azure Cognitive Services
-  description: Traduzione testuale è un servizio di traduzione automatica basato su cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. L'API usa la moderna tecnologia di traduzione automatica neurale, oltre a offrire tecnologia per la traduzione automatica basata su statistiche. Traduttore personalizzato è un'estensione dell'API Traduzione testuale che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con l'API Traduzione testuale o con i servizi Voce Microsoft.
+  description: Traduttore è un servizio di traduzione automatica basato sul cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. Il servizio usa la moderna tecnologia di traduzione automatica neurale, oltre a una tecnologia per la traduzione automatica basata su statistiche. Traduttore personalizzato è un'estensione di Traduttore che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con Traduttore o con i servizi Voce Microsoft.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529799"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592747"
 landingContent:
 - title: Funzione di conversione
   linkLists:
   - linkListType: overview
     links:
-    - text: API Traduzione testuale
+    - text: Funzione di conversione
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: Domande frequenti
       url: https://www.microsoft.com/translator/faq.aspx
-- title: API Traduzione testuale
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Informazioni di riferimento sull'API Traduzione testuale (v3)
+    - text: Informazioni di riferimento su Traduttore (v3)
       url: reference/v3-0-reference.md
     - text: Limiti delle richieste
       url: request-limits.md

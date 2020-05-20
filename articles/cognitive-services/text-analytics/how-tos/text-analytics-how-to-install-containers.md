@@ -11,17 +11,17 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588397"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702142"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
 > [!NOTE]
-> * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori di estrazione di frasi chiave e rilevamento della lingua sono disponibili come [anteprima pubblica non gestita](../../cognitive-services-gating-process.md).
+> * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori di estrazione di frasi chiave e rilevamento della lingua sono disponibili come anteprima pubblica non gestita.
 > * Il collegamento di entità e NER non sono attualmente disponibili come contenitore.
 
 I contenitori consentono di eseguire le API analitiche del testo nel proprio ambiente e sono perfette per i requisiti specifici di sicurezza e governance dei dati. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. 
@@ -95,7 +95,7 @@ Usare il comando [Docker Run](https://docs.docker.com/engine/reference/commandli
 
 Sostituire i segnaposto seguenti con valori personalizzati:
 
-| Segnaposto | Valore | Formato o esempio |
+| Segnaposto | valore | Formato o esempio |
 |-------------|-------|---|
 | **{API_KEY}** | Chiave per la risorsa Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | Endpoint per l'accesso alla API Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |

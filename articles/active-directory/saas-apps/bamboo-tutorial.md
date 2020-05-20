@@ -91,7 +91,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con SAML SSO for Bamboo by resolution GmbH seguire la procedura illustrata di seguito:
 
-1. Nella pagina di integrazione dell'applicazione [SAML SSO for Bamboo by resolution GmbH](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **SAML SSO for Bamboo by resolution GmbH** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

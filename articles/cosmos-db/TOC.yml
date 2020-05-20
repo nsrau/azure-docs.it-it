@@ -119,8 +119,6 @@
           href: global-dist-under-the-hood.md
         - name: Presenza a livello di area
           href: regional-presence.md
-        - name: Archiviazione transazionale e analitica
-          href: globally-distributed-transactional-analytical-storage.md
     - name: Partizionamento
       items:
         - name: Panoramica sul partizionamento
@@ -494,14 +492,16 @@
           href: change-feed-functions.md
         - name: Modello di pull del feed di modifiche
           href: change-feed-pull-model.md
-    - name: Intelligenza artificiale e analisi distribuite a livello globale
+    - name: Analisi con Collegamento a Synapse
       items:
-        - name: Casi d'uso di Analytics
-          href: analytics-usecases.md
-        - name: Analytics - Architetture delle soluzioni
-          href: analytics-solution-architectures.md
-        - name: Architettura lambda
-          href: lambda-architecture.md
+        - name: Collegamento a Synapse per Azure Cosmos DB
+          href: synapse-link.md
+        - name: Archivio analitico - Panoramica
+          href: analytical-store-introduction.md
+        - name: Domande frequenti su Collegamento a Synapse
+          href: synapse-link-frequently-asked-questions.md
+        - name: Casi d'uso di Collegamento a Synapse
+          href: synapse-link-use-cases.md
     - name: Notebook di Jupyter predefiniti
       items:
         - name: Panoramica dei notebook di Jupyter
@@ -675,15 +675,15 @@
                   href: mongodb-samples.md
                 - name: App Node.js e Angular
                   items:
-                    - name: Parte 1 - Introduzione
+                    - name: 'Parte 1: Introduzione'
                       href: tutorial-develop-mongodb-nodejs.md
-                    - name: Parte 2 - Creare l'app Node
+                    - name: 'Parte 2: Creare l''app Node'
                       href: tutorial-develop-mongodb-nodejs-part2.md
                     - name: Parte 3 - Aggiungere l'interfaccia utente con Angular
                       href: tutorial-develop-mongodb-nodejs-part3.md
                     - name: Parte 4 - Creare un account
                       href: tutorial-develop-mongodb-nodejs-part4.md
-                    - name: Parte 5 - Connettersi a Cosmos DB
+                    - name: 'Parte 5: Connettersi a Cosmos DB'
                       href: tutorial-develop-mongodb-nodejs-part5.md
                     - name: Parte 6 - Eseguire operazioni CRUD
                       href: tutorial-develop-mongodb-nodejs-part6.md
@@ -1020,6 +1020,10 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Feed di modifiche - Esempio di Async Java
           href: create-sql-api-java-changefeed.md
+    - name: Analisi con Collegamento a Synapse
+      items:
+        - name: Configurare Collegamento a Synapse
+          href: configure-synapse-link.md
     - name: Analisi predefinita con Apache Spark
       items:
         - name: Connettore Azure Databricks Spark

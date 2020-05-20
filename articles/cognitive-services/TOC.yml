@@ -9,6 +9,8 @@
       href: cognitive-services-and-machine-learning.md
     - name: Sottodomini personalizzati per Servizi cognitivi
       href: cognitive-services-custom-subdomains.md
+    - name: Processo di controllo di Servizi cognitivi
+      href: cognitive-services-gating-process.md
     - name: Lingue supportate
       href: language-support.md
 - name: Avvi rapidi
@@ -19,7 +21,7 @@
       href: cognitive-services-apis-create-account-cli.md
     - name: Registrazione diagnostica
       href: diagnostic-logging.md
-- name: Security
+- name: Sicurezza
   items:
     - name: Sicurezza di Servizi cognitivi
       href: cognitive-services-security.md

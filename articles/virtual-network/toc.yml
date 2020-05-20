@@ -88,6 +88,8 @@
           href: ipv6-overview.md
         - name: Prefisso dell'indirizzo IPv6 pubblico
           href: ipv6-public-ip-address-prefix.md
+        - name: Preferenza di routing
+          href: routing-preference-overview.md
     - name: Sicurezza
       items:
         - name: Gruppi di sicurezza di rete
@@ -222,6 +224,24 @@
               href: manage-public-ip-address-prefix.md
             - name: Aggiungere o rimuovere indirizzi IP dalle schede di interfaccia di rete
               href: virtual-network-network-interface-addresses.md
+            - name: Preferenza di routing
+              items:
+                - name: Creare un indirizzo IP pubblico
+                  items:
+                    - name: Portale di Azure
+                      href: routing-preference-portal.md
+                    - name: Azure PowerShell
+                      href: routing-preference-powershell.md
+                    - name: Interfaccia della riga di comando di Azure
+                      href: routing-preference-cli.md
+                - name: Configurare una VM con preferenza di routing Internet
+                  items:
+                    - name: Portale di Azure
+                      href: tutorial-routing-preference-virtual-machine-portal.md
+                    - name: Azure PowerShell
+                      href: configure-routing-preference-virtual-machine-powershell.md
+                    - name: Interfaccia della riga di comando di Azure
+                      href: configure-routing-preference-virtual-machine-cli.md
     - name: Sicurezza
       items:
         - name: Filtrare il traffico di rete
