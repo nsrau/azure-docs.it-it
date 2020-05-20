@@ -3,12 +3,12 @@ title: File di SharePoint-QnA Maker
 description: Aggiungere origini dati di SharePoint protette alla Knowledge base per arricchire la Knowledge base con domande e risposte che possono essere protette con Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294886"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660302"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Aggiungere un'origine dati di SharePoint protetta alla Knowledge base
 
@@ -27,12 +27,12 @@ Se il gestore QnA Maker Knowledge base non è il Active Directory Manager, sarà
 
 È possibile aggiungere tutti i tipi di [file](../Concepts/content-types.md) supportati da QnA Maker da un sito di SharePoint alla Knowledge base. Se la risorsa file è protetta, potrebbe essere necessario concedere le [autorizzazioni](#permissions) .
 
-1. Dalla libreria con il sito di SharePoint, selezionare il menu con i puntini `...`di sospensione del file.
+1. Dalla libreria con il sito di SharePoint, selezionare il menu con i puntini di sospensione del file `...` .
 1. Copiare l'URL del file.
 
    ![Ottenere l'URL del file di SharePoint selezionando il menu con i puntini di sospensione del file e quindi copiando l'URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. Nella pagina **Impostazioni** del portale di QnA Maker [aggiungere l'URL](manage-knowledge-bases.md#edit-knowledge-base) alla Knowledge base.
+1. Nella pagina **Impostazioni** del portale di QnA Maker aggiungere l'URL alla Knowledge base.
 
 ### <a name="images-with-sharepoint-files"></a>Immagini con file di SharePoint
 
@@ -44,7 +44,7 @@ Aggiungere l'immagine con la sintassi Markdown seguente:
 ![Explanation or description of image](URL of public image)
 ```
 
-Il testo racchiuso tra parentesi quadre `[]`,, spiega l'immagine. L'URL racchiuso tra parentesi, `()`, è il collegamento diretto all'immagine.
+Il testo racchiuso tra parentesi quadre, `[]` , spiega l'immagine. L'URL racchiuso tra parentesi, `()` , è il collegamento diretto all'immagine.
 
 Quando si esegue il test della coppia QnA nel pannello di test interattivo, nel portale QnA Maker viene visualizzata l'immagine anziché il testo Markdown. Ciò consente di verificare che l'immagine possa essere recuperata pubblicamente dall'applicazione client.
 

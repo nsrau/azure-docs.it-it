@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372095"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653655"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker la crittografia dei dati inattivi
 
@@ -52,6 +52,11 @@ Il servizio QnA Maker USA CMK dal servizio ricerca di Azure. Per abilitare CMK, 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Le chiavi gestite dal cliente sono disponibili in tutte le aree di ricerca di Azure.
+
+## <a name="encryption-of-data-in-transit"></a>Crittografia dei dati in transito
+
+QnA Maker portale viene eseguito nel browser dell'utente. Ogni azione attiva una chiamata diretta alla rispettiva API di servizi cognitivi. Di conseguenza, QnA Maker è conforme ai dati in transito.
+Tuttavia, poiché il servizio di QnA Maker portale è ospitato negli Stati Uniti occidentali, non è ancora ideale per i clienti non statunitensi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

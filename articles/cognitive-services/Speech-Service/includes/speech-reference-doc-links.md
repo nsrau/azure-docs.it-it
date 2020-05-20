@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399711"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650598"
 ---
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
@@ -43,5 +43,6 @@ Usare l'elenco seguente per trovare la documentazione di riferimento dell'SDK vo
 Per i riferimenti a diverse API REST del servizio vocale, vedere l'elenco seguente:
 
 - [API REST: Riconoscimento vocale](../rest-speech-to-text.md)
+- [API REST: valutazione della pronuncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [API REST: Sintesi vocale](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: trascrizione e personalizzazione di batch<span class="docon docon-navigate-external x-hidden-focus"></span></a>

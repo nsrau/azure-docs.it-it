@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585624"
+ms.locfileid: "83653888"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale LUIS o tramite le [API](developer-reference-resource.md) di creazione di LUIS.
@@ -45,10 +45,10 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 
 ## <a name="create-new-app-in-luis"></a>Creare la nuova appa in LUIS
 
-1. Nella pagina **app personali** selezionare la sottoscrizione e la creazione di risorse e quindi **Crea**. Se si usa una chiave di valutazione gratuita, vedere come [creare una risorsa di creazione](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Nella pagina **app personali** selezionare la **sottoscrizione**e la **creazione di risorse** e quindi **Crea**. Se si usa una chiave di valutazione gratuita, vedere come [creare una risorsa di creazione](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Elenco di app di Language Understanding](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Elenco di app di Language Understanding](./media/create-app-in-portal.png)
 
 1. Nella finestra di dialogo immettere il nome dell'applicazione, ad esempio `Pizza Tutorial` .
 
@@ -64,7 +64,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
     > [!div class="mx-imgBorder"]
     > ![Elenco Intent senza finalità create senza espressioni di esempio.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Altre azioni disponibili
+## <a name="other-actions-available-on-my-apps-page"></a>Altre azioni disponibili nella pagina App personali
 
 La barra degli strumenti del contesto fornisce altre azioni:
 

@@ -2,14 +2,14 @@
 title: Modifiche all'endpoint di stima nell'API V3
 description: Le API di query PREDICTION endpoint V3 sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530386"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653854"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -39,11 +39,11 @@ V3 ha apportato le modifiche seguenti come parte del passaggio a GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Nome chiave unità misurabile `units` da a`unit`
+    * Nome chiave unità misurabile da `units` a`unit`
 
 * Modifica JSON del corpo della richiesta:
     * da `preferExternalEntities` a`preferExternalEntities`
-    * parametro `score` facoltativo per entità esterne
+    * `score`parametro facoltativo per entità esterne
 
 * Modifiche JSON del corpo della risposta:
     * `normalizedQuery`rimosso
@@ -73,16 +73,9 @@ L'API di stima V2 non verrà deprecata per almeno 9 mesi dopo l'anteprima V3, 8 
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Modifiche in base al nome dello slot e al nome della versione
 
-Il formato della chiamata HTTP dell'endpoint V3 è stato modificato.
+Il [formato della chiamata http dell'endpoint V3](developer-reference-resource.md#rest-endpoints) è stato modificato.
 
-Per eseguire una query in base alla versione, è prima di tutto necessario [pubblicare tramite l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true`. Eseguire una query sull'endpoint che fa riferimento all'ID versione anziché al nome dello slot.
-
-|VERSIONE DELL'API DI STIMA|METHOD|URL|
-|--|--|--|
-|V3|GET|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{nome-slot}</b>/Predict? query =<b>{query}</b>|
-|V3|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{nome-slot}</b>/Predict|
-|V2|GET|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict? query =<b>{query}</b>|
-|V2|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict|
+Per eseguire una query in base alla versione, è prima di tutto necessario [pubblicare tramite l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true` . Eseguire una query sull'endpoint che fa riferimento all'ID versione anziché al nome dello slot.
 
 |Valori validi per`SLOT-NAME`|
 |--|
@@ -95,14 +88,14 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 
 L'API V3 ha parametri di stringa di query diversi.
 
-|Nome param|Type|Versione|Predefinito|Scopo|
+|Nome param|Tipo|Versione|Predefinito|Scopo|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|Archivia query nel file di log. Il valore predefinito è False.|
-|`query`|stringa|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
-|`show-all-intents`|boolean|Solo V3|false|Restituisce tutti gli Intent con il punteggio corrispondente nell'oggetto **PREDICTION. Intent** . Gli Intent vengono restituiti come oggetti in un oggetto `intents` padre. Questo consente l'accesso a livello di codice senza la necessità di trovare l'intento in una matrice: `prediction.intents.give`. Nella versione V2 questi sono stati restituiti in una matrice. |
-|`verbose`|boolean|V2 & V3|false|**Nella versione V2**, quando è impostato su true, vengono restituiti tutti gli Intent stimati. Se sono necessari tutti gli intenti previsti, usare il parametro V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo i dettagli relativi ai metadati dell'entità della stima delle entità.  |
-|`timezoneOffset`|stringa|V2|-|Fuso orario applicato alle entità datetimeV2.|
-|`datetimeReference`|stringa|V3|-|[Fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applicato alle entità datetimeV2. Sostituisce `timezoneOffset` dalla versione V2.|
+|`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
+|`show-all-intents`|boolean|Solo V3|false|Restituisce tutti gli Intent con il punteggio corrispondente nell'oggetto **PREDICTION. Intent** . Gli Intent vengono restituiti come oggetti in un `intents` oggetto padre. Questo consente l'accesso a livello di codice senza la necessità di trovare l'intento in una matrice: `prediction.intents.give` . Nella versione V2 questi sono stati restituiti in una matrice. |
+|`verbose`|boolean|V2 & V3|false|**Nella versione V2**, quando è impostato su true, vengono restituiti tutti gli Intent stimati. Se sono necessari tutti gli intenti previsti, usare il parametro V3 di `show-all-intents` .<br><br>**In V3**, questo parametro fornisce solo i dettagli relativi ai metadati dell'entità della stima delle entità.  |
+|`timezoneOffset`|string|V2|-|Fuso orario applicato alle entità datetimeV2.|
+|`datetimeReference`|string|V3|-|[Fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applicato alle entità datetimeV2. Sostituisce `timezoneOffset` dalla versione V2.|
 
 
 ### <a name="v3-post-body"></a>Corpo POST V3
@@ -123,9 +116,9 @@ L'API V3 ha parametri di stringa di query diversi.
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
-|`options.datetimeReference`|stringa|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](schema-change-prediction-runtime.md#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|stringa|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
+|`query`|string|Solo V3|Obbligatoria.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
 
 ## <a name="response-changes"></a>Modifiche della risposta
 
@@ -160,7 +153,7 @@ Le principali proprietà JSON per V3 sono:
 }
 ```
 
-L' `intents` oggetto è un elenco non ordinato. Non presupporre che il primo elemento figlio `intents` nell'oggetto corrisponda a `topIntent`. Usare invece il `topIntent` valore per trovare il Punteggio:
+L' `intents` oggetto è un elenco non ordinato. Non presupporre che il primo elemento figlio nell'oggetto `intents` corrisponda a `topIntent` . Usare invece il `topIntent` valore per trovare il Punteggio:
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
@@ -169,22 +162,22 @@ const score = intents[topIntentName];
 
 Le modifiche dello schema JSON della risposta consentono:
 
-* Distinzione netta tra espressione originale `query`, e stima restituita, `prediction`.
+* Distinzione netta tra espressione originale, `query` e stima restituita, `prediction` .
 * Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai valori in base al **nome** sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
 * I tipi di dati, se determinati, vengono rispettati. I numeri non vengono più restituiti come stringhe.
-* Distinzione tra le prime informazioni di stima di priorità e i `$instance` metadati aggiuntivi restituiti nell'oggetto.
+* Distinzione tra le prime informazioni di stima di priorità e i metadati aggiuntivi restituiti nell' `$instance` oggetto.
 
 ### <a name="entity-response-changes"></a>Modifiche della risposta dell'entità
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Contrassegno del posizionamento delle entità negli enunciati
 
-**Nella versione V2**, un'entità è stata contrassegnata in un `startIndex` enunciato con e `endIndex`.
+**Nella versione V2**, un'entità è stata contrassegnata in un enunciato con `startIndex` e `endIndex` .
 
-**In V3**l'entità è contrassegnata con `startIndex` e `entityLength`.
+**In V3**l'entità è contrassegnata con `startIndex` e `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Accesso `$instance` per i metadati dell'entità
 
-Se sono necessari metadati di entità, la stringa di query deve usare `verbose=true` il flag e la risposta contiene i metadati nell' `$instance` oggetto. Gli esempi vengono mostrati nelle risposte JSON nelle sezioni seguenti.
+Se sono necessari metadati di entità, la stringa di query deve usare il `verbose=true` flag e la risposta contiene i metadati nell' `$instance` oggetto. Gli esempi vengono mostrati nelle risposte JSON nelle sezioni seguenti.
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Ogni entità stimata è rappresentata come una matrice
 
@@ -210,7 +203,7 @@ Il codice JSON per la stima di un'entità di elenco è stato modificato in una m
 ```
 Ogni matrice interna corrisponde al testo all'interno dell'espressione. L'oggetto interno è una matrice perché lo stesso testo può essere visualizzato in più di un sottoelenco di un'entità elenco.
 
-Quando si esegue il `entities` mapping tra l' `$instance` oggetto e l'oggetto, l'ordine degli oggetti viene mantenuto per le stime di entità dell'elenco.
+Quando si esegue il mapping tra l' `entities` oggetto `$instance` e l'oggetto, l'ordine degli oggetti viene mantenuto per le stime di entità dell'elenco.
 
 ```nodejs
 const item = 0; // order preserved, use same enumeration for both
@@ -222,7 +215,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 Nella versione V2 la `entities` matrice ha restituito tutte le entità stimate con il nome dell'entità che rappresenta l'identificatore univoco. In V3, se l'entità utilizza ruoli e la stima è per un ruolo entità, l'identificatore primario è il nome del ruolo. Questo è possibile perché i nomi dei ruoli di entità devono essere univoci nell'intera app, inclusi altri nomi di modello (finalità, entità).
 
-Nell'esempio seguente: si consideri un enunciato che include `Yellow Bird Lane`il testo. Questo testo viene stimato come il ruolo `Location` di un'entità personalizzata `Destination`di.
+Nell'esempio seguente: si consideri un enunciato che include il testo `Yellow Bird Lane` . Questo testo viene stimato come il `Location` ruolo di un'entità personalizzata di `Destination` .
 
 |Testo enunciato|Nome dell'entità|Nome ruolo|
 |--|--|--|

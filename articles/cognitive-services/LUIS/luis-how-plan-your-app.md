@@ -2,13 +2,13 @@
 title: Pianificare l'app-LUIS
 description: Definire le finalità e le entità dell'app e quindi creare i relativi piani in Language Understanding Intelligent Service (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/14/2020
+ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382300"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654121"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con dominio soggetto ed estrazione dei dati
 
@@ -25,9 +25,9 @@ Un'app LUIS è incentrata su un dominio soggetto. Ad esempio, è possibile avere
 
 Considerare gli [Intent](luis-concept-intent.md) che sono importanti per le attività dell'applicazione.
 
-Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. È possibile definire gli `BookFlight` Intent e `GetWeather` per queste azioni.
+Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. È possibile definire gli `BookFlight` `GetWeather` Intent e per queste azioni.
 
-In un'app più complessa con più funzioni, sono presenti più Intent ed è necessario definirli con cautela, in modo che gli Intent non siano troppo specifici. Ad esempio, `BookFlight` e `BookHotel` potrebbe essere necessario che sia un Intent separato, `BookInternationalFlight` ma `BookDomesticFlight` e potrebbe essere troppo simile.
+In un'app più complessa con più funzioni, sono presenti più Intent ed è necessario definirli con cautela, in modo che gli Intent non siano troppo specifici. Ad esempio, `BookFlight` e `BookHotel` potrebbe essere necessario che sia un Intent separato, ma `BookInternationalFlight` e `BookDomesticFlight` potrebbe essere troppo simile.
 
 > [!NOTE]
 > È consigliabile limitare il numero delle finalità solo a quelle necessarie per eseguire le funzioni dell'app. Se si definiscono troppe finalità, per LUIS sarà più difficile classificare correttamente le espressioni. Se si definisce un numero troppo basso di elementi, potrebbe essere così generale che si sovrappongono.
@@ -48,6 +48,30 @@ Quando si determinano le entità da usare nell'app, tenere presente che esistono
 
 > [!TIP]
 > LUIS offre [entità predefinite](luis-prebuilt-entities.md) per scenari utente comuni e di conversazione. Prendere in considerazione l'uso di entità predefinite come punto di partenza per lo sviluppo di applicazioni.
+
+## <a name="resolution-with-intent-or-entity"></a>Risoluzione con finalità o entità?
+
+In molti casi, soprattutto quando si lavora con la conversazione naturale, gli utenti forniscono un enunciato che può contenere più di una funzione o finalità. Per risolvere questo problema, una regola empirica generale consiste nel comprendere che la rappresentazione dell'output può essere eseguita sia negli Intent che nelle entità. Questa rappresentazione deve essere mappabili per le azioni dell'applicazione client e non deve essere limitata agli Intent.
+
+**Int-ENT-Ties** è il concetto che le azioni, generalmente comprese come Intent, possono essere acquisite come entità e si basano su in questo formato nel codice JSON di output in cui è possibile eseguire il mapping a un'azione specifica. La _negazione_ è un utilizzo comune per sfruttare questa dipendenza sia per finalità che per entità per l'estrazione completa.
+
+Si considerino i due enunciati seguenti, che sono molto vicini considerando la scelta di parole, ma hanno risultati diversi:
+
+|Espressione|
+|--|
+|`Please schedule my flight from Cairo to Seattle`|
+|`Cancel my flight from Cairo to Seattle`|
+
+Invece di avere due finalità separate, creare una singola finalità con un'entità di `FlightAction` Machine Learning. L'entità Machine Learning deve estrarre i dettagli dell'azione sia per una pianificazione che per una richiesta di annullamento, nonché per una posizione di origine o di destinazione.
+
+L' `FlightAction` entità sarà strutturata nel codice citato di seguito per entità e sottoentità di Machine Learning:
+
+* FlightAction
+    * Azione
+    * Origine
+    * Destination
+
+Per consentire all'estrazione di aggiungere funzionalità alle sottoentità. Si scelgono le funzionalità in base al vocabolario che si prevede di visualizzare negli enunciati utente e i valori che si desidera vengano restituiti nella risposta alla stima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

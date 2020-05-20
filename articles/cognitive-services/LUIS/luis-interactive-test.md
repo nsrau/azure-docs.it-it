@@ -2,13 +2,13 @@
 title: Testare l'app nel portale di LUIS
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591863"
+ms.locfileid: "83653884"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
@@ -44,7 +44,7 @@ L'espressione di test non deve essere esattamente identica a qualsiasi espressio
 
     ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Ispezionare il punteggio
+## <a name="inspect-the-prediction"></a>Esaminare la stima
 
 Esaminare i dettagli del risultato del test nel pannello di **controllo** .
 
@@ -52,23 +52,21 @@ Esaminare i dettagli del risultato del test nel pannello di **controllo** .
 
     ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
 
-1. Verrà visualizzato il pannello **ispezione** . Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+1. Verrà visualizzato il pannello **ispezione** . Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra la stima dell'espressione selezionata.
 
-    ![Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.](./media/luis-how-to-interactive-test/inspect-panel.png)
+## <a name="add-to-example-utterances"></a>Aggiungi a espressioni di esempio
 
-## <a name="correct-top-scoring-intent"></a>Finalità con punteggio più alto corretta
+Dal Pannello ispezione è possibile aggiungere l'espressione di test a uno scopo selezionando **Aggiungi a espressioni di esempio**.
 
-1. Se la finalità con punteggio più alto non è corretta, selezionare il pulsante **Edit** (Modifica).
+## <a name="disable-required-features"></a>Disabilitare le funzionalità richieste
 
-1.  Nell'elenco a discesa selezionare la finalità corretta per l'espressione.
+Selezionare questa opzione per visualizzare l'elemento di stima se la funzionalità dell'entità non è necessaria.
 
-    ![Selezionare la finalità corretta](./media/luis-how-to-interactive-test/intent-select.png)
+Questo elemento consente di determinare se l'app sottoposta a training sta stimando correttamente le entità in base alle funzionalità richieste. L'app sottoposta a training potrebbe stimare erroneamente un'entità appresa dal computer basata su un'etichetta non corretta di espressioni di esempio o la funzionalità richiesta non corrisponde al testo.
 
 ## <a name="view-sentiment-results"></a>Visualizzare i risultati del sentiment
 
 Se l'**analisi del sentiment** è stata configurata nella pagina **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** (Pubblica), i risultati del test includono il sentiment trovato nell'espressione.
-
-![Immagine del riquadro Test con analisi del sentiment](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Correggere la finalità del criterio corrispondente
 

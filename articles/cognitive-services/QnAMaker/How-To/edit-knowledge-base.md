@@ -2,13 +2,13 @@
 title: Modificare una knowledge base - QnA Maker
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3cf5dcedd4d2cfa82fda002b71abca1e5bea4b18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650853"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -16,21 +16,68 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
 
 Le coppie QnA vengono aggiunte da un'origine dati, ad esempio un file o un URL, o aggiunte come origine editoriale. Un'origine editoriale indica che la coppia QnA è stata aggiunta manualmente nel portale di QnA. Tutte le coppie di QnA sono disponibili per la modifica.
 
+<a name="add-an-editorial-qna-set"></a>
+
 ## <a name="add-an-editorial-qna-pair"></a>Aggiungere una coppia QnA editoriale
+
 1. Accedere al portale di [QnA](https://www.qnamaker.ai/), quindi selezionare la Knowledge base a cui aggiungere la coppia di QnA.
 1. Nella pagina **modifica** della Knowledge Base selezionare **Aggiungi coppia QnA** per aggiungere una nuova coppia di QnA.
 
-1. Nella riga nuova coppia di QnA aggiungere i campi **domanda** e **risposta** richiesti. Gli altri campi sono facoltativi. Tutti i campi possono essere modificati in qualsiasi momento.
+    > [!div class="mx-imgBorder"]
+    > ![Add QnA pair (Aggiungi coppia domanda/risposta)](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-1. Facoltativamente, aggiungere formulazione **alternativa**. Il formulazione alternativa è qualsiasi forma della domanda significativamente diversa dalla domanda originale, ma deve fornire la stessa risposta.
+1. Nella riga nuova coppia di QnA aggiungere i campi domanda e risposta richiesti. Gli altri campi sono facoltativi. Tutti i campi possono essere modificati in qualsiasi momento.
+
+1. Facoltativamente, aggiungere formulazione **[alternativa](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Il formulazione alternativa è qualsiasi forma della domanda significativamente diversa dalla domanda originale, ma deve fornire la stessa risposta.
 
     Quando la Knowledge base è pubblicata e l' [apprendimento attivo](use-active-learning.md) è attivato, QnA Maker raccoglie opzioni di formulazione alternative per l'accettazione. Queste opzioni sono selezionate per aumentare l'accuratezza della stima.
 
-1. Facoltativamente, aggiungere i **metadati**. Per visualizzare i metadati, scegliere **Visualizza opzioni** dal menu di scelta rapida. I metadati forniscono filtri alle risposte fornite dall'applicazione client, ad esempio un bot di chat.
+1. Facoltativamente, aggiungere i **[metadati](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. Per visualizzare i metadati, scegliere **Visualizza opzioni** dal menu di scelta rapida. I metadati forniscono filtri alle risposte fornite dall'applicazione client, ad esempio un bot di chat.
 
-1. Facoltativamente, aggiungere **richieste di completamento**. Le richieste di completamento forniscono ulteriori percorsi di conversazione all'applicazione client da presentare all'utente.
+1. Facoltativamente, aggiungere **[richieste di completamento](multiturn-conversation.md)**. Le richieste di completamento forniscono ulteriori percorsi di conversazione all'applicazione client da presentare all'utente.
 
 1. Selezionare **Salva e** Esegui il training per visualizzare le stime, inclusa la nuova coppia QnA.
+
+## <a name="rich-text-editing-for-answer"></a>Modifica di testo RTF per la risposta
+
+La modifica di testo in formato RTF del testo di risposta offre lo stile Markdown da una semplice barra degli strumenti.
+
+1. Selezionare l'area di testo per una risposta. la barra degli strumenti Editor di testo RTF viene visualizzata nella riga della coppia QnA.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot dell'editor di testo RTF con la domanda e la risposta di una riga di coppia QnA.](../media/qnamaker-how-to-edit-kb/rich-text-control-qna-pair-row.png)
+
+    Il testo già presente nella risposta viene visualizzato correttamente, in quanto l'utente lo vedrà da un bot.
+
+1. Modificare il testo. Selezionare formattazione funzionalità dalla barra degli strumenti per la modifica di testo RTF oppure utilizzare la funzionalità attiva/disattiva per passare alla sintassi di Markdown.
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilizzare l'editor di testo RTF per scrivere e formattare il testo e salvarlo come Markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
+
+    |Funzionalità dell'editor RTF|Tasti di scelta rapida|
+    |--|--|
+    |Consente di passare da un editor di testo RTF a un Markdown e viceversa. `</>`|CTRL+M|
+    |Grassetto. **B**|CTR + LB|
+    |Corsivo, indicato con una ** _I_**|CTRL+I|
+    |Elenco non ordinato||
+    |Elenco ordinato||
+    |Stile paragrafo||
+    |Image: aggiungere un'immagine disponibile da un URL pubblico.|CTRL+G|
+    |Aggiungere il collegamento all'URL disponibile pubblicamente.|CTRL+K|
+    |Emoticon: aggiungere da una selezione di emoticon.|CTRL+E|
+    |Menu avanzato-Annulla|CTRL+Z|
+    |Menu avanzato-Ripeti|CTRL+Y|
+
+1. Aggiungere un'immagine alla risposta usando l'icona dell'immagine nella barra degli strumenti di testo RTF. L'editor sul posto richiede l'URL dell'immagine accessibile pubblicamente e il testo alternativo per l'immagine.
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilizzare l'editor di testo RTF per aggiungere un'immagine accessibile pubblicamente e il testo alternativo.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+
+1. Aggiungere un collegamento a un URL selezionando il testo nella risposta, quindi selezionando l'icona del collegamento sulla barra degli strumenti oppure selezionando l'icona del collegamento sulla barra degli strumenti e quindi immettendo il nuovo testo e l'URL.
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilizzare l'editor di testo RTF per aggiungere un'immagine accessibile pubblicamente e il testo alternativo.](../media/qnamaker-how-to-edit-kb/add-link-to-answer-rich-text-editor.png)
 
 ## <a name="edit-a-qna-pair"></a>Modificare una coppia di QnA
 
@@ -70,6 +117,12 @@ Aggiungere i set di metadati selezionando prima **Opzioni di visualizzazione**, 
 Selezionare periodicamente **Salva e** Esegui il training dopo avere apportato modifiche per evitare di perdere le modifiche.
 
 ![Aggiungere metadati](../media/qnamaker-how-to-edit-kb/add-metadata.png)
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>Quando utilizzare la modifica di testo RTF rispetto a Markdown
+
+La modifica delle risposte con [testo RTF](#add-an-editorial-qna-set) consente, come autore, di utilizzare una barra degli strumenti di formattazione per selezionare e formattare rapidamente il testo.
+
+[Markdown](../reference-markdown-format.md) è uno strumento migliore quando è necessario generare automaticamente contenuto per creare Knowledge base da importare come parte di una pipeline di integrazione continua/recapito continuo o per i [test batch](../Quickstarts/batch-testing.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

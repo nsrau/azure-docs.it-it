@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592900"
+ms.locfileid: "83659281"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitazioni del contenitore Language Understanding (LUIS)
 
@@ -35,7 +35,7 @@ Per [esportare per il contenitore](luis-container-howto.md#export-packaged-app-f
 
 Configurazioni dell'app non supportate|Dettagli|
 |--|--|
-|Impostazioni cultura del contenitore non supportate| Olandese ( `nl-NL` )<br>Giapponese ( `ja-JP` )<br>Il tedesco è supportato solo con la [Tokenizer 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Impostazioni cultura del contenitore non supportate| Le lingue olandese ( `nl-NL` ), giapponese ( `ja-JP` ) e tedesco ( `de-DE` ) sono supportate solo con il [Tokenizer 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entità non supportate per tutte le impostazioni cultura|Entità [KeyPhrase](luis-reference-prebuilt-keyphrase.md) predefinita per tutte le impostazioni cultura|
 |Entità non supportate per la lingua inglese ( `en-US` )|Entità [GeographyV2](luis-reference-prebuilt-geographyV2.md) predefinite|
 |Priming del riconoscimento vocale|Le dipendenze esterne non sono supportate nel contenitore.|
