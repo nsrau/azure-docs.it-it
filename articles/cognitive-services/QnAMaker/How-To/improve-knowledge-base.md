@@ -3,12 +3,12 @@ title: Migliorare una knowledge base - QnA Maker
 description: Migliorare la qualità della Knowledge base con l'apprendimento attivo. Verifica, accetta o rifiuta, Aggiungi senza rimuovere o modificare le domande esistenti.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756780"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650766"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 
@@ -31,7 +31,7 @@ Per visualizzare le domande suggerite, è necessario [attivare l'apprendimento a
 
     [![Usare l'interruttore Filtra per suggerimenti per visualizzare solo le alternative alla domanda consigliata di apprendimento attivo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Ogni coppia di QnA suggerisce le nuove alternative di domanda con un segno `✔` di spunta,, per accettare la `x` domanda o un per rifiutare i suggerimenti. Selezionare il segno di spunta per aggiungere la domanda.
+1. Ogni coppia di QnA suggerisce le nuove alternative di domanda con un segno di spunta, `✔` , per accettare la domanda o un `x` per rifiutare i suggerimenti. Selezionare il segno di spunta per aggiungere la domanda.
 
     [![Selezionare o rifiutare le alternative alla domanda consigliata di Active Learning selezionando il segno di spunta verde o il contrassegno di eliminazione rosso.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -59,7 +59,7 @@ Un bot o un'altra applicazione client deve usare il flusso di architettura segue
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Usare la proprietà Top nella richiesta GenerateAnswer per ottenere diverse risposte corrispondenti
 
-Quando si invia una domanda a QnA Maker per una risposta, `top` la proprietà del corpo JSON imposta il numero di risposte da restituire.
+Quando si invia una domanda a QnA Maker per una risposta, la `top` proprietà del corpo JSON imposta il numero di risposte da restituire.
 
 ```json
 {
@@ -129,20 +129,20 @@ Content-Type: application/json
 
 |Proprietà della richiesta HTTP|Nome|Type|Scopo|
 |--|--|--|--|
-|Parametro di route URL|ID della knowledge Base|stringa|L'identificatore univoco globale della Knowledge Base.|
-|Sottodominio personalizzato|Nome della risorsa QnAMaker|stringa|Il nome della risorsa viene usato come sottodominio personalizzato per la QnA Maker. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. Viene elencato come `host`.|
-|Intestazione|Content-Type|stringa|tipo di supporto del corpo inviato all'API. Il valore predefinito è:`application/json`|
-|Intestazione|Autorizzazione|stringa|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parametro di route URL|ID della knowledge Base|string|L'identificatore univoco globale della Knowledge Base.|
+|Sottodominio personalizzato|Nome della risorsa QnAMaker|string|Il nome della risorsa viene usato come sottodominio personalizzato per la QnA Maker. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. Viene elencato come `host` .|
+|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Il valore predefinito è:`application/json`|
+|Intestazione|Autorizzazione|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo post|Oggetto JSON|JSON|Il feedback di formazione|
 
 Il corpo JSON ha diverse impostazioni:
 
-|Proprietà corpo JSON|Type|Scopo|
+|Proprietà corpo JSON|Tipo|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti.|
-|`userId`|stringa|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativo.|
-|`userQuestion`|stringa|Testo esatto della query dell'utente. Obbligatorio.|
-|`qnaID`|d'acquisto|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativa.|
+|`userQuestion`|string|Testo esatto della query dell'utente. Obbligatoria.|
+|`qnaID`|Numero|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 
@@ -309,9 +309,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>L'apprendimento attivo viene salvato nella Knowledge base esportata
 
-Quando l'app è abilitata per l'apprendimento attivo e si esporta l'app `SuggestedQuestions` , la colonna nel file TSV mantiene i dati di apprendimento attivi.
+Quando l'app è abilitata per l'apprendimento attivo e si esporta l'app, la `SuggestedQuestions` colonna nel file TSV mantiene i dati di apprendimento attivi.
 
-La `SuggestedQuestions` colonna è un oggetto JSON di informazioni sui `autosuggested` `usersuggested` commenti impliciti,, e espliciti. Un esempio di questo oggetto JSON per un singolo argomento inviato dall'utente `help` è:
+La `SuggestedQuestions` colonna è un oggetto JSON di informazioni sui commenti impliciti, `autosuggested` , e espliciti `usersuggested` . Un esempio di questo oggetto JSON per un singolo argomento inviato dall'utente `help` è:
 
 ```JSON
 [
@@ -329,11 +329,6 @@ La `SuggestedQuestions` colonna è un oggetto JSON di informazioni sui `autosugg
     }
 ]
 ```
-
-È anche possibile usare l'API Scarica modifiche per esaminare queste modifiche, usando REST o uno degli SDK basati sul linguaggio:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 Quando si reimporta questa app, l'apprendimento attivo continua a raccogliere informazioni e consigli per la Knowledge base.
 

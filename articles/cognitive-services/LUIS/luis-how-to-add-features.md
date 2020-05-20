@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592305"
+ms.locfileid: "83654083"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usare le funzionalità per aumentare il segnale dell'elenco di parole
 
@@ -49,8 +49,23 @@ Esaminare i [concetti](luis-concept-feature.md) per comprendere quando e perché
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > È possibile eliminare o disattivare un elenco di frasi dalla barra degli strumenti contestuale nella pagina delle **funzionalità di ml** .
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>L'elenco di frasi globali si applica all'intera app
+
+Un elenco di frasi deve essere applicato allo scopo o all'entità a cui è destinato, ma in alcuni casi può essere necessario applicare un elenco di frasi all'intera app come funzionalità **globale** .
+
+Nella pagina funzionalità ML selezionare l'elenco di frasi, quindi fare clic su **Rendi globale** nella barra degli strumenti contestuale superiore.
+
+## <a name="model-as-a-feature"></a>Modello come funzionalità
+
+Un'entità può essere una [funzionalità per uno scopo o un'entità](luis-concept-feature.md).
+
+Per aggiungere un'entità come funzionalità a uno scopo, selezionare lo scopo dalla pagina Intent, quindi selezionare **+ Aggiungi funzionalità** sopra la barra degli strumenti contestuale. L'elenco includerà tutti gli elenchi di frasi e le entità che possono essere applicati come funzionalità.
+
+Per aggiungere un'entità come funzionalità a un'altra entità, è possibile aggiungere la funzionalità nella pagina Dettagli finalità usando la [tavolozza delle entità](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) oppure è possibile [aggiungere la funzionalità](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) nella pagina dei dettagli dell'entità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

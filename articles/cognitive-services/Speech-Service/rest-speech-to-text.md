@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978621"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659827"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -49,32 +49,32 @@ Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area de
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Necessario |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono quattro rappresentazioni diverse del testo visualizzato. L'impostazione predefinita è `simple`. | Facoltativo |
-| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked`, che sostituisce la volgarità con `removed`gli asterischi,, che rimuove tutte le parolacce dal risultato `raw`, o, che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
-| `pronunciationScoreParams` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questo parametro, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
-| `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il parametro `cid` della stringa di query. | Facoltativo |
+| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
+| `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| Descrizione | Obbligatoria / Facoltativa |
+|Intestazione| Description | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
+| `Pronunciation-Assessment` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessario |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
-| `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere `Accept`sempre. | Facoltativo, ma consigliato. |
+| `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
 
 ## <a name="audio-formats"></a>Formati audio
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Format | Codec | Velocità in bit | Frequenza di campionamento  |
+| Formato | Codec | Velocità in bit | Frequenza di campionamento  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16 kHz, mono |
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
@@ -86,12 +86,12 @@ L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno 
 
 Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione della pronuncia.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatoria |
+| ReferenceText | Testo su cui verrà valutata la pronuncia. | Necessario |
 | GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
-| Granularità | Granularità della valutazione. I valori accettati sono `Phoneme`, che mostra il punteggio sul livello full-text, Word e `Word`fonema,, che mostra il punteggio a livello di testo intero `FullText`e di parola,, che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
-| Dimension | Definisce i criteri di output. I valori accettati sono `Basic`, che mostra solo il punteggio `Comprehensive` di accuratezza, Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
+| Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
+| Dimension | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
 | EnableMiscue | Abilita il calcolo miscue. Con questa funzionalità abilitata, le parole pronunciate verranno confrontate con il testo di riferimento e verranno contrassegnate con omissione/inserimento in base al confronto. I valori accettati sono `False` e `True`. L'impostazione predefinita è `False`. | Facoltativo |
 | ScenarioId | GUID che indica un sistema di punti personalizzato. | Facoltativo |
 
@@ -106,13 +106,16 @@ Di seguito è riportato un esempio di codice JSON contenente i parametri di valu
 }
 ```
 
-Il codice di esempio seguente mostra come compilare i parametri di valutazione della pronuncia nel parametro di query dell'URL:
+Il codice di esempio seguente mostra come compilare i parametri di valutazione della pronuncia nell' `Pronunciation-Assessment` intestazione:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+>[!NOTE]
+>La funzionalità di valutazione della pronuncia è attualmente disponibile solo nelle `westus` `eastasia` aree e. Questa funzionalità è attualmente disponibile solo in `en-US` lingua.
 
 ## <a name="sample-request"></a>Richiesta di esempio
 
@@ -128,13 +131,19 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
+Per abilitare la valutazione della pronuncia, è possibile aggiungere sotto l'intestazione. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) .
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
+```
+
 ## <a name="http-status-codes"></a>Codici di stato HTTP
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | Description | Possibile motivo |
 |------------------|-------------|-----------------|
-| `100` | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con trasferimento in blocchi) |
+| `100` | Continua | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con trasferimento in blocchi) |
 | `200` | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
 | `400` | Richiesta non valida | Il codice della lingua non è disponibile, non è un linguaggio supportato, un file audio non valido e così via. |
 | `401` | Non autorizzata | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
@@ -142,7 +151,7 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
 ## <a name="chunked-transfer"></a>Trasferimento in blocchi
 
-Il trasferimento in blocchi`Transfer-Encoding: chunked`() consente di ridurre la latenza di riconoscimento. Consente al servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali.
+Il trasferimento in blocchi ( `Transfer-Encoding: chunked` ) consente di ridurre la latenza di riconoscimento. Consente al servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali.
 
 Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request`è un `HttpWebRequest` oggetto connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
@@ -180,7 +189,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
-| Parametro | Descrizione  |
+| Parametro | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
 |`DisplayText`|Testo riconosciuto dopo l'utilizzo di maiuscole e minuscole, la punteggiatura, la normalizzazione del testo inverso (conversione del testo vocale in forme più brevi, ad esempio 200 per "200" o "Dr. Smith" per "Doctor Smith") e la maschera volgare. Presente solo con esito positivo.|
@@ -189,7 +198,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Stato | Descrizione |
+| Stato | Description |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -205,7 +214,7 @@ Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` 
 
 L'oggetto nell' `NBest` elenco può includere:
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |-----------|-------------|
 | `Confidence` | Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa) |
 | `Lexical` | Il formato lessicale del testo riconosciuto: le parole effettive riconosciute. |
@@ -215,12 +224,12 @@ L'oggetto nell' `NBest` elenco può includere:
 | `AccuracyScore` | Punteggio che indica l'accuratezza della pronuncia della voce specificata. |
 | `FluencyScore` | Punteggio che indica la fluidità del parlato specificato. |
 | `CompletenessScore` | Punteggio che indica la completezza del parlato specificato calcolando il rapporto tra le parole pronunciate e l'intero input. |
-| `PronScore` | Punteggio complessivo che indica la qualità della pronuncia della voce specificata. Viene calcolato da `AccuracyScore` `FluencyScore` e `CompletenessScore` con il peso. |
-| `ErrorType` | Questo valore indica se una parola viene omessa, inserita o pronunciata male rispetto a `ReferenceText`. I valori possibili `None` sono (ovvero nessun errore in questa parola) `Omission`, `Insertion` e `Mispronunciation`. |
+| `PronScore` | Punteggio complessivo che indica la qualità della pronuncia della voce specificata. Viene calcolato da `AccuracyScore` `FluencyScore` e con il `CompletenessScore` peso. |
+| `ErrorType` | Questo valore indica se una parola viene omessa, inserita o pronunciata male rispetto a `ReferenceText` . I valori possibili sono `None` (ovvero nessun errore in questa parola) `Omission` , `Insertion` e `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Risposte di esempio
 
-Risposta tipica per `simple` il riconoscimento:
+Risposta tipica per il `simple` riconoscimento:
 
 ```json
 {
@@ -231,7 +240,7 @@ Risposta tipica per `simple` il riconoscimento:
 }
 ```
 
-Risposta tipica per `detailed` il riconoscimento:
+Risposta tipica per il `detailed` riconoscimento:
 
 ```json
 {

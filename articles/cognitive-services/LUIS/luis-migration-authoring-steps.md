@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c28e6c1edf4188cf3ea80c14565785dcf1dcbba
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78194640"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653833"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passaggi per eseguire la migrazione alla risorsa di creazione di Azure
 
@@ -97,12 +97,12 @@ Il processo di migrazione è disponibile se si è il proprietario di qualsiasi a
 
 1. Prima di accedere alle app, selezionare la sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che è possibile creare.
 
-    ![Selezionare sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![Selezionare sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 ## <a name="app-contributor-begins-the-migration-process"></a>Il collaboratore app avvia il processo di migrazione
 
-Seguire gli stessi passaggi del proprietario dell'app per la migrazione. Il processo crea una nuova risorsa di creazione di tipo `LUIS.Authoring`.
+Seguire gli stessi passaggi del proprietario dell'app per la migrazione. Il processo crea una nuova risorsa di creazione di tipo `LUIS.Authoring` .
 
 È necessario eseguire la migrazione dell'account per essere aggiunto come collaboratore per le app di cui è stata eseguita la migrazione di proprietà di altri utenti.
 
@@ -114,7 +114,7 @@ Informazioni [su come aggiungere collaboratori](luis-how-to-collaborate.md).
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Risoluzione degli errori con il processo di migrazione
 
-Se durante il processo `MissingSubscriptionRegistration` di migrazione viene visualizzato un errore nel portale Luis con una barra di notifica rossa, creare una risorsa di servizio cognitivo nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/templates/error-register-resource-provider.md#cause).
+Se `MissingSubscriptionRegistration` durante il processo di migrazione viene visualizzato un errore nel portale Luis con una barra di notifica rossa, creare una risorsa di servizio cognitivo nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/templates/error-register-resource-provider.md#cause).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,29 +1,34 @@
 ---
 title: Collaborazione sulla Knowledge base-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker consente a più utenti di collaborare a una Knowledge Base. Questa funzione viene fornita con il controllo degli accessi in base al ruolo di Azure.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/03/2020
-ms.author: diberry
-ms.openlocfilehash: b5adc7ebacde056a141ca3b361b9eb2ea7900a39
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/17/2020
+ms.openlocfilehash: 1a2908b4b65017f427682627ce5d83b186956a58
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75660750"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650777"
 ---
-# <a name="collaborate-on-your-knowledge-base"></a>Collaborare alla Knowledge Base
+# <a name="collaboration-with-authors-and-editors"></a>Collaborazione con autori ed editor
 
-QnA Maker consente a più utenti di collaborare su tutte le Knowledge base nella stessa risorsa QnA Maker. Questa funzione viene fornita con il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) di Azure.
+La collaborazione viene fornita a livello di risorsa QnA Maker per consentire di limitare l'accesso al collaboratore in base al ruolo del collaboratore. Scopri di più sui [concetti](../Concepts/role-based-access-control.md)di autenticazione QnA Maker collaboratore.
 
-Eseguire questi passaggi per condividere il servizio QnA Maker:
+## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Aggiungere l'accesso in base al ruolo (RBAC) alla risorsa QnA Maker
 
-1. Accedere al portale di Azure e passare alla risorsa QnA Maker.
+QnA Maker consente a più utenti di collaborare su tutte le Knowledge base nella stessa risorsa QnA Maker. Questa funzione viene fornita con il [controllo degli accessi in base al ruolo](../../../active-directory/role-based-access-control-configure.md) di Azure.
+
+## <a name="access-at-the-qna-maker-resource-level"></a>Accesso a livello di risorsa QnA Maker
+
+Non è possibile condividere una particolare Knowledge base in un servizio QnA Maker. Se si desidera un controllo di accesso più granulare, valutare la possibilità di distribuire le Knowledge base su risorse QnA Maker diverse, quindi aggiungere ruoli a ogni risorsa.
+
+## <a name="add-role-to-resource"></a>Aggiungi ruolo a risorsa
+
+### <a name="add-a-user-account-to-the-qna-maker-resource"></a>Aggiungere un account utente alla risorsa QnA Maker
+
+Nei passaggi seguenti viene utilizzato il ruolo Collaboratore, ma è possibile aggiungere uno dei [ruoli](../reference-role-based-access-control.md) utilizzando questa procedura
+
+1. Accedere al portale di [Azure](https://portal.azure.com/) e passare alla risorsa QnA Maker.
 
     ![Elenco di risorse QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
@@ -35,7 +40,15 @@ Eseguire questi passaggi per condividere il servizio QnA Maker:
 
     ![Aggiunta di un ruolo IAM di QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-1. Selezionare il ruolo **Proprietario** o **Collaboratore**. Non è possibile concedere l'accesso di sola lettura tramite il controllo degli accessi in base al ruolo. I ruoli proprietario e collaboratore hanno le autorizzazioni di accesso in lettura/scrittura al servizio QnA Maker.
+1. Selezionare un ruolo dall'elenco seguente:
+
+    |Ruolo|
+    |--|
+    |Proprietario|
+    |Autore di contributi|
+    |Lettore di QnA Maker|
+    |Editor QnA Maker|
+    |Utente Servizi cognitivi|
 
     ![Aggiunta di un ruolo IAM di QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
@@ -43,11 +56,13 @@ Eseguire questi passaggi per condividere il servizio QnA Maker:
 
     ![Aggiunta di un indirizzo e-mail IAM di QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-Quando la persona con cui si è condiviso il servizio QnA Maker, accede al [portale di QnA Maker](https://qnamaker.ai) Visualizza tutte le Knowledge base presenti in tale servizio.
-
-Non è possibile condividere una Knowledge Base specifica di un servizio QnA Maker. Per ottenere un controllo degli accessi più granulare, considerare la possibilità di distribuire le Knowledge Base tra diversi servizi QnA Maker.
+Quando la persona che ha condiviso il servizio QnA Maker con i log nel [portale di QnA Maker](https://qnamaker.ai), può visualizzare tutte le Knowledge base nel servizio in base al proprio ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Testare una Knowledge Base](./test-knowledge-base.md)
+
+Altre informazioni sulla collaborazione:
+* Controllo degli accessi in base al ruolo di [Azure](../../../active-directory/role-based-access-control-configure.md)
+* [Concetti relativi](../Concepts/role-based-access-control.md) al controllo degli accessi in base al ruolo QnA Maker

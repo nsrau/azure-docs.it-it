@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474862"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659555"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -64,7 +64,7 @@ Per ottenere i dettagli dell'endpoint:
 La richiesta POST USA:
 
 * [Parametri URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obbligatori
-* Proprietà di intestazione obbligatoria `Authorization`,, per la sicurezza
+* Proprietà di intestazione obbligatoria, `Authorization` , per la sicurezza
 * [Proprietà del corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)obbligatorie.
 
 L'URL di GenerateAnswer ha il formato seguente:
@@ -73,7 +73,7 @@ L'URL di GenerateAnswer ha il formato seguente:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Ricordarsi di impostare la proprietà dell'intestazione `Authorization` http di con un valore della `EndpointKey` stringa con uno spazio finale, quindi la chiave dell'endpoint trovata nella pagina **Impostazioni** .
+Ricordarsi di impostare la proprietà dell'intestazione HTTP di `Authorization` con un valore della stringa `EndpointKey` con uno spazio finale, quindi la chiave dell'endpoint trovata nella pagina **Impostazioni** .
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 
@@ -168,7 +168,7 @@ Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteg
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usare i metadati per filtrare le risposte in base ai tag dei metadati personalizzati
 
-L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona dei **+** metadati per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
+L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona dei metadati **+** per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Screenshot dell'aggiunta di metadati](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -226,9 +226,9 @@ La risposta a GenerateAnswer contiene le informazioni sui metadati corrispondent
 
 ## <a name="match-questions-only-by-text"></a>Corrisponde solo alle domande, testo
 
-Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le `RankerType=QuestionOnly` domande, per generare una risposta, utilizzare nel corpo post della richiesta GenerateAnswer.
+Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare `RankerType=QuestionOnly` nel corpo post della richiesta GenerateAnswer.
 
-È possibile eseguire ricerche nella KB pubblicata, usando `isTest=false`o nella KB di test usando `isTest=true`.
+È possibile eseguire ricerche nella KB pubblicata, usando `isTest=false` o nella KB di test usando `isTest=true` .
 
 ```json
 {
@@ -256,4 +256,4 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
 La pagina di **pubblicazione** fornisce anche informazioni per [generare una risposta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) con il post o il curl.
 
 > [!div class="nextstepaction"]
-> [Creare un bot della knowledge base](../tutorials/integrate-qnamaker-luis.md)
+> [Ottenere analisi sulla Knowledge Base](../how-to/get-analytics-knowledge-base.md)

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione del riconoscimento vocale
-summary: Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale e in batch dei flussi audio in testo.
+summary: Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale e in batch dei flussi audio in testo. Con l'input di testo di riferimento aggiuntivo, Abilita anche la valutazione della pronuncia in tempo reale e fornisce commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato.
 metadata:
   title: Documentazione di sintesi vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: f496ba72f4f649a3ed5146f0b74caf3d8110adf9
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: be34def3c7aacc5419071028a3d3085fe69103fa
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201894"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83653468"
 landingContent:
 - title: Informazioni sul riconoscimento vocale
   linkLists:
@@ -38,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Riconoscimento della voce archiviata in archivio BLOB
       url: quickstarts/from-blob.md
+    - text: Valutazione della pronuncia con input di riferimento
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Sviluppare con sintesi vocale
   linkLists:
   - linkListType: how-to-guide
@@ -66,7 +68,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Lingue supportate
+    - text: Supporto delle lingue
       url: language-support.md#speech-to-text
     - text: Domande frequenti sul riconoscimento vocale
       url: faq-stt.md

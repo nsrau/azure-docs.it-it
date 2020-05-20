@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584972"
+ms.locfileid: "83654026"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
 Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con lo stesso scopo.
 
-Le finalità sono gestite nella sezione **Compilazione** sulla barra di navigazione superiore nel pannello **Finalità** a sinistra.
+Nel portale LUIS, gli Intent sono gestiti dalla sezione di **compilazione** della barra di spostamento superiore, quindi dal riquadro **sinistro.**
 
-## <a name="add-intent"></a>Aggiungere le finalità
+## <a name="add-an-intent-to-your-app"></a>Aggiungere una finalità all'app
 
 1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
@@ -34,7 +34,7 @@ Le finalità sono gestite nella sezione **Compilazione** sulla barra di navigazi
     > [!div class="mx-imgBorder"]
     > ![Aggiungi finalità](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Lo scopo richiede espressioni di esempio.
+    Per prevedere le espressioni in corrispondenza dell'endpoint di stima pubblicato, lo scopo richiede [espressioni di esempio](luis-concept-utterance.md) .
 
 ## <a name="add-an-example-utterance"></a>Aggiungere un'espressione di esempio
 
@@ -51,16 +51,16 @@ Le espressioni di esempio sono campioni di testo con domande o commenti degli ut
 
 ## <a name="intent-prediction-errors"></a>Errori di stima per finalità
 
-Un enunciato di esempio in uno scopo potrebbe avere un errore di stima preventivo tra la finalità in cui è attualmente presente l'espressione di esempio e l'intento determinato durante il training.
+Un errore di stima preventivo è determinato quando l'espressione non viene stimata con l'app sottoposta a training per lo scopo.
 
-Per individuare gli errori di stima dell'espressione e correggerli, utilizzare le opzioni di **filtro** non corrette e non chiare combinate con l'opzione **Visualizza** della **visualizzazione dettagliata**.
+1. Per individuare gli errori di stima dell'espressione e correggerli, utilizzare le opzioni di **filtro** non corrette e non chiare.
 
-![Per individuare gli errori di stima dell'espressione e correggerli, utilizzare l'opzione filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Per individuare gli errori di stima dell'espressione e correggerli, utilizzare l'opzione filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Quando vengono applicati i filtri e la visualizzazione e sono presenti espressioni di esempio con errori, l'elenco di espressioni di esempio mostra le espressioni e i problemi.
+1. Per visualizzare il valore Score nella pagina Dettagli finalità, scegliere Mostra punteggi Details **Intent** dal menu opzioni di **visualizzazione** .
 
-> [!div class="mx-imgBorder"]
-> ![! [Quando vengono applicati i filtri e la visualizzazione e sono presenti espressioni di esempio con errori, l'elenco di espressioni di esempio mostra le espressioni e i problemi.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    Quando vengono applicati i filtri e la visualizzazione e sono presenti espressioni di esempio con errori, l'elenco di espressioni di esempio mostra le espressioni e i problemi.
 
 Ogni riga indica il Punteggio di stima della formazione corrente per l'espressione di esempio, il punteggio della rivalenza più vicino, che rappresenta la differenza in questi due punteggi.
 

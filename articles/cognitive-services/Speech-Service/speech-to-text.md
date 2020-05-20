@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399697"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650595"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -24,6 +24,8 @@ ms.locfileid: "81399697"
 Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire operazioni su questo testo come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office. Funziona senza interruzioni con le offerte di servizi di <a href="./speech-translation.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> traduzione</a> e <a href="./text-to-speech.md" target="_blank">sintesi vocale <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](language-support.md#speech-to-text).
 
 Per impostazione predefinita, il servizio di sintesi vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, di lingua e di pronuncia personalizzati. La personalizzazione è utile per risolvere il rumore di ambiente o il vocabolario specifico del settore.
+
+Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vocale consente inoltre la funzionalità di [valutazione della pronuncia](rest-speech-to-text.md#pronunciation-assessment-parameters) per valutare la pronuncia vocale e fornire commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Con la valutazione della pronuncia, gli Learner del linguaggio possono esercitarsi, ottenere commenti e suggerimenti istantanei e migliorare la loro pronuncia in modo che possano comunicare e presentare in tutta sicurezza. Gli educatori possono usare la funzionalità per valutare la pronuncia di più speaker in tempo reale. La funzionalità supporta attualmente la lingua inglese (Stati Uniti) e mette in correlazione le valutazioni di riconoscimento vocale eseguite dagli esperti.
 
 > [!NOTE]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
@@ -34,10 +36,12 @@ Per impostazione predefinita, il servizio di sintesi vocale usa il modello di li
 Il servizio riconoscimento vocale è disponibile tramite l' [SDK di riconoscimento vocale](speech-sdk.md). Sono disponibili diversi scenari comuni come guide introduttive, in diversi linguaggi e piattaforme:
 
  - [Guida introduttiva: riconoscere il riconoscimento vocale con input microfono](quickstarts/speech-to-text-from-microphone.md)
- - [Guida introduttiva: riconoscere il riconoscimento vocale da un file](quickstarts/speech-to-text-from-file.md)
+ - [Avvio rapido: Riconoscimento vocale da un file](quickstarts/speech-to-text-from-file.md)
  - [Guida introduttiva: riconoscere il riconoscimento vocale archiviato nell'archivio BLOB](quickstarts/from-blob.md)
 
 Se si preferisce usare il servizio REST di riconoscimento vocale, vedere [API REST](rest-speech-to-text.md).
+
+ - [Guida introduttiva: valutazione della pronuncia con input di riferimento](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="tutorials-and-sample-code"></a>Esercitazioni e codice di esempio
 
@@ -49,6 +53,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 - [Esempi di riconoscimento vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) (Esempi di trascrizione batch (REST))
+- [Esempi di valutazione della pronuncia (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="customization"></a>Personalizzazione
 
