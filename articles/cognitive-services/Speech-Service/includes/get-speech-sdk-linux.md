@@ -4,17 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: e47c8bc4dc814f1d4c5cb115a2da911544dd55f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400029"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673051"
 ---
 :::row:::
     :::column span="3":::
         Speech SDK supporta solo **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**e **CentOS 7/8** nelle seguenti architetture di destinazione se usate con Linux:
-        - x64
     :::column-end:::
     :::column:::
         <br>
@@ -24,18 +23,20 @@ ms.locfileid: "81400029"
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> Quando si fa riferimento a Linux ARM64 e si usa C#, è necessario .NET Core 3. x (pacchetto dotnet-SDK-3. x). Se la destinazione è ARM32 o ARM64, Python non è supportato.
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per lo sviluppo in C++
+- x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per Java
+- x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per .NET Core
+- x64 per Python
 
-> [!NOTE]
-> Le architetture x86 di Ubuntu 16,04, Ubuntu 18,04 e Debian 9 supportano solo lo sviluppo C++ con Speech SDK.
+> [!IMPORTANT]
+> Per C# in Linux ARM64, è necessario .NET Core 3. x (pacchetto dotnet-SDK-3. x).
 
 ### <a name="system-requirements"></a>Requisiti di sistema
 
-Per un'applicazione nativa, l'SDK di riconoscimento vocale si `libMicrosoft.CognitiveServices.Speech.core.so`basa su. Verificare che l'architettura di destinazione (x86, x64) corrisponda all'applicazione. A seconda della versione di Linux, potrebbero essere necessarie dipendenze aggiuntive.
+Per un'applicazione nativa, l'SDK di riconoscimento vocale si basa su `libMicrosoft.CognitiveServices.Speech.core.so` . Verificare che l'architettura di destinazione (x86, x64) corrisponda all'applicazione. A seconda della versione di Linux, potrebbero essere necessarie dipendenze aggiuntive.
 
 - Le raccolte condivise della Libreria GNU C (inclusa la libreria di programmazione thread POSIX, `libpthreads`)
-- Libreria OpenSSL (`libssl.so.1.0.0` o `libssl.so.1.0.2`)
+- Libreria OpenSSL ( `libssl.so.1.0.0` o `libssl.so.1.0.2` )
 - La libreria condivisa per le applicazioni ALSA (`libasound.so.2`)
 
 # <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
@@ -60,10 +61,8 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> Seguire le istruzioni su [come configurare RHEL/CentOS 7 per l'SDK di riconoscimento vocale](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-
-> [!TIP]
-> In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](../how-to-configure-openssl-linux.md).
+> - In RHEL/CentOS 7 seguire le istruzioni riportate in [come configurare RHEL/CentOS 7 per Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
