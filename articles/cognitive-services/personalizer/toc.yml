@@ -39,6 +39,8 @@
         - name: Criteri di apprendimento
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Modalità Apprentice
+          href: concept-apprentice-mode.md
         - name: Eventi attivi e inattivi
           href: concept-active-inactive-events.md
         - name: Ricompense
@@ -62,14 +64,16 @@
   items:
     - name: Creare la risorsa di Personalizza esperienze
       href: how-to-create-resource.md
-    - name: Configurare un ciclo di apprendimento
+    - name: Configurare Personalizza esperienze
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Usare la modalità Apprentice
+      href: how-to-learning-behavior.md
     - name: Gestire il modello e le impostazioni di apprendimento
       href: how-to-manage-model.md
     - name: Analizzare con una valutazione offline
       href: how-to-offline-evaluation.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi
       href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
@@ -79,7 +83,7 @@
       items:
         - name: .NET
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
             - name: Pacchetto NuGet
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
@@ -89,21 +93,21 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
         - name: Node.js
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
             - name: Pacchetto Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
   items:
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       href: troubleshooting.md
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

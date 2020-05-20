@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592186"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701820"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi cognitivi di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592186"
 
 **D: che cos'è disponibile?**
 
-**R:** I contenitori di servizi cognitivi di Azure consentono agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della contenitori. Alcuni contenitori sono disponibili come [Anteprima gestita](../cognitive-services-gating-process.md), che può richiedere l'accesso a un'applicazione. Altri contenitori sono disponibili pubblicamente come anteprima non gestita oppure sono disponibili a livello generale. Per un elenco completo dei contenitori e della relativa disponibilità, vedere l'articolo supporto dei contenitori [in Servizi cognitivi di Azure](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
+**R:** I contenitori di servizi cognitivi di Azure consentono agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della contenitori. Alcuni contenitori sono disponibili come anteprima gestita che potrebbe richiedere l'accesso a un'applicazione. Altri contenitori sono disponibili pubblicamente come anteprima non gestita oppure sono disponibili a livello generale. Per un elenco completo dei contenitori e della relativa disponibilità, vedere l'articolo supporto dei contenitori [in Servizi cognitivi di Azure](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **D: esiste una differenza tra il cloud di servizi cognitivi e i contenitori?**
 
@@ -108,7 +108,7 @@ Esaminare i seguenti tag per individuare le domande e le risposte che si allinea
 * [Riconoscimento modulo][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [API servizio Voce][sp-containers-billing]
-* [Analisi del testo][ta-containers-billing]
+* [Text Analytics][ta-containers-billing]
 
 > [!IMPORTANT]
 > I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft.
@@ -135,7 +135,7 @@ Esaminare i seguenti tag per individuare le domande e le risposte che si allinea
 * [Riconoscimento modulo][fr-containers-recommendations]
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [API servizio Voce][sp-containers-recommendations]
-* [Analisi del testo][ta-containers-recommendations]
+* [Text Analytics][ta-containers-recommendations]
  
 **D: questi contenitori sono attualmente supportati in Windows?**
 

@@ -91,7 +91,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Andromeda, eseguire i seguenti passaggi:
 
-1. Nella pagina di integrazione dell'applicazione [Andromeda](https://portal.azure.com/) del **portale di Azure** selezionare **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **Andromeda** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

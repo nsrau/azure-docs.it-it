@@ -3,7 +3,7 @@ title: Documentazione di Personalizza esperienze
 summary: Informazioni su come usare Personalizza esperienze per consentire all'applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 05/01/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentazione di Personalizza esperienze
   titleSuffix: Azure Cognitive Services
   description: Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
-  ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ef18921e9211bb1a3659fffc84bde922d500d0b0
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77525024"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83586321"
 landingContent:
 - title: Informazioni su Personalizza esperienze
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Usare la modalità Apprentice
+      url: how-to-learning-behavior.md
     - text: Migliorare il ciclo con le valutazioni offline
       url: concepts-offline-evaluation.md
     - text: Eventi attivi e inattivi
@@ -115,7 +117,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: risoluzione dei problemi
+    - text: Risoluzione dei problemi
       url: troubleshooting.md
     - text: Inviare domande a Stack Overflow
       url: https://stackoverflow.com/questions/tagged/personalizer

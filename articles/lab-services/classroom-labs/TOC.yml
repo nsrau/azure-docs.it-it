@@ -28,6 +28,24 @@
       items:
         - name: Usare i lab per gestire le classi
           href: classroom-labs-scenarios.md
+        - name: Lab per le classi - Tipi di classe
+          items:
+            - name: Panoramica dei tipi di classi
+              href: class-types.md
+            - name: Deep Learning nell'elaborazione del linguaggio naturale
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Script della shell in Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Hacking etico
+              href: class-type-ethical-hacking.md
+            - name: Gestione di database
+              href: class-type-database-management.md
+            - name: Python e Jupyter Notebook
+              href: class-type-jupyter-notebook.md
+            - name: Sviluppo di app per dispositivi mobili con Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Analisi dei Big Data
+              href: class-type-big-data-analytics.md
 - name: Guide pratiche
   items:
     - name: Guida dell'amministratore
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: Guida alla configurazione accelerata del lab
       href: setup-guide.md
-    - name: Lab per le classi - Tipi di classe
-      items:
-        - name: Panoramica dei tipi di classi
-          href: class-types.md
-        - name: Deep Learning nell'elaborazione del linguaggio naturale
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Script della shell in Linux
-          href: class-type-shell-scripting-linux.md
-        - name: Hacking etico
-          href: class-type-ethical-hacking.md
-        - name: Gestione di database
-          href: class-type-database-management.md
-        - name: Python e Jupyter Notebook
-          href: class-type-jupyter-notebook.md
-        - name: Sviluppo di app per dispositivi mobili con Android Studio
-          href: class-type-mobile-dev-android-studio.md
-        - name: Analisi dei Big Data
-          href: class-type-big-data-analytics.md
     - name: Creare e configurare account lab (proprietario di account lab)
       items:
         - name: Creare e gestire account di lab
           href: how-to-manage-lab-accounts.md
-        - name: Configurare account di lab
+        - name: Gestire i lab in un account lab
+          href: manage-labs.md
+        - name: Configurare l'arresto automatico delle VM
           href: how-to-configure-lab-accounts.md
         - name: Aggiungere un autore del lab
           href: add-lab-creator.md
@@ -76,7 +78,7 @@
           href: specify-marketplace-images.md
         - name: Specificare le informazioni di supporto (proprietario dell'account lab)
           href: lab-account-owner-support-information.md
-    - name: Creare e configurare lab per le classi (istruttore)
+    - name: Creare e configurare lab per le classi (educatore)
       items:
         - name: Creare e gestire i lab per le classi
           href: how-to-manage-classroom-labs.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Controllare il comportamento di arresto di Windows
           href: how-to-windows-shutdown.md
-        - name: Visualizzare informazioni di supporto (istruttore)
+        - name: Visualizzare informazioni di supporto (educatore)
           href: lab-creator-support-information.md
-        - name: Accedere alle VM degli studenti dalla visualizzazione dell'istruttore
+        - name: Accedere alle VM degli studenti dalla visualizzazione dell'educatore
           href: instructor-access-virtual-machines.md
     - name: Connettersi a una macchina virtuale in lab per le classi (studente)
       items:

@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2cc8369c59905e1d1e1b794b8cbdefce1ede0a67
-  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.openlocfilehash: 21319a3de2bcd38cd5373ac68fc1c9733ab64ee4
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/04/2020
-  ms.locfileid: "82739425"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593197"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -495,6 +495,13 @@ productDirectory:
     - compute
     - databases
     url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+  - title: App Web statiche
+    summary: Sviluppare e distribuire uno stack completo di app Web in Azure da un repository di GitHub
+    imageSrc: ./media/index/static-apps.svg
+    azureCategories:
+    - compute
+    - web
+    url: static-web-apps/index.yml
   - title: Set di scalabilità di macchine virtuali
     summary: Gestire e creare fino a migliaia di macchine virtuali Linux e Windows
     imageSrc: https://static.docs.com/ui/media/product/azure/vm-scale-sets.svg
@@ -599,13 +606,13 @@ productDirectory:
     - databases
     - hybrid
     url: sql-database/index.yml
-  - title: Database SQL Edge di Azure (anteprima)
+  - title: SQL Edge di Azure (anteprima)
     summary: Motore di database con footprint ridotto e ottimizzato per la rete perimetrale con intelligenza artificiale incorporata
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:
     - databases
     - iot
-    url: sql-database-edge/index.yml
+    url: azure-sql-edge/index.yml
   - title: Archiviazione tabelle
     summary: Archivio chiave-valore NoSQL con set di dati semistrutturati
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg

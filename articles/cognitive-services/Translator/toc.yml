@@ -1,10 +1,10 @@
-- name: Documentazione di Traduzione testuale
+- name: Documentazione di Traduttore
   href: index.yml
-- name: API Traduzione testuale
+- name: Funzione di conversione
   items:
     - name: Panoramica
       items:
-        - name: Informazioni sull'API Traduzione testuale
+        - name: Che cos'è Traduttore?
           href: translator-info-overview.md
     - name: Avvi rapidi
       items:
@@ -22,7 +22,7 @@
           href: quickstart-sentences.md
     - name: Esercitazioni
       items:
-        - name: 'Creare un''app WPF per Traduzione testuale, C#'
+        - name: 'Creare un''app WPF per Traduttore, C#'
           href: tutorial-wpf-translation-csharp.md
         - name: 'Creare un''app di traduzione Flask, Python'
           href: tutorial-build-flask-app-translation-synthesis.md
@@ -34,7 +34,7 @@
           href: character-counts.md
     - name: Guide pratiche
       items:
-        - name: Iscriversi per ottenere l'API Traduzione testuale
+        - name: Iscriversi a Traduttore
           href: translator-text-how-to-signup.md
         - name: Migrazione all'API per testo V3
           href: migrate-to-v3.md
@@ -66,7 +66,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: Informazioni di riferimento
       items:
-        - name: Informazioni di riferimento sull'API Traduzione testuale v3
+        - name: Informazioni di riferimento su Traduttore v3
           href: reference/v3-0-reference.md
           items:
             - name: Languages
@@ -83,7 +83,7 @@
               href: reference/v3-0-dictionary-lookup.md
             - name: Esempi di dizionari
               href: reference/v3-0-dictionary-examples.md
-        - name: Informazioni di riferimento sull'API Traduzione testuale v2 (deprecata)
+        - name: Informazioni di riferimento su Traduttore v2 (deprecato)
           href: reference/v2-0-reference.md
           items:
             - name: Trasformare il testo

@@ -1,20 +1,20 @@
 ---
-author: IEvangelist
-ms.author: dapine
+author: aahill
+ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
-ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/18/2020
+ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593333"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698544"
 ---
-Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore. Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo aver inviato il modulo, il team di servizi cognitivi di Azure le esamina per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
+Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo aver inviato il modulo, il team di servizi cognitivi di Azure le esamina per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
 
 > [!IMPORTANT]
-> È necessario usare un indirizzo di posta elettronica associato a un account Microsoft (MSA) o a un account Azure Active Directory (Azure AD) nel modulo. Per ulteriori informazioni sui criteri di accettazione, vedere il processo di controllo [dei servizi cognitivi](../articles/cognitive-services/cognitive-services-gating-process.md).
+> È necessario usare un indirizzo di posta elettronica associato a un account Microsoft (MSA) o a un account Azure Active Directory (Azure AD) nel modulo.
 
 Se la richiesta viene approvata, si riceverà un messaggio di posta elettronica con le istruzioni che descrivono come ottenere le credenziali e accedere al registro contenitori privato.
 
