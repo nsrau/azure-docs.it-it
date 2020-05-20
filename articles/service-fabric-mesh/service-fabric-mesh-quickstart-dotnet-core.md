@@ -27,7 +27,7 @@ In questa guida introduttiva si creerà una nuova applicazione Service Fabric Me
 
 Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 
-Nella finestra di dialogo **Nuovo progetto** digitare **nella casella di**ricerca`mesh` visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se non viene visualizzato il modello, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+Nella finestra di dialogo **Nuovo progetto** digitare `mesh` nella casella di **ricerca** visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se non viene visualizzato il modello, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 Nella casella **Nome** digitare **ServiceFabricMesh1** e nella casella **Percorso** impostare il percorso della cartella in cui verranno archiviati i file per il progetto.
 

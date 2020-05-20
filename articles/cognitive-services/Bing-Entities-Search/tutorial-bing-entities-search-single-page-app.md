@@ -71,7 +71,7 @@ Come qualsiasi app Web a pagina singola, l'applicazione di esercitazione include
 
 Questa esercitazione non tratta dettagliatamente il codice HTML o CSS, perché sono piuttosto semplici.
 
-Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `<form>` del tag `onsubmit`:
+Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

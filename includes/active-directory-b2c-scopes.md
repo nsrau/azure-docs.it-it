@@ -17,8 +17,8 @@ ms.locfileid: "78183382"
 1. Selezionare **Applicazioni**.
 1. Selezionare l'applicazione *webapi1* per aprire la pagina **Proprietà**.
 1. Selezionare **Ambiti pubblicati**. Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client determinate autorizzazioni per l'API Web.
-1. Immettere **come**AMBITO`demo.read` e **come**DESCRIZIONE`Read access to the web API`.
-1. Immettere **come**AMBITO`demo.write` e **come**DESCRIZIONE`Write access to the web API`.
+1. Immettere `demo.read` come **AMBITO** e `Read access to the web API` come **DESCRIZIONE**.
+1. Immettere `demo.write` come **AMBITO** e `Write access to the web API` come **DESCRIZIONE**.
 1. Selezionare **Salva**.
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)

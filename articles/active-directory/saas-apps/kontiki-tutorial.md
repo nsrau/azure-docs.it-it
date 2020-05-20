@@ -92,7 +92,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kontiki è ne
 
 In questa sezione si configura l'accesso Single Sign-On di Azure AD con Kontiki nel portale di Azure.
 
-1. Nel riquadro di integrazione dell'applicazione [Kontiki](https://portal.azure.com/) del **portale di Azure** selezionare **Single sign-on**.
+1. Nel riquadro di integrazione dell'applicazione **Kontiki** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on**.
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
