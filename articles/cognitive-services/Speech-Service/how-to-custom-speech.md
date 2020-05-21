@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402074"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725534"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -37,9 +37,11 @@ In questo diagramma vengono evidenziati i componenti che costituiscono il [porta
 
 4. [Valuta accuratezza](how-to-custom-speech-evaluate-data.md) : consente di valutare l'accuratezza del modello di riconoscimento vocale. Il [portale riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) fornirà una *frequenza di errori di parola*, che può essere usata per determinare se è necessario un training aggiuntivo. Se si è soddisfatti dell'accuratezza, è possibile usare direttamente le API del servizio di riconoscimento vocale. Per migliorare l'accuratezza in base a una media relativa del 5%-20%, usare la scheda **Training** nel portale per caricare dati di training aggiuntivi, ad esempio trascrizioni con etichetta umana e testo correlato.
 
-5. Eseguire [il training del modello](how-to-custom-speech-train-model.md) : migliorare l'accuratezza del modello di riconoscimento vocale fornendo trascrizioni scritte (10-1000 ore) e testo correlato (<200 MB) insieme ai dati di test audio. Questi dati consentono di eseguire il training del modello di riconoscimento vocale. Al termine del training, riprovare e, se si è soddisfatti del risultato, è possibile distribuire il modello.
+5. [Miglioramento della precisione](how-to-custom-speech-improve-accuracy.md) : è possibile scegliere i dati di training aggiuntivi in modo strategico per migliorare la qualità del modello di riconoscimento vocale basato sullo scenario.
 
-6. [Distribuire il modello](how-to-custom-speech-deploy-model.md) : creare un endpoint personalizzato per il modello di riconoscimento vocale e usarlo in applicazioni, strumenti o prodotti.
+6. Eseguire [il training del modello](how-to-custom-speech-train-model.md) : migliorare l'accuratezza del modello di riconoscimento vocale fornendo trascrizioni scritte (10-1000 ore) e testo correlato (<200 MB) insieme ai dati di test audio. Questi dati consentono di eseguire il training del modello di riconoscimento vocale. Al termine del training, riprovare e, se si è soddisfatti del risultato, è possibile distribuire il modello.
+
+7. [Distribuire il modello](how-to-custom-speech-deploy-model.md) : creare un endpoint personalizzato per il modello di riconoscimento vocale e usarlo in applicazioni, strumenti o prodotti.
 
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 

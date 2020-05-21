@@ -3,12 +3,12 @@ title: Collaborare con altri utenti QnA Maker
 description: ''
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ef0823fc60424dc861ab70f4112e4689c1b97fb0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 080e6549579675e27486e6173d5907d92bbaad70
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665982"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724922"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborare con altri autori ed editor
 
@@ -40,7 +40,7 @@ Il diagramma seguente illustra il flusso, dal punto di vista dell'autore, per ac
 |3|API QnA Maker convalida il token.|
 |4 |API QnA Maker chiama il servizio QnAMaker.|
 
-Se si intende chiamare le API di creazione. /How-To/collaborate-knowledge-base.md), ulteriori informazioni su come configurare l'autenticazione.
+Se si intende chiamare le [API di creazione](../How-To/collaborate-knowledge-base.md), vedere altre informazioni su come configurare l'autenticazione.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Eseguire l'autenticazione tramite il portale di QnA Maker
 

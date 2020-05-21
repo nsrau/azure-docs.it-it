@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402134"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725551"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -27,7 +27,7 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 
 | Tipo di dati | Usato per il test | Quantità consigliata | Usato per il training | Quantità consigliata |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sì<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
+| [Audio](#audio-data-for-testing) | Sì<br>Usato per l'ispezione visiva | 5 + file audio | No | N/D |
 | [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Sì | da 1 a 1000 ore di audio |
 | [Testo correlato](#related-text-data-for-training) | No | N/a | Sì | 1-200 MB di testo correlato |
 
@@ -38,7 +38,7 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 
 ## <a name="upload-data"></a>Caricare dati
 
-Per caricare i dati, passare al <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"> </span>di riconoscimento vocale personalizzato </a>. Dal portale fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
+Per caricare i dati, passare al <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale personalizzato </a>. Dal portale fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
 
 ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -55,7 +55,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà                 | Valore                 |
+| Proprietà                 | Value                 |
 |--------------------------|-----------------------|
 | Formato file              | RIFF (WAV)            |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz |
@@ -81,7 +81,9 @@ Usare <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox <s
 
 Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.
 
-| Proprietà                 | Valore                               |
+I file audio possono avere un silenzio all'inizio e alla fine della registrazione. Se possibile, includere almeno un mezzo secondo di silenzio prima e dopo il riconoscimento vocale in ogni file di esempio. Anche se l'audio con un volume di registrazione basso o un rumore di fondo a disturbo non è utile, non dovrebbe danneggiare il modello personalizzato. Provare sempre a aggiornare i microfoni e l'hardware di elaborazione dei segnali prima di raccogliere esempi di audio.
+
+| Proprietà                 | Value                               |
 |--------------------------|-------------------------------------|
 | Formato file              | RIFF (WAV)                          |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz               |
@@ -110,7 +112,7 @@ Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migl
 
 Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune normalizzazioni importanti che devono essere eseguite prima di caricare i dati in speech studio. Per il linguaggio appropriato da usare quando si preparano le trascrizioni, vedere [come creare una trascrizione con etichetta umana](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Dopo aver raccolto i file audio e le trascrizioni corrispondenti, crearne un pacchetto come file con estensione zip prima del caricamento nel <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"> </span>di riconoscimento vocale personalizzato </a>. Di seguito è riportato un esempio di set di dati con tre file audio e un file di trascrizione con etichetta umana:
+Dopo aver raccolto i file audio e le trascrizioni corrispondenti, crearne un pacchetto come file con estensione zip prima del caricamento nel <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale personalizzato </a>. Di seguito è riportato un esempio di set di dati con tre file audio e un file di trascrizione con etichetta umana:
 
 > [!div class="mx-imgBorder"]
 > ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -124,7 +126,7 @@ I nomi di prodotto o le funzionalità univoche devono includere dati di testo co
 | Frasi (espressioni) | Migliorare la precisione quando si riconoscono i nomi dei prodotti o il vocabolario specifico del settore all'interno del contesto di una frase. |
 | Pronunce | Migliorare la pronuncia di termini non comuni, acronimi o altre parole con pronunce non definite. |
 
-Le frasi possono essere fornite come un singolo file di testo o più file di testo. Per migliorare l'accuratezza, usare i dati di testo più vicini alle espressioni vocali previste. Le pronunce devono essere fornite come un singolo file di testo. Tutto può essere incluso in un unico file zip e caricato nel <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"> </span>di riconoscimento vocale personalizzato </a>.
+Le frasi possono essere fornite come un singolo file di testo o più file di testo. Per migliorare l'accuratezza, usare i dati di testo più vicini alle espressioni vocali previste. Le pronunce devono essere fornite come un singolo file di testo. Tutto può essere incluso in un unico file zip e caricato nel <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale personalizzato </a>.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Linee guida per la creazione di un file di frasi
 
@@ -134,7 +136,7 @@ Come materiale sussidiario generale, l'adattamento del modello è più efficace 
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le espressioni sia formattato correttamente:
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Codifica testo | UTF-8 BOM |
 | N. di espressioni per riga | 1 |
@@ -143,7 +145,7 @@ Usare questa tabella per assicurarsi che il file di dati correlato per le espres
 Inoltre, è opportuno tenere conto delle restrizioni seguenti:
 
 * Evitare di ripetere i caratteri più di quattro volte. Ad esempio: "aaaa" o "uuuu".
-* Non usare i caratteri speciali o i caratteri UTF- `U+00A1`8 precedenti.
+* Non usare i caratteri speciali o i caratteri UTF-8 precedenti `U+00A1` .
 * Gli URI verranno rifiutati.
 
 ### <a name="guidelines-to-create-a-pronunciation-file"></a>Linee guida per la creazione di un file di pronuncia
@@ -163,16 +165,16 @@ Sono inclusi esempi di espressione pronunciata e una pronuncia personalizzata pe
 
 Il form vocale è la sequenza fonetica digitata. Può essere costituito da lettere, parole, sillabe o da una combinazione di tutti e tre.
 
-La pronuncia personalizzata è disponibile in inglese`en-US`() e tedesco`de-DE`(). Questa tabella mostra i caratteri supportati per lingua:
+La pronuncia personalizzata è disponibile in inglese ( `en-US` ) e tedesco ( `de-DE` ). Questa tabella mostra i caratteri supportati per lingua:
 
-| Linguaggio | Impostazioni locali | Caratteri |
+| Linguaggio | Locale | Caratteri |
 |----------|--------|------------|
 | Inglese | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tedesco | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Usare la tabella seguente per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di dimensioni ridotte e devono contenere solo pochi kilobyte.
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Codifica testo | BOM UTF-8 (ANSI è supportato anche per l'inglese) |
 | numero di pronunce per riga | 1 |

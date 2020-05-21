@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590665"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721266"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
@@ -31,7 +31,7 @@ Microsoft Container Registry (il Consorzio Microsoft) pubblica tutti i contenito
 
 Per ulteriori informazioni [, vedere come eseguire e installare i contenitori Luis](../../LUIS/luis-container-howto.md) .
 
-#### <a name="text-analytics"></a>[Analisi del testo](#tab/text-analytics)
+#### <a name="text-analytics"></a>[Text Analytics](#tab/text-analytics)
 
 | Contenitore di Analisi del testo | Container Registry/repository/nome dell'immagine |
 |--|--|
@@ -56,13 +56,13 @@ I contenitori di anteprima seguenti sono disponibili pubblicamente. Microsoft Co
 
 | Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
-| [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Rilevamento anomalie](../../anomaly-detector/anomaly-detector-container-howto.md) | Rilevamento anomalie | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Anteprima pubblica "gestita" (registro contenitori: `containerpreview.azurecr.io` )
 
-I seguenti contenitori di anteprima gestita sono ospitati nel registro di anteprima del contenitore e richiedono l'accesso a un'applicazione. Per ulteriori informazioni, vedere processo di controllo [dei servizi cognitivi](../../cognitive-services-gating-process.md) .
+I seguenti contenitori di anteprima gestita sono ospitati nel registro di anteprima del contenitore e richiedono l'accesso a un'applicazione. Per ulteriori informazioni, vedere gli articoli sui contenitori seguenti.
 
 | Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
