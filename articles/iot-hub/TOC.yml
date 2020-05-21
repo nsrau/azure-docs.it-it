@@ -81,6 +81,11 @@
       href: tutorial-firmware-update.md
     - name: Testare la connettività dei dispositivi
       href: tutorial-connectivity.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Supporto TLS

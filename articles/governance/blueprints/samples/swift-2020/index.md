@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio SWIFT CSP-CSCF v2020
 description: Panoramica dell'esempio di progetto SWIFT CSP-CSCF v2020. Questo esempio di progetto consente ai clienti di valutare specifici controlli SWIFT CSP-CSCF.
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: ee8670522bc4549dbb687a9ebe35bb20d53b0f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 04afbe2b0ef3b632d81b832e6a94bce2618fc851
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74546465"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657033"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Panoramica dell'esempio di progetto SWIFT CSP-CSCF v2020
 

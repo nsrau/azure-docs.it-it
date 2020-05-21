@@ -50,6 +50,8 @@
           href: ./samples/pattern-parameters.md
         - name: Dettagli sugli effetti
           href: ./samples/pattern-effect-details.md
+        - name: Tag
+          href: ./samples/pattern-tags.md
         - name: Operatore value
           href: ./samples/pattern-value-operator.md
         - name: Operatore count
@@ -76,13 +78,8 @@
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Criteri di Azure per Kubernetes
-      items:
-        - name: Criteri per il servizio Azure Kubernetes
-          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/rego-for-aks.md
-        - name: Criteri per il motore del servizio Azure Kubernetes
-          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/aks-engine.md
+      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+      href: ./concepts/policy-for-kubernetes.md
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

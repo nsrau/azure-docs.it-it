@@ -202,26 +202,6 @@
           href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: Offerta di contenitori
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
-          items:
-            - name: Prerequisiti
-              href: ./cloud-partner-portal/containers/cpp-prerequisites.md
-            - name: Creare un'offerta di contenitori
-              href: ./cloud-partner-portal/containers/cpp-create-offer.md
-              items:
-                - name: Scheda Impostazioni dell'offerta
-                  href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
-                - name: Scheda SKU
-                  href: ./cloud-partner-portal/containers/cpp-skus-tab.md
-                - name: Scheda Marketplace
-                  href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
-                - name: Scheda Supporto
-                  href: ./cloud-partner-portal/containers/cpp-support-tab.md
-            - name: Creare gli asset tecnici dei contenitori
-              href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
-            - name: Pubblicare l'offerta di un contenitore
-              href: ./cloud-partner-portal/containers/cpp-publish-offer.md
-            - name: Aggiornare l'offerta esistente
-              href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
         - name: Offerta Dynamics 365 Business Central
           href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
           items:

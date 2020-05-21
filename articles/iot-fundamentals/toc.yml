@@ -10,7 +10,7 @@
       href: iot-services-and-technologies.md
     - name: Opzioni di supporto tecnico e assistenza
       href: iot-support-help.md
-- name: Security
+- name: Sicurezza
   items:
     - name: Consigli
       href: security-recommendations.md
