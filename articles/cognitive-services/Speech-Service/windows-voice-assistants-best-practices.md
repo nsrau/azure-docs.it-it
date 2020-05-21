@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997491"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714781"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Esperienze di assistente progettazione per Windows 10
 
 Gli assistenti vocali sviluppati in Windows 10 devono implementare le linee guida per l'esperienza utente seguenti per fornire le migliori esperienze possibili per l'attivazione vocale in Windows 10. Questo documento consente agli sviluppatori di comprendere il lavoro fondamentale necessario per l'integrazione di un assistente vocale con la shell di Windows 10.
 
-## <a name="contents"></a>Sommario
+## <a name="contents"></a>Contenuto
 
 - [Riepilogo delle visualizzazioni di attivazione vocale supportate in Windows 10](#summary-of-voice-activation-views-supported-in-windows-10)
 - [Riepilogo requisiti](#requirements-summary)
@@ -63,25 +63,22 @@ Gli assistenti devono creare un'esperienza di ascolto per fornire un feedback cr
 - Assistente che elabora e prepara una risposta
 - Assistente risponde
 
-Anche se gli Stati cambiano rapidamente, è opportuno considerare la possibilità di fornire l'esperienza utente per gli Stati, poiché le durate sono variabili nell'ecosistema Windows. Il feedback visivo, nonché brevi Campanelli audio o cinguetti, &quot;denominati&quot;anche earcons, possono far parte della soluzione. Analogamente, le schede visive abbinate alle descrizioni audio rendono valide le opzioni di risposta.
+Anche se gli Stati cambiano rapidamente, è opportuno considerare la possibilità di fornire l'esperienza utente per gli Stati, poiché le durate sono variabili nell'ecosistema Windows. Il feedback visivo, nonché brevi Campanelli audio o cinguetti, denominati anche &quot; earcons &quot; , possono far parte della soluzione. Analogamente, le schede visive abbinate alle descrizioni audio rendono valide le opzioni di risposta.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>Linee guida di progettazione per l'attivazione vocale in-app
 
 Quando l'app Assistant ha lo stato attivo, la finalità del cliente è chiaramente interagire con l'app, quindi tutte le esperienze di attivazione vocale devono essere gestite dalla visualizzazione principale dell'app. Questa vista può essere ridimensionata dal cliente. Per semplificare la spiegazione delle interazioni della shell degli assistenti, nella parte restante di questo documento viene usato l'esempio concreto di assistente di servizi finanziari denominato contoso. In questo e nei diagrammi successivi, ciò che il cliente dice verrà visualizzato nelle bolle di riconoscimento vocale dei cartoni a sinistra con le risposte degli assistenti nelle bolle dei cartoni a destra.
 
-**Visualizzazione in-app. Stato iniziale quando viene avviata l'attivazione vocale:**
-![screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Visualizzazione in-app. Stato iniziale quando viene avviata l'attivazione vocale:** 
+ ![ screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**Visualizzazione in-app. Al termine dell'attivazione vocale, viene avviata l'esperienza di ascolto:**![screenshot dell'Assistente vocale in Windows mentre l'Assistente vocale è in ascolto](media/voice-assistants/windows_voice_assistant/listening.png)
+**Visualizzazione in-app. Al termine dell'attivazione vocale, viene avviata l'esperienza di ascolto:** ![ screenshot dell'Assistente vocale in Windows mentre l'Assistente vocale è in ascolto](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**Visualizzazione in-app. Tutte le risposte rimangono nell'esperienza dell'app.** ![Screenshot dell'Assistente vocale in Windows come risposte dell'assistente](media/voice-assistants/windows_voice_assistant/response.png)
+**Visualizzazione in-app. Tutte le risposte rimangono nell'esperienza dell'app.** ![ Screenshot dell'Assistente vocale in Windows come risposte dell'assistente](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>Linee guida di progettazione per l'attivazione vocale sopra il blocco
 
 Disponibile con 19H2, gli assistenti basati sulla piattaforma di attivazione di Windows Voice sono disponibili per rispondere al blocco.
-
-> [!NOTE]
-> A causa di un problema attivo, gli assistenti che attingono dall'interfaccia utente di blocco precedente devono implementare WindowService. CloseWindow () per tutti gli invii. Questo comporterà la terminazione dell'app, ma attenua un problema tecnico e manterrà l'assistente in uno stato pulito. Inoltre, per mantenere lo stato pulito se un'app è abilitata per l'attivazione della voce di blocco precedente, deve restare in ascolto delle modifiche dello stato di blocco e WindowService. CloseWindow () quando il dispositivo viene bloccato.
 
 ### <a name="customer-opt-in"></a>Consenso esplicito per il cliente
 
@@ -108,14 +105,14 @@ Per consentire ai clienti di accedere in modo più semplice alla prossima volta 
 - **Tutte le Canvas degli assistenti che mostrano il blocco precedente devono contenere una X** nella parte superiore destra che respinge l'assistente.
 - **Premendo un tasto qualsiasi è necessario chiudere anche l'app Assistant**. L'input da tastiera è un segnale tradizionale dell'app lock che il cliente vuole accedere. Pertanto, qualsiasi input di tastiera/testo non deve essere indirizzato all'app. Al contrario, l'app deve essere autoignorata quando viene rilevato un input da tastiera, in modo che il cliente possa accedere facilmente al dispositivo.
 - **Se lo schermo si spegne, l'app deve essere autoignorata.** In questo modo si garantisce che alla successiva utilizzo del PC da parte del cliente, la schermata di accesso sarà pronta e in attesa.
-- Se l'app è &quot;in uso&quot;, può continuare con il blocco. &quot;in uso&quot; costituisce qualsiasi input o output. Ad esempio, quando si esegue il flusso di musica o video, l'app può continuare sopra il blocco. &quot;In e&quot; in altri passaggi della finestra di dialogo multigiro è consentito il blocco dell'app.
+- Se l'app è &quot; in uso &quot; , può continuare con il blocco. &quot;in uso &quot; costituisce qualsiasi input o output. Ad esempio, quando si esegue il flusso di musica o video, l'app può continuare sopra il blocco. &quot;In &quot; e in altri passaggi della finestra di dialogo multigiro è consentito il blocco dell'app.
 - I **Dettagli di implementazione sulla chiusura dell'applicazione** sono disponibili [nella Guida all'implementazione del blocco precedente](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
 ![Screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
-### <a name="privacy-amp-security-considerations-above-lock"></a>Considerazioni &amp; sulla sicurezza della privacy sopra il blocco
+### <a name="privacy-amp-security-considerations-above-lock"></a>Considerazioni sulla sicurezza della privacy &amp; sopra il blocco
 
 Molti PC sono portabili ma non sempre entro la portata del cliente. Possono essere brevemente lasciati nelle sale di Hotel, nelle postazioni aeree o nelle aree di lavoro, in cui altri utenti hanno accesso fisico. Se gli assistenti abilitati sopra il blocco non sono preparati, possono diventare soggetti alla classe di attacchi di &quot; [cattiva cameriera](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; .
 
@@ -127,9 +124,9 @@ Gli assistenti devono quindi seguire le istruzioni di questa sezione per garanti
 
 | **Classe Action** | **Descrizione** | **Esempi (non è un elenco completo)** |
 | --- | --- | --- |
-| Sicuro senza autenticazione | Informazioni generali o comando e controllo dell'app di base | &quot;Che ora è? &quot;, &quot;Riproduci la traccia successiva&quot; |
-| Sicuro con ID altoparlante | Rischio di rappresentazione, che rivela informazioni personali. | &quot;Quali sono i&#39;appuntamento successivo? &quot;, &quot;Rivedere l'elenco&quot;degli acquisti &quot;, rispondere alla chiamata&quot; |
-| Sicuro solo dopo l'autenticazione di Windows | Azioni ad alto rischio che possono essere usate da un utente malintenzionato per danneggiare il cliente | &quot;Acquistare altre drogherie&quot;, &quot;eliminare l'appuntamento&quot;(importante), &quot;inviare un messaggio&quot;di testo (Mean) &quot;, avviare una pagina Web (nefasto)&quot; |
+| Sicuro senza autenticazione | Informazioni generali o comando e controllo dell'app di base | &quot;Qual è il tempo? &quot; , &quot; riprodurre la traccia successiva&quot; |
+| Sicuro con ID altoparlante | Rischio di rappresentazione, che rivela informazioni personali. | &quot;Quali sono&#39;prossimo appuntamento? &quot; , &quot; rivedere l'elenco degli acquisti &quot; , &quot; rispondere alla chiamata&quot; |
+| Sicuro solo dopo l'autenticazione di Windows | Azioni ad alto rischio che possono essere usate da un utente malintenzionato per danneggiare il cliente | &quot;Acquistare altre drogherie &quot; , &quot; eliminare l'appuntamento (importante) &quot; , &quot; inviare un messaggio di testo (Mean) &quot; , &quot; avviare una pagina Web (nefasto)&quot; |
 
 Per il caso di Contoso, le informazioni generali relative alle scorte pubbliche sono sicure senza autenticazione. È probabile che le informazioni specifiche del cliente, ad esempio il numero di condivisioni possedute, siano sicure con ID altoparlante. Tuttavia, l'acquisto o la vendita di scorte non dovrebbe mai essere consentito senza l'autenticazione di Windows.
 

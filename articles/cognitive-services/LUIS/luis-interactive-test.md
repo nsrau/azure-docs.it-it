@@ -2,13 +2,13 @@
 title: Testare l'app nel portale di LUIS
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653884"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714409"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
@@ -42,7 +42,8 @@ L'espressione di test non deve essere esattamente identica a qualsiasi espressio
 
 1. L'espressione, la finalità principale relativa e il punteggio vengono aggiunti all'elenco di espressioni nella casella di testo.
 
-    ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## <a name="inspect-the-prediction"></a>Esaminare la stima
 
@@ -50,9 +51,13 @@ Esaminare i dettagli del risultato del test nel pannello di **controllo** .
 
 1. Con il pannello a scorrimento **Test** aperto, selezionare **Inspect** (Ispeziona) per un'espressione da confrontare.
 
-    ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
 
 1. Verrà visualizzato il pannello **ispezione** . Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra la stima dell'espressione selezionata.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot parziale del pannello test ispeziona](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="add-to-example-utterances"></a>Aggiungi a espressioni di esempio
 
@@ -76,12 +81,14 @@ Se si usano [criteri](luis-concept-patterns.md) e l'espressione corrisponde a un
 
 È possibile testare la versione attiva dell'app con la versione [endpoint](luis-glossary.md#endpoint) pubblicata. Nel pannello **Inspect** (Ispeziona) selezionare **Compare with published** (Confronta con pubblicata). Eventuali test sul modello pubblicato vengono dedotti dal saldo della quota di sottoscrizione di Azure.
 
-![Compare with published (Confronta con pubblicata)](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Compare with published (Confronta con pubblicata)](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>Visualizzare l'endpoint JSON nel pannello test
 È possibile visualizzare l'endpoint JSON restituito per il confronto selezionando **Show JSON view** (Mostra visualizzazione JSON).
 
-![Risposta JSON pubblicata](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Risposta JSON pubblicata](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>Impostazioni aggiuntive nel pannello test
 

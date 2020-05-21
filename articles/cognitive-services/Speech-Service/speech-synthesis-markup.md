@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592781"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714322"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -57,9 +57,9 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Necessario |
-| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Necessario |
-| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Necessario |
+| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Obbligatoria |
+| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Obbligatoria |
+| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Obbligatoria |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Scegliere una voce per la sintesi vocale
 
@@ -100,7 +100,7 @@ All'interno dell' `speak` elemento è possibile specificare più voci per l'outp
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Necessario |
+| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
 > [!IMPORTANT]
 > Più voci non sono compatibili con la funzionalità per i confini di parola. Per poter usare più voci, è necessario disabilitare la funzionalità di confine di parola.
@@ -111,7 +111,7 @@ A seconda del linguaggio dell'SDK vocale, impostare la `"SpeechServiceResponse_S
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -120,7 +120,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -129,7 +129,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```java
 speechConfig.setProperty(
@@ -138,7 +138,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -147,7 +147,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -156,7 +156,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -164,7 +164,7 @@ Per altre informazioni, vedere <a href="https://docs.microsoft.com/objectivec/co
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -195,10 +195,8 @@ Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usa
 
 Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 Le modifiche vengono applicate a livello di frase e lo stile varia in base alla voce. Se uno stile non è supportato, il servizio restituirà il riconoscimento vocale nello stile di lingua predefinito.
 
@@ -223,15 +221,11 @@ Usare questa tabella per determinare quali stili di pronuncia sono supportati pe
 |                         | `style="chat"`            | Esprime un tono informale e rilassato                         |
 |                         | `style="cheerful"`        | Esprime un tono positivo e allegro                         |
 |                         | `style="empathetic"`      | Esprime un senso di attenzione e comprensione               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Esprimere un tono calmo               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Esprime un tono formale e professionale per la narrazione di notizie |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
 |                         | `style="assistant"`       | Esprime un tono caldo e rilassato per gli assistenti digitali    |
 |                         | `style="lyrical"`         | Esprime emozioni in modo melodico e sentimentale         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Esprimere un tono calmo               |  
-|                         | `style="sad"`       | Esprime un tono infelice e sconvolto    |
-|                         | `style="serious"`         | Esprimere un tono grave e duro        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  | 
 
 **Esempio**
 
@@ -382,7 +376,7 @@ A volte il servizio di sintesi vocale non può pronunciare una parola in modo ac
 
 | Attributo | Descrizione                               | Obbligatoria / Facoltativa |
 |-----------|-------------------------------------------|---------------------|
-| `uri`     | Indirizzo del documento PLS esterno. | Obbligatoria.           |
+| `uri`     | Indirizzo del documento PLS esterno. | Obbligatorio.           |
 
 **Utilizzo**
 
@@ -409,7 +403,7 @@ Per definire il modo in cui vengono lette più entità, è possibile creare un l
 
 L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` elemento contiene almeno un `grapheme` elemento e uno o più `grapheme` elementi, `alias` e `phoneme` . L' `grapheme` elemento contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Gli `alias` elementi vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L' `phoneme` elemento fornisce il testo che descrive il modo in cui `lexeme` viene pronunciato.
 
-È importante notare che non è possibile impostare direttamente la pronuncia di una parola usando il lessico personalizzato. Se è necessario impostare la pronuncia per un oggetto, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . ad esempio:
+È importante notare che non è possibile impostare direttamente la pronuncia di una parola usando il lessico personalizzato. Se è necessario impostare la pronuncia per un oggetto, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . Ad esempio:
 
 ```xml
   <lexeme>
@@ -498,7 +492,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `pitch` | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600 Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80 Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>low</li><li>media</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
-| `contour` |Contour supporta ora sia le voci neurale che quelle standard. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch` ). | Facoltativo |
+| `contour` |Contour supporta ora sia le voci neurale che quelle standard. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch` ). | Facoltativo |
 | `range` | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch` . | Facoltativo |
 | `rate` | Indica la velocità di pronuncia del testo. È possibile esprimere le seguenti operazioni `rate` :<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
 | `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
@@ -580,7 +574,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Necessario |
+| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatoria |
 | `format` | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativo |
 | `detail` | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail` . | Facoltativo |
 
