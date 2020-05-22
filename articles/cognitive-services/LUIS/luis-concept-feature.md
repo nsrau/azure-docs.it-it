@@ -3,12 +3,12 @@ title: Funzionalità-LUIS
 description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682155"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742705"
 ---
 # <a name="machine-learning-ml-features"></a>Funzionalità di Machine Learning (ML)
 
@@ -85,7 +85,7 @@ Se, ad esempio, l'entità Address di spedizione contiene una sottoentità Addres
     * Via (sottoentità)
     * Città (sottoentità)
     * Stato o provincia (sottoentità)
-    * Country (sottoentità)
+    * Paese/area geografica (sottoentità)
     * Cap (sottoentità)
 
 ## <a name="nested-subentities-with-features"></a>Sottoentità nidificate con funzionalità
@@ -118,14 +118,14 @@ Continuando con l'esempio di indirizzo di spedizione:
     * Nome via (sottoentità)
     * Città (sottoentità)
     * Stato o provincia (sottoentità)
-    * Country (sottoentità)
+    * Paese/area geografica (sottoentità)
     * Cap (sottoentità)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Funzionalità obbligatoria con le entità predefinite
 
-La città, lo stato e il paese sono in genere un set di elenchi chiuso, vale a dire che non cambiano molto nel tempo. Queste entità potrebbero avere le funzionalità consigliate pertinenti e tali funzionalità potrebbero essere contrassegnate come obbligatorie. Questo significa che non viene restituito l'intero indirizzo di spedizione perché non sono state trovate le entità con funzionalità obbligatorie.
+Città, stato e paese/area geografica sono in genere un set di elenchi chiuso, ovvero non cambiano molto nel tempo. Queste entità potrebbero avere le funzionalità consigliate pertinenti e tali funzionalità potrebbero essere contrassegnate come obbligatorie. Questo significa che non viene restituito l'intero indirizzo di spedizione perché non sono state trovate le entità con funzionalità obbligatorie.
 
-Cosa accade se la città, lo stato o il paese si trovano nell'espressione, ma in una posizione o in uno slang non previsto da LUIS? Se si vuole fornire una fase di post-elaborazione per facilitare la risoluzione dell'entità, a causa di un punteggio di confidenza basso di LUIS, non contrassegnare la funzionalità come richiesto.
+Cosa accade se la città, lo stato o il paese/area geografica si trovano nell'espressione, ma in una posizione o in uno slang non previsto da LUIS? Se si vuole fornire una fase di post-elaborazione per facilitare la risoluzione dell'entità, a causa di un punteggio di confidenza basso di LUIS, non contrassegnare la funzionalità come richiesto.
 
 Un altro esempio di una funzionalità obbligatoria per l'indirizzo di spedizione è quello di fare in modo che il numero di strada sia un numero [precompilato](luis-reference-prebuilt-entities.md) obbligatorio. Questo consente a un utente di immettere "1 Microsoft Way" o "One Microsoft Way". Entrambe le soluzioni vengono risolte in un numero di "1" per la sottoentità numero civico.
 
@@ -133,19 +133,19 @@ Un altro esempio di una funzionalità obbligatoria per l'indirizzo di spedizione
 
 Un' [entità elenco](reference-entity-list.md) viene utilizzata come elenco di nomi canonici insieme ai relativi sinonimi. Come funzionalità obbligatoria, se l'espressione non include il nome canonico o un sinonimo, l'entità non viene restituita come parte dell'endpoint di stima.
 
-Continuando con l'esempio di indirizzo di spedizione, si supponga che la società venga fornita solo a un set limitato di paesi. È possibile creare un'entità di elenco che includa diversi modi in cui il cliente può fare riferimento al paese. Se LUIS non trova una corrispondenza esatta all'interno del testo dell'espressione, l'entità, che ha la funzionalità richiesta dell'entità list, non viene restituita nella stima.
+Continuando con l'esempio di indirizzo di spedizione, si supponga che la società venga fornita solo a un set limitato di paesi/aree geografiche. È possibile creare un'entità di elenco che includa diversi modi in cui il cliente può fare riferimento al paese. Se LUIS non trova una corrispondenza esatta all'interno del testo dell'espressione, l'entità, che ha la funzionalità richiesta dell'entità list, non viene restituita nella stima.
 
 |Nome canonico|Sinonimi|
 |--|--|
 |Stati Uniti|U.S.<br>U. S. A<br>US<br>USA<br>0|
 
-L'applicazione client, ad esempio un bot di chat, può porre una domanda di seguito, in modo che il cliente possa capire che la selezione del paese è limitata e _obbligatoria_.
+L'applicazione client, ad esempio un bot di chat, può porre una domanda di seguito, in modo che il cliente possa capire che la selezione del paese/area geografica è limitata e _obbligatoria_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Funzionalità obbligatoria con entità di espressioni regolari
 
 Un' [entità di espressione regolare](reference-entity-regular-expression.md) utilizzata come funzionalità obbligatoria fornisce funzionalità di corrispondenza del testo avanzate.
 
-Continuando con l'indirizzo di spedizione, è possibile creare un'espressione regolare che acquisisca le regole di sintassi dei codici postali dei paesi.
+Continuando con l'indirizzo di spedizione, è possibile creare un'espressione regolare che acquisisca le regole di sintassi dei codici postali del paese/area geografica.
 
 ## <a name="global-features"></a>Funzionalità globali
 
