@@ -240,10 +240,7 @@
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Servizio Azure Kubernetes
-              items:
-                - name: Kubernetes (deprecato)
-                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-                  href: app/kubernetes.md
+              href: app/kubernetes-codeless.md
             - name: Autonomo - qualsiasi ambiente
               items:
                 - name: Java (anteprima)
@@ -1000,8 +997,6 @@
           items:
             - name: Disponibilità
               href: app/monitor-web-app-availability.md
-            - name: Avvisi delle metriche
-              href: app/alerts.md
         - name: Regole di avviso per le metriche
           items:
             - name: Gestire gli avvisi per le metriche
@@ -1202,7 +1197,7 @@
               href: app/data-model-dependency-telemetry.md
             - name: Eccezione
               href: app/data-model-exception-telemetry.md
-            - name: Traccia
+            - name: Trace
               href: app/data-model-trace-telemetry.md
             - name: Event
               href: app/data-model-event-telemetry.md
@@ -1268,6 +1263,8 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights Connector
           href: platform/app-insights-connector.md
+        - name: Application Insights per il servizio Azure Kubernetes senza codice
+          href: app/kubernetes.md
         - name: Monitorare applicazioni Docker
           href: app/docker.md
         - name: Deprecazione del portale OMS
@@ -1294,7 +1291,7 @@
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Modelli di avvio rapido
+    - name: Modelli di Guida introduttiva
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=monitoring'

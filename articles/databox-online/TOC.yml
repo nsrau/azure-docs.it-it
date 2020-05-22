@@ -88,7 +88,11 @@
         - name: Panoramica della sicurezza
           href: azure-stack-edge-security.md
         - name: Esaminare le specifiche
-          href: azure-stack-edge-technical-specifications-compliance.md
+          items:
+            - name: Specifiche del dispositivo
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Specifiche del cavo di alimentazione
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Procedure
       items:
         - name: 'Sviluppare un modulo C#'

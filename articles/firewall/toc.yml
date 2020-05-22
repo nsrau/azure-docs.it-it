@@ -17,13 +17,13 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Eseguire la distribuzione con gruppi IP
+    - name: Eseguire la distribuzione con gruppi IP - Modello di Resource Manager
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Eseguire la distribuzione con più indirizzi
+    - name: Eseguire la distribuzione con più indirizzi - Modello di Resource Manager
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Eseguire la distribuzione con zone di disponibilità
+    - name: Eseguire la distribuzione con zone di disponibilità - Modello di Resource Manager
       displayName: Resource Manager
       href: deploy-template.md
 - name: Esempi

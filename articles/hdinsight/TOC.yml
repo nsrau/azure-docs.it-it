@@ -59,6 +59,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Pianificazione della capacità dei cluster
           href: ./hdinsight-capacity-planning.md
+        - name: Aumento della richiesta per la quota di core di CPU
+          href: ./quota-increase-request.md
         - name: Procedure consigliate per la gestione dei cluster
           href: ./cluster-management-best-practices.md
         - name: Disponibilità e affidabilità
@@ -243,6 +245,8 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Risolvere i problemi di Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Comprendere e risolvere gli errori di WebHCat
+              href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Informazioni di riferimento
       items:
         - name: Azure PowerShell
@@ -285,8 +289,6 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Abilitare i dump dell'heap per i servizi Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: Comprendere e risolvere gli errori di WebHCat
-          href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
         - name: Ottenere informazioni sui forum
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
         - name: Calcolatore prezzi
@@ -330,6 +332,8 @@
           href: ./spark/apache-spark-settings.md
         - name: Ottimizzare i processi Apache Spark
           href: ./spark/apache-spark-perf.md
+        - name: Eseguire la migrazione a Spark 2.3 o 2.4
+          href: ./spark/migrate-versions.md
     - name: Procedure
       items:
         - name: Usare gli strumenti
@@ -736,6 +740,8 @@
       items:
         - name: Procedure consigliate per il gateway
           href: ./interactive-query/gateway-best-practices.md
+        - name: Linee guida per il ridimensionamento
+          href: ./interactive-query/sizing-guidelines.md
     - name: Procedure
       items:
         - name: Sviluppo
@@ -780,6 +786,8 @@
               href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
             - name: Blocco dell'applicazione Apache Tez
               href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+            - name: Linee guida per il ridimensionamento di Apache Hive LLAP
+              href: ./interactive-query/hive-llap-sizing-guide.md
             - name: Prestazioni delle query LLAP di Apache Hive
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: Riduttore lento

@@ -91,7 +91,7 @@
           items:
             - name: Limitare l'accesso tramite endpoint privato
               href: container-registry-private-link.md
-            - name: Configurare le regole del firewall del servizio
+            - name: Configurare l'accesso pubblico al registro
               href: container-registry-access-selected-networks.md
             - name: Limitare l'accesso con l'endpoint servizio (anteprima)
               href: container-registry-vnet.md

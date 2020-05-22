@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 50252d0a308c4232b84bffddd905d8a84e1be0d8
+  ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201644"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83707973"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -47,7 +47,7 @@ conceptualContent:
       text: Nozioni di base sul riconoscimento vocale
       url: speech-to-text-basics.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-speech-to-text.yml
   - title: Sintesi vocale
     links:
@@ -61,7 +61,7 @@ conceptualContent:
       text: Nozioni di base sulla sintesi vocale
       url: text-to-speech-basics.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-text-to-speech.yml
   - title: Traduzione vocale
     links:
@@ -75,7 +75,7 @@ conceptualContent:
       text: Nozioni di base sulla traduzione vocale
       url: speech-translation-basics.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-speech-translation.yml
   - title: Riconoscimento finalità
     links:
@@ -89,7 +89,7 @@ conceptualContent:
       text: Portale di Language Understanding (LUIS)
       url: https://www.luis.ai
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-intent-recognition.yml
   - title: Scenari di conversazione
     links:
@@ -103,7 +103,7 @@ conceptualContent:
       text: Trascrizioni di call center
       url: call-center-transcription.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-conversation-scenarios.yml
   - title: Assistenti vocali
     links:
@@ -117,8 +117,16 @@ conceptualContent:
       text: Creare un assistente vocale con Bot Framework
       url: direct-line-speech.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-voice-assistants.yml
+  - title: Riconoscimento del parlante
+    links:
+    - itemType: how-to-guide
+      text: Informazioni su Riconoscimento del parlante
+      url: ../Speaker-recognition/Home.md
+    - itemType: how-to-guide
+      text: Informazioni di riferimento per l'API Riconoscimento del parlante
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
   - title: Strumenti
     links:
     - itemType: overview
@@ -142,7 +150,7 @@ conceptualContent:
       text: Contenitori del servizio Voce in Istanze di Azure Container
       url: deploy-speech-on-container-instances.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-hosting.yml
   - title: Dispositivi
     links:
@@ -156,7 +164,7 @@ conceptualContent:
       text: Usare Speech Devices SDK
       url: speech-devices-sdk-quickstart.md
     footerLink:
-      text: Altre informazioni
+      text: Altro
       url: index-devices.yml
   - title: Migrazione
     links:

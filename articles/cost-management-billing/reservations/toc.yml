@@ -6,7 +6,6 @@
     - name: Informazioni sulle prenotazioni di Azure
       href: save-compute-costs-reservations.md
 - name: Guide pratiche
-  expanded: true
   items:
     - name: Decidere cosa acquistare
       items:
@@ -56,12 +55,17 @@
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
         - name: Scambio e rimborso di prenotazioni
           href: exchange-and-refund-azure-reservations.md
+    - name: Segnalare i costi
+      items:
+        - name: Visualizzare le transazioni di prenotazione
+          href: view-purchase-refunds.md
+        - name: Ammortizzare i costi delle prenotazioni
+          href: charge-back-usage.md
     - name: Esaminare le prenotazioni
       items:
         - name: Rinnovare una prenotazione
           href: reservation-renew.md
 - name: Concetti
-  expanded: true
   items:
     - name: Come vengono create le raccomandazioni per le prenotazioni
       href: reserved-instance-purchase-recommendations.md

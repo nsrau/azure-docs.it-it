@@ -1,79 +1,92 @@
 ---
-title: Novità-Language Understanding (LUIS)
-description: Questo articolo viene aggiornato regolarmente con le notizie sui servizi cognitivi di Azure API Language Understanding.
-ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+title: Novità - Language Understanding (LUIS)
+description: Questo articolo viene aggiornato regolarmente e include le novità sull'API Language Understanding di Servizi cognitivi di Azure.
+ms.topic: overview
+ms.date: 05/08/2020
+ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097728"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592798"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
-Ecco cosa c'è di nuovo nel servizio. Questi elementi includono note sulla versione, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
+Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="may-2020---build"></a>Maggio 2020 - //Build
+
+* Rilasciato come **disponibile a livello generale** (GA):
+    * [Contenitore Language Understanding](luis-container-howto.md)
+    * Portale di anteprima promosso a [portale corrente](https://www.luis.ai), ma portale [precedente](https://previous.luis.ai) ancora disponibile
+    * Nuova esperienza di creazione e assegnazione di etichette per le entità basate su Machine Learning
+    * [Processo di aggiornamento](migrate-from-composite-entity.md) da entità composite e semplici a entità basate su Machine Learning
+    * Supporto delle [impostazioni](how-to-application-settings-portal.md) per la normalizzazione delle varianti di parole
+* Anteprima delle modifiche apportate all'API di creazione
+    * Schema dell'app 7.x per entità annidate basate su Machine Learning
+    * [Migrazione alla funzionalità obbligatoria](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+
+
 ### <a name="march-2020"></a>Marzo 2020
 
-* TLS 1,2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [sicurezza dei servizi cognitivi di Azure](../cognitive-services-security.md).
+* TLS 1.2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [Sicurezza di Servizi cognitivi di Azure](../cognitive-services-security.md).
 
-### <a name="november-4-2019---ignite"></a>4 novembre 2019-Ignite
+### <a name="november-4-2019---ignite"></a>4 novembre 2019 - Ignite
 
-* Modelli video- [Advanced Natural Language Understanding (NLU) con Luis e servizi cognitivi di Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+* Video: [Modelli avanzati di riconoscimento del linguaggio naturale con LUIS e Servizi cognitivi di Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 * Miglioramento della produttività degli sviluppatori
-    * Disponibilità generale dell' [endpoint di stima V3](luis-migration-api-v3.md).
-    * Possibilità di importare ed esportare app con formato Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). In questo modo viene spianato il modo di un processo di integrazione continua/recapito continuo effettivo.
-* Espansione del linguaggio
-    * [Arabo e Hindi](luis-language-support.md) in versione di anteprima pubblica.
+    * Disponibilità generale dell'[endpoint di stima V3](luis-migration-api-v3.md).
+    * Possibilità di importare ed esportare app in formato `.lu` ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Questa novità pone le basi per un processo CI/CD efficace.
+* Altre lingue disponibili
+    * [Arabo e hindi](luis-language-support.md) in anteprima pubblica.
 * Modelli predefiniti
-    * [Domini predefiniti](luis-reference-prebuilt-domains.md) è ora disponibile a livello generale (GA)
-    * [Entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) giapponesi: età, valuta, numero e percentuale non supportati in V3.
-    * [Entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) italiane: la risoluzione di età, valuta, dimensione, numero e percentuale è cambiata da V2.
-* Esperienza utente migliorata nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi. Provare le esercitazioni del portale di anteprima:
-    * [Solo Intent](tutorial-intents-only.md)
-    * [Entità Machine-learnable ricomponibile](tutorial-machine-learned-entity.md)
-* Avanzate funzionalità di comprensione della lingua: [creazione di modelli di linguaggio sofisticati](luis-concept-entity-types.md) con minor sforzo.
-* Definire le funzionalità di machine learning a livello di modello e consentire l'uso dei modelli come segnali ad altri modelli, ad esempio l'uso di entità come funzionalità per gli Intent e altre entità.
-* Nuovi [limiti](luis-limits.md) espansi-valore massimo superiore per elenchi di frasi e frasi totali, nuovo modello come limite di funzionalità
-* Estrai le informazioni dal testo nel formato della struttura della gerarchia profonda, rendendo più potenti le applicazioni di conversazione.
+    * La funzionalità [Domini predefiniti](luis-reference-prebuilt-domains.md) è ora disponibile a livello generale
+    * Le [entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) per il giapponese, ovvero age, currency, number e percentage, non sono supportate nella versione V3.
+    * Le [entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) per l'italiano, ovvero age, currency, dimension, number e percentage resolution sono cambiate rispetto alla versione V2.
+* Miglioramento dell'esperienza utente nel [portale preview.luis.ai](https://preview.luis.ai): l'esperienza di assegnazione di etichette è stata riprogettata per consentire la compilazione e il debug di modelli complessi. Provare le esercitazioni del portale di anteprima:
+    * [Solo finalità](tutorial-intents-only.md)
+    * [Entità scomponibile basata su Machine Learning](tutorial-machine-learned-entity.md)
+* Funzionalità avanzate di riconoscimento del linguaggio: [creazione di modelli linguistici sofisticati](luis-concept-entity-types.md) con minore sforzo.
+* Definizione delle funzionalità di Machine Learning a livello di modello e possibilità di usare modelli come segnali per altri modelli, ad esempio usare entità come funzionalità per le finalità e per altre entità.
+* Novità - Espansione dei [limiti](luis-limits.md): nuovo limite massimo per elenchi di frasi e numero totale di frasi, nuovo modello come limiti di funzionalità
+* Estrazione di informazioni dal testo nel formato della struttura della gerarchia profonda, che rende ancor più potenti le applicazioni di conversazione.
 
-    ![immagine dell'entità Machine-Learned](./media/whats-new/deep-entity-extraction-example.png)
+    ![Immagine di entità basata su Machine Learning](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 settembre 2019
 
-* Risorsa di creazione di Azure: [eseguire la migrazione adesso](luis-migration-authoring.md).
+* Risorsa di creazione di Azure: [Eseguire subito la migrazione](luis-migration-authoring.md).
     * 500 app per ogni risorsa di Azure
-    * 100 versioni per app
-* Supporto turco per le entità predefinite
-* Supporto italiano per datetimeV2
+    * 100 versioni per ogni app
+* Supporto della lingua turco per le entità predefinite
+* Supporto della lingua italiana per datetimeV2
 
 ### <a name="july-23-2019"></a>23 luglio 2019
 
-* Aggiornare i [Riconoscitori-testo](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3) a 1.2.3
-    * Riconoscimenti di età, temperatura, dimensione e valuta in italiano.
-    * Miglioramento del riconoscimento delle festività in inglese per calcolare correttamente le date basate sul ringraziamento.
-    * Miglioramenti del valore DateTime francese per ridurre i falsi positivi delle entità non di data e non temporali.
-    * Supporto per calendario/scuola/anno fiscale e acronimi in DateRange inglese.
-    * Riconoscimento PhoneNumber migliorato in cinese e giapponese.
-    * Supporto migliorato per NumberRange in inglese.
+* Aggiornamento di [Recognizers-Text](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3) alla versione 1.2.3
+    * Sistemi di riconoscimento per età, temperatura, dimensione e valuta in lingua italiana.
+    * Miglioramento del riconoscimento delle festività in lingua inglese per il calcolo corretto delle date basate sul Giorno del Ringraziamento.
+    * Miglioramenti di DateTime in lingua francese per ridurre i falsi positivi relativi a entità diversi da Date e Time.
+    * Supporto per anno di calendario/scolastico/fiscale e acronimi in DateRange per la lingua inglese.
+    * Miglioramento del riconoscimento di PhoneNumber per le lingue cinese e giapponese.
+    * Miglioramento del supporto per NumberRange in lingua inglese.
     * Miglioramenti delle prestazioni.
 
 ### <a name="june-24-2019"></a>24 giugno 2019
 
-* [OrdinalV2: entità predefinita](luis-reference-prebuilt-ordinal-v2.md) per supportare l'ordinamento, ad esempio Next, Previous e Last. Solo lingua inglese.
+* [Entità predefinita OrdinalV2](luis-reference-prebuilt-ordinal-v2.md) per supportare l'ordinamento, come next, previous, and last. Solo impostazioni cultura inglese.
 
-### <a name="may-6-2019---build-conference"></a>6 maggio, 2019-Build Conference
+### <a name="may-6-2019---build-conference"></a>6 maggio 2019 - Conferenza //Build
 
-Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
+In occasione della conferenza Build 2019 sono state rilasciate le funzionalità seguenti:
 
 * [Anteprima della Guida alla migrazione dell'API V3](luis-migration-api-v3.md)
-* [Dashboard di analisi migliorato](luis-how-to-use-dashboard.md)
-* [Domini predefiniti migliorati](luis-reference-prebuilt-domains.md)
-* [Entità elenco dinamico](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [Miglioramento del dashboard di analisi](luis-how-to-use-dashboard.md)
+* [Miglioramento dei domini predefiniti](luis-reference-prebuilt-domains.md)
+* [Entità elenco dinamiche](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>Blog
@@ -82,13 +95,13 @@ Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
 
 ## <a name="videos"></a>Video
 
-### <a name="2019-ignite-videos"></a>video di 2019 Ignite
+### <a name="2019-ignite-videos"></a>Video di Ignite 2019
 
-[Modelli di Language Understanding naturale avanzati (NLU) con LUIS e servizi cognitivi di Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+[Modelli avanzati di riconoscimento del linguaggio naturale con LUIS e Servizi cognitivi di Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
-### <a name="2019-build-videos"></a>video sulla compilazione di 2019
+### <a name="2019-build-videos"></a>Video di Build 2019
 
-[Come usare l'intelligenza artificiale per la conversazione di Azure per la scalabilità dell'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+[Come usare l'intelligenza artificiale per conversazioni di Azure per preparare l'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 

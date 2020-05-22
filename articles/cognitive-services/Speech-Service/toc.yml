@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Nozioni di base sul riconoscimento vocale
           href: speech-to-text-basics.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Riconoscimento vocale con input del microfono
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Riconoscimento della voce archiviata in archivio BLOB
           href: quickstarts/from-blob.md
+        - name: Valutazione della pronuncia con input di riferimento
+          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Guide pratiche
       items:
         - name: Scegliere la modalità di riconoscimento vocale
@@ -61,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Valutare l'accuratezza di Riconoscimento vocale personalizzato
           href: how-to-custom-speech-evaluate-data.md
+        - name: Migliorare l'accuratezza di Riconoscimento vocale personalizzato
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Eseguire il training di un modello per Riconoscimento vocale personalizzato
           href: how-to-custom-speech-train-model.md
         - name: Distribuire un modello personalizzato
@@ -115,7 +119,7 @@
           href: text-to-speech.md
         - name: Nozioni di base sulla sintesi vocale
           href: text-to-speech-basics.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Sintetizzare la voce in un altoparlante
           href: quickstarts/text-to-speech.md
@@ -216,7 +220,7 @@
           href: speech-translation.md
         - name: Nozioni di base sulla traduzione vocale
           href: speech-translation-basics.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Tradurre la voce in testo
           href: quickstarts/translate-speech-to-text.md
@@ -265,7 +269,7 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: 'Riconoscere la voce, le finalità e le entità'
           displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
@@ -364,7 +368,7 @@
           items:
             - name: Che cos'è la conversazione per più dispositivi?
               href: multi-device-conversation.md
-        - name: Avvio rapido
+        - name: Guida introduttiva
           items:
             - name: Avviare a una conversazione e parteciparvi
               href: quickstarts/multi-device-conversation.md
@@ -482,7 +486,7 @@
           href: speech-sdk.md
         - name: Disponibilità di scenari
           href: scenario-availability.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Configurare Speech SDK
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
@@ -545,7 +549,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

@@ -133,6 +133,8 @@
   items:
     - name: Spostarsi tra aree
       href: move-across-regions.md
+    - name: Aggiungere dinamicamente partizioni
+      href: dynamically-add-partitions.md
     - name: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub di Azure Stack
       href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: Eseguire la migrazione da API Service Manager (classiche) di Azure ad API Resource Manager
@@ -205,7 +207,7 @@
           href: event-hubs-ip-filtering.md
         - name: Configurare gli endpoint servizio di rete virtuale
           href: event-hubs-service-endpoints.md
-        - name: Configurare gli endpoint privati (anteprima)
+        - name: Configurare gli endpoint privati
           href: private-link-service.md
         - name: Configurare le chiavi gestite dal cliente
           href: configure-customer-managed-key.md

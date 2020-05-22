@@ -1,7 +1,7 @@
 - name: Documentazione del marketplace commerciale
   href: index.yml
   items:
-    - name: Roadmap del marketplace commerciale
+    - name: Aggiornamenti del marketplace commerciale
       href: ./marketplace-roadmap.md
     - name: Informative e condizioni del marketplace commerciale
       href: ./policies-terms.md
@@ -76,10 +76,6 @@
 - name: Portale per Cloud Partner
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
-    - name: Migrazione dal portale Cloud Partner al Centro per i partner
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
-    - name: Domande frequenti sulla migrazione
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Presentazione del portale
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -134,8 +130,6 @@
           items:
             - name: Introduzione
               href: ./cloud-partner-portal-orig/si-getting-started.md
-            - name: Novità
-              href: ./cloud-partner-portal-orig/si-changes.md
             - name: Web analytics
               href: ./cloud-partner-portal-orig/web-analytics.md
             - name: Definizioni
@@ -264,67 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Offerta di una macchina virtuale
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-          items:
-            - name: Prerequisiti
-              href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
-            - name: Creare un'offerta per le macchine virtuali
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
-              items:
-                - name: Scheda Impostazioni dell'offerta
-                  href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
-                - name: Scheda SKU
-                  href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
-                - name: Scheda Test Drive
-                  href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
-                - name: Scheda Marketplace
-                  href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
-                - name: Scheda Supporto
-                  href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
-            - name: Creare gli asset tecnici delle macchine virtuali
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
-              items:
-                - name: Creare un disco rigido virtuale
-                  href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
-                - name: Problemi comuni di creazione dei dischi rigidi virtuali
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
-                - name: Connettersi alla macchina virtuale
-                  href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
-                - name: Configurare una macchina virtuale
-                  href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
-                - name: Gestione remota Windows
-                  href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
-                  items:
-                    - name: Configurare WinRM dopo la creazione della macchina virtuale
-                      href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
-                - name: Distribuire la macchina virtuale
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
-                  items:
-                    - name: Creare un'immagine di macchina virtuale degli utenti
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
-                    - name: Creare un certificato dell'insieme di credenziali delle chiavi
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
-                      items:
-                        - name: Modello di distribuzione dell'insieme di credenziali delle chiavi
-                          href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
-                - name: Distribuire una macchina virtuale dal disco rigido virtuale di un utente
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
-                  items:
-                    - name: Modello di distribuzione del disco rigido virtuale
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
-                    - name: Distribuire una macchina virtuale dal marketplace
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
-                - name: Certificare l'immagine di macchina virtuale
-                  href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
-                - name: Client di verifica automatica VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
-                - name: Ottenere l'URI di firma di accesso condiviso
-                  href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
-                - name: Problemi comuni degli URL di firma di accesso condiviso
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
-            - name: Pubblicare un'offerta per le macchine virtuali
-              href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
-            - name: Aggiornare l'offerta esistente
-              href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
     - name: Informazioni di riferimento sulle API
       items:
         - name: Panoramica
@@ -361,6 +294,8 @@
   items:
     - name: Panoramica del marketplace commerciale
       href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Domande frequenti sulla migrazione
+      href: ./cloud-partner-portal-migration-faq.md
     - name: Gestione degli account
       items:
         - name: Creare un nuovo account del Centro per i partner

@@ -42,8 +42,6 @@
         - name: 2. Estrarre i dati utente
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-        - name: 3. Ottenere la valutazione da espressioni utente
-          href: tutorial-publish-settings.md
     - name: Migliorare l'app
       items:
         - name: Correggere le stime dubbie
@@ -379,7 +377,7 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Informazioni di riferimento sulle entità personalizzate
       items:
-        - name: Entità basata su Machine Learning
+        - name: Entità di Machine Learning
           href: reference-entity-machine-learned-entity.md
         - name: Entità composita
           href: reference-entity-composite.md

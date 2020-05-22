@@ -70,6 +70,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Eseguire il debug di un set di competenze
+      href: cognitive-search-tutorial-debug-sessions.md
     - name: Eseguire query da Power Apps
       href: search-howto-powerapps.md
 - name: Esempi
@@ -95,14 +97,17 @@
       href: search-indexer-overview.md
     - name: Arricchimento con intelligenza artificiale
       href: cognitive-search-concept-intro.md
-    - name: Set di competenze
-      href: cognitive-search-working-with-skillsets.md
-    - name: Knowledge store
-      href: knowledge-store-concept-intro.md
-    - name: Proiezioni
-      href: knowledge-store-projection-overview.md
-    - name: Arricchimento incrementale
-      href: cognitive-search-incremental-indexing-conceptual.md
+      items:
+        - name: Set di competenze
+          href: cognitive-search-working-with-skillsets.md
+        - name: Sessioni di debug
+          href: cognitive-search-debug-session.md
+        - name: Knowledge store
+          href: knowledge-store-concept-intro.md
+        - name: Proiezioni
+          href: knowledge-store-projection-overview.md
+        - name: Arricchimento incrementale
+          href: cognitive-search-incremental-indexing-conceptual.md
 - name: Guide pratiche
   items:
     - name: Creare indici e costrutti
@@ -181,6 +186,16 @@
               href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
             - name: macchine virtuali di SQL Server
               href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Connettersi con identità gestite
+          items:
+            - name: Panoramica delle identità gestite
+              href: search-howto-managed-identities-data-sources.md
+            - name: Archiviazione di Azure
+              href: search-howto-managed-identities-storage.md
+            - name: Azure Cosmos DB
+              href: search-howto-managed-identities-cosmos-db.md
+            - name: Database SQL
+              href: search-howto-managed-identities-sql.md
     - name: Inserimento tramite intelligenza artificiale
       items:
         - name: Collegare una risorsa Servizi cognitivi
@@ -463,7 +478,7 @@
         - name: Demo sui file finanziari
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Demo sui file JFK
-          href: 'https://aka.ms/jfkfiles'
+          href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
     - name: Formazione
       items:
         - name: Introduzione (Microsoft Learn)

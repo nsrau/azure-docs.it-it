@@ -132,6 +132,14 @@
               href: event-schema-azure-signalr.md
             - name: Sottoscrizioni Azure
               href: event-schema-subscriptions.md
+    - name: Argomenti per i partner
+      items:
+        - name: Panoramica degli argomenti per i partner
+          href: partner-topics-overview.md
+        - name: Auth0
+          href: auth0-overview.md
+        - name: Diventare un partner di Griglia di eventi
+          href: partner-onboarding-overview.md
     - name: Domini eventi
       href: event-domains.md
     - name: Formati dello schema di eventi
@@ -186,6 +194,8 @@
   items:
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
+    - name: Sottoscrivere eventi Auth0
+      href: auth0-how-to.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
     - name: Messaggi non recapitabili e ripetizione dei tentativi
@@ -214,6 +224,8 @@
           href: configure-firewall.md
         - name: Proteggere WebHook con AAD
           href: secure-webhook-delivery.md
+        - name: Distribuzione di eventi con Identità gestita
+          href: managed-service-identity.md
     - name: Risolvere problemi
       items:
         - name: Abilitare i log di diagnostica

@@ -4,15 +4,12 @@
   items:
     - name: Che cos'è Azure Arc per server?
       href: ./servers/overview.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./servers/policy-samples.md
 - name: Guide pratiche
   items:
     - name: Connessione ad Azure Arc
       items:
+        - name: Panoramica dell'agente Connected Machine
+          href: ./servers/agent-overview.md
         - name: Connettere i computer ad Azure Arc dal portale di Azure
           href: ./servers/onboard-portal.md
         - name: Connettere i computer su larga scala usando un'entità servizio
@@ -23,3 +20,8 @@
       items:
         - name: Gestire l'agente
           href: ./servers/manage-agent.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md

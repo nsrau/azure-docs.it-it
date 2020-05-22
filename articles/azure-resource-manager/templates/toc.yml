@@ -14,16 +14,26 @@
       items:
         - name: Servizio Azure Kubernetes
           href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Analysis Services - Creare un server
+          href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Gateway applicazione
           href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Backup
           href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Ricerca cognitiva
+          href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cosmos DB
           href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Griglia di eventi
           href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Hub eventi
           href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Firewall - Zone di disponibilità
+          href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Firewall -Gruppi IP
+          href: ../../firewall/quick-create-ipgroup-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Firewall -Più indirizzi
+          href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: HDInsight - Spark
           href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: HDInsight - Hadoop
@@ -44,6 +54,8 @@
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Policy
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Resource Graph
+          href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Messaggistica del bus di servizio
           href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Site Recovery
@@ -236,7 +248,7 @@
           href: deploy-to-management-group.md
         - name: Tenant
           href: deploy-to-tenant.md
-        - name: Più gruppi di risorse o sottoscrizioni
+        - name: Gruppo di più risorse
           href: cross-resource-group-deployment.md
     - name: Specificare i parametri
       items:

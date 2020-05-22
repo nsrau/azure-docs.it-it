@@ -1,0 +1,220 @@
+---
+title: Risolvere i problemi di verifica dell'autore - Microsoft Identity Platform | Azure
+description: Viene descritto come risolvere i problemi di verifica dell'autore (anteprima) per Microsoft Identity Platform chiamando API Microsoft Graph.
+services: active-directory
+author: rwike77
+manager: CelesteDG
+ms.service: active-directory
+ms.subservice: develop
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 05/08/2020
+ms.author: ryanwi
+ms.custom: aaddev
+ms.reviewer: jesakowi
+ms.openlocfilehash: cf886b7b43280e542f1941e7c0edb570868525d9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83595750"
+---
+# <a name="troubleshoot-publisher-verification-preview"></a>Risolvere i problemi di verifica dell'autore (anteprima)
+Se non è possibile completare il processo o si riscontra un comportamento imprevisto con la [verifica dell'autore (anteprima)](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o in presenza di comportamenti imprevisti: 
+
+1. Esaminare i [requisiti](publisher-verification-overview.md#requirements) e verificare che siano stati soddisfatti tutti.
+
+1. Vedere le istruzioni per [contrassegnare un'app come con autore verificato](mark-app-as-publisher-verified.md) e assicurarsi che tutti i passaggi siano stati eseguiti correttamente.
+
+1. Controllare l'elenco dei [problemi comuni](#common-issues).
+
+1. Riprodurre la richiesta usando [Graph Explorer](#making-microsoft-graph-api-calls) per raccogliere informazioni aggiuntive ed escludere eventuali problemi nell'interfaccia utente.
+
+## <a name="common-issues"></a>Problemi comuni
+Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante il processo. 
+
+- **Non si conosce l'ID di Microsoft Partner Network (MPN ID) o non si sa chi è il contatto principale per l'account** 
+    1. Accedere alla [pagina di registrazione di MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
+    1. Accedere con un account utente nel tenant di Azure AD primario dell'organizzazione 
+    1. Se esiste già un account MPN, verrà riconosciuto e l'utente verrà aggiunto all'account 
+    1. Passare alla [pagina del profilo del partner](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) in cui sono elencati l'ID MPN e il contatto dell'account primario
+
+- **Non si sa chi sia l'amministratore globale di Azure AD (noto anche come amministratore società o amministratore tenant), come si può trovarli? Stessa domanda per l'amministratore delle app o a un altro ruolo di amministratore.**
+    1. Accedere al [portale di Azure AD](https://aad.portal.azure.com) usando un account utente nel tenant primario dell'organizzazione
+    1. Passare a [Gestione ruoli](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
+    1. Fare clic su "Amministratore globale" o sul ruolo di amministratore desiderato
+    1. Verrà visualizzato l'elenco degli utenti assegnati al ruolo
+
+- **Non si conoscono gli amministratori dell'account MPN** Passare alla [pagina di gestione degli utenti MPN](https://partner.microsoft.com/en-us/pcv/users) e filtrare l'elenco di utenti per vedere quali sono gli utenti con i diversi ruoli di amministratore.
+
+- **Si verifica un errore che segnala che l'ID MPN non è valido o che non è possibile accedervi.**
+    1. Passare al [profilo partner](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) e verificare che: 
+        - L'ID MPN sia corretto. 
+        - Non siano visualizzati errori o "azioni in sospeso" e lo stato di verifica nel profilo di business legale e nelle informazioni sul partner sia "autorizzato" o "operazione riuscita".
+    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati.
+    1. Passare alla [pagina di gestione degli utenti di MPN](https://partner.microsoft.com/en-us/pcv/users) e verificare che l'utente usato per l'accesso sia un amministratore globale, un amministratore MPN o un amministratore account.
+
+- **Quando si accede al portale di Azure AD, non viene visualizzata alcuna app registrata. Perché?** 
+    È possibile che le registrazioni dell'app siano state create usando un account utente diverso o in un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.
+
+- **Come si può risalire al proprietario della registrazione di un'app in Azure AD?** 
+    Dopo aver eseguito l'accesso a un tenant in cui è registrata l'app, passare al pannello Registrazioni app, fare clic su un'app e quindi fare clic su Proprietari.
+
+## <a name="making-microsoft-graph-api-calls"></a>Eseguire chiamate API Microsoft Graph 
+
+Se si verifica un problema, ma non si riesce a capirne il motivo in base a ciò che viene visualizzato nell'interfaccia utente, può essere utile eseguire ulteriori operazioni di risoluzione dei problemi usando chiamate API Microsoft Graph per eseguire le stesse operazioni che è possibile eseguire nel portale di registrazione delle app. Durante la fase di anteprima, queste API saranno disponibili solo nell'endpoint /beta di Microsoft Graph.  
+
+Il modo più semplice per effettuare queste richieste consiste nell'usare [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile prendere in considerazione altre opzioni, ad esempio l'uso [Postman](https://www.postman.com/) o l'uso di PowerShell per [richiamare una richiesta Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
+
+È possibile usare Microsoft Graph sia per impostare l'autore verificato per l'app che per annullarne l'impostazione e controllare il risultato dopo l'esecuzione di una di queste operazioni. Il risultato può essere visualizzato sia nell'oggetto [applicazione](/graph/api/resources/application?view=graph-rest-beta) corrispondente alla registrazione dell'app che in qualsiasi [entità servizio](/graph/api/resources/serviceprincipal?view=graph-rest-beta) di cui è stata creata un'istanza da tale app. Per altre informazioni sulla relazione tra questi oggetti, vedere: [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).  
+
+Di seguito sono riportati alcuni esempi di richieste utili:  
+
+### <a name="set-verified-publisher"></a>Impostare l'autore verificato 
+
+Richiesta
+
+```
+POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/setVerifiedPublisher 
+
+{ 
+
+    "verifiedPublisherId": "12345678" 
+
+} 
+```
+ 
+Risposta 
+```
+204 No Content 
+```
+> [!NOTE]
+> *verifiedPublisherID* è l'ID MPN. 
+
+### <a name="unset-verified-publisher"></a>Annullare l'impostazione dell'autore verificato 
+
+Richiesta:  
+```
+POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/unsetVerifiedPublisher 
+```
+ 
+Risposta 
+```
+204 No Content 
+```
+### <a name="get-verified-publisher-info-from-application"></a>Ottenere informazioni sull'autore verificato dall'applicazione 
+ 
+```
+GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+
+HTTP/1.1 200 OK 
+
+{ 
+    "id": "0cd04273-0d11-4e62-9eb3-5c3971a7cbec", 
+
+    ... 
+
+    "verifiedPublisher" : { 
+        "displayName": "myexamplePublisher", 
+        "verifiedPublisherId": "12345678", 
+        "addedDateTime": "2019-12-10T00:00:00" 
+    } 
+} 
+```
+
+### <a name="get-verified-publisher-info-from-service-principal"></a>Ottenere informazioni sull'autore verificato dall'entità servizio 
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+
+HTTP/1.1 200 OK 
+
+{ 
+    "id": "010422a7-4d77-4f40-9335-b81ef5c22dd4", 
+
+    ... 
+
+    "verifiedPublisher" : { 
+        "displayName": "myexamplePublisher", 
+        "verifiedPublisherId": "12345678", 
+        "addedDateTime": "2019-12-10T00:00:00" 
+    } 
+} 
+```
+
+## <a name="error-reference"></a>Informazioni di riferimento sugli errori 
+
+Di seguito è riportato un elenco dei potenziali codici di errore che possono essere ricevuti, sia durante la risoluzione dei problemi con Microsoft Graph che nel corso del processo nel portale di registrazione delle app.
+
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+
+L'ID MPN specificato (<MPNID>) non esiste o non è possibile accedervi. Specificare un ID MPN valido e riprovare. 
+
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+
+L'ID MPN (<MPNID>) specificato non ha completato il processo di verifica. Completare questo processo in Partner Center e riprovare. 
+
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+
+### <a name="applicationnotfound"></a>ApplicationNotFound  
+
+Impossibile trovare l'applicazione di destinazione (<AppId>). Specificare un ID di applicazione valido e riprovare. 
+
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+
+Questa funzionalità non è supportata in un tenant Azure AD B2C. 
+
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+
+Questa funzionalità non è supportata in un tenant verificato tramite posta elettronica. 
+
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+
+Per l'applicazione di destinazione (<AppId>) deve essere impostato un dominio dell'autore. Impostare un dominio dell'autore e riprovare. 
+
+### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
+
+Il dominio dell'autore dell'applicazione di destinazione (<publisherDomain>) non è un dominio verificato nel tenant. Verificare un dominio tenant usando la verifica DNS e riprovare. 
+
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+
+Il dominio dell'autore dell'applicazione di destinazione (<publisherDomain>) non corrisponde al dominio usato per eseguire la verifica tramite posta elettronica in Partner Center (<pcDomain>). Assicurarsi che questi domini corrispondano e riprovare. 
+
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+
+Non si è autorizzati a configurare la proprietà dell'autore verificato per l'applicazione (<AppId>) 
+
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+
+L'ID MPN non è stato specificato nel corpo della richiesta o il tipo di contenuto della richiesta non è "application/json". 
+
+### <a name="msanotsupported"></a>MSANotSupported  
+
+Questa funzionalità non è supportata per gli account utente Microsoft. Sono supportate solo le applicazioni registrate in Azure AD da un utente Azure AD. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Se sono state esaminate tutte le informazioni precedenti e si riceve ancora un errore da Microsoft Graph, raccogliere quante più informazioni possibili tra quelle indicate di seguito relative alla richiesta non riuscita e [contattare il supporto tecnico Microsoft](developer-support-help-options.md#open-a-support-request).
+
+- Timestamp 
+- CorrelationId 
+- ObjectID o UserPrincipalName dell'utente che ha eseguito l'accesso 
+- ObjectId dell'applicazione di destinazione
+- AppId dell'applicazione di destinazione
+- TenantId in cui è registrata l'app
+- ID MPN
+- Richiesta REST eseguita 
+- Codice di errore e messaggio restituiti 
