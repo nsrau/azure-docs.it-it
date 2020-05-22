@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086879"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778241"
 ---
 ## <a name="personal-information-entity-types"></a>Tipi di entità di informazioni personali:
 
@@ -25,9 +25,9 @@ Linguaggi:
 
 | Nome sottotipo | Descrizione                                               | Disponibile a partire dalla versione del modello |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| N/D          | Nomi riconosciuti, ad `Bill Gates`esempio`Marie Curie` | `2020-02-01`                           |
+| N/D          | Nomi riconosciuti `Bill Gates` , ad esempio`Marie Curie` | `2020-02-01`                           |
 
-### <a name="organization"></a>Organization  
+### <a name="organization"></a>Organizzazione  
 
 Riconosci organizzazioni, aziende, agenzie, aziende, Club e altri gruppi di persone.
 
@@ -37,7 +37,7 @@ Linguaggi:
 
 | Nome sottotipo | Descrizione                                                                                       | Disponibile a partire dalla versione del modello|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizzazioni, ad esempio `Microsoft` `NASA`,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| N/D          | organizzazioni `Microsoft` , ad esempio, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Numero di telefono
 
@@ -51,7 +51,7 @@ Linguaggi:
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Numeri di telefono degli Stati Uniti, ad esempio`(312) 555-0176` | `2020-02-01`                           |
 
-### <a name="email"></a>Posta elettronica
+### <a name="email"></a>Email
 
 Indirizzo di posta elettronica. 
 
@@ -127,7 +127,7 @@ Linguaggi:
 
 Informazioni su Azure identificabili, incluse le informazioni di autenticazione e le stringhe di connessione. 
 
-* Disponibile a partire dalla versione `2019-10-01`del modello.
+* Disponibile a partire dalla versione del modello `2019-10-01` .
 
 Linguaggi:
 
@@ -149,7 +149,7 @@ Linguaggi:
 
 ### <a name="identification"></a>Identificazione
 
-* Disponibile a partire dalla versione `2019-10-01`del modello.
+* Disponibile a partire dalla versione del modello `2019-10-01` .
 
 Linguaggi:
 
@@ -164,9 +164,9 @@ Linguaggi:
 | Carta di credito                | Numeri di carta di credito.                                                       |
 | Codice IBAN                  | Codici IBAN per informazioni sulle istruzioni di pagamento.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identificazione di enti pubblici e paesi specifici
+#### <a name="government-and-countryregion-specific-identification"></a>Identificazione per enti pubblici e paesi/aree geografiche
 
-Le entità seguenti sono raggruppate ed elencate in base al paese:
+Le entità seguenti sono raggruppate ed elencate in base al paese/area geografica:
 
 Argentina
 * Numero di identità nazionale (DNI)
@@ -205,7 +205,7 @@ Croazia
 * Numero di scheda ID
 * Numero ID personale (OIB)
 
-Repubblica ceca
+Repubblica Ceca
 * Numero di carta ID nazionale
 
 Danimarca
@@ -294,7 +294,7 @@ Arabia Saudita
 Singapore
 * Numero NRIC (National Registration ID card)
 
-Sud Africa
+Sudafrica
 * Numero ID
 * Numero di registrazione residente
 
