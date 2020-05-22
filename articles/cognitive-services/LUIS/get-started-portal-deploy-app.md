@@ -1,16 +1,16 @@
 ---
-title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
+title: "Avvio rapido: Distribuire un'app con il portale LUIS"
 description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756297"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585079"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 
@@ -30,7 +30,7 @@ In questo argomento di avvio rapido viene illustrato come distribuire un'applica
 
 Ogni volta che si crea una nuova risorsa di creazione o di query di stima per LUIS, è necessario assegnarla all'app LUIS. Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
 
-1. Accedere all'[anteprima del portale LUIS](https://preview.luis.ai) e scegliere l'app **myEnglishApp** nell'elenco.
+1. Accedere al [portale LUIS](https://www.luis.ai) e scegliere l'app **myEnglishApp** dall'elenco.
 
 1. Scegliere **Manage** (Gestisci) dal menu in alto a destra e quindi selezionare **Azure Resources** (Risorse di Azure).
 
@@ -59,7 +59,7 @@ Ogni volta che si crea una nuova risorsa di creazione o di query di stima per LU
 
 ## <a name="prediction-endpoint-request"></a>Richiesta dell'endpoint di previsione
 
-Nel portale di anteprima l'elemento `query=` alla fine dell'URL è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
+Nel portale l'elemento `query=` alla fine dell'URL è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
 
 ```Is there a form named hrf-234098```
 
@@ -113,7 +113,7 @@ Se si vuole vedere questo stesso livello di informazioni nel riquadro di test, �
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, scegliere **My apps** (Le mie app) dal menu di spostamento superiore. Selezionare dall'elenco la casella di controllo dell'app e quindi selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
+Al termine di questo argomento di avvio rapido, scegliere **My apps** (App personali) dal menu di spostamento in alto. Selezionare dall'elenco la casella di controllo dell'app e quindi selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

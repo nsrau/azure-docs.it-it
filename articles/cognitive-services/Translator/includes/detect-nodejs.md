@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: c180a5d751b44346760706b1bd3d1e8acb70099d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd5a375460bbedcca5a370d86a1b43493e75f844
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71837549"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587164"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -31,7 +31,7 @@ Questi moduli sono necessari per costruire la richiesta HTTP e creare un identif
 
 ## <a name="set-the-subscription-key-and-endpoint"></a>Impostare la chiave e l'endpoint della sottoscrizione
 
-Questo esempio proverà a leggere la chiave e l'endpoint della sottoscrizione di Traduzione testuale dalle variabili di ambiente `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` e `endpoint` come stringhe e le istruzioni condizionali come commenti.
+Questo esempio proverà a leggere la chiave e l'endpoint della sottoscrizione di Translator dalle variabili di ambiente `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` e `endpoint` come stringhe e le istruzioni condizionali come commenti.
 
 Copiare questo codice nel progetto:
 
@@ -92,7 +92,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 
-La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
+La procedura è completata. È stato realizzato un semplice programma che chiamerà Translator e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
 
 ```console
 node detect.js
@@ -136,7 +136,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
+Esaminare le informazioni di riferimento sulle API per sapere quali operazioni è possibile eseguire con Translator.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

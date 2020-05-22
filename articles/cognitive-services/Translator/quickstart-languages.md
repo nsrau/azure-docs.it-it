@@ -1,7 +1,7 @@
 ---
-title: "Guida introduttiva: Ottenere l'elenco delle lingue supportate - API Traduzione testuale"
+title: "Guida di avvio rapido: Ottenere l'elenco delle lingue supportate - Translator"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
+description: Questo argomento di avvio rapido illustra come usare Translator per ottenere un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d992fcec6071ea9883f2db61d6c54f41a9615867
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: bfb8b9d81496d10601bf6e6cfeb26d18b57e3eca
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525142"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586876"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Guida di avvio rapido: Usare Translator per ottenere un elenco delle lingue supportate
 
-In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
+Questo argomento di avvio rapido illustra come usare Translator per ottenere un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]

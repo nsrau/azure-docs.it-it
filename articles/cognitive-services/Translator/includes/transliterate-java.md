@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 82766e969f62f35f39f6545eb4c2c6bdda29c11b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906522"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586528"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Creare una funzione per analizzare la risposta
 
-Questa semplice funzione analizza e migliora la risposta JSON dal servizio Traduzione testuale.
+Questa semplice funzione analizza e migliora la risposta JSON restituita dal servizio Translator.
 
 ```java
 // This function prettifies the json response.
@@ -180,7 +180,7 @@ gradle run
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
+Esaminare le informazioni di riferimento sulle API per sapere quali operazioni è possibile eseguire con Translator.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

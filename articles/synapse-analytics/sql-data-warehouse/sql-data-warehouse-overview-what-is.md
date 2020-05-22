@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5c6580d4fe7431c942ec4886b9dafc6148635b18
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690914"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585369"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?
 
 > [!NOTE] 
-> Provare le funzionalità di Azure Synapse più recenti, ad esempio le aree di lavoro, Spark, SQL su richiesta e l'esperienza Synapse Studio integrata inviando una [richiesta di accesso ad Azure Synapse (anteprima per aree di lavoro)](https://aka.ms/synapsepreview). 
->
 >Esplorare la [documentazione di Azure Synapse (anteprima per aree di lavoro)](../overview-what-is.md).
+>
 
 Azure Synapse è un servizio di analisi che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning.
 
@@ -30,12 +29,10 @@ Azure Synapse è costituito da quattro componenti:
 
 - SQL Synapse: analisi completa basata su T-SQL - disponibile a livello generale
   - Pool SQL (pagamento per ogni DWU con provisioning)
-  - SQL su richiesta (pagamento per ogni TB elaborato) - (anteprima)
+  - SQL su richiesta (pagamento per ogni TB elaborato) (anteprima)
 - Spark: Apache Spark completamente integrato (anteprima)
 - Pipeline di Synapse: Integrazione di dati ibridi (anteprima)
-- Studio: esperienza utente unificata  (Anteprima)
-
-
+- Studio: esperienza utente unificata (anteprima)
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Pool SQL Synapse in Azure Synapse
 

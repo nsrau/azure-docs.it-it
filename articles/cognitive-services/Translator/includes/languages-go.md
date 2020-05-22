@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: edde734409d064f1bff0212a1cbaecf136206772
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906921"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586873"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -34,9 +34,9 @@ import (
 
 ## <a name="create-the-main-function"></a>Creare la funzione main
 
-Creare la funzione main per l'applicazione. Come si può notare, si tratta di una singola riga di codice. Il motivo è che per ottenere e stampare l'elenco di lingue supportate per Traduzione testuale viene creata una singola funzione.
+Creare la funzione main per l'applicazione. Come si può notare, si tratta di una singola riga di codice. Il motivo è che per ottenere e stampare l'elenco di lingue supportate per Translator viene creata una singola funzione.
 
-Questo esempio proverà a leggere la chiave della sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `endpoint` come stringa e l'istruzione condizionale come commento.
+Questo esempio proverà a leggere la chiave dell'endpoint di Translator dalla variabile di ambiente `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `endpoint` come stringa e l'istruzione condizionale come commento.
 
 Copiare questo codice nel progetto:
 
@@ -76,11 +76,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [Translator 3.0: Lingue](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ## <a name="build-the-request"></a>Compilare la richiesta
 
-Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile compilare la richiesta POST e chiamare l'API Traduzione testuale.
+Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile compilare la richiesta POST e chiamare Translator.
 
 ```go
 // Build the HTTP GET request
@@ -91,7 +91,7 @@ if err != nil {
 // Add required headers
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -117,7 +117,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 
-La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
+La procedura è completata. È stato realizzato un semplice programma che chiamerà Translator e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
 
 ```console
 go run get-languages.go
@@ -217,7 +217,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
+Esaminare le informazioni di riferimento sulle API per sapere quali operazioni è possibile eseguire con Translator.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

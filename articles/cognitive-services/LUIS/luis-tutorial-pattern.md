@@ -2,13 +2,13 @@
 title: 'Esercitazione: Criteri - LUIS'
 description: In questa esercitazione vengono usati i criteri per migliorare le previsioni in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo ignorabile.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380777"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592917"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Esercitazione: Aggiungere formati comuni di espressioni modello basati su criteri per migliorare le previsioni
 
@@ -41,7 +41,8 @@ Eseguire la procedura descritta di seguito:
 
 1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importare il file JSON in una nuova app nell'[anteprima del portale LUIS](https://preview.luis.ai). Nella pagina **My Apps** (App personali) selezionare **+ New app for conversation** (Nuova app di conversazione), quindi **Import as JSON** (Importa come JSON). Selezionare il file scaricato nel passaggio precedente.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
+1. Importare il file JSON in una nuova app nel [portale LUIS](https://www.luis.ai). Nella pagina **My Apps** (App personali) selezionare **+ New app for conversation** (Nuova app di conversazione), quindi **Import as JSON** (Importa come JSON). Selezionare il file scaricato nel passaggio precedente.
 
 1. Nella sezione **Manage** (Gestisci), nella scheda **Versions** (Versioni), selezionare la versione attiva, quindi selezionare **Clone** (Clona). Assegnare alla versione clonata il nome `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
@@ -468,33 +469,7 @@ La sintassi dei criteri include ancoraggi di inizio e fine delle espressioni rap
 
 ## <a name="using-patternany-entity"></a>Uso dell'entità pattern.any
 
-L'entità pattern.any consente di trovare i dati in formato libero nel caso in cui la formulazione dell'entità renda difficile determinare la fine dell'entità dal resto dell'espressione.
-
-Questa app delle risorse umane aiuta i dipendenti a trovare i moduli aziendali.
-
-|Espressione|
-|--|
-|Dove si trova **HRF-123456**?|
-|Chi ha creato **HRF-123234**?|
-|**HRF-456098** viene pubblicato in francese?|
-
-Tuttavia, ogni modulo contiene sia un nome formattato, usato nella tabella precedente, nonché un nome descrittivo, ad esempio `Request relocation from employee new to the company 2018 version 5`.
-
-Le espressioni con il nome descrittivo hanno l'aspetto seguente:
-
-|Espressione|
-|--|
-|Dove si trova la **Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5**?|
-|Chi ha creato la **"Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5"** ?|
-|La **Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5** viene pubblicata in francese?|
-
-La lunghezza variabile include parole che potrebbero confondere LUIS circa la fine dell'entità. Usando un'entità Pattern.any in un criterio è possibile specificare l'inizio e la fine del nome del modulo in modo che LUIS lo estragga correttamente.
-
-|Espressione modello di esempio|
-|--|
-|Dov'è {NomeModulo}[?]|
-|Chi ha creato {NomeModulo}[?]|
-|{NomeModulo} viene pubblicato in francese[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Aggiungere espressioni di esempio con Pattern.any
 

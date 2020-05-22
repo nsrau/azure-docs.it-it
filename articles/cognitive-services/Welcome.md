@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169104"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588293"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -52,7 +52,7 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 |[Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding Intelligent Service (LUIS) consente all'applicazione di comprendere la finalità espressa da una persona con le proprie parole.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker consente di creare una servizio di domande e risposte da contenuto semi-strutturato.|
 |[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Analisi del testo fornisce l'elaborazione del linguaggio naturale su testo non elaborato per l'analisi del sentiment, l'estrazione delle frasi chiave e il rilevamento della lingua.|
-|[Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/ "Traduzione testuale")|Traduzione testuale fornisce la traduzione automatica del testo quasi in tempo reale.|
+|[Translator](https://docs.microsoft.com/azure/cognitive-services/translator/ "Funzione di conversione")|Translator fornisce la traduzione automatica del testo quasi in tempo reale.|
 
 
 ## <a name="search-apis"></a>API di ricerca
@@ -90,7 +90,7 @@ Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a
 
 Tutte le API prevedono un piano di valutazione gratuito con limiti di utilizzo e velocità effettiva.  È possibile aumentare questi limiti usando un'offerta a pagamento e selezionando l'opzione del piano tariffario appropriata quando si distribuisce il servizio nel portale di Azure. [Altre informazioni sulle offerte e i prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/ "Offerte e prezzi"). Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Le API nei Servizi cognitivi sono ospitate in una rete in espansione di centri dati gestiti da Microsoft. È possibile trovare la disponibilità a livello di area per ogni API nell'[elenco delle aree di Azure](https://azure.microsoft.com/regions).
 

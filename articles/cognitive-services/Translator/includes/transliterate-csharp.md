@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81fb599ca4987adccdb91baa7a74c33ae3af48d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4573224a77b080e0ba6cefe5069164466e7df5b9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906486"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586524"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Creare le classi per la risposta JSON
 
-Successivamente, si creerà una classe usata per la deserializzazione della risposta JSON restituita dall'API Traduzione testuale.
+Successivamente, si creerà una classe usata per la deserializzazione della risposta JSON restituita da Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TransliterationResult
 {
@@ -223,7 +223,7 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
+Esaminare le informazioni di riferimento sulle API per sapere quali operazioni è possibile eseguire con Translator.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

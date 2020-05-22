@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo - Traduzione testuale'
+title: 'Guida di avvio rapido: Tradurre un testo - Translator'
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido descrive come tradurre un testo usando l'API Traduzione testuale.
+description: Questo argomento di avvio rapido descrive come usare Translator per tradurre testo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3be05a6c4005b79a3fcde6a71e663f5f70d4d61e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e8f0f3ff1b34701d45b0138a3c11795520c30a2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525176"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586635"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre il testo
+# <a name="quickstart-use-the-translator-to-translate-text"></a>Guida di avvio rapido: Usare Translator per tradurre testo
 
-Questo argomento di avvio rapido descrive come tradurre una stringa di testo dall'inglese al tedesco, all'italiano, al giapponese e al thai usando l'API REST Traduzione testuale.
+Questo argomento di avvio rapido descrive come usare l'API REST Translator per tradurre una stringa di testo dall'inglese al tedesco, all'italiano, al giapponese e al thai.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di Translator. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]

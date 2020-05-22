@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 86ef8f3730fe7ae3ab3428956aaafb86331c5cf5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1e9c3ccac9205e38c8df341a6f7ca286811d759b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906553"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586527"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `pip install requests uuid`.
 
-Il primo commento indica all'interprete Python di usare la codifica UTF-8. I moduli necessari vengono quindi importati per leggere la chiave di sottoscrizione da una variabile di ambiente, costruire la richiesta http, creare un identificatore univoco e gestire la risposta JSON restituita dall'API Traduzione testuale.
+Il primo commento indica all'interprete Python di usare la codifica UTF-8. I moduli necessari vengono quindi importati per leggere la chiave di sottoscrizione da una variabile di ambiente, costruire la richiesta HTTP, creare un identificatore univoco e gestire la risposta JSON restituita da Translator.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Impostare la chiave, l'endpoint e il percorso della sottoscrizione
 
-Questo esempio proverà a leggere la chiave e l'endpoint della sottoscrizione di Traduzione testuale dalle variabili di ambiente `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscription_key` e `endpoint` come stringhe e le istruzioni condizionali come commenti.
+Questo esempio proverà a leggere la chiave e l'endpoint della sottoscrizione di Translator dalle variabili di ambiente `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscription_key` e `endpoint` come stringhe e le istruzioni condizionali come commenti.
 
 Copiare questo codice nel progetto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-L'endpoint globale di Traduzione testuale viene impostato come `endpoint`. `path` imposta la route `transliterate` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Translator viene impostato come `endpoint`. `path` imposta la route `transliterate` e identifica che si vuole usare la versione 3 dell'API.
 
 `params` viene usato per impostare la lingua di input e gli script di input e output. In questo esempio viene traslitterato un testo dal giapponese all'alfabeto latino.
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [Translator 3.0: Traslitterare](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 path = '/transliterate?api-version=3.0'
@@ -106,7 +106,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 
-La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
+La procedura è completata. È stato realizzato un semplice programma che chiamerà Translator e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
 
 ```console
 python transliterate-text.py
@@ -127,11 +127,11 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questa guida introduttiva.
+Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questo argomento di avvio rapido.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
+Esaminare le informazioni di riferimento sulle API per sapere quali operazioni è possibile eseguire con Translator.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

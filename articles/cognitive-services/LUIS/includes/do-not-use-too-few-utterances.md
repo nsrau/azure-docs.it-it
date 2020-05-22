@@ -6,15 +6,15 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 8660fd110b853b33a7dcd510b40d3298895a7dd0
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 25922efcaf9afdf8145ec963f470acc8fc642e31
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588946"
 ---
-Queste espressioni solo a scopo dimostrativo. Un'app reale dovrebbe includere almeno 15 espressioni di lunghezza, ordine e conteggio delle parole, tempo verbale, correttezza grammaticale e [punteggiatura](../luis-reference-application-settings.md#punctuation-normalization) variabili.
+Queste sono solo alcune espressioni fornite a scopo dimostrativo. Un'app reale dovrebbe includere almeno 15-30 [espressioni](../luis-concept-utterance.md) di lunghezza, ordine e conteggio delle parole, tempo verbale, correttezza grammaticale e punteggiatura variabili.

@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Prevedere finalità - LUIS'
-description: In questa esercitazione si crea un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
+description: In questa esercitazione viene creata un'app personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo).
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80286745"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588948"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -37,7 +37,7 @@ Queste intenzioni sono suddivise in **Finalità**.
 |`ModifyOrder`|Determinare l'ordine della pizza dell'utente.|
 |`Greeting`|Inizia la conversazione con il bot.|
 |`ConfirmOrder`|Confermare l'ordine della pizza.|
-|`None`|Determinare se l'utente sta chiedendo qualcosa a cui l'app non è in grado di rispondere. Questa finalità viene fornita come parte della creazione dell'app e non può essere eliminata. |
+|`None`|Determinare se l'utente sta chiedendo qualcosa per cui l'app LUIS non è progettata per rispondere. Questa finalità viene fornita come parte della creazione dell'app e non può essere eliminata. |
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 
@@ -64,9 +64,10 @@ Per classificare un'espressione, sono necessari esempi di espressioni utente che
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Aggiungere espressioni di esempio](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot dell'aggiunta di espressioni di esempio nella pagina Intents del portale LUIS](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere previste per la finalità in questione.
+    Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere previste per la finalità in questione. Questi sono esempi positivi. Le espressioni in tutte le altre finalità sono considerate esempi negativi per questa finalità.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -178,6 +179,8 @@ Per classificare un'espressione, sono necessari esempi di espressioni utente che
 
 ## <a name="client-application-next-steps"></a>Passaggi successivi dell'applicazione client
 
+In questa esercitazione è stata creata un'app LUIS, sono state create le finalità, sono state aggiunte espressioni di esempio a ognuna delle finalità e alla finalità None (Nessuna) e sono stati eseguiti il training, la pubblicazione e il test a livello dell'endpoint. Questi sono i passaggi di base per la creazione di un modello LUIS.
+
 Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non risponde alle espressioni dell'utente, si limita a identificare il tipo di informazione richiesta in linguaggio naturale. Il follow-up discorsivo viene fornito dall'applicazione client, ad esempio il servizio Azure Bot.
 
 
@@ -193,8 +196,6 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questa esercitazione è stata creata un'app LUIS, sono state create le finalità, sono state aggiunte espressioni di esempio a ognuna delle finalità e alla finalità None (Nessuna) e sono stati eseguiti il training, la pubblicazione e il test a livello dell'endpoint. Questi sono i passaggi di base per la creazione di un modello LUIS.
 
 > [!div class="nextstepaction"]
 > [Aggiungere un'entità scomponibile a questa app](tutorial-machine-learned-entity.md)

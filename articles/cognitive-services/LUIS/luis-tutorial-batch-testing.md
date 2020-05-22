@@ -2,13 +2,13 @@
 title: 'Esercitazione: Test in batch per individuare i problemi - LUIS'
 description: Questa esercitazione illustra come usare i test in batch per verificare la qualità dell'app LUIS (Language Understanding).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78250531"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592594"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -41,7 +41,9 @@ Importare un'app che accetta un ordine di pizza, ad esempio `1 pepperoni pizza o
 
 1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Usare il [portale LUIS (anteprima)](https://preview.luis.ai/) importare il file JSON in una nuova app e assegnare all'app il nome `Pizza app`.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
+1. Importare il file JSON in una nuova app. Assegnare all'app il nome `Pizza app`.
+
 
 1. Selezionare **Esegui il training** sulla barra di spostamento per eseguire il training dell'app.
 
