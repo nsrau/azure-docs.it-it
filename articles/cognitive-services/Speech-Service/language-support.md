@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 423d65cc77cb06a6084ad9ad56f3d7274e057ffb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726078"
+ms.locfileid: "83746516"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Supporto della lingua e della voce per il servizio di riconoscimento vocale
 
@@ -140,7 +140,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | <sup>1</sup>`ar-EG` | Arabo (Egitto) | Female | "ar-EG-un". |
 | `ar-SA` | Arabo (Arabia Saudita) | Male | "ar-SA-Naayf" |
 | `bg-BG` | Bulgaro | Male |  "BG-BG-Ivan" |
-| `ca-ES` | Catalano (Spagna) | Female |  "ca-ES-HerenaRUS" |
+| `ca-ES` | Catalano | Female |  "ca-ES-HerenaRUS" |
 | `cs-CZ` | Ceco | Male | "CS-CZ-Jakub" |
 | `da-DK` | Danese | Female |  "da-DK-HelleRus" |
 | `de-AT` | Tedesco (Austria) | Male | "de-AT-Michael" |

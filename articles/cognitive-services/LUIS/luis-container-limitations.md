@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659281"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745377"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitazioni del contenitore Language Understanding (LUIS)
 
@@ -46,9 +46,9 @@ Configurazioni dell'app non supportate|Dettagli|
 
 I contenitori LUIS supportano un subset di [lingue supportate](luis-language-support.md#languages-supported) da Luis proper. I contenitori LUIS sono in grado di comprendere le espressioni nelle seguenti lingue:
 
-| Linguaggio | Impostazioni locali | Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](../text-analytics/language-support.md)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio | Locale | Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](../text-analytics/language-support.md)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglese americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Inglese (Stati Uniti) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Francese (Francia) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Francese (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

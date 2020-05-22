@@ -3,12 +3,12 @@ title: Risorse per sviluppatori-Language Understanding
 description: SDK, API REST, interfaccia della riga di comando, consentono di sviluppare app Language Understanding (LUIS) nel linguaggio di programmazione. Gestisci le tue risorse di Azure e le tue stime LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: c86dad46b09c2f761e73f38187b4824c0a17406f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655559"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758062"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Risorse per sviluppatori SDK, REST e CLI per Language Understanding (LUIS)
 
@@ -44,7 +44,7 @@ Le [specifiche del Rest Luis](https://github.com/Azure/azure-rest-api-specs/tree
 
 Le API REST di creazione ed endpoint di stima sono disponibili nelle API REST:
 
-|Tipo|Versione|
+|Type|Versione|
 |--|--|
 |Creazione|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[Anteprima V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Previsione|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -79,7 +79,7 @@ Lo [schema dell'app](app-schema-definition.md) viene importato ed esportato in u
 
 ### <a name="language-based-sdks"></a>SDK basati su linguaggio
 
-|Linguaggio |Documentazione di riferimento|Pacchetto|Esempi|Guide rapide introduttive|
+|Linguaggio |Documentazione di riferimento|Pacchetto|Esempi|Avvi rapidi|
 |--|--|--|--|--|
 |C#|[Creazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Stima](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Creazione di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Stima di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Esempi di .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Creare e gestire app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Eseguire query sull'endpoint di stima](sdk-query-prediction-endpoint.md)|
 |Go|[Creazione e stima](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Creazione](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Stima](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Creazione e stima con REST](luis-get-started-get-intent-from-rest.md)|
@@ -119,7 +119,7 @@ Bot Framework offre [diversi strumenti](https://github.com/microsoft/botbuilder-
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -genera automaticamente le classi/typescript C# per gli Intent e le entità di Luis.
 * [Emulatore di bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) : applicazione desktop che consente agli sviluppatori di bot di testare ed eseguire il debug di bot creati usando bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) : uno strumento di sviluppo integrato per sviluppatori e team multidisciplinari per creare bot ed esperienze di conversazione con Microsoft bot Framework
-
+* [Esempi di bot Framework](https://github.com/microsoft/botbuilder-samples) : in #C, JavaScript, typescript e Python
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sui codici di [errore http](luis-reference-response-codes.md) comuni
