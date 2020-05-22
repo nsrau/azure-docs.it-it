@@ -3,12 +3,12 @@ title: Informazioni su Personalizza esperienze
 description: Personalizza esperienze è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687270"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586219"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -69,18 +69,25 @@ Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale
 
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Come progettare e implementare Personalizza esperienze per l'applicazione client
 
-1. [Progettare](concepts-features.md) e pianificare il contenuto, le **_azioni_** e il **_contesto_** . Determinare l'algoritmo di ricompensa per il punteggio di **_ricompensa_** .
-1. Ogni risorsa di [Personalizza esperienze](how-to-settings.md) creata viene considerata 1 ciclo di apprendimento. Il ciclo riceverà le chiamate a Rank e Reward per tale contenuto o esperienza utente.
-1. Aggiungere Personalizza esperienze al sito Web o al sistema di contenuto:
+1. [Progettare](concepts-features.md) e pianificare il contenuto, le **_azioni_** e il **_contesto_**. Determinare l'algoritmo di ricompensa per il punteggio di **_ricompensa_**.
+1. Ogni risorsa di [Personalizza esperienze](how-to-settings.md) creata viene considerata un ciclo di apprendimento. Il ciclo riceverà le chiamate a Rank e Reward per tale contenuto o esperienza utente.
+
+    |Tipo di risorsa| Scopo|
+    |--|--|
+    |[Modalità Apprentice](concept-apprentice-mode.md) `E0`|Eseguire il training del modello di Personalizza esperienze senza alcun impatto sull'applicazione esistente, quindi distribuire il comportamento di apprendimento online in un ambiente di produzione|
+    |Standard, `S0`|Comportamento di apprendimento online in un ambiente di produzione|
+    |Libero, `F0`| Provare il comportamento di apprendimento online in un ambiente non di produzione|
+
+1. Aggiungere Personalizza esperienze all'applicazione, al sito Web o al sistema:
     1. Aggiungere una chiamata **Rank** a Personalizza esperienze nell'applicazione, nel sito Web o nel sistema per determinare il singolo elemento di _contenuto_ migliore prima che il contenuto venga mostrato all'utente.
     1. Mostrare all'utente il singolo elemento di _contenuto_ migliore, che corrisponde all'_ID azione ricompensa_ restituito.
-    1. Applicare l'_algoritmo_ alle informazioni raccolte sul comportamento passato dell'utente per determinare il punteggio di **ricompensa**, ad esempio:
+    1. Applicare la _logica aziendale_ alle informazioni raccolte sul comportamento passato dell'utente per determinare il punteggio di **ricompensa**, ad esempio:
 
-        |Comportamento|Punteggio di ricompensa calcolato|
-        |--|--|
-        |L'utente ha selezionato il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**1**|
-        |L'utente ha selezionato altro contenuto|**0**|
-        |L'utente è in pausa e indeciso prima di selezionare il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**0,5**|
+    |Comportamento|Punteggio di ricompensa calcolato|
+    |--|--|
+    |L'utente ha selezionato il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**1**|
+    |L'utente ha selezionato altro contenuto|**0**|
+    |L'utente è in pausa e indeciso prima di selezionare il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**0,5**|
 
     1. Aggiungere una chiamata **Reward** per l'invio di un punteggio di ricompensa compreso tra 0 e 1
         * Immediatamente dopo aver mostrato il contenuto

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 978dbf3d8e6a92242c0a984b26bb35cf911a3369
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80420161"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590427"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -104,9 +104,13 @@ API Cassandra di Azure Cosmos DB è una piattaforma di servizi gestiti. Non rich
 
 * Esplora dati del portale di Azure, metriche, diagnostica log, PowerShell e interfaccia della riga di comando sono altri meccanismi supportati per gestire l'account.
 
-## <a name="cql-shell"></a>Shell CQL  
+## <a name="hosted-cql-shell-preview"></a>Shell CQL ospitata (anteprima)
 
-L'utilità da riga di comando CQLSH è inclusa in Apache Cassandra 3.1.1 ed è pronta all'uso impostando alcune variabili di ambiente.
+È possibile aprire una shell Cassandra nativa ospitata (CQLSH v 5.0.1) direttamente da Esplora dati nel [portale di Azure](data-explorer.md) o in [Azure Cosmos Explorer](https://cosmos.azure.com/). Prima di abilitare la shell CQL, è necessario [abilitare la funzionalità Notebooks](enable-notebooks.md) nell'account. Se non è già abilitata, quando si fa clic su `Open Cassandra Shell`, verrà richiesto di farlo. Per informazioni sulle aree di Azure supportate, vedere la nota evidenziata in [Abilitare i notebook per gli account di Azure Cosmos DB](enable-notebooks.md).
+
+![CQLSH](./media/cassandra-support/cqlsh.png)
+
+Per connettersi all'API Cassandra in Azure Cosmos DB, è anche possibile usare CQLSH installato in un computer locale. Questa utilità è inclusa in Apache Cassandra 3.1.1 e per usarla è sufficiente impostare le variabili di ambiente. Le sezioni seguenti includono le istruzioni per installare, configurare e connettersi all'API Cassandra in Azure Cosmos DB, in Windows o Linux, tramite CQLSH.
 
 **Windows:**
 
@@ -144,10 +148,10 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account API Cassandra.
 
 * CREATE KEYSPACE (le impostazioni di replica per questo comando vengono ignorate)
-* CREATE TABLE 
+* CREA TABELLA 
 * CREATE INDEX (senza specificare il nome dell'indice e indici bloccati completi non ancora supportati)
 * ALLOW FILTERING
-* ALTER TABLE 
+* MODIFICA TABELLA 
 * USE 
 * INSERT 
 * SELECT 
@@ -198,9 +202,8 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Utilizzo dei criteri di ripetizione delle connessioni di Cassandra
 
-Azure Cosmos DB è un sistema governato da risorse. Questo significa che è possibile eseguire un determinato numero di operazioni in un dato secondo in base alle unità richieste utilizzate dalle operazioni. Se un'applicazione supera tale limite in un dato secondo, la frequenza delle richieste viene limitata e verranno generate eccezioni. L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra. Per assicurarsi che l'applicazione sia in grado di intercettare e ripetere le richieste in caso di limitazione della frequenza, sono disponibili le estensioni [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions). Sei si usano altri SDK per accedere all'API Cassandra in Azure Cosmos DB, creare un criterio per ripetere le connessioni in caso di tali eccezioni.
+Azure Cosmos DB è un sistema governato da risorse. Questo significa che è possibile eseguire un determinato numero di operazioni in un dato secondo in base alle unità richieste utilizzate dalle operazioni. Se un'applicazione supera tale limite in un dato secondo, la frequenza delle richieste viene limitata e verranno generate eccezioni. L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra. Per assicurarsi che l'applicazione sia in grado di intercettare e ripetere le richieste in caso di limitazione della frequenza, sono disponibili le estensioni [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions). Quando ci si connette all'API Cassandra in Azure Cosmos DB, vedere anche gli esempi di codice Java per i driver Datastax [versione 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) e [versione 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). Sei si usano altri SDK per accedere all'API Cassandra in Azure Cosmos DB, creare un criterio per ripetere le connessioni in caso di tali eccezioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Introduzione alla [creazione di un account, database e una tabella API Cassandra](create-cassandra-api-account-java.md) usando un'applicazione Java
-

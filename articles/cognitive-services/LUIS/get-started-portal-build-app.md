@@ -1,16 +1,16 @@
 ---
-title: 'Guida introduttiva: Creare una nuova app nel portale LUIS'
+title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
 description: Questo argomento di avvio rapido illustra come creare le parti di base di un'app, le finalità e le entità e come testare un'espressione di esempio nel portale LUIS.
 ms.topic: quickstart
-ms.date: 04/14/2020
-ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/05/2020
+ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382574"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585227"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
 Questo argomento di avvio rapido illustra come creare una nuova app nel portale LUIS. Creare prima di tutto le parti fondamentali di un'app, ovvero **finalità** ed **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità prevista.
 
@@ -18,10 +18,10 @@ Questo argomento di avvio rapido illustra come creare una nuova app nel portale 
 
 ## <a name="create-an-app"></a>Creare un'app
 
-1. Selezionare **+ New app for conversation** (Nuova app di conversazione) sulla barra degli strumenti contestuale, quindi selezionare **New app for conversation**.
+1. Selezionare di nuovo **+ New app for conversation** (Nuova app di conversazione) sulla barra degli strumenti contestuale, quindi selezionare **New app for conversation**.
 
     > [!div class="mx-imgBorder"]
-    > [![Creare una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [![Screenshot della creazione di una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Nella finestra popup configurare l'app con le impostazioni seguenti e quindi selezionare **Done** (Fine).
 
@@ -32,7 +32,7 @@ Questo argomento di avvio rapido illustra come creare una nuova app nel portale 
    |Descrizione (facoltativa)|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
    |Risorsa di previsione (facoltativa) |-  |Non selezionare. LUIS offre una chiave iniziale da usare gratuitamente per la creazione e per 1.000 richieste di endpoint di previsione. |
 
-   ![Immettere nuove impostazioni app](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![Screenshot dell'immissione delle nuove impostazioni dell'app](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>Creare finalità
 
@@ -52,7 +52,7 @@ Per creare le finalità, seguire questa procedura:
 
 1. Dopo aver creato l'app, usare la pagina **Intents** (Funzionalità) della sezione **Build** (Crea). Selezionare **Create** (Crea).
 
-   [![Selezionare Create per creare la nuova finalità](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Screenshot della selezione di 'Crea' per creare una nuova finalità](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Immettere il nome della finalità `FindForm` e quindi selezionare **Done** (Fine).
 
@@ -63,27 +63,27 @@ Le espressioni di esempio vengono aggiunte dopo la creazione delle finalità. Le
 Per la finalità `FindForm` di questa applicazione di esempio, le espressioni di esempio includeranno il numero di modulo. Poiché l'applicazione client necessita del numero di modulo per soddisfare la richiesta dell'utente, è importante includerlo nell'espressione.
 
 > [!div class="mx-imgBorder"]
-> [![Immettere espressioni di esempio per le finalità FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [![Screenshot relativo all'immissione di espressioni di esempio per la finalità FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Aggiungere le 15 espressioni di esempio seguenti alla finalità `FindForm`.
 
 |#|Espressioni di esempio|
 |--|--|
-|1|Looking for hrf-123456 (Sto cercando hrf-123456)|
-|2|Where is the human resources form hrf-234591? (Dov'è il modulo delle risorse umane hrf-234591?)|
-|3|hrf-345623, where is it (hrf-345623, dov'è)|
-|4|Is it possible to send me hrf-345794 (È possibile inviarmi il modulo hrf-345794)|
-|5|Do I need hrf-234695 to apply for an internal job? (Ho bisogno del modulo hrf-234695 per presentare una candidatura interna?)|
-|6|Does my manager need to know I'm applying for a job with hrf-234091 (Il mio responsabile deve sapere che sto presentando una candidatura con il modulo hrf-234091)|
-|7|Where do I send hrf-234918? (A chi devo inviare il modulo hrf-234918?) Do I get an email response it was received? (Riceverò una conferma di ricezione del messaggio di posta elettronica?)|
-|8|hrf-234555|
-|9|When was hrf-234987 updated? (Quando è stato aggiornato il modulo hrf-234987)?|
-|10|Do I use form hrf-876345 to apply for engineering positions (Posso usare il modulo hrf-876345 per inviare una candidatura come ingegnere)|
-|11|Was a new version of hrf-765234 submitted for my open req? (Per la mia richiesta aperta è stata inviata una nuova versione del modulo hrf-765234?)|
-|12|Do I use hrf-234234 for international jobs? (Posso usare il modulo hrf-234234 per le candidature internazionali?)|
-|13|hrf-234598 spelling mistake (Errore di ortografia in hrf-234598)|
-|14|will hrf-234567 be edited for new requirements (Il modulo hrf-234567 verrà modificato per nuove richieste)|
-|15|hrf-123456, hrf-123123, hrf-234567|
+|1|`Looking for hrf-123456`|
+|2|`Where is the human resources form hrf-234591?`|
+|3|`hrf-345623, where is it`|
+|4|`Is it possible to send me hrf-345794`|
+|5|`Do I need hrf-234695 to apply for an internal job?`|
+|6|`Does my manager need to know I'm applying for a job with hrf-234091`|
+|7|`Where do I send hrf-234918? Do I get an email response it was received?`|
+|8|`hrf-234555`|
+|9|`When was hrf-234987 updated?`|
+|10|`Do I use form hrf-876345 to apply for engineering positions`|
+|11|`Was a new version of hrf-765234 submitted for my open req?`|
+|12|`Do I use hrf-234234 for international jobs?`|
+|13|`hrf-234598 spelling mistake`|
+|14|`will hrf-234567 be edited for new requirements`|
+|15|`hrf-123456, hrf-123123, hrf-234567`|
 
 Queste espressioni di esempio variano volutamente nei modi seguenti:
 
@@ -96,20 +96,21 @@ Queste espressioni di esempio variano volutamente nei modi seguenti:
 
 ## <a name="create-a-regular-expression-entity"></a>Creare un'entità di espressione regolare
 
-Per restituire il numero di modulo nella risposta runtime di previsione, il modulo deve essere contrassegnato come entità. Poiché il testo del numero di modulo è altamente strutturato, è possibile contrassegnarlo usando un'entità di espressione regolare. Creare l'entità con i passaggi seguenti:
+Per restituire il numero di modulo nella risposta runtime di stima, il numero del modulo deve essere estratto come entità. Poiché il testo del numero di modulo è altamente strutturato, è possibile usare un'entità di espressione regolare. Per creare l'entità di espressione regolare, seguire questa procedura:
 
 1. Scegliere **Entities** (Entità) dal menu a sinistra.
 
 1. Selezionare **Create** (Crea) nella pagina **Entities** (Entità).
 
-1. Immettere il nome `Human Resources Form Number`, selezionare il tipo di entità **Regex**, quindi selezionare **Avanti**.
+1. Immettere il nome `FormNumber` e selezionare il tipo di entità **Regex**.
 
-   ![Creare un'entità di espressione regolare](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+1. Immettere l'espressione regolare `hrf-[0-9]{6}` nel campo **Regex**. Questa voce corrisponde ai caratteri letterali, `hrf-`, e consente di inserire esattamente sei cifre. Selezionare quindi **Create** (Crea).
 
-1. Immettere l'espressione regolare (**RegEx**), `hrf-[0-9]{6}`. Questa voce corrisponde ai caratteri letterali, `hrf-`, e consente di inserire esattamente 6 cifre. Quindi selezionare **Create** (Crea).
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della creazione di un'entità di espressione regolare](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-   ![Immettere l'espressione regolare per l'entità](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
+    Questa entità consente di estrarre qualsiasi testo che corrisponde all'espressione regolare in una qualsiasi delle finalità.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna)
 
@@ -123,11 +124,10 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
 
    |Espressioni di esempio della finalità None (Nessuna)|
    |--|
-   |Barking dogs are annoying (I cani che abbaiano sono fastidiosi)|
-   |Order a pizza for me (Ordinami una pizza)|
-   |Penguins in the ocean (Pinguini nell'oceano)|
+   |`Barking dogs are annoying`|
+   |`Penguins in the ocean`|
 
-   Per questa app, queste espressioni di esempio esulano dal dominio. Se il dominio include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
+   Per questa app, queste espressioni di esempio esulano dal dominio. Se il dominio include animali o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
 
 ## <a name="train-the-app"></a>Eseguire il training dell'app
 
@@ -140,7 +140,7 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
    L'entità è contrassegnata dove appare nelle espressioni di esempio. Se si vuole visualizzare il testo originale anziché il nome dell'entità, attivare o disattivare **Entities View** (Vista entità) nella barra degli strumenti.
 
    > [!div class="mx-imgBorder"]
-   > [![Tutte le espressioni di esempio contrassegnate con entità](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [![Screenshot di tutte le espressioni di esempio contrassegnate con entità](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testare la nuova app con il pannello di test interattivo
 
@@ -155,9 +155,9 @@ Usare il pannello **Test** interattivo nel portale di LUIS per verificare che l'
     Selezionare **Inspect** (Ispeziona) per visualizzare le previsioni di entità.
 
    > [!div class="mx-imgBorder"]
-   > ![Testare una nuova espressione nel riquadro di test](./media/get-started-portal-build-app/test-new-utterance.png)
+   > ![Screenshot relativo al test della nuova espressione nel riquadro di test](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   La finalità stimata visualizzata per prima è giustamente **FindForm** con oltre il 90% di attendibilità (0,977). L'entità **Human Resources Form Number** è estratta con un valore hrf-234098.
+   La finalità stimata visualizzata per prima è giustamente **FindForm** con oltre il 90% di attendibilità (0,977). L'entità **FormNumber** viene estratta con il valore hrf-234098.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
