@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: a0bf8a89fa34f8a7d22979f4b42faaf94db60281
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 8a58079f44fb4d78c2d3f652a5f3b61dae9c8991
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83200632"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800809"
 landingContent:
 - title: Informazioni su sintesi vocale
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
       url: text-to-speech.md
     - text: Nozioni di base sulla sintesi vocale
       url: text-to-speech-basics.md
-    - text: Usare SPX per sintesi vocale senza codice
+    - text: Usare l'interfaccia della riga di comando vocale per sintesi vocale senza codice
       url: spx-overview.md
   - linkListType: quickstart
     links:

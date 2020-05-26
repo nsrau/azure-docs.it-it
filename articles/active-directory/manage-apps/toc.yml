@@ -86,7 +86,7 @@
           href: application-proxy-connectors.md
         - name: Gruppi di connettori
           href: application-proxy-connector-groups.md
-        - name: Security
+        - name: Sicurezza
           href: application-proxy-security.md
         - name: Topologia di rete
           href: application-proxy-network-topology.md
@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Individuazione dell'area di autenticazione principale
               href: configure-authentication-for-federated-users-portal.md
+        - name: Automatizzare l'accesso Single Sign-On basato su SAML con le API Microsoft Graph
+          href: application-saml-sso-configure-api.md
         - name: Eseguire la migrazione di app ad Azure AD
           items:
             - name: Risorse per la migrazione

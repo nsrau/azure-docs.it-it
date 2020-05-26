@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Sospendere e riattivare entità di messaggistica
           href: entity-suspend.md
+        - name: Usare Service Bus Explorer per eseguire operazioni sui dati nel bus di servizio
+          href: explorer.md
         - name: Usare i modelli di Resource Manager
           href: service-bus-resource-manager-overview.md
           items:

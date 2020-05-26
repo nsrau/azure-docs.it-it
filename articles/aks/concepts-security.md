@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
 ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82981392"
@@ -19,44 +19,44 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 
 - [Sicurezza dei componenti master](#master-security)
 - [Sicurezza dei nodi](#node-security)
-- [Aggiornamenti cluster](#cluster-upgrades)
+- [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
 - [Sicurezza di rete](#network-security)
 - [Segreti di Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Sicurezza master
 
-Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster AKS ha un Master Kubernetes dedicato a tenant singolo per fornire il server API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
+Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster del servizio Azure Kubernetes ha un proprio master di Kubernetes dedicato con tenant singolo per fornire il server dell'API, l'utilità di pianificazione e così via. Questo master è gestito da Microsoft.
 
-Per impostazione predefinita, il server API Kubernetes utilizza un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile limitare l'accesso all'endpoint del server API usando [intervalli di indirizzi IP autorizzati][authorized-ip-ranges]. È anche possibile creare un [cluster completamente privato][private-clusters] per limitare l'accesso al server API alla rete virtuale.
+Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile limitare l'accesso all'endpoint del server dell'API usando [intervalli IP autorizzati][authorized-ip-ranges]. È anche possibile creare un [cluster completamente privato][private-clusters] per limitare l'accesso del server dell'API alla rete virtuale.
 
-È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure AD con il servizio Azure Kubernetes][aks-aad].
+È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
-I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Linux eseguono una distribuzione Ubuntu ottimizzata usando il runtime di Moby container. I nodi di Windows Server eseguono una versione ottimizzata di Windows Server 2019 e usano anche il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi di Linux eseguono una distribuzione di Ubuntu ottimizzata usando il runtime del contenitore Moby. I nodi di Windows Server eseguono una versione ottimizzata di Windows Server 2019 e usano anche il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
 
-La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi Linux su base giornaliera. Se un aggiornamento della sicurezza del sistema operativo Linux richiede un riavvio dell'host, il riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi Linux o un approccio comune consiste nell'usare [KURED][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonsets] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
+La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi di Linux durante la notte. Se un aggiornamento della sicurezza del sistema operativo Linux richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare i nodi di Linux manualmente. In alternativa, un approccio comune consiste nell'usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonsets] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
 
-Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente e vengono applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento sui pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente per applicare gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio di Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento sui pool di nodi di Windows Server nel cluster del servizio Azure Kubernetes. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server e quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [Aggiornare un pool di nodi nel servizio Azure Kubernetes][nodepool-upgrade].
 
 I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno.
 
 Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
 
-Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, consultare [Procedure consigliate per l'isolamento del cluster nel servizio Azure Kubernetes][cluster-isolation].
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, vedere [Procedure consigliate per l'isolamento del cluster nel servizio Azure Kubernetes][cluster-isolation].
 
 ## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 
-Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Azure Kubernetes. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un [elenco delle versioni di Kubernetes disponibili](supported-kubernetes-versions.md) per il cluster AKS. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
+Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Azure Kubernetes. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un [elenco delle versioni di Kubernetes disponibili](supported-kubernetes-versions.md) per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
 
 ### <a name="cordon-and-drain"></a>Blocco e svuotamento
 
-Durante il processo di aggiornamento, i nodi AKS vengono sottolineati singolarmente dal cluster, quindi i nuovi Pod non vengono pianificati su di essi. I nodi vengono quindi svuotati e aggiornati nel modo seguente:
+Durante il processo di aggiornamento, i nodi del servizio Azure Kubernetes vengono bloccati singolarmente dal cluster per evitare che vi vengano pianificati nuovi pod. I nodi vengono quindi svuotati e aggiornati nel modo seguente:
 
-- Un nuovo nodo viene distribuito nel pool di nodi. Questo nodo esegue l'immagine del sistema operativo e le patch più recenti.
-- Uno dei nodi esistenti viene identificato per l'aggiornamento. I pod in questo nodo vengono interrotti normalmente e pianificati negli altri nodi del pool di nodi.
-- Questo nodo esistente viene eliminato dal cluster AKS.
-- Il nodo successivo del cluster viene sottoposto a cordoning e svuotato utilizzando lo stesso processo fino a quando tutti i nodi non vengono sostituiti correttamente come parte del processo di aggiornamento.
+- Un nuovo nodo viene distribuito nel pool di nodi. Il nodo esegue l'immagine e le patch più recenti del sistema operativo.
+- Uno dei nodi esistenti viene identificato per l'aggiornamento. I pod in questo nodo vengono interrotti normalmente e pianificati negli altri nodi del pool.
+- Il nodo esistente viene eliminato dal cluster del servizio Azure Kubernetes.
+- Il nodo successivo nel cluster viene bloccato e svuotato con lo stesso processo finché tutti i nodi non vengono sostituiti come parte del processo di aggiornamento.
 
 Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
 
@@ -68,29 +68,29 @@ Per la connettività e sicurezza con le reti locali, è possibile distribuire il
 
 Per filtrare il flusso del traffico nelle reti virtuali, Azure usa le regole dei gruppi di sicurezza di rete. Queste regole definiscono gli intervalli IP, le porte e i protocolli di origine e di destinazione a cui è consentito o negato l'accesso alle risorse. Vengono create regole predefinite per consentire il traffico TLS al server dell'API Kubernetes. Quando si creano servizi con servizi di bilanciamento del carico, mapping delle porte o route in ingresso, il servizio Azure Kubernetes modifica automaticamente il gruppo di sicurezza di rete per trasmettere il traffico in modo appropriato.
 
-### <a name="kubernetes-network-policy"></a>Criteri di rete Kubernetes
+### <a name="kubernetes-network-policy"></a>Criteri di rete di Kubernetes
 
-Per limitare il traffico di rete tra i Pod nel cluster, AKS offre supporto per i [criteri di rete Kubernetes][network-policy]. Con i criteri di rete è possibile scegliere di consentire o negare percorsi di rete specifici all'interno del cluster in base agli spazi dei nomi e ai selettori di etichette.
+Per limitare il traffico di rete tra i pod nel cluster, il servizio Azure Kubernetes offre supporto per i [criteri di rete Kubernetes][network-policy]. Con i criteri di rete è possibile scegliere di consentire o negare percorsi di rete specifici all'interno del cluster in base agli spazi dei nomi e ai selettori di etichette.
 
 ## <a name="kubernetes-secrets"></a>Segreti di Kubernetes
 
 Un *segreto* di Kubernetes viene usato per inserire nei pod i dati sensibili, ad esempio chiavi o credenziali di accesso. Si crea prima di tutto un segreto usando l'API di Kubernetes. Quando si definisce il pod o la distribuzione, è possibile richiedere un segreto specifico. I segreti vengono forniti solo ai nodi che hanno un pod pianificato che li richiede, perché i segreti vengono archiviati in *tmpfs* e non scritti su disco. Quando viene eliminato l'ultimo pod in un nodo che richiede un segreto, il segreto viene eliminato da tmpfs del nodo. I segreti vengono archiviati all'interno di un determinato spazio dei nomi e sono accessibili solo dai pod all'interno dello stesso spazio dei nomi.
 
-L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manifesto YAML del servizio. Si richiede invece il segreto archiviato nel server dell'API di Kubernetes come parte del manifesto YAML. Questo approccio fornisce solo l'accesso del pod specifico al segreto. Nota: i file manifesto del segreto non elaborato contengono i dati Secret in formato Base64. per ulteriori informazioni, vedere la [documentazione ufficiale][secret-risks] . Pertanto, questo file deve essere trattato come informazioni riservate e non è mai stato sottoposto a commit nel controllo del codice sorgente.
+L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manifesto YAML del servizio. Si richiede invece il segreto archiviato nel server dell'API di Kubernetes come parte del manifesto YAML. Questo approccio fornisce solo l'accesso del pod specifico al segreto. Nota: i file manifesto del segreto non elaborato contengono i dati del segreto in formato Base64. Per altri dettagli, vedere la [documentazione ufficiale][secret-risks]. Questo file deve pertanto essere trattato come informazioni riservate e non essere mai stato sottoposto a commit nel controllo del codice sorgente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a proteggere i cluster del servizio Azure Kubernetes, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
+Per acquisire familiarità con la protezione dei cluster del servizio Azure Kubernetes, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
 
-Per le procedure consigliate associate, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security] e [procedure consigliate per la sicurezza di pod in AKS][developer-best-practices-pod-security].
+Per le procedure consigliate associate, vedere [Procedure consigliate per la sicurezza e gli aggiornamenti del cluster nel servizio Azure Kubernetes][operator-best-practices-cluster-security] e [Procedure consigliate per la sicurezza dei pod nel servizio Azure Kubernetes][developer-best-practices-pod-security].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Cluster e carichi di lavoro di Kubernetes/servizio Azure Kubernetes][aks-concepts-clusters-workloads]
-- [Kubernetes / Identità di servizio Azure Kubernetes][aks-concepts-identity]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Archiviazione in Kubernetes/servizio Azure Kubernetes][aks-concepts-storage]
-- [Ridimensionamento in Kubernetes/servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes/Cluster e carichi di lavoro del servizio Azure Kubernetes][aks-concepts-clusters-workloads]
+- [Kubernetes/Identità del servizio Azure Kubernetes][aks-concepts-identity]
+- [Kubernetes/Reti virtuali nel servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes/Archiviazione nel servizio Azure Kubernetes][aks-concepts-storage]
+- [Kubernetes/Ridimensionamento nel servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
