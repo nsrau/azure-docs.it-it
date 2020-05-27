@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dc98085ca017f7249e225e8c1c009b3d255f1719
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8883bd099b684b5086554feded88e133764e614f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195796"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701616"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Creare un set di scalabilità di macchine virtuali a singola zona con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu in una singola zona di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.
@@ -44,5 +44,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Altri esempi di script dell'interfaccia della riga di comando di Azure per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).

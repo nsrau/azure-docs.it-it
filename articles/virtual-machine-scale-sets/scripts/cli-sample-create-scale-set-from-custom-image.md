@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 7e706eb76560b6479d7579c59aaf48b5dfdaf968
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 91673f945104bd7b26d21b11ec3b710bac9db9cb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117224"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699901"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Creare un set di scalabilità di macchine virtuali da un'immagine di macchina virtuale personalizzata con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che usa un'immagine di macchina virtuale personalizzata come origine delle istanze di macchina virtuale.
@@ -44,5 +44,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Altri esempi di script dell'interfaccia della riga di comando di Azure per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).

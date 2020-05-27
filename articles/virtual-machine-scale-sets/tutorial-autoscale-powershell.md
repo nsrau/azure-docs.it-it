@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201359"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700821"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 
@@ -255,8 +255,3 @@ In questa esercitazione si è appreso come ridurre o aumentare automaticamente i
 > * Creare e usare regole di scalabilità automatica
 > * Sottoporre a test di stress le istanze di VM e attivare le regole di scalabilità automatica
 > * Ridurre automaticamente il numero di istanze con la riduzione delle esigenze
-
-Per altri esempi del funzionamento dei set di scalabilità di macchine virtuali, vedere gli script di esempio di Azure PowerShell riportati di seguito:
-
-> [!div class="nextstepaction"]
-> [Esempi di script di Azure PowerShell per i set di scalabilità](powershell-samples.md)

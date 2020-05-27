@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596640"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681896"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
-Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) consente di convertire i pacchetti di disegni caricati in dati di mappe. Questo articolo descrive i requisiti del pacchetto di disegni per l'API di conversione. Per altre informazioni, è possibile scaricare il [pacchetto di disegni](https://github.com/Azure-Samples/am-creator-indoor-data-examples) di esempio.
+Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) consente di convertire i pacchetti di disegni caricati in dati di mappe. Questo articolo descrive i requisiti del pacchetto di disegni per l'API di conversione. Per altre informazioni, è possibile scaricare il [pacchetto di disegni](https://github.com/Azure-Samples/am-creator-indoor-data-examples) di esempio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,7 +25,7 @@ Il pacchetto di disegni include i disegni salvati in formato DWG, ovvero il form
 
 È possibile scegliere qualsiasi software CAD per produrre i disegni del pacchetto di disegni.  
 
-Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) converte il pacchetto di disegni in dati di mappe.  Il servizio di conversione è stato sviluppato e testato usando il formato di file DWG di AutoCAD. `AC1032` è la versione interna del formato per i file DWG. È consigliabile selezionare `AC1032` per la versione interna del formato di file DWG.  
+Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) converte il pacchetto di disegni in dati di mappe.  Il servizio di conversione è stato sviluppato e testato usando il formato di file DWG di AutoCAD. `AC1032` è la versione interna del formato per i file DWG. È consigliabile selezionare `AC1032` per la versione interna del formato di file DWG.  
 
 Glossario dei termini usati in questo documento.
 
@@ -54,7 +54,7 @@ I file DWG possono essere organizzati in qualsiasi modo all'interno della cartel
 * Non deve contenere caratteristiche di più livelli.
 * Non deve contenere caratteristiche di più strutture.
 
-Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) può estrarre le classi di caratteristiche seguenti da un file DWG:
+Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) può estrarre le classi di caratteristiche seguenti da un file DWG:
 
 * Levels
 * Unità
@@ -71,11 +71,11 @@ I livelli DWG devono inoltre rispettare i criteri seguenti:
 
 * Le origini dei disegni per tutti i file DWG devono essere allineate alla stessa latitudine e alla stessa longitudine.
 * Ogni livello deve avere lo stesso orientamento degli altri.
-* I poligoni che si auto-intersecano verranno corretti automaticamente e il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) genererà un avviso. È consigliabile controllare manualmente i risultati corretti perché potrebbero non corrispondere a quelli previsti.
+* I poligoni che si auto-intersecano verranno corretti automaticamente e il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) genererà un avviso. È consigliabile controllare manualmente i risultati corretti perché potrebbero non corrispondere a quelli previsti.
 
 Tutte le entità dei livelli devono essere di uno dei tipi seguenti: linea, polilinea, poligono, arco circolare, cerchio, testo (riga singola). Tutti gli altri tipi di entità verranno ignorati.
 
-La tabella seguente illustra i tipi di entità supportati e le caratteristiche supportate per ogni livello. Se un livello contiene tipi di entità non supportati, il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) li ignorerà.  
+La tabella seguente illustra i tipi di entità supportati e le caratteristiche supportate per ogni livello. Se un livello contiene tipi di entità non supportati, il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) li ignorerà.  
 
 | Livello | Tipi di entità | Funzionalità |
 | :----- | :-------------------| :-------
@@ -167,11 +167,11 @@ Un esempio di livello Zonelabel può essere considerato il livello ZONELABELS de
 
 ## <a name="manifest-file-requirements"></a>Requisiti dei file manifesto
 
-La cartella ZIP deve contenere un file manifesto al livello radice della directory, che deve essere denominato **manifest.json**. Questo file descrive i file DWG per consentire al [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) di analizzarne il contenuto. Verranno inseriti solo i file identificati dal manifesto. I file inclusi nella cartella ZIP ma che non sono correttamente elencati nel manifesto verranno ignorati.
+La cartella ZIP deve contenere un file manifesto al livello radice della directory, che deve essere denominato **manifest.json**. Questo file descrive i file DWG per consentire al [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) di analizzarne il contenuto. Verranno inseriti solo i file identificati dal manifesto. I file inclusi nella cartella ZIP ma che non sono correttamente elencati nel manifesto verranno ignorati.
 
 I percorsi dei file, nell'oggetto **buildingLevels** del file manifesto, devono essere relativi alla radice della cartella ZIP. Il nome del file DWG deve corrispondere esattamente al nome del livello della struttura. Ad esempio, un file DWG per il livello "seminterrato" si chiamerà "seminterrato.dwg". Un file DWG per il livello 2 sarà denominato "livello_2.dwg". Se il nome del livello include uno spazio, usare un carattere di sottolineatura. 
 
-Anche se sono previsti requisiti per l'uso degli oggetti del manifesto, non tutti gli oggetti sono obbligatori. La tabella seguente mostra gli oggetti obbligatori e facoltativi per la versione 1.1 del [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion).
+Anche se sono previsti requisiti per l'uso degli oggetti del manifesto, non tutti gli oggetti sono obbligatori. La tabella seguente mostra gli oggetti obbligatori e facoltativi per la versione 1.1 del [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Oggetto | Obbligatoria | Descrizione |
 | :----- | :------- | :------- |
@@ -402,7 +402,7 @@ Di seguito è riportato un file manifesto di esempio per il pacchetto di disegni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando il pacchetto di disegni soddisfa i requisiti, è possibile usare il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) per convertirlo in un set di dati di mappa. È quindi possibile usare il set di dati per generare una pianta di interni usando il modulo corrispondente. Per altre informazioni sull'uso del modulo di piante di interni, vedere gli articoli seguenti:
+Quando il pacchetto di disegni soddisfa i requisiti, è possibile usare il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) per convertirlo in un set di dati di mappa. È quindi possibile usare il set di dati per generare una pianta di interni usando il modulo corrispondente. Per altre informazioni sull'uso del modulo di piante di interni, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
 >[Creator per piante di interni](creator-indoor-maps.md)

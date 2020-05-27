@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1d77acf9f076bbb9a4f4da5c592a0443b8585299
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5ebae6a2cc56540800d0b4420c45b6a2e13009da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656114"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683138"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e JavaScript in Visione artificiale
 
@@ -57,7 +57,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v2.1/analyze";
+        var uriBase = endpoint + "vision/v3.0/analyze";
 
         // Request parameters.
         var params = {

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75867478"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700873"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Guida introduttiva: Usare un modello funzionalità di dispositivo per creare un dispositivo di anteprima Plug and Play IoT (Windows)
 
@@ -87,7 +87,7 @@ In questa guida di avvio rapido si useranno un modello di funzionalità di dispo
 
 1. Creare una cartella `pnp_app` nell'unità locale. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
 
-1. Scaricare il [modello di funzionalità di dispositivo e i file di interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e l'[interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salvare i file nella cartella `pnp_app`.
+1. Scaricare il [modello di funzionalità di dispositivo e i file di interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) e l'[interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salvare i file nella cartella `pnp_app`.
 
     > [!TIP]
     > Per scaricare un file da GitHub, passare al file, fare clic con il pulsante destro del mouse su **Raw** e quindi scegliere **Save link as** (Salva collegamento con nome).

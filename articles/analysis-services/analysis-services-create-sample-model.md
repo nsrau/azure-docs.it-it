@@ -4,15 +4,15 @@ description: In questa lezione di esercitazione viene illustrato come aggiungere
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74326573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697514"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Esercitazione: Aggiungere un modello di esempio dal portale
 

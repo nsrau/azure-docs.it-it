@@ -2,13 +2,13 @@
 title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
 description: Questo argomento di avvio rapido illustra come creare le parti di base di un'app, le finalità e le entità e come testare un'espressione di esempio nel portale LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585227"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697235"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
@@ -137,7 +137,7 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
 
 1. Verificare che l'entità si trovi nella finalità **FindForm** scegliendo **Intents** (Finalità) dal menu a sinistra e quindi la finalità **FindForm**.
 
-   L'entità è contrassegnata dove appare nelle espressioni di esempio. Se si vuole visualizzare il testo originale anziché il nome dell'entità, attivare o disattivare **Entities View** (Vista entità) nella barra degli strumenti.
+   L'entità è contrassegnata dove appare nelle espressioni di esempio.
 
    > [!div class="mx-imgBorder"]
    > [![Screenshot di tutte le espressioni di esempio contrassegnate con entità](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

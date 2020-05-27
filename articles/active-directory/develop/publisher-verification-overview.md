@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595070"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682434"
 ---
 # <a name="publisher-verification-preview"></a>Verifica dell'autore (anteprima)
 
-La verifica dell'autore (anteprima) consente agli amministratori e agli utenti finali di controllare l'autenticità degli sviluppatori di applicazioni che si integrano con Microsoft Identity Platform. In altre parole, l'autore è una fonte nota o un attore malintenzionato camuffato da autore noto? Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
+La verifica dell'autore (anteprima) consente agli amministratori e agli utenti finali di controllare l'autenticità degli sviluppatori di applicazioni che si integrano con Microsoft Identity Platform. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
 
 Un badge di verifica completata blu viene visualizzato nella richiesta di consenso di Azure AD e in altre schermate: ![Richiesta di consenso](./media/publisher-verification-overview/consent-prompt.png)
 

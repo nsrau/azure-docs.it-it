@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fc9a23a8b0ef69760867dd5768510397f8570e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80129781"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Palo Alto Networks - Ad
     > [!NOTE]
     > Per altre informazioni sugli attributi, vedere gli articoli seguenti:
     > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile) (Profilo del ruolo amministrativo per Admin UI - adminrole)
-    > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain) (Dominio di accesso al dispositivo per Admin UI - accessdomain)
+    > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html) (Dominio di accesso al dispositivo per Admin UI - accessdomain)
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

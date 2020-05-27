@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f68c58c16c4efd75941e00b859784f810915b575
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3f5f273537593f5af4f398e55d72cd3f91a0c2cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404871"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682207"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
 
@@ -53,25 +53,24 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
    import org.json.JSONObject;
    ```
 
-1. Sostituire la classe pubblica `Main` con il codice seguente.
+1. Sostituire la classe pubblica `AnalyzeImage` con il codice seguente.
 1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da analizzare.
 
 ```java
-public class Main {
+public class AnalyzeImage {
     // **********************************************
     // *** Update or verify the following values. ***
     // **********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static final String uriBase = endpoint + 
-            "vision/v2.1/analyze";
+    private static final String uriBase = endpoint + "vision/v3.0/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
-                    "1/12/Broadway_and_Times_Square_by_night.jpg";
+            "1/12/Broadway_and_Times_Square_by_night.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();

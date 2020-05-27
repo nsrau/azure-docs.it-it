@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ba34976192d7e840f6077b13fd9aa165ed22b900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3f51c4e50c3c5499c73e18ce40e55de6aeb54472
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195886"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700897"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -216,8 +216,3 @@ In questa esercitazione si è appreso come ridurre o aumentare in modo automatic
 > * Creare e usare regole di scalabilità automatica
 > * Sottoporre a test di stress le istanze di VM e attivare le regole di scalabilità automatica
 > * Ridurre automaticamente il numero di istanze con la riduzione delle esigenze
-
-Per altri esempi sui set di scalabilità di macchine virtuali in azione, consultare gli script di esempio dell'interfaccia della riga di comando di Azure riportati di seguito:
-
-> [!div class="nextstepaction"]
-> [Esempi di script del set di scalabilità per l'interfaccia della riga di comando di Azure](cli-samples.md)

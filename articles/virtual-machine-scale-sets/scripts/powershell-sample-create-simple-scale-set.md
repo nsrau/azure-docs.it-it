@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6da415d3fc9e408a0676e2bd01cc725ffb262ea7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d49212e6d35e2a348a7e31ff7d2f0ad49eabfc2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197552"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699492"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali di base con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alle istanze di macchina virtuale tramite RDP.
@@ -45,5 +45,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
-
-Altri esempi di script PowerShell per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../powershell-samples.md).

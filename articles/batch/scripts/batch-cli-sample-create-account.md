@@ -1,25 +1,14 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch - Servizio Batch
 description: Questo script crea un account Azure Batch in modalità servizio Batch e mostra come eseguire query o aggiornamenti su varie proprietà dell'account.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 01/29/2018
-ms.author: labrenne
-ms.openlocfilehash: 2a11e3d7b8ba2b9f4a0d0d373367575a779eebc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5fce745340c583b902c98716678a9b7afcfc002c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77017089"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681917"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Esempio dell'interfaccia della riga di comando: creare un account Batch in modalità servizio Batch
 

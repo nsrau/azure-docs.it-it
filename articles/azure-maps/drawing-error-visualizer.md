@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596660"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681946"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizzatore errori di disegno di Mappe di Azure
 
-Il visualizzatore errori di disegno è un'applicazione Web autonoma che consente di visualizzare [avvisi ed errori del pacchetto di disegno](drawing-conversion-error-codes.md) rilevati durante il processo di conversione. L'applicazione Web del visualizzatore errori è costituita da una pagina statica che è possibile usare senza connettersi a Internet.  È possibile usare il visualizzatore errori per correggere errori e avvisi in base ai [requisiti del pacchetto di disegno](drawing-requirements.md). L'[API di conversione Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) restituisce una risposta con un collegamento al visualizzatore errori solo quando viene rilevato un errore.
+Il visualizzatore errori di disegno è un'applicazione Web autonoma che consente di visualizzare [avvisi ed errori del pacchetto di disegno](drawing-conversion-error-codes.md) rilevati durante il processo di conversione. L'applicazione Web del visualizzatore errori è costituita da una pagina statica che è possibile usare senza connettersi a Internet.  È possibile usare il visualizzatore errori per correggere errori e avvisi in base ai [requisiti del pacchetto di disegno](drawing-requirements.md). L'[API di conversione Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) restituisce una risposta con un collegamento al visualizzatore errori solo quando viene rilevato un errore.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -90,7 +90,7 @@ Dopo aver caricato il file _ConversionWarningsAndErrors.json_, verrà visualizza
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando il [pacchetto di disegno soddisfa i requisiti](drawing-requirements.md), è possibile usare il [servizio del set di dati di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) per convertire il pacchetto di disegno in un set di dati. È quindi possibile usare il modulo Web Piante di interni per sviluppare l'applicazione. Per altre informazioni, vedere gli articoli seguenti:
+Quando il [pacchetto di disegno soddisfa i requisiti](drawing-requirements.md), è possibile usare il [servizio del set di dati di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) per convertire il pacchetto di disegno in un set di dati. È quindi possibile usare il modulo Web Piante di interni per sviluppare l'applicazione. Per altre informazioni, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
 > [Codici errore della conversione di disegni](drawing-conversion-error-codes.md)

@@ -7,19 +7,19 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 33fd0b6a3a07fa4fbc5448a97ca93c75a3e239d5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804470"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684211"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 ## <a name="overview"></a>Panoramica
 
 I Web application firewall (WAF) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esaminano anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. In associazione all'isolamento e alla scalabilità aggiuntiva fornita dagli ambienti del servizio app, costituisce un ambiente ideale per le applicazioni Web critiche per l'azienda, che devono sostenere richieste dannose e un volume elevato di traffico. Azure offre una funzionalità WAF con il [gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Per informazioni su come integrare l'ambiente del servizio app con un gateway applicazione, vedere il documento [Integrare l'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
 
-In [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) sono disponibili più opzioni oltre al gateway applicazione di Azure, ad esempio [Barracuda WAF per Azure](https://www.barracuda.com/programs/azure). La parte restante di questo documento illustra come integrare l'ambiente del servizio app con un dispositivo Barracuda WAF.
+In [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=PlansAndPrice) sono disponibili più opzioni oltre al gateway applicazione di Azure, ad esempio [Barracuda WAF per Azure](https://www.barracuda.com/programs/azure). La parte restante di questo documento illustra come integrare l'ambiente del servizio app con un dispositivo Barracuda WAF.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 

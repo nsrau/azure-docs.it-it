@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201374"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700934"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -272,8 +272,3 @@ In questa esercitazione si è appreso come ridurre o aumentare in modo automatic
 > * Creare e usare regole di scalabilità automatica
 > * Sottoporre a test di stress le istanze di VM e attivare le regole di scalabilità automatica
 > * Ridurre automaticamente il numero di istanze con la riduzione delle esigenze
-
-Per altri esempi sui set di scalabilità di macchine virtuali in azione, consultare gli script di esempio dell'interfaccia della riga di comando di Azure riportati di seguito:
-
-> [!div class="nextstepaction"]
-> [Esempi di script del set di scalabilità per l'interfaccia della riga di comando di Azure](cli-samples.md)

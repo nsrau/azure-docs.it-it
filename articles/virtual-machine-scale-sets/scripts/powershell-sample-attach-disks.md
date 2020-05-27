@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ee9348c835a30c34a45bec78cc0d6b3ee298bf08
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 39c1c534a930dae2967d982f7c175fadb3222e83
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201417"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700918"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Collegare e usare dischi dati con un set di scalabilità di macchine virtuali tramite PowerShell
 Questo script crea un set di scalabilità di macchine virtuali e collega e prepara dischi dati.
@@ -47,5 +47,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
-
-Altri esempi di script PowerShell per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../powershell-samples.md).

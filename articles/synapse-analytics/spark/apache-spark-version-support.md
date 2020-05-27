@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 77b838db2f39b0de1e209715432697f1f006029c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d69f9c8cf24cbab154aa5c91fe194edbc8f21d58
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591574"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696771"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Versioni di linguaggio e runtime supportate per Apache Spark e componenti dipendenti  
 

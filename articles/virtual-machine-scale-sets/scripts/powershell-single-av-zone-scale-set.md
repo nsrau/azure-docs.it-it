@@ -1,6 +1,6 @@
 ---
-title: Esempi di Azure PowerShell - Set di scalabilità con ridondanza della zona
-description: Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in più zone di disponibilità.
+title: Esempi di Azure PowerShell - Set di scalabilità a singola zona
+description: Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in una singola zona di disponibilità.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
@@ -9,15 +9,15 @@ ms.subservice: availability
 ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0c97206d4e2f0c0484cfd89138dde7e2b0d0c625
+ms.openlocfilehash: 222b45e455f42264a5324f138c55b822d9d8e7a1
 ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698641"
+ms.locfileid: "83698620"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali con ridondanza della zona con PowerShell
-Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in più zone di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.
+# <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali a singola zona con PowerShell
+Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in una singola zona di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ Questo script crea un set di scalabilità di macchine virtuali che esegue Window
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1 "Create zone-redundant scale set")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 Eseguire questo comando per rimuovere il gruppo di risorse, il set di scalabilità e tutte le risorse correlate.
@@ -46,6 +46,6 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Ottiene informazioni sull'indirizzo IP pubblico assegnato usato dal servizio di bilanciamento del carico. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+
