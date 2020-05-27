@@ -4,12 +4,12 @@ description: Questo articolo contiene risposte alle domande frequenti su LUIS.
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592849"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835003"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -317,20 +317,20 @@ Vedere [la guida alla migrazione da API v2 a V3 per le app Luis](luis-migration-
 
 ## <a name="build-2019-conference-announcements"></a>Build 2019 annunci di conferenza
 
-Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
+In occasione della conferenza Build 2019 sono state rilasciate le funzionalità seguenti:
 
 * [Anteprima della Guida alla migrazione dell'API V3](luis-migration-api-v3.md)
-* [Dashboard di analisi migliorato](luis-how-to-use-dashboard.md)
-* [Domini predefiniti migliorati](luis-reference-prebuilt-domains.md)
-* [Entità elenco dinamico](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [Miglioramento del dashboard di analisi](luis-how-to-use-dashboard.md)
+* [Miglioramento dei domini predefiniti](luis-reference-prebuilt-domains.md)
+* [Entità elenco dinamiche](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entità esterne](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Video:
 
-* [Come usare l'intelligenza artificiale per la conversazione di Azure per la scalabilità dell'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Come usare l'intelligenza artificiale per conversazioni di Azure per preparare l'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su LUIS, vedere le risorse seguenti:
 * [Domande su Stack Overflow con tag LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Forum MSDN su LUIS (Language Understanding Intelligent Service)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Pagina Domande e risposte di Microsoft&per MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

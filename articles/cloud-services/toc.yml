@@ -161,7 +161,7 @@
               href: cloud-services-connectivity-and-networking-faq.md
             - name: Domande frequenti sullo sviluppo
               href: cloud-services-deployment-faq.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
@@ -191,8 +191,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calcolatore prezzi

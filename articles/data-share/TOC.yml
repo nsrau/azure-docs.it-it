@@ -43,7 +43,7 @@
       href: how-to-delete-invitation.md
     - name: Revocare una sottoscrizione di condivisione
       href: how-to-revoke-share-subscription.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
@@ -53,8 +53,8 @@
       href: /rest/api/datashare
 - name: Risorse
   items:
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-share.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: Blog

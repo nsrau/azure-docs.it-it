@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670373"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835870"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](tutorial-logs-dashboards.md).   
@@ -23,7 +23,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare una regola di avviso
 > * Configurare un gruppo di azioni per l'invio di notifiche tramite posta elettronica
 
-Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro Log Analytics](quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
@@ -69,4 +69,4 @@ In questa esercitazione si è appreso come le regole di avviso possono identific
 Seguire questo collegamento per vedere esempi di script predefiniti di Log Analytics.  
 
 > [!div class="nextstepaction"]
-> [Esempi di script di Log Analytics](../../azure-monitor/platform/powershell-samples.md)
+> [Esempi di script di Log Analytics](../samples/powershell-samples.md)

@@ -181,7 +181,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: Richiamare pacchetti SSIS tramite attività stored procedure
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
@@ -201,8 +201,8 @@
       href: data-factory-customer-case-studies.md
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calcolatore prezzi
