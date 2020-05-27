@@ -33,7 +33,7 @@
       href: concepts-events-routing.md
     - name: Limiti del servizio durante l'anteprima pubblica
       href: concepts-service-limits.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Procedure consigliate per la sicurezza
           href: security-best-practices.md
@@ -67,7 +67,7 @@
           href: how-to-navigate-apis.md
         - name: Modelli di query comuni
           href: how-to-query-common-apis.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Libreria client di funzioni definite dall'utente
       href: reference-user-defined-functions-client-library.md
@@ -98,14 +98,14 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Pagina delle domande di Domande e risposte Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Esempi di codice di Azure IoT
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: Feedback e forum
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Pagina delle domande di Domande e risposte Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Richieste e suggerimenti relativi ai prodotti
           href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
     - name: Casi di successo dei clienti
