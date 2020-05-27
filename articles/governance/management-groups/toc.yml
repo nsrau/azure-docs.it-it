@@ -14,6 +14,8 @@
       href: ./create.md
     - name: Gestire le risorse
       href: ./manage.md
+    - name: Proteggere la gerarchia delle risorse
+      href: ./how-to/protect-resource-hierarchy.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

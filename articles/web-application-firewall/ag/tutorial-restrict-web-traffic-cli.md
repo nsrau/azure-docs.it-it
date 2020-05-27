@@ -4,15 +4,15 @@ description: Informazioni su come limitare il traffico Web con Web Application F
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 05/21/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a429d1a0f426002595f347794bc1cb97a649d6f6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240072"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770245"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Abilitare Web Application Firewall usando l'interfaccia della riga di comando di Azure
 
@@ -151,7 +151,7 @@ az storage account create \
   --resource-group myResourceGroupAG \
   --location eastus \
   --sku Standard_LRS \
-  --encryption blob
+  --encryption-services blob
 ```
 
 ### <a name="configure-diagnostics"></a>Configurare la diagnostica

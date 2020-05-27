@@ -3,7 +3,7 @@ title: 'Esempio di interfaccia della riga di comando: Ripristinare un database S
 description: Script di esempio dell'interfaccia della riga di comando di Azure per ripristinare uno stato precedente di un database SQL di Azure singolo dai backup automatici
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 36c565837b95ce2f391d38b9934b7cf19c613897
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067370"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774266"
 ---
 # <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usare l'interfaccia della riga di comando per ripristinare uno stato precedente di un database SQL di Azure singolo
 

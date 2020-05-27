@@ -111,7 +111,7 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Connettersi a Power BI
           href: how-to-connect-power-bi.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Time Series Insights
       items:
@@ -166,12 +166,12 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Pagina delle domande di Domande e risposte Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
     - name: Feedback e forum
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Pagina delle domande di Domande e risposte Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
         - name: Richieste e suggerimenti relativi ai prodotti
           href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Video di Azure

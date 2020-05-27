@@ -3,7 +3,7 @@ title: 'Esempio di PowerShell: Ripristinare un backup geografico - Database SQL 
 description: Script di esempio di Azure PowerShell per ripristinare un database dell'istanza gestita SQL di Azure da un backup con ridondanza geografica
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ed66c52375eb72394949fff384d012af49a7d7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74304073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774487"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usare PowerShell per ripristinare un database dell'istanza gestita in un'altra area geografica
 
