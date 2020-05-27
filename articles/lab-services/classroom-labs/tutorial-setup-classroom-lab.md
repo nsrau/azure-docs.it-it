@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77592221"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591778"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -38,8 +38,8 @@ In questa esercitazione viene configurato un lab con macchine virtuali per la cl
 Ecco un tipico flusso di lavoro quando si usa Azure Lab Services:
 
 1. Un autore di account lab aggiunge altri utenti al ruolo **Autore di laboratori**. Ad esempio, l'autore/amministratore dell'account lab aggiunge docenti al ruolo di **Autore del laboratorio** in modo che possano creare lab per le classi. 
-2. Quindi, i docenti creano lab con macchine virtuali per le proprie classi e inviano collegamenti di registrazione agli studenti. 
-3. Gli studenti usano il collegamento di registrazione inviato dai docenti per registrarsi al lab. Una volta registrati, potranno usare le macchine virtuali nei lab per eseguire le attività in classe e a casa. 
+2. I docenti creano quindi lab con macchine virtuali per le proprie classi e inviano collegamenti di registrazione agli studenti. 
+3. Gli studenti usano il collegamento di registrazione ricevuto dai docenti per registrarsi al lab. Una volta registrati, potranno usare le macchine virtuali nei lab per eseguire le attività in classe e a casa. 
 
 ## <a name="create-a-classroom-lab"></a>Creare un lab per le classi
 In questo passaggio viene creato un lab per le classi in Azure. 

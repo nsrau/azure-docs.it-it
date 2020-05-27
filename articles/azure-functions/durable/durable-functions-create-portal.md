@@ -1,24 +1,24 @@
 ---
-title: Creare funzioni permanenti con il portale di Azure
+title: Creare funzioni Durable Functions con il portale di Azure
 description: Informazioni su come installare l'estensione Durable Functions per Funzioni di Azure per lo sviluppo nel portale.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83120149"
 ---
-# <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
+# <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni Durable Functions con il portale di Azure
 
-L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di Azure è inclusa nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Questa estensione deve essere installata nell'app per le funzioni. Questo articolo illustra come installare questo pacchetto in modo da poter sviluppare funzioni permanenti nel portale di Azure.
+L'estensione [Durable Functions](durable-functions-overview.md) di Funzioni di Azure è inclusa nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Questa estensione deve essere installata nell'app per le funzioni. Questo articolo illustra come installare questo pacchetto in modo da poter sviluppare funzioni Durable Functions nel portale di Azure.
 
 > [!NOTE]
 > 
-> * Se si sviluppano funzioni permanenti in C#, è consigliabile prendere in considerazione [lo sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
-> * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
+> * Se si sviluppano funzioni Durable Functions in C#, considerare lo [sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * Se si sviluppano funzioni Durable Functions in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -30,15 +30,15 @@ Per impostazione predefinita, l'app per le funzioni creata usa la versione 2.x d
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installare il pacchetto npm di Durable Functions (solo JavaScript)
 
-Se si sta creando Durable Functions JavaScript, è necessario installare il [ `durable-functions` pacchetto NPM](https://www.npmjs.com/package/durable-functions):
+Se si stanno creando funzioni Durable Functions in JavaScript, è necessario installare il [`durable-functions`pacchetto npm](https://www.npmjs.com/package/durable-functions):
 
-1. Dalla pagina dell'app per le funzioni selezionare **strumenti avanzati** in **strumenti di sviluppo** nel riquadro sinistro.
+1. Dalla pagina dell'app per le funzioni selezionare **Strumenti avanzati** in **Strumenti di sviluppo** nel riquadro a sinistra.
 
    :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Funzionalità della piattaforma Funzioni, scegliere Kudu":::
 
-2. Nella pagina **strumenti avanzati** selezionare **Vai**.
+2. Nella pagina **Strumenti avanzati** selezionare **Vai**.
 
-3. All'interno della console Kudu selezionare **console di debug**e quindi **cmd**.
+3. Nella console Kudu selezionare **Debug console** (Console di debug) e quindi **CMD**.
 
    :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Console di debug Kudu":::
 
@@ -60,23 +60,23 @@ Se si sta creando Durable Functions JavaScript, è necessario installare il [ `d
 
 ## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
 
-1. Nell'app per le funzioni selezionare **funzioni** nel riquadro a sinistra e quindi scegliere **Aggiungi** dal menu in alto. 
+1. Nell'app per le funzioni selezionare **Funzioni** nel riquadro a sinistra e quindi **Aggiungi** nel menu superiore. 
 
-1. Nel campo di ricerca della pagina **nuova funzione** immettere `durable` , quindi scegliere il modello di **avvio http Durable Functions** .
+1. Nel campo di ricerca della pagina **Nuova funzione** immettere `durable` e quindi scegliere il modello **Durable Functions Http Starter**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selezionare Durable Functions Starter HTTP":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selezionare Durable Functions Http Starter":::
 
-1. Per il nome della **nuova funzione** immettere `HttpStart` , quindi selezionare **Crea funzione**.
+1. Come nome di **Nuova funzione** immettere `HttpStart` e quindi selezionare **Crea funzione**.
 
    La funzione creata viene usata per avviare l'orchestrazione.
 
-1. Creare un'altra funzione nell'app per le funzioni, questa volta usando il modello dell'agente di **orchestrazione Durable Functions** . Denominare la nuova funzione di orchestrazione `HelloSequence`.
+1. Creare un'altra funzione nell'app per le funzioni, questa volta usando il modello **Durable Functions Orchestrator**. Denominare la nuova funzione di orchestrazione `HelloSequence`.
 
-1. Creare una terza funzione denominata `Hello` usando il modello di **attività Durable Functions** .
+1. Creare una terza funzione denominata `Hello` usando il modello **Durable Functions Activity**.
 
 ## <a name="test-the-durable-function-orchestration"></a>Testare l'orchestrazione della funzione permanente
 
-1. Tornare alla funzione **HttpStart** , scegliere **Ottieni URL funzione**e selezionare l'icona **copia negli Appunti** per copiare l'URL. Usare questo URL per avviare la funzione **HelloSequence**.
+1. Tornare alla funzione **HttpStart**, scegliere **Recupera URL della funzione** e selezionare l'icona **Copia negli Appunti** per copiare l'URL. Usare questo URL per avviare la funzione **HelloSequence**.
 
 1. Usare uno strumento HTTP come Postman o cURL per inviare una richiesta POST all'URL copiato. L'esempio seguente è un comando cURL che invia una richiesta POST alla funzione permanente:
 

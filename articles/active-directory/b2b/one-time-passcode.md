@@ -1,5 +1,5 @@
 ---
-title: Autenticazione del codice di accesso monouso per gli utenti Guest B2B-Azure AD
+title: Autenticazione con passcode monouso per utenti guest B2B - Azure AD
 description: Come usare il passcode monouso tramite indirizzo di posta elettronica per autenticare gli utenti guest B2B senza la necessità di un account Microsoft.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199475"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585921"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -26,7 +26,7 @@ ms.locfileid: "83199475"
 | Passcode monouso tramite indirizzo di posta elettronica è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Questo articolo descrive come abilitare l'autenticazione del codice di posta elettronica monouso per gli utenti Guest B2B. La funzionalità passcode monouso tramite indirizzo di posta elettronica permette di autenticare gli utenti guest B2B quando non possono essere autenticati tramite altri mezzi, quali Azure AD, un account Microsoft (MSA) o federazione Google. Grazie all'autenticazione con passcode monouso, non è necessario creare un account Microsoft. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere.
+Questo articolo descrive come abilitare l'autenticazione con passcode monouso tramite posta elettronica per gli utenti guest B2B. La funzionalità passcode monouso tramite indirizzo di posta elettronica permette di autenticare gli utenti guest B2B quando non possono essere autenticati tramite altri mezzi, quali Azure AD, un account Microsoft (MSA) o federazione Google. Grazie all'autenticazione con passcode monouso, non è necessario creare un account Microsoft. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere.
 
 Questa funzionalità è attualmente disponibile in anteprima (consultare la sezione [Acconsentire esplicitamente all'anteprima](#opting-in-to-the-preview) di seguito). Dopo la versione di anteprima, questa funzionalità diverrà un'impostazione predefinita per tutti i tenant.
 
@@ -40,7 +40,7 @@ Grazie all'autenticazione con passcode monouso, l'utente guest può riscattare l
  
 Un passcode viene inviato all'indirizzo di posta elettronica dell'utente. L'utente recupera il passcode dal messaggio di posta elettronica e lo immette nella finestra del browser:
  
-   ![Screenshot che mostra la pagina di immissione del codice](media/one-time-passcode/otp-enter-code.png)
+   ![Screenshot che mostra la pagina Immetti il codice](media/one-time-passcode/otp-enter-code.png)
  
 L'utente guest viene autenticato e può quindi visualizzare la risorsa condivisa o continuare ad accedere. 
 
@@ -56,15 +56,15 @@ Quando un utente guest riscatta un invito o usa un collegamento a una risorsa ch
 
 Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente che si sta invitando userà l'autenticazione con passcode monouso. Tuttavia quando l'utente guest accede, l'autenticazione con passcode monouso sarà il metodo di fallback se non è possibile utilizzare altri metodi di autenticazione. 
 
-È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i codici di accesso monouso nell'portale di Azure andando a **Azure Active Directory**  >  **utenti**.
+È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i passcode monouso nel portale di Azure passando ad **Azure Active Directory** > **Utenti**.
 
-![Screenshot che mostra un utente del codice di accesso monouso con il valore di origine OTP](media/one-time-passcode/otp-users.png)
+![Screenshot che mostra un utente con passcode monouso e il valore di origine Passcode monouso](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si vuole aggiornare il metodo di autenticazione di tale utente, è possibile eliminare l'account utente guest e invitarlo nuovamente.
 
 ### <a name="example"></a>Esempio
-Utente guest alexdoe@gmail.com viene invitato a Fabrikam, che non dispone di federazione Google configurata. Alex non ha un account Microsoft. Riceveranno un unico codice per l'autenticazione.
+Utente guest alexdoe@gmail.com viene invitato a Fabrikam, che non dispone di federazione Google configurata. Alex non ha un account Microsoft. Riceverà un passcode monouso per l'autenticazione.
 
 ## <a name="opting-in-to-the-preview"></a>Acconsentire esplicitamente all'anteprima 
 Potrebbero volerci alcuni minuti affinché l'azione di consenso esplicito abbia effetto. In seguito, solo gli utenti appena invitati che soddisfano le condizioni riportate sopra useranno l'autenticazione con passcode monouso. Gli utenti guest che hanno precedentemente riscattato un invito continueranno a usare lo stesso metodo di autenticazione.
@@ -72,14 +72,14 @@ Potrebbero volerci alcuni minuti affinché l'azione di consenso esplicito abbia 
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Per acconsentire esplicitamente tramite il portale di Azure AD
 1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale di Azure AD.
 2.  Nel riquadro di spostamento selezionare **Azure Active Directory**.
-3.  Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
+3.  Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
 5.  In **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** selezionare **Sì**.
  
 ### <a name="to-opt-in-using-powershell"></a>Per acconsentire esplicitamente tramite PowerShell
 
 Innanzitutto è necessario installare la versione più recente di Azure AD PowerShell per il modulo Graph (AzureADPreview). Quindi è possibile stabilire se i criteri di B2B esistono già ed eseguono i comandi appropriati.
 
-#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Prerequisito: installare il modulo AzureADPreview più recente
+#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Prerequisito: Installare il modulo AzureADPreview più recente
 Controllare innanzitutto quali moduli sono installati. Aprire Windows PowerShell come utente con privilegi elevati (Esegui come amministratore) ed eseguire il comando seguente:
  
 ```powershell  
@@ -138,11 +138,11 @@ Potrebbero volerci alcuni minuti affinché l'azione di rifiuto esplicito abbia e
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Per disattivare l'anteprima tramite il portale di Azure AD
 1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale di Azure AD.
 2.  Nel riquadro di spostamento selezionare **Azure Active Directory**.
-3.  Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
+3.  Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
 5.  In **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** selezionare **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Per disattivare l'anteprima tramite PowerShell
-Installare il modulo AzureADPreview più recente, se non è già presente (vedere [prerequisito: installare il modulo AzureADPreview più recente](#prerequisite-install-the-latest-azureadpreview-module) ). Verificare quindi che i criteri di anteprima di passcode monouso siano attualmente esistenti eseguendo il comando seguente:
+Installare il modulo AzureADPreview più recente se non è già presente (consultare la sezione precedente [Prerequisiti: Installare il modulo AzureADPreview più recente](#prerequisite-install-the-latest-azureadpreview-module)). Verificare quindi che i criteri di anteprima di passcode monouso siano attualmente esistenti eseguendo il comando seguente:
 
 ```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1

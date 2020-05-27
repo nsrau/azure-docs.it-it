@@ -1,6 +1,6 @@
 ---
-title: Laboratori in aula in Azure Lab Services-domande frequenti | Microsoft Docs
-description: Questo articolo fornisce le risposte alle domande frequenti sui Lab della classe in Azure Lab Services.
+title: Lab per le classi in Azure Lab Services - Domande frequenti | Microsoft Docs
+description: Questo articolo fornisce le risposte alle domande frequenti sui lab per le classi in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,70 +13,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 11cb0d995537b8979c3727bf508045c6e31fc208
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115150"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592611"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in aula in Azure Lab Services-domande frequenti
-Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
+# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab per le classi in Azure Lab Services - Domande frequenti
+Trovare le risposte ad alcune domande frequenti sui lab per le classi in Azure Lab Services. 
 
 ## <a name="quotas"></a>Quote
 
-### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>La quota per utente o per settimana o per l'intera durata del Lab? 
-La quota impostata per un Lab riguarda ogni studente per tutta la durata del Lab. Il [tempo di esecuzione pianificato delle macchine virtuali](how-to-create-schedules.md) non viene conteggiato rispetto alla quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali.  Per altre informazioni sulle quote, vedere [impostare le quote per gli utenti](how-to-configure-student-usage.md#set-quotas-for-users).
+### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>La quota vale per utente, per settimana o per l'intera durata del lab? 
+La quota impostata per un lab riguarda ogni studente per tutta la durata del lab. Inoltre, il [tempo di esecuzione pianificato delle VM](how-to-create-schedules.md) non interferisce con la quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali.  Per altre informazioni sulle quote, vedere [Impostare quote per gli utenti](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se il professore accende una macchina virtuale per studenti, ha effetto sulla quota di studenti? 
-No. Non lo è. Quando il professore accende la macchina virtuale per studenti, non influisce sulla quota assegnata allo studente. 
+### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se l'educatore attiva la VM di uno studente, questa azione ha effetto sulla sua quota? 
+No. Non ha effetto. L'attivazione della VM di uno studente eseguita dall'educatore non ha effetto sulla quota assegnata. 
 
 ## <a name="schedules"></a>Pianificazioni
 
-### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Tutte le macchine virtuali nel Lab vengono avviate automaticamente quando viene impostata una pianificazione? 
-No. Non tutte le macchine virtuali. Solo le macchine virtuali assegnate agli utenti in base a una pianificazione. Le macchine virtuali non assegnate a un utente non vengono avviate automaticamente. Si tratta di un progetto. 
+### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Tutte le VM del lab vengono avviate automaticamente quando viene impostata una pianificazione? 
+No. Non, non tutte le VM, ma solo quelle assegnate agli utenti in base a una pianificazione. Le VM non assegnate a un utente non vengono avviate automaticamente. Questa scelta è da progettazione. 
 
 ## <a name="lab-accounts"></a>Account lab
 
-### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Perché non è possibile creare un Lab a causa della mancata disponibilità dell'intervallo di indirizzi? 
-I Lab in aula possono creare VM Lab all'interno di un intervallo di indirizzi IP specificato durante la creazione dell'account Lab nel portale di Azure. Quando viene fornito un intervallo di indirizzi, ogni Lab creato dopo aver assegnato 512 indirizzi IP per le macchine virtuali del Lab. L'intervallo di indirizzi per l'account lab deve essere sufficientemente grande da contenere tutti i Lab che si intende creare con l'account Lab. 
+### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Perché non è possibile creare un lab a causa della mancata disponibilità dell'intervallo di indirizzi? 
+I lab per le classi possono creare VM all'interno di un intervallo di indirizzi IP specificato durante la creazione dell'account lab nel portale di Azure. Quando viene fornito un intervallo di indirizzi, a ogni lab creato in seguito vengono assegnati 512 indirizzi IP per le relative VM. L'intervallo di indirizzi per l'account lab deve essere sufficientemente grande da supportare tutti i lab che si intende creare al suo interno. 
 
-Se, ad esempio, si dispone di un blocco di/19-10.0.0.0/19, questo intervallo di indirizzi include 8192 indirizzi IP e 16 Lab (8192/512 = 16 Labs). In questo caso, la creazione del Lab non riesce dopo la creazione del diciassettesimo Lab.
+Se ad esempio si ha un blocco /19-10.0.0.0/19, questo intervallo di indirizzi supporta 8192 indirizzi IP e 16 Lab (8192/512 = 16 lab). In questo caso, la creazione del diciassettesimo lab non riesce.
 
-### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quali intervalli di porte è necessario aprire nell'impostazione del firewall dell'organizzazione per connettersi alle macchine virtuali del Lab tramite RDP/SSH?
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quali intervalli di porte è necessario aprire nell'impostazione del firewall dell'organizzazione per connettersi alle macchine virtuali del lab tramite RDP/SSH?
 
-Le porte sono: 49152 – 65535. I Lab della classe si trovano dietro un servizio di bilanciamento del carico. Ogni Lab dispone di un singolo indirizzo IP pubblico e ogni macchina virtuale nel Lab ha una porta univoca. 
+Le porte sono comprese nell'intervallo 49152–65535. I lab per le classi si trovano dietro a un servizio di bilanciamento del carico. Ogni lab ha un singolo indirizzo IP pubblico e ogni macchina virtuale al suo interno ha una porta univoca. 
 
-È anche possibile visualizzare l'indirizzo IP privato di ogni macchina virtuale nella scheda **pool di macchine virtuali** della Home page per lab nel portale di Azure. Se si ripubblica un Lab, l'indirizzo IP pubblico del Lab non cambierà, ma l'IP privato e il numero di porta di ogni macchina virtuale nel Lab possono cambiare. Per altre informazioni, vedere l'articolo [relativo alle impostazioni del firewall per Azure Lab Services](how-to-configure-firewall-settings.md).
+È anche possibile vedere l'indirizzo IP privato di ogni macchina virtuale nella scheda **Pool di macchine virtuali** della home page del lab nel portale di Azure. Se si ripubblica un lab, il relativo indirizzo IP pubblico non cambierà, mentre l'indirizzo IP privato e il numero di porta di ogni macchina virtuale nel lab possono cambiare. Per altre informazioni, vedere l'articolo [Impostazioni del firewall per Azure Lab Services](how-to-configure-firewall-settings.md).
 
-### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quale intervallo di indirizzi IP pubblici è necessario aprire sulle impostazioni del firewall dell'organizzazione per connettersi alle macchine virtuali del Lab tramite RDP/SSH?
-Vedere [Azure IP Ranges and Service Tags (cloud pubblico)](https://www.microsoft.com/download/details.aspx?id=56519), che fornisce l'intervallo di indirizzi IP pubblici per i Data Center in Azure. È possibile aprire gli indirizzi IP per le aree in cui si trovano gli account Lab.
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quale intervallo di indirizzi IP pubblici è necessario aprire nell'impostazione del firewall dell'organizzazione per connettersi alle macchine virtuali del lab tramite RDP/SSH?
+Vedere [Intervalli di indirizzi IP e tag di servizi di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519), che fornisce l'intervallo di indirizzi IP pubblici per i data center di Azure. È possibile aprire gli indirizzi IP per le aree in cui si trovano gli account lab.
 
 ## <a name="virtual-machine-images"></a>Immagini di macchine virtuali
 
-### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Come autore del Lab, perché non è possibile abilitare opzioni aggiuntive per le immagini nell'elenco a discesa immagini macchina virtuale quando si crea un nuovo Lab?
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Perché quando si crea un nuovo lab non è possibile abilitare altre opzioni di immagini nell'elenco a discesa delle immagini di macchine virtuali?
 
-Quando un amministratore aggiunge l'utente come autore del Lab a un account Lab, vengono concesse le autorizzazioni per la creazione dei Lab. Tuttavia, non si dispone delle autorizzazioni per modificare le impostazioni all'interno dell'account Lab, incluso l'elenco delle immagini di macchine virtuali abilitate. Per abilitare immagini aggiuntive, contattare l'amministratore dell'account Lab per eseguire questa operazione o chiedere all'amministratore di aggiungere l'utente come ruolo Collaboratore all'account Lab. Il ruolo Collaboratore fornirà le autorizzazioni per modificare l'elenco di immagini della macchina virtuale nell'account Lab.
+Quando un amministratore aggiunge l'utente come autore del lab a un account lab, gli concede le autorizzazioni per la creazione dei lab. Tuttavia, l'utente non ha le autorizzazioni per modificare le impostazioni all'interno dell'account lab, incluso l'elenco di immagini di macchine virtuali abilitate. Se necessario, chiedere all'amministratore dell'account lab di abilitare altre immagini oppure di essere aggiunti con il ruolo Collaboratore all'account lab. Il ruolo Collaboratore concede le autorizzazioni per modificare l'elenco di immagini di macchine virtuali nell'account lab.
 
-### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>È possibile aggiungere altri dischi a una macchina virtuale?
-No. non è possibile aggiungere altri dischi a una macchina virtuale in un Lab della classe. 
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>È possibile collegare altri dischi a una macchina virtuale?
+No. Non è possibile collegare altri dischi a una VM di un lab per le classi. 
 
 ## <a name="users"></a>Utenti
 
-### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quanti utenti possono trovarsi in un Lab della classe?
-È possibile aggiungere fino a 400 utenti a un Lab della classe. 
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quanti utenti possono essere inclusi in un lab per le classi?
+È possibile aggiungere fino a 400 utenti. 
 
-## <a name="blog-post"></a>Post di Blog
-Sottoscrivere il [blog Azure Lab Services](https://aka.ms/azlabs-blog).
+## <a name="blog-post"></a>Post di blog
+Sottoscrivere il [blog di Azure Lab Services](https://aka.ms/azlabs-blog).
 
-## <a name="update-notifications"></a>Notifiche degli aggiornamenti
-Sottoscrivere [gli aggiornamenti di Lab Services](https://azure.microsoft.com/updates/?product=lab-services) per rimanere sempre aggiornati sulle nuove funzionalità di Lab Services.
+## <a name="update-notifications"></a>Notifiche sugli aggiornamenti
+Per rimanere aggiornati sulle nuove funzionalità di Lab Services, sottoscrivere gli [aggiornamenti di Lab Services](https://azure.microsoft.com/updates/?product=lab-services).
 
 ## <a name="general"></a>Generale
 ### <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
-Se la domanda non è elencata, è possibile inviarla a Microsoft, per consentire di trovare una risposta.
+Nel caso di domande non presenti nell'elenco, segnalarlo per ottenere assistenza.
 
 - Pubblicare una domanda alla fine di questo articolo di domande frequenti. 
-- Per raggiungere un pubblico più ampio, pubblicare una domanda nel [Forum della community di Azure Lab Services-Tech](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
-- Per le richieste di funzionalità, inviare le richieste e le idee a [Azure Lab Services-User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
+- Per raggiungere un pubblico più ampio, pubblicare la domanda nel [forum della community tecnica di Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
+- Per richiedere funzionalità, inviare suggerimenti e idee al [sito User Voice per Azure Lab Services](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

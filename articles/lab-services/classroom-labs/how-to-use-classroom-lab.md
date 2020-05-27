@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 2430348a8bfbecda3f172361a40a96ef801f5bc4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118397"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592441"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come registrarsi a un lab per la classe, visualizzare tutti i lab a cui è possibile accedere, avviare e arrestare una macchina virtuale nel lab e connettersi alla macchina virtuale. 
 
 ## <a name="register-to-the-lab"></a>Registrarsi al lab
 
-1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL: [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 non è ancora supportato. 
+1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 
     ![Registrarsi al lab](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
@@ -64,7 +64,7 @@ Questo articolo descrive come registrarsi a un lab per la classe, visualizzare t
     3. Per connettersi alle macchine virtuali **Linux**, è possibile usare **SSH** o **RDP** (se è abilitato). Per altre informazioni, vedere [Abilitare una connessione Desktop remoto per i computer Linux](how-to-enable-remote-desktop-linux.md). 
     1. Se si usa un **Mac** per connettersi alla macchina virtuale lab, seguire le istruzioni riportate nella sezione successiva. 
 
-## <a name="progress-bar"></a>Barra di stato 
+## <a name="progress-bar"></a>Indicatore di stato 
 L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al numero di [ore della quota](how-to-configure-student-usage.md#set-quotas-for-users) assegnate all'utente. Questo intervallo di tempo è il tempo aggiuntivo assegnato all'utente oltre al tempo pianificato per il lab. Il colore dell'indicatore di stato e il testo sotto di esso variano in base agli scenari seguenti:
 
 - Se è in corso una classe (nell'intervallo di tempo pianificato per la classe), l'indicatore di stato viene visualizzato in grigio per indicare che le ore della quota non vengono usate. 

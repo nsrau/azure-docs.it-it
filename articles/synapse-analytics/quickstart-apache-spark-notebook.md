@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un notebook Apache Spark'
+title: 'Guida introduttiva: Creare un notebook di Apache Spark per Azure Synapse Analytics'
 description: Questa guida di avvio rapido illustra come usare gli strumenti Web per creare un pool di Apache Spark (anteprima) in Azure Synapse Analytics ed eseguire una query Spark SQL.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 47235ca0e420e0de9f6c4beb070e0b75b72e7549
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786669"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592951"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Guida introduttiva: Creare un pool di Apache Spark (anteprima) in Azure Synapse Analytics con gli strumenti Web
 

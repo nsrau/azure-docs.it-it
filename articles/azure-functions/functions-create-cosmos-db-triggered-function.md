@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83123754"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
 Informazioni su come creare una funzione attivata quando i dati vengono aggiunti o modificati in Azure Cosmos DB. Per altre informazioni su Azure Cosmos DB, vedere [Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure](../cosmos-db/serverless-computing-database.md).
 
-:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Codice Azure Cosmos DB":::
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Codice di Azure Cosmos DB":::
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -46,23 +46,23 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Creare i trigger di Azure Cosmos DB
 
-1. Nell'app per le funzioni selezionare **funzioni** dal menu a sinistra e quindi fare clic su **Aggiungi** nel menu in alto. 
+1. Nell'app per le funzioni selezionare **Funzioni** nel menu a sinistra e quindi **Aggiungi** nel menu in alto. 
 
-1. Nella pagina **nuova funzione** immettere `cosmos` nel campo di ricerca, quindi scegliere il modello di **trigger Azure Cosmos DB** .
+1. Nella pagina **Nuova funzione** immettere `cosmos` nel campo di ricerca e quindi scegliere il modello del **trigger Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Pagina funzioni nella portale di Azure":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Pagina Funzioni nel portale di Azure":::
 
 
-1. Configurare il nuovo trigger con le impostazioni come specificato nella tabella seguente:
+1. Configurare il nuovo trigger con le impostazioni specificate nella tabella seguente:
 
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nuova funzione** | Accetta il nome predefinito | Nome della funzione. |
-    | **Connessione dell'account Cosmos DB** | Accetta il nuovo nome predefinito | Selezionare **nuovo**, l' **account del database** creato in precedenza e quindi **OK**. Questa azione consente di creare un'impostazione dell'applicazione per la connessione dell'account. Questa impostazione viene usata dal binding per la connessione al database. |
+    | **Nuova funzione** | Accettare il nome predefinito | Nome della funzione. |
+    | **Connessione all'account Cosmos DB** | Accettare il nuovo nome predefinito | Selezionare **Nuovo**, quindi l'**account di database** creato in precedenza e infine **OK**. Verrà creata un'impostazione applicazione per la connessione all'account. Questa impostazione viene usata dal binding per la connessione al database. |
     | **Nome database** | Attività | Nome del database che include la raccolta da monitorare. |
     | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
-    | **Nome della raccolta per i lease** | leases | Nome della raccolta in cui archiviare i lease. |
-    | **Crea la raccolta di lease se non esiste** | Sì | Verifica l'esistenza della raccolta di lease e la crea automaticamente. |
+    | **Nome della raccolta per i lease** | Lease | Nome della raccolta per l'archiviazione dei lease. |
+    | **Crea raccolta di lease se non esiste** | Sì | Verifica l'esistenza della raccolta di lease e la crea automaticamente. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Creare la funzione attivata da Azure Cosmos DB":::
 
@@ -70,7 +70,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     Azure crea la funzione di trigger Cosmos DB.
 
-1. Per visualizzare il codice della funzione basato su modello, selezionare **codice + test**.
+1. Per visualizzare il codice della funzione basato sul modello, selezionare **Codice e test**.
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modello di funzione di Cosmos DB in C#":::
 

@@ -1,6 +1,6 @@
 ---
-title: Abilitare le impostazioni di collaborazione esterna B2B-Azure AD
-description: Informazioni su come abilitare Active Directory collaborazione esterna B2B e gestire chi può invitare utenti guest. Utilizzare il ruolo mittente dell'invito Guest per delegare gli inviti.
+title: Abilitare le impostazioni di collaborazione esterna B2B - Azure AD
+description: Informazioni su come abilitare la collaborazione esterna B2B di Active Directory e gestire chi può invitare utenti guest. Usare il ruolo Mittente dell'invito guest per delegare gli inviti.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199424"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591285"
 ---
-# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i Guest
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
-Questo articolo descrive come abilitare la collaborazione B2B Azure Active Directory (Azure AD) e determinare chi può invitare Guest. Per impostazione predefinita, tutti gli utenti e i guest nella directory possono invitare i guest anche se non sono assegnati a un ruolo di amministratore. Le impostazioni di collaborazione esterna consentono di attivare o disattivare gli inviti Guest per diversi tipi di utenti dell'organizzazione. È anche possibile delegare gli inviti a singoli utenti assegnando ruoli che consentono loro di invitare i guest.
+Questo articolo descrive come abilitare la collaborazione B2B di Azure Active Directory (Azure AD) e determinare chi può invitare utenti guest. Per impostazione predefinita, tutti gli utenti e gli utenti guest nella directory possono invitare utenti guest anche se non sono assegnati a un ruolo di amministratore. Le impostazioni di collaborazione esterna consentono di attivare o disattivare gli inviti guest per diversi tipi di utenti dell'organizzazione. È anche possibile delegare gli inviti a singoli utenti assegnando ruoli che consentono loro di invitare utenti guest.
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurare le impostazioni di collaborazione esterna B2B
 
@@ -31,27 +31,27 @@ Con Collaborazione B2B di Azure AD, un amministratore tenant può impostare i cr
 - Gli amministratori, il ruolo Mittente dell'invito guest e i membri possono inviare inviti
 - Possono inviare inviti tutti gli utenti, inclusi gli utenti guest
 
-Per impostazione predefinita, tutti gli utenti, inclusi i guest, possono invitare gli utenti guest.
+Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, possono inviare inviti a utenti guest.
 
 ### <a name="to-configure-external-collaboration-settings"></a>Per configurare le impostazioni di collaborazione esterna:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore tenant.
 2. Selezionare **Azure Active Directory**.
-3. Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
-6. Nella pagina **impostazioni di collaborazione esterna** selezionare i criteri che si desidera abilitare.
+3. Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
+6. Nella pagina **Impostazioni di collaborazione esterna** selezionare i criteri che si intende abilitare.
 
    ![Impostazioni di collaborazione esterna](./media/delegate-invitations/control-who-to-invite.png)
 
-  - Le **autorizzazioni degli utenti Guest sono limitate**: questi criteri determinano le autorizzazioni per i guest nella directory. Selezionare **Sì** per bloccare i guest da determinate attività di directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse di directory. Selezionare **No** per concedere ai Guest lo stesso accesso ai dati della directory come utenti normali nella directory.
-   - Gli **amministratori e gli utenti nel ruolo mittente dell'invito Guest possono invitare**: per consentire agli amministratori e agli utenti del ruolo "invitato Guest" di invitare i guest, impostare questo criterio su **Sì**.
-   - **I membri possono invitare**: per consentire ai membri non amministratori della directory di invitare i guest, impostare questo criterio su **Sì**.
-   - I **Guest possono invitare**: per consentire ai guest di invitare altri Guest, impostare questo criterio su **Sì**.
-   - **Abilita il codice di accesso monouso per i Guest (anteprima)**: per altre informazioni sulla funzionalità di accesso monouso, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](one-time-passcode.md).
-   - **Restrizioni di collaborazione**: per altre informazioni su come consentire o bloccare gli inviti a specifici domini, vedere [consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
+  - **Le autorizzazioni degli utenti guest sono limitate**: questo criterio determina le autorizzazioni per gli utenti guest nella directory. Selezionare **Sì** per non consentire agli utenti guest di eseguire determinate attività sulla directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse della directory. Selezionare **No** per concedere agli utenti guest lo stesso accesso degli utenti normali ai dati della directory.
+   - **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare**: per consentire solo agli amministratori e agli utenti del ruolo "Mittente dell'invito guest" di invitare utenti guest, impostare questo criterio su **Sì**.
+   - **I membri possono invitare**: per consentire ai membri non amministratori della directory di invitare utenti guest, impostare questo criterio su **Sì**.
+   - **Gli utenti guest possono invitare**: per consentire agli utenti guest di invitare altri utenti guest, impostare questo criterio su **Sì**.
+   - **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** : Per altre informazioni sulla funzionalità passcode monouso, vedere [Autenticazione con passcode monouso tramite posta elettronica (anteprima)](one-time-passcode.md).
+   - **Restrizioni di collaborazione**: per altre informazioni su come consentire o bloccare gli inviti a specifici domini, vedere [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
 
-## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo di invito Guest a un utente
+## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo Mittente dell'invito guest a un utente
 
-Con il ruolo invito Guest è possibile concedere a singoli utenti la possibilità di invitare i guest senza assegnare loro un amministratore globale o un altro ruolo di amministratore. Assegnare il ruolo di invito Guest a singoli utenti. Assicurarsi quindi che **gli amministratori e gli utenti nel ruolo mittente dell'invito Guest possano invitare** a **Sì**.
+Con il ruolo Mittente dell'invito guest è possibile concedere a singoli utenti la possibilità di invitare utenti guest senza assegnare loro il ruolo di amministratore globale o un altro ruolo di amministratore. Assegnare il ruolo Mittente dell'invito guest a singoli utenti. Assicurarsi che l'opzione **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare** sia impostata su **Sì**.
 
 Ecco un esempio che illustra l'aggiunta di un utente al ruolo Mittente dell'invito guest con PowerShell:
 
@@ -63,7 +63,7 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-- [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Aggiungere utenti guest di Collaborazione B2B senza un invito](add-user-without-invite.md)
 - [Aggiunta di un utente di Collaborazione B2B a un ruolo](add-guest-to-role.md)
 
