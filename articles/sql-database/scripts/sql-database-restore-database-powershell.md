@@ -3,7 +3,7 @@ title: 'Esempio di PowerShell: Ripristinare un backup del database SQL di Azure'
 description: Script di esempio di Azure PowerShell per ripristinare uno stato precedente di un database singolo SQL di Azure dai backup automatici
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: da4236e138bd75237ca10b85dc1586fecd1cece4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a1e709992ce1e13f809c7c5f55b98aff11025e6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73691546"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770330"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usare PowerShell per ripristinare uno stato precedente di un database singolo SQL di Azure
 

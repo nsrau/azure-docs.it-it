@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596590"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745929"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usare Creator per creare piante di interni
 
@@ -57,7 +57,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
 4. Nella scheda **Headers** (Intestazioni) specificare un valore per la chiave `Content-Type`. Il pacchetto di disegno consiste in una cartella compressa, quindi usare il valore `application/octet-stream`. Nella scheda **Body** (Corpo) selezionare **binary** (binario). Fare clic su **Select File** (Seleziona file) e scegliere un pacchetto di disegno.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Fare clic sul pulsante blu **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda di risposta **Headers** (Intestazioni). Copiare il valore della chiave **Location** (Posizione), ovvero lo `status URL`.
 
@@ -215,7 +215,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Il corpo della risposta verrà fornito in formato GeoJSON e conterrà tutte le raccolte all'interno del set di dati. Per semplicità, l'esempio mostra solo la raccolta `unit`. Per un esempio contenente tutte le raccolte, vedere [API WFS - Descrizioni raccolte](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Per altre informazioni sulle raccolte è possibile fare clic su uno degli URL all'interno dell'elemento `link`.
+3. Il corpo della risposta verrà fornito in formato GeoJSON e conterrà tutte le raccolte all'interno del set di dati. Per semplicità, l'esempio mostra solo la raccolta `unit`. Per un esempio contenente tutte le raccolte, vedere [API WFS - Descrizioni raccolte](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Per altre informazioni sulle raccolte è possibile fare clic su uno degli URL all'interno dell'elemento `link`.
 
     ```json
     {
@@ -285,7 +285,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
-2. Effettuare una richiesta **POST** all'API [Create Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Usare il `datasetId` del set di dati che contiene lo stato che si vuole modificare. La richiesta deve essere simile all'URL seguente:
+2. Effettuare una richiesta **POST** all'API [Create Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Usare il `datasetId` del set di dati che contiene lo stato che si vuole modificare. La richiesta deve essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
