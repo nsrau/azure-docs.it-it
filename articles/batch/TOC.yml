@@ -83,8 +83,6 @@
       href: high-availability-disaster-recovery.md
     - name: Variabili di ambiente del runtime attività
       href: batch-compute-node-environment-variables.md
-    - name: Integrazione di Batch con Funzioni di Azure
-      href: batch-integration-policies.md
 - name: Guide pratiche
   items:
     - name: Gestire gli account Batch

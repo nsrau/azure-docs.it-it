@@ -2,13 +2,13 @@
 title: 'Guida introduttiva: creare, eseguire il training e pubblicare la Knowledge base-QnA Maker'
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 ms.topic: conceptual
-ms.date: 02/08/2020
-ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756815"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871407"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: creare, eseguire il training e pubblicare la QnA Maker Knowledge base
 
@@ -34,8 +34,8 @@ ms.locfileid: "80756815"
 
 1. Nel **Passaggio 3** selezionare l'istanza di Active Directory, la sottoscrizione, il servizio (risorsa) e la lingua per tutte le knowledge base create nel servizio.
 
-   ![Screenshot della selezione di una knowledge base per il servizio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
-
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
+    
 1. Nel **Passaggio 3** assegnare alla knowledge base il nome **My Sample QnA KB**.
 
 1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
@@ -64,7 +64,7 @@ ms.locfileid: "80756815"
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Aggiungere la domanda come testo e la risposta formattata con Markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Aggiungere la domanda come testo e la risposta formattata con Markdown.":::
 
     Il simbolo di markdown, `*`, viene usato per i punti elenco. `\n` viene usato per una nuova riga.
 
@@ -81,7 +81,7 @@ In alto a destra selezionare **Save and train** (Salva ed esegui il training) pe
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Immettere una query utente di esempio nella casella di testo. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Immettere una query utente di esempio nella casella di testo.":::
 
 1. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene usata per testare le modifiche alla knowledge base prima della pubblicazione.
 
@@ -131,7 +131,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
     Il chatbot risponde con una risposta della knowledge base.
 
-    ![Immettere una query utente nella chat Web di test.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Immettere una query utente nella chat Web di test.":::
 
 ## <a name="what-did-you-accomplish"></a>Cosa si è ottenuto?
 
