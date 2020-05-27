@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596060"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677805"
 ---
 # <a name="creator-for-indoor-maps"></a>Creator per piante di interni
 
@@ -35,7 +35,7 @@ Usare l'[API Data Upload di Mappe di Azure](https://docs.microsoft.com/rest/api/
 
 ## <a name="convert-a-drawing-package"></a>Convertire un pacchetto di disegno
 
-Il servizio [Conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/data/conversion) converte un pacchetto di disegno caricato in dati della pianta di interni. Inoltre, il servizio di conversione convalida il pacchetto. I problemi di convalida sono classificati in due tipi: errori e avvisi. Se vengono rilevati errori, il processo di conversione avrà esito negativo. Se vengono rilevati avvisi, la conversione avrà esito positivo. Tuttavia, è consigliabile esaminare e risolvere tutti gli avvisi. Un avviso indica che parte della conversione è stata ignorata o risolta automaticamente. La mancata risoluzione degli avvisi può causare errori nei processi successivi. Per altre informazioni, vedere [Avvisi ed errori del pacchetto di disegno](drawing-conversion-error-codes.md).
+Il servizio [Conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) converte un pacchetto di disegno caricato in dati della pianta di interni. Inoltre, il servizio di conversione convalida il pacchetto. I problemi di convalida sono classificati in due tipi: errori e avvisi. Se vengono rilevati errori, il processo di conversione avrà esito negativo. Se vengono rilevati avvisi, la conversione avrà esito positivo. Tuttavia, è consigliabile esaminare e risolvere tutti gli avvisi. Un avviso indica che parte della conversione è stata ignorata o risolta automaticamente. La mancata risoluzione degli avvisi può causare errori nei processi successivi. Per altre informazioni, vedere [Avvisi ed errori del pacchetto di disegno](drawing-conversion-error-codes.md).
 
 Quando si verifica un errore, il servizio di conversione fornisce un collegamento all' applicazione Web autonoma [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) (Visualizzatore di errori di disegno di Mappe di Azure). È possibile usare il Visualizzatore di errori di disegno per controllare gli [Avvisi ed errori del pacchetto di disegno](drawing-conversion-error-codes.md) che si sono verificati durante il processo di conversione. Dopo aver corretto gli errori, è possibile tentare di caricare e convertire il pacchetto.
 

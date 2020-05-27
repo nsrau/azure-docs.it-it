@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bcdfc3eb09b6c5ed4f8dde4d48a34bee8746e1e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7971681c3f0c99a11567e6a30e61167c5d42348c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593445"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680509"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Esercitazione: Sincronizzare i dati da SQL Edge al database SQL di Azure con la sincronizzazione dati SQL
 
@@ -32,7 +32,7 @@ Per questa esercitazione è necessario un computer Windows configurato con [Data
 
 * Creare le tabelle e gli altri oggetti necessari nella distribuzione del database SQL di Azure.
 
-* Creare le tabelle e gli oggetti necessari nella distribuzione di SQL Edge di Azure. Per altre informazioni, vedere [Uso di pacchetti di applicazione livello dati del database SQL con SQL Edge](stream-analytics.md).
+* Creare le tabelle e gli oggetti necessari nella distribuzione di SQL Edge di Azure. Per altre informazioni, vedere [Uso di pacchetti di applicazione livello dati del database SQL con SQL Edge](deploy-dacpac.md).
 
 * Registrare l'istanza di SQL Edge di Azure con Data Sync Agent per la sincronizzazione dati SQL di Azure. Per altre informazioni, vedere [Aggiungere un database SQL Server locale](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
 
