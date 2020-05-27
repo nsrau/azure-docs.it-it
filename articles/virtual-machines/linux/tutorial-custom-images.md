@@ -10,19 +10,19 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed65754dd872d51d4cbd1bccc673373e8e96846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792174"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652989"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure
 
 Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una Raccolta immagini condivise
 > * Creare una definizione dell'immagine
 > * Creare una versione di immagine
 > * Creare una macchina virtuale da un'immagine 
@@ -86,7 +86,7 @@ Copiare l'ID della macchina virtuale per usarlo in un secondo momento.
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine
 
-Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. 
+Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. 
 
 I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
@@ -187,7 +187,7 @@ Azure offre anche un servizio, basato su Packer, ovvero [Image Builder per macch
 In questa esercitazione è stata creata un'immagine di macchina virtuale personalizzata. Si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una Raccolta immagini condivise
 > * Creare una definizione dell'immagine
 > * Creare una versione di immagine
 > * Creare una macchina virtuale da un'immagine 
@@ -196,5 +196,5 @@ In questa esercitazione è stata creata un'immagine di macchina virtuale persona
 Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
 
 > [!div class="nextstepaction"]
-> [Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md).
+> [Creare VM a disponibilità elevata](tutorial-availability-sets.md)
 

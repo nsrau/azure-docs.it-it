@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897804"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647617"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AwardSpring
 
@@ -157,7 +157,7 @@ Per configurare l'accesso Single Sign-On sul lato **AwardSpring**, è necessario
 In questa sezione viene creato un utente di nome B.Simon in AwardSpring. AwardSpring supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in AwardSpring, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
-> Se è necessario creare un utente manualmente, contattare il [team di supporto di AwardSpring](maito:support@awardspring.com).
+> Se è necessario creare un utente manualmente, contattare il [team di supporto di AwardSpring](mailto:support@awardspring.com).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

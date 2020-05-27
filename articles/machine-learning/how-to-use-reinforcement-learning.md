@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: b0a596ee4c576ff98be302b15a86a8758b11ce25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596340"
+ms.locfileid: "83654431"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprendimento per rinforzo con Azure Machine Learning (anteprima)
 
@@ -49,7 +49,7 @@ Eseguire questo codice in uno degli ambienti seguenti. Si consiglia di provare l
  - Server Jupyter Notebook personale
 
     - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Installare [Azure Machine Learning SDK](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Creare un [file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
     - Eseguire il [notebook di configurazione](https://aka.ms/azure-rl-env-setup) della rete virtuale per aprire le porte di rete usate per l'apprendimento per rinforzo distribuito.
 
@@ -210,7 +210,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Creare un oggetto di stima per l'apprendimento per rinforzo
 
-In questa sezione si apprenderà come usare il [ReinforcementLearningEstimator](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&branch=harnvirdebug) per inviare un processo di training ad Azure Machine Learning.
+In questa sezione si apprenderà come usare il [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) per inviare un processo di training ad Azure Machine Learning.
 
 Azure Machine Learning usa le classi di stima per incapsulare le informazioni di configurazione di esecuzione. Ciò consente di specificare facilmente come configurare un'esecuzione di script. Per altre informazioni sul modello di stima di Azure Machine Learning, vedere [come eseguire il training dei modelli usando gli oggetti di stima](how-to-train-ml-models.md).
 

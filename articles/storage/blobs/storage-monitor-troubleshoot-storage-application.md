@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68844891"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652169"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -87,7 +87,7 @@ In questo scenario usare [Analizzatore messaggi di Microsoft](https://technet.mi
 
 ### <a name="download-microsoft-message-analyzer"></a>Scaricare Analizzatore messaggi di Microsoft
 
-Scaricare [Analizzatore messaggi di Microsoft](https://www.microsoft.com/download/details.aspx?id=44226) e installare l'applicazione.
+Scaricare [Analizzatore messaggi di Microsoft](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e installare l'applicazione.
 
 Avviare l'applicazione e scegliere **File** > **Apri** > **From Other File Sources** (Da altre origini file).
 

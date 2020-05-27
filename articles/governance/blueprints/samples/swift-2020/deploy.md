@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto SWIFT CSP-CSCF v2020
 description: Procedura di distribuzione per l'esempio di progetto SWIFT CSP-CSCF V2020, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 971b69dcc5c64d7e51e9237e09ee8474551ac43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546498"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657055"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Distribuire l'esempio di progetto SWIFT CSP-CSCF v2020
 

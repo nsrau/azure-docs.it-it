@@ -1,19 +1,19 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Lighthouse
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Lighthouse. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: adfa0b208f69fe44c26d252f164ef1d620f76f55
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 61136afad86f7e7d65b52f920b001173234594ba
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837440"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647657"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-lighthouse"></a>Definizioni di criteri predefiniti di Criteri di Azure per Azure Lighthouse
 
-Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per Azure Lighthouse. Per informazioni su altri Criteri di Azure predefiniti per altri servizi, vedere le [definizioni di Criteri di Azure predefiniti](../../governance/policy/samples/built-in-policies.md).
+Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per Azure Lighthouse. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
