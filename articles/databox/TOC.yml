@@ -56,6 +56,8 @@
               href: data-box-portal-admin.md
             - name: Gestire tramite l'interfaccia utente Web locale
               href: data-box-local-web-ui-admin.md
+            - name: Usare la spedizione autogestita
+              href: data-box-portal-customer-managed-shipping.md
             - name: Abilitare la chiave gestita dal cliente
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Spostare i dati in un livello BLOB
@@ -117,6 +119,8 @@
           items:
             - name: Gestire tramite il portale di Azure
               href: data-box-portal-ui-admin.md
+            - name: Usare la spedizione autogestita
+              href: data-box-disk-portal-customer-managed-shipping.md
             - name: Risolvere problemi
               items:
                 - name: Problemi di sblocco

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393194"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587596"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -52,15 +52,15 @@ Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Grigli
 
 Per informazioni dettagliate complete sulle funzionalità di ogni gestore, con articoli correlati, vedere [Gestori eventi](event-handlers.md). Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da Griglia di eventi: 
 
-* [Automazione di Azure](event-handlers.md#azure-automation)
-* [Funzioni di Azure](event-handlers.md#azure-functions)
-* [Hub eventi](event-handlers.md#event-hubs)
-* [Connessioni ibride](event-handlers.md#hybrid-connections)
-* [App per la logica](event-handlers.md#logic-apps)
+* [Automazione di Azure](handler-webhooks.md#azure-automation)
+* [Funzioni di Azure](handler-functions.md)
+* [Hub eventi](handler-event-hubs.md)
+* [Inoltrare connessioni ibride](handler-relay-hybrid-connections.md)
+* [App per la logica](handler-webhooks.md#logic-apps)
 * [Power Automate (noto in precedenza come Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Bus di servizio](event-handlers.md#service-bus)
-* [Archiviazione code](event-handlers.md#queue-storage)
-* [Webhook](event-handlers.md#webhooks)
+* [Bus di servizio](handler-service-bus.md)
+* [Archiviazione code](handler-storage-queues.md)
+* [Webhook](handler-webhooks.md)
 
 ## <a name="concepts"></a>Concetti
 

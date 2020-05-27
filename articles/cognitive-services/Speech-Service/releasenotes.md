@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c7caa6c2b329d7d24d6c9a3008d884b396fc99ce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ecd1c650456bf506f22366ca1d59a3634751b9e0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584910"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800242"
 ---
 # <a name="release-notes"></a>Note sulla versione
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020-versione di maggio
 
-**Console dei comandi SPX Azure Speech Services**
+**INTERFACCIA della riga di comando di Azure Speech**
 - **SPX** è un nuovo strumento da riga di comando che consente di eseguire operazioni di riconoscimento, sintesi, traduzione, trascrizione batch e gestione vocale personalizzata dalla riga di comando. Usarlo per testare il servizio riconoscimento vocale di Azure o per creare script per le attività del servizio vocale che è necessario eseguire. Scaricare lo strumento e leggere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **Nuove funzionalità**
@@ -135,7 +135,7 @@ Rimanere integro.
 - JavaScript: è stato aggiunto il supporto per `FromHost API` per semplificare l'uso con i contenitori locali e i cloud sovrani. Vedere la documentazione [qui](speech-container-howto.md).
 - JavaScript: ora è `NODE_TLS_REJECT_UNAUTHORIZED` possibile rispettare un contributo di [orgads](https://github.com/orgads). Vedere i dettagli [qui](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - `OpenSSL`è stato aggiornato alla versione 1.1.1 b ed è collegato in modo statico alla libreria principale dell'SDK vocale per Linux. Questa operazione può causare un'interrotta se la posta `OpenSSL` in arrivo non è stata installata `/usr/lib/ssl` nella directory del sistema. Per risolvere il problema, vedere la [documentazione relativa](how-to-configure-openssl-linux.md) ai documenti dell'SDK per la sintesi vocale.
 - È stato modificato il tipo di dati restituito per C# `WordLevelTimingResult.Offset` da `int` a per `long` consentire l'accesso a `WordLevelTimingResults` quando i dati vocali sono più lunghi di 2 minuti.
@@ -176,7 +176,7 @@ Rimanere integro.
 - Aggiunta `KeywordRecognizer` del supporto in Windows (UWP), Android e iOS tramite i pacchetti NuGet e Unity
 - Aggiunta dell'API Java per la conversazione remota per eseguire la trascrizione in batch asincroni.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - Funzionalità del trascrittore di conversazione spostate nello spazio dei nomi `Microsoft.CognitiveServices.Speech.Transcription` .
 - Parte dei metodi del trascrittore di conversazione viene spostata nella nuova `Conversation` classe.
@@ -483,7 +483,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 - Supporto per Objective-C in iOS. Vedere la [Guida introduttiva su Objective-C per iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Supporto per JavaScript nel browser. Vedere la [Guida introduttiva su JavaScript](quickstart-js-browser.md).
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - In questa versione sono state introdotte alcune modifiche di rilievo.
   Per informazioni dettagliate, vedere [Questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) .
@@ -502,7 +502,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 - Informazioni aggiuntive dettagliate sull'errore in caso di errori di connessione.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - In Java (Android), la funzione `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` non richiede più un parametro di percorso. Il percorso viene ora rilevato automaticamente in tutte le piattaforme supportate.
 - La funzione di accesso get della proprietà `EndpointUrl` in Java e C# è stata rimossa.
@@ -531,7 +531,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 - Il risultato del riconoscimento contiene più campi. Scostamento da inizio audio e durata (entrambi in tick) del testo riconosciuto, valori aggiuntivi che rappresentano lo stato di riconoscimento, ad esempio `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 - Supporto del token di autorizzazione per la creazione di istanze di factory.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - Eventi di riconoscimento: `NoMatch` il tipo di evento è stato unito nell' `Error` evento.
 - SpeechOutputFormat in C# è stato rinominato in `OutputFormat` per restare allineato con C++.

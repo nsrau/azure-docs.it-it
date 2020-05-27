@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050731"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585827"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -88,6 +88,19 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 
 - Usare [Gestione entitlement di Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - È possibile usare le [API di invito di Collaborazione B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) per personalizzare le esperienze di onboarding.
+
+## <a name="integrate-with-identity-providers"></a>Integrazione con i provider di identità
+
+Azure AD supporta provider di identità esterni come Facebook, account Microsoft, Google o provider di identità aziendali. È possibile configurare la federazione con i provider di identità in modo che gli utenti esterni possano accedere con i propri account aziendali o di social networking invece di crearne uno nuovo solo per l'applicazione. Vedere altre informazioni sui provider di identità per Identità esterne.
+
+![Screenshot con la pagina di provider di identità](media/what-is-b2b/identity-providers.png)
+
+
+## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Aggiungere un flusso utente di iscrizione self-service (anteprima)
+
+Con un flusso utente di iscrizione self-service, è possibile creare un'esperienza di iscrizione per gli utenti esterni che vogliono accedere alle app. Come parte del flusso di iscrizione, è possibile fornire opzioni per diversi provider di identità aziendali o di social networking e raccogliere informazioni sull'utente. Leggere altre informazioni sull'iscrizione self-service e su come configurarla.
+
+![Screenshot che mostra la pagina di flussi utente](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Azure Synapse Analytics: Definizione del processo Spark per Synapse'
-description: 'Esercitazione: Usare Azure Synapse Analytics per creare definizioni di processi Spark e inviarle a un pool di Synapse Spark.'
+title: 'Esercitazione: Apache Spark per Azure Synapse Analytics: Definizione del processo Apache Spark per Synapse'
+description: 'Esercitazione: Usare Azure Synapse Analytics per creare definizioni di processi Spark e inviarle ad Apache Spark per un pool di Azure Synapse Analytics.'
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425910"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587936"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Esercitazione: Usare Azure Synapse Analytics per creare definizioni di processi Apache Spark per i pool di Synapse Spark
 
