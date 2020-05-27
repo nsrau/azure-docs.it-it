@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto NIST SP 800-53 R4
 description: Procedura di distribuzione per l'esempio di progetto NIST SP 800-53 R4, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 11/18/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 04412f8047d8ed5de8199f7fd8b1200afa9c5518
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546599"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816013"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Distribuire l'esempio di progetto NIST SP 800-53 R4
 

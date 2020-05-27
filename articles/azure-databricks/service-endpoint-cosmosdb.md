@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706156"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779590"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Esercitazione: Implementare Azure Databricks con un endpoint di Cosmos DB
 
@@ -107,8 +107,6 @@ Prima di iniziare, eseguire le operazioni seguenti:
 ## <a name="create-a-cluster-and-add-library"></a>Creare un cluster e aggiungere una libreria
 
 1. Passare al servizio Azure Databricks nel [portale di Azure](https://portal.azure.com) e selezionare **Avvia l'area di lavoro**.
-
-   ![Avviare l'area di lavoro di Azure Databricks](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Creare un nuovo cluster. Scegliere un Nome cluster e accettare le impostazioni predefinite rimanenti.
 

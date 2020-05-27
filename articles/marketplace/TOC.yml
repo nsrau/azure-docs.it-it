@@ -324,17 +324,17 @@
               href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Creare un'offerta di Contenitore di Azure
               href: ./partner-center-portal/create-azure-container-offer.md
-        - name: Offerta di macchina virtuale
+        - name: Offerta di una macchina virtuale
           items:
-            - name: Creare un'offerta di macchina virtuale di Azure
+            - name: Creare un'offerta per macchine virtuali di Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Creare l'asset tecnico delle macchine virtuali di Azure
+            - name: Creare un asset tecnico per macchine virtuali di Azure
               items:
-                - name: Creare l'asset tecnico delle macchine virtuali di Azure
+                - name: Creare un asset tecnico per macchine virtuali di Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certificare l'immagine delle macchine virtuali di Azure
+                - name: Certificare un'immagine di macchina virtuale di Azure
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI della firma di accesso condiviso
                   items:

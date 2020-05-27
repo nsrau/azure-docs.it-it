@@ -3,7 +3,7 @@ title: 'Esempio di interfaccia della riga di comando: Ripristinare un backup geo
 description: Script di esempio dell'interfaccia della riga di comando di Azure per ripristinare un database SQL di Azure in Istanza gestita da un backup con ridondanza geografica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061754"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774466"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usare l'interfaccia della riga di comando per ripristinare un database in Istanza gestita in un'altra area geografica
 
