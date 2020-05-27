@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 838835cf44b5ca5048ea6cb7bc1bba582b2a0926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278532"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647974"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Questo argomento illustra come eseguire attività comuni, come creare, aggiornar
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Per altre informazioni sul modello di distribuzione classica vedere [Confronto tra distribuzione Azure Resource Manager e classica: comprensione dei modelli di distribuzione e dello stato delle risorse](../azure-resource-manager/management/deployment-models.md).
+Per altre informazioni sul modello classico di distribuzione, vedere [Azure Resource Manager e distribuzione classica: Comprendere i modelli di distribuzione e lo stato delle risorse](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Se è già installato PowerShell di Microsoft Azure, è necessario installare Azure PowerShell versione 1.0.0 o versione successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile utilizzare il comando del relativo prompt di Microsoft PowerShell.
@@ -119,19 +119,19 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 
 | Parametro | Descrizione | Predefinito |
 | --- | --- | --- |
-| Name |Nome della cache | |
-| Percorso |Percorso della cache | |
+| Nome |Nome della cache | |
+| Location |Percorso della cache | |
 | ResourceGroupName |Nome del gruppo di risorse in cui creare la cache | |
-| Dimensioni |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Dimensione |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Numero di partizioni da creare quando si crea una cache Premium con clustering abilitato. I valori validi sono: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Specifica gli SKU della cache. I valori validi sono: Basic, Standard e Premium |Standard |
+| SKU |Specifica gli SKU della cache. I valori validi sono: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Specifica le impostazioni di configurazione di Redis. Per i dettagli di ogni impostazione, vedere la tabella [Proprietà di RedisConfiguration](#redisconfiguration-properties) seguente. | |
 | EnableNonSslPort |Indica se la porta non SSL è abilitata. |False |
 | MaxMemoryPolicy |Questo parametro è stato deprecato, usare invece RedisConfiguration. | |
 | StaticIP |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. | |
 | Subnet |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. | |
 | VirtualNetwork |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa della rete virtuale in cui distribuire la cache. | |
-| KeyType |Specifica la chiave di accesso da rigenerare quando si rinnovano le chiavi di accesso. Valori validi: Primario, Secondario | |
+| KeyType |Specifica la chiave di accesso da rigenerare quando si rinnovano le chiavi di accesso. I valori validi sono: Primario, Secondario | |
 
 ### <a name="redisconfiguration-properties"></a>Proprietà di RedisConfiguration
 | Proprietà | Descrizione | Piani tariffari |
@@ -775,9 +775,9 @@ Il comando seguente riavvia entrambi i nodi della cache specificata.
 Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere le risorse seguenti:
 
 * [Documentazione del cmdlet della cache Redis di Azure su MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Cmdlet per Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): informazioni sull'uso dei cmdlet nel modulo Azure Resource Manager.
-* [Uso dei gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/templates/deploy-portal.md): informazioni su come creare e gestire gruppi di risorse nel portale di Azure.
-* [Blog di Azure](https://azure.microsoft.com/blog/): informazioni sulle nuove funzionalità di Azure.
-* [Blog di Windows PowerShell](https://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
-* [Blog "Hey, Scripting Guy!"](https://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
+* [Cmdlet di Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): Informazioni sull'uso dei cmdlet nel modulo Azure Resource Manager.
+* [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/templates/deploy-portal.md): Informazioni su come creare e gestire gruppi di risorse nel portale di Azure.
+* [Blog di Azure](https://azure.microsoft.com/blog/): Informazioni sulle nuove funzionalità di Azure.
+* [Blog di Windows PowerShell](https://devblogs.microsoft.com/powershell/): Informazioni sulle nuove funzionalità di Windows PowerShell.
+* [Blog "Hey, Scripting Blog](https://blogs.technet.com/b/heyscriptingguy/): Suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
