@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77581719"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800131"
 ---
 # <a name="what-is-azure-sentinel"></a>Che cos'è Azure Sentinel?
 
@@ -51,7 +51,7 @@ Per eseguire l'onboarding Azure Sentinel, è necessario innanzitutto [connetters
 
 ## <a name="workbooks"></a>Workbooks
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati usando l'integrazione di Azure Sentinel con Cartelle di lavoro di Monitoraggio di Azure, che consente di creare cartelle di lavoro personalizzate in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/app/usage-workbooks.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati usando l'integrazione di Azure Sentinel con Cartelle di lavoro di Monitoraggio di Azure, che consente di creare cartelle di lavoro personalizzate in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
 
 ![Dashboard](./media/tutorial-monitor-data/access-workbooks.png)
 

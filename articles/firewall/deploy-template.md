@@ -1,30 +1,31 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Firewall di Azure con zone di disponibilità - Modello di Resource Manager"
+title: "Guida introduttiva: Creare un'istanza di Firewall di Azure con zone di disponibilità - Modello di Resource Manager"
 description: Distribuire Firewall di Azure con un modello. La rete virtuale ha una rete virtuale con tre subnet. Sono state distribuite due macchine virtuali Windows Server, un jumpbox e un server.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597706"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683715"
 ---
-# <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Avvio rapido: Distribuire un'istanza di Firewall di Azure con zone di disponibilità - Modello di Resource Manager
+# <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Guida introduttiva: Distribuire un'istanza di Firewall di Azure con zone di disponibilità - Modello di Resource Manager
 
 In questa guida di avvio rapido si usa un modello di Resource Manager per distribuire un'istanza di Firewall di Azure in tre zone di disponibilità. 
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Il modello crea un ambiente di rete di test con un firewall. La rete ha una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*, e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
 
 Il firewall si trova nella subnet *AzureFirewallSubnet* e include una raccolta di regole dell'applicazione con una singola regola che consente l'accesso a `www.microsoft.com`.
 
 Una route definita dall'utente punta al traffico di rete dalla subnet *ServersSubnet* attraverso il firewall, in cui vengono applicate le regole del firewall.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Per altre informazioni su Firewall di Azure, vedere [Distribuire e configurare Firewall di Azure tramite il portale di Azure](tutorial-firewall-deploy-portal.md).
 
@@ -38,20 +39,20 @@ Questo modello crea un'istanza di Firewall di Azure con zone di disponibilità, 
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
 
 Nel modello sono definite più risorse di Azure:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -82,10 +83,12 @@ Quando non servono più, è possibile rimuovere il gruppo di risorse, il firewal
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
 Non rimuovere il gruppo di risorse e il firewall se si prevede di continuare con l'esercitazione sul monitoraggio del firewall. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile monitorare i log di Firewall di Azure:
+È possibile ora monitorare i log di Firewall di Azure.
 
-[Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+> [!div class="nextstepaction"]
+> [Esercitazione: monitorare i log del Firewall di Azure](tutorial-diagnostics.md)

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592951"
+ms.locfileid: "83656187"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Guida introduttiva: Creare un pool di Apache Spark (anteprima) in Azure Synapse Analytics con gli strumenti Web
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Area di lavoro di Synapse Analytics](quickstart-create-workspace.md)
-- [Pool di Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Pool di Apache Spark](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -133,7 +133,9 @@ SQL (Structured Query Language) è il linguaggio più diffuso e più usato per l
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Azure Synapse salva i dati in Azure Data Lake Storage. È possibile consentire l'arresto in tutta sicurezza di un'istanza di Spark quando non è in uso. I costi relativi a un pool di Apache Spark in Azure Synapse vengono addebitati per tutto il tempo in cui rimane in esecuzione, anche se non viene usato. Gli addebiti per il pool sono molto maggiori rispetto agli addebiti per l'archiviazione. Per questo motivo, è opportuno consentire l'arresto delle istanze di Spark quando non sono in uso.
+Azure Synapse salva i dati in Azure Data Lake Storage. È possibile lasciare che un'istanza di Spark venga arrestata in tutta sicurezza quando non è in uso. I costi relativi a un pool di Apache Spark in Azure Synapse vengono addebitati per tutto il tempo in cui rimane in esecuzione, anche se non viene usato. 
+
+Poiché i costi per il pool sono decisamente superiori a quelli per l'archiviazione, dal punto di vista economico è opportuno arrestare le istanze di Spark quando non vengono usate.
 
 Per assicurarsi che l'istanza di Spark venga arrestata, terminare tutte le sessioni connesse (notebook). Il pool si arresta quando viene raggiunto il **tempo di inattività** specificato nel pool di Apache Spark. Si può anche selezionare **Termina sessione** sulla barra di stato nella parte inferiore del notebook.
 

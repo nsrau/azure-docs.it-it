@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605237"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680560"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Guida introduttiva: Creare un Firewall di Azure e i gruppi IP - Modello di Resource Manager
 
-In questo argomento di avvio rapido si usa un modello di Resource Manager per distribuire un Firewall di Azure con i gruppi IP di esempio usati in una regola di rete e in una regola dell'applicazione.
-
-Un gruppo IP è una risorsa di primo livello che consente di definire e raggruppare indirizzi IP, intervalli e subnet in un singolo oggetto. Questa opzione è utile per la gestione degli indirizzi IP nelle regole del Firewall di Azure. È possibile immettere manualmente gli indirizzi IP o importarli da un file.
+In questo argomento di avvio rapido si usa un modello di Resource Manager per distribuire un Firewall di Azure con i gruppi IP di esempio usati in una regola di rete e in una regola dell'applicazione. Un gruppo IP è una risorsa di primo livello che consente di definire e raggruppare indirizzi IP, intervalli e subnet in un singolo oggetto. Questa opzione è utile per la gestione degli indirizzi IP nelle regole del Firewall di Azure. È possibile immettere manualmente gli indirizzi IP o importarli da un file.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,33 +31,32 @@ Questo modello crea un Firewall di Azure e i gruppi IP, insieme alle risorse nec
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo argomento di avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 Nel modello sono definite più risorse di Azure:
 
 - [**Microsoft.Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 
-1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea un Firewall di Azure, l'infrastruttura di rete e due macchine virtuali.
+1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea un'istanza di Firewall di Azure, l'infrastruttura di rete e due macchine virtuali.
 
    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. Nella pagina **Create an Azure Firewall with IpGroups** (Creare un Firewall di Azure con gruppi IP) del portale di Azure digitare o selezionare i valori seguenti:
-   - Sottoscrizione: selezionare una delle sottoscrizioni esistenti 
+   - Sottoscrizione: selezionare una delle sottoscrizioni esistenti. 
    - Gruppo di risorse:  selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** e quindi **OK**.
    - Percorso: Selezionare una località
    - Nome rete virtuale: digitare un nome per la nuova rete virtuale 
@@ -66,7 +64,7 @@ Distribuire il modello di Resource Manager in Azure:
    - Nome gruppo IP 2: digitare un nome per il gruppo IP 2 
    - Nome utente amministratore: digitare il nome utente dell'account utente amministratore 
    - Autenticazione: selezionare sshPublicKey o password 
-   - Password amministratore: digitare una password o una chiave dell'amministratore
+   - Password amministratore: digitare una password o una chiave dell'amministratore.
 
 3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. La distribuzione può richiedere almeno 10 minuti.
 

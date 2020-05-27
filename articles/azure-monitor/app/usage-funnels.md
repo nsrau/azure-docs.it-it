@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671053"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797824"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Informazioni sulle modalità d'uso dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 
@@ -46,7 +46,7 @@ Lo screenshot precedente include cinque aree evidenziate. Queste sono funzionali
   * [Panoramica sull'uso](usage-overview.md)
   * [Utenti, Sessioni ed Eventi](usage-segmentation.md)
   * [Conservazione](usage-retention.md)
-  * [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+  * [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
   * [Aggiungere il contesto utente](usage-send-user-context.md)
   * [Esportare in Power BI](../../azure-monitor/app/export-power-bi.md )
 

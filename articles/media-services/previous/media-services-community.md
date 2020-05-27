@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72598320"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836431"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -40,7 +40,7 @@ La pagina della community di Servizi multimediali di Azure illustra i diversi mo
 
 ### <a name="twitter"></a>Twitter
 
-Usa l' [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) handle di Twitter per contattarci o seguire gli aggiornamenti su Twitter. È possibile usare l' [@AzureSupport](https://twitter.com/azuresupport) handle di Twitter per richiedere supporto su Twitter.  
+Usare il nome utente Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) per contattare Microsoft o seguire gli aggiornamenti su Twitter. È possibile usare il nome utente Twitter [@AzureSupport](https://twitter.com/azuresupport) per richiedere supporto su Twitter.  
 
 ### <a name="online-forums"></a>Forum online
 
@@ -48,7 +48,7 @@ I forum seguenti possono essere usati per porre domande sui prodotti e sulle fun
 
 Attualmente MSDN è il forum principale della community del team di Servizi multimediali.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-media-services".
 
@@ -56,8 +56,8 @@ Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-me
 
 ## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](media-services-overview.md)
+[Overview](media-services-overview.md)

@@ -12,17 +12,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4b6a2481c18314a44470a020033ffdc4ba1d7259
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380021"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860053"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
-
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità generale.
 
 In questa guida di avvio rapido si usa codice di esempio per illustrare come un'applicazione a pagina singola Angular può consentire l'accesso agli utenti con account Microsoft personali, account aziendali o account dell'istituto di istruzione. Un'applicazione a pagina singola Angular può anche ottenere un token di accesso per chiamare l'API Microsoft Graph o un'API Web.
 

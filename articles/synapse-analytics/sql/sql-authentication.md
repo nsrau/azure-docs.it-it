@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421225"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700309"
 ---
 # <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -50,7 +50,7 @@ Gli account **Amministratore del server** e **Amministratore di Azure Active Dir
 - Questi account possono aggiungere e rimuovere membri per i ruoli `dbmanager` e `loginmanager`.
 - Essi possono visualizzare la tabella di sistema `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>SQL su richiesta (anteprima)
+## <a name="sql-on-demand-preview"></a>[SQL su richiesta (anteprima)](#tab/serverless)
 
 Per gestire gli utenti che hanno accesso a SQL su richiesta, è possibile seguire queste istruzioni.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Una volta creati l'account di accesso e l'utente, è possibile usare la normale sintassi di SQL Server per concedere diritti.
 
-## <a name="sql-pool"></a>Pool SQL
+## <a name="sql-pool"></a>[Pool SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Percorso di accesso degli amministratori
 
@@ -127,6 +127,8 @@ L'utente potrà così connettersi al database `master` e creare nuovi database. 
 ### <a name="login-managers"></a>Gestione degli account di accesso
 
 L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I membri di questo ruolo possono creare nuovi account di accesso nel database master. Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel database master. Gli account di accesso non sono generalmente necessari perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Utenti non amministratori
 

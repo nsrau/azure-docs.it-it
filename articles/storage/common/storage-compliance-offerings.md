@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61483435"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684461"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offerte per la conformità di Archiviazione di Azure
 
 Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certificazioni e attestazioni di qualsiasi provider di servizi cloud che consentono alle organizzazioni di soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti.
 
-È possibile trovare di seguito le offerte per la conformità in Archiviazione di Azure per verificare la regolamentazione del proprio servizio. Sono applicabili per le seguenti offerte di Archiviazione di Azure: BLOB, file, code, tabelle, dischi, archiviazione ad accesso sporadico e Archiviazione Premium.
+È possibile trovare di seguito le offerte per la conformità in Archiviazione di Azure per verificare la regolamentazione del proprio servizio. Sono applicabili alle offerte di Archiviazione di Azure seguenti: BLOB, file, code, tabelle, dischi, archiviazione ad accesso sporadico e Archiviazione Premium.
 
 ## <a name="global"></a>Global
 
@@ -34,7 +34,7 @@ Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certi
 * [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)
 * [WCAG 2.0](https://www.microsoft.com/trustcenter/compliance/accessibility#WCAG-2-0)
 
-## <a name="us-government"></a>Enti pubblici Stati Uniti
+## <a name="us-government"></a>US Gov
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
 * [DoE 10 CFR Part 810](https://aka.ms/AzureCompliance)
@@ -64,7 +64,6 @@ Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certi
 * [MAS + ABS (Singapore)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Paesi Bassi)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit (Regno Unito)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [Valutazioni condivise](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)
@@ -79,7 +78,7 @@ Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certi
 * [IAF dell'ENISA (UE)](https://aka.ms/AzureCompliance)
 * [ES (Spagna)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [Clausole del modello UE](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
-* [Privacy Shield tra Unione Europea e Stati Uniti](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [UE-U.S. Privacy Shield](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (Cina)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook (Germania)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)

@@ -6,28 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 9951a6ddfbd1c562184e2b7e02a9da98f7d94b12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595590"
+ms.locfileid: "83650067"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Codici errore di configurazione di Analisi di flusso di Azure
 
 È possibile usare log attività e log risorse per facilitare il debug di comportamenti imprevisti del processo di Analisi di flusso di Azure. Questo articolo riporta la descrizione di ogni codice errore di configurazione. Gli errori di configurazione sono correlati alla configurazione del processo o alle configurazioni di input e output.
-
-## <a name="kafkainvalidpermission"></a>KafkaInvalidPermission
-
-* **Causa**: Il processo di Analisi di flusso non ha l'autorizzazione appropriata per eseguire determinate azioni.
-
-## <a name="kafkainvalidconfiguration"></a>KafkaInvalidConfiguration
-
-* **Causa**: Alcune configurazioni nell'adattatore Kafka non sono valide.
-
-## <a name="kafkainvalidtimestamptype"></a>KafkaInvalidTimestampType
-
-* **Causa**: Il tipo di timestamp usato da Kafka non è valido.
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 

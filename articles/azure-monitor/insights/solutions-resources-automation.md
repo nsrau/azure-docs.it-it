@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663063"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682864"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Aggiunta di risorse di Automazione di Azure a una soluzione di gestione (anteprima)
 > [!NOTE]
@@ -33,7 +33,7 @@ Nell'articolo si presuppone che il lettore abbia già familiarità con le inform
 - Come [creare modelli di Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Account di Automazione
-Tutte le risorse di Automazione di Azure sono contenute in un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview).  Come descritto in [Log Analytics workspace and Automation account]( solutions.md#log-analytics-workspace-and-automation-account) (area di lavoro Log Analytics e account di Automazione), l'account di Automazione non è incluso nella soluzione di gestione, ma deve essere disponibile prima dell'installazione della soluzione.  Se non è disponibile, l'installazione della soluzione non riuscirà.
+Tutte le risorse di Automazione di Azure sono contenute in un [account di Automazione](../../automation/automation-security-overview.md).  Come descritto in [Log Analytics workspace and Automation account]( solutions.md#log-analytics-workspace-and-automation-account) (area di lavoro Log Analytics e account di Automazione), l'account di Automazione non è incluso nella soluzione di gestione, ma deve essere disponibile prima dell'installazione della soluzione.  Se non è disponibile, l'installazione della soluzione non riuscirà.
 
 Il nome di ogni risorsa di automazione include il nome del rispettivo account di automazione.  Questa operazione viene eseguita nella soluzione con il parametro **accountName** come nell'esempio seguente di una risorsa runbook.
 
@@ -265,7 +265,7 @@ Le proprietà delle risorse "variabile" sono descritte nella tabella seguente.
 | description | Descrizione facoltativa per la variabile. |
 | isEncrypted | Specifica se la variabile deve essere crittografata. |
 | type | Questa proprietà attualmente non ha alcun effetto.  Il tipo di dati della variabile verrà determinato dal valore iniziale. |
-| value | Valore per la variabile. |
+| Valore | Valore per la variabile. |
 
 > [!NOTE]
 > La proprietà **type** attualmente non ha alcun effetto sulla variabile che viene creata.  Il tipo di dati per la variabile verrà determinato dal valore.  
@@ -274,7 +274,7 @@ Se si imposta il valore iniziale per la variabile, è necessario configurarla co
 
 | Tipo di dati | Descrizione | Esempio | Risoluzione |
 |:--|:--|:--|:--|
-| stringa   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
+| string   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
 | NUMERIC  | Valore numerico con virgolette singole.| "64" | 64 |
 | boolean  | **true** o **false** tra virgolette.  Si noti che questo valore deve essere minuscolo. | "true" | true |
 | Datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

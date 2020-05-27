@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421175"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652289"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -63,7 +63,11 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
     - **Valore**: hVFkk965BuUv
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 
-Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. Sarà quindi possibile vedere alcune delle proprietà. Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.
+Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperare un segreto dall'insieme di credenziali delle chiavi
+
+Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.
 
 ![Proprietà del segreto](../media/quick-create-portal/current-version-hidden.png)
 

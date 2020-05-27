@@ -1,14 +1,14 @@
 ---
 title: Inviare un numero elevato di attività
 description: Come inviare in modo efficiente un numero elevato di attività in un singolo processo di Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117404"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778946"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
@@ -26,7 +26,7 @@ Le dimensioni massime della raccolta di attività che è possibile aggiungere in
 
     * [REST API](/rest/api/batchservice/task/addcollection)
     * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API Node. js](/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [API Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   Quando si usano queste API, è necessario specificare la logica per dividere il numero di attività in modo da rispettare il limite della raccolta e per gestire errori e tentativi in caso di errore durante l'aggiunta delle attività. Se una raccolta di attività è troppo grande per essere aggiunta, la richiesta genera un errore ed è necessario riprovare con un numero inferiore di attività.
 
@@ -41,9 +41,9 @@ Le dimensioni massime della raccolta di attività che è possibile aggiungere in
 
 L'aggiunta di un numero elevato di attività a un processo può richiedere del tempo, ad esempio fino a 1 minuto per aggiungere 20.000 attività tramite l'API .NET. A seconda dell'API di Batch e del carico di lavoro, è possibile migliorare la velocità effettiva delle attività modificando uno o più elementi seguenti:
 
-* **Dimensioni delle attività**: l'aggiunta di attività di grandi dimensioni richiede più tempo rispetto a quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente. Anziché usare un numero elevato di file di risorse, è possibile ad esempio installare le dipendenze delle attività usando un'[attività di avvio](batch-api-basics.md#start-task) nel pool oppure usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
+* **Dimensioni delle attività**: l'aggiunta di attività di grandi dimensioni richiede più tempo rispetto a quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente. Anziché usare un numero elevato di file di risorse, è possibile ad esempio installare le dipendenze delle attività usando un'[attività di avvio](jobs-and-tasks.md#start-task) nel pool oppure usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
 
-* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nell'SDK Python per batch nativo. Per impostazione predefinita, questa proprietà è impostata su 1, ma è impostata su un valore maggiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
+* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
  
   L'estensione dell'interfaccia della riga di comando di Azure Batch con i modelli di Batch aumenta automaticamente il numero di operazioni simultanee in base al numero di core disponibili, ma questa proprietà non è configurabile nell'interfaccia della riga di comando. 
 
@@ -53,7 +53,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 I frammenti di codice C# seguenti mostrano le impostazioni di configurazione per l'aggiunta di un numero elevato di attività usando l'API .NET di Batch.
 
-Per aumentare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) di [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio:
+Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
