@@ -1,7 +1,7 @@
 ---
-title: Gestione delle sessioni Single Sign-on con criteri personalizzati
+title: Gestione delle sessioni Single Sign-On con criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Informazioni sulla gestione delle sessioni SSO tramite criteri personalizzati in Azure AD B2C.
+description: Informazioni sulla gestione delle sessioni SSO con criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
 ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82926120"
@@ -22,17 +22,17 @@ ms.locfileid: "82926120"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Per la gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) viene utilizzata la stessa semantica di qualsiasi altro profilo tecnico nei criteri personalizzati. Quando si esegue un passaggio di orchestrazione, nel profilo tecnico associato al passaggio viene eseguita la query di un riferimento a `UseTechnicalProfileForSessionManagement`. Se ne esiste uno, il provider della sessione SSO a cui si fa riferimento viene controllato per verificare se l'utente sia un partecipante alla sessione. In caso affermativo, il provider della sessione SSO viene usato per ripopolare la sessione. In modo analogo, al termine dell'esecuzione di un passaggio di orchestrazione, il provider viene usato per archiviare le informazioni nella sessione, se è stato specificato un provider di sessione SSO.
+Per la gestione delle [sessioni Single Sign-On (SSO)](session-overview.md) si usa la stessa semantica di qualsiasi altro profilo tecnico nei criteri personalizzati. Quando si esegue un passaggio di orchestrazione, nel profilo tecnico associato al passaggio viene eseguita la query di un riferimento a `UseTechnicalProfileForSessionManagement`. Se ne esiste uno, il provider della sessione SSO a cui si fa riferimento viene controllato per verificare se l'utente sia un partecipante alla sessione. In caso affermativo, il provider della sessione SSO viene usato per ripopolare la sessione. In modo analogo, al termine dell'esecuzione di un passaggio di orchestrazione, il provider viene usato per archiviare le informazioni nella sessione, se è stato specificato un provider di sessione SSO.
 
 In Azure AD B2C sono stati definiti alcuni provider di sessione SSO che è possibile usare:
 
-|Provider di sessioni  |Ambito  |
+|Provider di sessione  |Ambito  |
 |---------|---------|
-|[NoopSSOSessionProvider](#noopssosessionprovider)     |  Nessuno       |       
-|[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Azure AD B2C gestore sessioni interno.      |       
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Tra Azure AD B2C e il provider di identità OAuth1, OAuth2 o OpenId Connect.        |         |
-|[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Tra un OAuth2 o OpenId Connect relying party applicazione e Azure AD B2C.        |        
-|[SamlSSOSessionProvider](#samlssosessionprovider)     | Tra Azure AD B2C e il provider di identità SAML. E tra un provider di servizi SAML (relying party applicazione) e Azure AD B2C.  |        
+|[NoopSSOSessionProvider](#noopssosessionprovider)     |  nessuno       |       
+|[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Strumento di gestione interno di Azure AD B2C.      |       
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Tra Azure AD B2C e uno dei provider di identità OAuth1, OAuth2 oppure OpenId Connect.        |         |
+|[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Tra un'applicazione relying party OAuth2 oppure OpenId Connect e Azure AD B2C.        |        
+|[SamlSSOSessionProvider](#samlssosessionprovider)     | Tra Azure AD B2C e il provider di identità SAML, nonché tra un provider di servizi SAML (applicazione relying party) e Azure AD B2C.  |        
 
 
 
@@ -41,21 +41,21 @@ Le classi di gestione SSO vengono specificate usando l'elemento `<UseTechnicalPr
 
 ## <a name="input-claims"></a>Attestazioni di input
 
-L' `InputClaims` elemento è vuoto o assente.
+L'elemento `InputClaims` è vuoto o assente.
 
-## <a name="persisted-claims"></a>Attestazioni rese permanente
+## <a name="persisted-claims"></a>Attestazioni persistenti
 
-Le attestazioni che devono essere restituite all'applicazione o usate dalle precondizioni nei passaggi successivi devono essere archiviate nella sessione o potenziate da una lettura dal profilo dell'utente nella directory. L'uso di attestazioni salvate in modo permanente garantisce che i percorsi di autenticazione non abbiano esito negativo sulle attestazioni mancanti Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni.
+Le attestazioni che devono essere restituite all'applicazione o usate dalle precondizioni nei passaggi successivi devono essere archiviate nella sessione o potenziate da una lettura dal profilo dell'utente nella directory. L'uso di attestazioni persistenti garantisce che non si verifichino errori dei percorsi di autenticazione non in caso di attestazioni mancanti. Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni.
 
 ## <a name="output-claims"></a>Attestazioni di output
 
-`<OutputClaims>` Viene utilizzato per recuperare le attestazioni dalla sessione.
+`<OutputClaims>` viene usato per recuperare le attestazioni dalla sessione.
 
 ## <a name="session-providers"></a>Provider di sessioni
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico. Il profilo `SM-Noop` tecnico seguente è incluso nello [Starter Pack per i criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
+Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico. Il profilo tecnico `SM-Noop` seguente è incluso nel [pacchetto Starter dei criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -66,7 +66,7 @@ Come indica il nome, questo provider non esegue alcuna operazione. Può essere u
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-È possibile usare questo provider per archiviare le attestazioni in una sessione. A questo provider viene in genere fatto riferimento in un profilo tecnico utilizzato per la gestione di account locali e federati. Il profilo `SM-AAD` tecnico seguente è incluso nello [Starter Pack per i criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
+È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali e federati. Il profilo tecnico `SM-AAD` seguente è incluso nel [pacchetto Starter dei criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -87,7 +87,7 @@ Come indica il nome, questo provider non esegue alcuna operazione. Può essere u
 ```
 
 
-Il profilo `SM-MFA` tecnico seguente è incluso nello [Starter Pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`per i criteri personalizzati. Questo profilo tecnico gestisce la sessione di autenticazione a più fattori.
+Il profilo tecnico `SM-MFA` seguente è incluso nel [pacchetto Starter dei criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).`SocialAndLocalAccountsWithMfa` Questo profilo tecnico consente di gestire la sessione di autenticazione a più fattori.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -104,7 +104,7 @@ Il profilo `SM-MFA` tecnico seguente è incluso nello [Starter Pack](custom-poli
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Questo provider viene usato per disattivare la schermata "Choose Identity Provider" e disconnettersi da un provider di identità federato. Viene in genere fatto riferimento in un profilo tecnico configurato per un provider di identità federato, ad esempio Facebook o Azure Active Directory. Il profilo `SM-SocialLogin` tecnico seguente è incluso nello [Starter Pack per i criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
+Questo provider viene usato per disattivare la schermata di selezione del provider di identità e disconnettersi da un provider di identità federato. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità federato, ad esempio Facebook o Azure Active Directory. Il profilo tecnico `SM-SocialLogin` seguente è incluso nel [pacchetto Starter dei criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -121,9 +121,9 @@ Questo provider viene usato per disattivare la schermata "Choose Identity Provid
 
 #### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione|
+| Attributo | Obbligatorio | Descrizione|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | No | Non attualmente in uso, può essere ignorato. |
+| AlwaysFetchClaimsFromProvider | No | Attualmente non usato; può essere ignorato. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -138,7 +138,7 @@ Questo provider viene usato per gestire le sessioni di Azure AD B2C tra un relyi
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Questo provider viene usato per gestire le sessioni SAML Azure AD B2C tra un'applicazione relying party o un provider di identità SAML federato. Quando si utilizza il provider SSO per archiviare una sessione del `RegisterServiceProviders` provider di identità SAML, è necessario `false`impostare su. Il profilo `SM-Saml-idp` tecnico seguente viene usato dal [profilo tecnico del provider di identità SAML](saml-identity-provider-technical-profile.md).
+Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra un'applicazione relying party o un provider di identità SAML federato. Quando si usa il provider SSO per archiviare una sessione del provider di identità SAML, `RegisterServiceProviders` deve essere impostato su `false`. Il profilo tecnico `SM-Saml-idp` seguente viene usato dal [profilo tecnico del provider di identità SAML](saml-identity-provider-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
@@ -150,9 +150,9 @@ Questo provider viene usato per gestire le sessioni SAML Azure AD B2C tra un'app
 </TechnicalProfile>
 ```
 
-Quando si usa il provider per archiviare la sessione SAML B2C, `RegisterServiceProviders` è necessario impostare `true`su. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
+Quando si usa il provider per archiviare la sessione SAML B2C, `RegisterServiceProviders` deve essere impostato su `true`. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
 
-Il profilo `SM-Saml-issuer` tecnico seguente viene usato dal [profilo tecnico dell'autorità emittente SAML](saml-issuer-technical-profile.md)
+Il profilo tecnico `SM-Saml-issuer` seguente viene usato dal [profilo tecnico dell'autorità di certificazione SAML](saml-issuer-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-issuer">
@@ -163,13 +163,13 @@ Il profilo `SM-Saml-issuer` tecnico seguente viene usato dal [profilo tecnico de
 
 #### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione|
+| Attributo | Obbligatorio | Descrizione|
 | --- | --- | --- |
-| IncludeSessionIndex | No | Non attualmente in uso, può essere ignorato.|
+| IncludeSessionIndex | No | Attualmente non usato; può essere ignorato.|
 | RegisterServiceProviders | No | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. I valori possibili sono: `true` (impostazione predefinita) o `false`.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Azure ad B2C sessione](session-overview.md).
-- Informazioni su come [configurare il comportamento della sessione nei criteri personalizzati](session-behavior-custom-policy.md).
+- Altre informazioni sulla [sessione Azure AD B2C](session-overview.md).
+- Informazioni su come [configurare il comportamento delle sessioni in criteri personalizzati](session-behavior-custom-policy.md).

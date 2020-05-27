@@ -1,6 +1,6 @@
 ---
 title: Abilitare Desktop remoto per Linux in Azure Lab Services | Microsoft Docs
-description: Informazioni su come abilitare Desktop remoto per le macchine virtuali Linux in un Lab in Azure Lab Services.
+description: Informazioni su come abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,55 +13,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598063"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588157"
 ---
-# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare Desktop remoto per le macchine virtuali Linux in un Lab in Azure Lab Services
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
 
-- Abilitare Desktop remoto per la macchina virtuale Linux
-- Il modo in cui l'insegnante può connettersi alla macchina virtuale modello tramite Connessione Desktop remoto (RDP).
+- Abilitare Desktop remoto per macchine virtuali Linux
+- Informazioni su come un docente può connettersi alla macchina virtuale modello tramite Connessione Desktop remoto (RDP).
 
-## <a name="enable-remote-desktop-for-linux-vm"></a>Abilitare Desktop remoto per la macchina virtuale Linux
-Durante la creazione del Lab, gli insegnanti possono abilitare la **Connessione desktop remoto** per le immagini **Linux** . L'opzione **abilita connessione Desktop remoto** viene visualizzata quando si seleziona un'immagine Linux per il modello. Quando questa opzione è abilitata, gli insegnanti possono connettersi alle VM del modello e alle VM degli studenti tramite RDP (Desktop remoto). 
+## <a name="enable-remote-desktop-for-linux-vm"></a>Abilitare Desktop remoto per macchine virtuali Linux
+Durante la creazione del lab, i docenti possono abilitare **Connessione Desktop remoto** per le immagini **Linux**. L'opzione **Abilita Connessione Desktop remoto** viene visualizzata quando si seleziona un'immagine Linux per il modello. Quando questa opzione è abilitata, i docenti possono connettersi alle macchine virtuali del modello e a quelle degli studenti tramite RDP (Desktop remoto). 
 
-![Abilitare la connessione Desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+![Abilitare Connessione desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-Nella finestra di messaggio **Abilitazione di connessione Desktop remoto** selezionare **continua con desktop remoto**. 
+Nella finestra di messaggio **Abilitazione di Connessione Desktop remoto** selezionare **Continua con Desktop remoto**. 
 
-![Abilitare la connessione Desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
+![Abilitare Connessione desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. Se RDP è già installato e configurato nell'immagine della macchina virtuale, gli studenti possono connettersi alle macchine virtuali tramite RDP senza seguire ulteriori passaggi.
+> Se si abilita la **connessione Desktop remoto**, nei computer Linux viene aperta solo la porta **RDP**. Se il protocollo RDP è già installato e configurato nell'immagine della macchina virtuale, gli studenti e il docente possono connettersi alle macchine virtuali tramite RDP senza seguire altri passaggi.
 > 
-> Se l'immagine di macchina virtuale non dispone di RDP installato e configurato, è necessario connettersi al computer Linux usando SSH per la prima volta e installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Per altre informazioni, vedere [installare e configurare Desktop remoto per connettersi a una macchina virtuale Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md). Quindi, si pubblica l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti. 
+> Se l'immagine della macchina virtuale non ha il protocollo RDP installato e configurato, è possibile connettersi al computer Linux la prima volta usando SSH, quindi installare RDP e i pacchetti GUI per consentire in seguito la connessione al computer Linux tramite RDP. Per altre informazioni, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../../virtual-machines/linux/use-remote-desktop.md). Dopodiché, pubblicare l'immagine in modo che gli studenti possano usare il protocollo RDP nelle loro macchine virtuali Linux. 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Attualmente, la connessione Desktop remoto è supportata per i sistemi operativi seguenti:
 
 - openSUSE Leap 42.3
-- Basato su CentOS 7,5
+- Basato su CentOS 7.5
 - Debian 9 "Stretch"
 - Ubuntu Server 16.04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Connettersi alla macchina virtuale modello 
-Gli insegnanti devono connettersi prima alla macchina virtuale del modello usando SSH e installare i pacchetti RDP e GUI. Quindi, gli insegnanti possono usare RDP per connettersi alla macchina virtuale modello: 
+I docenti devono prima connettersi alla macchina virtuale modello usando SSH e installare i pacchetti RDP e GUI su di essa. Dopodiché, possono usare il protocollo RDP per connettersi alla macchina virtuale modello: 
 
-1. Se viene visualizzato **Personalizza modello** sulla barra degli strumenti, selezionarlo. Selezionare quindi **continua** nella finestra di dialogo **Personalizza modello** . Questa azione avvia la macchina virtuale del modello.  
+1. Se si visualizza **Personalizza modello** sulla barra degli strumenti, selezionarlo. Selezionare quindi **Continua** nella finestra di dialogo **Personalizza modello**. Questa azione avvia la macchina virtuale modello.  
 
     ![Personalizzare il modello](../media/how-to-enable-remote-desktop-linux/customize-template.png)
-2. Dopo l'avvio della macchina virtuale modello, è possibile selezionare **Connetti modello** e quindi **connettersi tramite SSH** sulla barra degli strumenti. 
+2. Dopo l'avvio della macchina virtuale modello, è possibile selezionare **Connetti modello** e poi **Connettiti tramite SSH** sulla barra degli strumenti. 
 
-    ![Connettersi al modello tramite RDP dopo la creazione del Lab](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
-3. Viene visualizzata la finestra **di dialogo Connetti alla macchina virtuale** . Selezionare il pulsante **copia** accanto alla casella di testo per copiarlo negli Appunti. Salvare la stringa di connessione SSH. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
+    ![Connettersi al modello tramite RDP dopo la creazione del lab](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+3. Si visualizza la finestra di dialogo **Connetti alla tua macchina virtuale** seguente. Selezionare il pulsante **Copia** accanto alla casella di testo per copiarlo negli Appunti. Salvare la stringa di connessione SSH. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
  
     ![Stringa di connessione SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
-4. Installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Per altre informazioni, vedere [installare e configurare Desktop remoto per connettersi a una macchina virtuale Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md). Quindi, si pubblica l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti.
-5. Dopo l'installazione di questi pacchetti, è possibile usare il **modello Connetti a** sulla barra degli strumenti e quindi selezionare **Connetti tramite RDP** per connettersi alla macchina virtuale modello tramite RDP. Salvare il file RDP e usarlo per connettersi alla macchina virtuale modello tramite RDP. 
+4. Installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Per altre informazioni, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../../virtual-machines/linux/use-remote-desktop.md). Dopodiché, pubblicare l'immagine in modo che gli studenti possano usare il protocollo RDP nelle loro macchine virtuali Linux.
+5. Dopo l'installazione di questi pacchetti, è possibile usare l'opzione **Connettiti al modello** sulla barra degli strumenti e quindi selezionare **Connettiti tramite RDP** per connettersi alla macchina virtuale modello tramite RDP. Salvare il file RDP e usarlo per connettersi alla macchina virtuale modello tramite RDP. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo che un insegnante ha abilitato la funzionalità di connessione Desktop remoto, gli studenti possono connettersi alle macchine virtuali tramite RDP/SSH. Per altre informazioni, vedere [usare desktop remoto per macchine virtuali Linux in un Lab della classe](how-to-use-remote-desktop-linux-student.md). 
+Dopo l'abilitazione della funzionalità di connessione Desktop remoto da parte di un docente, gli studenti possono connettersi alle loro macchine virtuali tramite RDP/SSH. Per altre informazioni, vedere [Usare Desktop remoto per macchine virtuali Linux in un lab per le classi](how-to-use-remote-desktop-linux-student.md). 

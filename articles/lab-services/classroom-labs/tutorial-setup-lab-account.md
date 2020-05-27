@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: dba6a4c07691f3d7ec88d8b889e68d6ac7116f07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1823d9df8824c9a0bf1ee30a9900ca118625fd9e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223468"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589432"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab. 
@@ -75,7 +75,7 @@ Per configurare un lab per le classi in un account del lab, l'utente deve essere
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un account lab. Per altre informazioni su come creare un lab per le classi in qualità di professore, passare alla prossima esercitazione:
+Questa esercitazione ha illustrato come creare un account lab. Per altre informazioni su come creare un lab per le classi in qualità di docente, passare alla prossima esercitazione:
 
 > [!div class="nextstepaction"]
 > [Configurare un lab per le classi](tutorial-setup-classroom-lab.md)
