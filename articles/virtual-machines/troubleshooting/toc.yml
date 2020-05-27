@@ -81,8 +81,6 @@
           href: boot-error-status-not-found.md
         - name: Risolvere i problemi di capacità per l'installazione di Windows Update
           href: windows-update-installation-capacity.md
-        - name: La VM non risponde quando si applicano criteri di utenti e gruppi locali
-          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Non è un disco di avvio
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Ciclo di riavvio

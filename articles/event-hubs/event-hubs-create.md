@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 7562dc9a70fc462cb9d623a5184fb672a7f7ca39
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743939"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860257"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Avvio rapido: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -102,7 +102,7 @@ In questo articolo è stato creato un gruppo di risorse, uno spazio dei nomi Hub
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (solo invio)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (solo ricezione)](event-hubs-storm-getstarted-receive.md)

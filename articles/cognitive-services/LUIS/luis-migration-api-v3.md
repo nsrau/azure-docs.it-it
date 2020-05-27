@@ -4,12 +4,12 @@ description: Le API di query PREDICTION endpoint V3 sono state modificate. Usare
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653854"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849332"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -55,7 +55,7 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback.
 
 
-## <a name="not-supported"></a>Non supportato
+## <a name="not-supported"></a>Non supportata
 
 ### <a name="bing-spell-check"></a>Controllo ortografico Bing
 
@@ -118,7 +118,7 @@ L'API V3 ha parametri di stringa di query diversi.
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
 |`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](schema-change-prediction-runtime.md#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|string|Solo V3|Obbligatoria.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
+|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
 
 ## <a name="response-changes"></a>Modifiche della risposta
 
@@ -283,4 +283,4 @@ L'API v2 non verrà deprecata per almeno 9 mesi dopo l'anteprima V3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la documentazione dell'API V3 per aggiornare le chiamate REST esistenti alle API dell' [endpoint](https://aka.ms/luis-api-v3) Luis.
+Usare la documentazione dell'API V3 per aggiornare le chiamate REST esistenti alle API dell' [endpoint](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) Luis.
