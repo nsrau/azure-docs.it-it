@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: a09f995f4d022c47b573281183d07b7973215494
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ef7208596ead8f7d3903bb614ccb980df782e581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778238"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837909"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
 Un nuovo utente di LUIS deve seguire questa procedura:
 
-1. Accedere al [portale LUIS](https://www.luis.ai), selezionare il paese o l'area geografica e accettare le condizioni per l'utilizzo. Se invece si visualizza **App personali**, significa che esiste già una risorsa LUIS ed è necessario procedere alla creazione di un'app.
+1. Accedere al [portale LUIS](https://www.luis.ai), selezionare il paese o l'area geografica e accettare le condizioni per l'utilizzo. Se invece si visualizza **App personali**, significa che esiste già una risorsa LUIS ed è necessario procedere alla creazione di un'app. Per le aree supportate, vedere [Creazione e pubblicazione di aree e chiavi associate](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
 
 1. Selezionare **Create Azure resource** (Crea risorsa di Azure) e quindi **Create an authoring resource to migrate your apps to** (Crea una risorsa di creazione in cui eseguire la migrazione delle app).
 

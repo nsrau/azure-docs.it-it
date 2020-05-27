@@ -181,6 +181,8 @@
       href: luis-get-started-get-intent-from-browser.md
     - name: Migrazione
       items:
+        - name: Panoramica
+          href: migration.md
         - name: Eseguire la migrazione da un'entità composita
           href: migrate-from-composite-entity.md
         - name: Eseguire la migrazione alla risorsa di creazione
