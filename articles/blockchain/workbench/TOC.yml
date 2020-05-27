@@ -43,7 +43,7 @@
           href: data-powerbi.md
         - name: Usare i dati in SQL Management Studio
           href: data-sql-management-studio.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Configurazione
       href: configuration.md
@@ -59,8 +59,8 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Forum di supporto MSDN
-      href: 'https://aka.ms/workbenchforum'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html'
     - name: Supporto della community
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Supporto di Stack Overflow

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067690"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798664"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Guida introduttiva: Introduzione ad Azure Sentinel
 
@@ -53,7 +53,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
 ## <a name="use-built-in-workbooks"></a>Usare cartelle di lavoro predefinite<a name="dashboards"></a>
 
-Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md).
+Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
 
 1. In **Impostazioni** selezionare **Cartelle di lavoro**. In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
 2. Cercare una cartella di lavoro specifica per visualizzare l'elenco completo e una descrizione delle caratteristiche di ognuna. 
