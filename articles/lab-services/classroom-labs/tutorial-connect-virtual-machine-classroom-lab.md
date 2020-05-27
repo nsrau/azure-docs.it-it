@@ -1,6 +1,6 @@
 ---
 title: Accedere a un lab per le classi in Azure Lab Services | Microsoft Docs
-description: Questa esercitazione descrive come accedere alle macchine virtuali in un lab per le classi impostato da un docente.
+description: Questa esercitazione descrive come accedere alle macchine virtuali in un lab per le classi configurato da un docente.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 27d79e28a986e929fb71dd77fc50b3c2cd32618f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2d40c007a06bad09748b14394da46c50c80dc19
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77134031"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589449"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Esercitazione: Accedere a un lab per le classi in Azure Lab Services
 Questa esercitazione descrive come uno studente può connettersi a una macchina virtuale (VM) in un lab per le classi. 
@@ -34,11 +34,15 @@ In questa esercitazione vengono completate le azioni seguenti:
 ## <a name="register-to-the-lab"></a>Registrarsi al lab
 
 1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
+
+    ![Registrarsi al lab](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
 
     > [!NOTE]
     > Per l'uso di Azure Lab Services, è necessario un account Microsoft. Se si prova a usare un account non Microsoft, ad esempio Yahoo o Google, per accedere al portale, seguire le istruzioni per creare un account Microsoft che verrà collegato all'account non Microsoft. Quindi, seguire la procedura per completare il processo di registrazione. 
 1. Al termine della registrazione, verificare che le macchine virtuali per i lab a cui si ha accesso siano disponibili. 
+
+    ![Macchine virtuali accessibili](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Attendere che la macchina virtuale sia pronta. Nel riquadro della macchina virtuale osservare i campi seguenti:
     1. Nella parte superiore del riquadro viene visualizzato il **nome del lab**.
     1. A destra viene visualizzata l'icona che rappresenta il **sistema operativo** della macchina virtuale. In questo esempio si tratta di Windows. 
@@ -68,7 +72,7 @@ In questa esercitazione vengono completate le azioni seguenti:
     3. Per connettersi alle macchine virtuali **Linux**, è possibile usare **SSH** o **RDP** (se è abilitato). Per altre informazioni, vedere [Abilitare una connessione Desktop remoto per i computer Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come eseguire l'accesso a un lab per le classi usando il collegamento di registrazione ottenuto dal professore/docente.
+Questa esercitazione ha illustrato come eseguire l'accesso a un lab per le classi usando il collegamento di registrazione ricevuto dal docente.
 
 In quanto proprietario del lab, si vuole vedere chi ha eseguito la registrazione per il lab e tenere traccia dell'utilizzo delle macchine virtuali. Passare all'esercitazione successiva per informazioni su come tenere traccia dell'uso del lab:
 

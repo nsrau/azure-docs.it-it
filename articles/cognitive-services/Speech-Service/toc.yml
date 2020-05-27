@@ -32,8 +32,6 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Riconoscimento della voce archiviata in archivio BLOB
           href: quickstarts/from-blob.md
-        - name: Valutazione della pronuncia con input di riferimento
-          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Guide pratiche
       items:
         - name: Scegliere la modalità di riconoscimento vocale
@@ -563,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Strumenti
   items:
-    - name: SPX
+    - name: Interfaccia della riga di comando per Voce
+      displayName: SPX
       items:
-        - name: Che cos'è SPX?
+        - name: Che cos'è l'interfaccia della riga di comando per Voce?
+          displayName: What is SPX?
           href: spx-overview.md
-        - name: Nozioni di base su SPX
+        - name: Nozioni di base sull'interfaccia della riga di comando per Voce
+          displayName: SPX basics
           href: spx-basics.md
     - name: Speech Studio
       items:

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591761"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800622"
 ---
 # <a name="whats-new-in-personalizer"></a>Novità di personalizzazione
 
@@ -31,7 +31,7 @@ Gli elementi seguenti sono disponibili in **anteprima pubblica**:
 
 ### <a name="march-2020"></a>Marzo 2020
 
-* TLS 1,2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [sicurezza dei servizi cognitivi di Azure](../cognitive-services-security.md).
+* TLS 1.2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [Sicurezza di Servizi cognitivi di Azure](../cognitive-services-security.md).
 
 ### <a name="november-2019---ignite-conference"></a>Novembre 2019-conferenza Ignite
 
@@ -46,9 +46,9 @@ Le funzionalità di anteprima seguenti sono state rilasciate alla conferenza Bui
 
 ## <a name="videos"></a>Video
 
-### <a name="2019-build-videos"></a>video sulla compilazione di 2019
+### <a name="2019-build-videos"></a>Video di Build 2019
 
-* [Offri le esperienze giuste & contenuti come Xbox con la personalizzazione di servizi cognitivi](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Offri le esperienze giuste & contenuti come Xbox con la personalizzazione di servizi cognitivi](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 
