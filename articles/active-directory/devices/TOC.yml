@@ -71,7 +71,7 @@
           href: faq.md
         - name: Domande frequenti sull'abilitazione di Enterprise State Roaming
           href: enterprise-state-roaming-faqs.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Impostazioni dell'oggetto Criteri di gruppo di Enterprise State Roaming
       href: enterprise-state-roaming-group-policy-settings.md
@@ -81,8 +81,8 @@
   items:
     - name: Forum di commenti e suggerimenti su Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aggiornamenti del servizio

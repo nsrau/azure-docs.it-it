@@ -210,7 +210,7 @@
           href: ../connectors/connect-common-data-service.md
         - name: API e app Web personalizzate
           href: logic-apps-create-api-app.md
-        - name: 'Ritardo  '
+        - name: Ritardo
           href: ../connectors/connectors-native-delay.md
         - name: Dropbox
           href: ../connectors/connectors-create-api-dropbox.md
@@ -416,8 +416,8 @@
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-logic-apps.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
     - name: Twitter

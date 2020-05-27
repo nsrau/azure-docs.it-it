@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Eliminare un insieme di credenziali
               href: delete-vault.md
+    - name: Supporto Site Recovery per i gruppi di posizionamento di prossimità
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Ripristino di emergenza per le app
       items:
         - name: Informazioni sul ripristino di emergenza per le app locali
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Percorso di apprendimento
       href: /learn/azure/
     - name: Prezzi
