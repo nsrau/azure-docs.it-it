@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 46dc5298337b2ee0d16d22ec6ab24cb9d751fc38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fbebfe2ec554c7c9c2f85a5657daeeee8dae31a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769169"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727081"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C)
 
@@ -119,7 +119,7 @@ Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di svilu
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
@@ -188,7 +188,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
 
-In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) per eseguire il monitoraggio dei messaggi inviati dal dispositivo simulato.
+In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per eseguire il monitoraggio dei messaggi inviati dal dispositivo simulato.
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 

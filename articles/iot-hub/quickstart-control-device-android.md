@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 8c3a9c6c5e835104675239882d2a1929a3c07c82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9afd1c4ca5e4c652a03bc2ef652b8e43ea12787
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81771036"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727200"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guida introduttiva: controllare un dispositivo connesso a un hub IoT (Android)
 
@@ -141,7 +141,7 @@ Questa app deve essere lasciata in esecuzione in un dispositivo fisico o un emul
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
 
-In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal dispositivo Android usando Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest).
+In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal dispositivo Android usando Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 

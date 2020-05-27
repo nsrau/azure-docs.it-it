@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 52f9e6529329c5bb1abb176082294dc26e64baa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7b5487233e2bd0e532efad4e108c41f188b51d91
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675535"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727176"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -120,7 +120,7 @@ Per questo argomento di avvio rapido si userà [Azure IoT SDK per dispositivi pe
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
+Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
 
 1. Per creare l'identità del dispositivo, eseguire il comando seguente in Cloud Shell:
 

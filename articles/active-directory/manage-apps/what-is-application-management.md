@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ee9a9d404e9a08d8b795a3d73907e84d25b73107
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063323"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739754"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 
@@ -43,7 +43,7 @@ Sono principalmente quattro i tipi di applicazione che è possibile aggiungere a
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Gestione dei rischi con i criteri di accesso condizionale
 
-Combinando l'accesso Single Sign-On (SSO) di Azure AD con l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), è possibile garantire elevati livelli di sicurezza per l'accesso alle applicazioni. Le funzionalità di sicurezza includono la protezione dell'identità a livello di cloud, il controllo degli accessi basato sul rischio, l'autenticazione a più fattori nativa e i criteri di accesso condizionale. Queste funzionalità supportano criteri di controllo granulare basati sulle applicazioni o sui gruppi che necessitano di livelli di sicurezza superiori.
+Combinando l'accesso Single Sign-On (SSO) di Azure AD con l'[accesso condizionale](../conditional-access/concept-conditional-access-cloud-apps.md), è possibile garantire elevati livelli di sicurezza per l'accesso alle applicazioni. Le funzionalità di sicurezza includono la protezione dell'identità a livello di cloud, il controllo degli accessi basato sul rischio, l'autenticazione a più fattori nativa e i criteri di accesso condizionale. Queste funzionalità supportano criteri di controllo granulare basati sulle applicazioni o sui gruppi che necessitano di livelli di sicurezza superiori.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Migliorare la produttività con l'accesso Single Sign-On
 
