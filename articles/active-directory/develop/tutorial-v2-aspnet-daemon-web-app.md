@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201755"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641110"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Esercitazione: Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
 
@@ -235,8 +235,8 @@ Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'
 1. Tornare al [portale di Azure](https://portal.azure.com).
 1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
 1. Selezionare l'applicazione **dotnet-web-daemon-v2**.
-1. Nella pagina **Autenticazione** per l'applicazione aggiornare i campi **URL di disconnessione** con l'indirizzo del servizio. Ad esempio, usare [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. Nel menu **Personalizzazione** aggiornare il valore di **URL pagina iniziale** impostandolo sull'indirizzo del servizio. Ad esempio, usare [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. Nella pagina **Autenticazione** per l'applicazione aggiornare i campi **URL di disconnessione** con l'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Nel menu **Personalizzazione** aggiornare il valore di **URL pagina iniziale** impostandolo sull'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Salvare la configurazione.
 1. Aggiungere lo stesso URL nell'elenco di valori del menu **Autenticazione** > **URI di reindirizzamento**. Se sono presenti più URL di reindirizzamento, assicurarsi che vi sia una nuova voce che usa l'URI del servizio app per ognuno di essi.
 
