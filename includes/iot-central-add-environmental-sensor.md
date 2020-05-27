@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9618dc1cef8d04cc5906579af0ef372694aeaaa9
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674693"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673408"
 ---
 ## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
 Nel computer locale creare una cartella denominata `environmental-sensor`.
 
-Scaricare il file JSON del [Modello di funzionalità sensore ambientale](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) e salvarlo nella cartella `environmental-sensor`.
+Scaricare il file JSON del [Modello di funzionalità sensore ambientale](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) e salvarlo nella cartella `environmental-sensor`.
 
 Usare un editor di testo e sostituire le due istanze di `{YOUR_COMPANY_NAME_HERE}` con il nome dell'azienda nel file `EnvironmentalSensorInline.capabilitymodel.json` scaricato.
 

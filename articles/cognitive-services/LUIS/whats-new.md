@@ -2,13 +2,13 @@
 title: Novità - Language Understanding (LUIS)
 description: Questo articolo viene aggiornato regolarmente e include le novità sull'API Language Understanding di Servizi cognitivi di Azure.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592798"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675946"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -21,12 +21,18 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 * Rilasciato come **disponibile a livello generale** (GA):
     * [Contenitore Language Understanding](luis-container-howto.md)
     * Portale di anteprima promosso a [portale corrente](https://www.luis.ai), ma portale [precedente](https://previous.luis.ai) ancora disponibile
-    * Nuova esperienza di creazione e assegnazione di etichette per le entità basate su Machine Learning
+    * Nuova esperienza di creazione ed etichettatura per le entità di Machine Learning
     * [Processo di aggiornamento](migrate-from-composite-entity.md) da entità composite e semplici a entità basate su Machine Learning
     * Supporto delle [impostazioni](how-to-application-settings-portal.md) per la normalizzazione delle varianti di parole
 * Anteprima delle modifiche apportate all'API di creazione
-    * Schema dell'app 7.x per entità annidate basate su Machine Learning
+    * Schema delle app 7.x per entità annidate basate su Machine Learning
     * [Migrazione alla funzionalità obbligatoria](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Nuove risorse per sviluppatori
+    * [Strumenti di integrazione continua](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop: informazioni sulle procedure consigliate per [_Natural Language Understanding_ (NLU) con LUIS](developer-reference-resource.md#workshops)
+* [Chiavi gestite dal cliente](luis-encryption-of-data-at-rest.md): crittografare tutti i dati usati in LUIS usando le proprie chiavi
+* [Presentazione di IA](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video): vedere le nuove funzionalità di LUIS
+
 
 
 ### <a name="march-2020"></a>Marzo 2020
@@ -54,7 +60,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 * Novità - Espansione dei [limiti](luis-limits.md): nuovo limite massimo per elenchi di frasi e numero totale di frasi, nuovo modello come limiti di funzionalità
 * Estrazione di informazioni dal testo nel formato della struttura della gerarchia profonda, che rende ancor più potenti le applicazioni di conversazione.
 
-    ![Immagine di entità basata su Machine Learning](./media/whats-new/deep-entity-extraction-example.png)
+    ![Immagine di entità di Machine Learning](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 settembre 2019
 

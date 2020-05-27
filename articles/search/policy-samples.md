@@ -1,22 +1,22 @@
 ---
 title: Definizioni di criteri predefiniti per Ricerca cognitiva di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Ricerca cognitiva di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-samples
-ms.openlocfilehash: b11b4a5653d41335a3fb356f53710a2641402f84
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fe8ed12f85dcd0dedbec5369ed9ad6dcf4e4628a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838613"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658974"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-search"></a>Definizioni di criteri predefiniti di Criteri di Azure per Ricerca cognitiva di Azure
 
-Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per Ricerca cognitiva di Azure. Per informazioni su altri Criteri di Azure predefiniti per altri servizi, vedere le [definizioni di Criteri di Azure predefiniti](../governance/policy/samples/built-in-policies.md).
+Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per Ricerca cognitiva di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto IRS 1075
 description: Mapping dei controlli dell'esempio di progetto IRS 1075. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 11/20/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 86570012000e660b53b2c3c7291b9ca98576a004
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cd69a35cb4ad30a565a2392f7109c74d75de4d7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546820"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659819"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto IRS 1075
 

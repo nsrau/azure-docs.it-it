@@ -6,24 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: c8c792d548fc953cb5d059f322ad1f3139c91562
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e101747322baac860cbde02aca341171aa0cc1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595120"
+ms.locfileid: "83658357"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Codici errore interni di Analisi di flusso di Azure
 
 È possibile usare log attività e log risorse per facilitare il debug di comportamenti imprevisti del processo di Analisi di flusso di Azure. Questo articolo riporta la descrizione di ogni codice errore interno. Gli errori interni sono errori generici che vengono generati all'interno della piattaforma di Analisi di flusso quando Analisi di flusso non è in grado di distinguere se l'errore è un errore di disponibilità interna o un bug del sistema.
-
-## <a name="kafkainvalidrequest"></a>KafkaInvalidRequest
-
-* **Causa**: La richiesta inviata al server Kafka non è valida.
-
-## <a name="kafkainputerror"></a>KafkaInputError
-
-* **Causa**: È stato rilevato un problema durante l'input con Kafka.
 
 ## <a name="cosmosdboutputbatchsizetoolarge"></a>CosmosDBOutputBatchSizeTooLarge
 
