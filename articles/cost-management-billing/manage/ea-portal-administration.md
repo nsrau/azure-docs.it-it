@@ -3,34 +3,20 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692650"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648204"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
 Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal (https://ea.azure.com). Azure EA Portal è un portale di gestione online che consente ai clienti di gestire il costo dei servizi EA di Azure. Per informazioni introduttive su Azure EA Portal, vedere l'articolo [Introduzione ad Azure EA Portal](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Aggiungere un nuovo amministratore dell'organizzazione
-
-Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per la gestione di una registrazione EA di Azure. Il primo amministratore EA di Azure è stato creato al momento della configurazione del contratto Enterprise Agreement. Tuttavia, è possibile aggiungere o rimuovere nuovi amministratori in qualsiasi momento. I nuovi amministratori possono essere aggiunti solo dagli amministratori esistenti. Per altre informazioni sull'aggiunta di altri amministratori dell'organizzazione, vedere [Creare un altro amministratore dell'organizzazione](ea-portal-get-started.md#create-another-enterprise-administrator). Per altre informazioni sui ruoli e le attività del profilo di fatturazione, vedere [Ruoli e attività del profilo di fatturazione](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Aggiornare lo stato dell'utente da in sospeso ad attivo
-
-Quando vengono aggiunti nuovi proprietari di account a una registrazione EA di Azure per la prima volta, il relativo stato viene visualizzato come _in sospeso_. Quando un nuovo proprietario dell'account riceve il messaggio di posta elettronica di benvenuto per l'attivazione, può accedere per attivare il proprio account. Una volta attivato l'account, il relativo stato viene aggiornato e passa da _In sospeso_ ad _Attivo_. Il proprietario dell'account deve leggere il messaggio di avviso e selezionare **Continua**. Ai nuovi utenti potrebbe essere richiesto di immettere il nome e il cognome per creare un account commerciale. In tal caso, devono aggiungere le informazioni necessarie per continuare, quindi l'account viene attivato.
-
-## <a name="add-a-department-admin"></a>Aggiungere un amministratore del reparto
-
-Dopo che un amministratore EA di Azure ha creato un reparto, l'amministratore dell'organizzazione di Azure può aggiungere amministratori di reparto e associare ognuno a un reparto. Un amministratore del reparto può creare nuovi account. I nuovi account sono necessari per la creazione di sottoscrizioni EA di Azure.
-
-Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Creare un amministratore di reparto EA di Azure](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associare un account a un reparto
 
@@ -114,108 +100,6 @@ Quando un utente viene aggiunto come proprietario dell'account tramite Azure EA 
 
 Al momento l'offerta Sviluppo/test non è applicabile ai clienti di Azure per enti pubblici.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Trasferire un account aziendale in una nuova registrazione
-
-Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Usare un trasferimento di account se si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
-
-Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire un account aziendale in una nuova registrazione, è necessaria una richiesta di supporto.
-
-Quando si trasferisce un account aziendale in una nuova registrazione, tenere presente quanto segue:
-
-- Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
-- La registrazione di origine mantiene il proprio stato come attiva o estesa. È possibile continuare a usarla fino alla scadenza.
-
-### <a name="prerequisites"></a>Prerequisiti
-
-Quando si richiede il trasferimento di un account, fornire le informazioni seguenti:
-
-- Numero della registrazione di destinazione, nome dell'account e indirizzo di posta elettronica del proprietario dell'account da trasferire
-- Per la registrazione di origine, numero di registrazione e account da trasferire
-
-Altri punti da tenere presenti prima del trasferimento di un account:
-
-- Per la registrazione di destinazione e di origine è necessaria l'approvazione di un amministratore EA
-- Se il trasferimento di un account non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di registrazione.
-- Con il trasferimento vengono trasferiti tutti i servizi e le sottoscrizioni correlati agli account specifici.
-- Al termine del trasferimento, l'account trasferito appare inattivo nella registrazione di origine e attivo in quella di destinazione.
-- L'account mostra la data di fine corrispondente alla data del trasferimento effettivo nella registrazione di origine e come data di inizio nella registrazione di destinazione.
-- Qualsiasi utilizzo che si verifica per l'account prima della data del trasferimento effettivo rimane nella registrazione di origine.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Trasferire la registrazione EA in una nuova registrazione
-
-Il trasferimento di una registrazione si prende in considerazione quando:
-
-- Il periodo di impegno di una registrazione corrente è terminato.
-- Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
-- Si hanno più registrazioni e si vogliono combinare tutti gli account e la fatturazione in una singola registrazione.
-
-Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire una registrazione aziendale in una nuova, è necessaria una richiesta di supporto.
-
-Quando si richiede il trasferimento di un'intera registrazione EA in un'altra registrazione, si verificano le azioni seguenti:
-
-- Tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti in una nuova registrazione di destinazione.
-- Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
-- Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
-- Qualsiasi saldo dell'impegno monetario rimanente nel contratto viene perso, inclusi i periodi futuri.
--    Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
--    La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
-
-### <a name="effective-transfer-date"></a>Data di validità del trasferimento
-
-La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione di destinazione.
-
-L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
-
-### <a name="prerequisites"></a>Prerequisiti
-
-Quando si richiede il trasferimento di una registrazione, fornire le informazioni seguenti:
-
-- Per la registrazione di origine, numero di registrazione.
-- Per la registrazione di destinazione, numero della registrazione in cui eseguire il trasferimento.
-- Come data di validità del trasferimento della registrazione, una data corrispondente o successiva alla data di inizio della registrazione di destinazione. La data scelta non può incidere sull'utilizzo relativo a una fattura per l'eccedenza già emessa.
-
-Altri punti da tenere presenti prima del trasferimento di una registrazione:
-
-- È necessaria l'approvazione degli amministratori EA sia della registrazione di destinazione che di quella di origine.
-- Se il trasferimento di una registrazione non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di account.
-- Lo stato della registrazione di origine verrà aggiornato a Trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
-
-### <a name="monetary-commitment"></a>Impegno monetario
-
-L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nessun servizio interessato dai trasferimenti di account e registrazioni
-
-Durante il trasferimento di un account o una registrazione non si verifica alcun tempo di inattività. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
-
-## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
-
-Azure EA Portal può trasferire le sottoscrizioni da un proprietario dell'account a un altro. Per altre informazioni, vedere [Modificare il proprietario dell'account](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Effetti del trasferimento della sottoscrizione
-
-Quando una sottoscrizione di Azure viene trasferita in un account nello stesso tenant di Azure Active Directory, tutti gli utenti, i gruppi e le entità servizio che disponevano del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per gestire le risorse conservano l'accesso.
-
-Per visualizzare gli utenti con autorizzazioni di controllo degli accessi in base al ruolo alla sottoscrizione:
-
-1. Nel portale di Azure aprire **Sottoscrizioni**.
-2. Selezionare la sottoscrizione da visualizzare e quindi selezionare **Controllo di accesso (IAM)** .
-3. Selezionare le **Assegnazioni di ruoli**. La pagina Assegnazioni di ruolo elenca tutti gli utenti con autorizzazioni di controllo degli accessi in base al ruolo alla sottoscrizione.
-
-Se la sottoscrizione viene trasferita a un account in un altro tenant di Azure AD, tutti gli utenti, i gruppi e le entità servizio che disponevano del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per gestire le risorse _perdono_ l'accesso. Anche senza le autorizzazioni di controllo degli accessi in base al ruolo, l'accesso alla sottoscrizione potrebbe essere disponibile tramite meccanismi di sicurezza, tra cui:
-
-- Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../../cloud-services/cloud-services-certs-create.md).
-- Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../../storage/common/storage-account-overview.md).
-- Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
-
-Se il destinatario deve limitare l'accesso alle risorse di Azure, è consigliabile che esegua l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornate usando la procedura seguente:
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Tutte le risorse** dal menu Hub.
-3. Selezionare la risorsa.
-4. Nella pagina della risorsa selezionare **Impostazioni** per visualizzare e aggiornare i segreti esistenti.
-
 ## <a name="delete-subscription"></a>Eliminare una sottoscrizione
 
 Per eliminare una sottoscrizione in cui si è proprietario dell'account:
@@ -260,60 +144,6 @@ Per aggiungere un contatto:
 Il nuovo contatto per le notifiche viene visualizzato nella sezione **Contatto per le notifiche**. Per cambiare la frequenza di notifica, selezionare il contatto per la notifica e quindi il simbolo della matita a destra della riga selezionata. Impostare la frequenza su **giornaliera**, **settimanale**, **mensile** o **nessuna**.
 
 È possibile eliminare le notifiche sul ciclo di vita che segnalano che si sta avvicinando la _data di fine del periodo di copertura_ e la _data di disabilitazione e deprovisioning_. Se si disabilitano le notifiche sul ciclo di vita, vengono eliminate le notifiche sulla data di fine del periodo di copertura e del contratto.
-
-## <a name="manage-partner-administrators"></a>Gestire gli amministratori partner
-
-Ogni amministratore partner in Azure EA Portal è in grado di aggiungere o rimuovere altri amministratori partner. Gli amministratori partner sono associati alle organizzazioni partner di registrazioni indirette e non direttamente alle registrazioni.
-
-### <a name="add-a-partner-administrator"></a>Aggiungere un amministratore partner
-
-Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, selezionare la scheda **Registrazione** e quindi una casella di registrazione.
-
-1. Accedere come amministratore partner.
-1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
-1. Selezionare la scheda **Partner**.
-1. Selezionare **+ Aggiungi amministratore** e immettere l'indirizzo di posta elettronica, il contatto per le notifiche e i dettagli delle notifiche.
-1. Selezionare **Aggiungi**.
-
-### <a name="remove-a-partner-administrator"></a>Rimuovere un amministratore partner
-
-Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, selezionare la scheda **Registrazione** e quindi una casella di registrazione.
-
-1. Accedere come amministratore partner.
-1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
-1. Selezionare la scheda **Partner**.
-1. Nella sezione Amministratore selezionare la riga appropriata per l'amministratore che si intende rimuovere.
-1. Selezionare il simbolo X a destra.
-1. Confermare l'eliminazione.
-
-## <a name="manage-partner-notifications"></a>Gestire le notifiche dei partner
-
-Gli amministratori partner possono gestire la frequenza con cui ricevono le notifiche di utilizzo per le proprie registrazioni. Ricevono automaticamente notifiche settimanali sul saldo non fatturato. Possono modificare la frequenza delle singole notifiche in mensile, settimanale, giornaliera oppure disattivarle completamente.
-
-Se un utente non riceve una notifica, verificare che le impostazioni di notifica dell'utente siano corrette con la procedura seguente.
-
-1. Accedere ad Azure EA Portal come amministratore partner.
-2. Selezionare **Gestisci** e quindi la scheda **Partner**.
-3. Visualizzare l'elenco degli amministratori nella sezione Amministratore.
-4. Per modificare le preferenze di notifica, passare il puntatore sull'amministratore appropriato e selezionare il simbolo della matita.
-5. Aumentare la frequenza di notifica e le notifiche sul ciclo di vita in base alle esigenze.
-6. Aggiungere un contatto, se necessario, e selezionare **Aggiungi**.
-7. Selezionare **Salva**.
-
-![Esempio che mostra la casella Aggiunta di un contatto ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Visualizzare le registrazioni per gli amministratori partner
-
-Gli amministratori partner possono accedere a una visualizzazione elenco di tutte le registrazioni dirette e indirette in Azure EA Portal. Verranno visualizzate caselle contenenti una panoramica di ogni registrazione, con il numero e il nome della registrazione, nonché il saldo e gli importi in eccedenza.
-
-### <a name="view-a-list-of-enrollments"></a>Visualizzare un elenco di registrazioni
-
-1. Accedere come amministratore partner.
-1. Selezionare **Gestisci** nel riquadro di spostamento sul lato sinistro della pagina.
-1. Selezionare la scheda **Registrazione**.
-1. Selezionare la casella relativa alla registrazione.
-
-Nella parte superiore della pagina è visibile una visualizzazione di tutte le registrazioni con le caselle relative a ogni registrazione. È inoltre possibile spostarsi tra le registrazioni selezionando il numero di registrazione corrente nel riquadro di spostamento sul lato sinistro della pagina. Verrà visualizzata una finestra popup che consente di cercare registrazioni o di selezionare una registrazione diversa facendo clic sulla casella appropriata.
 
 ## <a name="azure-sponsorship-offer"></a>Offerta Azure Sponsorship
 
