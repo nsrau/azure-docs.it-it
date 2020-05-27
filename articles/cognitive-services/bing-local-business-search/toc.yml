@@ -19,7 +19,7 @@
           href: quickstarts/local-quickstart.md
         - name: Uso di Java
           href: quickstarts/local-search-java-quickstart.md
-        - name: Uso di Node
+        - name: Uso di Node.js
           href: quickstarts/local-search-node-quickstart.md
         - name: Uso di Python
           href: quickstarts/local-search-python-quickstart.md
@@ -31,7 +31,7 @@
       href: specify-geographic-search.md
     - name: Categorie di ricerca di aziende locali
       href: local-categories.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Requisiti per l'uso e la visualizzazione
       href: ../Bing-Web-Search/use-display-requirements.md

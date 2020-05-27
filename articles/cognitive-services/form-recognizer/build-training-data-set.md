@@ -9,18 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75380627"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873302"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
-Quando si usa il modello personalizzato di riconoscimento form, si forniscono dati di training personalizzati, in modo che il modello possa eseguire il training ai moduli specifici del settore. È possibile eseguire il training di un modello con cinque form compilati o un modulo vuoto (è necessario includere la parola "Empty" nel nome file) più due moduli compilati. Anche se si dispone di un numero sufficiente di moduli compilati per eseguire il training con, l'aggiunta di un modulo vuoto al set di dati di training può migliorare l'accuratezza del modello.
+Quando si usa il modello personalizzato di riconoscimento form, si forniscono dati di training personalizzati, in modo che il modello possa eseguire il training ai moduli specifici del settore. 
 
-Se si desidera utilizzare i dati di training con etichette manuali, è consigliabile iniziare con almeno cinque forme dello stesso tipo. È comunque possibile utilizzare moduli senza etichetta e un modulo vuoto nello stesso set di dati.
+Se si sta eseguendo il training senza etichette manuali, è possibile usare cinque moduli compilati o un modulo vuoto (è necessario includere la parola "Empty" nel nome file) più due moduli compilati. Anche se si dispone di un numero sufficiente di moduli compilati, l'aggiunta di un modulo vuoto al set di dati di training può migliorare l'accuratezza del modello.
+
+Se si desidera utilizzare i dati di training con etichette manuali, è necessario iniziare con almeno cinque forme compilate dello stesso tipo. È comunque possibile usare moduli senza etichetta e un modulo vuoto oltre al set di dati richiesto.
 
 ## <a name="training-data-tips"></a>Suggerimenti per i dati di training
 
@@ -42,9 +44,11 @@ Verificare anche che il set di dati di training segua i requisiti di input per t
 
 Dopo aver raccolto il set di documenti del modulo da usare per il training, è necessario caricarlo in un contenitore di archiviazione BLOB di Azure. Se non si conosce la procedura per creare un account di archiviazione di Azure con un contenitore, seguire la [Guida introduttiva di archiviazione di Azure per portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
+Se si vogliono usare i dati con etichetta manuale, sarà anche necessario caricare i file con *estensione labels. JSON* e *. OCR. JSON* che corrispondono ai documenti di training. Per generare questi file, è possibile usare lo [strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md) (o la propria interfaccia utente).
+
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizzare i dati nelle sottocartelle (facoltativo)
 
-Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) ha il formato seguente `<SAS URL>` , dove è l'URL della firma di accesso condiviso del contenitore:
+Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) ha il formato seguente, dove `<SAS URL>` è l'URL della firma di accesso condiviso del contenitore:
 
 ```json
 {
@@ -52,7 +56,7 @@ Per impostazione predefinita, l'API del [modello di training personalizzato](htt
 }
 ```
 
-Se si aggiunge il contenuto seguente al corpo della richiesta, l'API eseguirà il training con i documenti presenti nelle sottocartelle. Il `"prefix"` campo è facoltativo e il set di dati di training viene limitato ai file i cui percorsi iniziano con la stringa specificata. Il valore `"Test"`, ad esempio, farà sì che l'API esamini solo i file o le cartelle che iniziano con la parola "test".
+Se si aggiunge il contenuto seguente al corpo della richiesta, l'API eseguirà il training con i documenti presenti nelle sottocartelle. Il `"prefix"` campo è facoltativo e il set di dati di training viene limitato ai file i cui percorsi iniziano con la stringa specificata. `"Test"`Il valore, ad esempio, farà sì che l'API esamini solo i file o le cartelle che iniziano con la parola "test".
 
 ```json
 {
@@ -69,6 +73,7 @@ Se si aggiunge il contenuto seguente al corpo della richiesta, l'API eseguirà i
 
 Ora che si è appreso come creare un set di dati di training, seguire una guida introduttiva per eseguire il training di un modello di riconoscimento modulo personalizzato e iniziare a usarlo nei moduli.
 
-* [Guida introduttiva: eseguire il training di un modello ed estrarre i dati del modulo usando cURL](./quickstarts/curl-train-extract.md)
-* [Guida introduttiva: eseguire il training di un modello ed estrarre i dati del modulo usando l'API REST con Python](./quickstarts/python-train-extract.md)
+* [Eseguire il training di un modello ed estrarre i dati del modulo usando cURL](./quickstarts/curl-train-extract.md)
+* [Eseguire il training di un modello ed estrarre i dati del modulo usando l'API REST e Python](./quickstarts/python-train-extract.md)
+* [Eseguire il training con le etichette usando lo strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md)
 * [Eseguire il training con le etichette usando l'API REST e Python](./quickstarts/python-labeled-data.md)
