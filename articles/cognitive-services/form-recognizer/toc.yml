@@ -10,6 +10,8 @@
 - name: Avvi rapidi
   expaned: true
   items:
+    - name: Uso della libreria client
+      href: quickstarts/client-library.md
     - name: Utilizzo dello strumento di etichettatura di esempio
       items:
         - name: Eseguire il training del modello personalizzato con le etichette
@@ -36,8 +38,6 @@
           items:
             - name: Python
               href: quickstarts/python-layout.md
-    - name: Uso di .NET SDK
-      href: quickstarts/dotnet-sdk.md
 - name: Esercitazioni
   items:
     - name: Usare Riconoscimento modulo con App per la logica
@@ -67,7 +67,13 @@
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview'
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview'
 - name: Risorse
   items:
     - name: Prezzi e limiti

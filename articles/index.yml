@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9232082e845ef651d188adcc2ccd5cd3b96d90b4
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: 8dd70bbe8b3e495473523a662e0501613703354f
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849604"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84021773"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -597,14 +597,26 @@ productDirectory:
     - databases
     - migration
     url: dms/index.yml
-  - title: database SQL di Azure
-    summary: Database SQL intelligente gestito nel cloud
+  - title: SQL di Azure
+    summary: Famiglia SQL moderna per la migrazione e la modernizzazione delle app
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
     - featured
-    - databases
     - hybrid
-    url: sql-database/index.yml
+    - databases
+    url: azure-sql/index.yml
+  - title: Database SQL di Azure
+    summary: Database SQL intelligente gestito nel cloud
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+    azureCategories:
+    - databases
+    url: azure-sql/database/index.yml
+  - title: Istanza gestita di SQL di Azure
+    summary: Istanza di SQL sempre aggiornata e gestita nel cloud
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
+    azureCategories:
+    - databases
+    url: azure-sql/managed-instance/index.yml
   - title: SQL Edge di Azure (anteprima)
     summary: Motore di database con footprint ridotto e ottimizzato per la rete perimetrale con intelligenza artificiale incorporata
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg

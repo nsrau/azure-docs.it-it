@@ -1,0 +1,145 @@
+### YamlMime:Landing
+title: Documentazione sul database SQL di Azure
+summary: Concetti, guide di avvio rapido, esercitazioni ed esempi relativi a database singoli e in pool nel database SQL di Azure.
+metadata:
+  title: Documentazione sul database SQL di Azure
+  description: Documentazione sul database SQL di Azure, una piattaforma distribuita come servizio (PaaS) basata sull'ultima versione stabile di Microsoft SQL Server.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: 0faf1311e3a570028884f826b7d8b4ff3cd5e9e2
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023824"
+landingContent:
+- title: database SQL di Azure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare il database SQL
+      url: single-database-create-quickstart.md
+    - text: Configurare il firewall
+      url: firewall-create-server-level-portal-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Novità
+      url: doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Informazioni sul database SQL
+      url: sql-database-paas-overview.md
+    - text: Opzioni di acquisto
+      url: purchasing-models.md
+    - text: Livelli di servizio
+      url: service-tiers-general-purpose-business-critical.md
+    - text: Calcolo serverless
+      url: serverless-tier-overview.md
+    - text: Livello di servizio Hyperscale
+      url: service-tier-hyperscale.md
+    - text: Eseguire la migrazione da SQL Server
+      url: migrate-to-database-from-sql-server.md
+    - text: Differenze T-SQL con SQL Server
+      url: transact-sql-tsql-differences-sql-server.md
+- title: Continuità aziendale
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Continuità aziendale
+      url: business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: Disponibilità elevata
+      url: high-availability-sla.md
+    - text: Replica geografica attiva
+      url: active-geo-replication-overview.md
+    - text: Gruppi di failover automatico
+      url: auto-failover-group-overview.md
+    - text: Backup automatizzati
+      url: automated-backups-overview.md
+    - text: Ripristinare con il backup
+      url: recovery-using-backups.md
+    - text: Conservazione del backup a lungo termine
+      url: long-term-retention-overview.md
+- title: Sicurezza avanzata
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Funzionalità di sicurezza
+      url: security-overview.md
+    - text: Procedure consigliate per la sicurezza
+      url: security-best-practice.md
+    - text: Account di accesso, account utente, ruoli e autorizzazioni
+      url: logins-create-manage.md
+    - text: Azure Active Directory
+      url: authentication-aad-overview.md
+    - text: Controllo
+      url: auditing-overview.md
+    - text: Transparent Data Encryption (TDE)
+      url: transparent-data-encryption-tde-overview.md
+    - text: Dynamic Data Masking
+      url: dynamic-data-masking-overview.md
+- title: Pool elastici
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cos'è un pool elastico?
+      url: elastic-pool-overview.md
+    - text: Gestione
+      url: elastic-pool-manage.md
+    - text: Scalabilità
+      url: elastic-pool-scale.md
+    - text: Resource management
+      url: elastic-pool-resource-management.md
+- title: Informazioni di riferimento
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Risorse SQL per la formazione
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Esempi dell'interfaccia della riga di comando di Azure
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Esempi di PowerShell
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Esempi di modelli di Resource Manager
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Guida alla migrazione
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: Scalabilità
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ridimensionamento dinamico
+      url: scale-resources.md
+    - text: Scalabilità in lettura
+      url: read-scale-out.md
+    - text: Processi tra database
+      url: elastic-jobs-overview.md
+    - text: Scalabilità elastica
+      url: elastic-scale-introduction.md
+    - text: Query elastica
+      url: elastic-query-overview.md

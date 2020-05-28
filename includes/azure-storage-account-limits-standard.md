@@ -1,47 +1,47 @@
 ---
-title: includere il file
+title: File di inclusione
 description: File di inclusione
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334958"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778167"
 ---
-La tabella seguente descrive i limiti predefiniti per Azure per utilizzo generico V1, V2, archiviazione BLOB, archiviazione BLOB in blocchi e account di archiviazione Data Lake Storage Gen2 abilitati. Il limite di *ingresso* si riferisce a tutti i dati inviati a un account di archiviazione. Il limite di *uscita* si riferisce a tutti i dati ricevuti da un account di archiviazione.
+La tabella seguente descrive i limiti predefiniti per Azure per gli account di archiviazione di Azure per utilizzo generico V1, V2, archiviazione BLOB e archiviazione BLOB in blocchi. Il limite *in ingresso* indica tutti i dati inviati a un account di archiviazione. Il limite *in uscita* indica tutti i dati ricevuti da un account di archiviazione.
 
 | Risorsa | Limite |
 | --- | --- |
-| Numero di account di archiviazione per area per sottoscrizione, inclusi gli account di archiviazione standard, Premium e Data Lake Storage Gen2 abilitati. <sup>3</sup> | 250 |
+| Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account di archiviazione Standard e Premium.| 250 |
 | Capacità massima dell'account di archiviazione | 5 PiB <sup>1</sup>|
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
-| Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
-| Ingresso massimo<sup>1</sup> per account di archiviazione (aree Stati Uniti, Europa) | 25 Gbps |
-| Ingresso massimo<sup>1</sup> per account di archiviazione (aree diverse da Stati Uniti ed Europa) | 5 Gbps se RA-GRS/GRS è abilitata, 10 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
-| Numero massimo in uscita per gli account di archiviazione BLOB e V2 per utilizzo generico (tutte le aree) | 50 Gbps |
-| Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree degli Stati Uniti) | 20 Gbps se RA-GRS/GRS è abilitata, 30 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
-| Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree non statunitensi) | 10 Gbps se RA-GRS/GRS è abilitato, 15 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
+| Frequenza massima delle richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
+| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (per le aree Stati Uniti ed Europa) | 25 Gbps |
+| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (per le aree diverse da Stati Uniti ed Europa) | 5 Gbps se è abilitata l'archiviazione RA-GRS/GRS, 10 Gbps per LRS/ZRS<sup>2</sup> |
+| Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v2 e BLOB (per tutte le aree) | 50 Gbps |
+| Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v1 (per le aree degli Stati Uniti) | 20 Gbps se è abilitata l'archiviazione RA-GRS/GRS, 30 Gbps per LRS/ZRS<sup>2</sup> |
+| Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v1 (per le aree diverse dagli Stati Uniti) | 10 Gbps se è abilitata l'archiviazione RA-GRS/GRS, 15 Gbps per LRS/ZRS<sup>2</sup> |
 | Numero massimo di regole di rete virtuale per account di archiviazione | 200 |
-| Numero massimo di regole di indirizzi IP per account di archiviazione | 200 |
+| Numero massimo di regole di indirizzo IP per account di archiviazione | 200 |
 
-<sup>1</sup> gli account standard di archiviazione di Azure supportano limiti di capacità più elevati e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Gli account standard di Archiviazione di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso in base alle richieste. Per richiedere un incremento dei limiti di archiviazione, contattare il [supporto di Azure](https://azure.microsoft.com/support/faq/).
 
-<sup>2</sup> se per l'account di archiviazione è abilitato l'accesso in lettura con archiviazione con ridondanza geografica (RA-GRS) o archiviazione con ridondanza della zona geografica (RA-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:
+<sup>2</sup> Se per l'account di archiviazione è abilitata l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) è un set di funzionalità dedicate a Big Data Analytics, basate sull'archiviazione BLOB di Azure. Le limitazioni dell'archiviazione BLOB e di archiviazione di Azure si applicano a Data Lake Storage Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) è un set di funzionalità dedicate all'analisi dei Big Data e integrate in Archiviazione BLOB di Azure.
 
 > [!NOTE]
-> Microsoft consiglia di utilizzare un account di archiviazione per utilizzo generico V2 per la maggior parte degli scenari. È possibile aggiornare facilmente un account di archiviazione BLOB di Azure o di uso generico V1 a un account per utilizzo generico V2 senza tempi di inattività e senza la necessità di copiare i dati. Per altre informazioni, vedere [eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](../articles/storage/common/storage-account-upgrade.md).
+> Per la maggior parte degli scenari è consigliabile usare un account di archiviazione per utilizzo generico v2. È possibile eseguire facilmente l'aggiornamento di un account di archiviazione per utilizzo generico v1 o un account di archiviazione BLOB di Azure a un account per utilizzo generico v2, senza tempi di inattività e senza la necessità copiare i dati. Per altre informazioni, [Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per uso generico](../articles/storage/common/storage-account-upgrade.md).
 
-Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione. Quindi partizionare gli oggetti dati tra tali account di archiviazione. Per informazioni sui prezzi dei volumi, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione. È quindi possibile partizionare gli oggetti dati tra tali account di archiviazione. Per informazioni sui prezzi in base al volume, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Tutti gli account di archiviazione vengono eseguiti in una topologia di rete Flat indipendentemente dal momento in cui sono stati creati. Per ulteriori informazioni sull'architettura di rete flat di Archiviazione di Azure e sulla scalabilità, vedere [Archiviazione di Microsoft Azure: servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
+Tutti gli account di archiviazione vengono eseguiti in una topologia di rete flat indipendentemente da quando sono stati creati. Per altre informazioni sull'architettura di rete flat di Archiviazione di Azure e sulla scalabilità, vedere [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 

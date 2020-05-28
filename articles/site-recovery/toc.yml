@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Eliminare un insieme di credenziali
               href: delete-vault.md
-    - name: Supporto Site Recovery per i gruppi di posizionamento di prossimità
+    - name: Site Recovery per i gruppi di posizionamento di prossimità
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Ripristino di emergenza per le app
       items:

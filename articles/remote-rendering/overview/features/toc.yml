@@ -6,7 +6,7 @@
   href: override-hierarchical-state.md
 - name: Riproiezione con ritardo della fase
   href: late-stage-reprojection.md
-- name: Luci
+- name: Illuminazione della scena
   href: lights.md
 - name: Materiali PBR
   href: pbr-materials.md
