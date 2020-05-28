@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584723"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994261"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -68,7 +68,7 @@ Per richiedere una distribuzione:
 
 1.  Selezionare un progetto e passare alla scheda Models (Modelli).
 
-2. Per un modello correttamente sottoposto a training è disponibile il pulsante "Deploy" (Distribuisci), se non è ancora stato distribuito.
+2. Per un modello correttamente sottoposto a training, viene visualizzato il pulsante "Distribuisci", se non è stato distribuito.
 
     ![Distribuire il modello](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ Per richiedere una distribuzione:
 
     ![Distribuire il modello](media/how-to/how-to-deploy-model-regions.png)
 
-5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
+5.  È possibile visualizzare lo stato del modello nella colonna "stato".
 
 >[!Note]
 >Il convertitore personalizzato supporta 10 modelli distribuiti in un'area di lavoro in qualsiasi momento.

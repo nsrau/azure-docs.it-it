@@ -1,24 +1,24 @@
 ---
 title: Importazione da origini dati-QnA Maker
-description: Una QnA Maker Knowledge base è costituita da un set di set di domande e risposte (QnA) e metadati facoltativi associati a ogni coppia di QnA.
+description: Una QnA Maker Knowledge base è costituita da un set di coppie di domande e risposte (QnA) e di metadati facoltativi associati a ogni coppia di QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804283"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993100"
 ---
 # <a name="importing-from-data-sources"></a>Importazione da origini dati
 
-Una Knowledge base è costituita da set di domande e risposte portati da URL e file pubblici.
+Una Knowledge base è costituita da coppie di domande e risposte portate da URL e file pubblici.
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 
 Il contenuto viene inserito in una Knowledge base da un'origine dati. I percorsi delle origini dati sono **URL o file pubblici**, che non richiedono l'autenticazione.
 
-I [file di SharePoint](../how-to/add-sharepoint-datasources.md), protetti con l'autenticazione, costituiscono l'eccezione. Le risorse di SharePoint devono essere file, non pagine Web. Se l'URL termina con un'estensione Web, ad esempio. ASPX, non verrà importato in QnA Maker da SharePoint.
+I [file di SharePoint](../how-to/add-sharepoint-datasources.md), protetti con l'autenticazione, costituiscono l'eccezione. Le risorse di SharePoint devono essere file, non pagine Web. Se l'URL termina con un'estensione Web, ad esempio .ASPX, non verrà importato in QnA Maker da SharePoint.
 
 ## <a name="chit-chat-content"></a>Contenuto della chat Chit
 
@@ -26,7 +26,7 @@ Il set di contenuti QnA Chit Chat è disponibile come origine dati di contenuto 
 
 ## <a name="structured-data-format-through-import"></a>Formato di dati strutturati tramite l'importazione
 
-L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un `.tsv` file strutturato contenente domande e risposte. Queste informazioni consentono QnA Maker raggruppare i set di domande e risposte e di assegnarli a una determinata origine dati.
+L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file strutturato contenente `.tsv` domande e risposte. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
 | Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |
 |-----------|---------|----|---------------------|
@@ -40,7 +40,7 @@ L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Ba
 > [!div class="mx-imgBorder"]
 > ![Modello concettuale di 3 livelli di domande a più turni](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-La colonna per un multiturning `.tsv`, specifico per la multifunzione, è **richiesta**. Un esempio `.tsv`, illustrato in Excel, Mostra le informazioni da includere per definire gli elementi figlio a più turni:
+La colonna per un multiturning `.tsv` , specifico per la multifunzione, è **richiesta**. Un esempio `.tsv` , illustrato in Excel, Mostra le informazioni da includere per definire gli elementi figlio a più turni:
 
 ```JSON
 [
@@ -58,7 +58,7 @@ La colonna per un multiturning `.tsv`, specifico per la multifunzione, è **rich
 
 Se non si è certi di come rappresentare la coppia di QnA nel `.tsv` file:
 * Usare questo [esempio scaricabile da GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* In alternativa, creare il set nel portale di QnA Maker, salvare ed esportare la Knowledge base per un esempio di come rappresentare il set.
+* In alternativa, creare la coppia nel portale di QnA Maker, salvare ed esportare la Knowledge base per un esempio di come rappresentare la coppia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
