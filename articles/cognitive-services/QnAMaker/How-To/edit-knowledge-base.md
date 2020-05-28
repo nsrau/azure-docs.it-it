@@ -3,12 +3,12 @@ title: Modificare una knowledge base - QnA Maker
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650853"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993576"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -85,7 +85,7 @@ Qualsiasi campo in qualsiasi coppia di QnA può essere modificato, indipendentem
 
 ## <a name="delete-a-qna-pair"></a>Eliminare una coppia domanda/risposta
 
-Per eliminare una coppia domanda/risposta, fare clic sull'icona **Elimina** all'estrema destra della riga. Si tratta di un'operazione definitiva. Non può essere modificata. Provare a esportare la Knowledge base dalla pagina di **pubblicazione** prima di eliminare i set.
+Per eliminare una coppia domanda/risposta, fare clic sull'icona **Elimina** all'estrema destra della riga. Si tratta di un'operazione definitiva. Non può essere modificata. Prendere in considerazione la possibilità di esportare la knowledge base dalla pagina **Pubblica** prima di eliminare le coppie.
 
 ![Eliminare una coppia domanda/risposta](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Non è possibile collegare coppie QnA nei metadati della risposta.
 
 ## <a name="add-metadata"></a>Aggiungere metadati
 
-Aggiungere i set di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando Mostra **metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il **+** segno per aggiungere un set di metadati. Questo set è costituito da una chiave e un valore.
+Aggiungere le coppie di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando **Mostra metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il **+** segno per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salva le modifiche apportate alle coppie QnA
 
