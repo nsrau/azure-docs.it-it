@@ -17,6 +17,9 @@
           href: container-registry-get-started-portal.md
         - name: Creare un registro contenitori - PowerShell
           href: container-registry-get-started-powershell.md
+        - name: Creare un registro contenitori - Modello di Resource Manager
+          displayName: Resource Manager
+          href: container-registry-get-started-geo-replication-template.md
         - name: Inviare eventi a Griglia di eventi - Interfaccia della riga di comando
           href: container-registry-event-grid-quickstart.md
         - name: Compilare immagini Java ed eseguirne il push - Interfaccia della riga di comando
@@ -107,6 +110,8 @@
                   href: container-registry-auth-service-principal.md
                 - name: Eseguire l'autenticazione con un'identità gestita
                   href: container-registry-authentication-managed-identity.md
+                - name: Eseguire l'autenticazione con il token (anteprima)
+                  href: container-registry-repository-scoped-permissions.md
                 - name: Eseguire l'autenticazione da Istanze di Azure Container
                   href: container-registry-auth-aci.md
                 - name: Eseguire l'autenticazione da Kubernetes con un segreto per il pull
