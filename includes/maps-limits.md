@@ -1,32 +1,32 @@
 ---
-title: includere il file
+title: File di inclusione
 description: File di inclusione
 services: azure maps
-author: jinzh-azureiot
+author: anastasia-ms
 ms.service: azure-maps
 ms.topic: include
-ms.date: 11/29/2018
-ms.author: jinzh
+ms.date: 05/01/2020
+ms.author: v-stharr
 ms.custom: include file
-ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9eafc1ee2d873fbb0602c932eab57c45ddaeac08
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81007838"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673017"
 ---
-La tabella seguente illustra il limite di utilizzo per il piano tariffario di Azure Maps S0. Il limite di utilizzo dipende dal piano tariffario. 
+La tabella seguente mostra il limite di utilizzo per il piano tariffario S0 di Mappe di Azure. Il limite di utilizzo dipende dal piano tariffario.
 
 | Risorsa                              | Limite piano tariffario S0 |
 |---------------------------------------|:---------------------:|
 | Frequenza massima di richieste per sottoscrizione |   50 richieste al secondo  |
 
+La tabella seguente mostra il limite cumulativo relativo alle dimensioni dei dati per gli account Mappe di Azure in una sottoscrizione di Azure. Il servizio dati di Mappe di Azure è disponibile soltanto con il piano tariffario S1.
 
-La tabella seguente mostra il limite per le dimensioni dei dati per le mappe di Azure. Il servizio dati Maps di Azure è disponibile solo nel piano tariffario S1.
+| Risorsa                               | Limite  |
+|----------------------------------------|:---------------------:|
+| Archiviazione massima per sottoscrizione di Azure |   1 GB |
+| Dimensioni massime per caricamento file           | 100 MB |
 
-| Risorsa                              | Limite |
-|---------------------------------------|:---------------------:|
-| Dimensione massima dei dati |   50 MB  |
 
-
-Per altre informazioni sui piani tariffari di Azure Maps, vedere [prezzi di Maps di Azure](https://azure.microsoft.com/pricing/details/azure-maps/).
+Per altre informazioni sui piani tariffari di Mappe di Azure, vedere [Prezzi di Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/).

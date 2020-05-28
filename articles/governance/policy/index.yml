@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 05/20/2020
-  ms.openlocfilehash: 347e60c8b0c50db1bdba7c8262701542448fe12a
-  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+  ms.openlocfilehash: de9d2a95a19872e8f62a6ca412dabadadbfec3fb
+  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83682081"
+  ms.lasthandoff: 05/26/2020
+  ms.locfileid: "83849927"
 landingContent:
 - title: Informazioni su Criteri di Azure
   linkLists:
@@ -91,10 +91,12 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Domande e risposte Microsoft per Criteri di Azure
+      url: /answers/topics/azure-policy.html
     - text: Canale dedicato alla governance di Azure su YouTube
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Richiedere funzionalità per il prodotto
-      url: https://feedback.azure.com/forums/915958-azure-governance
+      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
     - text: Community tecnica per la governance di Azure
       url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 - title: Informazioni di riferimento
