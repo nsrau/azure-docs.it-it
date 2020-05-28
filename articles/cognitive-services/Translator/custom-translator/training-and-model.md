@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 71f1e3f460fa58b999af0a60c8cffa90c8ac8cd4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc81b0c01bf749bf7f643833026e364fa7c8ebd2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219456"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996330"
 ---
 # <a name="what-are-trainings-and-models"></a>Cosa sono i training e i modelli?
 
@@ -27,7 +27,7 @@ Se vengono forniti solo i dati di training durante l'accodamento di un training,
 
 I documenti inclusi nel set di training vengono utilizzati da Custom Translator come base per la compilazione del modello. Durante l'esecuzione del training, le frasi presenti in questi documenti vengono allineate (o abbinate). È possibile comporre liberamente i set di documenti di training. È possibile includere in un unico modello i documenti che si ritiene siano di rilevanza tangenziale. Anche in questo caso escluderli in un altro per visualizzare l'impatto in [punteggio BLEU (Bilingual Evaluation Understudy)](what-is-bleu-score.md). Purché si mantengono costanti il set di ottimizzazione e di test, è possibile sperimentare la composizione del set di training. Questo approccio è un modo efficace per modificare la qualità del sistema di traduzione.
 
-È possibile eseguire più training all'interno di un progetto e confrontare i [punteggi BLEU](what-is-bleu-score.md) in tutte le esecuzioni di training. Quando si eseguono più training per il confronto, assicurarsi che siano specificati gli stessi set di dati di ottimizzazione / test ogni volta. Assicurarsi anche di ispezionare manualmente anche i risultati nella scheda ["Test"](how-to-view-system-test-results.md).
+È possibile eseguire più training all'interno di un progetto e confrontare i [punteggi BLEU](what-is-bleu-score.md) in tutte le esecuzioni di training. Quando si eseguono più training per il confronto, assicurarsi che siano specificati gli stessi set di dati di ottimizzazione / test ogni volta. Assicurarsi anche di controllare i risultati manualmente nella scheda ["test"](how-to-view-system-test-results.md) .
 
 ## <a name="tuning-document-type-for-custom-translator"></a>Tipo di documento di ottimizzazione per il convertitore personalizzato
 

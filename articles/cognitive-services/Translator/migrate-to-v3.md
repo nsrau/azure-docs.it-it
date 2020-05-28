@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592713"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996211"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migrazione da convertitore V2 a V3
 
@@ -32,19 +32,19 @@ Alla fine di questo documento sono riportati collegamenti utili per avere maggio
 
 * Senza tracciabilità: nella V3 la funzione Senza tracciabilità si applica a tutti i piani tariffari nel portale di Azure. Questa funzionalità indica che nessun testo inviato all'API V3 verrà salvato da Microsoft.
 * JSON: XML viene sostituito da JSON. Tutti i dati inviati al servizio e ricevuti dal servizio sono in formato JSON.
-* Più lingue di destinazione in una singola richiesta: il metodo "Translate" accetta più lingue di destinazione per la traduzione in una singola richiesta. Ad esempio, una singola richiesta può essere ''dalla'' lingua inglese e ''alla'' lingua tedesca, spagnola e giapponese o qualsiasi altro gruppo di lingue.
-* Dizionario bilingue: all'API è stato aggiunto un metodo "Bilingual dictionary". Questo metodo include ''lookup'' (ricerca) e ''examples'' (esempi).
+* Più lingue di destinazione in una singola richiesta: il metodo translate accetta più lingue ' to ' per la conversione in un'unica richiesta. Una singola richiesta, ad esempio, può essere ' from ' English and ' to ' German, spagnolo, giapponese o qualsiasi altro gruppo di lingue.
+* Dizionario bilingue: all'API è stato aggiunto un metodo "Bilingual dictionary". Questo metodo include ' Lookup ' ed ' Examples '.
 * Traslitterazione: all'API è stato aggiunto un metodo "Transliterate". Questo metodo convertirà parole e frasi in un unico script (ad esempio in arabo) in un altro script (ad esempio in latino).
-* Lingue: un nuovo metodo "Languages" offre informazioni sulla lingua, in formato JSON, per l'utilizzo con i metodi "translate", "dictionary" e "transliterate".
-* Novità di Translate: sono state aggiunte nuove funzioni per il metodo "Translate", in modo da supportare alcune delle funzionalità dell'API V2 come metodi separati. Un esempio è TranslateArray.
+* Lingue: un nuovo metodo "languages" fornisce informazioni sulla lingua, in formato JSON, da usare con i metodi ' translate ',' Dictionary ' è transliterate '.
+* Novità di translate: nuove funzionalità sono state aggiunte al metodo ' translate ' per supportare alcune delle funzionalità incluse nell'API v2 come metodi distinti. Un esempio è TranslateArray.
 * Pronunciare il metodo: la funzionalità di sintesi vocale non è più supportata in Microsoft Translator. La funzionalità di sintesi vocale è disponibile nel [servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi della versione 3 che forniranno le funzionalità della versione 2.
 
 | Metodo API V2   | Compatibilità API V3 |
 |:----------- |:-------------|
-| `Translate`     | [Traduci](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Traduci](reference/v3-0-translate.md)        |
+| `Translate`     | [Translate](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Linguaggi](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Linguaggi](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
@@ -86,7 +86,7 @@ Microsoft Translator V3 ha lo stesso prezzo della V2; per ogni carattere, inclus
 
 ## <a name="v3-end-points"></a>Obiettivi della V3
 
-Globale
+Global
 
 * api.cognitive.microsofttranslator.com
 
@@ -116,10 +116,10 @@ Microsoft Translator V3 usa la traduzione neurale automatica per impostazione pr
 
 La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, tecnologia, generalnn).
 
-| |Endpoint|    Conformità al processore GDPR|  Usare l'Hub di Translator| Usare il traduttore personalizzato (anteprima)|
+| |Endpoint|    Conformità al processore GDPR|    Usare l'Hub di Translator|    Usare il traduttore personalizzato (anteprima)|
 |:-----|:-----|:-----|:-----|:-----|
-|Traduttore versione 2|  api.microsofttranslator.com|    No  |Sì    |No|
-|Translator versione 3|  api.cognitive.microsofttranslator.com|  Sì|    No| Sì|
+|Traduttore versione 2|    api.microsofttranslator.com|    No    |Sì    |No|
+|Translator versione 3|    api.cognitive.microsofttranslator.com|    Sì|    No|    Sì|
 
 **Translator versione 3**
 * È disponibile a livello generale e completamente supportata.
