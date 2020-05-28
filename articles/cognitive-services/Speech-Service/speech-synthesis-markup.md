@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714322"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017770"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -57,9 +57,9 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Obbligatoria |
-| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Obbligatoria |
-| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Obbligatoria |
+| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Necessario |
+| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Necessario |
+| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Necessario |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Scegliere una voce per la sintesi vocale
 
@@ -100,7 +100,7 @@ All'interno dell' `speak` elemento è possibile specificare più voci per l'outp
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
+| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Necessario |
 
 > [!IMPORTANT]
 > Più voci non sono compatibili con la funzionalità per i confini di parola. Per poter usare più voci, è necessario disabilitare la funzionalità di confine di parola.
@@ -330,7 +330,7 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Set di telefono universale</li></ul><br>L'alfabeto si applica solo a `phoneme` nell'elemento. | Facoltativo |
+| `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Set di telefono universale</a></li></ul><br>L'alfabeto si applica solo a `phoneme` nell'elemento. | Facoltativo |
 | `ph` | Stringa contenente i telefoni che specificano la pronuncia della parola nell' `phoneme` elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
 **Esempi**
@@ -574,7 +574,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatoria |
+| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Necessario |
 | `format` | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativo |
 | `detail` | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail` . | Facoltativo |
 
