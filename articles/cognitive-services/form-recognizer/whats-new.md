@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627994"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996823"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -27,11 +27,10 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 ### <a name="new-features"></a>Nuove funzionalità
 * **Supporto dell'SDK per l'anteprima pubblica dell'API di riconoscimento moduli v 2.0** Questo mese abbiamo ampliato il supporto tecnico per includere un SDK di anteprima per il rilascio di form Recognizer v 2.0 (anteprima). Usare i collegamenti seguenti per iniziare a usare la lingua preferita: 
-   * [.NET SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
-   * [SDK per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
-
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [SDK per Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
   Il nuovo SDK supporta tutte le funzionalità dell'API REST v 2.0 per il riconoscimento del modulo. Ad esempio, è possibile eseguire il training di un modello con o senza etichette ed estrarre il testo, le coppie chiave-valore e le tabelle dai moduli, estrarre i dati dalle ricevute con il servizio ricevute predefinite ed estrarre il testo e le tabelle con il servizio di layout dai documenti. È possibile condividere commenti e suggerimenti sugli SDK tramite il [modulo feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -39,6 +38,10 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
    * [Genera un'autorizzazione di copia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) API REST
    * [Copiare un modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) API REST 
 
+### <a name="security-improvements"></a>Miglioramenti della sicurezza
+
+* Le chiavi gestite dal cliente sono ora disponibili per FormRecognizer. Per altre informazioni, vedere [crittografia dei dati inattivi per il riconoscimento del modulo](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Usare le identità gestite per accedere alle risorse di Azure con Azure Active Directory. Per altre informazioni, vedere [autorizzare l'accesso alle identità gestite](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Marzo 2020 
 
@@ -64,7 +67,7 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
   > [!div class="mx-imgBorder"]
   > ![Visualizzazione delle tabelle mediante lo strumento di assegnazione di etichette di esempio](./media/whats-new/formre-table-viz.png)
 
-    Le tabelle estratte sono disponibili nell'output JSON sotto `"pageResults"`.
+    Le tabelle estratte sono disponibili nell'output JSON sotto `"pageResults"` .
 
   > [!IMPORTANT]
   > L'assegnazione di etichette alle tabelle non è supportata. Se le tabelle non vengono riconosciute e extrated automaticamente, è possibile contrassegnarle solo come coppie chiave/valore. Quando si etichettano le tabelle come coppie chiave/valore, etichettare ogni cella come valore univoco.
@@ -81,7 +84,7 @@ Per altre informazioni sullo strumento per l'assegnazione di etichette di esempi
 
 ### <a name="tls-12-enforcement"></a>Imposizione di TLS 1.2
 
-TLS 1,2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [sicurezza dei servizi cognitivi di Azure](../cognitive-services-security.md).
+TLS 1.2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [Sicurezza di Servizi cognitivi di Azure](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Gennaio 2020
 

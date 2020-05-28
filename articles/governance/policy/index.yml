@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 05/20/2020
-  ms.openlocfilehash: de9d2a95a19872e8f62a6ca412dabadadbfec3fb
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: b28cae1fd59e863c04d744a5c17108f1bd942a4d
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849927"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84119358"
 landingContent:
 - title: Informazioni su Criteri di Azure
   linkLists:
@@ -92,7 +92,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Domande e risposte Microsoft per Criteri di Azure
-      url: /answers/topics/azure-policy.html
+      url: /answers/topics/azure-policy.html.html
     - text: Canale dedicato alla governance di Azure su YouTube
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Richiedere funzionalità per il prodotto
