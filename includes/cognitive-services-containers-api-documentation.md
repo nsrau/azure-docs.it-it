@@ -13,7 +13,7 @@ ms.locfileid: "70034436"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Verificare che il contenitore sia in esecuzione 
 
-Per verificare se il contenitore è in esecuzione, sono disponibili diverse opzioni. Individuare l'indirizzo *IP esterno* e la porta esposta del contenitore in questione e aprire il Web browser preferito. Usare i vari URL di richiesta indicati di seguito per verificare che il contenitore sia in esecuzione. Gli URL di richiesta di esempio elencati `http://localhost:5000`di seguito sono, ma il contenitore specifico può variare. Tenere presente che si sta per fare affidamento sull'indirizzo *IP esterno* del contenitore e sulla porta esposta.
+Per verificare se il contenitore è in esecuzione, sono disponibili diverse opzioni. Individuare l'indirizzo *IP esterno* e la porta esposta del contenitore in questione e aprire il Web browser preferito. Usare i vari URL di richiesta indicati di seguito per verificare che il contenitore sia in esecuzione. Gli URL di richiesta di esempio elencati `http://localhost:5000` di seguito sono, ma il contenitore specifico può variare. Tenere presente che si sta per fare affidamento sull'indirizzo *IP esterno* del contenitore e sulla porta esposta.
 
 | URL richiesta | Scopo |
 |--|--|

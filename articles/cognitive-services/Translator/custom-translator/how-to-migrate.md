@@ -6,25 +6,25 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586999"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992896"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
 È possibile eseguire facilmente la migrazione dell'area di lavoro e dei progetti di [Microsoft Translator Hub](https://hub.microsofttranslator.com/) nel traduttore personalizzato. La migrazione viene avviata da Microsoft Hub selezionando un'area di lavoro o un progetto, quindi selezionando un'area di lavoro nel traduttore personalizzato e infine selezionando i training da trasferire. Dopo l'avvio della migrazione, le impostazioni di training selezionate vengono trasferite con tutti i documenti rilevanti. I modelli distribuiti vengono sottoposti a training e possono essere distribuiti automaticamente dopo il completamento.
 
 Durante la migrazione vengono eseguite queste operazioni:
-* Per tutti i documenti e le definizioni dei progetti, i nomi verranno trasferiti con l'aggiunta del prefisso "hub_". I dati di ottimizzazione e i test generati automaticamente saranno denominati hub_systemtune_\<modelid> o hub_systemtest_\<modelid>.
+* Tutti i documenti e le definizioni di progetto avranno i rispettivi nomi trasferiti con l'aggiunta di "hub_" con prefisso il nome. I dati di ottimizzazione e test generati automaticamente saranno denominati hub_systemtune_\<modelid> o hub_systemtest_\<modelid>.
 * Tutti i training nello stato distribuito al momento della migrazione verranno automaticamente sottoposti a training usando i documenti di training dell'hub. I costi per questo training non verranno addebitati nella sottoscrizione. Se per la migrazione è stata selezionata la distribuzione automatica, il modello sottoposto a training verrà distribuito dopo il completamento. Verranno applicati i normali costi di hosting.
 * Eventuali training di cui è stata eseguita la migrazione non nello stato distribuito verranno impostati nello stato di bozza sottoposta a migrazione. In questo stato, è possibile eseguire il training di un modello con la definizione migrata, ma verranno addebitati i costi di training standard.
-* In qualsiasi momento, il punteggio BLEU migrato dal training dell'hub è disponibile nella pagina TrainingDetails del modello sotto l'intestazione "Bleu score in MT Hub".
+* In qualsiasi momento, il Punteggio BLEU migrato dalla formazione dell'hub è disponibile nella pagina TrainingDetails del modello nell'intestazione "Punteggio Bleu nell'hub MT".
 
 > [!Note] 
 > Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
@@ -92,7 +92,7 @@ Per eseguire la migrazione di un'area di lavoro:
 
 ## <a name="migration-history"></a>Cronologia della migrazione
 
-Se è stata richiesta la migrazione dell'area di lavoro e dei progetti da Hub, nella pagina delle impostazioni di Custom Translator sarà disponibile la cronologia della migrazione.
+Quando è stata richiesta la migrazione dell'area di lavoro/progetto dall'hub, la cronologia della migrazione è presente nella pagina Impostazioni conversione personalizzata.
 
 Per visualizzare la cronologia della migrazione, seguire questa procedura:
 
@@ -132,11 +132,11 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
-| Versione API per testo  | V2    | V3  |
-| Personalizzazione SMT | Sì   | No |
-| Personalizzazione NMT | No    | Sì |
-| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
+|Stato delle funzionalità di personalizzazione    | Disponibilità generale    | Disponibilità generale |
+| Versione API per testo    | V2     | V3  |
+| Personalizzazione SMT    | Sì    | No |
+| Personalizzazione NMT    | No    | Sì |
+| Personalizzazione dei nuovi servizi voce unificati    | No    | Sì |
 | Nessuna traccia | Sì | Sì |
 
 ## <a name="new-languages"></a>Nuove lingue

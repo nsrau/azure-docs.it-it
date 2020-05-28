@@ -29,7 +29,7 @@
           href: tutorial-run-ml-model-on-sql-edge.md
 - name: Procedure
   items:
-    - name: Pacchetti di applicazione livello dati e processi di analisi di flusso
+    - name: Distribuire processi di Analisi di flusso
       href: stream-analytics.md
     - name: Configurare la replica
       href: configure-replication.md

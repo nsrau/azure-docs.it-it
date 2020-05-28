@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595572"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994190"
 ---
 # <a name="view-model-details"></a>Visualizzare i dettagli del modello
 
@@ -58,7 +58,7 @@ Per ogni modello nel progetto, vengono visualizzati questi dettagli.
 
 8.  Mono Sentence count (Conteggio frasi mono): illustra il numero totale delle frasi usate come set mono.
 
-9.  Pulsante Deploy (Distribuisci): per un modello correttamente sottoposto a training è disponibile il pulsante Deploy (Distribuisci), se non è ancora stato distribuito. Se un modello è stato distribuito, viene visualizzato un pulsante Undeploy (Annulla distribuzione).
+9.  Pulsante azione di distribuzione: per un modello con training corretto, viene visualizzato il pulsante "Distribuisci" se non è stato distribuito. Se viene distribuito un modello, viene visualizzato il pulsante "Annulla distribuzione".
 
 10. Delete (Elimina): se si vuole eliminare il modello, è possibile usare questo pulsante. L'eliminazione di un modello non elimina alcun documento usato per la creazione di tale modello.
 

@@ -4,12 +4,12 @@ description: I tipi di contenuto includono molti documenti strutturati standard,
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 7c78f9ea261fa636cce50b69524802d0900e9d7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2569832f7f87ed7b8fccbc44e431fa45495ba67
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77650198"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996109"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipi di contenuto dei documenti che è possibile aggiungere a una Knowledge base
 I tipi di contenuto includono molti documenti strutturati standard, ad esempio PDF, DOC e TXT.
@@ -49,4 +49,4 @@ Altre informazioni sulle [linee guida](../reference-document-format-guidelines.m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle informazioni archiviate in un [set di domande e risposte (QnA)](question-answer-set.md).
+Comprendere quali informazioni vengono archiviate in una [coppia di domande e risposte (QnA)](question-answer-set.md).

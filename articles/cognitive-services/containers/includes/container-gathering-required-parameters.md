@@ -17,7 +17,7 @@ ms.locfileid: "80875044"
 ---
 ## <a name="gathering-required-parameters"></a>Raccolta dei parametri obbligatori
 
-Sono disponibili tre parametri primari per tutti i contenitori di servizi cognitivi richiesti. Il contratto di licenza con l'utente finale deve essere presente con un valore pari `accept`a. Sono inoltre necessari un URL dell'endpoint e una chiave API.
+Sono disponibili tre parametri primari per tutti i contenitori di servizi cognitivi richiesti. Il contratto di licenza con l'utente finale deve essere presente con un valore pari a `accept` . Sono inoltre necessari un URL dell'endpoint e una chiave API.
 
 ### <a name="endpoint-uri-endpoint_uri"></a>URI dell'endpoint`{ENDPOINT_URI}`
 

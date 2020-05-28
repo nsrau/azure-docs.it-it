@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595587"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994243"
 ---
 # <a name="view-document-details"></a>Visualizzare i dettagli del documento
 
@@ -22,7 +22,7 @@ Nella pagina contenente l'elenco di documenti vengono visualizzati i primi 10 do
 
 Fare clic su un documento specifico per visualizzare la pagina dei relativi dettagli. Nella pagina dei dettagli del documento viene visualizzato l'elenco delle frasi estratte dal documento.
 
-- Per impostazione predefinita, la lingua di "origine" viene selezionata nel campo a discesa, ma è possibile cambiare impostazione per visualizzare le frasi nella lingua di destinazione.
+- Per impostazione predefinita, la lingua di origine è selezionata nel campo a discesa, ma è possibile impostare la visualizzazione delle frasi nella lingua di destinazione.
 - Per impostazione predefinita vengono visualizzate 20 frasi per pagina. È possibile usare il controllo di paginazione per sfogliare le pagine.
 
 ![dettagli del documento](media/how-to/how-to-view-document-details.png)

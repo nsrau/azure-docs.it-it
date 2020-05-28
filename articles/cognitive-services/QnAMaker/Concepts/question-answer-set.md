@@ -1,29 +1,29 @@
 ---
 title: Knowledge base di progettazione-QnA Maker
-description: Una QnA Maker Knowledge base è costituita da un set di set di domande e risposte (QnA) e metadati facoltativi associati a ogni coppia di QnA.
+description: Una QnA Maker Knowledge base è costituita da un set di coppie di domande e risposte (QnA) e di metadati facoltativi associati a ogni coppia di QnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756796"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992998"
 ---
-# <a name="question-and-answer-set-concepts"></a>Concetti relativi ai set di domande e risposte
+# <a name="question-and-answer-pair-concepts"></a>Concetti delle coppie di domande e risposte
 
-Una Knowledge base è costituita da set di domande e risposte (QnA).  Ogni set ha una sola risposta e un set contiene tutte le informazioni associate a tale _risposta_. Una risposta può somigliare vagamente a una riga di database o a un'istanza di struttura di dati.
+Una Knowledge base è costituita da coppie di domande e risposte (QnA).  Ogni coppia ha una sola risposta e una coppia contiene tutte le informazioni associate a tale _risposta_. Una risposta può somigliare vagamente a una riga di database o a un'istanza di struttura di dati.
 
-## <a name="question-and-answer-sets"></a>Set di domande e risposte
+## <a name="question-and-answer-pairs"></a>Coppie di domande e risposte
 
-Le impostazioni **necessarie** in un set di domande e risposte (QnA) sono:
+Le impostazioni **necessarie** in una coppia di domande e risposte (QnA) sono:
 
 * una **domanda** -testo della query utente, usato per QnA Maker Machine Learning, per allinearsi con il testo della domanda dell'utente con una formulazione diversa, ma con la stessa risposta
-* risposta **: la** risposta del set è la risposta che viene restituita quando una query utente corrisponde alla domanda associata
+* risposta **: la** risposta della coppia è la risposta che viene restituita quando una query utente corrisponde alla domanda associata
 
-Ogni set è rappresentato da un **ID**.
+Ogni coppia è rappresentata da un **ID**.
 
-Le impostazioni **facoltative** per un set includono:
+Le impostazioni **facoltative** per una coppia includono:
 
 * **Forme alternative della domanda** : Questo consente di QnA Maker restituire la risposta corretta per una più ampia gamma di formulazioni di domande
 * **Metadati**: i metadati sono tag associati a una coppia di QnA e sono rappresentati come coppie chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.

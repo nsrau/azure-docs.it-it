@@ -113,8 +113,6 @@
           href: how-to/ingress-https-nginx.md
         - name: Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes (anteprima)
           href: how-to/connect.md
-        - name: Configurare il cluster di Azure Dev Spaces per l'uso di Helm 3 (anteprima)
-          href: how-to/helm-3.md
     - name: Risoluzione dei problemi
       href: troubleshooting.md
     - name: Domande frequenti

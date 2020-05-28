@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592237"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995786"
 ---
 # <a name="request-limits-for-translator"></a>Limiti delle richieste per il traduttore
 
@@ -27,14 +27,14 @@ Ogni richiesta di conversione è limitata a 5.000 caratteri, in tutte le lingue 
 
 Nella tabella seguente sono elencati i limiti degli elementi e dei caratteri della matrice per ogni operazione del traduttore.
 
-| Operazione | Dimensione massima dell'elemento della matrice |   Numero massimo di elementi di matrice |  Dimensioni massime richiesta (caratteri) |
+| Operazione | Dimensione massima dell'elemento della matrice |    Numero massimo di elementi di matrice |    Dimensioni massime richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Translate | 5\.000 | 100   | 5\.000 |
-| Transliterate | 5\.000 | 10    | 5\.000 |
-| Detect | 10,000 | 100 |   50.000 |
-| BreakSentence | 10,000    | 100 | 50.000 |
-| Ricerca nel dizionario| 100 |  10  | 1\.000 |
-| Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|   2\.000 |
+| Translate | 5\.000    | 100    | 5\.000 |
+| Transliterate | 5\.000    | 10    | 5\.000 |
+| Detect | 10,000 |    100 |    50.000 |
+| BreakSentence | 10,000    | 100 |    50.000 |
+| Ricerca nel dizionario| 100 |    10    | 1\.000 |
+| Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|    2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 
@@ -82,4 +82,4 @@ Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cogni
 
 * [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilità a livello di area](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [riferimenti per convertitori V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Informazioni di riferimento su Traduttore v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
