@@ -48,12 +48,14 @@
   items:
     - name: Tipi di entità denominati
       href: named-entity-types.md
-    - name: Supporto per le lingue
+    - name: Lingue supportate
       href: language-support.md
     - name: Offset per il testo
       href: concepts/text-offsets.md
     - name: Limiti dei dati
       href: concepts/data-limits.md
+    - name: Gestione della versione dei modelli
+      href: concepts/model-versioning.md
 - name: Guide pratiche
   items:
     - name: Chiamare l'API Analisi del testo
@@ -76,7 +78,9 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Usare il servizio Kubernetes
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-- name: Riferimento
+    - name: Eseguire la migrazione alla versione 3 dell'API
+      href: migration-guide.md
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'interfaccia della riga di comando
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
@@ -120,7 +124,7 @@
       href: text-analytics-resource-faq.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -156,6 +156,8 @@
       href: templates-cloud-consistency.md
     - name: Modalità di distribuzione
       href: deployment-modes.md
+    - name: Eliminazioni della cronologia di distribuzione
+      href: deployment-history-deletions.md
     - name: Eliminazione in modalità completa
       href: complete-mode-deletion.md
     - name: Deployment Manager
