@@ -2,13 +2,13 @@
 title: Configurare un servizio QnA Maker-QnA Maker
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402979"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171175"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -59,6 +59,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     La risorsa con il tipo di _Servizi cognitivi_ ha le chiavi di _sottoscrizione_ .
 
+
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Trovare le chiavi di sottoscrizione nel portale di Azure
 
 È possibile visualizzare e reimpostare le chiavi della sottoscrizione dalla portale di Azure, in cui è stata creata la risorsa QnA Maker.
@@ -69,7 +70,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
 2. Vai alle **chiavi**:
 
-    ![Chiave di sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Chiave della sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi degli endpoint nel portale di QnA Maker
 
@@ -117,7 +118,7 @@ Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzio
 
 Se si prevede di avere molte Knowledge base, aggiornare il piano tariffario del servizio ricerca cognitiva di Azure.
 
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A tale scopo, attenersi alla seguente procedura:
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
 
 1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
 
@@ -145,7 +146,7 @@ Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di r
 
 Il runtime di QnAMaker fa parte dell'istanza del servizio app Azure distribuita quando si [Crea un servizio QnAMaker](./set-up-qnamaker-service-azure.md) nel portale di Azure. Vengono applicati aggiornamenti periodici al runtime. L'istanza del servizio app QnA Maker è in modalità di aggiornamento automatico dopo la versione dell'estensione del sito aprile 2019 (versione 5 +). Questo aggiornamento è stato progettato per gestire il tempo di inattività durante gli aggiornamenti.
 
-È possibile controllare la versione corrente in https://www.qnamaker.ai/UserSettings. Se la versione è precedente alla versione 5. x, è necessario riavviare il servizio app per applicare gli aggiornamenti più recenti:
+È possibile controllare la versione corrente in https://www.qnamaker.ai/UserSettings . Se la versione è precedente alla versione 5. x, è necessario riavviare il servizio app per applicare gli aggiornamenti più recenti:
 
 1. Passare al servizio QnAMaker (gruppo di risorse) nell' [portale di Azure](https://portal.azure.com).
 
@@ -206,9 +207,32 @@ Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile 
     > ![Nel riquadro Configurazione selezionare * * Impostazioni generali * *, quindi trova * * always on * * e selezionare * * on * * come valore.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
 
 1. Selezionare **Salva** per salvare la configurazione.
-1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Selezionare **Continua**.
+1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Seleziona **Continua**.
 
 Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
+
+## <a name="business-continuity-with-traffic-manager"></a>Continuità aziendale con gestione traffico
+
+L'obiettivo primario del piano di continuità aziendale è creare un endpoint di Knowledge Base resiliente che garantisca l'assenza di tempi di inattività per il bot o l'applicazione che ne fa uso.
+
+> [!div class="mx-imgBorder"]
+> ![Piano di continuità aziendale QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+L'idea generale è la seguente:
+
+1. Impostare due [servizi QnA Maker](set-up-qnamaker-service-azure.md) paralleli in [aree associate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Eseguire il backup](../../../app-service/manage-backup.md) del servizio app QnA Maker primario e [ripristinarlo](../../../app-service/web-sites-restore.md) nell'installazione secondaria. In questo modo, entrambe le configurazioni funzioneranno con lo stesso nome host e le stesse chiavi.
+
+1. Mantieni sincronizzati gli indici di ricerca di Azure primaria e secondaria. Usare l'esempio GitHub [qui](https://github.com/pchoudhari/QnAMakerBackupRestore) per informazioni su come eseguire il backup e ripristinare gli indici di Azure.
+
+1. Eseguire il backup di Application Insights usando l'[esportazione continua](../../../application-insights/app-insights-export-telemetry.md).
+
+1. Una volta impostati gli stack primario e secondario, usare [Gestione traffico](../../../traffic-manager/traffic-manager-overview.md) per configurare i due endpoint e impostare un metodo di routing.
+
+1. È necessario creare un Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL), certificato per l'endpoint di gestione traffico. [Associare il certificato TLS/SSL](../../../app-service/configure-ssl-bindings.md) nei servizi app.
+
+1. Usare infine l'endpoint di Gestione traffico nel bot o nell'app.
 
 ## <a name="delete-azure-resources"></a>Eliminare le risorse di Azure
 
@@ -219,4 +243,4 @@ Se si elimina una delle risorse di Azure usate per le knowledge base di QnA Make
 Altre informazioni sul servizio [app](../../../app-service/index.yml) e il [servizio di ricerca](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Creare e pubblicare una knowledge base](../Quickstarts/create-publish-knowledge-base.md)
+> [Informazioni su come creare con altri utenti](../how-to/collaborate-knowledge-base.md)

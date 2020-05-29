@@ -58,6 +58,8 @@
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Applicazione gestita
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Hub di notifica
+          href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Policy
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Resource Graph
@@ -144,7 +146,7 @@
           href: deployment-manager-tutorial-health-check.md
 - name: Esempi
   items:
-    - name: Modelli di avvio rapido di Azure
+    - name: Modelli di Guida introduttiva di Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Esempi di modelli
       href: template-samples.md
