@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Rete virtuale
       href: virtual-networks-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare una rete virtuale - Portale
       href: quick-create-portal.md
@@ -80,8 +80,10 @@
           href: virtual-network-for-azure-services.md
     - name: Servizi IP
       items:
-        - name: Indirizzamento IP
-          href: virtual-network-ip-addresses-overview-arm.md
+        - name: Indirizzi IP pubblici
+          href: public-ip-addresses.md
+        - name: Indirizzi IP privati
+          href: private-ip-addresses.md
         - name: Prefisso di indirizzo IP pubblico
           href: public-ip-address-prefix.md
         - name: IPv6 per la rete virtuale di Azure

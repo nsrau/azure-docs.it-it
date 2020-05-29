@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Avviare un'app Spring Cloud tramite il portale
@@ -73,6 +73,8 @@
       href: spring-cloud-howto-persistent-storage.md
     - name: Integrare Azure Spring Cloud con le soluzioni di bilanciamento del carico di Azure
       href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring Cloud
+      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
 - name: Distribuzione di DevOps in Azure Spring Cloud
   items:
     - name: CI/CD con DevOps di Azure

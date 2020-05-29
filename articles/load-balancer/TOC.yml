@@ -6,7 +6,7 @@
       href: load-balancer-overview.md
     - name: Domande frequenti
       href: load-balancer-faqs.md
-- name: Guida introduttiva
+- name: Avvio rapido
   items:
     - name: Creare il bilanciamento del carico - Portale
       href: quickstart-load-balancer-standard-public-portal.md
@@ -135,12 +135,14 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Servizio di bilanciamento del carico interno - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
-    - name: Risolvere problemi
-      items:
-        - name: Risolvere i problemi di Azure Load Balancer
-          href: load-balancer-troubleshoot.md
-        - name: Risolvere gli errori di distribuzione comuni
-          href: load-balancer-common-deployment-errors.md
+- name: Risolvere problemi
+  items:
+    - name: Risolvere i problemi di Azure Load Balancer
+      href: load-balancer-troubleshoot.md
+    - name: Risolvere gli errori di distribuzione comuni
+      href: load-balancer-common-deployment-errors.md
+    - name: Risolvere i problemi comuni relativi alle connessioni in uscita
+      href: troubleshoot-outbound-connection.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi di codice

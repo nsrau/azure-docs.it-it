@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Collegamento privato di Azure?
       href: private-link-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare un endpoint privato - Portale
       href: create-private-endpoint-portal.md
@@ -12,6 +12,8 @@
       href: create-private-endpoint-powershell.md
     - name: Creare un endpoint privato - Interfaccia della riga di comando di Azure
       href: create-private-endpoint-cli.md
+    - name: Creare un endpoint privato - Modello di Resource Manager
+      href: create-private-endpoint-template.md
     - name: Creare un servizio Collegamento privato - Portale
       href: create-private-link-service-portal.md
     - name: Creare un servizio Collegamento privato - PowerShell
