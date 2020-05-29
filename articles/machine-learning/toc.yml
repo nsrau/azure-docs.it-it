@@ -452,8 +452,6 @@
     - name: Informazioni di riferimento sui moduli della finestra di progettazione
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
-    - name: ML su larga scala
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Informazioni di riferimento sui dati del monitoraggio
       href: monitor-resource-reference.md
     - name: Informazioni di riferimento sulla pipeline di Machine Learning in YAML

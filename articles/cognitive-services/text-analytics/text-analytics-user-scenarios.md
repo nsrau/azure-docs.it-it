@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219247"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141815"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Scenari utente di esempio per l'API di Analisi di testo
 
@@ -41,7 +41,7 @@ Usare l'estrazione di frasi chiave e il riconoscimento di entità per elaborare 
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Monitorare i feed di social media del prodotto
 
-Monitorare i commenti e suggerimenti degli utenti sul prodotto nella pagina Twitter o Facebook del prodotto. Usare i dati per analizzare il sentiment dei clienti verso il lancio di nuovi prodotti, estrarre le frasi chiave sulle funzionalità e le richieste di funzionalità o rispondere ai reclami dei clienti in tempo reale. Vedere l'esempio [Modello di Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Monitorare il feedback del prodotto utente sulla pagina Twitter o Facebook del prodotto. Usare i dati per analizzare il sentiment dei clienti verso il lancio di nuovi prodotti, estrarre le frasi chiave sulle funzionalità e le richieste di funzionalità o rispondere ai reclami dei clienti in tempo reale. Vedere l'esempio [Modello di Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Immagine che illustra come monitorare i commenti sul prodotto e sull'azienda sui social media usando l'estrazione di frasi chiave](media/use-cases/social-feed.svg)
 
@@ -50,6 +50,13 @@ Monitorare i commenti e suggerimenti degli utenti sul prodotto nella pagina Twit
 Usare il riconoscimento delle entità denominato per identificare le informazioni personali e riservate nei documenti. Usare i dati per classificare i documenti o offuscare in modo che possano essere condivisi in modo sicuro.
 
 ![Un'immagine che descrive come usare NER per rilevare le informazioni personali e classificare e offuscare i documenti](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>Esecuzione di Opinion Mining
+
+Raggruppare le opinioni relative a aspetti specifici di un prodotto o di un servizio in sondaggi, commenti e suggerimenti dei clienti o laddove il testo tenga un'opinione su un aspetto. È possibile usarlo per guidare i lanci dei prodotti e i miglioramenti, le attività di marketing o evidenziare le prestazioni del prodotto o del servizio. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Esempi di opinioni su un hotel.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

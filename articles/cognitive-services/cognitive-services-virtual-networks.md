@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588342"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148090"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare le reti virtuali dei servizi cognitivi di Azure
 
@@ -70,7 +70,7 @@ Oltre a supportare gli endpoint servizio di rete virtuale per i servizi preceden
 > * [Personalizza esperienze](./personalizer/index.yml)
 > * [Analisi del testo](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Traduttore](./translator/index.yml)
+> * [Translator](./translator/index.yml)
 > * [Servizio di riconoscimento vocale](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificare la regola predefinita di accesso alla rete
@@ -484,6 +484,68 @@ Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md) in locale
 
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+
+## <a name="use-private-endpoints"></a>Usare endpoint privati
+
+È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per le risorse di servizi cognitivi per consentire ai client in una rete virtuale (VNet) di accedere in modo sicuro ai dati tramite un [collegamento privato](../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP dello spazio di indirizzi di VNet per la risorsa di servizi cognitivi. Il traffico di rete tra i client nella VNet e la risorsa attraversa il VNet e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
+
+Gli endpoint privati per le risorse di servizi cognitivi ti permettono di:
+
+- Proteggere la risorsa Servizi cognitivi configurando il firewall in modo da bloccare tutte le connessioni nell'endpoint pubblico per il servizio Servizi cognitivi.
+- Aumentare la sicurezza per VNet, consentendo di bloccare exfiltration di dati da VNet.
+- Connettersi in modo sicuro alle risorse di servizi cognitivi da reti locali che si connettono alla VNet tramite [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../expressroute/expressroute-locations.md) con peering privato.
+
+### <a name="conceptual-overview"></a>Informazioni generali
+
+Un endpoint privato è un'interfaccia di rete speciale per un servizio di Azure nella [VNet](../virtual-network/virtual-networks-overview.md). Quando si crea un endpoint privato per la risorsa Servizi cognitivi, fornisce connettività sicura tra i client nella VNet e la risorsa. All'endpoint privato viene assegnato un indirizzo IP dall'intervallo di indirizzi IP della VNet. La connessione tra l'endpoint privato e il servizio Servizi cognitivi usa un collegamento privato protetto.
+
+Le applicazioni in VNet possono connettersi al servizio tramite l'endpoint privato senza interruzioni, usando le stesse stringhe di connessione e i meccanismi di autorizzazione che verrebbero usati in caso contrario. L'eccezione è il servizio di riconoscimento vocale, che richiede un endpoint separato. Vedere la sezione sugli [endpoint privati con il servizio di riconoscimento vocale](#private-endpoints-with-the-speech-service). Gli endpoint privati possono essere usati con tutti i protocolli supportati dalla risorsa Servizi cognitivi, incluso REST.
+
+Gli endpoint privati possono essere creati in subnet che usano gli [endpoint del servizio](../virtual-network/virtual-network-service-endpoints-overview.md). I client in una subnet possono connettersi a una risorsa di servizi cognitivi usando un endpoint privato, usando gli endpoint di servizio per accedere ad altri utenti.
+
+Quando si crea un endpoint privato per una risorsa di servizi cognitivi in VNet, viene inviata una richiesta di consenso per l'approvazione al proprietario della risorsa Servizi cognitivi. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario della risorsa, questa richiesta di consenso viene approvata automaticamente.
+
+I proprietari delle risorse di servizi cognitivi possono gestire le richieste di consenso e gli endpoint privati, tramite la scheda "*endpoint privati*" per la risorsa Servizi cognitivi nella [portale di Azure](https://portal.azure.com).
+
+### <a name="private-endpoints"></a>Endpoint privati
+
+Quando si crea l'endpoint privato, è necessario specificare la risorsa Servizi cognitivi a cui si connette. Per ulteriori informazioni sulla creazione di un endpoint privato, fare riferimento agli articoli seguenti:
+
+- [Creare un endpoint privato usando il centro collegamenti privati nel portale di Azure](../private-link/create-private-endpoint-portal.md)
+- [Creare un endpoint privato con l'interfaccia della riga di comando di Azure](../private-link/create-private-endpoint-cli.md)
+- [Creare un endpoint privato usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+
+### <a name="connecting-to-private-endpoints"></a>Connessione agli endpoint privati
+
+I client in un VNet che usa l'endpoint privato devono usare la stessa stringa di connessione per la risorsa Servizi cognitivi come client che si connettono all'endpoint pubblico. L'eccezione è il servizio di riconoscimento vocale, che richiede un endpoint separato. Vedere la sezione sugli [endpoint privati con il servizio di riconoscimento vocale](#private-endpoints-with-the-speech-service). Si fa affidamento sulla risoluzione DNS per instradare automaticamente le connessioni dalla VNet alla risorsa Servizi cognitivi tramite un collegamento privato. Il servizio di riconoscimento vocale 
+
+Per impostazione predefinita, viene creata una [zona DNS privata](../dns/private-dns-overview.md) collegata a VNet con gli aggiornamenti necessari per gli endpoint privati. Tuttavia, se si usa il proprio server DNS, potrebbe essere necessario apportare altre modifiche alla configurazione DNS. La sezione sulle [modifiche DNS](#dns-changes-for-private-endpoints) riportata di seguito descrive gli aggiornamenti necessari per gli endpoint privati.
+
+### <a name="private-endpoints-with-the-speech-service"></a>Endpoint privati con il servizio di riconoscimento vocale
+
+Quando si usano endpoint privati con il servizio riconoscimento vocale, è necessario usare un endpoint personalizzato per chiamare l'API del servizio di riconoscimento vocale. Non è possibile usare l'endpoint globale. Usare un endpoint nel formato {account}. {STT | TTS | voce | DLS}. Speech. Microsoft. com.
+
+### <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
+
+Quando si crea un endpoint privato, il record di risorse DNS CNAME per la risorsa Servizi cognitivi viene aggiornato a un alias in un sottodominio con il prefisso '*privatelink*'. Per impostazione predefinita, si crea anche una [zona DNS privata](../dns/private-dns-overview.md), che corrisponde al sottodominio "*privatelink*", con i record di risorse DNS a per gli endpoint privati.
+
+Quando si risolve l'URL dell'endpoint dall'esterno del VNet con l'endpoint privato, questo viene risolto nell'endpoint pubblico della risorsa Servizi cognitivi. Quando viene risolto da VNet che ospita l'endpoint privato, l'URL dell'endpoint viene risolto nell'indirizzo IP dell'endpoint privato.
+
+Questo approccio consente di accedere alla risorsa Servizi cognitivi usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
+
+Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo (FQDN) per l'endpoint della risorsa Servizi cognitivi nell'indirizzo IP dell'endpoint privato. È necessario configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet.
+
+> [!TIP]
+> Quando si usa un server DNS personalizzato o locale, è necessario configurare il server DNS per risolvere il nome della risorsa Servizi cognitivi nel sottodominio "privatelink" all'indirizzo IP dell'endpoint privato. A tale scopo, è possibile delegare il sottodominio "privatelink" alla zona DNS privata del VNet o configurare la zona DNS nel server DNS e aggiungere i record A DNS.
+
+Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
+
+- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configurazione DNS per endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
+### <a name="pricing"></a>Prezzi
+
+Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
