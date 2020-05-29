@@ -72,8 +72,6 @@
         - name: Gestione di risorse
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Creare un piano di continuità aziendale
-          href: How-To/business-continuity-plan.md
         - name: Collaborare
           href: How-To/collaborate-knowledge-base.md
         - name: Attivare l'apprendimento attivo

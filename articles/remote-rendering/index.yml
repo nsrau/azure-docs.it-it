@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: e379515ea34206e21f80ceb23a465858d6d4da81
-  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
+  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/21/2020
-  ms.locfileid: "83773220"
+  ms.lasthandoff: 05/28/2020
+  ms.locfileid: "84142130"
 landingContent:
 - title: Informazioni su Rendering remoto di Azure
   linkLists:
@@ -54,13 +54,13 @@ landingContent:
       url: quickstarts/deploy-to-desktop.md
     - text: Convertire un modello per il rendering
       url: quickstarts/convert-model.md
-- title: Informazioni su come creare un'app personalizzata in Unity
+- title: Informazioni su come creare un'app personalizzata
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: configurazione di un progetto da zero'
+    - text: 'Unity: Configurazione di un progetto da zero'
       url: tutorials/unity/project-setup.md
-    - text: 'Unity: uso di entità remote'
+    - text: 'Unity: Uso di entità remote'
       url: tutorials/unity/working-with-remote-entities.md
     - text: 'Unity: Cambiare ambiente e materiali'
       url: tutorials/unity/changing-environment-and-materials.md

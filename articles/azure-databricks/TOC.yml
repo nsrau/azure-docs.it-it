@@ -7,12 +7,15 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un'area di lavoro di Databricks - Portale
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Creare un'area di lavoro di Databricks - Modello di Resource Manager
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Creare un'area di lavoro di Databricks - Rete virtuale
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: Creare un'area di lavoro
+      items:
+        - name: Portale
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: Modello ARM
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: Rete virtuale
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Esercitazioni
   items:
     - name: Eseguire query su SQL Server in esecuzione in un contenitore Docker

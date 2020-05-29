@@ -8,18 +8,65 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 05/19/2020
 ms.author: aahi
-ms.openlocfilehash: 162e60ac8d33dc5d1951a58b0a9643b668608d7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 32dc7e86d5cd737533a4a6c8b3d9ce7d00795c65
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77188811"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140507"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="may-2020"></a>Maggio 2020
+
+### <a name="text-analytics-api-v3-general-availability"></a>Disponibilità generale API Analisi del testo V3
+
+L'API di analisi del testo V3 è ora disponibile a livello generale con i seguenti aggiornamenti:
+
+* Versione modello`2020-04-01`
+* Nuovi [limiti dei dati](concepts/data-limits.md) per ogni funzionalità
+* [Supporto delle lingue](language-support.md) aggiornato per [analisi del sentiment (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* Endpoint separato per il collegamento di entità 
+* Nuova categoria di entità "Address" in [nome entità riconoscibile (ner) v3](how-tos/text-analytics-how-to-entity-linking.md).
+* Nuove sottocategorie in NER V3:
+   * Località-geografica
+   * Posizione-strutturale
+   * Organizzazione-scambio scorte
+   * Organizzazione-medico
+   * Organizzazione-sport
+   * Evento-culturale
+   * Evento-naturale
+   * Evento-sport
+
+Sono state aggiunte le proprietà seguenti nella risposta JSON:
+   * `SentenceText`in Analisi del sentiment
+   * `Warnings`per ogni documento 
+
+I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se applicabile:
+
+* `score` è stata rinominata `confidenceScore`
+    * `confidenceScore`ha due punti decimali di precisione. 
+* `type` è stata rinominata `category`
+* `subtype` è stata rinominata `subcategory`
+
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su API Analisi del testo V3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
+
+### <a name="text-analytics-api-v31-public-preview"></a>Anteprima pubblica di API Analisi del testo v 3.1
+   * Nuova funzionalità Analisi del sentiment- [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
+   * Nuovo [filtro di `PII` dominio Personal ()](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) per informazioni protette sull'integrità ( `PHI` ).
+   * Nuove categorie personali ( `PII` ):
+      * Classificazione internazionale delle malattie (ICD-9-CM)
+      * Classificazione internazionale delle malattie (ICD-10-CM)
+
+> [!div class="nextstepaction"]
+> [Scopri di più su API Analisi del testo versione 3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ## <a name="february-2020"></a>Febbraio 2020
 
@@ -30,27 +77,27 @@ Nell'ambito della [versione unificata di Azure SDK](https://techcommunity.micros
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
    * [JavaScript (node. js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
-
-> [!div class="nextstepaction"]
+   
+   > [!div class="nextstepaction"]
 > [Scopri di più su API Analisi del testo V3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Anteprima pubblica di riconoscimento entità denominata V3
 
-I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubblica per il riconoscimento delle entità denominate (NER) v3 durante l'espansione del rilevamento di entità di informazioni generali e personali presenti nel testo. Questo aggiornamento introduce la [versione](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2020-02-01`del modello, che include:
+I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubblica per il riconoscimento delle entità denominate (NER) v3 durante l'espansione del rilevamento di entità di informazioni generali e personali presenti nel testo. Questo aggiornamento introduce la [versione del modello](concepts/model-versioning.md) `2020-02-01` , che include:
 
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Event
+    * Evento
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organization
+    * Organizzazione
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * Posta elettronica 
+    * E-mail 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP
@@ -66,7 +113,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 * Separare gli endpoint per il [riconoscimento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e il collegamento delle [entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
-* [Versione](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2019-10-01`del modello, che include:
+* [Versione del modello](concepts/model-versioning.md) `2019-10-01` , che include:
     * Rilevamento espanso e categorizzazione di entità presenti nel testo. 
     * Riconoscimento dei nuovi tipi di entità seguenti:
         * Numero di telefono
@@ -77,13 +124,13 @@ Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguagg
 #### <a name="sentiment-analysis-v3-public-preview"></a>Anteprima pubblica di Analisi del sentiment versione 3
 
 * Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) per analizzare i sentimenti.
-* [Versione](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) `2019-10-01`del modello, che include:
+* [Versione del modello](concepts/model-versioning.md) `2019-10-01` , che include:
 
     * Miglioramenti significativi nell'accuratezza e nei dettagli della categorizzazione e del punteggio del testo dell'API.
     * Assegnazione automatica di etichette per diversi sentimenti nel testo.
     * Analisi dei sentimenti e output a livello di documento e di frase. 
 
-Supporta inglese (`en`), giapponese (`ja`), cinese semplificato (`zh-Hans`), cinese tradizionale (`zh-Hant`), francese (`fr`), Italiano (`it`), spagnolo (`es`), olandese (`nl`), portoghese (`pt`) e tedesco (`de`) ed è disponibile nelle aree seguenti: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`e. `West US 2` 
+Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` ), cinese tradizionale ( `zh-Hant` ), francese ( `fr` ), Italiano ( `it` ), spagnolo ( `es` ), olandese ( `nl` ), portoghese () e `pt` tedesco ( `de` ) ed è disponibile nelle aree seguenti: `Australia East` ,, `Central Canada` `Central US` , `East Asia` , `East US` , `East US 2` , `North Europe` , `Southeast Asia` , `South Central US` , `UK South` , `West Europe` e `West US 2` . 
 
 > [!div class="nextstepaction"]
 > [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
