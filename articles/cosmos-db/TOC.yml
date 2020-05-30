@@ -1146,7 +1146,7 @@
               href: serverless-computing-database.md
             - name: Associazioni di Funzioni di Azure
               href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Data factory di Azure
+        - name: Azure Data Factory
           href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Analisi di flusso di Azure
           href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -1237,6 +1237,8 @@
       href: whitepapers.md
     - name: Partner
       href: partners-migration-cosmosdb.md
+    - name: Pagina delle domande di Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Roadmap per Azure

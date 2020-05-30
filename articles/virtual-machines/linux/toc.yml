@@ -422,6 +422,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Creare una macchina virtuale
                   items:
+                    - name: Specializzata
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Generalizzata
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aggiornare le risorse immagini
