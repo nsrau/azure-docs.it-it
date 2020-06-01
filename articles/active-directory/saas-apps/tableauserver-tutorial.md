@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76986734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648448"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Tableau Server
 
@@ -59,13 +59,13 @@ Per configurare l'integrazione di Tableau Server in Azure AD, è necessario aggi
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-tableau-server"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Tableau Server
 
-Configurare e testare l'accesso SSO di Azure AD con Tableau Server usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Tableau Server.
+Configurare e testare l'accesso SSO di Azure AD con Tableau Server usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Tableau Server.
 
 Per configurare e testare l'accesso SSO di Azure AD con Tableau Server, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso SSO di Tableau Server](#configure-tableau-server-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Tableau Server](#create-tableau-server-test-user)** : per avere una controparte di B.Simon in Tableau Server collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -158,7 +158,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     h. Fare clic su **Save** (Salva).
 
     > [!NOTE]
-    > Il cliente deve caricare eventuali certificati nella configurazione SSO SAML di Tableau Server e il passaggio verrà ignorato nel flusso SSO. Per assistenza nella configurazione di SAML in Tableau Server, vedere questo articolo: [Configure SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm) (Configurazione di SAML).
+    > Il cliente deve caricare un file di certificato X509 con codifica PEM con estensione .crt e un file di chiave privata RSA o DSA con estensione .key come file di chiave del certificato. Per altre informazioni sul file di certificato e sul file di chiave del certificato, fare riferimento a [questo](https://help.tableau.com/current/server/en-us/saml_requ.htm) documento. Per assistenza nella configurazione di SAML in Tableau Server, vedere l'articolo sulla [configurazione SAML a livello di server](https://help.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="create-tableau-server-test-user"></a>Creare l'utente di test di Tableau Server
 

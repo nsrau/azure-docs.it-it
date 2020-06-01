@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78967713"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849196"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
@@ -65,15 +65,15 @@ Per configurare l'integrazione di Salesforce in Azure AD, è necessario aggiunge
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Salesforce
 
-Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
+Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
 
 Per configurare e testare l'accesso SSO di Azure AD con Salesforce, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B. Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
+    * **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B.Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -93,8 +93,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
     Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. Nella casella di testo **URL di risposta** digitare il valore nel formato seguente:
 
-    b. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente:
+    Account aziendale: `https://<subdomain>.my.salesforce.com`
+
+    Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente:
 
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
@@ -145,7 +151,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Salesforce, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
+    ![Estensione App personali](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Salesforce** per passare direttamente all'applicazione Salesforce. Nell'applicazione specificare le credenziali di amministratore per accedere a Salesforce. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 13.
 

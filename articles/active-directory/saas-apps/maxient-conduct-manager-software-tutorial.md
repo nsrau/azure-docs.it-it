@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a657a7d57b3e725b0ae92b5110935c0aecf73f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75533034"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Maxient Conduct Manager Software
 
 Questa esercitazione descrive come integrare Maxient Conduct Manager Software con Azure Active Directory (Azure AD). Integrando Maxient Conduct Manager Software con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a Maxient Conduct Manager Software.
+* Usare Azure AD per autenticare gli utenti per Maxient Conduct Manager Software.
 * Abilitare gli utenti per l'accesso automatico a Maxient Conduct Manager Software con gli account Azure AD personali.
-* Gestire gli account in un'unica posizione centrale: il portale di Azure.
+
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -42,8 +42,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
-
+In questa esercitazione si configurerà Azure AD per l'uso con Maxient Conduct Manager Software.
 
 
 * Maxient Conduct Manager Software supporta l'accesso SSO avviato da **SP e IDP**
@@ -65,16 +64,13 @@ Per configurare l'integrazione di Maxient Conduct Manager Software in Azure AD, 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-maxient-conduct-manager-software"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Maxient Conduct Manager Software
 
-Configurare e testare l'accesso SSO di Azure AD con Maxient Conduct Manager Software usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Maxient Conduct Manager Software.
+Configurare e testare l'accesso SSO di Azure AD con Maxient Conduct Manager Software. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire un collegamento tra Azure AD e Maxient Conduct Manager Software.
 
 Per configurare e testare l'accesso SSO di Azure AD con Maxient Conduct Manager Software, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Maxient Conduct Manager Software](#configure-maxient-conduct-manager-software-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Maxient Conduct Manager Software](#create-maxient-conduct-manager-software-test-user)** : per avere una controparte di B.Simon in Maxient Conduct Manager Software collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso SSO di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di eseguire l'autenticazione per l'uso con Maxient Conduct Manager Software.
+    1. **[Assegnare tutti gli utenti per l'uso di Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** : per consentire a tutti gli utenti dell'organizzazione di eseguire l'autenticazione.
+1. **[configurazione di Azure AD con Maxient](#test-with-maxient)** : per verificare il funzionamento della configurazione e il rilascio degli attributi corretti.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -93,27 +89,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Maxient Conduct Manager Software](mailto:support@maxient.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, rivolgersi al rappresentante dell'implementazione o del supporto di Maxient.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.  Sarà necessario fornire questo UEL al rappresentante dell'implementazione o del supporto tecnico di Maxient.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Assegnare tutti gli utenti per consentire l'autenticazione per Maxient Conduct Manager Software
 
-In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
-1. Selezionare **Nuovo utente** in alto nella schermata.
-1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere `B.Simon`.  
-   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
-
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Maxient Conduct Manager Software.
+In questa sezione si concederà l'accesso a tutti gli account per consentire l'autenticazione per il software di gestione di Maxient tramite il sistema Azure.  È importante notare che questo passaggio è **OBBLIGATORIO** per il corretto funzionamento di Maxient.  Maxient sfrutta il sistema Azure AD per *autenticare* gli utenti. L'*autorizzazione* viene eseguita all'interno del sistema Maxient per la funzione specifica che gli utenti stanno provando a eseguire. Maxient non usa gli attributi dalla directory per prendere tali decisioni.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Maxient Conduct Manager Software**.
@@ -125,24 +109,12 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare tutti gli utenti (o i gruppi appropriati) e **assegnarli** per consentirne l'autenticazione con Maxient.
 
-## <a name="configure-maxient-conduct-manager-software-sso"></a>Configurare l'accesso Single Sign-On di Maxient Conduct Manager Software
+## <a name="test-with-maxient"></a>Eseguire test con Maxient 
 
-Per configurare l'accesso Single Sign-On sul lato **Maxient Conduct Manager Software**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Maxient Conduct Manager Software](mailto:support@maxient.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
-### <a name="create-maxient-conduct-manager-software-test-user"></a>Creare l'utente di test di Maxient Conduct Manager Software
-
-In questa sezione viene creato un utente di nome Britta Simon in Maxient Conduct Manager Software. Collaborare con il [team di supporto di Maxient Conduct Manager Software](mailto:support@maxient.com) per aggiungere gli utenti alla piattaforma Maxient Conduct Manager Software. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
-
-## <a name="test-sso"></a>Testare l'accesso SSO 
-
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
-
-Quando si fa clic sul riquadro di Maxient Conduct Manager Software nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Maxient Conduct Manager Software per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+Se non è stato ancora aperto un ticket di supporto con un rappresentante dell'implementazione o del supporto Maxient, inviare un messaggio di posta elettronica a [support@maxient.com](mailto:support@maxient.com) con oggetto "Campus Based Authentication/Azure Setup - \<\<nome dell'istituto di istruzione\>\>". Nel corpo del messaggio di posta elettronica specificare l'**URL dei metadati di federazione dell'app**. Il personale di Maxient risponderà con un collegamento di test per verificare che gli attributi rilasciati siano corretti.  
+    
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)

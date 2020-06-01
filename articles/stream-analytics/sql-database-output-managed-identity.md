@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 70ad69c1a34f656347b0cf53b28a1c35ac6ad043
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595840"
+ms.locfileid: "83651960"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure da un processo di Analisi di flusso di Azure (anteprima)
 
@@ -56,13 +56,17 @@ Dopo aver creato un'identità gestita, è necessario selezionare un amministrato
 
    ![Pagina Amministratore di Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Nella pagina Amministratore di Active Directory cercare un utente o un gruppo da impostare come amministratore per SQL Server e fare clic su **Seleziona**.  
+1. Nella pagina Amministratore di Active Directory cercare un utente o un gruppo da impostare come amministratore per SQL Server e fare clic su **Seleziona**.
 
    ![Aggiungere un amministratore di Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. Selezionare **Salva** nella pagina **Amministratore di Active Directory**. Il processo per la modifica dell'amministratore può durare alcuni minuti.  
+   La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Per l'elenco degli amministratori supportati, vedere la sezione  **Funzionalità e limitazioni di Azure AD**  in  [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server. Inoltre, l'utente o il gruppo selezionato è l'utente che sarà in grado di creare l'**Utente di database indipendente** nella sezione successiva.
 
-## <a name="create-a-database-user"></a>Creare un utente di database
+1. Selezionare **Salva** nella pagina **Amministratore di Active Directory**. Il processo per la modifica dell'amministratore può durare alcuni minuti.
+
+   Quando si configura l'amministratore di Azure AD il nuovo nome dell'amministratore, utente o gruppo, non può essere presente nel database master virtuale come un utente dell'autenticazione del server SQL. Se il nome è già presente, l'impostazione dell'amministratore di Azure AD avrà esito negativo. Verrà quindi eseguito il rollback del processo di creazione segnalando che un nome di amministratore specificato esiste già. Poiché l'utente dell'autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD con le credenziali di quell'utente ha esito negativo. 
+
+## <a name="create-a-contained-database-user"></a>Creazione di un utente di database indipendente
 
 Successivamente, occorre creare un utente di un database indipendente nel database SQL mappato all'identità di Azure Active Directory. L'utente di un database indipendente non ha un account di accesso per il database master, ma viene mappato a un'identità nella directory associata al database. L'identità di Azure Active Directory può essere un singolo account utente o un gruppo. In questo caso, si vuole creare un utente di un database indipendente per il processo di Analisi di flusso. 
 
@@ -92,15 +96,27 @@ Successivamente, occorre creare un utente di un database indipendente nel databa
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. Affinché Azure Active Directory di Microsoft verifichi se il processo di Analisi di flusso ha accesso al database SQL, è necessario concedere ad Azure Active Directory autorizzazione per la comunicazione con il database. A tale scopo, passare nuovamente alla pagina "Firewall e rete virtuale" nel portale di Azure e abilitare "Consenti ai servizi e alle risorse di Azure di accedere a questo server". 
+
+   ![Firewall e rete virtuale](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## <a name="grant-stream-analytics-job-permissions"></a>Concedere autorizzazioni al processo di Analisi di flusso
 
-Il processo di Analisi di flusso dispone dell'autorizzazione concessa dall'identità gestita per la connessione alla risorsa del database SQL (**CONNECT**). Probabilmente, sarebbe più efficiente consentire al processo di Analisi di flusso di eseguire comandi come **SELECT**. È possibile concedere queste autorizzazioni al processo di Analisi di flusso usando SQL Server Management Studio. Per altre informazioni, vedere la guida di riferimento a [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+Dopo aver creato un utente del database indipendente e dato accesso ai servizi di Azure nel portale, come descritto nella sezione precedente, il processo di Analisi di flusso dispone dell'autorizzazione dall'identità gestita per connettersi **(CONNECT)** alla risorsa del Database SQL tramite identità gestita. Si consiglia di concedere le autorizzazioni SELECT e INSERT al processo di Analisi di flusso, perché saranno necessarie in un secondo momento nel flusso di lavoro di Analisi di flusso. L'autorizzazione **SELECT** consente al processo di testare la connessione alla tabella nel database SQL. L'autorizzazione **INSERT** consente di testare le query di Analisi di flusso end-to-end dopo aver configurato un input e l'output del database SQL. È possibile concedere queste autorizzazioni al processo di Analisi di flusso usando SQL Server Management Studio. Per altre informazioni, vedere la guida di riferimento a [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+
+Per concedere solo l'autorizzazione a una determinata tabella od oggetto nel database, utilizzare la sintassi T-SQL seguente ed eseguire la query. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 In alternativa, è possibile fare clic con il pulsante destro del mouse sul database SQL in SQL Server Management Studio e selezionare **Proprietà > Autorizzazioni**. Dal menu Autorizzazioni è possibile visualizzare il processo di Analisi di flusso aggiunto in precedenza e concedere o negare manualmente le autorizzazioni in base alle esigenze.
 
 ## <a name="create-an-azure-sql-database-output"></a>Creare un output del database SQL di Azure
 
 Ora che l'identità gestita è configurata, si è pronti per aggiungere il database SQL di Azure come output al processo di Analisi di flusso.
+
+Assicurarsi di aver creato una tabella nel database SQL con lo schema di output appropriato. Il nome di questa tabella è una delle proprietà obbligatorie da compilare quando si aggiunge l'output del database SQL al processo di Analisi di flusso. Assicurarsi anche che il processo abbia le autorizzazioni **SELECT** e **INSERT** per testare la connessione ed eseguire query di Analisi di flusso. Vedere la sezione [Concedere autorizzazioni al processo di Analisi di flusso](#grant-stream-analytics-job-permissions) se non è già stato fatto. 
 
 1. Tornare al processo di Analisi di flusso e passare alla pagina **Output** in **Topologia processo**. 
 

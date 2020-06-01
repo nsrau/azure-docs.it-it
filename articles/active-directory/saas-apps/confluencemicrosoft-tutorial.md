@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c020bb70dc26945b013321b2d75cc2e231c39a4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76120590"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Confluence SAML SSO by Microsoft
 
-Questa esercitazione descrive come integrare Confluence SAML SSO by Microsoft con Azure Active Directory (Azure AD). Quando si integra Confluence SAML SSO by Microsoft con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Confluence SAML SSO by Microsoft con Azure Active Directory (Azure AD). Integrando Confluence SAML SSO by Microsoft con Azure AD, è possibile:
 
-* Controllare in Azure AD chi ha accesso a Confluence SAML SSO by Microsoft.
+* Controllare in Azure AD chi può accedere a Confluence SAML SSO by Microsoft.
 * Abilitare gli utenti per l'accesso automatico a Confluence SAML SSO by Microsoft con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
@@ -65,7 +65,7 @@ A tutt'oggi sono supportate le versioni seguenti di Confluence:
 
 - Confluence: da 5.0 a 5.10
 - Confluence: da 6.0.1 a 6.15.9
-- Confluence: da 7.0.1 a 7.1.0
+- Confluence: da 7.0.1 a 7.4.0
 
 > [!NOTE]
 > Si noti che il plug-in Confluence funziona anche in Ubuntu versione 16.04
@@ -78,7 +78,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-confluence-saml-sso-by-microsoft-from-the-gallery"></a>Aggiunta di Confluence SAML SSO by Microsoft dalla raccolta
 
-Per configurare l'integrazione di Confluence SAML SSO by Microsoft in Azure AD è necessario aggiungere Confluence SAML SSO by Microsoft dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Confluence SAML SSO by Microsoft in Azure AD è necessario aggiungere Confluence SAML SSO by Microsoft dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -89,15 +89,15 @@ Per configurare l'integrazione di Confluence SAML SSO by Microsoft in Azure AD �
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-confluence-saml-sso-by-microsoft"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Confluence SAML SSO by Microsoft
 
-Configurare e testare l'accesso SSO di Azure AD con Confluence SAML SSO by Microsoft usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Confluence SAML SSO by Microsoft.
+Configurare e testare l'accesso SSO di Azure AD con Confluence SAML SSO by Microsoft usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Confluence SAML SSO by Microsoft.
 
 Per configurare e testare l'accesso SSO di Azure AD con Confluence SAML SSO by Microsoft, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso SSO di Confluence SAML SSO by Microsoft](#configure-confluence-saml-sso-by-microsoft-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare un utente di test di Confluence SAML SSO by Microsoft](#create-confluence-saml-sso-by-microsoft-test-user)** : per avere una controparte di B.Simon in Confluence SAML SSO by Microsoft collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di Confluence SAML SSO by Microsoft](#create-confluence-saml-sso-by-microsoft-test-user)** : per avere una controparte di B.Simon in Confluence SAML SSO by Microsoft collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -139,7 +139,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Confluence SAML SSO by Microsoft.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Confluence SAML SSO by Microsoft.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Confluence SAML SSO by Microsoft**.
@@ -225,7 +225,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
        > [!NOTE]
        > Per altre informazioni sull'installazione e la risoluzione dei problemi, vedere la [guida all'amministrazione dei connettori Microsoft per SSO in Confluence](../ms-confluence-jira-plugin-adminguide.md). Per altre informazioni, è possibile consultare anche il documento delle [domande frequenti](../ms-confluence-jira-plugin-faq.md).
 
-### <a name="create-confluence-saml-sso-by-microsoft-test-user"></a>Creare un utente di test di Confluence SAML SSO by Microsoft
+### <a name="create-confluence-saml-sso-by-microsoft-test-user"></a>Creare l'utente di test di Confluence SAML SSO by Microsoft
 
 Per consentire agli utenti di Azure AD di accedere a un server Confluence locale, è necessario effettuarne il provisioning in Confluence SAML SSO by Microsoft. In Confluence SAML SSO by Microsoft il provisioning è un'attività manuale.
 
