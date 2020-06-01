@@ -1,5 +1,5 @@
 ---
-title: Estensione driver GPU NVIDIA-VM Linux di Azure
+title: 'Estensione per il driver GPU NVIDIA: le macchine virtuali Linux di Azure'
 description: Estensione di Microsoft Azure per l'installazione dei driver GPU NVIDIA nelle macchine virtuali che eseguono Linux con risorse di calcolo della serie N.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: e7f6653043d46925d6a4c35eedaf81224ea6c36d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415796"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773118"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Estensione di driver GPU NVIDIA per Linux
 
@@ -26,7 +26,7 @@ ms.locfileid: "81415796"
 
 Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
-Le istruzioni per l'installazione manuale dei driver e le versioni supportate correnti sono disponibili [qui](
+Le istruzioni per l'installazione manuale dei driver e le versioni correnti supportate sono disponibili [qui](
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Windows](hpccompute-gpu-windows.md).
 
@@ -72,21 +72,21 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 
 ### <a name="properties"></a>Proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Data |
-| publisher | Microsoft.HpcCompute | stringa |
-| type | NvidiaGpuDriverLinux | stringa |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | INT |
 
 ### <a name="settings"></a>Impostazioni
 
 Tutte le impostazioni sono facoltative. In base al comportamento predefinito, il kernel non viene aggiornato se non è necessario per l'installazione del driver e vengono installati il driver supportato più recente e il toolkit CUDA (se applicabile).
 
-| Name | Descrizione | Default Value | Valori validi | Tipo di dati |
+| Nome | Descrizione | Default Value | Valori validi | Tipo di dati |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | false | true, false | boolean |
-| driverVersion | NV: versione del driver GRID<br> NC/ND: versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recenti | GRID: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | stringa |
+| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recenti | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installa il toolkit CUDA. Pertinente solo per le macchine virtuali serie NC/ND. | true | true, false | boolean |
 
 
@@ -97,7 +97,7 @@ Tutte le impostazioni sono facoltative. In base al comportamento predefinito, il
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione.
 
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio). 
 
 L'esempio seguente presuppone che l'estensione sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
@@ -149,7 +149,7 @@ az vm extension set \
   --version 1.2 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85", \
+    "driverVersion": "9.1.85" \
   }'
 ```
 
@@ -180,7 +180,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 | 0 | Operazione riuscita |
 | 1 | Uso non corretto dell'estensione | Controllare il log di output dell'esecuzione |
 | 10 | Linux Integration Services per Hyper-V e Azure non disponibile o installato | Controllare l'output di lspci |
-| 11 | GPU NVIDIA non trovata in questa dimensione di macchina virtuale | Usare [le dimensioni e il sistema operativo delle macchine virtuali supportate](../linux/n-series-driver-setup.md) |
+| 11 | GPU NVIDIA non trovata in questa dimensione di macchina virtuale | Usare una [dimensione e un sistema operativo della macchina virtuale supportati](../linux/n-series-driver-setup.md) |
 | 12 | Offerta di immagine non supportata |
 | 13 | Dimensioni della macchina virtuale non supportate | Usare una Serie N per distribuire la macchina virtuale |
 | 14 | Operazione conclusa | Controllare il log di output dell'esecuzione |
@@ -188,7 +188,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità delle macchine virtuali per Linux](features-linux.md).

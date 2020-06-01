@@ -1,15 +1,15 @@
 ---
-title: Effettuare il provisioning di un pool in una rete virtuale - Azure Batch |Microsoft Docs
+title: Effettuare il provisioning di un pool in una rete virtuale
 description: Come creare un pool di Batch in una rete virtuale di Azure in modo che i nodi di calcolo possano comunicare in modo sicuro con altre macchine virtuali nella rete, ad esempio un file server.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111896"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797511"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -49,20 +49,20 @@ Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un
 
 È possibile che l'organizzazione richieda il reindirizzamento (forzatura) del traffico associato a Internet dalla subnet alla posizione locale con finalità di ispezione e registrazione. È possibile che il tunneling forzato sia abilitato per le subnet nella rete virtuale in uso.
 
-Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttamente in una rete virtuale con il tunneling forzato abilitato, è necessario aggiungere le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) seguenti per tali subnet:
+Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttamente in una rete virtuale con il tunneling forzato abilitato, è necessario aggiungere le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) (UDR) seguenti per tali subnet:
 
-* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio batch verranno associati al tag `BatchNodeManagement` di servizio (o alla variante regionale corrispondente all'area dell'account batch).
+* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una UDR per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio Batch, vedere [Tag di servizio in locale.](../virtual-network/service-tags-overview.md)
 
 * Verificare che il traffico in uscita verso il servizio Archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) non sia bloccato tramite un Network Appliance locale.
 
-Quando si aggiunge una route definita dall'utente, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare **Tipo hop successivo** su **Internet**. Vedere l'esempio seguente:
+Quando si aggiunge una UDR, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare **Tipo hop successivo** su **Internet**. Vedere l'esempio seguente:
 
 ![Route definita dall'utente](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Gli indirizzi IP del servizio batch possono cambiare nel tempo. Per evitare un'interruzione a causa di una modifica dell'indirizzo IP, è consigliabile stabilire un processo periodico per aggiornare automaticamente gli indirizzi IP del servizio batch e mantenerli aggiornati nella tabella di route.
+> Gli indirizzi IP del servizio Batch possono cambiare nel tempo. Per evitare un'interruzione a causa di una modifica dell'indirizzo IP, è consigliabile stabilire un processo periodico per aggiornare automaticamente gli indirizzi IP del servizio Batch e mantenerli aggiornati nella tabella di route.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
-- Per altre informazioni sulla creazione di una route definita dall'utente, vedere [Creare una route definita dall'utente - Portale di Azure](../virtual-network/tutorial-create-route-table-portal.md).
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
+- Per informazioni sulla creazione di una route definita dall'utente, vedere [Creare una route definita dall'utente - Portale di Azure](../virtual-network/tutorial-create-route-table-portal.md).

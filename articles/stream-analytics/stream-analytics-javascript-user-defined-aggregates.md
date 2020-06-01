@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: c509d174787a58abeee33e039eb7bbbcbcb43f38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d33cc14612b5c00c8102bd035e7331bef670a4dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79531735"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836448"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Funzioni di aggregazione JavaScript definite dall'utente in analisi di flusso di Azure
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
 Analisi di flusso di Azure supporta le aggregazioni definite dall'utente (UDA) scritte in JavaScript e ciò consente di implementare la logica di business con stato complessa. Le aggregazioni definite dall'utente garantiscono il controllo completo su strutture di dati sullo stato, accumulo di stati, decumulazione di stati e calcolo dei risultati dell'aggregazione. Nell'articolo sono descritte le due diverse interfacce JavaScript per aggregazioni definite dall'utente, le procedure per creare un'aggregazione definita dall'utente e come utilizzare questo tipo di aggregazione con operazioni basate su finestre temporali in query di Analisi di flusso di Azure.
 
 ## <a name="javascript-user-defined-aggregates"></a>aggregazioni JavaScript definite dall'utente
 
-Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di aggregazione definita dall'utente possono essere utilizzati da una finestra a cascata, a salto, a scorrimento e a sessione. Tipo accumulatedeaccumulate UDA offre prestazioni migliori rispetto a tipo accumulateonly UDA quando viene usato insieme a una finestra di salto, scorrevole e di sessione. Scegliere uno dei due tipi in base all'algoritmo usato.
+Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di aggregazione definita dall'utente possono essere usati da Finestra a cascata, di salto, scorrevole e della sessione. L'aggregazione definita dall'utente di tipo AccumulateDeaccumulate ha prestazioni migliori rispetto a quella di tipo AccumulateOnly quando viene usata assieme a Finestra di salto, scorrevole e della sessione. Scegliere uno dei due tipi in base all'algoritmo usato.
 
 ### <a name="accumulateonly-aggregates"></a>Aggregazioni di tipo AccumulateOnly
 
@@ -90,7 +90,7 @@ Tipo specifico supportato dal processo di Analisi di flusso di Azure oppure "Any
 
 ### <a name="function-name"></a>Nome della funzione
 
-Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere all'alias UDA.
+Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere all'alias dell'aggregazione definita dall'utente.
 
 ### <a name="method---init"></a>Metodo init()
 
@@ -98,11 +98,11 @@ Il metodo init() inizializza lo stato dell'aggregazione. Questo metodo viene chi
 
 ### <a name="method--accumulate"></a>Metodo accumulate()
 
-Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento entra in una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
+Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando l'evento entra in una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ### <a name="method--deaccumulate"></a>Metodo deaccumulate()
 
-Il metodo deaccumulate() ricalcola lo stato in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento lascia un SLIDINGWINDOW o SESSIONWINDOW.
+Il metodo deaccumulate() ricalcola lo stato in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento abbandona una finestra di tipo SLIDINGWINDOW o SESSIONWINDOW.
 
 ### <a name="method--deaccumulatestate"></a>Metodo deaccumulateState()
 
@@ -119,7 +119,7 @@ Per i tipi di dati delle aggregazioni JavaScript definite dall'utente, vedere la
 
 Di seguito viene descritto il processo di creazione di un'aggregazione definita dall'utente dal portale. In questo esempio vengono calcolate caso è calcolare le medie ponderate nel tempo.
 
-A questo punto è possibile creare un'aggregazione definita dall'utente JavaScript in un processo ASA esistente attenendosi alla procedura seguente.
+A questo punto viene creata un'aggregazione JavaScript definita dall'utente in un processo ASA esistente eseguendo i passaggi seguenti.
 
 1. Accedere al portale di Azure e individuare il processo di Analisi di flusso di Azure esistente.
 1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA**.
@@ -225,12 +225,12 @@ Creare un file JSON locale con il contenuto riportato di seguito, caricare il fi
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Riferimento all'API REST di gestione di analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

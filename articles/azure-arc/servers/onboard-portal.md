@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980950"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648079"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "82980950"
 
 Con questo metodo sono necessarie le autorizzazioni di amministratore sulla macchina virtuale per installare e configurare l'agente. In Linux, tramite l'account radice, e in Windows, si è membri del gruppo Administrators locale.
 
-Prima di iniziare, esaminare i [prerequisiti](overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.
+Prima di iniziare, esaminare i [prerequisiti](agent-overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -43,11 +43,11 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
     >- Europa occidentale
     >- Asia occidentale
     >
-    >Per altre considerazioni sulla [selezione di un'area,](overview.md#supported-regions) vedere l'articolo introduttivo.
+    >Esaminare le considerazioni aggiuntive quando si seleziona un'area [qui](overview.md#supported-regions) nell'articolo introduttivo.
 
 1. Nell'elenco a discesa **Sistema operativo** della pagina **Genera script** selezionare il sistema operativo in cui verrà eseguito lo script.
 
-1. Se il computer sta comunicando tramite un server proxy per la connessione a Internet, selezionare **Avanti: server proxy**. 
+1. Se la macchina virtuale comunica tramite un server proxy per connettersi a Internet, selezionare **Avanti: Server proxy**. 
 1. Nella scheda **Server proxy** specificare l'indirizzo IP del server proxy o il nome e il numero di porta che la macchina virtuale userà per comunicare con il server proxy. Immettere il valore nel formato `http://<proxyURL>:<proxyport>`. 
 1. Selezionare **Rivedi e genera**.
 
@@ -57,7 +57,7 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 
 ### <a name="install-manually"></a>Eseguire l'installazione manuale
 
-È possibile installare manualmente l'agente Connected Machine eseguendo il pacchetto di Windows Installer *AzureConnectedMachineAgent.msi*. 
+È possibile installare manualmente l'agente Connected Machine eseguendo il pacchetto di Windows Installer *AzureConnectedMachineAgent.msi*. È possibile scaricare la versione più recente del [Pacchetto Windows Installer dell'agente Windows](https://aka.ms/AzureConnectedMachineAgent) dall'Area download Microsoft. 
 
 > [!NOTE]
 > * Per installare o disinstallare l'agente, sono necessarie le autorizzazioni di *Amministratore*.
@@ -65,21 +65,21 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 
 Se la macchina virtuale deve comunicare tramite un server proxy con il servizio, dopo l'installazione dell'agente è necessario eseguire un comando descritto più avanti in questo articolo. Il comando imposta la variabile di ambiente di sistema del server proxy `https_proxy`.
 
-Se non si ha familiarità con le opzioni della riga di comando per i pacchetti Windows Installer, vedere le opzioni della riga di [comando msiexec standard](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e le [Opzioni della riga di comando msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Se non si ha familiarità con le opzioni della riga di comando per i pacchetti Windows Installer, vedere [Opzioni della riga di comando di Msiexec standard](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [Opzioni della riga di comando di Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-Ad esempio, eseguire il programma di installazione con `/?` il parametro per esaminare l'opzione Guida e riferimento rapido. 
+Ad esempio, eseguire il programma di installazione con il parametro `/?` per esaminare la Guida e opzione per l'accesso a informazioni di riferimento rapido. 
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Per installare l'agente in modalità invisibile all'utente e creare un file di `C:\Support\Logs` log del programma di installazione nella cartella esistente, eseguire il comando seguente.
+Per installare l'agente in modo invisibile all'utente e creare un file di log del programma di installazione nella cartella `C:\Support\Logs` esistente, eseguire il comando seguente.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-I file per l'agente del computer connesso vengono installati per impostazione predefinita in *C:\Program Files\AzureConnectedMachineAgent*. Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="install-with-the-scripted-method"></a>Eseguire l'installazione con il metodo con script
 
@@ -88,6 +88,8 @@ I file per l'agente del computer connesso vengono installati per impostazione pr
 1. Aprire un prompt dei comandi di PowerShell con privilegi elevati.
 
 1. Passare alla cartella o alla condivisione in cui è stato copiato lo script ed eseguirlo sul server eseguendo lo script `./OnboardingScript.ps1`.
+
+Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="configure-the-agent-proxy-setting"></a>Configurare l'impostazione del proxy agente
 
@@ -156,6 +158,6 @@ Dopo aver installato l'agente e averlo configurato per la connessione ad Azure A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), ad esempio la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificando che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con le macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)e molto altro ancora.
+- Informazioni su come gestire il computer usando i [Criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e molto altro ancora.
 
-- Altre informazioni sull' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+- Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
