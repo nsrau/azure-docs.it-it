@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667194"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797607"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -50,7 +50,7 @@ Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combinare le risorse nei gruppi di risorse di Azure
 Una tipica applicazione in Azure oggi include più risorse, ad esempio le macchine virtuali e servizi App o i microservizi ospitati in servizi Cloud, i cluster del servizio Azure Kubernetes o Service Fabric. Queste applicazioni usano spesso le dipendenze, ad esempio hub eventi, archiviazione, SQL e bus di servizio.
 
-- Combina le risorse nei gruppi di risorse di Azure per ottenere visibilità completa su tutte le tue risorse che compongono le tue applicazioni diverse. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
+- Combinare le risorse nei gruppi di risorse di Azure per ottenere visibilità completa in tutte le risorse che costituiscono le diverse applicazioni. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garantire la qualità tramite la distribuzione continua
 Integrazione continua/distribuzione continua consente di integrare automaticamente e distribuire le modifiche del codice nell'applicazione in base ai risultati dei test automatizzati. Semplifica il processo di distribuzione e assicura la qualità di tutte le modifiche prima di passare alla produzione.
@@ -58,13 +58,13 @@ Integrazione continua/distribuzione continua consente di integrare automaticamen
 
 - Usare [Azure Pipelines](/azure/devops/pipelines) per implementare la distribuzione continua e automatizzare l'intero processo dal commit del codice all'ambiente di produzione in base ai test di integrazione continua/distribuzione continua.
 - Usare [Gate di qualità](/azure/devops/pipelines/release/approvals/gates) per integrare il monitoraggio al momento della pre-distribuzione o della post-distribuzione. Ciò garantisce che si stiano soddisfacendo le metriche chiave di integrità/prestazioni (KPI) non appena le applicazioni si spostano dallo sviluppo alla produzione e le eventuali differenze nell'ambiente di infrastruttura o che la scalabilità non influisca negativamente sugli indicatori KPI.
-- [Gestione di istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra ambienti di distribuzione diversi, ad esempio sviluppo, test, canarino e prod. In questo modo si garantisce che i dati raccolti siano rilevanti per le applicazioni e l'infrastruttura associate. Se è necessario correlare i dati tra ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Monitoraggio di Azure](log-query/cross-workspace-query.md).
+- [Mantenere le istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati tra ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Monitoraggio di Azure](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Creare avvisi azionabili con azioni
 Un aspetto critico del monitoraggio è notificare in modo proattivo agli amministratori eventuali problemi attuali e possibili. 
 
-- Creare [gli avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md) in base ai log e alle metriche per identificare gli stati di errore prevedibili. È necessario avere l'obiettivo di rendere tutti gli avvisi azionabili, vale a dire fare in modo che rappresentino le condizioni critiche effettive e cerchino di ridurre i falsi positivi. Usare le [soglie dinamiche](platform/alerts-dynamic-thresholds.md) per calcolare automaticamente le basi di riferimento sui dati della metrica anziché definire soglie statiche personalizzate. 
+- Creare [gli avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md) in base ai log e alle metriche per identificare gli stati di errore prevedibili. È necessario avere l'obiettivo di rendere tutti gli avvisi azionabili, vale a dire fare in modo che rappresentino le condizioni critiche effettive e cerchino di ridurre i falsi positivi. Usare [soglie dinamiche](platform/alerts-dynamic-thresholds.md) per calcolare automaticamente le baseline per i dati di metrica, anziché definire soglie statiche personali. 
 - Definire le azioni per gli avvisi al fine di utilizzare i mezzi più efficaci di notifica agli amministratori. Le [azioni per la notifica](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) disponibili sono SMS, messaggi di posta elettronica, notifiche push oppure chiamate vocali.
 - Usare azioni più avanzate per [connettersi allo strumento Gestione dei servizi IT](platform/itsmc-overview.md) oppure altri sistemi di gestione degli avvisi tramite [webhook](platform/activity-log-alerts-webhook.md).
 - Correggere situazioni identificate negli avvisi con i [runbook di Automazione di Azure](../automation/automation-webhooks.md) oppure con le [App per la logica](/connectors/custom-connectors/create-webhook-trigger) che possono essere avviate da un avviso tramite i webhook. 
@@ -74,7 +74,7 @@ Un aspetto critico del monitoraggio è notificare in modo proattivo agli amminis
 Assicurare che lo sviluppo e le operazioni abbiano accesso agli stessi dati di telemetria e agli stessi strumenti consente loro di visualizzare i modelli nell'intero ambiente e di ridurre al minimo il tempo medio di rilevamento (MTTD) e il tempo medio di ripristino (MTTR).
 
 - Preparare [dashboard personalizzati](../azure-monitor/learn/tutorial-app-dashboards.md) basati su metriche e log comuni per i diversi ruoli all'interno dell'organizzazione. I dashboard possono combinare dati da tutte le risorse di Azure.
-- Preparare [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) per assicurarsi la condivisione delle conoscenze tra sviluppo e operazioni. Questi possono essere preparati come report dinamici con grafici delle metriche e query dei log, o persino come guide per la risoluzione dei problemi preparate dagli sviluppatori, consentendo operazioni o supporto tecnico in grado di gestire problemi di base.
+- Preparare [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md) per assicurarsi la condivisione delle conoscenze tra sviluppo e operazioni. Questi possono essere preparati come report dinamici con grafici delle metriche e query dei log, o persino come guide per la risoluzione dei problemi preparate dagli sviluppatori, consentendo operazioni o supporto tecnico in grado di gestire problemi di base.
 
 ## <a name="continuously-optimize"></a>Ottimizzare in modo continuativo
  Il monitoraggio è uno degli aspetti fondamentali della popolare filosofia Build-Measure-Learn, che consiglia di rilevare in modo continuo gli indicatori KPI e le metriche di comportamento dell'utente e quindi di sforzarsi per ottimizzarli attraverso iterazioni di pianificazione. Monitoraggio di Azure aiuta a raccogliere le metriche e i log rilevanti per l'azienda e ad aggiungere nuovi punti dati alla successiva distribuzione come richiesto.
@@ -86,4 +86,4 @@ Assicurare che lo sviluppo e le operazioni abbiano accesso agli stessi dati di t
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sui componenti di differenza di [Monitoraggio di Azure](overview.md).
-- [Aggiungere il monitoraggio continuo](../azure-monitor/app/continuous-monitoring.md) alla pipeline di rilascio.
+- [Aggiungere un monitoraggio continuo](../azure-monitor/app/continuous-monitoring.md) alla pipeline di versione.
