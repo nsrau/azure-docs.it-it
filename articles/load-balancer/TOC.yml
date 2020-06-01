@@ -6,7 +6,7 @@
       href: load-balancer-overview.md
     - name: Domande frequenti
       href: load-balancer-faqs.md
-- name: Avvio rapido
+- name: Guida introduttiva
   items:
     - name: Creare il bilanciamento del carico - Portale
       href: quickstart-load-balancer-standard-public-portal.md
@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: Connessioni in uscita
       href: load-balancer-outbound-connections.md
-    - name: Regole in uscita
-      href: load-balancer-outbound-rules-overview.md
     - name: TCP Reset in caso di timeout di inattività
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e zone di disponibilità

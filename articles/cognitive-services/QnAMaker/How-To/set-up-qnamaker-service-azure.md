@@ -3,12 +3,12 @@ title: Configurare un servizio QnA Maker-QnA Maker
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171175"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235530"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -210,6 +210,11 @@ Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile 
 1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Seleziona **Continua**.
 
 Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare il servizio app QnA Maker
+Il ambiente del servizio app può essere usato per ospitare QnA Maker servizio app. Se il ambiente del servizio app è interno, è necessario attenersi alla procedura seguente:
+1. Creare un servizio app e un servizio di ricerca di Azure.
+2. Esporre il servizio app in un DNS pubblico e nell'elenco elementi consentiti QnA Maker tag del servizio: CognitiveServicesManagement o mantenerlo connesso a Internet.
+3. Creare un'istanza del servizio cognitivo QnA Maker (Microsoft. CognitiveServices/accounts) usando Azure Resource Manager, in cui QnA Maker endpoint deve essere impostato su ambiente del servizio app. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Continuità aziendale con gestione traffico
 

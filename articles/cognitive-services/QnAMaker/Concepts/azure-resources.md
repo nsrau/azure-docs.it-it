@@ -3,12 +3,12 @@ title: Risorse di Azure-QnA Maker
 description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per comprendere il modo in cui vengono usati singolarmente, è possibile pianificare e selezionare il piano tariffario corretto o sapere quando modificare il piano tariffario. La comprensione del modo in cui vengono usate in combinazione consente di individuare e risolvere i problemi quando si verificano.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80873906"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236082"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -72,7 +72,7 @@ Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio
 
 ## <a name="resource-naming-considerations"></a>Considerazioni sulla denominazione delle risorse
 
-Il nome della risorsa per la risorsa QnA Maker, ad `qna-westus-f0-b`esempio, viene usato anche per assegnare un nome alle altre risorse.
+Il nome della risorsa per la risorsa QnA Maker, ad esempio `qna-westus-f0-b` , viene usato anche per assegnare un nome alle altre risorse.
 
 La finestra portale di Azure crea consente di creare una risorsa QnA Maker e selezionare i piani tariffari per le altre risorse.
 
@@ -150,7 +150,7 @@ QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantag
 |Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
 |Servizio app|X|Non possibile dalla progettazione|
 |Application Insights|✔|Può essere condivisa|
-|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker. non può essere usato da altri.<br>2. il mapping dei sinonimi `synonym-map` con il nome è riservato per il servizio QnAMaker.<br>3. il numero di Knowledge base pubblicate è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
+|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker, non può essere usato da altri.<br>2. il mapping dei sinonimi con il nome `synonym-map` è riservato per il servizio QnAMaker.<br>3. il numero di Knowledge base pubblicate è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>Uso di un singolo servizio ricerca cognitiva
 
@@ -172,7 +172,7 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 ![Gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Location|Scopo|
+|Nome|Location|Scopo|
 |--|--|--|
 |Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
 |Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
@@ -182,6 +182,14 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 La chiave di endpoint per la creazione e la query sono termini correttivi. Il termine precedente è una **chiave di sottoscrizione**. Se viene visualizzata un'altra documentazione che fa riferimento alle chiavi di sottoscrizione, queste sono equivalenti alle chiavi dell'endpoint di creazione ed esecuzione di query (usate nel Runtime).
 
 Per conoscere la chiave che è necessario trovare, è necessario conoscere il tipo di accesso alla chiave, la gestione della Knowledge base o l'esecuzione di query sulla Knowledge base.
+
+## <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
+
+* Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteggere il servizio app (Runtime QnA) dall'accesso pubblico:
+    * Consentire il traffico solo da indirizzi IP del servizio cognitivi. Questi sono già inclusi nel tag di servizio "CognitiveServicesManagement". Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure.
+    * Assicurarsi di consentire anche altri punti di ingresso come il servizio bot, il portale QnA Maker (potrebbe essere il Corpnet) e così via per l'accesso all'API "GenerateAnswer" per la stima.
+    * Vedere [altre informazioni sui tag del servizio.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

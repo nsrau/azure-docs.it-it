@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: Nozioni fondamentali sull'architettura dei lab per le classi
       href: classroom-labs-fundamentals.md
+    - name: Limiti di capacità
+      href: capacity-limits.md
     - name: Scenari
       items:
         - name: Usare i lab per gestire le classi
