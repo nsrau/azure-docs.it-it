@@ -1,38 +1,35 @@
 ---
-title: Raccogliere le metriche delle macchine virtuali Windows in monitoraggio di Azure con il modello
-description: Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
+title: Raccogliere le metriche della macchina virtuale Windows in Monitoraggio di Azure con il modello
+description: Inviare le metriche del sistema operativo guest all'archivio di database delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 05/04/2020
+ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657368"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650553"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per una macchina virtuale Windows
+I dati sulle prestazioni del sistema operativo guest delle macchine virtuali di Azure non vengono raccolti automaticamente come altre [metriche della piattaforma](../insights/monitor-azure-resource.md#monitoring-data). Installare l'[estensione di diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure per raccogliere le metriche del sistema operativo guest nel database di metriche, in modo che possa essere usato con tutte le funzionalità delle metriche di Monitoraggio di Azure, inclusi gli avvisi quasi in tempo reale, la creazione di grafici, il routing e l'accesso da un'API REST. Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows al database di metriche usando un modello di Resource Manager. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!NOTE]
+> Per informazioni dettagliate sulla configurazione dell'estensione di diagnostica per raccogliere le metriche del sistema operativo guest usando il portale di Azure, vedere [Installare e configurare l'estensione di Diagnostica di Microsoft Azure (WAD)](diagnostics-extension-windows-install.md).
 
-L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di una macchina virtuale, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma.
-
-L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso da un'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.
-
-Se non si ha familiarità con Gestione risorse modelli, vedere le informazioni sulle [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.
+Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/management/overview.md) e la struttura e la sintassi correlate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- È necessario che sia installato [Azure PowerShell](/powershell/azure) o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions). 
+- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati
@@ -58,7 +55,7 @@ Aprire il file *azuredeploy.parameters.json*
 
 Aprire il file *azuredeploy.json*
 
-Aggiungere un ID account di archiviazione alla sezione **variables** del modello dopo la voce per **storageAccountName.**
+Aggiungere l'ID di un account di archiviazione alla sezione **variables** del modello dopo l'immissione di un valore per **storageAccountName**.
 
 ```json
 // Find these lines.
@@ -69,7 +66,7 @@ Aggiungere un ID account di archiviazione alla sezione **variables** del modello
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Aggiungere questa estensione identità del servizio gestita (MSI) al modello nella parte superiore della sezione **Resources (risorse** ). L'estensione assicura l'accettazione da parte di Monitoraggio di Azure delle metriche inviate.
+Aggiungere questa estensione identità del servizio gestita al modello nella parte superiore della sezione **resources**. L'estensione assicura l'accettazione da parte di Monitoraggio di Azure delle metriche inviate.
 
 ```json
 //Find this code.
@@ -274,7 +271,7 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
 
 2. Nel menu a sinistra selezionare **Monitoraggio**.
 
-3. Nella pagina Monitoraggio selezionare **Metriche**.
+3. Nella pagina Monitoraggio selezionare **Metrica**.
 
    ![Pagina delle metriche](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
 

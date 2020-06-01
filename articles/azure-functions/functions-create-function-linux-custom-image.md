@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165723"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123550"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -295,17 +295,24 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
     # <a name="portal"></a>[Portale](#tab/portal)
 
-    1. Accedere al portale di Azure, quindi individuare l'app per le funzioni immettendo il relativo nome nella casella **Cerca** nella parte superiore della pagina. Nei risultati selezionare la risorsa **Servizio app**.
+    1. Accedere al portale di Azure e quindi cercare e selezionare **App per le funzioni**.
 
-    1. Nel riquadro di spostamento sinistro, in **Funzioni (sola lettura)** , selezionare il nome della funzione.
+    1. Selezionare la funzione che si vuole verificare.
 
-    1. Nel pannello dei dettagli selezionare **</> Recupera URL della funzione**:
+    1. Selezionare **Funzioni** nel pannello di spostamento a sinistra e quindi la funzione da verificare.
+
+        ![Comando Recupera URL della funzione nel portale di Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![Comando Recupera URL della funzione nel portale di Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Selezionare **Recupera URL della funzione**.
 
-    1. Nel popup selezionare **predefinita (Chiave di funzione)** e quindi **Copia**. La chiave è la stringa di caratteri che segue `?code=`.
+        ![Comando Recupera URL della funzione nel portale di Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copia dell'URL della funzione dal portale di Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. Nella finestra popup selezionare **default (function key)** (valore predefinito - chiave funzione) e quindi copiare l'URL negli Appunti. La chiave è la stringa di caratteri che segue `?code=`.
+
+        ![Comando Recupera URL della funzione nel portale di Azure](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Poiché l'app per le funzioni viene distribuita come contenitore, non è possibile apportare modifiche al codice della funzione nel portale. È invece necessario aggiornare il progetto nell'immagine locale, eseguire di nuovo il push dell'immagine nel registro e quindi ripetere la distribuzione in Azure. È possibile configurare la distribuzione continua in una sezione successiva.
@@ -340,11 +347,11 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
     ---
 
-1. Incollare l'URL della funzione nella barra degli indirizzi del browser, aggiungendo il parametro `&name=Azure` alla fine. Nel browser verrà visualizzato un testo simile a "Hello Azure".
+1. Incollare l'URL della funzione nella barra degli indirizzi del browser, aggiungendo il parametro `&name=Azure` alla fine. Nel browser verrà visualizzato un testo simile a "Hello, Azure".
 
     ![Risposta della funzione nel browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. Per testare l'autorizzazione, rimuovere il parametro code= dall'URL e verificare che non si ottengono risposte dalla funzione.
+1. Per testare l'autorizzazione, rimuovere il parametro `code=` dall'URL e verificare di non ricevere alcuna risposta dalla funzione.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Abilitare la distribuzione continua in Azure

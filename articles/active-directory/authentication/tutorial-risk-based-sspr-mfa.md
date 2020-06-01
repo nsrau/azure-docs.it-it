@@ -1,92 +1,137 @@
 ---
-title: MFA e reimpostazione della password self-service basate su rischi con Azure Identity Protection
-description: In questa esercitazione si abiliteranno le integrazioni di Azure Identity Protection per Multi-Factor Authentication e la reimpostazione della password self-service, per ridurre i comportamenti rischiosi.
-services: multi-factor-authentication
+title: Protezione dell'accesso utente basata sul rischio in Azure Active Directory
+description: Questa esercitazione illustra come abilitare Azure Identity Protection per proteggere gli utenti quando viene rilevato un comportamento di accesso a rischio nei rispettivi account.
+services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 01/31/2018
+ms.date: 05/11/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74846352"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116059"
 ---
-# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare i rilevamenti di eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
+# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Esercitazione: Usare i rilevamenti dei rischi negli accessi utente per attivare Azure Multi-Factor Authentication o modifiche della password
 
-In questa esercitazione si abiliteranno funzionalità di Azure Active Directory (Azure AD) Identity Protection, una funzionalità di Azure AD Premium P2 che è molto di più di uno strumento monitoraggio e creazione di report. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente a comportamenti rischiosi. Questi criteri possono attivare un blocco immediato oppure avviare una misura di correzione, tra cui la richiesta di modiche delle password e l'applicazione di Multi-Factor Authentication.
+Per proteggere gli utenti, è possibile configurare criteri basati sul rischio in Azure Active Directory (Azure AD) per rispondere automaticamente a comportamenti a rischio. I criteri di Azure AD Identity Protection possono bloccare automaticamente un tentativo di accesso o richiedere azioni aggiuntive, ad esempio la modifica della password o l'uso di Azure Multi-Factor Authentication. Questi criteri funzionano con i criteri di accesso condizionale di Azure AD esistenti, come un ulteriore livello di protezione per l'organizzazione. Gli utenti potrebbero non attivare mai un comportamento a rischio di uno di questi criteri, ma l'organizzazione è protetta nel caso in cui venga effettuato un tentativo di compromettere la sicurezza.
 
-I criteri di Azure AD Identity Protection possono essere usati in aggiunta ai criteri di accesso condizionale esistenti, come ulteriore livello di protezione. Gli utenti potrebbero anche non attivare mai un comportamento rischioso che richiede l'applicazione di uno di questi criteri, ma in questo modo un amministratore può essere sicuro che siano protetti.
-
-Alcune condizioni che possono attivare un rilevamento di eventi di rischio includono:
-
-* Utenti con credenziali perse
-* Accessi da indirizzi IP anonimi
-* Trasferimento impossibile a posizioni atipiche
-* Accessi da dispositivi infetti
-* Accessi da indirizzi IP con attività sospette
-* Accessi da posizioni non note
-
-Altre informazioni su Azure AD Identity Protection sono disponibili nell'articolo [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Abilitare la registrazione per Azure MFA
+> * Comprendere i criteri disponibili per Azure AD Identity Protection
+> * Abilitare la registrazione per Azure Multi-Factor Authentication
 > * Abilitare le modifiche delle password in base ai rischi
 > * Abilitare Multi-Factor Authentication in base ai rischi
+> * Testare i criteri basati sul rischio per i tentativi di accesso utente
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Accesso a un tenant funzionante di Azure AD, con almeno una licenza di valutazione di Azure AD Premium P2 assegnata.
-* Un account con privilegi di amministratore globale nel tenant di Azure AD.
-* Completamento delle esercitazioni precedenti sulla reimpostazione della password self-service e su Multi-Factor Authentication (MFA).
+Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
-## <a name="enable-risk-based-policies-for-sspr-and-mfa"></a>Abilitare i criteri basati sul rischio per la reimpostazione della password self-service e MFA
+* Un tenant di Azure AD funzionante con almeno una licenza di valutazione di Azure AD Premium P2 abilitata.
+    * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un account con privilegi di *amministratore globale*.
+* Azure AD, configurato per la reimpostazione della password self-service e Azure Multi-Factor Authentication.
+    * Se necessario, [completare l'esercitazione per abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md).
+    * Se necessario, [completare l'esercitazione per abilitare Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-Abilitare i criteri basati sul rischio è un processo semplice. La procedura seguente illustra il processo in modo guidato tramite una configurazione di esempio.
+## <a name="overview-of-azure-ad-identity-protection"></a>Panoramica di Azure AD Identity Protection
 
-### <a name="enable-users-to-register-for-multi-factor-authentication"></a>Abilitare gli utenti per la registrazione per Multi-Factor Authentication
+Ogni giorno, Microsoft raccoglie e analizza trilioni di segnali anonimizzati nell'ambito dei tentativi di accesso utente. Questi segnali consentono di creare modelli del comportamento di accesso utente corretto e identificare i potenziali tentativi di accesso a rischio. Azure AD Identity Protection consente di esaminare i tentativi di accesso utente e intraprendere azioni aggiuntive in caso di comportamento sospetto.
 
-Azure AD Identity Protection include un criterio predefinito che può essere utile per ottenere che gli utenti vengano registrati per Multi-Factor Authentication e per identificare facilmente lo stato corrente della registrazione. Con l'abilitazione di questo criterio non viene richiesto agli utenti di eseguire Multi-Factor Authentication, ma verrà richiesto loro di preregistrarsi.
+Il rilevamento dei rischi di Azure AD Identity Protection può essere attivato da alcune delle circostanze seguenti:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Tutti i servizi** e quindi passare ad **Azure AD Identity Protection**.
-1. Fare clic su **Registrazione MFA**.
-1. Impostare Imponi criteri su **Sì**.
-   1. Con l'impostazione di questo criterio, tutti gli utenti dovranno registrare i metodi per prepararsi all'uso di Multi-Factor Authentication.
-1. Fare clic su **Salva**.
+* Utenti con credenziali perse
+* Accessi da indirizzi IP anonimi
+* Spostamento fisico impossibile a posizioni atipiche
+* Accessi da dispositivi infetti
+* Accessi da indirizzi IP con attività sospetta
+* Accessi da posizioni insolite
 
-   ![Richiedere agli utenti di registrarsi per l'autenticazione a più fattori all'accesso](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+Per proteggere gli utenti e rispondere alle attività sospette, in Azure AD Identity Protection sono disponibili i tre criteri descritti di seguito. È possibile scegliere di attivare o disattivare l'applicazione dei criteri, selezionare gli utenti o i gruppi a cui applicare i criteri e decidere se bloccare l'accesso o richiedere un'azione aggiuntiva.
 
-### <a name="enable-risk-based-password-changes"></a>Abilitare le modifiche delle password in base ai rischi
+* Criteri di rischio utente
+    * Identificano gli account utente le cui credenziali potrebbero essere compromesse e rispondono, ad esempio richiedendo all'utente di creare una nuova password.
+* Criteri di rischio di accesso
+    * Identificano i tentativi di accesso sospetti e rispondono, ad esempio richiedendo all'utente di fornire forme di verifica aggiuntive con Azure Multi-Factor Authentication.
+* Criteri di registrazione MFA
+    * Verificano che gli utenti siano registrati per Azure Multi-Factor Authentication. Se i criteri di rischio di accesso richiedono MFA, l'utente deve essere già registrato per Azure Multi-Factor Authentication.
 
-Microsoft collabora con ricercatori, forze dell'ordine, diversi team di sicurezza di Microsoft e altre fonti attendibili per trovare coppie di nome utente e password. Quando una di queste coppie corrisponde a un account in un ambiente specifico, è possibile attivare una modifica della password basata sul rischio tramite i criteri seguenti.
+Quando si abilitano i criteri di rischio utente o di accesso, si può anche scegliere la soglia per il livello di rischio: *basso e superiore*, *medio e superiore* o *alto*. Questa flessibilità consente di decidere con quale rigore si vogliono applicare i controlli per gli eventi di accesso sospetti.
 
-1. Fare clic su Criteri di rischio utente.
-1. In **Condizioni** selezionare **Rischio utente** e quindi scegliere **Medio e superiore**.
-1. Fare clic su "Seleziona" e quindi su "Fine".
-1. In **Accesso** scegliere **Consenti l'accesso** e quindi selezionare **Richiedi modifica password**.
-1. Fare clic su "Seleziona"
-1. Impostare Imponi criteri su **Sì**.
-1. Fare clic su **Save** (Salva).
+Per altre informazioni su Azure AD Identity Protection, vedere [Informazioni su Azure AD Identity Protection](../identity-protection/overview-identity-protection.md).
 
-### <a name="enable-risk-based-multi-factor-authentication"></a>Abilitare Multi-Factor Authentication in base ai rischi
+## <a name="enable-mfa-registration-policy"></a>Abilitare i criteri di registrazione MFA
 
-La maggior parte degli utenti ha un comportamento normale monitorabile. In condizioni che esulano dalla normalità, potrebbe essere rischioso consentire loro semplicemente di accedere. In questi casi è possibile bloccare l'utente o chiedergli semplicemente di usare Multi-Factor Authentication per dimostrare la sua effettiva identità. Per abilitare criteri che richiedono MFA quando viene rilevato un accesso rischioso, procedere come segue.
+Azure AD Identity Protection include criteri predefiniti che consentono di ottenere la registrazione degli utenti per Azure Multi-Factor Authentication. Se si usano criteri aggiuntivi per proteggere gli eventi di accesso, gli utenti dovranno avere già effettuato la registrazione per MFA. Quando si abilitano questi criteri, non è necessario che gli utenti eseguano MFA a ogni evento di accesso. I criteri controllano solo lo stato di registrazione di un utente e chiedono di effettuare la registrazione preliminare se necessario.
 
-1. Fare clic su Criteri di rischio di accesso
-1. In **Condizioni** selezionare **Rischio utente** e quindi scegliere **Medio e superiore**.
-1. Fare clic su "Seleziona" e quindi su "Fine".
-1. In **Accesso** scegliere **Consenti l'accesso** e quindi selezionare **Richiedi autenticazione a più fattori**.
-1. Fare clic su "Seleziona"
-1. Impostare Imponi criteri su **Sì**.
-1. Fare clic su **Save** (Salva).
+È consigliabile abilitare i criteri di registrazione MFA per gli utenti che devono essere abilitati per i criteri aggiuntivi di Azure AD Identity Protection. Per abilitare questi criteri, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
+1. Cercare e selezionare **Azure Active Directory**, selezionare **Sicurezza** e quindi scegliere *Identity Protection* sotto l'intestazione di menu **Proteggi**.
+1. Selezionare **Criteri di registrazione MFA** nel menu sul lato sinistro.
+1. Per impostazione predefinita, i criteri si applicano a *Tutti gli utenti*. Se si vuole, selezionare **Assegnazioni** e quindi scegliere gli utenti o i gruppi a cui applicare i criteri.
+1. In *Controlli* selezionare **Accesso**. Assicurarsi che l'opzione *Richiedi registrazione ad Azure MFA* sia selezionata e quindi scegliere **Seleziona**.
+1. Impostare **Imponi criteri** su *Sì* e quindi selezionare **Salva**.
+
+    ![Screenshot di come richiedere agli utenti di effettuare la registrazione per MFA nel portale di Azure](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
+
+## <a name="enable-user-risk-policy-for-password-change"></a>Abilitare i criteri di rischio utente per la modifica della password
+
+Microsoft collabora con ricercatori, forze dell'ordine, diversi team di sicurezza di Microsoft e altre fonti attendibili per trovare coppie di nome utente e password. Quando una di queste coppie corrisponde a un account nell'ambiente in uso, può essere richiesta una modifica della password basata sul rischio. Con questi criteri e questa azione, l'utente per poter accedere dovrà prima di tutto aggiornare la propria password affinché le credenziali precedentemente esposte non funzionino più.
+
+Per abilitare questi criteri, seguire questa procedura:
+
+1. Selezionare **Criteri di rischio utente** nel menu sul lato sinistro.
+1. Per impostazione predefinita, i criteri si applicano a *Tutti gli utenti*. Se si vuole, selezionare **Assegnazioni** e quindi scegliere gli utenti o i gruppi a cui applicare i criteri.
+1. In *Condizioni* scegliere **Selezionare le condizioni > Selezionare un livello di rischio** e quindi *Medio e superiore*.
+1. Scegliere **Seleziona** e quindi **Fine**.
+1. In *Accesso* selezionare **Accesso**. Verificare che le opzioni **Consenti l'accesso** e *Richiedi modifica password* siano selezionate e quindi scegliere **Seleziona**.
+1. Impostare **Imponi criteri** su *Sì* e quindi selezionare **Salva**.
+
+    ![Screenshot di come abilitare i criteri di rischio utente nel portale di Azure](./media/tutorial-risk-based-sspr-mfa/enable-user-risk-policy.png)
+
+## <a name="enable-sign-in-risk-policy-for-mfa"></a>Abilitare i criteri di rischio di accesso per MFA
+
+La maggior parte degli utenti ha un comportamento normale di cui è possibile tenere traccia. Quando gli utenti esulano da questa norma, potrebbe essere rischioso consentire il completamento dell'accesso. Al contrario, potrebbe essere opportuno bloccare l'utente o chiedere di eseguire un'autenticazione a più fattori. Se l'utente completa correttamente la richiesta di autenticazione MFA, è possibile considerare valido il tentativo di accesso e concedere l'accesso all'applicazione o al servizio.
+
+Per abilitare questi criteri, seguire questa procedura:
+
+1. Selezionare **Criteri di rischio di accesso** nel menu sul lato sinistro.
+1. Per impostazione predefinita, i criteri si applicano a *Tutti gli utenti*. Se si vuole, selezionare **Assegnazioni** e quindi scegliere gli utenti o i gruppi a cui applicare i criteri.
+1. In *Condizioni* scegliere **Selezionare le condizioni > Selezionare un livello di rischio** e quindi *Medio e superiore*.
+1. Scegliere **Seleziona** e quindi **Fine**.
+1. In *Accesso* scegliere **Selezionare un controllo**. Verificare che le opzioni **Consenti l'accesso** e *Richiedi autenticazione a più fattori* siano selezionate e quindi scegliere **Seleziona**.
+1. Impostare **Imponi criteri** su *Sì* e quindi selezionare **Salva**.
+
+    ![Screenshot di come abilitare i criteri di rischio di accesso nel portale di Azure](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
+
+## <a name="test-risky-sign-events"></a>Testare gli eventi di accesso a rischio
+
+La maggior parte degli eventi di accesso utente non attiverà i criteri basati sul rischio configurati nei passaggi precedenti. A un utente potrebbe non essere mai visualizzata una richiesta di autenticazione MFA aggiuntiva o di reimpostazione della password. Se le credenziali rimangono sicure e il comportamento dell'utente è coerente, gli eventi di accesso avranno esito positivo.
+
+Per testare i criteri di Azure AD Identity Protection creati nei passaggi precedenti, è necessario simulare un comportamento a rischio o potenziali attacchi. La procedura per eseguire questi test varia in base ai criteri di Azure AD Identity Protection da convalidare. Per altre informazioni sugli scenari e la procedura, vedere [Simulare i rilevamenti dei rischi in Azure AD Identity Protection](../identity-protection/howto-identity-protection-simulate-risk.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se i test sono completi e non si vuole più mantenere abilitati i criteri basati sul rischio, tornare a ogni criterio da disabilitare e impostare **Imponi criteri** su **No**.
+Se dopo aver completato i test non si vogliono mantenere abilitati i criteri basati sul rischio, tornare a ogni criterio da disabilitare e impostare **Imponi criteri** su *No*.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione si sono abilitati i criteri utente basati sul rischio per Azure AD Identity Protection. Si è appreso come:
+
+> [!div class="checklist"]
+> * Comprendere i criteri disponibili per Azure AD Identity Protection
+> * Abilitare la registrazione per Azure Multi-Factor Authentication
+> * Abilitare le modifiche delle password in base ai rischi
+> * Abilitare Multi-Factor Authentication in base ai rischi
+> * Testare i criteri basati sul rischio per i tentativi di accesso utente
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)

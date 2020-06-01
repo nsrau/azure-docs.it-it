@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
-summary: Database SQL di Azure e Istanza gestita di SQL di Azure forniscono gli strumenti per raccogliere metriche e informazioni diagnostiche per il monitoraggio e il miglioramento delle prestazioni del database.
+summary: Database SQL di Azure e Istanza gestita di SQL di Azure forniscono gli strumenti per raccogliere metriche e informazioni di diagnostica per il monitoraggio del database e il miglioramento delle relative prestazioni.
 metadata:
   title: Documentazione su monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
   description: Informazioni sugli strumenti di monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure che consentono di raccogliere metriche e diagnostica e migliorare le prestazioni del database.
@@ -12,12 +12,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: d25dfaa9dc51fd781c2b8640f34cc5221f7990ec
-  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.openlocfilehash: 21bf93db179ef2b459429fab6b30f5fe6d9d62b0
+  ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84117872"
+  ms.lasthandoff: 05/30/2020
+  ms.locfileid: "84220519"
 landingContent:
 - title: Introduzione a monitoraggio e ottimizzazione delle prestazioni
   linkLists:

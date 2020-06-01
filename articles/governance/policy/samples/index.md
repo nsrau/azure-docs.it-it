@@ -1,14 +1,14 @@
 ---
 title: Indice di esempi di criteri
 description: Indice dei criteri predefiniti di Criteri di Azure. Tag delle categorie, conformità alle normative, Key Vault, Kubernetes, configurazione Guest e altro ancora.
-ms.date: 03/25/2020
+ms.date: 05/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41a08a70df24f80ea324860d6d1db16c9ed99760
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6e9c3b92942f24ae0a9972fa61340775262af761
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697192"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203903"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 
@@ -32,6 +32,14 @@ Di seguito sono riportati esempi di modelli diversi di utilizzo del linguaggio e
 - [Operatore count](./pattern-count-operator.md)
 - [Raggruppamento di definizioni di criteri in un'iniziativa](./pattern-group-with-initiative.md)
 - [Distribuzione di risorse con deployIfNotExists](./pattern-deploy-resources.md)
+
+## <a name="regulatory-compliance"></a>Conformità alle normative
+
+Di seguito sono riportati i servizi predefiniti di [conformità alle normativa](../concepts/regulatory-compliance.md):
+
+- [Azure Security Benchmark](./azure-security-benchmark.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 
 ## <a name="other-samples"></a>Altri esempi
 

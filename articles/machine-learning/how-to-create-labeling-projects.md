@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231221"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007540"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -22,9 +22,9 @@ L'etichettatura di un volume elevato di dati in progetti di Machine Learning è 
  
 [Azure Machine Learning](https://ml.azure.com/) offre una posizione centrale per creare, gestire e monitorare i progetti di etichettatura (anteprima pubblica). È possibile coordinare i dati, le etichette e i membri del team per gestire in modo efficiente le attività di etichettatura. Machine Learning supporta la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
 
-Azure Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di assegnazione di etichette incomplete.
+Azure Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura non completate.
 
-È possibile avviare e arrestare il progetto e monitorare lo stato di avanzamento delle etichette. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
+È possibile avviare e arrestare il progetto e monitorare lo stato di avanzamento dell'etichettatura. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
 
 > [!Important]
 > Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto.
@@ -49,7 +49,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="create-a-labeling-project"></a>Creare un progetto di etichettatura
 
-I progetti di etichettatura vengono amministrati da Azure Machine Learning. Per gestire i progetti, è possibile usare la pagina **progetti di assegnazione di etichette** .
+I progetti di etichettatura vengono amministrati da Azure Machine Learning. La pagina **Progetti di etichettatura** consente di gestire i progetti.
 
 Se i dati si trovano già nell'archiviazione BLOB di Azure, è necessario renderli disponibili come archivio dati prima di creare il progetto di etichettatura. Per un esempio dell'uso di un archivio dati, vedere [Esercitazione: Creare il primo progetto di etichettatura per la classificazione delle immagini](tutorial-labeling.md).
 
@@ -138,8 +138,6 @@ Per i rettangoli di selezione, le domande importanti sono:
 
 La pagina **Etichettatura assistita da ML** consente di attivare modelli di Machine Learning automatici per accelerare l'attività di etichettatura. All'inizio del progetto di etichettatura, le immagini vengono mescolate in modo casuale per ridurre le potenziali distorsioni. Tuttavia, eventuali distorsioni presenti nel set di dati si rifletteranno nel modello con training. Se, ad esempio, l'80% delle immagini appartiene a una singola classe, circa l'80% dei dati usati per il training del modello sarà di tale classe. Questo training non include l'apprendimento attivo.
 
-Questa funzionalità è disponibile per le attività di classificazione delle immagini (multi-classe o multi-etichetta).  
-
 Selezionare *Abilita etichettatura assistita da ML* e specificare una GPU per abilitare l'etichettatura assistita, costituita da due fasi:
 * Clustering
 * Pre-etichettatura
@@ -150,13 +148,15 @@ Poiché le etichette finali si basano ancora sull'input dell'etichettatore, ques
 
 ### <a name="clustering"></a>Clustering
 
-Dopo l'invio di un determinato numero di etichette, il modello di Machine Learning inizia a raggruppare immagini simili.  Queste immagini simili vengono presentate all'etichettatore nella stessa schermata per velocizzare l'assegnazione manuale di tag. Il clustering è particolarmente utile quando l'etichettatore visualizza una griglia di 4, 6 o 9 immagini. 
+Dopo l'invio di un determinato numero di etichette, il modello di Machine Learning per la classificazione delle immagini inizia a raggruppare le immagini simili.  Queste immagini simili vengono presentate all'etichettatore nella stessa schermata per velocizzare l'assegnazione manuale di tag. Il clustering è particolarmente utile quando l'etichettatore visualizza una griglia di 4, 6 o 9 immagini. 
 
 Dopo aver eseguito il training di un modello di Machine Learning sui dati etichettati manualmente, il modello viene troncato all'ultimo livello completamente connesso. Le immagini non etichettate vengono quindi passate attraverso il modello troncato in un processo comunemente noto come "incorporamento" o "definizione delle funzionalità". Questa operazione incorpora ogni immagine in uno spazio altamente dimensionale definito da questo livello del modello. Le immagini vicine più prossime nello spazio vengono usate per le attività di clustering. 
 
+La fase di clustering non viene visualizzata per i modelli di rilevamento degli oggetti.
+
 ### <a name="prelabeling"></a>Pre-etichettatura
 
-Dopo l'invio di altre etichette di immagine, viene usato un modello di classificazione per stimare i tag di immagine.  L'etichettatore ora visualizza le pagine che contengono etichette stimate già presenti in ogni immagine.  L'attività è quindi quella di controllare queste etichette e correggere eventuali immagini non etichettate correttamente prima di inviare la pagina.  
+Dopo l'invio di una quantità sufficiente di etichette di immagini, viene usato un modello di classificazione per prevedere i tag di immagine oppure un modello di rilevamento degli oggetti per prevedere i rettangoli di selezione. L'etichettatore ora visualizza le pagine che contengono etichette stimate già presenti in ogni immagine. Per il rilevamento degli oggetti, vengono visualizzati anche i rettangoli di selezione previsti. L'attività consiste quindi nell'esaminare le previsioni e correggere le eventuali immagini etichettate in modo non corretto prima di inviare la pagina.  
 
 Dopo avere eseguito il training di un modello di Machine Learning sui dati etichettati manualmente, il modello viene valutato su un set di test di immagini etichettate manualmente per determinarne l'accuratezza in base a una varietà di soglie di attendibilità diverse. Questo processo di valutazione viene usato per determinare una soglia di attendibilità oltre la quale il modello è sufficientemente accurato per mostrare le pre-etichette. Il modello viene quindi valutato in base ai dati non etichettati. Le immagini con stime più attendibili di questa soglia vengono usate per la pre-etichettatura.
 

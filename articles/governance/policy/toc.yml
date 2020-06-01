@@ -60,20 +60,34 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: Distribuire le risorse
           href: ./samples/pattern-deploy-resources.md
+    - name: Servizi predefiniti di conformità alle normative
+      items:
+        - name: Benchmark di sicurezza di Azure
+          href: ./samples/azure-security-benchmark.md
+        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+          href: ./samples/cis-azure-1-1-0.md
+        - name: NIST SP 800-53 R4
+          href: ./samples/nist-sp-800-53-r4.md
 - name: Concetti
   items:
-    - name: Struttura delle definizioni di criteri di Azure
+    - name: Struttura delle definizioni
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Informazioni sugli effetti di Criteri
+    - name: Informazioni sugli effetti
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Struttura di assegnazione di Criteri di Azure
+    - name: Struttura dell'iniziativa
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: Struttura delle assegnazioni
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: Valutare l'effetto di un nuovo criterio
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Conformità alle normative
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: Progettare flussi di lavoro di criteri come codice
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -127,6 +141,8 @@
         - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Risolvere problemi
+  href: ./troubleshoot/general.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -198,7 +214,7 @@
     - name: GitHub - Repository dei criteri della community
       href: 'https://github.com/Azure/Community-Policy'
     - name: Domande e risposte Microsoft per Criteri di Azure
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: Canale dedicato alla governance su YouTube
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Video sulla configurazione guest

@@ -24,28 +24,28 @@
           href: work-remotely-support.md
     - name: Modelli di connettività
       href: expressroute-connectivity-models.md
-    - name: Circuiti e peering
-      href: expressroute-circuit-peerings.md
     - name: Località e partner
       items:
         - name: Provider per località
           href: expressroute-locations-providers.md
         - name: Località per provider
           href: expressroute-locations.md
-    - name: Informazioni sui gateway di rete virtuale
-      href: expressroute-about-virtual-network-gateways.md
     - name: Prerequisiti
       href: expressroute-prerequisites.md
     - name: Flussi di lavoro
       href: expressroute-workflows.md
     - name: Requisiti di routing
       href: expressroute-routing.md
+    - name: Circuiti e peering
+      items:
+        - name: Informazioni su circuiti e peering
+          href: expressroute-circuit-peerings.md
+        - name: Spostamento dei circuiti dal modello classico a Resource Manager
+          href: expressroute-move.md
     - name: BFD su ExpressRoute
       href: expressroute-bfd.md
     - name: Requisiti QoS
       href: expressroute-qos.md
-    - name: Informazioni sullo spostamento dei circuiti dal modello classico a Resource Manager
-      href: expressroute-move.md
     - name: Informazioni su ExpressRoute FastPath
       href: about-fastpath.md
     - name: Informazioni su ExpressRoute Direct
@@ -54,6 +54,10 @@
       href: expressroute-global-reach.md
     - name: Informazioni sulla crittografia di ExpressRoute
       href: expressroute-about-encryption.md
+    - name: Controlli di sicurezza
+      href: expressroute-security-controls.md
+    - name: Informazioni sui gateway di rete virtuale
+      href: expressroute-about-virtual-network-gateways.md
     - name: Connettere Azure al cloud pubblico
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilità della connettività di back-end
@@ -68,11 +72,9 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Connettività tra reti
       href: cross-network-connectivity.md
-    - name: Criteri di sicurezza integrati
-      href: expressroute-security-controls.md
-    - name: Progettazione per la disponibilità elevata
+    - name: Disponibilità elevata - Progettazione
       href: designing-for-high-availability-with-expressroute.md
-    - name: Progettazione per il ripristino di emergenza
+    - name: Ripristino di emergenza - Progettazione
       items:
         - name: Peering privato
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
@@ -165,6 +167,8 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurare Monitoraggio prestazioni rete per ExpressRoute
           href: how-to-npm.md
+        - name: Configurare avvisi personalizzati per il monitoraggio di route annunciate
+          href: how-to-custom-route-alert.md
     - name: Articoli classici e legacy
       items:
         - name: Modificare un circuito

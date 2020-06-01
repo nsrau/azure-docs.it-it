@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Procedura di distribuzione per l'esempio di progetto CIS Microsoft Azure Foundations Benchmark, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544531"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864471"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Distribuire l'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 
@@ -93,8 +93,8 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Anteprima\]: Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di aree in cui deve essere abilitato Network Watcher|Elenco di aree delimitate da punto e virgola. Per visualizzare un elenco completo delle aree, usare Get-AzLocation. Esempio: eastus; eastus2|
-|\[Anteprima\]: Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di estensioni macchina virtuale approvate per l'uso|Elenco di estensioni delimitate da punto e virgola. Per visualizzare un elenco completo di estensioni macchina virtuale, usare Get-AzVMExtensionImage. ad esempio AzureDiskEncryption; IaaSAntimalware|
+|Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di aree in cui deve essere abilitato Network Watcher|Elenco di aree delimitate da punto e virgola. Per visualizzare un elenco completo delle aree, usare Get-AzLocation. Esempio: eastus; eastus2|
+|Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di estensioni macchina virtuale approvate per l'uso|Elenco di estensioni delimitato da punto e virgola. Per visualizzare un elenco completo delle estensioni macchina virtuale, usare Get-AzVMExtensionImage. ad esempio AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

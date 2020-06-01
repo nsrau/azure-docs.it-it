@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181597"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201334"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Esercitazione: Accesso utenti e chiamata dell'API Microsoft Graph da un'applicazione a pagina singola Angular
 
@@ -343,7 +343,6 @@ Se un'API back-end non richiede alcun ambito (scelta non consigliata), è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'esercitazione su Angular illustra come consentire l'accesso a un utente e acquisire i token:
+Se non si ha familiarità con la gestione delle identità e degli accessi, sono disponibili diversi articoli che illustrano i concetti dell'autenticazione moderna, a partire dal [confronto tra autenticazione e autorizzazione](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Esercitazioni su Angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+Se si vuole approfondire lo sviluppo di applicazioni a pagina singola su Microsoft Identity Platform, la serie di articoli in più parti [Scenario: applicazione a pagina singola](scenario-spa-overview.md) può essere utile per iniziare.

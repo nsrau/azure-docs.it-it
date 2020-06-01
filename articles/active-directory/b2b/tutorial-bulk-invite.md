@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603385"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926920"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD
 
@@ -24,10 +24,31 @@ Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborar
 
 > [!div class="checklist"]
 > * Uso di **Invita utenti in blocco** per preparare un file con valori delimitati da virgole (CSV) contenente le informazioni utente e le preferenze di invito
-> * Caricamento del file con estensione csv in Azure AD
-> * Verifica dell'aggiunta degli utenti alla directory
+> * Caricare il file con estensione csv in Azure AD
+> * Verificare che gli utenti siano stati aggiunti alla directory
 
 Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+## <a name="understand-the-csv-template"></a>Informazioni sul modello CSV
+
+Scaricare e compilare il modello CSV di caricamento in blocco per invitare correttamente in blocco gli utenti guest di Azure AD. Il modello CSV scaricato sarà simile a questo esempio:
+
+![Foglio di calcolo per il caricamento con callout che illustrano lo scopo e i valori di ogni riga e colonna](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>Struttura del modello CSV
+
+Un modello CSV scaricato contiene le righe descritte di seguito.
+
+- **Numero di versione**: nel file CSV di caricamento deve essere inclusa la prima riga contenente il numero di versione.
+- **Intestazioni di colonna**: il formato delle intestazioni di colonna è &lt;*Nome elemento*&gt; [NomeProprietà] &lt;*Required o vuoto*&gt;. Ad esempio: `Email address to invite [inviteeEmail] Required`. Alcune versioni precedenti del modello potrebbero presentare lievi variazioni.
+- **Riga di esempi**: nel modello è stata inclusa una riga di esempi di valori accettabili per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
+
+### <a name="additional-guidance"></a>Indicazioni aggiuntive
+
+- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non potrà essere elaborato.
+- Le colonne obbligatorie sono riportate per prime.
+- Non è consigliabile aggiungere nuove colonne al modello. Le colonne aggiunte saranno ignorate e non verranno elaborate.
+- È consigliabile scaricare l'ultima versione del modello CSV il più spesso possibile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,11 +59,11 @@ Sono necessari almeno due account di posta elettronica di test a cui inviare gli
 1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 3. In **Gestisci** selezionare **Utenti** > **Invita in blocco**.
-4. Nella pagina **Invita utenti in blocco** selezionare **Scarica** per scaricare un file CSV valido con le proprietà di invito.
+4. Nella pagina **Invita utenti in blocco** selezionare **Scarica** per scaricare un modello con estensione csv valido con le proprietà di invito.
 
     ![Pulsante di download in Invita in blocco](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Aprire il file CSV e aggiungere una riga per ogni utente guest. I valori obbligatori sono:
+5. Aprire il modello con estensione csv e aggiungere una riga per ogni utente guest. I valori obbligatori sono:
 
    * **Indirizzo di posta elettronica da invitare**: utente che riceverà un invito
 

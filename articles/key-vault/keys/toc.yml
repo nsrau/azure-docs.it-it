@@ -17,12 +17,12 @@
       href: quick-create-python.md
 - name: Esercitazioni
   items:
-    - name: Importare chiavi con protezione HSM
+    - name: Importare chiavi con protezione HSM (panoramica)
       href: hsm-protected-keys.md
-    - name: Importare chiavi con protezione HSM (anteprima)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importare chiavi con protezione HSM (legacy)
-      href: hsm-protected-keys-legacy.md
+    - name: Importare chiavi con protezione HSM (BYOK)
+      href: hsm-protected-keys-byok.md
+    - name: Importare chiavi con protezione HSM (nCipher)
+      href: hsm-protected-keys-ncipher.md
 - name: Esempi
   items:
     - name: Criteri di Azure predefiniti
@@ -47,6 +47,8 @@
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Specifica di BYOK (Bring Your Own Key)
+      href: byok-specification.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

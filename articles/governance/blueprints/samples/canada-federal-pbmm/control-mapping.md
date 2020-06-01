@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Canada Federal PBMM
 description: Mapping dei controlli degli esempi di progetto Canada Federal PBMM. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545260"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005705"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Canada Federal PBMM
 
@@ -57,8 +57,8 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 - Per la sottoscrizione devono essere designati al massimo 3 proprietari
 - Alla sottoscrizione deve essere assegnato più di un proprietario
-- Controlla le macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
-- Controlla le macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
 - Distribuisci i requisiti per controllare le macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
 - Distribuisci i requisiti per controllare le macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
 
@@ -68,8 +68,8 @@ Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-
 
 - Per la sottoscrizione devono essere designati al massimo 3 proprietari
 - Alla sottoscrizione deve essere assegnato più di un proprietario
-- Controlla le macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
-- Controlla le macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
 - Distribuisci i requisiti per controllare le macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati
 - Distribuisci i requisiti per controllare le macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
 
@@ -85,7 +85,7 @@ Le funzionalità di individuazione e classificazione dei dati offerte da Sicurez
 
 Questo progetto consente di monitorare e controllare l'accesso remoto assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per monitorare la disattivazione del debug remoto per l'applicazione del servizio app di Azure. Il progetto assegna anche definizioni di criteri che controllano le macchine virtuali Linux che consentono connessioni remote da account senza password. Il progetto assegna inoltre una definizione di Criteri di Azure che permette di monitorare l'accesso senza restrizioni agli account di archiviazione. Il monitoraggio di questi indicatori è utile per verificare la conformità dei metodi di accesso remoto ai criteri di sicurezza.
 
-- \[Anteprima\]: Controlla le macchine virtuali Linux che non consentono connessioni remote da account senza password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
 - \[Anteprima\]: Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - Il debug remoto deve essere disattivato per l'app per le API
@@ -107,7 +107,7 @@ I dati del log applicazioni raccolti da Monitoraggio di Azure vengono archiviati
 Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le configurazioni di controllo e registrazione degli eventi. Il monitoraggio di queste configurazioni è indicativo di errori o errate configurazioni del sistema di controllo ed è utile per adottare misure correttive.
 
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
-- Controlla le impostazioni di controllo a livello del server SQL
+- È consigliabile abilitare il controllo in SQL Server
 - Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 
@@ -131,7 +131,7 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
-- Controlla le impostazioni di controllo a livello del server SQL
+- È consigliabile abilitare il controllo in SQL Server
 - Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
@@ -167,8 +167,8 @@ Questo progetto consente di limitare e controllare l'accesso con privilegi asseg
 
 Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le macchine virtuali Linux che consentono connessioni remote da account senza password e/o per cui sono impostate autorizzazioni errate nel file passwd. Questo progetto assegna anche definizioni di criteri che controllano la configurazione del tipo di crittografia delle password per le macchine virtuali Windows. Il monitoraggio di questi indicatori è utile per verificare che gli autenticatori di sistema siano conformi ai criteri di identificazione e autenticazione dell'organizzazione.
 
-- \[Anteprima\]: Controlla le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
-- \[Anteprima\]: Controlla le macchine virtuali Linux in cui sono presenti account senza password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
 
@@ -176,11 +176,11 @@ Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overvi
 
 Questo progetto consente di imporre password complesse assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le macchine virtuali Windows che non impongono il requisito minimo di complessità o altri requisiti delle password. Identificando le macchine virtuali che violano i criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle macchine virtuali siano conformi ai criteri delle password dell'organizzazione.
 
-- \[Anteprima\]: Controlla le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
@@ -217,10 +217,9 @@ Il livello Standard per gli attacchi Distributed Denial of Service (DDoS) di Azu
 Questo progetto consente di gestire e controllare i limiti di sistema assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora l'applicazione delle raccomandazioni sulla protezione avanzata per i gruppi di sicurezza di rete nel Centro sicurezza di Azure. Centro sicurezza di Azure analizza i criteri relativi al traffico di macchine virtuali connesse a Internet e fornisce raccomandazioni sulle regole dei gruppi di sicurezza di rete per ridurre la potenziale superficie di attacco.
 Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
 
-- Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
+- Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protezione dei limiti | Punti di accesso
 
@@ -239,7 +238,7 @@ L'accesso JIT alle macchine virtuali blocca il traffico in ingresso alle macchin
 Questo progetto consente di proteggere la riservatezza e l'integrità delle informazioni trasmesse assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che consentono di monitorare il meccanismo di crittografia implementato per i protocolli di comunicazione. Assicurandosi che le comunicazioni vengano correttamente crittografate, è possibile soddisfare i requisiti dell'organizzazione per la protezione delle informazioni da divulgazione e modifiche non autorizzate.
 
 - L'app per le API deve essere accessibile solo tramite HTTPS
-- Controlla i server Web Windows che non usano protocolli di comunicazione sicuri
+- Mostra i risultati del controllo dai server Web Windows che non usano protocolli di comunicazione sicuri
 - Distribuisci i requisiti per controllare i server Web Windows che non usano protocolli di comunicazione sicuri
 - L'app per le funzioni deve essere accessibile solo tramite HTTPS
 - Devono essere abilitate solo connessioni sicure alla Cache Redis

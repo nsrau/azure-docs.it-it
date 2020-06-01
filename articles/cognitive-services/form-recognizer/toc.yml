@@ -60,6 +60,8 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usare istanze di contenitore
           href: deploy-form-recognizer-on-container-instances.md
+    - name: Copiare i modelli per il ripristino di emergenza
+      href: disaster-recovery.md
 - name: Informazioni di riferimento
   items:
     - name: API Riconoscimento modulo v2.0

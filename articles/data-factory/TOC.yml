@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Creare una data factory - Modello di Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Sicurezza - Abilitare la crittografia della chiave gestita dal cliente
+      href: quickstart-enable-customer-managed-key.md
     - name: Creare un flusso di dati
       href: data-flow-create.md
 - name: Esercitazioni
@@ -39,7 +41,7 @@
               href: tutorial-copy-data-portal.md
             - name: .NET
               href: tutorial-copy-data-dot-net.md
-        - name: Da un database di SQL Server locale ad Archiviazione BLOB di Azure
+        - name: Da un database di SQL Server ad Archiviazione BLOB di Azure
           items:
             - name: Strumento Copia dati
               href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
                   href: tutorial-incremental-copy-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-powershell.md
-            - name: Da più tabelle SQL Server locali
+            - name: Da più tabelle di database di SQL Server
               items:
                 - name: Interfaccia utente
                   href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -605,6 +607,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Connettersi a dati con l'autenticazione di Windows
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Salvare file e connettersi a condivisioni file
+          href: ssis-azure-files-file-shares.md
         - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Componenti predefiniti e preinstallati in Azure-SSIS IR
@@ -623,6 +629,8 @@
           href: how-to-use-sql-managed-instance-with-ir.md
         - name: Eseguire la migrazione di processi SSIS con SSMS
           href: how-to-migrate-ssis-job-ssms.md
+        - name: Gestire i pacchetti con l'archivio pacchetti Azure-SSIS IR
+          href: azure-ssis-integration-runtime-package-store.md
     - name: Creare trigger
       items:
         - name: Creare un trigger basato su eventi

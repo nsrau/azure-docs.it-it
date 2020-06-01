@@ -177,6 +177,8 @@
       items:
         - name: Monitorare le distribuzioni IoT Edge
           href: how-to-monitor-iot-edge-deployments.md
+        - name: Monitorare i moduli gemelli
+          href: how-to-monitor-module-twins.md
         - name: Metodi diretti EdgeAgent
           href: how-to-edgeagent-direct-method.md
     - name: Usare i dispositivi IoT Edge come gateway

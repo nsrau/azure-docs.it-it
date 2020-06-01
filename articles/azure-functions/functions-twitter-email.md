@@ -4,21 +4,21 @@ description: Creare una funzione che si integra con le app per la logica di Azur
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190300"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116341"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
 Funzioni di Azure si integra con App per la logica di Azure in Progettazione app per la logica. L'integrazione consente di usare la potenza di calcolo di Funzioni nelle orchestrazioni con altri servizi di Azure e di terze parti. 
 
-Questa esercitazione illustra come usare Funzioni con App per la logica e Servizi cognitivi in Azure per eseguire l'analisi del sentiment nei post di Twitter. Una funzione attivata tramite HTTP classifica i tweet come verde, giallo o rosso in base al punteggio del sentiment. Quando viene rilevato un livello di sentiment basso viene inviato un messaggio di posta elettronica. 
+Questa esercitazione illustra come usare Funzioni di Azure con App per la logica e Servizi cognitivi in Azure per eseguire l'analisi del sentiment dai post di Twitter. Una funzione trigger HTTP classifica i tweet come verde, giallo o rosso in base al punteggio del sentiment. Quando viene rilevato un livello di sentiment basso viene inviato un messaggio di posta elettronica. 
 
 ![immagine dei primi due passaggi dell'app in Progettazione app per la logica](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -74,21 +74,21 @@ Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l
 
 ## <a name="create-the-function-app"></a>Creare l'app per le funzioni
 
-Funzioni permette di ripartire il carico di lavoro delle attività di elaborazione in un flusso di lavoro di app per la logica. Questa esercitazione fa uso di una funzione attivata tramite HTTP per elaborare i punteggi attribuiti da Servizi cognitivi ai sentiment dei tweet e restituire un valore categoria.  
+Funzioni di Azure offre un ottimo modo per eseguire l'offload delle attività di elaborazione in un flusso di lavoro delle app per la logica. Questa esercitazione usa una funzione trigger HTTP per elaborare i punteggi attribuiti da Servizi cognitivi ai sentiment dei tweet e restituire un valore di categoria.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Creare una funzione attivata tramite HTTP  
+## <a name="create-an-http-trigger-function"></a>Creare una funzione trigger HTTP  
 
-1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale**.
+1. Selezionare **Funzioni** nel menu a sinistra della finestra **Funzioni** e quindi **Aggiungi** nel menu in alto.
 
-    ![Pagina della guida di avvio rapido di Funzioni nel portale di Azure](media/functions-twitter-email/05-function-app-create-portal.png)
+2. Nella finestra **Nuova funzione** selezionare **Trigger HTTP**.
 
-2. Selezionare quindi **Webhook e API** e fare clic su **Crea**. 
+    ![Scegliere la funzione Trigger HTTP](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Scegliere un trigger HTTP](./media/functions-twitter-email/06-function-webhook.png)
+3. Nella pagina **Nuova funzione** selezionare **Crea funzione**.
 
-3. Sostituire il contenuto del file `run.csx` con il codice seguente e quindi fare clic su **Salva**:
+4. Nella nuova funzione trigger HTTP selezionare **Codice e test** nel menu a sinistra, sostituire il contenuto del file `run.csx` con il codice seguente e quindi selezionare **Salva**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ Funzioni permette di ripartire il carico di lavoro delle attività di elaborazio
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     Questo codice di funzione restituisce una categoria colore in base al punteggio del sentiment ricevuto nella richiesta. 
 
-4. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Digitare un valore di `0.2` per il **Corpo della richiesta** e quindi fare clic su **Esegui**. Nel corpo della risposta verrà restituito il valore **RED**. 
+5. Per testare la funzione, selezionare **Test** nel menu in alto. Nella scheda **Input** immettere il valore `0.2` in **Corpo** e quindi selezionare **Esegui**. Nel campo **Contenuto della risposta HTTP** della scheda **Output** viene restituito il valore **RED**. 
 
-    ![Testare la funzione nel portale di Azure](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definire le impostazioni del proxy":::
 
 A questo punto è disponibile una funzione che classifica i punteggi dei sentiment. Nella fase successiva viene creata un'app per la logica che integra la funzione con l'API Twitter e Servizi cognitivi. 
 
@@ -215,7 +216,7 @@ A questo punto, la funzione viene attivata quando l'app per la logica invia un p
 
 ## <a name="add-email-notifications"></a>Aggiungere le notifiche di posta elettronica
 
-L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messaggio di posta elettronica quando il punteggio del sentiment è _RED_. Questo argomento fa uso di un connettore Outlook.com. Per usare un connettore Gmail o Office 365 Outlook è possibile seguire una procedura simile.   
+L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messaggio di posta elettronica quando il punteggio del sentiment è _RED_. Questo articolo usa un connettore Outlook.com. Per usare un connettore Gmail o Office 365 Outlook è possibile seguire una procedura simile.   
 
 1. In Progettazione app per la logica fare clic su **Nuovo passaggio** > **Aggiungi una condizione**. 
 
@@ -277,7 +278,7 @@ Ora che il flusso di lavoro è completo, è possibile abilitare l'app per la log
     > [!IMPORTANT]
     > Al termine di questa esercitazione è consigliabile disabilitare l'app per la logica. In questo modo è possibile evitare di incorrere in addebiti per le esecuzioni e di esaurire le transazioni nell'API Servizi cognitivi.
 
-Come illustrato in questa esercitazione, integrare Funzioni in un flusso di lavoro di App per la logica è molto semplice.
+È stato così illustrato come sia facile integrare Funzioni in un flusso di lavoro di App per la logica.
 
 ## <a name="disable-the-logic-app"></a>Disabilitare l'app per la logica
 

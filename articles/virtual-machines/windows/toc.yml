@@ -449,6 +449,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Creare una macchina virtuale
                   items:
+                    - name: Specializzata
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Generalizzata
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aggiornare le risorse immagini
@@ -664,7 +666,7 @@
                       items:
                         - name: Macchina virtuale
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                        - name: Set di scalabilità di macchine virtuali
+                        - name: Set di scalabilità
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Inviare dati a Hub eventi
                       href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
