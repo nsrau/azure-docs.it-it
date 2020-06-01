@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81398711"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746089"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -23,6 +23,7 @@ Azure Data Box Disk è una soluzione cloud ibrida che consente di importare i da
 Questa esercitazione descrive come è possibile ordinare un disco di Azure Data Box. Questa esercitazione descrive quanto segue:
 
 > [!div class="checklist"]
+>
 > * Ordinare un disco di Data Box
 > * Monitorare l'ordine
 > * Annullare l'ordine
@@ -38,21 +39,22 @@ Prima della distribuzione completare i prerequisiti di configurazione seguenti p
 ### <a name="for-device"></a>Per il dispositivo
 
 Prima di iniziare, verificare che:
-- Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
-    - Eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Avere altro [software richiesto](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installato se è un client Windows.  
+
+* Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
+  * Eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Avere altro [software richiesto](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installato se è un client Windows.  
 
 ## <a name="order-data-box-disk"></a>Ordinare un disco di Data Box
 
 Accedere a:
 
-- Portale di Azure all'URL https://portal.azure.com per ordinare Data Box Disk.
-- Portale di Azure per enti pubblici all'URL https://portal.azure.us. Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Portale di Azure all'URL https://portal.azure.com per ordinare Data Box Disk.
+* Portale di Azure per enti pubblici all'URL https://portal.azure.us. Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 Per ordinare Data Box Disk, seguire questa procedura.
 
 1. Nell'angolo superiore sinistro del portale fare clic su **+ Crea una risorsa** e cercare *Azure Data Box*. Fare clic su **Azure Data Box**.
-    
+
    ![Cercare Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
 2. Fare clic su **Crea**.
@@ -65,15 +67,14 @@ Per ordinare Data Box Disk, seguire questa procedura.
     |---|---|
     |Subscription|Selezionare la sottoscrizione per cui è abilitato il servizio Data Box.<br> La sottoscrizione viene collegata all'account di fatturazione. |
     |Tipo di trasferimento| Importa in Azure|
-    |Paese di origine | Selezionare il paese/area in cui si trovano attualmente i dati.|
+    |Paese/area geografica di origine | Selezionare il paese/area in cui si trovano attualmente i dati.|
     |Area di Azure di destinazione|Selezionare l'area di Azure in cui si vogliono trasferire i dati.|
-
   
-5.  Selezionare **Data Box Disk**. La capacità massima della soluzione per un singolo ordine di 5 dischi è di 35 TB. È possibile creare più ordini per volumi di dati maggiori.
+4. Selezionare **Data Box Disk**. La capacità massima della soluzione per un singolo ordine di 5 dischi è di 35 TB. È possibile creare più ordini per volumi di dati maggiori.
 
      ![Selezionare l'opzione Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-6.  In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti.
+5. In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti.
 
     |Impostazione|valore|
     |---|---|
@@ -98,33 +99,34 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
     L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali nell'account di archiviazione di staging e poi li converte in dischi gestiti e li sposta nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-13. Fare clic su **Avanti**.
+6. Fare clic su **Avanti**.
 
     ![Specificare i dettagli dell'ordine](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. Nella scheda **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Fare clic su **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso. 
+7. Nella scheda **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Fare clic su **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso.
+
+   Dopo l'elaborazione dell'ordine, si riceverà una notifica tramite posta elettronica. Per altre informazioni sulla spedizione autogestita, vedere [Usare la spedizione autogestita](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Specificare l'indirizzo di spedizione](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-15. In **Dettagli notifica** specificare gli indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati. 
+8. In **Dettagli notifica** specificare gli indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
 
     È consigliabile usare un indirizzo di posta elettronica di gruppo in modo da continuare a ricevere le notifiche anche se un amministratore del gruppo non è disponibile.
 
-16. Verificare il **riepilogo** delle informazioni relative a ordine, contatti, notifiche e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
+9. Verificare il **riepilogo** delle informazioni relative a ordine, contatti, notifiche e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
 
-17. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
+10. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
 
- 
 ## <a name="track-the-order"></a>Monitorare l'ordine
 
 Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra il processo con stato **Ordinato**.
 
-![Stato del disco di Data Box ordinato](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
+![Stato del disco di Data Box ordinato](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 Se i dischi non sono disponibili, si riceverà una notifica. Se i dischi sono disponibili, Microsoft identifica i dischi per la spedizione e prepara il pacchetto dei dischi. Durante la preparazione dei dischi vengono eseguite le azioni seguenti:
 
-- I dischi vengono crittografati con crittografia BitLocker AES-128.  
-- I dischi vengono bloccati per impedire l'accesso non autorizzato.
-- Durante questo processo viene generata la passkey che sblocca i dischi.
+* I dischi vengono crittografati con crittografia BitLocker AES-128.  
+* I dischi vengono bloccati per impedire l'accesso non autorizzato.
+* Durante questo processo viene generata la passkey che sblocca i dischi.
 
 Una volta completata la preparazione dei dischi, lo stato dell'ordine nel portale diventa **Elaborato**.
 
@@ -140,12 +142,12 @@ Per annullare l'ordine, nel portale di Azure passare a **Panoramica** e fare cli
 
 Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Elimina** dalla barra dei comandi.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
+>
 > * Ordinare un disco di Data Box
 > * Monitorare l'ordine
 > * Annullare l'ordine

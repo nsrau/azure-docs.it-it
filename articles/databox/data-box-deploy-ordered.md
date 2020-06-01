@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bc21ba73ef7e8f5879af2b15787449315f36a3f8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81398681"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745312"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -22,6 +22,7 @@ Azure Data Box è una soluzione ibrida che consente di importare i dati locali i
 Questa esercitazione illustra come ordinare un dispositivo Azure Data Box. Questa esercitazione descrive quanto segue:
 
 > [!div class="checklist"]
+>
 > * Prerequisiti per la distribuzione del Data Box
 > * Ordinare un Data Box
 > * Monitorare l'ordine
@@ -38,8 +39,9 @@ Prima di distribuire il dispositivo, completare i prerequisiti di configurazione
 ### <a name="for-device"></a>Per il dispositivo
 
 Prima di iniziare, verificare che:
-- Sia disponibile un computer host connesso alla rete del data center. Il servizio Data Box copierà i dati da questo computer. Il computer host deve eseguire un sistema operativo supportato come descritto nei [requisiti di sistema per Azure Data Box](data-box-system-requirements.md).
-- Il data center disponga di una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà.
+
+* Sia disponibile un computer host connesso alla rete del data center. Il servizio Data Box copierà i dati da questo computer. Il computer host deve eseguire un sistema operativo supportato come descritto nei [requisiti di sistema per Azure Data Box](data-box-system-requirements.md).
+* Il data center disponga di una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà.
 
 ## <a name="order-data-box"></a>Ordinare il Data Box
 
@@ -47,18 +49,18 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 1. Usare le credenziali di Microsoft Azure per accedere all'URL [https://portal.azure.com](https://portal.azure.com).
 2. Fare clic su **+ Crea una risorsa** e cercare *Azure Data Box*. Fare clic su **Azure Data Box**.
-    
+
    [![Cercare Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Fare clic su **Crea**.
 
-4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Applica**. 
+4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Applica**.
 
     |Impostazione  |valore  |
     |---------|---------|
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
     |Tipo di trasferimento     | Selezionare **Importa in Azure**.        |
-    |Paese di origine     |   Selezionare il paese/area in cui si trovano attualmente i dati.         |
+    |Paese/area geografica di origine    |    Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati.        |
 
 5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
@@ -66,11 +68,11 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
       [![Selezione del Data Box - opzione 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti e fare clic su **Avanti**.
-    
+
     |Impostazione  |valore  |
     |---------|---------|
     |Nome     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
-    |Resource group     |   Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
+    |Resource group     |    Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di destinazione     | Selezionare l'area per l'account di archiviazione. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).        |
     |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br>Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).|
 
@@ -88,16 +90,19 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali come BLOB di pagine per l'account di archiviazione di staging prima di convertirli in dischi gestiti e spostarli nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Fare clic su **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso. Fare clic su **Avanti**.
+7. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Fare clic su **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso.
 
-8. In **Dettagli notifica** specificare gli indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
+   Se è stata selezionata l'opzione di spedizione autogestita, al completamento dell'ordine si riceverà una notifica tramite posta elettronica. Per altre informazioni sulla spedizione autogestita, vedere [Usare la spedizione autogestita](data-box-portal-customer-managed-shipping.md).
+
+8. Fare clic su **Avanti** dopo la convalida dei dettagli di spedizione.
+
+9. In **Dettagli notifica** specificare gli indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
 
     È consigliabile usare un indirizzo di posta elettronica di gruppo in modo da continuare a ricevere le notifiche anche se un amministratore del gruppo non è disponibile.
 
-9. Verificare il **riepilogo** delle informazioni relative a ordine, contatti, notifiche e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
+10. Verificare il **riepilogo** delle informazioni relative a ordine, contatti, notifiche e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
 
-10. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
-
+11. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
 
 ## <a name="track-the-order"></a>Monitorare l'ordine
 
@@ -105,10 +110,10 @@ Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal po
 
 Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositivo è disponibile, Microsoft identifica il dispositivo per la spedizione e lo prepara. Durante la preparazione del dispositivo vengono eseguite le azioni seguenti:
 
-- Vengono create condivisioni SMB per ogni account di archiviazione associato al dispositivo.
-- Per ogni condivisione vengono generate le credenziali di accesso, come nome utente e password.
-- Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo.
-- Il Data Box viene bloccato per impedire qualsiasi accesso non autorizzato al dispositivo.
+* Vengono create condivisioni SMB per ogni account di archiviazione associato al dispositivo.
+* Per ogni condivisione vengono generate le credenziali di accesso, come nome utente e password.
+* Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo.
+* Il Data Box viene bloccato per impedire qualsiasi accesso non autorizzato al dispositivo.
 
 Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato**.
 
@@ -123,7 +128,7 @@ Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. S
 Per annullare l'ordine, nel portale di Azure passare a **Panoramica** e fare clic su **Annulla** sulla barra dei comandi.
 
 Dopo aver effettuato un ordine, è possibile annullarlo in qualsiasi momento prima che il suo stato venga contrassegnato come elaborato.
- 
+
 Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Elimina** dalla barra dei comandi.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -131,6 +136,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
+>
 > * Prerequisiti per la distribuzione del Data Box
 > * Ordinare il Data Box
 > * Monitorare l'ordine
@@ -140,5 +146,3 @@ Passare all'esercitazione successiva per informazioni su come configurare il Dat
 
 > [!div class="nextstepaction"]
 > [Configurare Azure Data Box](./data-box-deploy-set-up.md)
-
-

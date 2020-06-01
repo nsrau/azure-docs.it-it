@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692401"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745410"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta (anteprima) con Power BI Desktop e creare un report
 
@@ -51,10 +51,7 @@ Creare il database demo ed eliminare un database esistente, se necessario, esegu
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -62,23 +59,16 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2 - Creare le credenziali
+## <a name="2---create-data-source"></a>2 - Creare l'origine dati
 
-Il servizio SQL su richiesta necessita delle credenziali per accedere ai file nella risorsa di archiviazione. Creare le credenziali per un account di archiviazione che si trova nella stessa area dell'endpoint. Sebbene SQL su richiesta possa accedere agli account di archiviazione di aree diverse, l'account di archiviazione e l'endpoint nella stessa area garantiranno prestazioni migliori.
+Il servizio SQL su richiesta necessita di un'origine dati per accedere ai file nella risorsa di archiviazione. Creare l'origine dati per un account di archiviazione che si trova nella stessa area dell'endpoint. Sebbene SQL su richiesta possa accedere agli account di archiviazione di aree diverse, l'account di archiviazione e l'endpoint nella stessa area garantiranno prestazioni migliori.
 
-Creare le credenziali eseguendo lo script Transact-SQL (T-SQL) seguente:
+Creare l'origine dati eseguendo lo script Transact-SQL (T-SQL) seguente:
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## <a name="3---prepare-view"></a>3 - Preparare la visualizzazione
@@ -96,7 +86,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -163,7 +154,7 @@ Dopo aver usato il report, seguire questa procedura per eliminare le risorse:
 1. Eliminare le credenziali per l'account di archiviazione
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTENAL DATA SOURCE AzureOpenData
    ```
 
 2. Eliminare la visualizzazione

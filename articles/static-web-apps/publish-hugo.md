@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593698"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870695"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Hugo in App Web statiche di Azure (anteprima)
 
@@ -133,13 +133,11 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Fare clic sul pulsante **Avanti: Compilazione >** per modificare la configurazione della build
 
-1. Impostare _Percorso app_ su **/** .
+1. Impostare _Percorso app_ su **pubblico**.
 
-1. Impostare _Percorso artefatto app_ su **public**.
+1. Lasciare vuota la casella _Percorso artefatto app_.
 
    Non è necessario specificare alcun valore per _Percorso API_ perché al momento non viene distribuita alcuna API.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Impostazioni di compilazione":::
 
 ### <a name="review-and-create"></a>Rivedi e crea
 
@@ -155,12 +153,12 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Aprire l'app Hugo in un editor di testo e aprire il file _.github/workflows/azure-pages-<NOME_FLUSSO_DI_LAVORO>.yml_.
 
-1. Sostituire la riga `- uses: actions/checkout@v1` (riga 18) con la seguente per compilare l'applicazione Hugo.
+1. Sostituire la riga `- uses: actions/checkout@v2` (riga 18) con la seguente per compilare l'applicazione Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

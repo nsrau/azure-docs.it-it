@@ -3,18 +3,15 @@ author: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
-ms.date: 08/06/2018
+ms.date: 05/13/2019
 ms.author: celested
-ms.openlocfilehash: 2bf0c0c9a7af3ecc3b85d1bd449ac25ee211987c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f4abe0b4fb70726da4ede3d4b05f5214f549bf41
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67180326"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680316"
 ---
 ## <a name="help-and-support"></a>Guida e supporto
 
-Se è necessaria assistenza, se si vuole segnalare un problema o si vogliono ottenere altre informazioni sulle opzioni di supporto, vedere l'articolo seguente:
-
-> [!div class="nextstepaction"]
-> [Assistenza e supporto per gli sviluppatori](../articles/active-directory/develop/developer-support-help-options.md)
+Se è necessaria assistenza, se si vuole segnalare un problema o si vogliono ottenere informazioni sulle opzioni di supporto, vedere [Assistenza e supporto per gli sviluppatori](../articles/active-directory/develop/developer-support-help-options.md).
