@@ -4,12 +4,12 @@ description: Informazioni su come connettere Funzioni di Azure a una coda di Arc
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673482"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125844"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Connettere Funzioni di Azure ad Archiviazione di Azure con Visual Studio Code
 
@@ -56,7 +56,7 @@ Dato che si usa un binding di output di Archiviazione code, è necessario che l'
 
 Il progetto è stato configurato per l'uso di [bundle di estensione](functions-bindings-register.md#extension-bundles), che installano automaticamente un set predefinito di pacchetti di estensione. 
 
-I bundle di estensione vengono abilitati nella radice del progetto in un file host.json simile al seguente:
+I bundle di estensione vengono abilitati nella radice del progetto in un file host.json come il seguente:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -200,7 +200,7 @@ Ora è il momento di ripubblicare l'app per le funzioni aggiornata in Azure.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il termine *risorse* in Azure si riferisce ad app per le funzioni, funzioni, account di archiviazione e così via. Le risorse sono raggruppate in *gruppi di risorse*, ed è possibile eliminare tutti gli elementi in un gruppo eliminando il gruppo.
+In Azure il termine *risorse* si riferisce ad app per le funzioni, funzioni, account di archiviazione e così via. Le risorse sono raggruppate in *gruppi di risorse*, ed è possibile eliminare tutti gli elementi in un gruppo eliminando il gruppo.
 
 Per completare queste guide introduttive sono state create risorse. Per tali risorse potrebbero venire addebitati costi, a seconda dello [stato dell'account](https://azure.microsoft.com/account/) e dei [prezzi dei servizi](https://azure.microsoft.com/pricing/). Se le risorse non sono più necessarie, ecco come eliminarle:
 

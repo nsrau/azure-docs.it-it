@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143730"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640195"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
@@ -58,6 +58,10 @@ Per usare correttamente il writeback della reimpostazione della password self-se
    * Le unità organizzative (OU) utente che si vuole siano nell'ambito per SSPR
 
 Se non si assegnano tali autorizzazioni, il writeback è configurato correttamente, ma gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud. Per visualizzare "Password senza scadenza", è necessario applicare le autorizzazioni a **Questo oggetto e tutti i discendenti**.  
+
+> [!TIP]
+>
+> Se il writeback delle password non viene eseguito nella directory locale per alcuni account utente, assicurarsi che l'ereditarietà non sia disabilitata per l'account nell'ambiente di Active Directory Domain Services locale. Per la corretta esecuzione della funzionalità, è necessario che le autorizzazioni di scrittura per le password vengano applicate agli oggetti discendenti.
 
 Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle password, eseguire la procedura seguente:
 

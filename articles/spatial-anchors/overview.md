@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5ebd29b5fb6fdedcdfbc434209b350512c4cd5dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77657308"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006100"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Panoramica di Ancoraggi nello spazio di Azure
 
@@ -26,7 +26,7 @@ Questi punti di interesse precisi si definiscono ancoraggi nello spazio.
 
 Gli esempi di caso d'uso resi possibili da Ancoraggi nello spazio includono:
 
-- [Esperienze multiutente](tutorials/tutorial-share-anchors-across-devices.md). Ancoraggi nello spazio consente a persone situate nello stesso posto di partecipare ad applicazioni di realtà mista multiutente. Due persone possono ad esempio avviare una partita di scacchi di realtà mista collocando una scacchiera virtuale su un tavolo. Quindi, puntando il loro dispositivo sul tavolo, possono visualizzare e interagire contemporaneamente con la scacchiera virtuale.
+- [Esperienze multiutente](tutorials/tutorial-share-anchors-across-devices.md). Ancoraggi nello spazio di Azure consente a persone situate nello stesso posto di partecipare ad applicazioni di realtà mista multiutente. Due persone possono ad esempio avviare una partita di scacchi di realtà mista collocando una scacchiera virtuale su un tavolo. Quindi, puntando il loro dispositivo sul tavolo, possono visualizzare e interagire contemporaneamente con la scacchiera virtuale.
 
 - [Orientamento](concepts/anchor-relationships-way-finding.md). Gli sviluppatori possono anche connettere gli ancoraggi nello spazio tra loro per metterli in relazione. Un'app può ad esempio offrire un'esperienza che include due o più punti di interesse con cui gli utenti devono interagire per completare un'attività. Questi punti di interesse possono essere creati in modalità connessa. In seguito, quando l'utente completa l'attività in più passaggi, l'app può richiedere gli ancoraggi vicini a quello corrente per indirizzarlo verso il passaggio successivo dell'attività.
 
@@ -36,7 +36,7 @@ Ancoraggi nello spazio di Azure è costituito da un servizio gestito e da SKD cl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare la prima app con Ancoraggi nello spazio.
+Creare la prima app con Ancoraggi nello spazio di Azure.
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)

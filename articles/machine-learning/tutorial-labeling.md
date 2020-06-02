@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203642"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759184"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura (anteprima) per la classificazione delle immagini multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questa esercitazione illustra come gestire il processo di etichettatura (detto anche assegnazione di tag) di immagini da usare come dati per la creazione di modelli di Machine Learning. La funzionalità di etichettatura dei dati in Azure Machine Learning è in anteprima pubblica.
@@ -77,7 +77,7 @@ Gli archivi dati di Azure Machine Learning vengono usati per archiviare le infor
 
 ### <a name="create-a-labeling-project"></a>Creare un progetto di etichettatura
 
-Ora che si ha l'elenco di etichettatori e l'accesso ai dati da etichettare, creare il progetto di etichettatura.
+Ora che si ha l'accesso ai dati da etichettare, creare il progetto di etichettatura.
 
 1. Nella parte superiore della pagina selezionare **Progetti**.
 

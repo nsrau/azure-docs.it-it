@@ -1,37 +1,37 @@
 ---
 title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con Python
+description: Seguire questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca all'istanza di Ricerca personalizzata Bing con Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: a601b309d18e489f6b631cb26e5f3e13ef790b42
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e1248a4e90653f0e862841ec6f58a12364943590
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80238839"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196571"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python
 
-Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing. Benché l'applicazione sia scritta in Python, l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
+Seguire questo argomento di avvio rapido per informazioni su come richiedere risultati della ricerca all'istanza di Ricerca personalizzata Bing. Anche se l'applicazione è scritta in Python, l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'istanza di Ricerca personalizzata Bing. Vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
-- [Python](https://www.python.org/) 2.x o 3.x
+- Un'istanza di Ricerca personalizzata Bing. Per altre informazioni, vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
+- [Python](https://www.python.org/) 2.x o 3.x.
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere le istruzioni di importazione seguenti. Creare variabili per la chiave di sottoscrizione, l'ID di configurazione personalizzata e un termine di ricerca. 
+- Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere le istruzioni di importazione seguenti. Creare variabili per la chiave di sottoscrizione, l'ID configurazione personalizzato e un termine di ricerca.
 
     ```python
     import json
@@ -44,7 +44,7 @@ Usare questo argomento di avvio rapido per iniziare a richiedere risultati della
 
 ## <a name="send-and-receive-a-search-request"></a>Inviare e ricevere una richiesta di ricerca 
 
-1. Creare l'URL della richiesta aggiungendo il termine di ricerca al parametro di query `q=` e l'ID di configurazione personalizzata dell'istanza di ricerca a `customconfig=`. Separare i parametri con un carattere `&`. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+1. Creare l'URL della richiesta aggiungendo il termine di ricerca al parametro di query `q=` e l'ID configurazione personalizzato dell'istanza di ricerca al parametro `customconfig=`. Separare i parametri con una e commerciale (`&`). È possibile usare l'endpoint globale nel codice seguente o l'endpoint di [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```python
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId

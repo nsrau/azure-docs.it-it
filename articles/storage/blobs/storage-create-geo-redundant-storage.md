@@ -1,30 +1,30 @@
 ---
 title: "Esercitazione: Creare un'applicazione a disponibilità elevata con l'archivio BLOB"
 titleSuffix: Azure Storage
-description: Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni.
+description: Usare l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS) per applicare la disponibilità elevata ai dati delle applicazioni.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606022"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856124"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come applicare la disponibilità elevata ai dati delle applicazioni in Azure.
 
-Dopo aver completato l'esercitazione, si avrà un'applicazione console che carica e recupera un BLOB da un account di archiviazione [con ridondanza geografica e accesso in lettura](../common/storage-redundancy.md) (RA-GRS).
+Dopo aver completato l'esercitazione, si avrà un'applicazione console che carica e recupera un BLOB da un account di archiviazione [con ridondanza geografica della zona e accesso in lettura](../common/storage-redundancy.md) (RA-GZRS).
 
-L'archiviazione RA-GRS funziona replicando le transazioni da un'area primaria a una secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione usa il criterio [Interruttore](/azure/architecture/patterns/circuit-breaker) per determinare l'endpoint a cui connettersi, passando automaticamente da un endpoint a un altro quando vengono simulati errori e ripristini.
+La ridondanza geografica in Archiviazione di Azure replica le transazioni in modo asincrono da un'area primaria a una secondaria a centinaia di chilometri di distanza. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione console usa il criterio [interruttore](/azure/architecture/patterns/circuit-breaker) per determinare l'endpoint a cui connettersi, passando automaticamente da un endpoint a un altro quando vengono simulati errori e ripristini.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -64,25 +64,24 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti.
 
-Seguire questa procedura per creare un account di archiviazione con ridondanza geografica e accesso in lettura:
+Seguire questa procedura per creare un account di archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS):
 
-1. Selezionare il pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
-2. Selezionare **Archiviazione** nella pagina **Nuovo**.
-3. Selezionare **Account di archiviazione - BLOB, file, tabelle, code** nella sezione **In primo piano**.
+1. Selezionare il pulsante **Crea una risorsa** nel portale di Azure.
+2. Selezionare **Account di archiviazione - BLOB, file, tabella, coda** nella pagina **Nuovo**.
 4. Compilare il modulo dell'account di archiviazione con le informazioni seguenti, come illustrato nell'immagine seguente e selezionare **Crea**:
 
-   | Impostazione       | Valore consigliato | Descrizione |
+   | Impostazione       | Valore di esempio | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome** | mystorageaccount | Un valore univoco per l'account di archiviazione |
-   | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.|
-   | **Tipo di account** | StorageV2 | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
-   | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
-   |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-   |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
+   | **Sottoscrizione** | *Sottoscrizione personale* | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
+   | **Nome** | *mystorageaccount* | Un nome univoco per l'account di archiviazione. |
+   | **Posizione** | *Stati Uniti orientali* | Scegliere un paese. |
+   | **Prestazioni** | *Standard* | Le prestazioni standard sono un'opzione valida per lo scenario di esempio. |
+   | **Tipo di account** | *StorageV2* | È consigliabile usare un account di archiviazione per utilizzo generico v2. Per altre informazioni sui tipi di account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md). |
+   | **Replica**| *Archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS)* | L'area primaria è con ridondanza della zona e viene replicata in un'area secondaria, con l'accesso in lettura all'area secondaria abilitato. |
+   | **Livello di accesso**| *Livello di archiviazione ad accesso frequente* | Usare il livello ad accesso frequente per i dati a cui si accede spesso. |
 
-![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -173,7 +172,7 @@ Installare le dipendenze richieste. A questo scopo, aprire un prompt dei comandi
 
 In Visual Studio premere **F5** o selezionare **Avvia** per avviare il debug dell'applicazione. Visual Studio ripristina automaticamente i pacchetti NuGet mancanti, se sono stati configurati. Per altre informazioni, vedere l'articolo relativo a [installazione e reinstallazione di pacchetti con Ripristino pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
-Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
+Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GZRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
 
 ![App console in esecuzione](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ Nell'esempio di codice l'attività `RunCircuitBreakerAsync` nel file `Program.cs
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per eseguire l'applicazione in un terminale o al prompt dei comandi, passare alla directory **circuitbreaker.py** e quindi immettere `python circuitbreaker.py`. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
+Per eseguire l'applicazione in un terminale o al prompt dei comandi, passare alla directory **circuitbreaker.py** e quindi immettere `python circuitbreaker.py`. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GZRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
 
 ![App console in esecuzione](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prima parte della serie, è stato descritto come applicare la disponibilità elevata a un'applicazione con gli account di archiviazione RA-GRS.
+Nella prima parte della serie è stato descritto come applicare la disponibilità elevata a un'applicazione con gli account di archiviazione RA-GZRS.
 
-Passare alla seconda parte della serie per informazioni su come simulare un errore e forzare l'applicazione a usare l'endpoint RA-GRS secondario.
+Passare alla seconda parte della serie per informazioni su come simulare un errore e forzare l'applicazione a usare l'endpoint RA-GZRS secondario.
 
 > [!div class="nextstepaction"]
-> [Simulare un errore durante la lettura dall'area primaria](storage-simulate-failure-ragrs-account-app.md)
+> [Simulare un errore durante la lettura dall'area primaria](simulate-primary-region-failure.md)

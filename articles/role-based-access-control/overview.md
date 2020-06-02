@@ -1,6 +1,6 @@
 ---
-title: Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure? | Microsoft Docs
-description: Panoramica del controllo degli accessi in base al ruolo per le risorse di Azure. Usare le assegnazioni di ruolo per controllare l'accesso alle risorse di Azure.
+title: Che cos'è il controllo degli accessi in base al ruolo di Azure?
+description: Verrà fornita una panoramica del controllo degli accessi in base al ruolo di Azure. Usare le assegnazioni di ruolo per controllare l'accesso alle risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686479"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996501"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo di Azure?
 
-La gestione dell'accesso per le risorse cloud è una funzione essenziale per qualsiasi organizzazione che usa il cloud. Il controllo degli accessi in base al ruolo consente la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
+La gestione dell'accesso per le risorse cloud è una funzione essenziale per qualsiasi organizzazione che usa il cloud. Il controllo degli accessi in base al ruolo di Azure consente di gestire gli utenti autorizzati ad accedere alle risorse di Azure, le operazioni che possono eseguire su tali risorse e le aree a cui hanno accesso.
 
-Il controllo degli accessi in base al ruolo è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che garantisce una gestione con granularità fine degli accessi delle risorse di Azure.
+Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che garantisce una gestione con granularità fine degli accessi delle risorse di Azure.
 
-## <a name="what-can-i-do-with-rbac"></a>Quali operazioni si possono eseguire con il controllo degli accessi in base al ruolo?
+## <a name="what-can-i-do-with-azure-rbac"></a>Che cosa è possibile fare con il controllo degli accessi in base al ruolo di Azure?
 
-Di seguito sono riportati alcuni esempi di operazioni eseguibili con il controllo degli accessi in base al ruolo:
+Di seguito sono riportati alcuni esempi di ciò che è possibile fare con il controllo degli accessi in base al ruolo di Azure:
 
 - Consentire a un utente di gestire le macchine virtuali in una sottoscrizione e un altro utente a gestire le reti virtuali
 - Consentire a un gruppo di amministratori di database di gestire database SQL all'interno di una sottoscrizione
 - Consentire a un utente di gestire tutte le risorse in un gruppo di risorse, ad esempio le macchine virtuali, i siti Web e le subnet
 - Consentire a un'applicazione di accedere a tutte le risorse in un gruppo di risorse
 
-## <a name="how-rbac-works"></a>Come funziona il controllo degli accessi in base al ruolo
+## <a name="how-azure-rbac-works"></a>Funzionamento del controllo degli accessi in base al ruolo di Azure
 
-Il modo in cui si controlla l'accesso alle risorse utilizzando il controllo degli accessi in base al ruolo è quello di creare assegnazioni di ruolo. Questo è un concetto chiave da comprendere: si tratta di come vengono applicate le autorizzazioni. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito.
+Per controllare l'accesso alle risorse tramite il controllo degli accessi in base al ruolo di Azure è necessario creare assegnazioni di ruolo. Questo è un concetto chiave da comprendere: si tratta di come vengono applicate le autorizzazioni. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito.
 
 ### <a name="security-principal"></a>Entità di sicurezza
 
@@ -64,9 +64,9 @@ Azure include diversi [ruoli predefiniti](built-in-roles.md) che è possibile us
 - [Lettore](built-in-roles.md#reader): può visualizzare le risorse di Azure esistenti.
 - [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator): consente di gestire l'accesso degli utenti alle risorse di Azure.
 
-Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifiche. Ad esempio, il ruolo [Collaboratore Macchina virtuale](built-in-roles.md#virtual-machine-contributor) consente a un utente di creare e gestire macchine virtuali. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati per le risorse di Azure](custom-roles.md).
+Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifiche. Ad esempio, il ruolo [Collaboratore Macchina virtuale](built-in-roles.md#virtual-machine-contributor) consente a un utente di creare e gestire macchine virtuali. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
 
-Azure dispone di operazioni sui dati che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account. Per altre informazioni, vedere [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md).
+Azure dispone di operazioni sui dati che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account. Per altre informazioni, vedere [Informazioni sulle definizioni dei ruoli di Azure](role-definitions.md).
 
 ### <a name="scope"></a>Scope
 
@@ -90,21 +90,21 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 ![Assegnazione di ruolo per controllare l'accesso](./media/overview/rbac-overview.png)
 
-È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile includere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione e **500** assegnazioni di ruolo in ogni gruppo di gestione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. È possibile avere fino a **500** assegnazioni di ruolo in ogni sottoscrizione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
 
-Cosa succede se si hanno più assegnazioni di ruolo sovrapposte? Il controllo degli accessi in base al ruolo è un modello additivo, per cui le autorizzazioni effettive corrispondono alla somma delle assegnazioni di ruolo. Nell'esempio seguente a un utente viene concesso il ruolo Collaboratore nell'ambito della sottoscrizione e il ruolo Lettore in un gruppo di risorse. La somma delle autorizzazioni di Collaboratore e di quelle di Lettore rende effettivo il ruolo di Collaboratore per il gruppo di risorse. Quindi, in questo caso, l'assegnazione del ruolo Lettore non ha alcun impatto.
+Cosa succede se si hanno più assegnazioni di ruolo sovrapposte? Il controllo degli accessi in base al ruolo di Azure è un modello additivo, per cui le autorizzazioni effettive corrispondono alla somma delle assegnazioni di ruolo. Nell'esempio seguente a un utente viene concesso il ruolo Collaboratore nell'ambito della sottoscrizione e il ruolo Lettore in un gruppo di risorse. La somma delle autorizzazioni di Collaboratore e di quelle di Lettore rende effettivo il ruolo di Collaboratore per il gruppo di risorse. Quindi, in questo caso, l'assegnazione del ruolo Lettore non ha alcun impatto.
 
 ![Più assegnazioni di ruolo](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Assegnazioni di rifiuto
 
-In precedenza, il controllo degli accessi in base al ruolo era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md).
+In precedenza, il controllo degli accessi in base al ruolo di Azure era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md).
 
-## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Come il controllo degli accessi in base al ruolo determina se un utente può accedere a una risorsa
+## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Come il controllo degli accessi in base al ruolo di Azure determina se un utente può accedere a una risorsa
 
-Di seguito è indicata la procedura generale seguita dal controllo degli accessi in base al ruolo per determinare se l'utente ha accesso a una risorsa nel piano di gestione. Può essere utile se si sta tentando di risolvere un problema di accesso.
+Di seguito è indicata la procedura generale usata dal controllo degli accessi in base al ruolo per determinare se l'utente ha accesso a una risorsa nel piano di gestione. Può essere utile se si sta tentando di risolvere un problema di accesso.
 
 1. Un utente (o entità servizio) acquisisce un token per Azure Resource Manager.
 
@@ -128,7 +128,7 @@ Di seguito è indicata la procedura generale seguita dal controllo degli accessi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure usando il portale di Azure](check-access.md)
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
-- [Comprendere i diversi ruoli in Azure](rbac-and-directory-admin-roles.md)
+- [Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure](check-access.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Informazioni sui diversi ruoli](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: gestione dell'accesso alle risorse in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

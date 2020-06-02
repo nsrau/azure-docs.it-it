@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78204736"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677546"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -147,7 +147,8 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
 4. Seguire il passaggio 3 in **Compilare e distribuire l'esempio** dell'[Esercitazione: Usare le API Apache Kafka Producer e Consumer](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) per assicurarsi che `kafka-producer-consumer.jar` sia disponibile anche per **sales_user**.
 
-**Nota:  Per questa esercitazione, usare il file kafka-producer-consumer.jar nel progetto "DomainJoined-Producer-Consumer" (non quello nel progetto Producer-Consumer, che serve per gli scenari non aggiunti a un dominio).**
+> [!NOTE]  
+> Per questa esercitazione, usare il file kafka-producer-consumer.jar nel progetto "DomainJoined-Producer-Consumer" (non quello nel progetto Producer-Consumer, che serve per gli scenari non aggiunti a un dominio).
 
 5. Verificare che **sales_user1** possa creare risorse nell'argomento `salesevents` eseguendo il comando seguente:
 

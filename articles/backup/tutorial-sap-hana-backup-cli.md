@@ -3,12 +3,12 @@ title: Esercitazione - Backup del database SAP HANA in Azure tramite l'interfacc
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure tramite l'interfaccia della riga di comando di Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78206623"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747298"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 Il cmdlet [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) elenca tutti i processi di backup (pianificati o su richiesta) che sono stati eseguiti o attualmente in esecuzione nel database protetto, oltre ad altre operazioni come la registrazione, la configurazione del backup, l'eliminazione dei dati di backup e così via.
+
+>[!NOTE]
+>Backup di Azure non si adatta automaticamente al cambiamento dell'ora legale per il backup di un database SAP HANA in esecuzione in una VM di Azure.
+>
+>Modificare manualmente i criteri in base alle esigenze.
 
 ## <a name="trigger-an-on-demand-backup"></a>Attivare un backup su richiesta
 

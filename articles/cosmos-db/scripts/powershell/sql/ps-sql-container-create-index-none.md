@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e4cf09ede1ea532d784b6d486cdb54d510d13652
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 29a5617e9d3ec90af49cc3fb5129ada86bf172ec
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365641"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714305"
 ---
 # <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>Creare un contenitore con indicizzazione disattivata in un account Azure Cosmos DB usando PowerShell
 
@@ -39,10 +39,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crea un nuovo account Cosmos DB. |
-| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Crea un nuovo database SQL Cosmos DB o ne aggiorna uno esistente. |
-| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Crea un nuovo oggetto di tipo PSSqlIndexingPolicy usato come parametro per Set-AzCosmosDBSqlContainer. |
-| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Crea un nuovo contenitore SQL Cosmos DB o ne aggiorna uno esistente. |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crea un account Cosmos DB. |
+| [New-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Crea un database SQL di Cosmos DB. |
+| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Crea un oggetto PSSqlIndexingPolicy usato come parametro per New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Ottiene un contenitore SQL di Cosmos DB. |
 |**Gruppi di risorse di Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

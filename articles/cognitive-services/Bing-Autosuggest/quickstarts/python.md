@@ -1,25 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Python"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 582e298bb291a66a6ec6b7300dffaa0fc18af4e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94ee870771cd0f0c372602648e5a81e99cbd5537
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238914"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929529"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Python
 
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Python invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Python invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     import http.client, urllib.parse, json
     ```
 
-2. Creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. Usare l'endpoint globale nel codice seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -45,7 +45,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     query = 'sail'
     ```
 
-3. Creare una stringa di parametri aggiungendo il codice di mercato al parametro `?mkt=` e la query al parametro `&q=`.
+3. Creare una stringa di parametri aggiungendo il codice di mercato al parametro `mkt=` e la query al parametro `q=`.
 
     ```python
     params = '?mkt=' + mkt + '&q=' + query

@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Parametri in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare i parametri in una definizione di criteri.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170179"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696733"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Modello di Criteri di Azure: parametri
 
@@ -16,7 +16,10 @@ Una definizione di criteri può essere resa dinamica tramite [parametri](../conc
 
 ## <a name="sample-1-string-parameters"></a>Esempio 1. Parametri stringa
 
-Questa definizione di criteri usa due parametri, **tagName** e **tagValue**, per impostare gli elementi da cercare nelle risorse con l'assegnazione di criteri. Questo formato consente di usare i criteri per un numero qualsiasi di combinazioni di nomi e valori di tag, ma di mantenere una singola definizione di criteri.
+Questa definizione di criteri usa due parametri, **tagName** e **tagValue**, per impostare gli elementi da cercare nelle risorse con l'assegnazione di criteri. Questo formato consente di usare la definizione dei criteri per un numero qualsiasi di combinazioni di nomi e valori di tag, ma di mantenere una singola definizione di criteri.
+
+> [!NOTE]
+> Per un esempio di tag che usa la **modalità** _All_ e funziona con un gruppo di risorse, vedere [Criterio: Tag - Esempio n. 1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -47,6 +50,22 @@ Il parametro viene quindi usato nel blocco **policyRule.if**. Come parametro di 
 Qui viene usato per l'alias **serviceProvider.bandwidthInMbps** come uno dei valori definiti.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>Esempio 3: Effetto con parametri
+
+Un modo comune per rendere riutilizzabili le definizioni dei criteri è parametrizzare l'effetto stesso. Questo esempio usa un solo parametro, **effect**. La parametrizzazione dell'effetto rende possibile assegnare la stessa definizione a ambiti diversi con effetti diversi.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>Esempio 3: Spiegazione
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+In questa parte della definizione dei criteri, il parametro **effect** viene definito come _stringa_. La definizione dei criteri imposta il valore predefinito per un'assegnazione su _audit_ e limita le altre opzioni a _disabled_ e _deny_.
+
+Il parametro viene quindi usato nel blocco **policyRule.then** per l'_effetto_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

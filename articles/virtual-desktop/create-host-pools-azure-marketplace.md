@@ -1,162 +1,188 @@
 ---
-title: Pool di host di Desktop virtuale Windows in Azure Marketplace - Azure
-description: Come creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace.
+title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
+description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d5165b160ffc196416052a56aaa0d93c05db56bc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222288"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121049"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
+# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
-Questa esercitazione descrive come creare un pool di host all'interno di un tenant di Desktop virtuale Windows usando un'offerta di Microsoft Azure Marketplace.
-
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
-
-Le attività di questa esercitazione includono:
-
-> [!div class="checklist"]
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Tutti gli articoli creati con la versione Autunno 2019 di Desktop virtuale Windows non possono essere gestiti con il portale di Azure.
 >
-> * Creare un pool di host in Desktop virtuale Windows.
-> * Creare un gruppo di risorse con macchine virtuali nella sottoscrizione di Azure.
-> * Aggiungere le macchine virtuali al dominio di Active Directory.
-> * Registrare le macchine virtuali con Desktop virtuale Windows.
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+
+Questo articolo illustra il processo di configurazione per la creazione di un pool di host per un ambiente Desktop virtuale Windows tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare un pool di host in Desktop virtuale Windows, creare un gruppo di risorse con le macchine virtuali di una sottoscrizione di Azure, aggiungere tali macchine virtuali al dominio di Active Directory (AD) e registrare le macchine virtuali con Desktop virtuale Windows.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un tenant in Desktop virtuale. Il tenant viene creato in un'[esercitazione](tenant-setup-azure-active-directory.md) precedente.
-* [Modulo PowerShell con Desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/).
+Per creare un pool di host, è necessario immettere i parametri seguenti:
 
-Una volta ottenuto questo modulo, eseguire il cmdlet seguente per accedere al proprio account:
+- Nome dell'immagine della macchina virtuale
+- Configurazione della macchina virtuale
+- Proprietà di dominio e di rete
+- Proprietà del pool di host di Desktop virtuale Windows
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Sarà necessario anche conoscere quanto segue:
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+- Dove si trova l'origine dell'immagine da usare, ovvero se si tratta di un'immagine della raccolta di Azure o di un'immagine personalizzata.
+- Credenziali di aggiunta al dominio.
 
-Accedere al [portale di Azure](https://portal.azure.com).
+Assicurarsi anche di aver registrato il provider di risorse Microsoft.DesktopVirtualization. Se non è già stato fatto, passare a **Sottoscrizioni**, selezionare il nome della sottoscrizione, quindi selezionare **Provider di risorse di Azure**.
 
-## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Eseguire l'offerta di Azure Marketplace per effettuare il provisioning di un nuovo pool di host
+Quando si crea un pool di host di Desktop virtuale Windows con il modello di Azure Resource Manager, è possibile creare una macchina virtuale dalla raccolta di Azure, da un'immagine gestita o da un'immagine non gestita. Per altre informazioni su come creare immagini della macchina virtuale, vedere [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-Per eseguire l'offerta di Azure Marketplace ed effettuare il provisioning di un nuovo pool di host:
+Se non si ha già una sottoscrizione di Azure, assicurarsi di [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare a seguire queste istruzioni.
 
-1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
-1. Immettere **Desktop virtuale Windows** nella finestra di ricerca del Marketplace.
-1. Selezionare **Windows Virtual Desktop - Provision a host pool** (Desktop virtuale Windows - Provisioning di un pool di host) e quindi **Crea**.
+## <a name="begin-the-host-pool-setup-process"></a>Iniziare il processo di configurazione del pool di host
 
-Successivamente, seguire le istruzioni riportate nella sezione successiva per immettere le informazioni per le schede appropriate.
+Per iniziare a creare il nuovo pool di host:
 
-### <a name="basics"></a>Nozioni di base
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 
-Per la scheda **Informazioni di base** procedere come segue:
+2. Immettere **Desktop virtuale Windows** nella barra di ricerca, quindi individuare e selezionare **Desktop virtuale Windows** in Servizi.
 
-1. Selezionare una **Sottoscrizione**.
-1. Per **Gruppo di risorse** selezionare **Crea nuovo** e specificare un nome per il nuovo gruppo di risorse.
-1. Selezionare un'**area**.
-1. Per il pool di host immettere un nome che sia univoco all'interno del tenant di Desktop virtuale Windows.
-1. Selezionare il **Tipo di desktop**. Se si seleziona **Personale**, ogni utente che si connette a questo pool di host verrà assegnato in modo permanente a una macchina virtuale.
-1. Specificare gli utenti che possono accedere ai client Desktop virtuale Windows e accedere a un desktop. Usare un elenco delimitato da virgole. Se ad esempio si vuole assegnare l'accesso a `user1@contoso.com` e a `user2@contoso.com`, immettere *`user1@contoso.com,user2@contoso.com`*
-1. Per **Service metadata location** (Località metadati servizio) selezionare la stessa località della rete virtuale con connettività al server Active Directory.
+3. Nella pagina di panoramica di **Desktop virtuale Windows** selezionare **Crea un pool di host**.
 
-   >[!IMPORTANT]
-   >Se si usa una soluzione Azure Active Directory Domain Services (Azure AD DS) e Azure Active Directory (Azure AD) pura, assicurarsi di distribuire il pool host nella stessa area di Azure Active Directory Domain Services per evitare errori di aggiunta al dominio e credenziali.
+4. Nella scheda **Informazioni di base** selezionare la sottoscrizione corretta in Dettagli progetto.
 
-1. Selezionare **Avanti: Configurare le macchine virtuali**.
+5. Selezionare **Crea nuovo** per creare un nuovo gruppo di risorse o selezionare un gruppo di risorse esistente dall'elenco a discesa.
 
-### <a name="configure-virtual-machines"></a>Configurare le macchine virtuali
+6. Immettere un nome univoco per il pool di host.
 
-Per la scheda **Configurare le macchine virtuali**:
+7. Nel campo Località selezionare l'area in cui si vuole creare il pool di host dall'elenco a discesa.
+   
+   L'area geografica di Azure associata alle aree selezionate è la posizione in cui verranno archiviati i metadati per questo pool di host e i relativi oggetti correlati. Assicurarsi di scegliere le aree all'interno dell'area geografica in cui si vuole archiviare i metadati del servizio.
 
-1. Accettare i valori predefiniti oppure personalizzare il numero e le dimensioni delle macchine virtuali.
+     ![Screenshot del portale di Azure che mostra il campo Località con la località Stati Uniti orientali selezionata. Accanto al campo viene visualizzato il testo "I metadati saranno archiviati in Stati Uniti orientali".](media/portal-location-field.png)
+
+8. In Tipo di pool di host selezionare se il pool di host sarà **Personale** o **In pool**.
+
+    - Se si sceglie **Personale**, selezionare **Automatico** o **Diretto** nel campo Tipo di assegnazione.
+
+      ![Screenshot del menu a discesa del campo Tipo di assegnazione. L'utente ha selezionato Automatico.](media/assignment-type-field.png)
+
+9. Se si sceglie **In pool**, immettere le informazioni seguenti:
+
+     - Per **Limite massimo sessioni** immettere il numero massimo di utenti per cui si vuole eseguire il bilanciamento del carico in un singolo host di sessione.
+     - Per **Algoritmo di bilanciamento del carico** scegliere bilanciamento in ampiezza o bilanciamento del carico in profondità, in base al modello di utilizzo.
+
+       ![Screenshot del campo Tipo di assegnazione con "In pool" selezionato. L'utente passa il puntatore del mouse sopra Bilanciamento in ampiezza nel menu a discesa del bilanciamento del carico.](media/pooled-assignment-type.png)
+
+10. Selezionare **Avanti: Dettagli macchina virtuale**.
+
+11. Se le macchine virtuali sono già state create e si vuole usarle con il nuovo pool di host, selezionare **No**. Se si vuole creare nuove macchine virtuali e registrarle nel nuovo pool di host, selezionare **Sì**.
+
+Ora che è stata completata la prima parte, passare alla parte successiva del processo di configurazione in cui viene creata la macchina virtuale.
+
+## <a name="virtual-machine-details"></a>Dettagli della macchina virtuale
+
+Ora che è stata eseguita la prima parte, è necessario configurare la macchina virtuale.
+
+Per configurare la macchina virtuale all'interno del processo di configurazione del pool di host:
+
+1. In Gruppo di risorse scegliere il gruppo di risorse in cui si vogliono creare le macchine virtuali. Può essere un gruppo di risorse diverso rispetto a quello usato per il pool di host.
+
+2. Scegliere l'**area della macchina virtuale** in cui si vogliono creare le macchine virtuali. Può essere la stessa area di quella selezionata per il pool di host o un'area diversa.
+
+3. Scegliere quindi le dimensioni della macchina virtuale da creare. È possibile mantenere le dimensioni predefinite così come sono oppure selezionare **Modifica dimensioni** per modificare le dimensioni. Se si seleziona **Modifica dimensioni**, nella finestra visualizzata scegliere le dimensioni della macchina virtuale appropriate al proprio carico di lavoro.
+
+4. In Numero di macchine virtuali specificare il numero di macchine virtuali che si vuole creare per il pool di host.
 
     >[!NOTE]
-    >Se le dimensioni specifiche della macchina virtuale desiderate non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Il processo di configurazione può creare fino a 400 macchine virtuali durante la configurazione del pool di host e ogni processo di configurazione della macchina virtuale crea quattro oggetti nel gruppo di risorse. Poiché la procedura di creazione non controlla la quota della sottoscrizione, assicurarsi che il numero di macchine virtuali immesso rientri nei limiti delle API e delle macchine virtuali di Azure per il gruppo di risorse e la sottoscrizione. È possibile aggiungere altre macchine virtuali al termine della creazione del pool di host.
 
-1. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il *prefisso*, le macchine virtuali saranno denominate **prefisso-0**, **prefisso-1** e così via.
-1. Selezionare **Avanti: Impostazioni della macchina virtuale**.
+5. Successivamente, fornire un **Prefisso del nome** per denominare le macchine virtuali create dal processo di configurazione. Il suffisso verrà `-` con numeri a partire da 0.
 
-### <a name="virtual-machine-settings"></a>Impostazioni della macchina virtuale
+6. Scegliere quindi l'immagine che deve essere usata per creare la macchina virtuale. È possibile scegliere **Raccolta** o **BLOB di archiviazione**.
 
-Per la scheda **Impostazioni macchina virtuale**:
+    - Se si sceglie **Raccolta**, selezionare una delle immagini consigliate dal menu a discesa:
 
-1. Per **Origine immagine** selezionare l'origine e immettere le informazioni appropriate per trovarla e archiviarla. Le opzioni disponibili sono diverse per l'archiviazione BLOB, l'immagine gestita e la raccolta.
+      - Windows 10 Enterprise multisessione, versione 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise multisessione, versione 1909 – Gen 1
+      - Windows Server 2019 Datacenter - Gen1
 
-   Se si è scelto di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione *vhd*.
-1. Specificare il nome dell'entità utente e la password. Questo account deve essere l'account di dominio che aggiungerà le macchine virtuali al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.
+     Se non viene visualizzata l'immagine desiderata, selezionare **Esplora tutte le immagini e i dischi** che consente di selezionare un'altra immagine della raccolta o un'immagine fornita da Microsoft e da altri editori.
 
-   >[!NOTE]
-   > Se si stanno aggiungendo le macchine virtuali a un ambiente Azure Active Directory Domain Services, assicurarsi che l'utente di aggiunta a un dominio sia anche un membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-   >
-   > Verificare che l'account faccia parte del dominio gestito di Azure Active Directory Domain Services o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio.
+     ![Screenshot del Marketplace con un elenco di immagini di Microsoft visualizzate.](media/marketplace-images.png)
 
-1. Selezionare la **Rete virtuale** che ha connettività al server Active Directory e quindi scegliere una subnet in cui ospitare le macchine virtuali.
-1. Selezionare **Avanti: Informazioni sul tenant di Desktop virtuale Windows**.
+     È anche possibile passare a **Elementi personali** e scegliere un'immagine personalizzata già caricata.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Informazioni sul tenant di Desktop virtuale Windows
+     ![Screenshot della scheda Elementi personali.](media/my-items.png)
 
-Per la scheda **Windows Virtual Desktop tenant information** (Informazioni tenant Desktop virtuale Windows):
+    - Se si sceglie **BLOB di archiviazione**, è possibile usare la compilazione della propria immagine tramite Hyper-V o una macchina virtuale di Azure. È sufficiente immettere il percorso dell'immagine nel BLOB di archiviazione come URI.
 
-1. Per **Windows Virtual Desktop tenant group name** (Nome gruppo di tenant Desktop virtuale Windows), immettere il nome del gruppo di tenant che contiene il tenant. Lasciare il valore predefinito se non è stato fornito un nome specifico per il gruppo di tenant.
-1. Per **Windows Virtual Desktop tenant name** (Nome tenant Desktop virtuale Windows) immettere il nome del tenant in cui verrà creato il pool di host.
-1. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Immettere il nome dell'entità utente o l'entità servizio e una password.
+7. Scegliere il tipo di dischi del sistema operativo che si vuole usare per le macchine virtuali: SSD Standard, SSD Premium o HDD Standard.
 
-   Se è stata completata l'esercitazione [Creare entità servizio e assegnazioni di ruolo con PowerShell](./create-service-principal-role-powershell.md), selezionare **Entità servizio**.
+8. In Rete e sicurezza selezionare la rete virtuale e la subnet in cui si vuole posizionare le macchine virtuali create. Assicurarsi che la rete virtuale possa connettersi al controller di dominio, poiché sarà necessario aggiungere le macchine virtuali all'interno della rete virtuale al dominio. Selezionare quindi se si vuole o meno un indirizzo IP pubblico per le macchine virtuali. Si consiglia di selezionare **No**, perché un IP privato è più sicuro.
 
-1. In **Entità servizio** per **ID tenant di Azure AD** immettere l'account amministratore tenant per l'istanza di Azure AD che contiene l'entità servizio. Sono supportate solo entità servizio con una credenziale password.
-1. Selezionare **Avanti: Rivedi e crea**.
+9. Seleziona il tipo di gruppo di sicurezza desiderato: **Di base**, **Avanzato** o **Nessuno**.
 
-## <a name="complete-setup-and-create-the-virtual-machine"></a>Completare la configurazione e creare la macchina virtuale
+    Se si seleziona **Di base**, è necessario selezionare se si vuole che tutte le porte in ingresso siano aperte. Se si seleziona **Sì**, scegliere dall'elenco le porte standard a cui consentire le connessioni in ingresso.
 
-In **Rivedi e crea** esaminare le informazioni di configurazione. Se è necessario apportare modifiche, tornare indietro. Quando si è pronti, selezionare **Crea** per distribuire il pool di host.
+    >[!NOTE]
+    >Per una maggiore sicurezza, si consiglia di non aprire porte in ingresso pubbliche.
 
-A seconda del numero di macchine virtuali create, questo processo può richiedere almeno 30 minuti.
+    ![Screenshot della pagina del gruppo di sicurezza che mostra un elenco di porte disponibili in un menu a discesa.](media/available-ports.png)
+    
+    Se si sceglie **Avanzato**, selezionare un gruppo di sicurezza di rete esistente che è stato già configurato.
 
->[!IMPORTANT]
-> Per proteggere l'ambiente Desktop virtuale Windows in Azure, è consigliabile non aprire la porta in ingresso 3389 nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per consentire agli utenti di accedere alle macchine virtuali del pool di host.
->
-> Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'accesso JIT. Per altre informazioni, vedere [Proteggere le porte di gestione con l'accesso JIT](../security-center/security-center-just-in-time.md).
+10. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. È anche possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali.
 
-## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>(Facoltativo) Assegnare altri utenti al gruppo di applicazioni desktop
+11. In Account amministratore immettere le credenziali dell'amministratore del dominio di Active Directory della rete virtuale selezionata.
 
-Non appea Azure Marketplace completa la creazione del pool, è possibile assegnare altri utenti al gruppo di applicazioni desktop. Se non si vuole aggiungerne altri, ignorare questa sezione.
+12. Selezionare **Area di lavoro**.
 
-Per assegnare gli utenti al gruppo di applicazioni desktop:
+A questo punto, è possibile iniziare la fase successiva della configurazione del pool di host, ovvero la registrazione del gruppo di app in un'area di lavoro.
 
-1. Aprire una finestra di PowerShell.
+## <a name="workspace-information"></a>Informazioni sull'area di lavoro
 
-1. Eseguire il comando seguente per accedere all'ambiente Desktop virtuale Windows:
+Per impostazione predefinita, il processo di configurazione del pool di host crea un gruppo di applicazioni desktop. Affinché il pool di host funzioni come previsto, è necessario pubblicare questo gruppo di app per utenti o gruppi di utenti ed è necessario registrare il gruppo di app in un'area di lavoro. 
 
-   ```powershell
-   Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-   ```
+Per registrare il gruppo di app desktop in un'area di lavoro:
 
-1. Usare questo comando per aggiungere gli utenti al gruppo di applicazioni desktop:
+1. Selezionare **Sì**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-   ```
+   Se si seleziona **No**, è possibile registrare il gruppo di app in un secondo momento, ma è consigliabile eseguire la registrazione dell'area di lavoro appena possibile, in modo che il pool di host funzioni correttamente.
 
-   Il nome dell'entità utente deve corrispondere all'identità dell'utente in Azure AD, ad esempio *user1@contoso.com* . Per aggiungere più utenti, eseguire questo comando per ogni utente.
+2. Scegliere quindi se si vuole creare una nuova area di lavoro o selezionare un'area di lavoro esistente. Sarà possibile registrare il gruppo di app solo nelle aree di lavoro create nella stessa posizione del pool di host.
 
-Gli utenti aggiunti al gruppo di applicazioni desktop possono accedere a Desktop virtuale Windows con i client Desktop remoto supportati e visualizzare una risorsa per un desktop di sessione.
+3. Facoltativamente, è possibile selezionare **Tag**.
 
-Ecco i client attualmente supportati:
+    Qui è possibile aggiungere i tag per raggruppare gli oggetti con i metadati per semplificare le operazioni degli amministratori.
 
-* [Client di Desktop remoto per Windows 7 e Windows 10](connect-windows-7-and-10.md)
-* [Client Web di Desktop virtuale Windows](connect-web.md)
+4. Al termine, selezionare **Rivedi e crea**. 
+
+     >[!NOTE]
+     >Il processo di convalida di verifica e creazione non controlla se la password soddisfa gli standard di sicurezza o se l'architettura è corretta, quindi è necessario verificare eventuali problemi con uno di questi elementi. 
+
+5. Esaminare le informazioni sulla distribuzione per verificare che tutto sia corretto. Al termine, selezionare **Crea**. Viene avviato il processo di distribuzione, che crea gli oggetti seguenti:
+
+     - Nuovo pool di host.
+     - Gruppo di app desktop.
+     - Un'area di lavoro, se si è scelto di crearla.
+     - Se si sceglie di registrare il gruppo di app desktop, la registrazione verrà completata.
+     - Macchine virtuali, se si è scelto di crearle, che vengono aggiunte al dominio e registrate con il nuovo pool di host.
+     - Un collegamento di download per un modello di Azure Resource Manager in base alla configurazione.
+
+Dopo questa verifica, la procedura è terminata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato creato un pool di host e sono stati assegnati gli utenti per accedere al desktop corrispondente. È possibile popolare il pool di host con i programmi RemoteApp. Per altre informazioni su come gestire le app in Desktop virtuale Windows, vedere questa esercitazione:
+Dopo la creazione del pool di host è possibile popolarlo con i programmi RemoteApp. Per altre informazioni su come gestire le app in Desktop virtuale Windows, passare all'esercitazione successiva:
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Gestire i gruppi di app](./manage-app-groups.md)

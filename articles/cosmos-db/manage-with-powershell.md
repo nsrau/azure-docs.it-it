@@ -4,22 +4,22 @@ description: Usare Azure Powershell per gestire gli account, i database, i conte
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/29/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d4473bbfe10fa2d0fc87eed7889a3e06af650b5b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592146"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656298"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
 
 La guida seguente descrive come usare PowerShell per creare script e automatizzare la gestione delle risorse di Azure Cosmos DB, come account, database, contenitori e unità elaborate.
 
 > [!NOTE]
-> Negli esempi di questo articolo vengono usati i cmdlet di gestione di [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Questi cmdlet sono ancora in anteprima e possono subire variazioni prima che siano disponibili a livello generale. Vedere la pagina delle informazioni di riferimento dell'API [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) per eventuali aggiornamenti introdotti nei comandi.
+> Negli esempi di questo articolo vengono usati i cmdlet di gestione di [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Per informazioni sulle ultime modifiche, vedere la pagina di informazioni di riferimento dell'API [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb).
 
 Per la gestione multipiattaforma dell'account Azure Cosmos DB, è possibile usare i cmdlet `Az` e `Az.CosmosDB` con [PowerShell multipiattaforma](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), l'[interfaccia della riga di comando di Azure](manage-with-cli.md), l'[API REST][rp-rest-api] o il [portale di Azure](create-sql-api-dotnet.md#create-account).
 
@@ -345,7 +345,7 @@ $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
@@ -359,7 +359,7 @@ $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 $databaseRUs = 400
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName `
@@ -441,7 +441,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -460,7 +460,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -506,7 +506,7 @@ $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode Consistent `
     -Automatic $true
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -529,7 +529,7 @@ $partitionKeyPath = "/myPartitionKey"
 $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode None
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -557,7 +557,7 @@ $uniqueKey = New-AzCosmosDBSqlUniqueKey `
 $uniqueKeyPolicy = New-AzCosmosDBSqlUniqueKeyPolicy `
     -UniqueKey $uniqueKey
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -585,7 +585,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type LastWriterWins `
     -Path $conflictResolutionPath
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -612,7 +612,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type Custom `
     -ConflictResolutionProcedure $conflictResolutionSproc
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `

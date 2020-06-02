@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201024"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778730"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -200,7 +200,7 @@ Se si hanno più nomi di dominio verificati, è necessario specificare l'attesta
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Se viene già rilasciata un'attestazione ImmutableID (ad esempio, un ID di accesso alternativo), è necessario specificare un'attestazione corrispondente per i computer:
+Se viene già rilasciata un'attestazione ImmutableID (ad esempio usando `mS-DS-ConsistencyGuid` o un altro attributo come valore di origine per ImmutableID), è necessario specificare un'attestazione corrispondente per i computer:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -329,7 +329,7 @@ Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cm
 
 ![Elenco di domini aziendali](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Rilasciare l'attestazione ImmutableID per il computer quando ne esiste una per gli utenti (ad esempio, è impostato un ID di accesso alternativo)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>Rilasciare ImmutableID per il computer quando ne esiste uno per gli utenti (ad esempio usando mS-DS-ConsistencyGuid come origine per ImmutableID)
 
 L'attestazione `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` deve contenere un valore valido per i computer. In AD FS, è possibile creare una regola di trasformazione rilascio come segue:
 
@@ -549,16 +549,71 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario scarica
 
 ## <a name="verify-joined-devices"></a>Verificare i dispositivi aggiunti
 
-Per verificare i dispositivi aggiunti correttamente nell'organizzazione, è possibile usare il cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) del [modulo di Azure Active Directory per PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Ecco tre modi per individuare e verificare lo stato del dispositivo:
 
-L'output del cmdlet mostra i dispositivi registrati e aggiunti ad Azure AD. Per ottenere tutti i dispositivi, usare il parametro **-All** e quindi filtrare i risultati con la proprietà **deviceTrustType**. I dispositivi aggiunti a un dominio hanno il valore **Aggiunto a un dominio**.
+### <a name="locally-on-the-device"></a>In locale nel dispositivo
+
+1. Aprire Windows PowerShell.
+2. Immettere `dsregcmd /status`.
+3. Verificare che **AzureAdJoined** e **DomainJoined** siano impostati su **SÌ**.
+4. È possibile usare **DeviceId** e confrontare lo stato nel servizio usando il portale di Azure o PowerShell.
+
+### <a name="using-the-azure-portal"></a>Uso del portale di Azure
+
+1. Passare alla pagina di dispositivi usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Per informazioni su come individuare un dispositivo, vedere [Come gestire le identità dei dispositivi con il portale di Microsoft Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. Se la colonna **Registrazione completata** indica **In sospeso**, l'operazione di Aggiunta ad Azure AD ibrido non è stata completata. Negli ambienti federati questo problema può verificarsi solo se non è stato possibile eseguire la registrazione e AAD Connect è configurato per sincronizzare i dispositivi.
+4. Se la colonna **Registrazione completata** contiene una **data/ora**, l'operazione di Aggiunta ad Azure AD ibrido è stata completata.
+
+### <a name="using-powershell"></a>Utilizzo di PowerShell
+
+Verificare lo stato di registrazione del dispositivo nel tenant di Azure con **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** . Questo cmdlet si trova nel [modulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+
+Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del servizio:
+
+- Deve essere presente un oggetto con **ID dispositivo** corrispondente all'ID nel client Windows.
+- Il valore di **DeviceTrustType** è **Domain Joined**. Questa impostazione equivale allo stato **Aggiunto ad Azure AD ibrido** nella pagina **Dispositivi** nel portale di Azure AD.
+- Per i dispositivi usati nell'accesso condizionale, il valore di **Enabled** è **True** e quello di **DeviceTrustLevel** è **Managed**.
+
+1. Aprire Windows PowerShell come amministratore.
+2. Immettere `Connect-MsolService` per stabilire la connessione al tenant di Azure.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>Contare tutti i dispositivi aggiunti ad Azure AD ibrido (tranne quelli con lo stato **In sospeso**)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Contare tutti i dispositivi aggiunti ad Azure AD ibrido con lo stato **In sospeso**
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>Elencare tutti i dispositivi aggiunti ad Azure AD ibrido
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Elencare tutti i dispositivi aggiunti ad Azure AD ibrido con lo stato **In sospeso**
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>Elencare i dettagli di un singolo dispositivo:
+
+1. Immettere `get-msoldevice -deviceId <deviceId>` (il valore di **DeviceId** ottenuta in locale nel dispositivo).
+2. Verificare che **Abilitato** sia impostato su **True**.
 
 ## <a name="troubleshoot-your-implementation"></a>Risolvere i problemi di implementazione
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-* [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti](troubleshoot-hybrid-join-windows-current.md)
-* [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore](troubleshoot-hybrid-join-windows-legacy.md)
+- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
+- [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

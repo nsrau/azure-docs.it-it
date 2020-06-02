@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 94bcba80e5768d57e3dc97bed1a74a8369ac60b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e35f5c9288860056a910f54f9601b2178a628bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425800"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828084"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione
 
@@ -61,4 +61,4 @@ Se si usa l'identità del servizio gestito, sarà anche necessario aggiornare l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In caso di domande sull'insieme di credenziali delle chiavi di Azure, visitare i [forum sull'insieme di credenziali delle chiavi di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+In caso di domande su Azure Key Vault, vedere la [Pagina delle domande di Domande e risposte Microsoft per Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

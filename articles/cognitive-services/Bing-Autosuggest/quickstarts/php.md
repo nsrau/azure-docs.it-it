@@ -1,25 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 0aa309ba34abdfbe91493498ae6ec49785e0e0d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6552c345678b6996f4a35e9e1fc7a1838505ff09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238990"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930183"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
 
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,8 +31,8 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
 
 1. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
-4. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+3. Sostituire `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
+4. Usare l'endpoint globale nel codice oppure l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 5. Eseguire il programma.
 
 ```php
@@ -80,7 +80,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-### <a name="response"></a>Risposta
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 

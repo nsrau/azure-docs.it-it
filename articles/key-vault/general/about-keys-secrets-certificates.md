@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 241efab246dc903981da570a4191f93cc744bca7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727448"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005880"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -46,7 +46,7 @@ Fare riferimento alle specifiche JOSE per i tipi di dati pertinenti per chiavi, 
 
 Agli oggetti archiviati in Key Vault viene applicato il controllo delle versioni ogni volta che si crea una nuova istanza di un oggetto. A ogni versione vengono assegnati un identificatore univoco e un URL. Un oggetto creato per la prima volta viene etichettato con un identificatore univoco della versione e contrassegnato come versione corrente dell'oggetto. La creazione di una nuova istanza con lo stesso nome assegna al nuovo oggetto un identificatore univoco della versione, trasformando tale oggetto nella versione corrente.  
 
-È possibile fare riferimento agli oggetti di Key Vault usando l'identificatore corrente o un identificatore specifico della versione. Considerando ad esempio una chiave con nome `MasterKey`, l'esecuzione di operazioni con l'identificatore corrente fa sì che venga usata automaticamente la versione disponibile più recente. L'esecuzione di operazioni con l'identificatore specifico della versione fa sì che il sistema userà quella versione specifica dell'oggetto.  
+Gli oggetti disponibili in Key Vault possono essere gestiti specificando una versione o omettendola per le operazioni con la versione corrente dell'oggetto. Ad esempio, data una chiave con il nome `MasterKey`, se vengono eseguite operazioni senza specificare una versione il sistema usa l'ultima versione disponibile. L'esecuzione di operazioni con l'identificatore specifico della versione fa sì che il sistema userà quella versione specifica dell'oggetto.  
 
 All'interno di Key Vault gli oggetti sono identificati in modo univoco con un URL. Nel sistema non esistono coppie di oggetti con lo stesso URL, indipendentemente dalla posizione geografica. L'URL completo di un oggetto viene chiamato identificatore di oggetto. L'URL è costituito da un prefisso che identifica l'insieme di credenziali delle chiavi, seguito dal tipo di oggetto, dal nome dell'oggetto specificato dall'utente e dalla versione dell'oggetto. Il nome dell'oggetto non è modificabile e non fa distinzione tra maiuscole e minuscole. Gli identificatori che non includono la versione dell'oggetto vengono definiti identificatori di base.  
 
@@ -62,7 +62,7 @@ Dove:
 |-|-|  
 |`keyvault-name`|Il nome per un insieme di credenziali delle chiavi nel servizio Microsoft Azure Key Vault.<br /><br /> I nomi di Key Vault vengono selezionati dall'utente e sono univoci.<br /><br /> Il nome dell'insieme di credenziali delle chiavi deve essere costituito da una stringa di lunghezza compresa tra 3 e 24 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
 |`object-type`|Tipo di oggetto, "chiavi", "segreti" o "certificati".|  
-|`object-name`|Un `object-name` è un nome utente fornito per un Key Vault e deve essere univoco all'interno di esso. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
+|`object-name`|Un `object-name` è un nome utente fornito per un Key Vault e deve essere univoco all'interno di esso. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, che inizia con una lettera e contiene solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
 |`object-version`|`object-version` è un identificatore di stringa di 32 caratteri generato dal sistema che viene usato facoltativamente per fare riferimento a una versione univoca di un oggetto.|  
 
 ## <a name="next-steps"></a>Passaggi successivi

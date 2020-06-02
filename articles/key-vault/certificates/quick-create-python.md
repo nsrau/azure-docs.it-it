@@ -7,14 +7,14 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 726cd76916510f38c7c14cb29e64449fb8fd539f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 218edb146ee0107803561c6ba52cc42406b69746
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421015"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982786"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Avvio rapido: Libreria client di Azure Key Vault per Python
+# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Guida introduttiva: libreria client di Azure Key Vault per Python
 
 Introduzione alla libreria client di Azure Key Vault per Python Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -34,7 +34,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Python 2.7, 3.5.3 o versione successiva
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
 
-Questa guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) in una finestra del terminale Linux.
+Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) in una finestra del terminale Linux.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -46,7 +46,7 @@ Nella finestra della console installare la libreria dei certificati di Azure Key
 pip install azure-keyvault-certificates
 ```
 
-Per questa guida di avvio rapido, sarà necessario installare anche il pacchetto azure.identity package:
+Per questa Guida di avvio rapido, sarà necessario installare anche il pacchetto azure.identity package:
 
 ```console
 pip install azure.identity
@@ -54,7 +54,7 @@ pip install azure.identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Creare un gruppo di risorse e un insieme di credenziali delle chiavi
 
-In questa guida di avvio rapido si usa un'istanza creata in precedenza di Azure Key Vault. È possibile creare un insieme di credenziali delle chiavi seguendo la procedura descritta nelle guide di avvio rapido per l'[interfaccia della riga di comando di Azure](quick-create-cli.md), [Azure PowerShell](quick-create-powershell.md) o il [portale di Azure](quick-create-portal.md). In alternativa, è possibile eseguire i comandi dell'interfaccia della riga di comando di Azure riportati di seguito.
+In questo argomento di avvio rapido si usa un'istanza creata in precedenza di Azure Key Vault. È possibile creare un insieme di credenziali delle chiavi seguendo la procedura descritta negli argomenti di avvio rapido per l'[interfaccia della riga di comando di Azure](quick-create-cli.md), [Azure PowerShell](quick-create-powershell.md) o il [portale di Azure](quick-create-portal.md). In alternativa, è possibile eseguire i comandi dell'interfaccia della riga di comando di Azure riportati di seguito.
 
 > [!Important]
 > Ogni insieme di credenziali delle chiavi deve avere un nome univoco. Negli esempi seguenti sostituire <your-unique-keyvault-name> con il nome dell'insieme di credenziali delle chiavi in uso.
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](../general/managed-identity.md). Per semplicità, tuttavia, in questa guida di avvio rapido viene creata un'applicazione console .NET. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
+Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](../general/managed-identity.md).
+
+Per semplicità, tuttavia, in questo avvio rapido viene creata un'applicazione desktop, per la quale sono richiesti un'entità servizio e un criterio di controllo di accesso. L'entità servizio richiede un nome univoco nel formato "http://&lt;nome-univoco-entità-servizio&gt;".
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Questa operazione restituisce una serie di coppie chiave-valore. 

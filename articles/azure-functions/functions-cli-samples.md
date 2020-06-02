@@ -1,17 +1,16 @@
 ---
 title: Esempi di interfaccia della riga di comando di Azure - Funzioni di Azure
 description: Esempi di interfaccia della riga di comando di Azure - Funzioni di Azure
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223748"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779554"
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
 
@@ -21,9 +20,9 @@ La tabella seguente include collegamenti a script Bash per Funzioni di Azure che
 
 | Creare l'app | Descrizione |
 |---|---|
-| [Creare un'app per le funzioni per l'esecuzione senza server](scripts/functions-cli-create-serverless.md) | Crea un'app per le funzioni in un piano a consumo.  |
-| [Creare un'app per le funzioni Python serverless](scripts/functions-cli-create-serverless-python.md) | Creare un'app per le funzioni in un piano di servizio app dedicato. |
-| [Creare un'app per le funzioni in un piano Premium scalabile](scripts/functions-cli-create-premium-plan.md) | Creare un'app per le funzioni in un piano di servizio app dedicato. |
+| [Creare un'app per le funzioni per l'esecuzione senza server](scripts/functions-cli-create-serverless.md) | Creare un'app per le funzioni in un piano a consumo.  |
+| [Creare un'app per le funzioni Python serverless](scripts/functions-cli-create-serverless-python.md) | Crea un'app per le funzioni Python in un piano a consumo. |
+| [Creare un'app per le funzioni in un piano Premium scalabile](scripts/functions-cli-create-premium-plan.md) | Creare un'app per le funzioni in un piano Premium. |
 | [Creare un'app per le funzioni in un piano dedicato (Servizio app)](scripts/functions-cli-create-app-service-plan.md) | Creare un'app per le funzioni in un piano di servizio app dedicato. |
 
 | Integrare | Descrizione|

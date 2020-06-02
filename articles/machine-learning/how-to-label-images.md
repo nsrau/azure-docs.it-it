@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204322"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758912"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
+# <a name="tag-images-in-a-labeling-project-preview"></a>Aggiungere tag alle immagini in un progetto di etichettatura (anteprima)
 
 Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura (anteprima pubblica) per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
 
@@ -65,11 +65,13 @@ Dopo aver inviato i tag per i dati a disposizione, Azure aggiornerà la pagina c
 
 ### <a name="assisted-machine-learning"></a>Machine Learning assistito 
 
-Gli algoritmi di Machine Learning possono essere attivati durante un'attività di classificazione multi-classe o multi-etichetta. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
+Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
 
 * Dopo aver etichettato una certa quantità di immagini, è possibile visualizzare **Attività raggruppate** nella parte superiore della schermata accanto al nome del progetto.  Ciò significa che le immagini vengono raggruppate per presentare immagini simili nella stessa pagina.  In tal caso, passare a una delle visualizzazioni di più immagini per sfruttare i vantaggi del raggruppamento.  
 
 * In un secondo momento, è possibile visualizzare **Attività pre-etichettate** accanto al nome del progetto.  Le immagini verranno quindi visualizzate con un'etichetta suggerita che deriva da un modello di classificazione di Machine Learning. Nessun modello di Machine Learning ha una precisione del 100%. Sebbene vengano usate solo le immagini per cui il modello è attendibile, è possibile che le immagini siano ancora pre-etichettate in modo errato.  Quando vengono visualizzate queste etichette, correggere eventuali etichette errate prima di inviare la pagina.  
+
+* Per i modelli di rilevamento degli oggetti, è possibile che siano già presenti riquadri delimitatori ed etichette.  Correggere quelli non corretti prima di inviare la pagina.
 
 Soprattutto all'inizio di un progetto di etichettatura, il modello di Machine Learning può essere sufficientemente accurato da pre-etichettare solo un piccolo subset di immagini. Una volta etichettate queste immagini, il progetto di etichettatura tornerà all'etichettatura manuale per raccogliere più dati per il ciclo successivo di training del modello. Con il tempo, il modello diventerà più affidabile rispetto a una proporzione più elevata di immagini, ottenendo in seguito più attività di pre-etichettatura nel progetto.
 

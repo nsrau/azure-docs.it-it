@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425380"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652213"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornire un'autenticazione di Key Vault con un criterio di controllo di accesso
 
@@ -60,10 +60,10 @@ L'objectId per un'applicazione corrisponde all'entità servizio ad essa associat
 
 Esistono due modi per ottenere un objectId per un'applicazione.  Il primo consiste nel registrare l'applicazione con Azure Active Directory. A tale scopo, seguire la procedura illustrata nella guida di avvio rapido [Registrare un'applicazione con Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). Al termine della registrazione, l'objectId verrà mostrato come "ID applicazione (client)".
 
-Il secondo modo prevede la creazione di un'entità servizio in una finestra del terminale. Con l'interfaccia della riga di comando di Azure, usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+Il secondo modo prevede la creazione di un'entità servizio in una finestra del terminale. Con l'interfaccia della riga di comando di Azure usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e fornire un nome univoco dell'entità servizio nel flag -n nel formato "http://&lt;my-unique-service-principle-name&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 L'objectId verrà mostrato nell'output come `clientID`.
@@ -72,7 +72,7 @@ Con Azure PowerShell, usare il cmdlet [New-AzADServicePrincipal](/powershell/mod
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 L'objectId verrà mostrato nell'output come `Id` (non `ApplicationId`).
@@ -222,6 +222,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Infine, concedere al gruppo di Azure AD le autorizzazioni per l'insieme di credenziali delle chiavi usando il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure o il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) di Azure PowerShell. Per gli esempi, vedere la sezione [Concedere all'applicazione, al gruppo di Azure AD o all'utente l'accesso all'insieme di credenziali delle chiavi](#give-the-principal-access-to-your-key-vault) precedente.
 
 L'applicazione necessita anche che sia assegnato almeno un ruolo di gestione delle identità e degli accessi (IAM) all'insieme di credenziali delle chiavi. In caso contrario, non potrà eseguire l'accesso e l'accesso alla sottoscrizione non riuscirà a causa di diritti insufficienti.
+
+> [!WARNING]
+> I gruppi di Azure AD con le identità gestite possono richiedere fino a 8 ore per aggiornare il token e diventare effettivi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

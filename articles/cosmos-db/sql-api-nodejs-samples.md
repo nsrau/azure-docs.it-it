@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89fc13f7391a3bd270730a6e95e0132305e04b68
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76718294"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683847"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Esempi di Node.js per la gestione dei dati in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Esempi di .NET V2 SDK](sql-api-dotnet-samples.md)
 > * [Esempi di .NET V3 SDK](sql-api-dotnet-v3sdk-samples.md)
-> * [Esempi di Java](sql-api-java-samples.md)
-> * [Esempi di Java Async](sql-api-async-java-samples.md)
+> * [Esempi di Java V4 SDK](sql-api-java-sdk-samples.md)
 > * [Esempi di Node.js](sql-api-nodejs-samples.md)
 > * [Esempi di Python](sql-api-python-samples.md)
 > * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -36,7 +35,7 @@ Alcune soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+- È possibile [attivare i vantaggi della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Con l'abbonamento Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

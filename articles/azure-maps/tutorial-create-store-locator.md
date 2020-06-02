@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333852"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746054"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -81,7 +81,7 @@ Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
     
 * Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine**, **City**, **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country**.  
 * Le colonne **Latitude** e **Longitude** contengono le coordinate per ogni posizione dei bar Contoso Coffee. Se non sono disponibili informazioni sulle coordinate, è possibile usare i servizi di ricerca in Mappe di Azure per determinare le coordinate relative alle posizioni.
-* Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più rilevanti per i dati di posizione specifici.
+* Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più pertinenti per i dati di posizione specifici.
 
 > [!Note]
 > Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84. 
@@ -397,7 +397,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
 
 1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
-   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
+   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi/aree geografiche all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
    Al termine della ricerca, selezionare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, recuperare la posizione dell'utente tramite l'API di georilevazione HTML5. L'API è incorporata nel browser. Infine, centrare la mappa sulla posizione.  
 
@@ -453,7 +453,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -922,7 +922,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
 
 È ora disponibile un localizzatore di punti vendita completamente funzionante. Nel Web browser aprire i file *index.html* per il localizzatore di punti vendita. Quando i cluster vengono visualizzati sulla mappa, è possibile cercare una posizione usando la casella di ricerca, selezionando il pulsante My Location, selezionando un cluster o ingrandendo la mappa per visualizzare le singole posizioni.
 
-Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla posizione dell'utente. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze. 
+Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla sua posizione. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze. 
 
 <center>
 

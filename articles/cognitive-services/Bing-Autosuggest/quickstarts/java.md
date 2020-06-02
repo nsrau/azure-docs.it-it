@@ -1,26 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Java"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: b3f279ea50e9923e63f7d6090f4dbaca939eb16c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d1c2da10270747aa09ecbcfdc537df567b4cdfc9
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238978"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929656"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Java
 
-
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Java invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Java invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +43,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     import com.google.gson.JsonParser;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione, l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per la chiave di sottoscrizione, l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca. Usare l'endpoint globale seguente oppure l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -57,7 +56,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
 
 ## <a name="format-the-response"></a>Formattare la risposta
 
-Creare un metodo denominato `prettify()` per formattare la risposta restituita dall'API Ricerca video Bing. Usare `JsonParser` della raccolta Gson per recuperare una stringa JSON e convertirla in un oggetto. Quindi usare `GsonBuilder()` e `toJson()` per creare la stringa formattata.
+Creare un metodo denominato `prettify()` per formattare la risposta restituita dall'API Ricerca video Bing. Usare `JsonParser` della raccolta Gson per recuperare una stringa JSON e convertirla in un oggetto. Quindi, usare `GsonBuilder()` e `toJson()` per creare la stringa formattata.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -84,7 +83,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Creare un nuovo URL per la richiesta con l'host dell'API, il percorso e i parametri creati in precedenza. 
+   2. Creare un nuovo URL della richiesta con l'host, il percorso e i parametri dell'API creati in precedenza. 
     
        ```java
        //...
@@ -103,7 +102,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Leggere la risposta dell'API in un oggetto `StringBuilder`. Dopo l'acquisizione della risposta, chiudere il flusso `InputStreamReader` e restituire la risposta.
+   4. Archiviare la risposta dell'API in `StringBuilder`. Dopo l'acquisizione della risposta, chiudere il flusso `InputStreamReader` e restituire la risposta.
 
        ```java
        //...
@@ -119,7 +118,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. Nella funzione main dell'applicazione chiamare l`get_suggestions()` e stampare la risposta con `prettify()`.
+2. Nella funzione main dell'applicazione chiamare `get_suggestions()` e stampare la risposta con `prettify()`.
     
     ```java
     public static void main(String[] args) {

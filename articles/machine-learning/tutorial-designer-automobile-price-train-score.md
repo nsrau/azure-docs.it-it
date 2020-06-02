@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione"
+title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
@@ -8,13 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 05/12/2020
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389427"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656576"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -76,7 +77,7 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
     Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
 
     > [!NOTE]
-    > La finestra di progettazione può eseguire esperimenti nelle destinazioni dell'ambiente di calcolo di Azure Machine Learning. Altre destinazioni di calcolo non vengono visualizzate.
+    > Il progettista può eseguire esperimenti di training solo su destinazioni di istanze di calcolo di Azure Machine Learning e dell'ambiente di calcolo di Machine Learning. Altre destinazioni di calcolo non vengono visualizzate.
 
 1. Immettere un nome per la risorsa di calcolo.
 

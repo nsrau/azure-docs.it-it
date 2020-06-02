@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77168640"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746999"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulatore Azure Cosmos - Note sulla versione e informazioni di download
 
@@ -25,6 +25,15 @@ Questo articolo include le note sulla versione dell'emulatore Azure Cosmos con u
 |**Operazioni preliminari**|[Sviluppare in locale con l'emulatore Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="2110"></a>2.11.0
+
+- Questa versione introduce il supporto per la velocità effettiva con provisioning a scalabilità automatica. Queste nuove funzionalità includono la possibilità di impostare un livello massimo personalizzato di velocità effettiva con provisioning in unità richiesta (UR/sec) e di abilitare la scalabilità automatica su database e contenitori esistenti, oltre a offrire il supporto a livello di codice tramite Azure Cosmos DB SDK.
+- Correzione di un errore per cui durante l'esecuzione di query su una quantità elevata di documenti (oltre 1 GB), l'emulatore genera un errore con codice di stato interno 500.
+
+### <a name="292"></a>2.9.2
+
+- Questa versione corregge un bug e abilita al tempo stesso il supporto per l'endpoint MongoDb versione 3.2. Aggiunge inoltre il supporto per la generazione di tracce ETL a scopo di risoluzione dei problemi usando WPR invece di LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

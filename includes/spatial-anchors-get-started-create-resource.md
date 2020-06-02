@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67135011"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638975"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creare una risorsa di Ancoraggi nello spazio
 
@@ -41,6 +41,10 @@ Dopo aver creato la risorsa, il portale di Azure indicherà che la distribuzione
 Sarà possibile quindi visualizzare le proprietà della risorsa. Copiare il valore dell'**ID account** della risorsa in un editor di testo perché sarà necessario in seguito.
 
    ![Proprietà risorsa](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+Copiare il valore di **Dominio account** della risorsa in un editor di testo perché sarà necessario in seguito.
+
+   ![Dominio account](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
 In **Impostazioni** selezionare **Chiave**. Copiare il valore di **Chiave primaria** in un editor di testo. Questo valore è `Account Key`. Sarà necessario più avanti.
 

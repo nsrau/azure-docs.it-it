@@ -1,5 +1,5 @@
 ---
-title: Eseguire script Python tramite Data Factory - Python in Azure Batch
+title: Eseguire script Python tramite Data Factory
 description: 'Esercitazione: Informazioni su come eseguire gli script Python come parte di una pipeline tramite Azure Data Factory usando Azure Batch.'
 author: mammask
 ms.devlang: python
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117064"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773186"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
@@ -34,6 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Una distribuzione [Python](https://www.python.org/downloads/) installata per i test locali.
 * Il pacchetto di [Azure](https://pypi.org/project/azure/) `pip`.
+* Il [set di dati iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Un account Azure Batch e un account di archiviazione di Azure collegato. Per altre informazioni su come creare e collegare account Batch agli account di archiviazione, vedere [Creare un account Batch](quick-create-portal.md#create-a-batch-account).
 * Un account di Azure Data Factory. Per altre informazioni su come creare una data factory tramite il portale di Azure, vedere [Creare una data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -66,7 +67,7 @@ Verranno ora creati i contenitori BLOB in cui archiviare i file di input e outpu
 1. Accedere a Storage Explorer con le credenziali di Azure.
 1. Usando l'account di archiviazione collegato all'account Batch, creare due contenitori BLOB (uno per i file di input e uno per i file di output) seguendo i passaggi in [Creare un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * In questo esempio, il contenitore di input sarà denominato `input` e il contenitore di output `output`.
-1. Caricare `main.py` e `iris.csv` nel contenitore di input `input` usando Storage Explorer seguendo la procedura descritta in [Gestione dei BLOB in un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Caricare `main.py` e [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) nel contenitore di input `input` usando Storage Explorer seguendo la procedura descritta in [Gestione dei BLOB in un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
 ## <a name="develop-a-script-in-python"></a>Sviluppare uno script in Python

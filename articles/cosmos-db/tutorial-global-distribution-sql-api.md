@@ -1,18 +1,18 @@
 ---
 title: "Esercitazione: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l'API SQL"
-description: "Esercitazione: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API SQL con .NET, Java, Python e vari altri SDK"
+description: "Esercitazione: Informazioni su come configurare la distribuzione globale di Azure Cosmos DB usando l'API SQL con .NET, Java, Python e vari altri SDK"
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: ee648efde22e6bbef045b9d89b8d016e2e489f20
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80295533"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872977"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Esercitazione: Configurare la distribuzione globale in Azure Cosmos DB usando l'API SQL
 
@@ -28,7 +28,7 @@ Questo articolo illustra le attività seguenti:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Connessione a un'area preferita tramite l'API SQL
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> Connessione a un'area preferita tramite l'API SQL
 
 Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure Cosmos DB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK SQL sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
 
@@ -110,21 +110,24 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v2-sdk"></a>Java V2 SDK
+## <a name="java-v4-sdk"></a>Java v4 SDK
 
 Il codice seguente illustra come impostare le località preferite usando Java SDK:
 
-```java
-ConnectionPolicy policy = new ConnectionPolicy();
-policy.setUsingMultipleWriteLocations(true);
-policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
-AsyncDocumentClient client =
-        new AsyncDocumentClient.Builder()
-                .withMasterKeyOrResourceToken(this.accountKey)
-                .withServiceEndpoint(this.accountEndpoint)
-                .withConnectionPolicy(policy)
-                .build();
-```
+### <a id="java4-preferred-locations"></a>
+#### <a name="async"></a>[Asincrona](#tab/api-async)
+
+   API asincrona [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
+
+#### <a name="sync"></a>[Sincrona](#tab/api-sync)
+
+   API sincrona [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=TutorialGlobalDistributionPreferredLocationSync)]
+
+--- 
 
 ## <a name="rest"></a>REST
 Dopo aver reso disponibile un account di database in più aree, i client possono eseguire query sulla relativa disponibilità tramite una richiesta GET all'URI seguente.

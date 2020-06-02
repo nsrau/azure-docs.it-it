@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione'
+title: 'Esercitazione: Distribuire modelli di ML con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
 description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning (anteprima). Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
 author: peterclu
@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389393"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656527"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

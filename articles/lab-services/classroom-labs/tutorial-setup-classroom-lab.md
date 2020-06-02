@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591778"
+ms.locfileid: "83643459"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -70,6 +70,9 @@ In questo passaggio viene creato un lab per le classi in Azure.
     1. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se si tratta di una macchina virtuale modello di Linux, scegliere se si vuole effettuare la connessione con SSH o RDP (se RDP è abilitato).
     3. Installare e configurare il software necessario per la classe nella macchina virtuale modello. 
     4. **Arrestare** la macchina virtuale modello.  
+
+    > [!NOTE]
+    > Le macchine virtuali modello comportano **costi** durante l'esecuzione, quindi assicurarsi che la macchina virtuale modello venga arrestata quando non è necessario che sia in esecuzione. 
 
 ## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello
 In questo passaggio verrà pubblicata la VM modello. Quando si pubblica la macchina virtuale modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Tutte le macchine virtuali hanno la stessa configurazione del modello.

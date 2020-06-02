@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685445"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930472"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
@@ -26,6 +26,10 @@ Dal punto di vista dello sviluppo, le API di Key Vault accettano e restituiscono
 Per i dati altamente sensibili è opportuno prendere in considerazione livelli di protezione aggiuntivi, ad esempio la crittografia dei dati con una chiave di protezione separata prima dell'archiviazione in Key Vault.  
 
 Key Vault supporta anche un campo contentType per i segreti. I client possono specificare il tipo di contenuto di un segreto per facilitare l'interpretazione dei dati del segreto quando vengono recuperati. Il campo può contenere al massimo 255 caratteri. Non sono presenti valori predefiniti. L'utilizzo consigliato è come un hint per l'interpretazione dei dati segreti. Ad esempio, in un'implementazione possono essere archiviati password e certificati come segreti. Questo campo consente quindi di distinguerli. Non sono presenti valori predefiniti.  
+
+## <a name="encryption"></a>Crittografia
+
+Tutti i segreti presenti in Key Vault vengono archiviati crittografati. Questa crittografia è trasparente e non richiede alcuna azione da parte dell'utente. Il servizio Azure Key Vault crittografa i segreti quando vengono aggiunti e li decrittografa automaticamente quando vengono letti. La chiave di crittografia è univoca per ogni insieme di credenziali delle chiavi.
 
 ## <a name="secret-attributes"></a>Attributi dei segreti
 

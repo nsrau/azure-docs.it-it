@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371469"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747490"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -56,7 +56,7 @@ La geocodifica è il processo di conversione di un indirizzo in una coordinata. 
 Mappe di Azure offre numerosi metodi per la geocodifica degli indirizzi:
 
 - [**Geocodifica di indirizzi in formato libero**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): consente di specificare una singola stringa di indirizzo e di elaborare immediatamente la richiesta. "1 Microsoft Way, Redmond, WA" è un esempio di una singola stringa di indirizzo. Questa API è consigliata se è necessario eseguire rapidamente la geocodifica di singoli indirizzi.
-- [**Geocodifica di indirizzi strutturati**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): consente di specificare le parti di un singolo indirizzo, ad esempio nome della via, città, paese e codice postale, e di elaborare immediatamente la richiesta. Questa API è consigliata se è necessario eseguire rapidamente la geocodifica di singoli indirizzi e i dati sono già analizzati nelle singole parti dell'indirizzo.
+- [**Geocodifica di indirizzi strutturati**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): specificare le parti di un singolo indirizzo, ad esempio via, città, paese e codice postale, per elaborare immediatamente la richiesta. Questa API è consigliata se è necessario eseguire rapidamente la geocodifica di singoli indirizzi e i dati sono già analizzati nelle singole parti dell'indirizzo.
 - [**Geocodifica di indirizzi batch**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): consente di creare una richiesta contenente fino a 10.000 indirizzi e li elabora in un certo periodo di tempo. Verrà eseguita la geocodifica di tutti gli indirizzi in parallelo nel server e, al termine dell'operazione, sarà possibile scaricare il set di risultati completo. Questa opzione è consigliata per la geocodifica di set di dati di grandi dimensioni.
 - [**Ricerca fuzzy**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): Questa API combina la geocodifica degli indirizzi con la ricerca di punti di interesse. Questa API accetta una stringa in formato libero. La stringa può essere un indirizzo, un luogo, un riferimento, un punto di interesse o una categoria di punti di interesse. Questa API elabora la richiesta quasi in tempo reale. Questa API è consigliata per le applicazioni in cui gli utenti possono cercare indirizzi o punti di interesse dalla stessa casella di testo.
 - [**Ricerca fuzzy batch**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): consente di creare una richiesta contenente fino a 10.000 indirizzi, luoghi, punti di riferimento o punti di interesse e li elabora in un certo periodo di tempo. Tutti i dati verranno elaborati in parallelo nel server e, al termine dell'operazione, sarà possibile scaricare il set di risultati completo.
@@ -67,7 +67,7 @@ La tabella seguente offre un riferimento incrociato dei parametri dell'API Googl
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` e `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`: città<br/>`municipalitySubdivision`: quartiere, zona urbana/area metropolitana<br/>`countrySubdivision`: stato o provincia<br/>`countrySecondarySubdivision`: contea<br/>`countryTertiarySubdivision`: distretto<br/>`countryCode`: codice paese a due lettere |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`: città<br/>`municipalitySubdivision`: quartiere, zona urbana/area metropolitana<br/>`countrySubdivision`: stato o provincia<br/>`countrySecondarySubdivision`: contea<br/>`countryTertiarySubdivision`: distretto<br/>`countryCode`: codice paese/area geografica di due lettere |
 | `key`                       | `subscription-key`: vedere anche la documentazione relativa all'[Autenticazione con Mappe di Azure](azure-maps-authentication.md). |
 | `language`                  | `language`: vedere la documentazione relativa alle [lingue supportate](supported-languages.md).  |
 | `region`                    | `countrySet`                       |

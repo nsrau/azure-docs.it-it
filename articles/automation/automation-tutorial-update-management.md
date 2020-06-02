@@ -1,38 +1,28 @@
 ---
-title: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
-description: Questo articolo offre una panoramica dell'uso di Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le VM di Azure e non di Azure.
+title: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure in Automazione di Azure
+description: Questo articolo illustra come usare Gestione aggiornamenti per gestire aggiornamenti e patch per le VM di Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604684"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829155"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
-È possibile usare la soluzione Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali. In questa esercitazione viene illustrato come valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti, esaminare i risultati della distribuzione e creare un avviso per verificare che gli aggiornamenti vengano applicati correttamente.
+Questo articolo descrive come usare la funzionalità [Gestione aggiornamenti](automation-update-management.md) di Automazione di Azure per gestire aggiornamenti e patch per le VM di Azure. 
 
 Per informazioni sui prezzi, vedere [Prezzi di Automazione per la gestione degli aggiornamenti](https://azure.microsoft.com/pricing/details/automation/).
 
-In questa esercitazione verranno illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Visualizzare una valutazione degli aggiornamenti
-> * Configurare gli avvisi
-> * Pianificare la distribuzione degli aggiornamenti
-> * Visualizzare i risultati di una distribuzione
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, sono necessari:
-
-* La soluzione [Gestione aggiornamenti](automation-update-management.md) abilitata per una o più macchine virtuali.
-* Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) da caricare.
+* La funzionalità [Gestione aggiornamenti](automation-update-management.md) abilitata per una o più VM. 
+* Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) abilitata per Gestione aggiornamenti.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -95,7 +85,7 @@ Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **
 
 ## <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
 
-Pianificare quindi una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio per installare gli aggiornamenti. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
+Pianificare una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio per installare gli aggiornamenti. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
 
 >[!NOTE]
 >Quando si pianifica una distribuzione degli aggiornamenti, viene creata una risorsa di tipo [pianificazione](shared-resources/schedules.md) collegata al runbook **Patch-MicrosoftOMSComputers** che gestisce la distribuzione degli aggiornamenti nei computer di destinazione. Se si elimina la risorsa di tipo pianificazione dal portale di Azure o si usa PowerShell dopo aver creato la distribuzione, l'eliminazione interrompe la distribuzione degli aggiornamenti pianificati e viene visualizzato un errore quando si prova a riconfigurare la risorsa di pianificazione dal portale. È possibile eliminare la risorsa di tipo pianificazione solo eliminando la pianificazione di distribuzione corrispondente.  
@@ -112,16 +102,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 * **Computer da aggiornare**: Selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **Aggiorna idoneità agente**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md).
 
-* **Classificazione aggiornamenti**: Per ogni prodotto, deselezionare tutte le classificazioni degli aggiornamenti supportate, tranne quelle da includere nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati per tutti i prodotti.
-
-  I tipi di classificazione sono:
-
-   |OS  |Type  |
-   |---------|---------|
-   |Windows     | Aggiornamenti critici</br>Aggiornamenti per la sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti<br>Driver        |
-   |Linux     | Aggiornamenti critici e della sicurezza</br>Altri aggiornamenti       |
-
-   Per una descrizione dei tipi di classificazione, vedere le [Classificazioni di aggiornamenti](automation-view-update-assessments.md#update-classifications).
+* **Classificazione aggiornamenti**: Per ogni prodotto, deselezionare tutte le classificazioni degli aggiornamenti supportate, tranne quelle da includere nella distribuzione degli aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [Classificazioni di aggiornamenti](automation-view-update-assessments.md#work-with-update-classifications).
 
 * **Includi/Escludi aggiornamenti**: apre la pagina Includi/Escludi. Gli aggiornamenti da includere o escludere si trovano in schede separate specificando i numeri di ID degli articoli della Knowledge base. Quando si specificano uno o più numeri di ID, è necessario rimuovere o deselezionare tutte le classificazioni con la distribuzione degli aggiornamenti. In questo modo si garantisce che nessun altro aggiornamento venga incluso nel pacchetto di aggiornamento quando si specificano gli ID per l'aggiornamento.
 
@@ -131,7 +112,6 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 > [!NOTE]
 > Non è possibile specificare aggiornamenti che sono stati sostituiti per l'inclusione nella distribuzione degli aggiornamenti.
 >
-
 * **Impostazioni di pianificazione**: apre il riquadro Impostazioni di pianificazione. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
    È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Lasciare l'impostazione predefinita su un 1 giorno e fare clic su **OK**. Queste voci configurano una pianificazione ricorrente.
@@ -196,16 +176,4 @@ Quando la distribuzione degli aggiornamenti ha esito positivo, si riceve un mess
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Caricare una VM per Gestione aggiornamenti
-> * Visualizzare una valutazione degli aggiornamenti
-> * Configurare gli avvisi
-> * Pianificare la distribuzione degli aggiornamenti
-> * Visualizzare i risultati di una distribuzione
-
-Passare alla panoramica della soluzione Gestione aggiornamenti.
-
-> [!div class="nextstepaction"]
-> [Soluzione Gestione aggiornamenti](automation-update-management.md)
+* Per informazioni dettagliate su Gestione aggiornamenti, vedere [Panoramica di Gestione aggiornamenti](automation-update-management.md).

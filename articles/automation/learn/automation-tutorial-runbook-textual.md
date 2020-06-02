@@ -1,17 +1,16 @@
 ---
 title: Creare un runbook del flusso di lavoro PowerShell in Automazione di Azure
-description: Esercitazione che illustra come creare, testare e pubblicare un semplice runbook del flusso di lavoro PowerShell.
-keywords: PowerShell flusso di lavoro, esempi di flusso di lavoro PowerShell, flusso di lavoro PowerShell
+description: Questo articolo illustra come creare, testare e pubblicare un semplice runbook di flusso di lavoro PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: cdf43bb82baf28ba21e00d0f58dc8bafe84fbe42
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 80c84693f466ea30c4a65a8960472a55e98d1efe
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725335"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714458"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Esercitazione: Creare un runbook del flusso di lavoro PowerShell
 
@@ -22,9 +21,6 @@ Questa esercitazione illustra la creazione di un [runbook del flusso di lavoro P
 > * Testare e pubblicare il runbook
 > * Eseguire il processo del runbook e monitorarne lo stato
 > * Aggiornare il runbook per avviare una macchina virtuale di Azure con i parametri del runbook
-
->[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -231,10 +227,9 @@ Il runbook avvia effettivamente la macchina virtuale hardcoded nel runbook. Sar�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su PowerShell, incluse le informazioni di riferimento sul linguaggio e i moduli di apprendimento, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* Per iniziare a usare runbook grafici, vedere [Creare un runbook grafico](automation-tutorial-runbook-graphical.md).
-* Per iniziare a usare i runbook PowerShell, vedere [Creare un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
-* Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](../automation-runbook-types.md).
-* Per altre informazioni sulle funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [Documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Creare un runbook grafico](automation-tutorial-runbook-graphical.md)
+* [Creare un runbook di PowerShell](automation-tutorial-runbook-textual-powershell.md)
+* [Tipi di runbook di Automazione di Azure](../automation-runbook-types.md)
+* [Supporto di script nativi di PowerShell in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

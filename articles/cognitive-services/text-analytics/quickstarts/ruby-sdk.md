@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77919669"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996973"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Guida introduttiva: Usare la libreria client di Analisi del testo per Ruby
 
@@ -31,7 +31,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 > [!NOTE]
 > Questo argomento di avvio rapido si applica solo alla versione 2.1 di Analisi del testo. Attualmente non è disponibile una libreria client v3 per Ruby.
 
-[Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Pacchetto (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Pacchetto (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ L'oggetto risposta è un elenco contenente le informazioni di analisi per ogni d
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Analisi del testo per Python:
+Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Analisi del testo per Ruby:
 
 * [Autenticare il client](#authenticate-the-client)
 * [Analisi del sentiment](#sentiment-analysis)

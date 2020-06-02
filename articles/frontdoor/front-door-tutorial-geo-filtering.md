@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: tyao
-ms.openlocfilehash: e3119745e35140d0344d25f34f54b63939d2542d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10f8bd3682b442dd55e195c6dc1855fae07a155c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744090"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Come configurare un criterio web application firewall di filtro geografico per Frontdoor
 Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi/aree tranne gli Stati Uniti.
@@ -51,7 +51,7 @@ Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvi
 
 ## <a name="define-geo-filtering-match-condition"></a>Definire la condizione di corrispondenza del filtro geografico
 
-Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) con parametri. Il mapping tra gli indicativi di due lettere e i paesi è disponibile [qui](front-door-geo-filtering.md).
+Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) con parametri. Il mapping tra gli indicativi di due lettere e i paesi/aree geografiche è disponibile [qui](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

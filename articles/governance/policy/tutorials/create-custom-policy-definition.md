@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190708"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683250"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 

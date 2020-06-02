@@ -1,25 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6c60516a87dbdc51e19bac5ee9b30f2f1a8b0254
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf74d686a9156d6ccff1753a4f53abb5ecc6b7df
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239030"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929690"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#
 
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione C# invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione C# invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     using System.Text;
     ```
 
-2. In una nuova classe creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. In una nuova classe creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. Usare l'endpoint globale nel codice seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -65,7 +65,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     }
     ```
 
-2. Nella stessa funzione precedente creare un URI della richiesta combinando l'host e il percorso dell'API. Aggiungere il codice di mercato al parametro `?mkt=` e la query al parametro `&query=`. Assicurarsi di codificare la query con URL. 
+2. Nella stessa funzione precedente creare un URI della richiesta combinando l'host e il percorso dell'API. Aggiungere il codice di mercato al parametro `mkt=` e la query al parametro `query=`. Assicurarsi di codificare la query con URL. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);

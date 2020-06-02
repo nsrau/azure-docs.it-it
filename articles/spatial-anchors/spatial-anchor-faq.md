@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76844888"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004478"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -49,6 +49,10 @@ Per altre informazioni, vedere [Panoramica di Ancoraggi nello spazio di Azure](o
 
 **R:** Gli ancoraggi sono isolati dall'account Azure. Solo le app a cui si concede l'accesso al proprio account potranno accedere agli ancoraggi all'interno dell'account.
 
+**D: Come vengono archiviati i dati da Ancoraggi nello spazio di Azure?**
+
+**R:** Tutti i dati vengono archiviati crittografati con una chiave gestita da Microsoft.
+
 **D: Quali informazioni su un ambiente vengono trasmesse e archiviate nel servizio quando si usa Ancoraggi nello spazio di Azure? Le immagini dell'ambiente vengono trasmesse e archiviate?**
 
 **R**: Quando si creano o si individuano gli ancoraggi, le immagini dell'ambiente vengono elaborate nel dispositivo in un formato derivato. Questo formato derivato viene trasmesso e archiviato nel servizio.
@@ -59,7 +63,6 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 
 ![Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata](./media/sparse-point-cloud.png)
 *Figura 1: Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata*
-
 
 **D: È possibile inviare informazioni di diagnostica a Microsoft?**
 

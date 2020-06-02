@@ -1,5 +1,5 @@
 ---
-title: Previsione della domanda di bike sharing con un esperimento di Machine Learning automatizzato
+title: 'Esercitazione: Previsione della domanda e AutoML'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training e la distribuzione di un modello di previsione della domanda con Machine Learning automatizzato in Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088325"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656562"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda di bike sharing con Machine Learning automatizzato
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In questa esercitazione si usa Machine Learning automatizzato, o ML automatizzato, in Azure Machine Learning Studio per creare un modello di previsione delle serie temporali e prevedere la domanda di noleggio per un servizio di bike sharing.
+
+Per un esempio di modello di classificazione, vedere [Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare e caricare un set di dati.
 > * Configurare ed eseguire un esperimento di ML automatizzato.
+> * Specificare le impostazioni di previsione.
 > * Esplorare i risultati dell'esperimento.
 > * Distribuire il modello migliore.
 
@@ -129,7 +132,7 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
 
 1. Selezionare **data** come **Colonna data/ora** e lasciare vuoto il campo **Raggruppa per colonne**. 
 
-    1. Selezionare **View additional configuration settings** (Visualizza altre impostazioni di configurazione) e popolare i campi come indicato di seguito. Queste impostazioni consentono un maggior controllo del processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
+    1. Selezionare **View additional configuration settings** (Visualizza altre impostazioni di configurazione) e popolare i campi come indicato di seguito. Queste impostazioni consentono di controllare meglio il processo di training e di specificare le impostazioni per la previsione. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
 
   
         Configurazioni&nbsp;aggiuntive|Descrizione|Valore&nbsp;per&nbsp;l'esercitazione
@@ -138,7 +141,7 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
         Automatic featurization (Definizione automatica funzionalità)| Consente la pre-elaborazione dei dati. Sono incluse la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche.| Abilitare
         Modello esplicativo migliore (anteprima)| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
         Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| Extreme Random Trees
-        Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Orizzonte di previsione**_ : il periodo di tempo futuro per cui eseguire la previsione <br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_ : specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. |Orizzonte di previsione: 14 <br> Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
+        Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Orizzonte di previsione**_: il periodo di tempo futuro per cui eseguire la previsione <br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. |Orizzonte di previsione: 14 <br> Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
         Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 3 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
         Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 5
         Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 6
@@ -224,6 +227,10 @@ Per la procedura di creazione di uno schema supportato da Power BI che facilita 
 > [!div class="nextstepaction"]
 > [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
++ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
++ Altre informazioni sullo [sviluppo di funzionalità](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Il set di dati bike share è stato modificato per questa esercitazione. Questo set di dati è stato reso disponibile nell'ambito di un [concorso Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e originariamente era reperibile tramite [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). È disponibile anche all'interno del [database Machine Learning UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

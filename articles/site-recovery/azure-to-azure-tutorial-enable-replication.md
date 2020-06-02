@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292479"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871498"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -170,8 +170,8 @@ Se nella macchina virtuale di origine è abilitato il servizio Crittografia disc
    1. **Insieme di credenziali delle chiavi di crittografia della chiave**: Per impostazione predefinita, Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione. Il nome presenta un suffisso `asr` ed è basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Se l'insieme di credenziali delle chiavi creato da Site Recovery esiste già, verrà riutilizzato.
 1. Selezionare **Personalizza** per selezionare gli insiemi di credenziali delle chiavi personalizzati.
 
-> [!NOTE]
-> Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono i sistemi operativi Windows e che sono [abilitate per la crittografia con l'app Azure AD](https://aka.ms/ade-aad-app).
+>[!NOTE]
+> Site Recovery attualmente supporta Crittografia dischi di Azure, con e senza Azure Active Directory (AAD), per le macchine virtuali che eseguono sistemi operativi Windows. Per i sistemi operativi Linux, il servizio Crittografia dischi di Azure è supportato solo senza AAD. Inoltre, per i computer che eseguono Crittografia dischi di Azure 1.1 (senza AAD), le VM devono usare dischi gestiti. Le VM con dischi non gestiti non sono supportate. Se si passa dalla versione 0.1 (con AAD) alla versione 1.1 di Crittografia dischi di Azure, è necessario disabilitare la replica e abilitarla per una VM dopo l'abilitazione della versione 1.1.
 
 ### <a name="track-replication-status"></a>Tenere traccia dello stato della replica
 

@@ -1,25 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 11dc0d4f80e14c293fde4e84b5e97d39fe594629
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d63bd0fc745a3305b9d2f8906a09626668d091b
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238946"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930268"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
 
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Node.js invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Node.js invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     let https = require ('https');
     ```
 
-2. Creare variabili per l'host e il percorso dell'endpoint dell'API, la chiave di sottoscrizione, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e il termine di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per l'host e il percorso dell'endpoint dell'API, la chiave di sottoscrizione, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e il termine di ricerca. Usare l'endpoint globale nel codice seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -74,19 +74,20 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     }
     ```
 
-    1. Nella stessa funzione, usare la libreria di richieste per inviare la query all'API. `response_handler` verrà definito nella sezione successiva.
+ 1. Nella stessa funzione, usare la libreria di richieste per inviare la query all'API. `response_handler` verrà definito nella sezione successiva.
     
-        ```javascript
+    ```javascript
         //...
         let req = https.request(request_params, response_handler);
         req.end();
         ```
 
-## <a name="create-a-search-handler"></a>Creare un gestore di ricerche
+## Create a search handler
 
-1. Definire una funzione denominata `response_handler` che accetta una chiamata HTTP, `response`, come parametro. In questa funzione eseguire i passaggi seguenti:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
+Do the following steps within this function:
     
-    1. Definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
+    1. Define a variable to contain the body of the JSON response.  
 
         ```javascript
         let response_handler = function (response) {
@@ -94,7 +95,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
         };
         ```
 
-    2. Memorizzare il corpo della risposta quando viene chiamato il flag **data**
+    2. Store the body of the response when the `data` flag is called
         
         ```javascript
         response.on ('data', function (d) {
@@ -102,7 +103,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
         });
         ```
 
-    3. Quando viene segnalato un flag **end**, usare `JSON.parse()` e `JSON.stringify()` per stampare la risposta.
+    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
     
         ```javascript
         response.on ('end', function () {
@@ -115,11 +116,11 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
         });
         ```
 
-2. Chiamare `get_suggestions()` per inviare la richiesta all'API Suggerimenti automatici Bing.
+2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
 
-## <a name="example-json-response"></a>Risposta JSON di esempio
+## Example JSON response
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
+A successful response is returned in JSON, as shown in the following example: 
 
 ```json
 {

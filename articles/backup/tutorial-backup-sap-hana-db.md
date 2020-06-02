@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501442"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747221"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -29,9 +29,14 @@ Prima di configurare i backup, eseguire la procedura seguente:
 * Consentire la connettività dalla VM a Internet, in modo che Azure sia raggiungibile, come descritto nella procedura [Configurare la connettività di rete](#set-up-network-connectivity) descritta di seguito.
 * È necessario che sia presente una chiave in **hdbuserstore** che soddisfi i criteri seguenti:
   * Deve essere presente in **hdbuserstore** predefinito
-  * Per MDC, la chiave deve puntare alla porta SQL di **NAMESERVER**. Nel caso di DSC, deve puntare alla porta SQL di **INDEXSERVER**
+  * Per MDC, la chiave deve puntare alla porta SQL di **NAMESERVER**. Nel caso di SDC, deve puntare alla porta SQL di **INDEXSERVER**
   * Deve avere le credenziali per aggiungere ed eliminare gli utenti
 * Eseguire lo script di configurazione di backup SAP HANA (script di pre-registrazione) come utente radice nella macchina virtuale in cui è installato HANA. [Questo script](https://aka.ms/scriptforpermsonhana) prepara il sistema HANA per il backup. Per altre informazioni sullo script di pre-registrazione, vedere la sezione [Funzionalità dello script di pre-registrazione](#what-the-pre-registration-script-does).
+
+>[!NOTE]
+>Backup di Azure non si adatta automaticamente al cambiamento dell'ora legale per il backup di un database SAP HANA in esecuzione in una VM di Azure.
+>
+>Modificare manualmente i criteri in base alle esigenze.
 
 ## <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 

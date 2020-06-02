@@ -1,17 +1,17 @@
 ---
 title: Creare un runbook PowerShell in Automazione di Azure
-description: Esercitazione che illustra come creare, testare e pubblicare un semplice runbook PowerShell.
+description: Questo articolo illustra come creare, testare e pubblicare un semplice runbook di PowerShell.
 keywords: Azure PowerShell, esercitazione sugli script di PowerShell, automazione di PowerShell
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: b94969ff0973f68b57a1f43aa9d3205901bb1436
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bf06515f98b21c24f5222b51e1b1c97b702c12d4
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725085"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714492"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Esercitazione: Creare un runbook di PowerShell
 
@@ -22,9 +22,6 @@ Questa esercitazione illustra la creazione di un [runbook PowerShell](../automat
 > * Testare e pubblicare il runbook
 > * Eseguire il processo del runbook e monitorarne lo stato
 > * Aggiornare il runbook per avviare una macchina virtuale di Azure con i parametri del runbook
-
->[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -277,10 +274,9 @@ Il runbook avvia effettivamente la macchina virtuale hardcoded nel runbook. Il r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su PowerShell, incluse le informazioni di riferimento sul linguaggio e i moduli di apprendimento, vedere la [documentazione di PowerShell](/powershell/scripting/overview).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* Per iniziare a usare runbook grafici, vedere [Creare un runbook grafico](automation-tutorial-runbook-graphical.md).
-* Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Creare un runbook del flusso di lavoro PowerShell](automation-tutorial-runbook-textual.md).
-* Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](../automation-runbook-types.md).
-* Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [Documentazione di PowerShell](/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Creare un runbook grafico](automation-tutorial-runbook-graphical.md)
+* [Creare un runbook del flusso di lavoro PowerShell](automation-tutorial-runbook-textual.md)
+* [Tipi di runbook di Automazione di Azure](../automation-runbook-types.md)
+* [Supporto di script nativi di PowerShell in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

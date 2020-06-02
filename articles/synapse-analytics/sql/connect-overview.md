@@ -9,21 +9,24 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420875"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198508"
 ---
 # <a name="connect-to-synapse-sql"></a>Connettersi a Synapse SQL
 Connettersi alla funzionalità Synapse SQL in Azure Synapse Analytics.
 
 ## <a name="supported-tools-for-sql-on-demand-preview"></a>Strumenti supportati per SQL su richiesta (anteprima)
 
-Lo strumento completamente supportato è Azure Data Studio (anteprima).
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) è completamente supportato a partire dalla versione 1.18.0. SSMS è parzialmente supportato a partire dalla versione 18.5 ed è possibile usarlo solo per connettersi ed eseguire query.
 
-SQL Server Management Studio è supportato parzialmente a partire dalla versione 18.4. Alcune funzionalità sono limitate, ad esempio la connessione e l'esecuzione di query.
+> [!NOTE]
+> Se un accesso di AAD ha una connessione aperta per più di un'ora al momento dell'esecuzione della query, tutte le query che si basano su AAD avranno esito negativo. È inclusa l'esecuzione di query sull'archiviazione tramite pass-through di AAD e le istruzioni che interagiscono con AAD (ad esempio CREATE EXTERNAL PROVIDER). Ciò influisce su tutti gli strumenti che mantengono aperta la connessione, ad esempio l'editor di query in SSMS e ADS. Gli strumenti che aprono una nuova connessione per eseguire query, ad esempio Synapse Studio, non sono interessati.
+
+> Per attenuare questo problema, è possibile riavviare SSMS o connettersi e disconnettersi in ADS. 
 
 ## <a name="find-your-server-name"></a>Trovare il nome del server
 

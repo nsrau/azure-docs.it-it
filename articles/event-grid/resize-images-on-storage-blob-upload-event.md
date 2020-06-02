@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482189"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652685"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -192,15 +192,15 @@ Il codice del progetto funzione viene distribuito direttamente dal repository pu
 
 Una sottoscrizione di eventi indica quali eventi generati dal provider si desidera inviare a un endpoint specifico. In questo caso l'endpoint viene esposto dalla funzione. Seguire questa procedura per creare una sottoscrizione di eventi che invia notifiche alla funzione nel portale di Azure:
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi** nel menu a sinistra e quindi selezionare **App per le funzioni**.
+1. Nella parte superiore della pagina del [portale di Azure](https://portal.azure.com) cercare e selezionare `Function App` e scegliere l'app per le funzioni appena creata. Selezionare **Funzioni** e scegliere la funzione **Anteprima**.
 
-    ![Passare ad App per le funzioni nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Scegliere la funzione Anteprima nel portale":::
 
-2. Espandere l'app per le funzioni, scegliere la funzione **Anteprima** e quindi selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
+1.  Selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e infine selezionare **Crea sottoscrizione di Griglia di eventi**.
 
-    ![Passare ad Aggiungi sottoscrizione di Griglia di eventi nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Passare ad Aggiungi sottoscrizione di Griglia di eventi nel portale di Azure" :::
 
-3. Usare le impostazioni della sottoscrizione di eventi specificate nella tabella.
+1. Usare le impostazioni della sottoscrizione di eventi specificate nella tabella.
     
     ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Tipo di endpoint** | generato automaticamente | Predefinito come **Funzione di Azure**. |
     | **Endpoint** | generato automaticamente | Nome della funzione. In questo caso, è **Anteprima**. |
 
-4. Passare alla scheda **Filtri** ed eseguire le azioni seguenti:
+1. Passare alla scheda **Filtri** ed eseguire le azioni seguenti:
     1. Selezionare l'opzione **Abilita filtro per l'oggetto**.
     2. Per **L'oggetto inizia con** immettere il valore seguente: **/blobServices/default/containers/images/blobs/** .
 
         ![Specificare un filtro per la sottoscrizione di eventi](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Selezionare **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore `images`. La funzione ridimensiona le immagini e le aggiunge al contenitore `thumbnails`.
+1. Selezionare **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore `images`. La funzione ridimensiona le immagini e le aggiunge al contenitore `thumbnails`.
 
 Ora che i servizi back-end sono stati configurati, testare la funzione di ridimensionamento delle immagini nell'applicazione Web di esempio.
 

@@ -1,25 +1,25 @@
 ---
 title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Ruby"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
+description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: eac1f53d35f8175da814dba6172edc12f9e1a063
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e9b990f7e79fe0d70a213db5739153fe1e558f3c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238935"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930200"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Ruby
 
-Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Ruby invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Seguire questa guida di avvio rapido per informazioni su come effettuare chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Ruby invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -38,7 +38,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     require 'json'
     ```
 
-2. Creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale. Usare l'endpoint globale nel codice seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Sugg
     query = 'sail'
     ```
 
-3. Creare una stringa di parametri aggiungendo il codice di mercato al parametro `?mkt=` e la query al parametro `&q=`. Creare quindi l'URI della richiesta combinando l'host e il percorso dell'API e la stringa di parametri.
+3. Creare una stringa di parametri aggiungendo il codice di mercato al parametro `mkt=` e la query al parametro `q=`. Creare quindi l'URI della richiesta combinando l'host e il percorso dell'API e la stringa di parametri.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query

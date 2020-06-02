@@ -3,18 +3,18 @@ title: 'Esercitazione: Informazioni su come accedere al cloud privato'
 description: Informazioni su come accedere a un cloud privato della soluzione Azure VMware (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: fcee332818c89d9c8b00795dca9e74f68260eefd
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739586"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873595"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Esercitazione: Informazioni su come accedere a un cloud privato della soluzione Azure VMware (AVS)
 
 Durante la fase di anteprima, la soluzione AVS non consente di gestire il cloud privato con un'istanza locale di vCenter. Sarà necessario eseguire ulteriori operazioni di configurazione e connessione a un'istanza locale di vCenter tramite un jumpbox. 
 
-In questa esercitazione si creerà una macchina virtuale Windows per un jumpbox nel gruppo di risorse creato nell'esercitazione precedente, [Esercitazione: Configurare la rete per il cloud privato VMWare in Azure](tutorial-configure-networking.md), e si eseguirà l'accesso a vCenter. Si tratta di una VM collegata alla stessa rete virtuale creata che fornisce l'accesso a vCenter e a NSX Manager. 
+In questa esercitazione si creerà una macchina virtuale Windows per un jumpbox nel gruppo di risorse creato nell'esercitazione precedente, [Esercitazione: Configurare la rete per il cloud privato VMware in Azure](tutorial-configure-networking.md), e si eseguirà l'accesso a vCenter. Si tratta di una VM collegata alla stessa rete virtuale creata che fornisce l'accesso a vCenter e a NSX Manager. 
 
 In questa esercitazione verranno illustrate le procedure per:
 

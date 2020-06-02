@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261721"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929826"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -67,8 +67,8 @@ Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi 
 
 |OS|Licenza richiesta|
 |---|---|
-|Windows 10 Enterprise multisessione o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multisessione o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licenza CAL Servizi Desktop remoto con Software Assurance|
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
@@ -98,9 +98,12 @@ Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l
 |prod.warmpath.msftcloudes.com|443|Traffico dell'agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Attivazione di Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Supporto del portale di Azure|AzureCloud|
 
 >[!IMPORTANT]
->Per evitare problemi al servizio, nella maggior parte dei casi è consigliabile usare i tag del servizio anziché gli URL. Lo sblocco di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono gli URL di altri servizi come Azure Active Directory.
+>Desktop virtuale Windows supporta ora il tag FQDN. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](../firewall/protect-windows-virtual-desktop.md).
+>
+>Per evitare problemi del servizio, è consigliabile usare tag FQDN o del servizio invece degli URL. Gli URL e i tag elencati corrispondono solo a risorse e siti di Desktop virtuale Windows. Gli URL di altri servizi, come Azure Active Directory, non sono inclusi.
 
 La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtuali di Azure:
 
@@ -180,20 +183,22 @@ Desktop virtuale Windows non supporta le immagini di sistemi operativi x86 (32 b
 
 Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente: 
 
-|Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|Aggiornamenti dell'agente di Desktop virtuale Windows|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|Automatico|
-|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|Automatico|
-|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|Automatico|
-|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|Automatico|
-|Windows 7 Enterprise|Sì|Sì|No|No|Manuale|
-|Windows Server 2019|Sì|Sì|No|No|Automatico|
-|Windows Server 2016|Sì|Sì|Sì|Sì|Automatico|
-|Windows Server 2012 R2|Sì|Sì|No|No|Automatico|
+|Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|
+|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|
+|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|
+|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|
+|Windows 7 Enterprise|Sì|Sì|No|No|
+|Windows Server 2019|Sì|Sì|No|No|
+|Windows Server 2016|Sì|Sì|Sì|Sì|
+|Windows Server 2012 R2|Sì|Sì|No|No|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, è necessario creare un tenant. Per altre informazioni su come creare un tenant, continuare con l'esercitazione sulla creazione di un tenant.
+Se si usa la versione Autunno 2019 di Desktop virtuale Windows, è possibile iniziare con l'esercitazione in [Creare un tenant in Desktop virtuale Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+Se si usa la versione Primavera 2020 di Desktop virtuale Windows, è necessario creare un pool di host. Passare all'esercitazione seguente per iniziare.
 
 > [!div class="nextstepaction"]
-> [Creare un tenant in Desktop virtuale Windows](tenant-setup-azure-active-directory.md)
+> [Creare un pool di host con il portale di Azure](create-host-pools-azure-marketplace.md)

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208126"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846937"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure in Linux
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> Se si apre una nuova finestra del terminale, è necessario impostare la stringa di connessione sul database di produzione nel terminale, come illustrato in [Eseguire le migrazioni del database al database di produzione](#run-database-migrations-to-the-production-database).
+>
+
 ### <a name="use-the-new-property"></a>Usare la nuova proprietà
 
 Apportare alcune modifiche al codice per usare la proprietà `Done`. Per motivi di semplicità in questa esercitazione vengono modificate solo le visualizzazioni `Index` e `Create` per visualizzare la proprietà.
@@ -367,6 +371,10 @@ Eseguire l'app in locale.
 ```bash
 dotnet run
 ```
+
+> [!NOTE]
+> Se si apre una nuova finestra del terminale, è necessario impostare la stringa di connessione sul database di produzione nel terminale, come illustrato in [Eseguire le migrazioni del database al database di produzione](#run-database-migrations-to-the-production-database).
+>
 
 Nel browser passare a `http://localhost:5000/`. È ora possibile aggiungere un'attività e selezionare **Fine**. L'attività viene visualizzata come completata nella home page. Tenere presente che la visualizzazione `Edit` non mostra il campo `Done` poiché non è stata modificata la visualizzazione `Edit`.
 

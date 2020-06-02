@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 609076cd204457bb7c952c91cd249b1aece58022
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421455"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983143"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per Node.js (v4)
 
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Il modo più semplice per autenticare un'applicazione basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](../general/managed-identity.md). Per semplicità, tuttavia, in questo argomento di avvio rapido viene creata un'applicazione console. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
+Il modo più semplice per autenticare un'applicazione basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](../general/managed-identity.md).
+
+Per semplicità, tuttavia, in questo avvio rapido viene creata un'applicazione desktop, per la quale sono richiesti un'entità servizio e un criterio di controllo di accesso. L'entità servizio richiede un nome univoco nel formato "http://&lt;nome-univoco-entità-servizio&gt;".
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Questa operazione restituisce una serie di coppie chiave-valore. 
