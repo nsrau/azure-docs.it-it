@@ -1,16 +1,16 @@
 ---
-title: "Avvio rapido: Distribuire un'app con il portale LUIS"
+title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
 description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585079"
+ms.locfileid: "83653239"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 
@@ -40,7 +40,8 @@ Ogni volta che si crea una nuova risorsa di creazione o di query di stima per LU
 
 1. Selezionare il tenant, la sottoscrizione e il nome della risorsa. Selezionare **Assign resource** (Assegnare una risorsa).
 
-   ![Assegnare una risorsa all'app](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Assegnare una risorsa all’app](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Completare gli stessi passaggi per aggiungere la chiave di creazione all'app.
 
@@ -51,11 +52,11 @@ Ogni volta che si crea una nuova risorsa di creazione o di query di stima per LU
 
 ## <a name="train-the-app"></a>Eseguire il training dell'app
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Se l'app è stata modificata dall'ultima volta che è stata sottoposta a training, [eseguire il training](get-started-portal-build-app.md) dell'app.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Pubblicare l'app nell'endpoint di previsione
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Richiesta dell'endpoint di previsione
 
@@ -113,7 +114,7 @@ Se si vuole vedere questo stesso livello di informazioni nel riquadro di test, �
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, scegliere **My apps** (App personali) dal menu di spostamento in alto. Selezionare dall'elenco la casella di controllo dell'app e quindi selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
+Al termine di questo argomento di avvio rapido, scegliere **My apps** (Le mie app) dal menu di spostamento superiore. Selezionare dall'elenco la casella di controllo dell'app e quindi selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida di avvio rapido: configurare l'isolamento del carico di lavoro - T-SQL"
+title: "Guida introduttiva: configurare l'isolamento del carico di lavoro - T-SQL"
 description: Usare T-SQL per configurare l'isolamento del carico di lavoro.
 services: synapse-analytics
 author: ronortloff
@@ -11,25 +11,25 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f0aabf4bd18f82c247a43931e02e4b6890b2ef4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207803"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650680"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida di avvio rapido: configurare l'isolamento del carico di lavoro tramite T-SQL
+# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida introduttiva: configurare l'isolamento del carico di lavoro tramite T-SQL
 
-In questa Guida di avvio rapido verranno creati rapidamente un gruppo di carico di lavoro e un classificatore per prenotare risorse per il caricamento dei dati. Il gruppo di carico di lavoro allocherà il 20% delle risorse di sistema a un carico di dati.  Il classificatore del carico di lavoro assegnerà le richieste al gruppo di carico di lavoro per i dati.  Con un isolamento del 20% per il caricamento dei dati, si tratta di risorse garantite per soddisfare i contratti di servizio.
+In questa Guida introduttiva verranno creati rapidamente un gruppo di carico di lavoro e un classificatore per prenotare risorse per il caricamento dei dati. Il gruppo di carico di lavoro allocherà il 20% delle risorse di sistema al carico di dati.  Il classificatore del carico di lavoro assegnerà le richieste al gruppo di carico di lavoro per i dati.  Con un isolamento del 20% per il caricamento dei dati, si tratta di risorse garantite per soddisfare i contratti di servizio.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> La creazione di un'istanza di SQL Analytics in Azure Synapse Analytics può risultare in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creazione di un'istanza Synapse SQL in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Analytics in Azure Synapse Analytics con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di Synapse SQL in Azure Synapse con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Creare un account di accesso per i DataLoads
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire query sull'archivio analitico di Azure Cosmos DB con Apache Spark per Azure Synapse Analytics
+title: Eseguire query sull'archivio analitico di Azure Cosmos DB (anteprima) con Apache Spark per Azure Synapse Analytics
 description: Come eseguire query sull'archivio analitico di Azure Cosmos DB con Apache Spark per Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02d4b6a636bff5ef11686abba6efb52f45f04779
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599253"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700195"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-with-apache-spark-for-azure-synapse-analytics"></a>Eseguire query sull'archivio analitico di Azure Cosmos DB con Apache Spark per Azure Synapse Analytics
+# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Eseguire query sull'archivio analitico di Azure Cosmos DB (anteprima) con Apache Spark per Azure Synapse Analytics
 
 Questo articolo include alcuni esempi su come interagire con l'archivio analitico dai movimenti di Synapse. I movimenti sono visibili quando si fa clic con il pulsante destro del mouse su un contenitore. Con i movimenti è possibile generare rapidamente il codice e modificarlo in base alle esigenze. Sono inoltre perfetti per l'individuazione dei dati con un singolo clic.
 

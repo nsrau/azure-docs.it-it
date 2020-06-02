@@ -1,22 +1,22 @@
 ---
-title: Guida introduttiva di Azure - Configurare una VM con DSC | Microsoft Docs
-description: Configurare uno stack LAMP in una macchina virtuale Linux con Desired State Configuration
+title: Avvio rapido di Azure - Configurare una VM con Desired State Configuration | Microsoft Docs
+description: Questo articolo illustra come iniziare a configurare una VM con Desired State Configuration.
 services: automation
 ms.subservice: dsc
 keywords: dsc, configurazione, automazione
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 1a146ab7c05d200b71a33a72fa6362c3cf62629a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457519"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836720"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale con Desired State Configuration
+# <a name="configure-a-vm-with-desired-state-configuration"></a>Configurare una VM con Desired State Configuration
 
-Abilitando Automation DSC (Desired State Configuration) per Azure, è possibile gestire e monitorare le configurazioni dei server Windows e Linux tramite Desired State Configuration (DSC). Le configurazioni che deviano da uno stato desiderato possono essere identificate e corrette automaticamente. Questa guida introduttiva illustra l'onboarding di una VM Linux e la distribuzione di uno stack LAMP con DSC.
+Abilitando Automation DSC (Desired State Configuration) per Azure, è possibile gestire e monitorare le configurazioni dei server Windows e Linux tramite Desired State Configuration (DSC). Le configurazioni che deviano da uno stato desiderato possono essere identificate e corrette automaticamente. Questo articolo di avvio rapido illustra la procedura per abilitare una macchina virtuale Linux e distribuire uno stack LAMP usando State Configuration di Automazione di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,9 +29,9 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere ad Azure all'indirizzo https://portal.azure.com.
 
-## <a name="onboard-a-virtual-machine"></a>Caricare una macchina virtuale
+## <a name="enable-a-virtual-machine"></a>Abilitare una macchina virtuale
 
-Esistono molti metodi diversi per eseguire l'onboarding di un computer e abilitare DSC. Questa guida introduttiva illustra l'onboarding tramite un account di Automazione. Per altre informazioni sui diversi metodi di onboarding dei computer in State Configuration, vedere l'articolo sull'[onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+Ci sono molti metodi diversi per abilitare un computer per la funzionalità State Configuration. Questo articolo di avvio rapido descrive come abilitare la funzionalità per una VM usando un account di Automazione. È possibile ottenere altre informazioni sui diversi metodi per abilitare i computer per State Configuration leggendo [Abilitare i computer per la gestione con State Configuration di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Account di Automazione**. Se non è visibile nel riquadro sinistro, fare clic su **Tutti i servizi** e cercarlo nella visualizzazione risultante.
 1. Nell'elenco selezionare un account di Automazione.
@@ -42,7 +42,7 @@ Esistono molti metodi diversi per eseguire l'onboarding di un computer e abilita
 5. Selezionare le impostazioni DSC appropriate per la macchina virtuale. Se è già stata preparata una configurazione, è possibile specificarla come `Node Configuration Name`. È possibile impostare la [modalità di configurazione](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) per controllare il comportamento della configurazione per il computer.
 6. Fare clic su **OK**. Mentre l'estensione DSC viene distribuita nella macchina virtuale, lo stato viene visualizzato come `Connecting`.
 
-![Onboarding di una macchina virtuale di Azure in DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Abilitazione di una macchina virtuale di Azure per DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>Importare i moduli
 
@@ -128,11 +128,7 @@ Una configurazione DSC deve essere compilata in una configurazione nodo (documen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato eseguito l'onboarding di una VM Linux in State Configuration ed è stata creata una configurazione per uno stack LAMP che è stata quindi distribuita nella VM. Per informazioni su come usare Automation DSC per abilitare la distribuzione continua, passare all'articolo:
+In questa guida di avvio rapido è stata abilitata una VM Linux per State Configuration ed è stata creata una configurazione per uno stack LAMP che è stata quindi distribuita nella VM. Per informazioni su come usare Automation DSC per abilitare la distribuzione continua, passare all'articolo:
 
 > [!div class="nextstepaction"]
-> [Distribuzione continua in una VM tramite DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* Per altre informazioni su PowerShell DSC, vedere [Panoramica di PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Per altre informazioni sulla gestione di State Configuration da PowerShell, vedere [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/).
-* Per informazioni su come inoltrare i report DSC ai log di Monitoraggio di Azure per la creazione di report e avvisi, vedere [Inoltro dei report DSC ai log di Monitoraggio di Azure](automation-dsc-diagnostics.md).
+> [Configurare la distribuzione continua con Chocolatey](./automation-dsc-cd-chocolatey.md)

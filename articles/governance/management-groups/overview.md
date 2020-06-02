@@ -3,12 +3,12 @@ title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381546"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773152"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -163,13 +163,14 @@ Sono disponibili alcune opzioni diverse per correggere questo scenario:
 
 Esistono alcune limitazioni quando si usano i ruoli personalizzati nei gruppi di gestione. 
 
- - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo. Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse. Ciò si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.  
- - Le azioni del piano dati di Controllo degli accessi in base al ruolo non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con le azioni di Controllo degli accessi in base al ruolo che aggiornano i provider di risorse del piano dati. Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
+ - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo. Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse. Questa situazione si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.  
+ - Le azioni del piano dati di Controllo degli accessi in base al ruolo non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con le azioni di Controllo degli accessi in base al ruolo che aggiornano i provider di risorse del piano dati.
+   Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
  - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Spostamento di gruppi di gestione e sottoscrizioni 
 
-Affinché un gruppo di gestione o una sottoscrizione possa essere un elemento figlio di un altro gruppo di gestione, è necessario che siano soddisfatte tre regole.
+Affinché un gruppo di gestione o una sottoscrizione possa essere spostato in modo da essere un elemento figlio di un altro gruppo di gestione, è necessario che siano soddisfatte tre regole.
 
 Per eseguire l'azione di spostamento, è necessario avere: 
 

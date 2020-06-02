@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76775343"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827236"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opzioni di supporto e assistenza di Azure IoT
 
@@ -53,11 +53,11 @@ Per discutere di tecnologie e servizi di Azure per la creazione di soluzioni IoT
 
 Se non si trova una risposta al problema tramite la ricerca, inviare una nuova domanda a MSDN nel forum correlato al servizio:
 
-- [Gemelli digitali di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Hub IoT Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Mappe di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Pagina delle domande di Domande e risposte Microsoft relativa a Gemelli digitali di Azure](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Pagina delle domande di Domande e risposte Microsoft relativa a hub IoT](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Pagina delle domande di Domande e risposte Microsoft relativa ad Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Pagina delle domande di Domande e risposte Microsoft relativa a Mappe di Azure](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Pagina delle domande di Domande e risposte Microsoft relativa ad Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Inviare commenti e suggerimenti nel forum dei commenti di Azure
 

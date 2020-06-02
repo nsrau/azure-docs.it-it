@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877933"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873427"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -67,9 +67,12 @@ Gestione costi supporta i ruoli predefiniti seguenti per ogni ambito riportato d
 
 Collaboratore di Gestione costi è il ruolo con privilegi minimi consigliato. Concede l'accesso per creare e gestire i budget e le esportazioni, in modo da monitorare i costi e creare report in modo più efficace. I Collaboratori di Gestione costi possono anche richiedere ruoli aggiuntivi per supportare scenari di gestione dei costi end-to-end. Esaminare gli scenari seguenti:
 
+- **Creazione di report sull'utilizzo delle risorse**: Gestione costi di Azure Mostra i costi nel portale di Azure e include anche l'utilizzo in quanto si riferisce al costo per l’utilizzo completo e gli addebiti per API e download, ma è anche possibile esaminare le metriche di utilizzo dettagliate in Monitoraggio di Azure per ottenere una comprensione più approfondita. Considerare la possibilità di concedere il [Ruolo con autorizzazioni di lettura dei dati di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) in qualsiasi ambito in cui è necessario anche creare report sulle metriche di utilizzo dettagliate.
 - **Agire quando i budget vengono superati**: i Collaboratori di Gestione costi devono anche accedere per creare e/o gestire gruppi di azioni che possano automaticamente reagire in caso di eccedenza. Considerare la possibilità di concedere il ruolo [Collaboratore per il monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da usare quando vengono superate le soglie del budget. L'automazione di azioni specifiche richiede ruoli aggiuntivi per i servizi specifici usati, ad esempio Automazione e Funzioni di Azure.
 - **Pianificare l'esportazione dei dati sui costi**: i Collaboratori di Gestione costi devono anche accedere per gestire gli account di archiviazione per pianificare un'esportazione per la copia dei dati in un account di archiviazione. Considerare la possibilità di concedere il ruolo [Collaboratore Account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un gruppo di risorse che contiene l'account di archiviazione in cui vengono esportati i dati sui costi.
 - **Visualizzazione delle raccomandazioni per il risparmio sui costi**: per impostazione predefinita, i Lettori di Gestione costi e i Collaboratori di Gestione costi hanno accesso per *visualizzare* le raccomandazioni sui costi. L'accesso per agire sulle raccomandazioni sui costi richiede tuttavia l'accesso alle singole risorse. Considerare la possibilità di concedere un [ruolo specifico del servizio](../../role-based-access-control/built-in-roles.md#all) se si vuole agire su una raccomandazione basata sui costi.
+
+I gruppi di gestione sono supportati solo se contengono Contratto Enterprise (EA), il pagamento in base al consumo (PAYG) o sottoscrizioni interne Microsoft. I gruppi di gestione con qualsiasi altro tipo di sottoscrizione, ad esempio il Contratto del cliente Microsoft o le sottoscrizioni Azure Active Directory, non possono visualizzare i costi. Se si dispone di una combinazione di sottoscrizioni, spostare le sottoscrizioni non supportate in un ramo separato della gerarchia del gruppo di gestione per consentire la gestione dei costi per le sottoscrizioni supportate. Ad esempio, creare due gruppi di gestione nel gruppo di gestione radice: **Azure AD** e **Organizzazione personale**. Spostare la sottoscrizione di Azure AD sul gruppo di gestione **Azure AD** e quindi visualizzare e gestire i costi usando il gruppo di gestione **Organizzazione personale**.
 
 ## <a name="enterprise-agreement-scopes"></a>Ambiti del Contratto Enterprise
 

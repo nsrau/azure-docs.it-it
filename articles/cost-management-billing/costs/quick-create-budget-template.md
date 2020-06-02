@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: de24895334ec4c864e6daae84a6aab47a47d7b9b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103634"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830311"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Guida introduttiva: Creare un budget con un modello di Azure Resource Manager
 
@@ -39,21 +39,23 @@ Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per
 
 Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](assign-access-acm-data.md).
 
-## <a name="review-the-template"></a>Rivedere il modello
+## <a name="create-a-budget"></a>Creare un budget
+
+### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
 
 Nel modello è definita una risorsa di Azure:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): crea un budget di Azure.
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+### <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un budget.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json"><img src="./media/quick-create-budget-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
 2. Selezionare o immettere i valori seguenti.
 
@@ -97,6 +99,37 @@ az consumption budget list
 
 ```azurepowershell-interactive
 Get-AzConsumptionBudget
+```
+
+---
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario un budget, eliminarlo utilizzando uno dei metodi seguenti:
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Passare a **Gestione dei costi e fatturazione** > selezionare un ambito di fatturazione > **Budget** > selezionare un budget > quindi selezionare **Elimina budget**.
+
+### <a name="command-line"></a>Riga di comando
+
+È possibile rimuovere il budget usando l'interfaccia della riga di comando di Azure o Azure PowerShell.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the budget name:" &&
+read budgetName &&
+az consumption budget delete --budget-name $budgetName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$budgetName = Read-Host -Prompt "Enter the budget name"
+Remove-AzConsumptionBudget -Name $budgetName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---

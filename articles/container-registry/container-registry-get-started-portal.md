@@ -4,16 +4,16 @@ description: Imparare rapidamente a creare un registro Docker privato in Registr
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409264"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682812"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida di avvio rapido: Creare un registro contenitori privato usando il portale di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Avvio rapido: Creare un registro contenitori privato usando il portale di Azure
 
-Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire immagini del contenitore Docker privato e gli artefatti correlati. In questa guida di avvio rapido viene creato un registro contenitori di Azure con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
+Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato e gli artefatti correlati. In questa guida di avvio rapido viene creato un registro contenitori con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 
 Per accedere al registro e usare immagini del contenitore, questa guida di avvio rapido richiede l'esecuzione dell'interfaccia della riga di comando di Azure (consigliata la versione 2.0.55 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
@@ -29,13 +29,13 @@ Selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-01]
 
-Nella scheda **Informazioni di base** immettere i valori per **Gruppo di risorse** e **Nome registro**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Per questa guida di avvio rapido creare un nuovo gruppo di risorse nella posizione `West US` denominata `myResourceGroup` e per **SKU** selezionare "Basic". 
+Nella scheda **Informazioni di base** immettere i valori per **Gruppo di risorse** e **Nome registro**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Per questa guida introduttiva creare un nuovo gruppo di risorse nella posizione `West US` denominata `myResourceGroup` e per **SKU** selezionare "Basic". 
 
 ![Creare il registro contenitori nel portale di Azure][qs-portal-03]
 
 Accettare i valori predefiniti per le impostazioni rimanenti. Selezionare quindi **Rivedi e crea**. Dopo aver esaminato le impostazioni, selezionare **Crea**.
 
-In questa guida di avvio rapido viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [SKU di Registro Azure Container][container-registry-skus].
+In questa guida introduttiva viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
 
 Quando viene visualizzato il messaggio **La distribuzione è riuscita**, selezionare il registro contenitori nel portale. 
 

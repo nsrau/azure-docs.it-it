@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4429a03709d0f565d5fcf98f6999c812c0d43561
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400294"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673085"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# <a name="rhel--centos-8"></a>[RHEL/CentOS 8](#tab/rhel-centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -43,7 +43,8 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> In RHEL/CentOS 7/8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - In RHEL/CentOS 7, seguire le istruzioni riportate in [Come configurare RHEL/CentOS 7 per Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 

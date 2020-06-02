@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: Prima query nel portale'
 description: Questa guida di avvio rapido illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74406790"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872093"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
@@ -36,11 +36,11 @@ Aprire il [portale di Azure](https://portal.azure.com) per trovare e usare Resou
 1. Aggiornare la query applicando `order by` alla proprietà **Name**: `Resources | project name, type | limit 5 | order by name asc`. Quindi, selezionare **Esegui query**.
 
    > [!NOTE]
-   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
+   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. Questo ordine dei comandi prima limita i risultati della query e successivamente li ordina.
 
 1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati: `Resources | project name, type | order by name asc | limit 5`. Quindi, selezionare **Esegui query**.
 
-Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
+Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
 ### <a name="schema-browser"></a>Browser dello schema
 

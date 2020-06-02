@@ -1,5 +1,5 @@
 ---
-title: Uso di SQL su richiesta (anteprima)
+title: Usare SQL su richiesta (anteprima)
 description: In questa guida di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file tramite SQL su richiesta (anteprima).
 services: synapse-analytics
 author: azaricstefan
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692162"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836805"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Guida introduttiva: Uso di SQL su richiesta
+# <a name="quickstart-use-sql-on-demand"></a>Guida introduttiva: Usare SQL su richiesta
 
-Synapse SQL su richiesta (anteprima) è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. In questa guida di avvio rapido verrà illustrato come eseguire query su diversi tipi di file tramite SQL su richiesta.
+Synapse SQL su richiesta (anteprima) è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. In questa guida di avvio rapido verrà illustrato come eseguire query su diversi tipi di file tramite SQL su richiesta. In [OPENROWSET](sql/develop-openrowset.md) sono elencati i formati supportati.
 
-Sono supportati i tipi di file seguenti: JSON, CSV, Apache Parquet
+Questo argomento di Avvio rapido illustra come eseguire query: File CSV, Apache parquet e JSON.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,7 +30,7 @@ Scegliere un client SQL per l'esecuzione delle query:
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) è uno strumento client che consente di eseguire query SQL e notebook sul database su richiesta.
 - [SQL Server Management Studio](sql/get-started-ssms.md) è uno strumento client che consente di eseguire query SQL sul database su richiesta.
 
-Parametri per la guida di avvio rapido:
+Parametri per questo argomento di avvio rapido:
 
 | Parametro                                 | Descrizione                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -60,36 +60,24 @@ Usare la query seguente, sostituendo `mydbname` con un nome a scelta:
 CREATE DATABASE mydbname
 ```
 
-### <a name="create-credentials"></a>Creare le credenziali
+### <a name="create-data-source"></a>Creare un'origine dati
 
-Per eseguire query con SQL su richiesta, creare le credenziali per SQL su richiesta da usare per accedere ai file nell'archiviazione.
-
-> [!NOTE]
-> Per eseguire correttamente gli esempi illustrati in questa sezione, è necessario usare un token di firma di accesso condiviso.
->
-> Per iniziare a usare i token di firma di accesso condiviso, è necessario eliminare l'oggetto UserIdentity descritto nell'[articolo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through) seguente.
->
-> Per impostazione predefinita, SQL su richiesta usa sempre il pass-through di AAD.
-
-Per altre informazioni su come gestire il controllo di accesso alle risorse di archiviazione, vedere l'articolo[Controllare l'accesso all'account di archiviazione per SQL su richiesta](sql/develop-storage-files-storage-access-control.md).
-
-Eseguire il frammento di codice seguente per creare le credenziali usate negli esempi di questa sezione:
+Per eseguire query con SQL su richiesta, creare l’origine dati che SQL su richiesta può usare per accedere ai file nella risorsa di archiviazione.
+Eseguire il frammento di codice seguente per creare l’origine dati usata negli esempi di questa sezione:
 
 ```sql
 -- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## <a name="querying-csv-files"></a>Esecuzione di query sui file CSV
+## <a name="query-csv-files"></a>Eseguire query su file CSV
 
 L'immagine seguente è un'anteprima del file su cui eseguire le query:
 
@@ -101,8 +89,9 @@ La query seguente mostra come leggere un file CSV che non contiene una riga di i
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -118,7 +107,7 @@ WHERE
 È possibile specificare lo schema in fase di compilazione della query.
 Per altri esempi, vedere [Eseguire query su file CSV](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Esecuzione di query su file Parquet
+## <a name="query-parquet-files"></a>Eseguire query su file Parquet
 
 L'esempio seguente mostra le funzionalità di inferenza di schema automatica per l'esecuzione di query sui file Parquet. Restituisce il numero di righe per settembre 2017 senza specificare lo schema.
 
@@ -129,14 +118,15 @@ L'esempio seguente mostra le funzionalità di inferenza di schema automatica per
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
 Vedere altre informazioni sull'[esecuzione di query su file Parquet](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Esecuzione di query sui file JSON
+## <a name="query-json-files"></a>Eseguire query su file JSON
 
 ### <a name="json-sample-file"></a>File di esempio JSON
 
@@ -158,7 +148,7 @@ I file sono archiviati nella cartella *books* del contenitore *json* e contengon
 }
 ```
 
-### <a name="querying-json-files"></a>Esecuzione di query sui file JSON
+### <a name="query-json-files"></a>Eseguire query su file JSON
 
 La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
@@ -169,7 +159,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

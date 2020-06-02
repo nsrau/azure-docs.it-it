@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159455"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773981"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET Core (Azure.Messaging.EventHubs) 
-Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET Core **Azure.Messaging.EventHubs**. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET (Azure.Messaging.EventHubs) 
+Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET **Azure.Messaging.EventHubs**. 
 
 > [!IMPORTANT]
 > In questo argomento di avvio rapido viene usata la nuova libreria **Azure.Messaging.EventHubs**. Per una guida di avvio rapido che usa la libreria **Microsoft.Azure.EventHubs** precedente, vedere [Inviare e ricevere eventi con la libreria Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -34,7 +34,7 @@ Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eve
 Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. La libreria client di Hub eventi di Azure usa le nuove funzionalità introdotte in C# 8.0.  È comunque possibile usare la libreria con le versioni precedenti di C#, ma alcune funzionalità non saranno disponibili.  Per abilitare queste funzionalità, è necessario scegliere [.NET Core 3.0 come destinazione](/dotnet/standard/frameworks#how-to-specify-target-frameworks) oppure [specificare la versione del linguaggio](/dotnet/csharp/language-reference/configure-language-version#override-a-default) che si vuole usare (8.0 o versione successiva). Se si usa Visual Studio, le versioni precedenti a Visual Studio 2019 non sono compatibili con gli strumenti necessari per la compilazione di progetti in C# 8.0. Visual Studio 2019, inclusa l'edizione Community gratuita, può essere scaricato [qui](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. La libreria client di Hub eventi di Azure usa le nuove funzionalità introdotte in C# 8.0.  È comunque possibile usare la libreria con le  versioni precedenti del linguaggio C#, ma la nuova sintassi non sarà disponibile. Per utilizzare la sintassi completa, è consigliabile eseguire la compilazione con [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 o versione successiva e la [versione della lingua](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) impostata su `latest`. Se si usa Visual Studio, le versioni precedenti a Visual Studio 2019 non sono compatibili con gli strumenti necessari per la compilazione di progetti in C# 8.0. Visual Studio 2019, inclusa l'edizione Community gratuita, può essere scaricato [qui](https://visualstudio.microsoft.com/vs/).
 - **Creare uno spazio dei nomi di Hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la **stringa di connessione allo spazio dei nomi di Hub eventi** seguendo le istruzioni disponibili nell'articolo [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti in questa guida di avvio rapido.
 
 ## <a name="send-events"></a>Inviare eventi 

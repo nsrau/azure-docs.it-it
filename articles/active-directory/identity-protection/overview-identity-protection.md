@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79497669"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647348"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Cos'è Azure Active Directory Identity Protection?
 
@@ -85,6 +85,8 @@ Per poter accedere, Identity Protection richiede che gli utenti abbiano uno dei 
 | Amministratore della sicurezza | Accesso completo a Identity Protection | Reimpostare la password di un utente |
 | Operatore per la sicurezza | Visualizzazione di tutti i report di Identity Protection e del pannello Panoramica <br><br> Ignorare i rischi per gli utenti, confermare l'accesso sicuro, confermare la compromissione | Configurare o cambiare i criteri <br><br> Reimpostare la password di un utente <br><br> Configurare gli avvisi |
 | Ruolo con autorizzazioni di lettura per la sicurezza | Visualizzazione di tutti i report di Identity Protection e del pannello Panoramica | Configurare o cambiare i criteri <br><br> Reimpostare la password di un utente <br><br> Configurare gli avvisi <br><br> Inviare feedback sui rilevamenti |
+
+Attualmente, il ruolo di operatore per la sicurezza non può accedere al report degli accessi a rischio.
 
 Gli amministratori di accesso condizionale possono anche creare criteri che tengono conto del rischio di accesso come condizione. Per altre informazioni, vedere l'articolo [Accesso condizionale: condizioni](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 

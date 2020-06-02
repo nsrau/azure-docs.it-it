@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421305"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702048"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL su richiesta (anteprima) in Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ SQL su richiesta è un sistema di elaborazione dei dati distribuito, progettato 
 
 SQL su richiesta è serverless, per cui non è necessario configurare un'infrastruttura o mantenere cluster. Un endpoint predefinito per questo servizio è disponibile in ogni area di lavoro di Azure Synapse, quindi è possibile iniziare a eseguire query sui dati non appena viene creata l'area di lavoro. Non sono previsti addebiti per le risorse riservate. Vengono addebitati solo i costi dei dati analizzati dalle query eseguite, per cui questo si tratta effettivamente di un modello con pagamento a consumo.  
 
-Se si usa Spark nella pipeline di dati per la preparazione, la pulizia o l'arricchimento dei dati, è possibile [eseguire query su qualsiasi tabella Spark](develop-storage-files-spark-tables.md) creata nel processo, direttamente da SQL su richiesta. Usare [Collegamento privato](../security/how-to-connect-to-workspace-with-private-links.md) per introdurre l'endpoint SQL su richiesta nella [rete virtuale dell'area di lavoro gestita](../security/synapse-workspace-managed-vnet.md).  
+Se si usa Apache Spark per Azure Synapse nella pipeline di dati per la preparazione, la pulizia o l'arricchimento dei dati, è possibile [eseguire query su qualsiasi tabella esterna Spark](develop-storage-files-spark-tables.md) creata nel processo, direttamente da SQL su richiesta. Usare [Collegamento privato](../security/how-to-connect-to-workspace-with-private-links.md) per introdurre l'endpoint SQL su richiesta nella [rete virtuale dell'area di lavoro gestita](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>A chi è destinato SQL su richiesta
 
@@ -42,7 +42,7 @@ Diversi ruoli professionali possono trarre vantaggio da SQL su richiesta:
 
 - Gli ingegneri dei dati possono esplorare il lake, trasformare e preparare i dati usando questo servizio, nonché semplificare le pipeline di trasformazione dei dati. Per altre informazioni, vedere questa [esercitazione](tutorial-data-analyst.md).
 - I data scientist possono ragionare rapidamente sul contenuto e sulla struttura dei dati nel lake, grazie a funzionalità come OPENROWSET e l'inferenza automatica dello schema.
-- Gli analisti dei dati possono [esplorare i dati e le tabelle Spark](develop-storage-files-spark-tables.md) creati dai data scientist o dagli ingegneri dei dati usando un linguaggio T-SQL familiare o i loro strumenti preferiti, che possono connettersi a SQL su richiesta.
+- Gli analisti dei dati possono [esplorare i dati e le tabelle esterne Spark](develop-storage-files-spark-tables.md) creati dai data scientist o dagli ingegneri dei dati usando un linguaggio T-SQL familiare o i loro strumenti preferiti, che possono connettersi a SQL su richiesta.
 - I professionisti di business intelligence possono [creare rapidamente report di Power BI sui dati del lake](tutorial-connect-power-bi-desktop.md) e sulle tabelle Spark.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>Come si può iniziare a usare il servizio?
@@ -110,7 +110,7 @@ SQL su richiesta offre meccanismi per proteggere l'accesso ai dati.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
-SQL su richiesta consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione con Azure Active Directory](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory (Azure AD) supporta [Multi-Factor Authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA), per una maggiore sicurezza di dati e applicazioni, oltre a un processo Single Sign-On.
+SQL su richiesta consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione con Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory (Azure AD) supporta [Multi-Factor Authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA), per una maggiore sicurezza di dati e applicazioni, oltre a un processo Single Sign-On.
 
 #### <a name="authentication"></a>Authentication
 
@@ -120,7 +120,7 @@ Per autenticazione di SQL su richiesta si intende il modo in cui gli utenti dimo
 
   Questo metodo di autenticazione usa nome utente e password.
 
-- **Autenticazione di Azure Active Directory**
+- **Autenticazione di Azure Active Directory**:
 
   Questo metodo di autenticazione usa identità gestite da Azure Active Directory. Per gli utenti di Azure AD, è possibile abilitare l'autenticazione a più fattori. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), usare l'autenticazione di Active Directory (sicurezza integrata).
 

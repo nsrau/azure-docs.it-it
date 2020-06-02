@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/06/2020
+ms.date: 05/22/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2f466c71673c9239f6f984f838d050af8bf52182
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864097"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816064"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -61,15 +61,15 @@ Per altre informazioni sulle zone di disponibilità, vedere [Aree e zone di disp
 
 ## <a name="fqdn-tags"></a>Tag FQDN
 
-I tag FQDN consentono di autorizzare con facilità il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
+I [tag FQDN](fqdn-tags.md) rendono più semplice consentire il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
 
 ## <a name="service-tags"></a>Tag di servizio
 
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP da includere in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
+Un [tag di servizio](service-tags.md) rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP da includere in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
 
 ## <a name="threat-intelligence"></a>Intelligence per le minacce
 
-I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
+I filtri basati sull'[intelligence per le minacce](threat-intel.md) possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
 
 ## <a name="outbound-snat-support"></a>Supporto SNAT in uscita
 
@@ -83,7 +83,7 @@ Il traffico di rete Internet in ingresso all'indirizzo IP pubblico del firewall 
 
 ## <a name="multiple-public-ip-addresses"></a>Più indirizzi IP pubblici
 
-È possibile associare al firewall più indirizzi IP pubblici (fino a 250).
+È possibile associare al firewall [più indirizzi IP pubblici](deploy-multi-public-ip-powershell.md) (fino a 250).
 
 Questo supporta gli scenari seguenti:
 
@@ -92,7 +92,11 @@ Questo supporta gli scenari seguenti:
 
 ## <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
-Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure.
+Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure. Per altre informazioni, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).
+
+## <a name="forced-tunneling"></a>Tunneling forzato
+
+È possibile configurare Firewall di Azure per instradare tutto il traffico associato a Internet a un hop successivo designato anziché passare direttamente a Internet. Ad esempio, è possibile che si disponga di un firewall perimetrale locale o di un'altra appliance virtuale di rete per elaborare il traffico di rete prima che venga passato a Internet. Per altre informazioni, vedere [Tunneling forzato di Firewall di Azure](forced-tunneling.md).
 
 ## <a name="certifications"></a>Certificazioni
 
@@ -120,10 +124,11 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |FTP attivo non è supportato|FTP attivo è disabilitato nel firewall di Azure per proteggere dagli attacchi di rimbalzo FTP tramite il comando FTP PORT.|In alternativa, è possibile usare FTP passivo. È comunque necessario aprire in modo esplicito le porte TCP 20 e 21 sul firewall.
 |Il valore visualizzato dalla metrica di utilizzo delle porte SNAT è 0%|La metrica di utilizzo delle porte SNAT di Firewall di Azure può mostrare un utilizzo dello 0% anche quando vengono usate porte SNAT. In questo caso, l'uso della metrica come parte della metrica di integrità del firewall fornisce un risultato non corretto.|Questo problema è stato risolto e l'implementazione nell'ambiente di produzione è prevista nel mese di maggio 2020. La ridistribuzione del firewall risolve il problema in alcuni casi, ma non in modo coerente. Come soluzione alternativa intermedia, usare lo stato di integrità del firewall per cercare solo lo stato *degradato* e non lo stato *non integro*. L'esaurimento delle porte viene visualizzato come stato *degradato*. Lo stato *non integro* è riservato per un uso futuro, quando saranno disponibili più metriche di impatto per l'integrità del firewall.
 |DNAT non è supportato con il tunneling forzato abilitato|I firewall distribuiti con il tunneling forzato abilitato non supportano l'accesso in ingresso da Internet a causa del routing simmetrico.|Si tratta di una scelta per progettazione. Il percorso di ritorno per le connessioni in ingresso passa attraverso il firewall locale, che non ha visto la connessione stabilita.
-|FTP passivo in uscita non funziona per i firewall con più indirizzi IP pubblici.|FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Quando un firewall con più indirizzi IP pubblici invia dati in uscita, seleziona in modo casuale uno degli indirizzi IP pubblici come indirizzo IP di origine. FTP ha esito negativo quando i canali di controllo e dei dati usano indirizzi IP di origine diversi.|È stata pianificata una configurazione SNAT esplicita. Nel frattempo, è consigliabile usare un singolo indirizzo IP in questa situazione.|
+|L’FTP passivo in uscita non funziona per i firewall con più indirizzi IP pubblici|FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Quando un firewall con più indirizzi IP pubblici invia dati in uscita, seleziona in modo casuale uno degli indirizzi IP pubblici come indirizzo IP di origine. FTP ha esito negativo quando i canali di controllo e dei dati usano indirizzi IP di origine diversi.|È stata pianificata una configurazione SNAT esplicita. Nel frattempo, è consigliabile usare un singolo indirizzo IP in questa situazione.|
 |Per la metrica NetworkRuleHit manca una dimensione del protocollo|La metrica ApplicationRuleHit consente il protocollo basato su filtro, ma questa funzionalità non è presente nella metrica NetworkRuleHit corrispondente.|È in corso la ricerca di una correzione.|
 |Le regole NAT con porte comprese tra 64000 e 65535 non sono supportate|Firewall di Azure consente l'uso di qualsiasi porta compresa nell'intervallo 1-65535 nelle regole di rete e dell'applicazione, tuttavia le regole NAT supportano solo le porte comprese nell'intervallo 1-63999.|Si tratta di una limitazione corrente.
-|Gli aggiornamenti della configurazione possono richiedere in media cinque minuti.|Un aggiornamento della configurazione di Firewall di Azure può richiedere in media da tre a cinque minuti e gli aggiornamenti paralleli non sono supportati.|È in corso la ricerca di una correzione.
+|Gli aggiornamenti della configurazione possono richiedere in media cinque minuti|Un aggiornamento della configurazione di Firewall di Azure può richiedere in media da tre a cinque minuti e gli aggiornamenti paralleli non sono supportati.|È in corso la ricerca di una correzione.|
+|Firewall di Azure usa le intestazioni TLS di SNI per filtrare il traffico HTTPS e MSSQL|Se il software del browser o del server non supporta l'estensione SNI (Server Name Indicator), non sarà possibile connettersi tramite Firewall di Azure.|Se il software del browser o del server non supporta SNI, potrebbe essere possibile controllare la connessione utilizzando una regola di rete anziché una regola dell'applicazione. Vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication) per il software che supporta SNI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

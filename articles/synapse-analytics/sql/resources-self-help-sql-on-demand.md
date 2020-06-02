@@ -2,19 +2,19 @@
 title: Supporto Self-help per SQL su richiesta (anteprima)
 description: Questa sezione contiene informazioni che consentono di risolvere i problemi relativi a SQL su richiesta (anteprima).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421195"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658885"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Supporto Self-help per SQL su richiesta (anteprima)
 
@@ -40,6 +40,36 @@ Se la query non riesce con un messaggio che indica che non può essere eseguita 
 - Se la query è destinata a file CSV, valutare se [creare statistiche](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Per ottimizzare le query, vedere [Procedure consigliate per le prestazioni per SQL su richiesta](best-practices-sql-on-demand.md).  
+
+## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT' non è supportata nel database master
+
+Se la query ha esito negativo con il messaggio di errore:
+
+> 'Non è stato possibile eseguire la query. Errore: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT non è supportata nel database master.' 
+
+significa che il database master in SQL su richiesta non supporta la creazione di:
+  - Tabelle esterne
+  - Origini dati esterne
+  - Credenziali con ambito database
+  - Formati di file esterni
+
+Soluzione:
+
+  1. creare un database utente:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Eseguire l’istruzione di creazione nel contesto di <DATABASE_NAME> che non era riuscito in precedenza per il database master. 
+  
+  Esempio di creazione di un formato file esterno:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,17 +3,17 @@ title: Confronto tra peering Internet e Servizio di peering
 titleSuffix: Azure
 description: Confronto tra peering Internet e Servizio di peering
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75772808"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849383"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Confronto tra peering Internet e Servizio di peering
 
@@ -46,7 +46,7 @@ Nella figura qui sopra ogni filiale di un'azienda globale si connette alla posiz
 ## <a name="peering-service-partnership-requirements"></a>Requisiti della partnership per il servizio di peering
 * Connettività a Microsoft Cloud in una posizione più vicina al cliente. Un provider di servizi partner instraderà il traffico verso la rete perimetrale Microsoft più vicina all'utente. Analogamente, Microsoft instraderà il traffico verso l'utente alla posizione perimetrale più vicina all'utente (usando il tag BGP) e il provider di servizi lo distribuirà all'utente.
 * Il partner manterrà una connettività con ridondanza geografica, a velocità effettiva elevata e a disponibilità elevata con la rete globale Microsoft.
-* Il partner può utilizzare il peering esistente per supportare il servizio di peering, se soddisfa i requisiti
+* Il partner può utilizzare il peering esistente per supportare il servizio di peering, se soddisfa i requisiti.
 
 ## <a name="faq"></a>Domande frequenti
 Per le domande frequenti, vedere [Domande frequenti sul servizio di peering](service-faqs.md).

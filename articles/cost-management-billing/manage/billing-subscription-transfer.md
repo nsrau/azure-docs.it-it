@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238160"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745842"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -144,8 +144,8 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 
 Tutte le risorse, come VM, dischi e siti Web, vengono trasferite al nuovo account. Tuttavia, se una sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, i [ruoli di amministratore](add-change-subscription-administrator.md) e le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) della sottoscrizione [non vengono trasferiti](#transfer-a-subscription-to-another-azure-ad-tenant-account). Inoltre, le [registrazioni di app](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e gli altri servizi specifici del tenant non vengono trasferiti insieme alla sottoscrizione.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>È possibile trasferire la proprietà in un account di un altro paese?
-Purtroppo i trasferimenti tra paesi non possono essere eseguiti nel portale di Azure. Per trasferire la sottoscrizione in altri paesi, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>È possibile trasferire la proprietà in un account di un altro paese/area geografica?
+Purtroppo i trasferimenti tra paesi/aree geografiche non possono essere eseguiti nel portale di Azure. Per trasferire la sottoscrizione in altri paesi/aree geografiche, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Gli amministratori di due account possono trasferire una sottoscrizione da un account all'altro?
 Sì, è possibile trasferire la sottoscrizione tra gli account. Gli account vengono considerati concettualmente come account di due utenti diversi, quindi è possibile eseguire la procedura descritta sopra per trasferire le sottoscrizioni.
@@ -204,7 +204,7 @@ Sì. Durante l'accettazione della richiesta di trasferimento, è possibile selez
 
 L'amministratore dell'organizzazione può aggiornare la proprietà dell'account per qualsiasi account anche dopo che il proprietario dell'account originale non fa più parte dell'organizzazione. Questa operazione può essere effettuata seguendo le istruzioni per il [trasferimento della proprietà dell'account per tutte le sottoscrizioni](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in EA Portal.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 

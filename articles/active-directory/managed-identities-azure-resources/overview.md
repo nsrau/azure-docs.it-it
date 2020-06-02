@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682582"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770925"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -54,9 +54,6 @@ Internamente, le identità gestite sono entità servizio di un tipo speciale, bl
 Inoltre, quando viene creata un'identità assegnata dall'utente o dal sistema, il provider di risorse di Identità gestita emette un certificato internamente per tale identità. 
 
 Il codice può usare un'identità gestita per richiedere token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure gestisce le credenziali usate dall'istanza del servizio in sequenza. 
-
-## <a name="credential-rotation"></a>Rotazione delle credenziali
-La rotazione delle credenziali è controllata dal provider di risorse che ospita la risorsa di Azure. La rotazione predefinita della credenziale si verifica ogni 46 giorni. Spetta al provider di risorse chiedere le nuove credenziali, quindi l'attesa potrebbe essere più lunga di 46 giorni.
 
 Il diagramma seguente illustra il funzionamento delle identità del servizio gestite con macchine virtuali di Azure:
 
@@ -107,6 +104,9 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
 
 6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel Passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel Passaggio 3. Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
+
+## <a name="credential-rotation"></a>Rotazione delle credenziali
+La rotazione delle credenziali è controllata dal provider di risorse che ospita la risorsa di Azure. La rotazione predefinita della credenziale si verifica ogni 46 giorni. Spetta al provider di risorse chiedere le nuove credenziali, quindi l'attesa potrebbe essere più lunga di 46 giorni.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Come usare le identità gestite per le risorse di Azure
 

@@ -1,23 +1,22 @@
 ---
 title: Creare un database di Azure per MySQL con un modello di ARM
 description: Questo articolo illustra come creare un database di Azure per il server MySQL con integrazione della rete virtuale usando un modello di Azure Resource Manager.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630367"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800205"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>Guida introduttiva: Creare un database di Azure per il server MySQL con un modello di ARM
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Guida introduttiva: Usare un modello di Resource Manager per creare un server Database di Azure per MySQL
 
-Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e dimensionare database MySQL a disponibilità elevata nel cloud. Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager (ARM) predefinito per creare un database di Azure per il server MySQL con l'integrazione della rete virtuale. È possibile creare il server usando il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.
+Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e dimensionare database MySQL a disponibilità elevata nel cloud. Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager (ARM) per creare un Database di Azure per MySQL con l'integrazione della rete virtuale. È possibile creare il server nel portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

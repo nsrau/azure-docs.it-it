@@ -3,12 +3,12 @@ title: 'Esercitazione: Test in batch per individuare i problemi - LUIS'
 description: Questa esercitazione illustra come usare i test in batch per verificare la qualità dell'app LUIS (Language Understanding).
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592594"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681637"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 

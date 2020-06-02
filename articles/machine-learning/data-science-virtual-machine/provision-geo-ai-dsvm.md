@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 61d401a543032b1a206a4477f04d7e8e209c0f2a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77525890"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646605"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Guida introduttiva: Configurare una macchina virtuale con intelligenza artificiale geografica in Azure 
 
@@ -24,7 +24,7 @@ Gli strumenti di intelligenza artificiale inclusi nella Geo-DSVM includono quant
 - Edizioni GPU dei framework di Deep Learning più diffusi, ad esempio Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 e Chainer
 - Strumenti per l'acquisizione e la pre-elaborazione di immagini e dati testuali
 - Strumenti per attività di sviluppo, come Microsoft Machine Learning Server Developer Edition, Anaconda Python, Jupyter Notebook per Python e R, IDE per Python e R e database SQL
-- Software desktop ArcGIS Pro di ESRI, con interfacce Python e R utilizzabili con i dati geospaziali provenienti da applicazioni di intelligenza artificiale
+- Software desktop ArcGIS Pro di Esri, con interfacce Python e R utilizzabili con i dati geospaziali provenienti da applicazioni di intelligenza artificiale
  
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Creare una macchina virtuale di data science con intelligenza artificiale geografica

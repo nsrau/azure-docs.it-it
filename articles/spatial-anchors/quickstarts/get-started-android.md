@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75376461"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652495"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android con Ancoraggi nello spazio di Azure
 
@@ -86,6 +86,8 @@ Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chi
 
 Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
+Individuare `public AzureSpatialAnchorsManager(Session arCoreSession)` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");`.
+
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Aprire `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
@@ -93,6 +95,8 @@ Aprire `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chiave dell'account.
 
 Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
+
+Individuare `AzureSpatialAnchorsApplication::StartCloudSession()` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");`.
 
 ---
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770716"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744070"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics (anteprima per aree di lavoro)
 
@@ -35,9 +35,7 @@ A: Azure Synapse è una piattaforma di dati integrata per business intelligence,
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>D: Come si può iniziare a usare Azure Synapse Analytics?
 
-A: Per iniziare a usare Azure Synapse Analytics, creare un'[area di lavoro Synapse](https://portal.azure.com) (gratuita), quindi le risorse desiderate al suo interno. È possibile seguire una delle esercitazioni di avvio rapido, ad esempio [Creare un pool SQL Synapse](quickstart-create-sql-pool.md) o [Creare un'area di lavoro](quickstart-create-workspace.md), che illustrano la soluzione tramite un semplice caso d'uso. 
-
-È anche possibile trovare notebook di esempio e script SQL nel [repository](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Se è necessario connettersi a un set di dati pubblico, creare un nuovo servizio collegato con gli attributi seguenti:
+A: Per iniziare a usare Azure Synapse Analytics, [registrare il provider di risorse di Azure Synapse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) selezionando *Microsoft.Synapse* dall'elenco dei provider di risorse. Quindi, creare un'[area di lavoro Synapse](https://portal.azure.com) (gratuita), quindi le risorse desiderate al suo interno. È possibile seguire una delle esercitazioni di avvio rapido, ad esempio [Creare un pool SQL Synapse](quickstart-create-sql-pool-portal.md) o [Creare un'area di lavoro](quickstart-create-workspace.md), che illustrano la soluzione tramite un semplice caso d'uso. È anche possibile trovare notebook di esempio e script SQL nel [repository](https://github.com/Azure-Samples/Synapse). Se è necessario connettersi a un set di dati pubblico, creare un nuovo servizio collegato con gli attributi seguenti:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (scrivere **""** )
@@ -94,9 +92,9 @@ A: Il flusso di dati consente agli ingegneri dei dati di sviluppare una logica d
 
 A: L'esperienza Single Sign-On end-to-end è un processo di autenticazione importante in Synapse Analytics. La gestione e il pass-through dell'identità tramite la piena integrazione di AAD sono requisiti imprescindibili.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>D: Come si accede ai file e alle cartelle in ADLSg2?
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>D: Come si accede ai file e alle cartelle in ADLS Gen2?
 
-A: L'accesso a file e cartelle è attualmente gestito tramite ADLSg2. Per altre informazioni, vedere [Controllo di accesso all'archiviazione di Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A: L'accesso a file e cartelle è attualmente gestito tramite ADLS Gen2. Per altre informazioni, vedere [Controllo di accesso all'archiviazione di Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>D: È possibile usare strumenti di business intelligence di terze parti per accedere ad Azure Synapse Analytics?
 
@@ -106,6 +104,6 @@ A: Sì, è possibile usare applicazioni aziendali di terze parti, come Tableau e
 
 - [Creare un'area di lavoro](quickstart-create-workspace.md)
 - [Usare Synapse Studio](quickstart-synapse-studio.md)
-- [Creare un pool SQL](quickstart-create-sql-pool.md)
+- [Creare un pool SQL](quickstart-create-sql-pool-portal.md)
 - [Usare SQL su richiesta](quickstart-sql-on-demand.md)
-- [Creare un pool di Apache Spark](quickstart-create-apache-spark-pool.md) 
+- [Creare un pool di Apache Spark](quickstart-create-apache-spark-pool-portal.md) 

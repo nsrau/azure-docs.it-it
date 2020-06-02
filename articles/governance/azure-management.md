@@ -1,14 +1,14 @@
 ---
 title: Panoramica della gestione di Azure - Governance di Azure
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75980909"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828148"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Panoramica dei servizi di gestione in Azure
 
@@ -18,7 +18,7 @@ Per gestione si intendono le attività e i processi necessari per gestire le app
 
 Il diagramma seguente illustra le diverse aree della gestione necessarie per gestire eventuali applicazioni o risorse. Tali diverse aree possono essere considerate come un ciclo di vita. Ogni area è necessaria in successione continua per l'intera durata di una risorsa. A partire dalla distribuzione iniziale, fino al funzionamento continuo e infine al ritiro della risorsa.
 
-![Discipline della gestione in Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Discipline della gestione in Azure" border="false":::
 
 Nessun singolo servizio di Azure soddisfa completamente i requisiti di un'area di gestione specifica. Al contrario, ognuno viene realizzato mediante numerosi servizi che interagiscono l’uno con l’altro. Alcuni servizi, come Application Insights, offrono funzionalità mirate di monitoraggio per le applicazioni Web. Altri, come i log di Monitoraggio di Azure, archiviano dati di gestione per altri servizi. Questa funzionalità consente di analizzare i dati di diverso tipo raccolti dai molteplici servizi.
 
@@ -36,7 +36,9 @@ L'automazione di queste attività consente di eliminare la ridondanza, riducendo
 ## <a name="govern"></a>Governance
 
 La governance offre meccanismi e processi per mantenere il controllo delle applicazioni e delle risorse in Azure. Include la pianificazione delle iniziative e la definizione delle priorità strategiche.
-La governance in Azure viene implementata principalmente tramite due servizi. [Criteri di Azure](./policy/overview.md) consente di creare, assegnare e gestire le definizioni dei criteri per applicare le regole alle risorse. Questa funzionalità consente di mantenere tali risorse conformi agli standard dell'azienda. [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md) consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud.
+La governance in Azure viene implementata principalmente tramite due servizi. [Criteri di Azure](./policy/overview.md) consente di creare, assegnare e gestire le definizioni dei criteri per applicare le regole alle risorse.
+Questa funzionalità consente di mantenere tali risorse conformi agli standard dell'azienda.
+[Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md) consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud.
 
 ## <a name="secure"></a>Sicurezza
 

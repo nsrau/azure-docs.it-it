@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: La prima query di PowerShell'
 description: Questo argomento di avvio rapido illustra la procedura per abilitare il modulo Resource Graph per Azure PowerShell ed eseguire la prima query.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e98ca5974ba46d4d908cfe6dd8c04d3f6ba33a2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215629"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871998"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 
@@ -54,7 +54,7 @@ Il modulo Resource Graph per PowerShell è **Az.ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Eseguire la prima query di Resource Graph
 
-Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è possibile provare a eseguire una semplice query di Resource Graph. La query restituirà le prime cinque risorse di Azure con il **nome** e il **tipo di risorsa** di ogni risorsa.
+Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è possibile provare a eseguire una semplice query di Resource Graph. La query restituisce le prime cinque risorse di Azure con il **nome** e il **tipo di risorsa** di ogni risorsa.
 
 1. Eseguire la prima query di Azure Resource Graph usando il cmdlet `Search-AzGraph`:
 
@@ -76,7 +76,7 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
    ```
 
    > [!NOTE]
-   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
+   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. Questo ordine dei comandi prima limita i risultati della query e successivamente li ordina.
 
 1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati:
 
@@ -85,7 +85,7 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
    Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
-Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
+Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
 > [!NOTE]
 > Se la query non restituisce risultati da una sottoscrizione a cui si ha già accesso, tenere presente che il cmdlet `Search-AzGraph` è impostato sulle sottoscrizioni nel contesto predefinito. Per visualizzare l'elenco di ID di sottoscrizione che fanno parte del contesto predefinito, eseguire `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Per eseguire la ricerca in tutte le sottoscrizioni a cui si ha accesso, è possibile impostare PSDefaultParameterValues per il cmdlet `Search-AzGraph` eseguendo `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`

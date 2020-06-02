@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692432"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658546"
 ---
-# <a name="quickstart-using-synapse-studio-preview"></a>Guida introduttiva: Uso di Synapse Studio (anteprima)
+# <a name="quickstart-use-synapse-studio-preview"></a>Guida introduttiva: Usare Synapse Studio (anteprima)
 
 In questa guida di avvio rapido verrà illustrato come eseguire query sui file con Synapse Studio.
 
@@ -52,7 +52,7 @@ Per creare nuove cartelle e caricare i file, usare i collegamenti nella barra de
 > Per poter eseguire query sui file, è necessario essere un membro del ruolo `Storage Blob Reader` nello spazio di archiviazione sottostante. Informazioni su come [assegnare le autorizzazioni **Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione** o **Collaboratore ai dati dei BLOB di archiviazione** di Controllo degli accessi in base al ruolo in Archiviazione di Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
 1. Caricare alcuni file di `PARQUET`.
-2. Selezionare uno o più file e quindi creare un nuovo script SQL o un notebook di Spark per visualizzare il contenuto dei file. Se si vuole creare un notebook, è necessario creare il [pool di Apache Spark nell'area di lavoro](quickstart-create-apache-spark-pool.md).
+2. Selezionare uno o più file e quindi creare un nuovo script SQL o un notebook di Spark per visualizzare il contenuto dei file. Se si vuole creare un notebook, è necessario creare un [pool di Apache Spark nelle aree di lavoro Synapse](quickstart-create-apache-spark-pool-studio.md).
 
    ![Eseguire query sui file nello spazio di archiviazione](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
@@ -64,7 +64,7 @@ Per creare nuove cartelle e caricare i file, usare i collegamenti nella barra de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Consentire agli utenti di Azure AD di eseguire query sui file assegnando le autorizzazioni [**Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione** o **Collaboratore ai dati dei BLOB di archiviazione** di Controllo degli accessi in base al ruolo in Archiviazione di Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Consentire agli utenti di Azure AD di eseguire query sui file [assegnando le autorizzazioni **Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione** o **Collaboratore ai dati dei BLOB di archiviazione** di Controllo degli accessi in base al ruolo in Archiviazione di Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Eseguire query su file in Archiviazione di Azure con SQL su richiesta](sql/on-demand-workspace-overview.md)
-- [Creare un pool di Apache Spark con il portale di Azure](quickstart-create-apache-spark-pool.md)
+- [Creare il pool di Apache Spark con il portale di Azure](quickstart-create-apache-spark-pool-portal.md)
 - [Creare il report di Power BI sui file archiviati in Archiviazione di Azure](sql/tutorial-connect-power-bi-desktop.md)

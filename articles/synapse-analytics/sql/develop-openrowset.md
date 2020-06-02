@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591421"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702040"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -45,10 +45,12 @@ Si tratta di un modo semplice e rapido per leggere il contenuto dei file senza p
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Questa opzione consente di configurare la posizione dell'account di archiviazione nell'origine dati e di specificare il metodo di autenticazione da usare per accedere all'archiviazione. 
     
     > [!IMPORTANT]
     > `OPENROWSET` senza `DATA_SOURCE` fornisce un metodo semplice e rapido per accedere ai file di archiviazione, ma offre opzioni di autenticazione limitate. Ad esempio, l'entità di Azure AD può accedere ai file solo usando l'[identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) e non può accedere ai file disponibili pubblicamente. Se sono necessarie opzioni di autenticazione più avanzate, usare l'opzione `DATA_SOURCE` e definire le credenziali da usare per accedere all'archiviazione.
+
 
 ## <a name="security"></a>Sicurezza
 
@@ -57,10 +59,10 @@ Per usare la funzione `OPENROWSET`, un utente di database deve avere l'autorizza
 L'amministratore dell'archiviazione deve anche consentire a un utente di accedere ai file fornendo un token di firma di accesso condiviso valido o consentendo all'entità di Azure AD di accedere ai file di archiviazione. Per altre informazioni sul controllo di accesso all'archiviazione, vedere [questo articolo](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET` usa le regole seguenti per determinare la modalità di autenticazione per l'archiviazione:
-- In `OPENROWSET` con `DATA_SOURCE` il meccanismo di autenticazione dipende dal tipo di chiamante.
-  - Gli account di accesso di AAD possono accedere ai file solo usando la propria [identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) se Archiviazione di Azure consente all'utente di Azure AD di accedere ai file sottostanti (ad esempio, se il chiamante ha l'autorizzazione di lettura per l'archiviazione) e se si [abilita l'autenticazione pass-through di Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) nel servizio Synapse SQL.
+- In `OPENROWSET` senza `DATA_SOURCE` il meccanismo di autenticazione dipende dal tipo di chiamante.
+  - Gli account di accesso di Azure AD possono accedere ai file solo usando la propria [identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se Archiviazione di Azure consente all'utente di Azure AD di accedere ai file sottostanti (ad esempio, se il chiamante ha l'autorizzazione di lettura per l'archiviazione) e se si [abilita l'autenticazione pass-through di Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) nel servizio Synapse SQL.
   - Gli account di accesso di SQL possono anche usare `OPENROWSET` senza `DATA_SOURCE` per accedere ai file disponibili pubblicamente, ai file protetti tramite token di firma di accesso condiviso o all'identità gestita dell'area di lavoro di Synapse. È necessario [creare credenziali con ambito server](develop-storage-files-storage-access-control.md#examples) per consentire l'accesso ai file di archiviazione. 
-- In `OPENROWSET` con `DATA_SOURCE` il meccanismo di autenticazione è definito nelle credenziali con ambito database assegnate all'origine dati a cui viene fatto riferimento. Questa opzione consente di accedere all'archiviazione disponibile pubblicamente o di accedere all'archiviazione tramite token di firma di accesso condiviso, identità gestita dell'area di lavoro oppure [identità di Azure AD del chiamante](develop-storage-files-storage-access-control.md?tabs=user-identity#) (se il chiamante è un'entità di Azure AD). Se `DATA_SOURCE` fa riferimento all'archiviazione di Azure non pubblica, sarà necessario [creare credenziali con ambito database](develop-storage-files-storage-access-control.md#examples) e farvi riferimento in `DATA SOURCE` per consentire l'accesso ai file di archiviazione.
+- In `OPENROWSET` con `DATA_SOURCE` il meccanismo di autenticazione è definito nelle credenziali con ambito database assegnate all'origine dati a cui viene fatto riferimento. Questa opzione consente di accedere all'archiviazione disponibile pubblicamente o di accedere all'archiviazione tramite token di firma di accesso condiviso, identità gestita dell'area di lavoro oppure [identità di Azure AD del chiamante](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se il chiamante è un'entità di Azure AD). Se `DATA_SOURCE` fa riferimento all'archiviazione di Azure non pubblica, sarà necessario [creare credenziali con ambito database](develop-storage-files-storage-access-control.md#examples) e farvi riferimento in `DATA SOURCE` per consentire l'accesso ai file di archiviazione.
 
 Il chiamante deve avere l'autorizzazione `REFERENCES` nelle credenziali per usarle per l'autenticazione per l'archiviazione.
 
@@ -193,7 +195,7 @@ Specifica il metodo di compressione. È supportato il metodo di compressione seg
 
 PARSER_VERSION = 'parser_version'
 
-Specifica la versione del parser da usare per la lettura dei file. Le versioni del parser CSV attualmente supportate sono 1.0 e 2.0
+Specifica la versione del parser da usare per la lettura dei file. Le versioni del parser CSV attualmente supportate sono 1.0 e 2.0:
 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'

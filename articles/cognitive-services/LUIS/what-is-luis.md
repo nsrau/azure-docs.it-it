@@ -3,12 +3,12 @@ title: Che cos'è il servizio Language Understanding (LUIS)?
 description: Language Understanding (LUIS) è un servizio API basato sul cloud che applica l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592815"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675985"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
@@ -46,7 +46,7 @@ L'app LUIS contiene un modello linguistico naturale specifico del dominio. È po
 
 * **Modello predefinito** Il servizio LUIS dispone di molti modelli di dominio predefiniti che includono finalità, espressioni ed entità predefinite. È possibile usare le entità predefinite senza dover usare le finalità e le espressioni del modello predefinito. I [modelli di dominio predefiniti](luis-how-to-use-prebuilt-domains.md) includono l'intero progetto e sono un ottimo modo per iniziare a usare rapidamente il servizio LUIS.
 
-* **Modello personalizzato** Il servizio LUIS offre diversi modi per identificare i modelli personalizzati, comprese finalità ed entità. Le entità includono entità basate su Machine Learning, entità specifiche o letterali e una combinazione di entità basate su Machine Learning e letterali.
+* **Modello personalizzato** Il servizio LUIS offre diversi modi per identificare i modelli personalizzati, comprese finalità ed entità. Le entità includono entità di Machine Learning, entità specifiche o letterali e una combinazione di entità di Machine Learning e letterali.
 
 ## <a name="build-the-luis-model"></a>Compilare il modello LUIS
 Creare il modello con le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) o con il [portale LUIS](https://www.luis.ai).

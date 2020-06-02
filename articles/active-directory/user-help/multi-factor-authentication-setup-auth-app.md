@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062575"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738643"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurare un'app di autenticazione come metodo di verifica a due fattori
 
@@ -29,7 +29,7 @@ ms.locfileid: "77062575"
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>Configurare l'app Microsoft Authenticator per l'invio di notifiche
 
-1. Nella pagina **Verifica di sicurezza aggiuntiva** selezionare **App per dispositivi mobili** nell'area **Passaggio 1: indicare il modo in cui si preferisce essere contattati**.
+1. Nella pagina [Verifica di sicurezza aggiuntiva](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) selezionare **App per dispositivi mobili** nell'area **Passaggio 1: indicare il modo in cui si preferisce essere contattati**.
 
 2. Selezionare **Ricevi notifiche per la verifica** nell'area **Indicare come verrà usata questa app per dispositivi mobili** e quindi **Configura**.
 

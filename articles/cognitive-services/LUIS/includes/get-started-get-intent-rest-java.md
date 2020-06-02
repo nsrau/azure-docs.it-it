@@ -6,43 +6,31 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/20/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: d59b7ebd1376d0bee10482cfe5faac1c53d1bde0
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5b3cf31fd5388c1d558726ab7c01b9946e826c23
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733321"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654287"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) o un altro IDE
-* Un ID app LUIS: usare l'ID app IoT pubblica `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La query utente usata nel codice di avvio rapido è specifica di tale app.
 
-## <a name="create-luis-runtime-key-for-predictions"></a>creare la chiave di runtime di LUIS per le previsioni
+## <a name="create-pizza-app"></a>Creare l’app Pizza
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Immettere tutte le impostazioni necessarie per la chiave di **runtime**:
-
-    |Impostazione|valore|
-    |--|--|
-    |Nome|Il nome desiderato (2-64 caratteri)|
-    |Subscription|Selezionare la sottoscrizione appropriata|
-    |Location|Selezionare una località vicina e disponibile|
-    |Piano tariffario|`F0`: il piano tariffario minimo|
-    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
-
-1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
-1. Raccogliere i valori di `endpoint` e `key` configurati.
+[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
 Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-apim-v3-prediction) per ottenere un risultato della previsione.
 
-1. Creare una sottodirectory denominata `lib` e copiarla nelle librerie Java seguenti:
+1. Creare una nuova cartella che contenga il progetto Java, ad esempio `java-predict-with-rest`.
+
+1. Creare una sottodirectory denominata `lib` e copiarla nelle librerie Java seguenti nella sottodirectory `lib`:
 
     * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
     * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
@@ -61,6 +49,16 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
     import org.apache.http.impl.client.HttpClients;
     import org.apache.http.util.EntityUtils;
 
+    // To compile, execute this command at the console:
+    //      Windows: javac -cp ";lib/*" Predict.java
+    //      macOs: javac -cp ":lib/*" Predict.java
+    //      Linux: javac -cp ":lib/*" Predict.java
+
+    // To run, execute this command at the console:
+    //      Windows: java -cp ";lib/*" Predict
+    //      macOs: java -cp ":lib/*" Predict
+    //      Linux: java -cp ":lib/*" Predict
+
     public class Predict {
 
         public static void main(String[] args)
@@ -69,46 +67,52 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
 
             try
             {
+                //////////
+                // Values to modify.
 
-                // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
-                String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+                // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
+                String AppId = "93066630-3523-4df6-b05f-2b6cd9d46ea1";
 
-                // Add your prediction Runtime key
-                String Key = "YOUR-KEY";
+                // YOUR-PREDICTION-KEY: Your LUIS authoring key, 32 character value.
+                String Key = "9c0c8b2196ae4f95818b006b4de05cc7";
 
-                // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
-                String Endpoint = "YOUR-ENDPOINT";
+                // YOUR-PREDICTION-ENDPOINT: Replace this with your authoring key endpoint.
+                // For example, "https://westus.api.cognitive.microsoft.com/"
+                String Endpoint = "https://westus.api.cognitive.microsoft.com/";
 
-                String Utterance = "turn on all lights";
+                // The utterance you want to use.
+                String Utterance = "I want two large pepperoni pizzas on thin crust please";
+                //////////
 
-                // Begin endpoint URL string building
-                URIBuilder endpointURLbuilder = new URIBuilder("https://" + Endpoint + "/luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
+                // Begin building the endpoint URL.
+                URIBuilder endpointURLbuilder = new URIBuilder(Endpoint + "luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
 
-                // query string params
+                // Create the query string params.
                 endpointURLbuilder.setParameter("query", Utterance);
                 endpointURLbuilder.setParameter("subscription-key", Key);
                 endpointURLbuilder.setParameter("show-all-intents", "true");
                 endpointURLbuilder.setParameter("verbose", "true");
 
-                // create URL from string
+                // Create the prediction endpoint URL.
                 URI endpointURL = endpointURLbuilder.build();
 
-                // create HTTP object from URL
+                // Create the HTTP object from the URL.
                 HttpGet request = new HttpGet(endpointURL);
 
-                // access LUIS endpoint - analyze text
+                // Access the LUIS endpoint to analyze the text utterance.
                 HttpResponse response = httpclient.execute(request);
 
-                // get response
+                // Get the response.
                 HttpEntity entity = response.getEntity();
 
-
+                // Print the response on the console.
                 if (entity != null)
                 {
                     System.out.println(EntityUtils.toString(entity));
                 }
             }
 
+            // Display errors if they occur.
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
@@ -121,74 +125,233 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
 
     |Informazioni|Scopo|
     |--|--|
-    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
-    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
-
+    |`YOUR-APP-ID`|L'ID app. Disponibile nel portale LUIS, pagina Impostazioni applicazione per l'app.
+    |`YOUR-PREDICTION-KEY`|La chiave di previsione di 32 caratteri. Disponibile nel portale LUIS, pagina delle risorse di Azure per l'app.
+    |`YOUR-PREDICTION-ENDPOINT`| L'endpoint dell'URL di previsione. Disponibile nel portale LUIS, pagina delle risorse di Azure per l'app.<br>Ad esempio: `https://westus.api.cognitive.microsoft.com/`.|
 
 1. Compilare il programma Java dalla riga di comando:
+
+    ::: zone pivot="client-operating-system-linux"
 
     ```console
     javac -cp ":lib/*" Predict.java
     ```
 
+    ::: zone-end
+
+    ::: zone pivot="client-operating-system-macos"
+
+    ```console
+    javac -cp ":lib/*" Predict.java
+    ```
+
+    ::: zone-end
+
+    ::: zone pivot="client-operating-system-windows"
+
+    ```console
+    javac -cp ";lib/*" Predict.java
+    ```
+
+    ::: zone-end
+
 1. Eseguire il programma Java dalla riga di comando:
+
+    ::: zone pivot="client-operating-system-linux"
 
     ```console
     java -cp ":lib/*" Predict
     ```
 
-1. Esaminare la risposta di previsione restituita in formato JSON:
+    ::: zone-end
+
+    ::: zone pivot="client-operating-system-macos"
 
     ```console
-    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    java -cp ":lib/*" Predict
+    ```
+
+    ::: zone-end
+
+    ::: zone pivot="client-operating-system-windows"
+
+    ```console
+    java -cp ";lib/*" Predict
+    ```
+
+    ::: zone-end
+
+1. Esaminare la risposta di previsione restituita in formato JSON:
+
+    ```json
+    {"query":"I want two large pepperoni pizzas on thin crust please","prediction":{"topIntent":"ModifyOrder","intents":{"ModifyOrder":{"score":1.0},"None":{"score":8.55E-09},"Greetings":{"score":1.82222226E-09},"CancelOrder":{"score":1.47272727E-09},"Confirmation":{"score":9.8125E-10}},"entities":{"Order":[{"FullPizzaWithModifiers":[{"PizzaType":["pepperoni pizzas"],"Size":[["Large"]],"Quantity":[2],"Crust":[["Thin"]],"$instance":{"PizzaType":[{"type":"PizzaType","text":"pepperoni pizzas","startIndex":17,"length":16,"score":0.9978157,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Size":[{"type":"SizeList","text":"large","startIndex":11,"length":5,"score":0.9984481,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Quantity":[{"type":"builtin.number","text":"two","startIndex":7,"length":3,"score":0.999770939,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Crust":[{"type":"CrustList","text":"thin crust","startIndex":37,"length":10,"score":0.933985531,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}]}}],"$instance":{"FullPizzaWithModifiers":[{"type":"FullPizzaWithModifiers","text":"two large pepperoni pizzas on thin crust","startIndex":7,"length":40,"score":0.90681237,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}]}}],"ToppingList":[["Pepperoni"]],"$instance":{"Order":[{"type":"Order","text":"two large pepperoni pizzas on thin crust","startIndex":7,"length":40,"score":0.9047088,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"ToppingList":[{"type":"ToppingList","text":"pepperoni","startIndex":17,"length":9,"modelTypeId":5,"modelType":"List Entity Extractor","recognitionSources":["model"]}]}}}}
     ```
 
     La risposta JSON formattata per migliorare la leggibilità:
 
     ```JSON
     {
-        "query": "turn on all lights",
-        "prediction": {
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
-                "None": {
-                    "score": 0.08687421
-                },
-                "HomeAutomation.TurnOff": {
-                    "score": 0.0207554
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ],
-                "$instance": {
-                    "HomeAutomation.Operation": [
-                        {
-                            "type": "HomeAutomation.Operation",
-                            "text": "on",
-                            "startIndex": 5,
-                            "length": 2,
-                            "score": 0.724984169,
-                            "modelTypeId": -1,
-                            "modelType": "Unknown",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
+      "query": "I want two large pepperoni pizzas on thin crust please",
+      "prediction": {
+        "topIntent": "ModifyOrder",
+        "intents": {
+          "ModifyOrder": {
+            "score": 1
+          },
+          "None": {
+            "score": 8.55e-9
+          },
+          "Greetings": {
+            "score": 1.82222226e-9
+          },
+          "CancelOrder": {
+            "score": 1.47272727e-9
+          },
+          "Confirmation": {
+            "score": 9.8125e-10
+          }
+        },
+        "entities": {
+          "Order": [
+            {
+              "FullPizzaWithModifiers": [
+                {
+                  "PizzaType": [
+                    "pepperoni pizzas"
+                  ],
+                  "Size": [
+                    [
+                      "Large"
                     ]
+                  ],
+                  "Quantity": [
+                    2
+                  ],
+                  "Crust": [
+                    [
+                      "Thin"
+                    ]
+                  ],
+                  "$instance": {
+                    "PizzaType": [
+                      {
+                        "type": "PizzaType",
+                        "text": "pepperoni pizzas",
+                        "startIndex": 17,
+                        "length": 16,
+                        "score": 0.9978157,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Size": [
+                      {
+                        "type": "SizeList",
+                        "text": "large",
+                        "startIndex": 11,
+                        "length": 5,
+                        "score": 0.9984481,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Quantity": [
+                      {
+                        "type": "builtin.number",
+                        "text": "two",
+                        "startIndex": 7,
+                        "length": 3,
+                        "score": 0.999770939,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Crust": [
+                      {
+                        "type": "CrustList",
+                        "text": "thin crust",
+                        "startIndex": 37,
+                        "length": 10,
+                        "score": 0.933985531,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ]
+                  }
                 }
+              ],
+              "$instance": {
+                "FullPizzaWithModifiers": [
+                  {
+                    "type": "FullPizzaWithModifiers",
+                    "text": "two large pepperoni pizzas on thin crust",
+                    "startIndex": 7,
+                    "length": 40,
+                    "score": 0.90681237,
+                    "modelTypeId": 1,
+                    "modelType": "Entity Extractor",
+                    "recognitionSources": [
+                      "model"
+                    ]
+                  }
+                ]
+              }
             }
+          ],
+          "ToppingList": [
+            [
+              "Pepperoni"
+            ]
+          ],
+          "$instance": {
+            "Order": [
+              {
+                "type": "Order",
+                "text": "two large pepperoni pizzas on thin crust",
+                "startIndex": 7,
+                "length": 40,
+                "score": 0.9047088,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                  "model"
+                ]
+              }
+            ],
+            "ToppingList": [
+              {
+                "type": "ToppingList",
+                "text": "pepperoni",
+                "startIndex": 17,
+                "length": 9,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                  "model"
+                ]
+              }
+            ]
+          }
         }
+      }
     }
     ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
+Al termine di questo argomento di avvio rapido, eliminare la cartella del progetto dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,37 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420835"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701071"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelle di metadati condivisi di Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle basate su Parquet tra i pool di Apache Spark (anteprima), il motore SQL su richiesta (anteprima) e i pool SQL.
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle basate su Parquet tra i pool di Apache Spark (anteprima) e il motore SQL su richiesta (anteprima).
 
 Dopo la creazione di un database tramite un processo Spark, è possibile aggiungervi tabelle create con Spark che usano Parquet come formato di archiviazione. Queste tabelle diventeranno immediatamente disponibili per l'esecuzione di query da parte di qualsiasi pool di Spark dell'area di lavoro di Azure Synapse. Possono essere usate anche da qualsiasi processo Spark che disponga delle autorizzazioni necessarie.
 
-Le tabelle Spark create, gestite ed esterne vengono rese disponibili anche come tabelle esterne con lo stesso nome nel database sincronizzato corrispondente in SQL su richiesta e negli schemi con prefisso `$` corrispondenti nei pool SQL per i quali è abilitata la sincronizzazione dei metadati. La sezione [Esposizione di una tabella di Spark in SQL](#exposing-a-spark-table-in-sql) fornisce informazioni dettagliate sulla sincronizzazione delle tabelle.
+Le tabelle Spark create, gestite ed esterne vengono rese disponibili anche come tabelle esterne con lo stesso nome nel database sincronizzato corrispondente in SQL su richiesta. La sezione [Esposizione di una tabella di Spark in SQL](#exposing-a-spark-table-in-sql) fornisce informazioni dettagliate sulla sincronizzazione delle tabelle.
 
-Poiché le tabelle vengono sincronizzate con SQL su richiesta e con i pool SQL in modo asincrono, vengono visualizzate con un ritardo.
-
-Mapping di tabelle a tabelle esterne, origini dati e formati di file.
+Poiché le tabelle vengono sincronizzate con SQL su richiesta in modo asincrono, vengono visualizzate con un ritardo.
 
 ## <a name="manage-a-spark-created-table"></a>Gestire una tabella creata in Spark
 
 Usare Spark per gestire i database creati in Spark. Ad esempio, eliminare un database tramite un processo del pool di Spark e crearvi tabelle da Spark.
 
 Se si creano oggetti in un database di questo tipo da SQL su richiesta o si tenta di eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
-
-Se si prova a eliminare lo schema sincronizzato in un pool SQL o si cerca di creare una tabella al suo interno, Azure restituisce un errore.
 
 ## <a name="exposing-a-spark-table-in-sql"></a>Esposizione di una tabella di Spark in SQL
 
@@ -56,7 +52,7 @@ Azure Synapse attualmente condivide solo le tabelle di Spark gestite ed esterne 
 
 ### <a name="how-are-spark-tables-shared"></a>Come vengono condivise le tabelle di Spark
 
-Le tabelle di Spark gestite ed esterne condivisibili vengono esposte nei motori SQL come tabelle esterne con le proprietà seguenti:
+Le tabelle di Spark gestite ed esterne condivisibili vengono esposte nel motore SQL come tabelle esterne con le proprietà seguenti:
 
 - L'origine dati della tabella esterna SQL è l'origine dati che rappresenta la cartella in cui si trova la tabella di Spark.
 - Il formato di file della tabella esterna SQL è Parquet.
@@ -88,7 +84,7 @@ Le tabelle di Spark forniscono tipi di dati diversi rispetto ai motori Synapse S
 
 ## <a name="security-model"></a>Modello di protezione
 
-Le tabelle e i database Spark, così come le relative rappresentazioni sincronizzate nei motori SQL, vengono protetti al livello di archiviazione sottostante. Poiché attualmente non hanno autorizzazioni sugli oggetti stessi, gli oggetti possono essere visualizzati in Esplora oggetti.
+Le tabelle e i database Spark, così come le relative rappresentazioni sincronizzate nel motore SQL, vengono protetti al livello di archiviazione sottostante. Poiché attualmente non hanno autorizzazioni sugli oggetti stessi, gli oggetti possono essere visualizzati in Esplora oggetti.
 
 L'entità di sicurezza che crea una tabella gestita è considerata il proprietario di tale tabella e dispone di tutti i diritti sulla tabella e sulle cartelle e i file sottostanti. Inoltre, il proprietario del database diventa automaticamente co-proprietario della tabella.
 
@@ -193,27 +189,6 @@ id | name | birthdate
 ---+-------+-----------
 1 | Alice | 2010-01-01
 ```
-
-### <a name="querying-spark-tables-in-a-sql-pool"></a>Esecuzione di query su tabelle di Spark in un pool SQL
-
-Con le tabelle create negli esempi precedenti, creare nell'area di lavoro un pool SQL denominato `mysqlpool` che abilita la sincronizzazione dei metadati oppure usare il pool già creato nella sezione [Esposizione di un database Spark in un pool SQL](database.md#exposing-a-spark-database-in-a-sql-pool).
-
-Eseguire l'istruzione seguente sul pool SQL `mysqlpool`:
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-Verificare che le tabelle `myParquetTable` e `myExternalParquetTable` siano visibili nello schema `$mytestdb`.
-
-Ora è possibile leggere i dati da SQL su richiesta nel modo seguente:
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-Si dovrebbero ottenere gli stessi risultati ottenuti precedentemente con SQL su richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

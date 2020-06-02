@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70387796"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745579"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Esempio: Rilevare la lingua con Analisi del testo
 
@@ -155,9 +155,9 @@ Un punteggio positivo pari a 1.0 esprime il massimo livello possibile di attendi
 
 ### <a name="ambiguous-content"></a>Contenuto ambiguo
 
-In alcuni casi potrebbe essere difficile distinguere le lingue in base all'input. È possibile usare il parametro `countryHint` per specificare un codice paese di 2 lettere. Per impostazione predefinita, l'API usa "US" come valore predefinito di countryHint. Per rimuovere questo comportamento, è possibile reimpostare questo parametro usando come valore una stringa vuota, `countryHint = ""`.
+In alcuni casi potrebbe essere difficile distinguere le lingue in base all'input. È possibile usare il parametro `countryHint` per specificare un codice paese/area geografica di 2 lettere. Per impostazione predefinita, l'API usa "US" come valore predefinito di countryHint. Per rimuovere questo comportamento, è possibile reimpostare questo parametro usando come valore una stringa vuota, `countryHint = ""`.
 
-La parola "Impossible", ad esempio, è comune sia alla lingua inglese che alla lingua francese. Se viene specificata con un contesto limitato, la risposta sarà basata sul suggerimento del paese "US". Se l'origine del testo è nota come proveniente dalla Francia, è possibile specificare tale paese come suggerimento.
+La parola "Impossible", ad esempio, è comune sia alla lingua inglese che alla lingua francese. Se viene specificata con un contesto limitato, la risposta sarà basata sul suggerimento del paese/area geografica "US". Se l'origine del testo è nota come proveniente dalla Francia, è possibile specificare tale paese come suggerimento.
 
 **Input**
 

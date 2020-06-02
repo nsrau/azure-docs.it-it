@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68976869"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860988"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Guida introduttiva: Creare un'istanza di Azure Data Catalog
 
@@ -22,6 +22,9 @@ Questa guida di avvio rapido illustra come creare un'istanza di Azure Data Catal
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+> [!Note]
+> A causa dei requisiti di sicurezza di Azure, Azure Data Catalog applica Transport Layer Security (TLS) 1.2. TLS 1.0 e TLS 1.1 sono stati disabilitati. Se il computer non è stato aggiornato per TLS 1.2, è possibile che si verifichino errori durante l'esecuzione dello strumento di registrazione. Vedere [Abilitare Transport Layer Security (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) per aggiornare il computer per TLS 1.2.
 
 Per iniziare è necessario:
 

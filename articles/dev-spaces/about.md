@@ -6,12 +6,12 @@ ms.topic: overview
 description: Informazioni su come Azure Dev Spaces può offrire un'esperienza di sviluppo Kubernetes rapida e iterativa per i team nei cluster del servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8b22181bcddda9e4156c0e0dbe61d7d813498d96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd757d5392a7cefcacdd1d77807beb72e34c8f89
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80529723"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873356"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Che cos'è Azure Dev Spaces?
 
@@ -38,7 +38,7 @@ Per altre informazioni sul funzionamento di Azure Dev Spaces, vedere [Funzioname
 
 ## <a name="supported-regions-and-configurations"></a>Aree e configurazioni supportate
 
-Azure Dev Spaces è supportato solo dai cluster del servizio Azure Kubernetes [alcune aree][supported-regions]. Azure Dev Spaces supporta l'uso dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o di [Visual Studio Code](https://code.visualstudio.com/download) con l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installata in Linux, macOS oppure Windows 8 o versione successiva per compilare ed eseguire applicazioni nel servizio Azure Kubernetes. Supporta anche l'uso di [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installato in Windows 8 o versione successiva. Per Visual Studio 2019 è necessario il carico di lavoro Sviluppo di Azure. Per Visual Studio 2017 sono necessari il carico di lavoro Sviluppo Web e [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools).
+Azure Dev Spaces è supportato solo dai cluster del servizio Azure Kubernetes [alcune aree][supported-regions]. Azure Dev Spaces supporta l'uso dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o di [Visual Studio Code](https://code.visualstudio.com/download) con l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installata in Linux, macOS oppure Windows 8 o versione successiva per compilare ed eseguire applicazioni nel servizio Azure Kubernetes. Supporta anche l'uso di [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installato in Windows con il carico di lavoro Azure Development.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

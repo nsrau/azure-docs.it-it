@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200589"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747157"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) e Strong Customer Authentication (SCA) per i clienti di Azure
 
-A partire dal 14 settembre 2019, le banche di 31 paesi dello [Spazio economico Europao](https://en.wikipedia.org/wiki/European_Economic_Area) sono tenute a verificare l'identità delle persone che effettuano acquisti online prima dell'elaborazione del pagamento. Questa verifica richiede l'autenticazione a più fattori per garantire la sicurezza e la protezione degli acquisti online. In alcuni paesi, la data di entrata in vigore di questo requisito di verifica verrà posticipata. Per altre informazioni, vedere [Domande frequenti di Microsoft sulla direttiva PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+A partire dal 14 settembre 2019, le banche di 31 paesi/aree geografiche dello [Spazio economico Europao](https://en.wikipedia.org/wiki/European_Economic_Area) sono tenute a verificare l'identità delle persone che effettuano acquisti online prima dell'elaborazione del pagamento. Questa verifica richiede l'autenticazione a più fattori per garantire la sicurezza e la protezione degli acquisti online. In alcuni paesi/aree geografiche, la data di entrata in vigore di questo requisito di verifica verrà posticipata. Per altre informazioni, vedere [Domande frequenti di Microsoft sulla direttiva PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Cosa implica la direttiva PSD2 per i clienti di Azure
 

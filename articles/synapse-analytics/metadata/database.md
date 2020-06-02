@@ -6,39 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3651467de86d3b026ab348675249f93ebf3a86a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: da1bd9c812c20f60264d1a5ee1f8821128900618
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420215"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698862"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Database condiviso di Azure Synapse Analytics
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Spark (anteprima), il motore SQL su richiesta (anteprima) e i pool SQL.
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Spark (anteprima) e il motore SQL su richiesta (anteprima).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro e nel motore SQL su richiesta.
 
-Se nell'area di lavoro sono presenti pool SQL per i quali è abilitata la sincronizzazione dei metadati o se si crea un nuovo pool SQL con la sincronizzazione dei metadati abilitata, viene automaticamente eseguito il mapping dei database creati da Spark in schemi speciali nel database del pool SQL. 
+Il database predefinito Spark, denominato `default`, sarà visibile anche nel contesto SQL su richiesta come database denominato `default`.
 
-A ogni schema viene assegnato il nome del database Spark con l'aggiunta del prefisso `$`. Sia le tabelle esterne che quelle gestite nel database generato da Spark vengono esposte come tabelle esterne nello schema speciale corrispondente.
-
-Il database predefinito di Spark, denominato `default`, sarà visibile anche nel contesto SQL su richiesta come database denominato `default` e in uno o più database del pool SQL con la sincronizzazione dei metadati attivata come schema `$default`.
-
-Poiché i database vengono sincronizzati con SQL su richiesta e con i pool SQL in modo asincrono, vengono visualizzati con un ritardo.
+Poiché i database vengono sincronizzati con SQL su richiesta in modo asincrono, vengono visualizzati con un ritardo.
 
 ## <a name="manage-a-spark-created-database"></a>Gestire un database creato in Spark
 
 Usare Spark per gestire i database creati in Spark. Ad esempio, eliminare un database tramite un processo del pool di Spark e crearvi tabelle da Spark.
 
 Se si creano oggetti in un database creato in Spark usando SQL su richiesta o se si cerca di eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
-
-Se si prova a eliminare lo schema sincronizzato in un pool SQL o si cerca di creare una tabella al suo interno, Azure restituisce un errore.
 
 ## <a name="handling-of-name-conflicts"></a>Gestione dei conflitti tra nomi
 
@@ -51,7 +45,7 @@ Ad esempio, se viene creato un database Spark denominato `mydb` nell'area di lav
 
 ## <a name="security-model"></a>Modello di protezione
 
-Le tabelle e i database Spark, insieme alle relative rappresentazioni sincronizzate nei motori SQL, vengono protetti al livello di archiviazione sottostante.
+Le tabelle e i database Spark, insieme alle relative rappresentazioni sincronizzate nel motore SQL, vengono protetti al livello di archiviazione sottostante.
 
 L'entità di sicurezza che crea un database è considerata il proprietario del database e dispone di tutti i diritti sul database e sui relativi oggetti.
 
@@ -79,22 +73,7 @@ SELECT * FROM sys.databases;
 
 Verificare che `mytestdb` sia incluso nei risultati.
 
-### <a name="exposing-a-spark-database-in-a-sql-pool"></a>Esposizione di un database Spark in un pool SQL
-
-Con il database creato nell'esempio precedente, creare ora nell'area di lavoro un pool SQL denominato `mysqlpool` che abilita la sincronizzazione dei metadati.
-
-Eseguire l'istruzione seguente sul pool SQL `mysqlpool`:
-
-```sql
-SELECT * FROM sys.schema;
-```
-
-Verificare lo schema del database appena creato nei risultati.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Altre informazioni sui metadati condivisi di Azure Synapse Analytics](overview.md)
 - [Altre informazioni sulle tabelle di metadati condivisi di Azure Synapse Analytics](table.md)
-
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

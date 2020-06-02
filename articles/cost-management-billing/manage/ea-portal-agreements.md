@@ -3,34 +3,26 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691001"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648192"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
 Questo articolo descrive l'impatto che possono avere i contratti Azure EA e le relative modifiche sull'accesso, l'uso e il pagamento dei servizi di Azure.
 
-## <a name="amendment-status"></a>Stato delle modifiche
-
-Eventuali modifiche per i clienti di Azure devono essere gestite tramite il partner o il team degli account Microsoft ed essere elaborate tramite il centro operativo locale. Se si ritiene che una modifica non sia stata elaborata, rivolgersi al partner, al consulente software o al team degli account Microsoft.
-
 ## <a name="enrollment-provisioning-status"></a>Stato di provisioning della registrazione
 
 La data di inizio di un nuovo impegno monetario è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di impegno monetario tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto dell'impegno monetario è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto in https://www.explore.ms indica l'inizio dell'impegno monetario. La data di inizio della copertura corrisponde a quella in cui l'impegno monetario viene visualizzato in Azure EA Portal.
 
-## <a name="support-offer-not-provisioned"></a>Offerta di supporto senza provisioning
-
-È possibile ordinare il supporto Standard o Pro-Direct acquistando SKU specifici del supporto tecnico. L'ordine è analogo a un ordine di acquisto di SKU monetari di Azure con contratto Enterprise Agreement. Ad esempio, 6QK-00001. I numeri degli SKU di supporto sono W6T-00002 (Pro-Direct) e W6T-00003 (Standard). Verificare le offerte di supporto correnti prima di acquistare SKU di supporto.
-
-Per eseguire il provisioning dell'offerta di supporto, la registrazione deve includere almeno un account attivo.
+## <a name="support-for-enterprise-customers"></a>Supporto per i clienti aziendali
 
  L'[offerta del piano di supporto tecnico per i contratti Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/) di Azure è disponibile per alcuni clienti.
 
@@ -158,24 +150,6 @@ Qualsiasi quota sopra descritta non costituisce un impegno di servizio. Al fine 
 - L'ID sottoscrizione del portale per sviluppatori di Azure associato al servizio.
   - Per informazioni su come ottenere l'ID sottoscrizione, [contattare il servizio di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Piano di acquisto anticipato delle risorse di calcolo di Azure (CPP)
-
-Il piano di acquisto anticipato delle risorse di calcolo di Azure (CPP, noto in precedenza come Azure Compute Promo) è un'offerta che consente ai clienti con carichi di lavoro stabili e prevedibili di acquistare in anticipo capacità di calcolo di Azure per 12 mesi usufruendo di sconti significativi. Questo piano è disponibile per il Contratto Enterprise ed è visibile in EA Portal.
-
-Gli SKU di piano CPP devono essere ordinati per un tipo specifico di macchina virtuale in un data center specifico. Allo stato attuale di questa funzionalità, non viene fornito un elenco di tutti gli acquisti di CPP effettuati da un cliente e pertanto non è disponibile alcun elenco di crediti in attesa. Tuttavia, quando si configurano i tipi di macchina virtuale acquistati nel data center in cui sono stati acquistati, l'allocazione mensile sarà visibile nel report di riepilogo sull'utilizzo in EA Portal.
-
-La quantità preacquistata sarà riportata come credito nella colonna "Unità incluse" e l'utilizzo correlato non comporterà alcun addebito finché le unità incluse non saranno state completamente utilizzate. L'eventuale utilizzo aggiuntivo verrà addebitato in base alle tariffe concordate nell'elenco dei prezzi standard per i clienti del Contratto Enterprise.
-
-La modalità di acquisto dei crediti si basa sul numero di macchine virtuali di una classe per ogni mese. Ad esempio: se sono state acquistate 70 macchine virtuali A2 all'anno nell'area Stati Uniti orientali 2, in EA Portal non saranno visibili le stesse informazioni ricevute al momento dell'acquisto.
-
-Per le macchine virtuali su base mensile sono previste a 744 ore al mese. Convertendo l'intero acquisto in ore si avrebbe un numero di ore pari a 70 per 744, ovvero 52.080 ore acquistate di macchine virtuali A2 al mese. Poiché nel report di riepilogo sull'utilizzo in EA Portal le macchine virtuali A2 sono riportate in base a incrementi di 100 ore, si vedrà un credito di 520,8 (52.080/100) "Unità incluse" al mese, oltre alle unità utilizzate fino a quel momento nel mese. Gli addebiti per l'utilizzo dovrebbero risultare nulli finché le unità mensili utilizzate non superano le unità mensili incluse.
-
-Per tipi diversi di macchine virtuali vengono usate unità di misura diverse. Ad esempio, per le macchine virtuali D3 e D4, nel report di riepilogo sull'utilizzo viene usata un'unità di misura di 10 ore. Di conseguenza, per un acquisto di 70 macchine virtuali di questo tipo verranno visualizzate 5208 unità incluse al mese (52.080/10).
-
-In generale, la formula seguente consente di calcolare il numero di macchine virtuali acquistate in base alle rispettive unità di misura:
-
-<center><b> ("Quantità inclusa" * "Unità di misura")/744 </b></center>
-
 ## <a name="plan-skus"></a>SKU di piano
 
 Gli SKU di piano offrono la possibilità di acquistare un gruppo di servizi integrati a una tariffa scontata. Gli SKU di piano sono progettati per consentire l'integrazione di più offerte e gruppi di prodotti e offrire così un maggiore risparmio sui costi.
@@ -191,35 +165,6 @@ Gli amministratori dell'organizzazione possono assegnare proprietari di account 
 1. Fare clic sulla scheda **Elenco prezzi**.
 1. Fare clic sull'icona di download nell'angolo in alto a destra.
 1. Trovare i numeri di parte degli SKU di piano corrispondenti impostando un filtro sulla colonna "Quantità inclusa" e selezionare i valori maggiori di "0".
-
-### <a name="provision-the-plan-skus"></a>Effettuare il provisioning degli SKU di piano
-
-Gli amministratori dell'organizzazione possono aggiungere nuovi proprietari di account, associare un proprietario di account esistente o richiedere ai proprietari di account esistenti di accedere a Azure EA Portal per effettuare il provisioning degli SKU di piano acquistati in precedenza in Azure EA Portal seguendo questa procedura.  
-
-**Aggiunta di un nuovo proprietario di account (completato dall'amministratore EA):**
-
-1. Da Azure EA Portal selezionare **Gestisci** nel riquadro di spostamento a sinistra.
-1. Fare clic sulla scheda **Account**.
-1. Nella pagina Account fare clic su **+Aggiungi account**.
-1. Selezionare un reparto o lasciare come non assegnato.
-1. Selezionare il tipo di autenticazione desiderato.
-1. Specificare un nome descrittivo da usare per identificare l'account nei report.
-1. Immettere l'indirizzo di posta elettronica del proprietario da associare al nuovo account.
-1. Confermare l'indirizzo di posta elettronica che si vuole associare al nuovo account.
-1. Scegliere **Aggiungi**.
-1. È possibile aggiungere un altro account facendo clic su **Aggiungi un altro account** o sul pulsante **Aggiungi** nell'angolo in basso a destra della barra degli strumenti a sinistra.
-1. A questo punto il proprietario dell'account può eseguire l'accesso per aggiungere le sottoscrizioni pertinenti per il provisioning degli SKU di piano
-
-**Associare un proprietario di account esistente:**
-
-1. In Enterprise Portal fare clic su **Gestisci**.
-1. Fare clic sulla scheda **Account**.
-1. Fare clic su **+Aggiungi account**. Immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
-1. Confermare l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
-1. Specificare un nome da usare per identificare l'account nei report.
-1. Scegliere **Aggiungi**.
-1. È possibile aggiungere un altro account selezionando di nuovo l'opzione **+Aggiungi account** oppure tornare alla home page selezionando il pulsante **Amministrazione**.  
-1. Se si fa clic per visualizzare la scheda Account, l'account appena aggiunto verrà visualizzato con stato "In sospeso". Lo stato diventerà "Attivo" dopo che il proprietario dell'account avrà eseguito l'accesso a EA Portal per la prima volta.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietari di account nuovi o esistenti per creare nuove sottoscrizioni
 

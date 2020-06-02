@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creazione della prima app Web statica con App Web statiche di Azure'
+title: 'Guida introduttiva: Creazione della prima app Web statica con App Web statiche di Azure'
 description: Informazioni su come creare un'istanza di App Web statiche di Azure con il framework front-end preferito.
 services: static-web-apps
 author: craigshoemaker
@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599132"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714237"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Avvio rapido: Creazione della prima app Web statica
+# <a name="quickstart-building-your-first-static-web-app"></a>Guida introduttiva: Creazione della prima app Web statica
 
 App Web statiche di Azure consente di pubblicare siti Web in un ambiente di produzione creando app da un repository GitHub. In questo argomento di avvio rapido si compila un'applicazione Web usando il framework front-end preferito da un repository GitHub.
 
@@ -72,7 +72,7 @@ Dopo aver creato il repository, è possibile creare un'app Web statica dal porta
 - Fare clic su **App Web statiche (anteprima)**
 - Fare clic su **Crea**
 
-### <a name="basics"></a>Informazioni di base
+### <a name="basics"></a>Nozioni di base
 
 Per iniziare, configurare la nuova app e collegarla a un repository GitHub.
 
@@ -81,7 +81,7 @@ Per iniziare, configurare la nuova app e collegarla a un repository GitHub.
 - Selezionare la _sottoscrizione di Azure_
 - Selezionare un _gruppo di risorse_ o crearne uno nuovo
 - Assegnare all'app il nome **my-first-static-web-app**.
-  - I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `_`.
+  - I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`.
 - Selezionare un'_area_ vicina
 - Selezionare lo **SKU** _Gratuito_
 - Fare clic sul pulsante **Sign-in with GitHub** (Accedi con GitHub) ed eseguire l'autenticazione con GitHub
@@ -131,11 +131,13 @@ Fare clic sul pulsante **Rivedi e crea**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Pulsante Rivedi e crea":::
 
+Per modificare questi valori dopo aver creato l'app, è possibile modificare il [file del flusso di lavoro ](github-actions-workflow.md).
+
 ### <a name="review--create"></a>Rivedi e crea
 
 Dopo la convalida della richiesta, è possibile continuare a creare l'applicazione.
 
-Fare clic sul pulsante **Crea**.
+Fare clic sul pulsante **Create** (Crea)
 
 :::image type="content" source="media/getting-started/create-button.png" alt-text="Pulsante Crea":::
 

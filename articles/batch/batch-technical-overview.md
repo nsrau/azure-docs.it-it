@@ -1,14 +1,14 @@
 ---
 title: Azure Batch esegue processi paralleli su larga scala nel cloud
 description: Informazioni sull'uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116350"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779557"
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 
@@ -74,7 +74,7 @@ Il diagramma seguente mostra i passaggi di un normale flusso di lavoro di Batch 
 
 Tenere presente che questo è soltanto uno dei modi in cui è possibile usare Batch e che questo scenario descrive solo alcune delle sue funzionalità. È ad esempio possibile eseguire [più attività in parallelo](batch-parallel-node-tasks.md) in ogni nodo di calcolo, nonché usare [attività di preparazione e completamento di processi](batch-job-prep-release.md) per preparare i nodi per i processi e quindi eseguire la pulizia in un secondo momento. 
 
-Vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) per informazioni più dettagliate su pool, nodi, processi e attività e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch. Vedere anche gli [aggiornamenti più recenti per il servizio Batch](https://azure.microsoft.com/updates/?product=batch).
+Per una panoramica delle funzionalità come pool, nodi, processi e attività, vedere [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md). Vedere anche gli [aggiornamenti più recenti per il servizio Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

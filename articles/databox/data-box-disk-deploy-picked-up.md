@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6b165df42da35077c7ef252291d8e1514bb3b1b0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996005"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747686"
 ---
 ::: zone target="docs"
 
@@ -49,7 +49,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
     - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
     - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
 
-I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europa (UE), Australia o paesi asiatici.
+I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europa (UE), Australia o paesi/aree geografiche in Asia.
 
 ### <a name="in-us-or-canada"></a>[Stati Uniti o Canada](#tab/in-us-or-canada)
 
@@ -142,10 +142,10 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
     To: kadcustcare@singpost.com
     Subject: Microsoft Azure Pick-up - XZ00001234567 
     Body: 
-     a. Requestor name
-     b. Requestor contact number
-     c. Requestor collection address
-     d. Preferred collection date
+     a.    Requestor name
+     b.    Requestor contact number
+     c.    Requestor collection address
+     d.    Preferred collection date
     ```
 
    > [!NOTE]
@@ -167,7 +167,7 @@ Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale ed �
 
     ```
     To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body: 
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.

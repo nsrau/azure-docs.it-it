@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 02/01/2020
+ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77915640"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816370"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Web Application Firewall di Azure in Frontdoor di Azure
 
@@ -26,7 +26,7 @@ WAF respinge eventuali attacchi dannosi in prossimità delle origini di attacco,
 
 ## <a name="waf-policy-and-rules"></a>Regole e criteri di WAF
 
-È possibile configurare criteri di WAF e associarli a uno o più front-end di Frontdoor per la protezione. I criteri di WAF sono costituiti da due tipi di regole di sicurezza:
+È possibile configurare [criteri di WAF](waf-front-door-create-portal.md) e associarli a uno o più front-end di Frontdoor per la protezione. I criteri di WAF sono costituiti da due tipi di regole di sicurezza:
 
 - Regole personalizzate create dal cliente.
 

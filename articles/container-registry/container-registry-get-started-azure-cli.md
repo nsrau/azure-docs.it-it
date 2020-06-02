@@ -4,18 +4,18 @@ description: Informazioni su come apprendere rapidamente a creare un registro Do
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 551a3659feb39943c9f794484abb6f2da4367f39
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74455161"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682748"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Avvio rapido: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
 Registro Azure Container è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 
-Questa guida introduttiva richiede l'esecuzione dell'interfaccia della riga di comando di Azure (consigliata la versione 2.0.55 o successive). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Questa guida di avvio rapido richiede l'esecuzione dell'interfaccia della riga di comando di Azure (consigliata la versione 2.0.55 o successive). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-In questa guida introduttiva viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [SKU di Registro Azure Container][container-registry-skus].
+In questa guida di avvio rapido viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
 
 Creare un'istanza di Registro Azure Container usando il comando [azure acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
@@ -64,7 +64,7 @@ Quando viene creato il registro, l'output è simile al seguente:
 }
 ```
 
-Prendere nota del valore di `loginServer` nell'output, che corrisponde al nome del registro completo (tutto minuscolo). Nella parte restante di questa guida introduttiva, `<acrName>` è un segnaposto per il nome del registro contenitori.
+Prendere nota del valore di `loginServer` nell'output, che corrisponde al nome del registro completo (tutto minuscolo). Nella parte restante di questa guida di avvio rapido, `<acrName>` è un segnaposto per il nome del registro contenitori.
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
@@ -120,7 +120,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e quindi è stato eseguito il pull per eseguire l'immagine dal registro. Per maggiori informazioni su Registro Azure Container, passare alle relative esercitazioni.
+In questa guida di avvio rapido è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e quindi è stato eseguito il pull per eseguire l'immagine dal registro. Per maggiori informazioni su Registro Azure Container, passare alle relative esercitazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Registro Azure Container][container-registry-tutorial-quick-task]

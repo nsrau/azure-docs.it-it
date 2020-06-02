@@ -1,24 +1,20 @@
 ---
-title: Panoramica di Automazione di Azure
-description: Informazioni su come usare Automazione di Azure per automatizzare il ciclo di vita dell'infrastruttura e delle applicazioni.
+title: Introduzione ad Automazione di Azure
+description: Questo articolo spiega cos’è Automazione di Azure e come utilizzarla per automatizzare il ciclo di vita dell'infrastruttura e delle applicazioni.
 services: automation
 ms.subservice: process-automation
 keywords: automazione di azure, DSC, powershell, configurazione dello stato, gestione aggiornamenti, rilevamento modifiche, DSC, inventario, runbook, python, grafico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8ee8fd4d9a81746be7b65aeb6410691a5e3aea96
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010240"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835275"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
-
-Questo articolo fornisce una breve panoramica di Automazione di Azure e risposte ad alcune domande comuni. Per altre informazioni sulle diverse funzionalità, visitare i collegamenti indicati in questa panoramica.
-
-## <a name="about-azure-automation"></a>Informazioni su Automazione di Azure
 
 Automazione di Azure offre un servizio di automazione e configurazione basato sul cloud che supporta la gestione coerente di ambienti Azure e non Azure. Include automazione dei processi, gestione della configurazione, gestione degli aggiornamenti, funzionalità condivise e funzionalità eterogenee. Automazione fornisce il controllo completo durante la distribuzione, l'attività e la rimozione delle autorizzazioni di carichi di lavoro e risorse.
 
@@ -32,13 +28,22 @@ L'automazione dei processo supporta l'integrazione dei servizi di Azure e di alt
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
-La [configurazione dello stato desiderato](automation-dsc-overview.md) di Automazione di Azure è una soluzione basata sul cloud per PowerShell Desired State Configuration (DSC) che fornisce i servizi necessari per gli ambienti aziendali. Con questa funzionalità è possibile gestire le risorse DSC in Automazione di Azure e applicare le configurazioni alle macchine virtuali o fisiche da un server di pull DSC nel cloud di Azure. È possibile monitorare e aggiornare automaticamente le configurazioni tra macchine virtuali o fisiche in Windows o Linux, nel cloud o in locale. Il supporto dell'inventario consente di eseguire query sulle risorse nel guest per ottenere la visibilità delle applicazioni installate e di altri elementi di configurazione.
- 
-Il servizio di configurazione dello stato di Automazione di Azure offre funzionalità avanzate di creazione report e ricerca. È possibile usare queste funzionalità per individuare informazioni dettagliate sugli elementi configurati all'interno di un sistema operativo. Il servizio supporta il rilevamento delle modifiche tra servizi, daemon, software, registro di sistema e file nell'ambiente in uso per la diagnosi delle modifiche indesiderate e la generazione di avvisi. Una funzionalità importante correlata è la creazione di report di eventi principali, ad esempio gli eventi generati quando i nodi deviano dalle relative configurazioni assegnate. 
+La gestione della configurazione in Automazione di Azure consente di accedere a due funzionalità:
+
+* Rilevamento modifiche e inventario
+* State Configuration di Automazione di Azure
+
+### <a name="change-tracking-and-inventory"></a>Rilevamento modifiche e inventario
+
+Rilevamento modifiche e inventario combina le funzioni di rilevamento delle modifiche e di inventario per consentire di tenere traccia delle modifiche apportate all'infrastruttura di macchine virtuali e server. Il servizio supporta il rilevamento delle modifiche tra servizi, daemon, software, registro di sistema e file nell'ambiente in uso per la diagnosi delle modifiche indesiderate e la generazione di avvisi. Il supporto dell'inventario consente di eseguire query sulle risorse nel guest per ottenere la visibilità delle applicazioni installate e di altri elementi di configurazione. Per informazioni dettagliate su questa funzionalità, vedere [Rilevamento modifiche e inventario](change-tracking.md).
+
+### <a name="azure-automation-state-configuration"></a>State Configuration di Automazione di Azure
+
+La [configurazione dello stato di Automazione di Azure](automation-dsc-overview.md) è una funzionalità basata sul cloud per PowerShell Desired State Configuration (DSC) che fornisce i servizi necessari per gli ambienti aziendali. Con questa funzionalità è possibile gestire le risorse DSC in Automazione di Azure e applicare le configurazioni alle macchine virtuali o fisiche da un server di pull DSC nel cloud di Azure. 
 
 ## <a name="update-management"></a>Gestione degli aggiornamenti
 
-Automazione di Azure include la soluzione di [gestione degli aggiornamenti](automation-update-management.md) per i sistemi Windows e Linux in ambienti ibridi. Con questa soluzione è possibile ottenere la visibilità della conformità degli aggiornamenti in Azure e nell'ambiente locale e in altri ambienti cloud. La gestione degli aggiornamenti consente di creare distribuzioni pianificate per orchestrare l'installazione degli aggiornamenti all'interno di una finestra di manutenzione definita. Se un aggiornamento non deve essere installato in un computer, è possibile usare le funzionalità di gestione degli aggiornamenti per escluderlo da una distribuzione.
+Automazione di Azure include la funzionalità [Gestione aggiornamenti](automation-update-management.md) per i sistemi Windows e Linux in ambienti ibridi. Gestione aggiornamenti offre la visibilità della conformità degli aggiornamenti in Azure e nell'ambiente locale e in altri ambienti cloud. Tale funzionalità consente di creare distribuzioni pianificate per orchestrare l'installazione degli aggiornamenti all'interno di una finestra di manutenzione definita. Se un aggiornamento non deve essere installato in un computer, è possibile usare le funzionalità Gestione aggiornamenti per escluderlo da una distribuzione.
 
 ## <a name="shared-capabilities"></a>Funzionalità condivise
 
@@ -63,7 +68,7 @@ Automazione di Azure supporta il controllo degli accessi in base al ruolo per re
 
 ### <a name="source-control-integration"></a>Integrazione del controllo del codice sorgente
 
-Automazione di Azure consente l'[integrazione del controllo del codice sorgente](source-control-integration.md). Questa funzionalità promuove la configurazione come codice in cui è possibile archiviare runbook o configurazioni in un sistema di controllo del codice sorgente.
+Automazione di Azure supporta l'[integrazione del controllo del codice sorgente](source-control-integration.md). Questa funzionalità promuove la configurazione come codice in cui è possibile archiviare runbook o configurazioni in un sistema di controllo del codice sorgente.
 
 ## <a name="heterogeneous-support-windows-and-linux"></a>Supporto eterogeneo (Windows e Linux)
 
@@ -85,7 +90,7 @@ Automazione di Azure supporta la gestione per tutto il ciclo di vita dell'infras
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## <a name="pricing-for-automation"></a>Prezzo di Automazione
+## <a name="pricing-for-azure-automation"></a>Prezzo di Automazione di Azure
 
 È possibile rivedere i prezzi associati ad Automazione di Azure nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/automation/).
 
@@ -93,4 +98,3 @@ Automazione di Azure supporta la gestione per tutto il ciclo di vita dell'infras
 
 > [!div class="nextstepaction"]
 > [Creare un account di Automazione](automation-quickstart-create-account.md)
-

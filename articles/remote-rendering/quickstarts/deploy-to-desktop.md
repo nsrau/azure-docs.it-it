@@ -5,14 +5,14 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415714"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758997"
 ---
-# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Avvio rapido: Distribuire un esempio di Unity sul desktop
+# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Guida introduttiva: Distribuire un esempio di Unity sul desktop
 
 Questo argomento di avvio rapido illustra come distribuire ed eseguire l'app di esempio dell'avvio rapido per Unity in un computer desktop.
 
@@ -46,7 +46,7 @@ Sul desktop sono attualmente supportate solo le app desktop flat, quindi è nece
 ## <a name="build-the-sample-project"></a>Compilare il progetto di esempio
 
 1. Aprire *File -> Build Settings* (File -> Impostazioni compilazione).
-1. Impostare *Platform* (Piattaforma) su **Universal Windows Platform** (Piattaforma UWP).
+1. Modificare *Piattaforma* in **Piattaforma UWP** (**anche PC Standalone** è supportato ma non è utilizzato qui).
 1. Impostare *Target Device* (Dispositivo di destinazione) su **PC** (Computer).
 1. Impostare *Architecture* (Architettura) su **x86**.
 1. Impostare *Build Type* (Tipo di compilazione) su **D3D Project**.

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314351"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747775"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 
@@ -72,7 +72,7 @@ Questa sezione descrive i vantaggi principali offerti da WAF nel gateway applica
 - Limiti inferiori e superiori configurabili per le dimensioni delle richieste.
 - Elenchi di esclusione che consentono di omettere determinati attributi delle richieste da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi delle password.
 - Creazione di regole personalizzate per soddisfare le esigenze delle applicazioni.
-- Traffico con filtro basato sull'area geografica per consentire o impedire a determinati paesi di accedere alle applicazioni. (anteprima)
+- Traffico con filtro basato sull'area geografica per consentire o impedire a determinati paesi/aree geografiche di accedere alle applicazioni. (anteprima)
 - Protezione delle applicazioni dai bot con il set di regole di mitigazione dei bot. (anteprima)
 
 ## <a name="waf-policy"></a>Criterio di WAF

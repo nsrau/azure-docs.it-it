@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192264"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773280"
 ---
 # <a name="confidential-computing-on-azure"></a>Confidential computing in Azure
 
@@ -42,13 +42,13 @@ Microsoft Azure aiuta a ridurre al minimo la superficie di attacco per rafforzar
 
 ## <a name="introduction-to-confidential-computing"></a>Introduzione al confidential computing <a id="intro to acc"></a>
 
-Il termine confidential computing è stato definito nel settore dal [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), una fondazione che si occupa di definire e accelerare l'adozione di questa metodologia. Per confidential computing si intende la protezione dei dati in uso durante l'esecuzione di calcoli. I calcoli si verificano in un ambiente TEE (Trusted Execution Environment) basato su hardware.
+Il termine confidential computing è stato definito nel settore dal [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), una fondazione che si occupa di definire e accelerare l'adozione di questa metodologia. Il CCC definisce il confidential computing come protezione dei dati in uso mediante l’esecuzione di calcoli in un ambiente TEE (Trusted Execution Environment) basato su hardware.
 
 TEE è un ambiente che impone l'esecuzione esclusivamente di codice autorizzato. I dati inclusi nel TEE non possono essere letti o manomessi da codice all'esterno dell'ambiente.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>Enclavi e ambienti TEE
+### <a name="enclaves"></a>Enclavi
 
-Nel contesto del confidential computing, i TEE vengono in genere definiti *enclavi* o *enclavi sicure*. Le enclavi sono parti protette del processore e della memoria dell'hardware. Non vi è alcun modo per visualizzare dati o codice all'interno dell'enclave, neanche con un debugger. Se il codice non attendibile tenta di modificare il contenuto nella memoria dell'enclave, l'ambiente viene disabilitato e le operazioni vengono negate.
+Le enclavi sono parti protette del processore e della memoria dell'hardware. Non vi è alcun modo per visualizzare dati o codice all'interno dell'enclave, neanche con un debugger. Se il codice non attendibile tenta di modificare il contenuto nella memoria dell'enclave, l'ambiente viene disabilitato e le operazioni vengono negate.
 
 Quando si sviluppano applicazioni, è possibile usare [strumenti software](#oe-sdk) per schermare parti del codice e dei dati all'interno dell'enclave. Questi strumenti garantiscono che il codice e i dati non possano essere visualizzati o modificati da utenti esterni all'ambiente attendibile. 
 
@@ -96,11 +96,11 @@ Un'applicazione creata con enclavi viene partizionata in due modi:
 1. Un componente "non attendibile" (l'host)
 1. Un componente "attendibile" (l'enclave)
 
-**L'host** è l'applicazione enclave in esecuzione in un ambiente non attendibile. Il codice presente nell'host non può accedere al codice caricato nell'enclave. 
+**L'host** è dove l'applicazione enclave è in esecuzione ed è un ambiente non attendibile. Il codice dell’enclave distribuito sull'host non è accessibile dall'host. 
 
-**L'enclave** è il componente in cui vengono eseguiti codice e dati all'interno dell'implementazione TEE. I calcoli protetti devono essere eseguiti nell'enclave per garantire la protezione continua di segreti e dati sensibili. 
+**L'enclave** è il punto in cui viene eseguito il codice dell'applicazione e i relativi dati memorizzati nella cache/memoria. I calcoli protetti devono essere eseguiti nell'enclave per garantire la protezione continua di segreti e dati sensibili. 
 
-Quando si inizia a sviluppare un'applicazione enclave, è necessario identificare il codice e i dati che necessitano di protezione. Il codice che si sceglie di inserire nel componente attendibile viene isolato dal resto dell'applicazione. Una volta inizializzata l'enclave e caricato il codice in memoria, tale codice non può essere letto o cambiato dall'esterno dell'ambiente protetto.
+Durante la progettazione dell'applicazione è importante identificare e determinare quale parte dell'applicazione deve essere eseguita nelle enclavi. Il codice che si sceglie di inserire nel componente attendibile viene isolato dal resto dell'applicazione. Una volta inizializzata l'enclave e caricato il codice in memoria, tale codice non può essere letto o cambiato dai componenti non attendibili. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 

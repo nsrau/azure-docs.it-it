@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589279"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835836"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controllare l'accesso agli account di archiviazione per SQL su richiesta (anteprima)
 
@@ -26,11 +26,7 @@ Questo articolo descrive i tipi di credenziali che è possibile usare e il modo 
 
 ## <a name="supported-storage-authorization-types"></a>Tipi di autorizzazione supportati per l'archiviazione
 
-Un utente connesso alla risorsa SQL su richiesta deve essere autorizzato ad accedere ed eseguire query sui file in Archiviazione di Azure se i file non sono disponibili pubblicamente. Sono supportati tre tipi di autorizzazione:
-
-- [Firma di accesso condiviso](?tabs=shared-access-signature)
-- [Identità utente](?tabs=user-identity)
-- [Identità gestita](?tabs=managed-identity)
+Un utente connesso alla risorsa SQL su richiesta deve essere autorizzato ad accedere ed eseguire query sui file in Archiviazione di Azure se i file non sono disponibili pubblicamente. È possibile usare tre tipi di autorizzazione per accedere all’archiviazione non pubblica: [Identità utente](?tabs=user-identity), [Firma di accesso condiviso](?tabs=shared-access-signature) e [Identità gestita](?tabs=managed-identity).
 
 > [!NOTE]
 > [Pass-through di Azure AD](#force-azure-ad-pass-through) è il comportamento predefinito quando si crea un'area di lavoro. Se si usa il pass-through, non è necessario creare credenziali per ogni account di archiviazione a cui si accede con gli account di accesso di Azure AD. È possibile [disabilitare questo comportamento](#disable-forcing-azure-ad-pass-through).
@@ -99,7 +95,7 @@ Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve conce
 
 ### <a name="anonymous-access"></a>[Accesso anonimo](#tab/public-access)
 
-È possibile accedere ai file disponibili pubblicamente presenti negli account di archiviazione di Azure che [consentono l'accesso anonimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
+È possibile accedere ai file disponibili pubblicamente presenti negli account di archiviazione di Azure che [consentono l'accesso anonimo](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

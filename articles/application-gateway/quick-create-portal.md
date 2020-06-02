@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/09/2020
+ms.date: 05/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 17adc800bd5a2ae53e27350c7e0d588eaeee4a8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6415657d68e10b63e357f3c1353bb66fc9c8262
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79290169"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779420"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
@@ -231,4 +231,4 @@ Per eliminare il gruppo di risorse:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire il traffico Web con un gateway applicazione mediante l'interfaccia della riga di comando di Azure](./tutorial-manage-web-traffic-cli.md)
+> [Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure](create-ssl-portal.md)

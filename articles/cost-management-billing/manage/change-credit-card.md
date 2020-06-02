@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199858"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834969"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Aggiungere, aggiornare o rimuovere una carta di credito per Azure
 
@@ -29,9 +29,9 @@ Se si ha un contratto del cliente Microsoft, i metodi di pagamento sono associat
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gestire le carte di credito per una sottoscrizione di Azure
 
-Le sezioni seguenti sono valide per i clienti con un account di fatturazione del Programma di Microsoft Online Services. Vedere [Verificare il tipo di account in uso](#check-the-type-of-your-account). Se si ha un tipo di account di fatturazione del Programma di Microsoft Online Services, i metodi di pagamento sono associati alle singole sottoscrizioni di Azure.
+Le sezioni seguenti sono valide per i clienti con un account di fatturazione del Programma di Microsoft Online Services. Vedere [Verificare il tipo di account in uso](#check-the-type-of-your-account). Se si ha un tipo di account di fatturazione del Programma di Microsoft Online Services, i metodi di pagamento sono associati alle singole sottoscrizioni di Azure. Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La carta di credito viene rifiutata al momento dell'iscrizione ad Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### <a name="change-credit-card-for-a-subscription"></a>Cambiare la carta di credito per una sottoscrizione
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Cambiare la carta di credito per una sottoscrizione aggiungendo una nuova carta di credito
 
 È possibile cambiare la carta di credito predefinita della sottoscrizione di Azure con una nuova carta di credito o una carta di credito precedentemente salvata nel portale di Azure. Per cambiare carta di credito è necessario essere amministratore account. Se più sottoscrizioni hanno lo stesso metodo di pagamento attivo, cambiando il metodo di pagamento attivo in una di queste sottoscrizioni viene aggiornato anche metodo di pagamento attivo nelle altre sottoscrizioni.
 
@@ -57,7 +57,7 @@ Per cambiare la carta di credito predefinita della sottoscrizione con una nuova 
 
 1. Selezionare **Avanti**.
 
-Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La carta di credito viene rifiutata al momento dell'iscrizione ad Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Cambiare la carta di credito per una sottoscrizione in una carta di credito salvata in precedenza
 
 Si può anche cambiare la carta di credito predefinita della sottoscrizione con una carta già salvata nell'account seguendo questa procedura:
 
@@ -116,6 +116,7 @@ Se la carta di credito è il metodo di pagamento attivo per altre sottoscrizioni
 Le sezioni seguenti sono valide per i clienti che hanno un contratto del cliente Microsoft e hanno effettuato l'iscrizione ad Azure online con una carta di credito. [Come verificare se si ha un contratto del cliente Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Cambiare la carta di credito predefinita
+
 Se si ha un contratto del cliente Microsoft, la carta di credito è associata a un profilo di fatturazione. Il metodo di pagamento per un profilo di fatturazione può essere cambiato solo dalla persona che ha effettuato l'iscrizione ad Azure e ha creato l'account di fatturazione.
 
 Se si vuole cambiare il metodo di pagamento predefinito del profilo di fatturazione in modo da pagare tramite assegno o bonifico, vedere [Pagare la sottoscrizione di Azure tramite fattura](pay-by-invoice.md).
@@ -158,10 +159,12 @@ Per modificare o eliminare una carta di credito, seguire questa procedura:
 1. Per modificare i dettagli della carta di credito, scegliere **Modifica** dal menu di scelta rapida.
 1. Per eliminare la carta di credito, scegliere **Elimina** dal menu di scelta rapida.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
 Non sono supportate le carte virtuali o prepagate. Se si ricevono messaggi di errore durante l'aggiunta o l'aggiornamento di una carta di credito valida, provare ad aprire il browser in modalità privata.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
+
 Le sezioni seguenti contengono le risposte alle domande frequenti sulla modifica delle informazioni sulla carta di credito.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Se la sottoscrizione è disabilitata, perché non è possibile rimuovere la carta di credito?
@@ -189,6 +192,7 @@ Se si usa l'opzione di [pagamento con fattura](pay-by-invoice.md), inviare il pa
 Per aggiungere o aggiornare l'ID imposta, aggiornare il profilo nel [Centro account di Azure](https://account.azure.com/Profile) e quindi selezionare **Registrazione fiscale**. L'ID imposta viene usato per calcolare l'esenzione fiscale ed riportato sulla fattura.
 
 ## <a name="check-the-type-of-your-account"></a>Verificare il tipo di account in uso
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
@@ -196,4 +200,5 @@ Per aggiungere o aggiornare l'ID imposta, aggiornare il profilo nel [Centro acco
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Leggere le informazioni sulle [prenotazioni di Azure](../reservations/save-compute-costs-reservations.md) per stabilire se consentono di risparmiare.

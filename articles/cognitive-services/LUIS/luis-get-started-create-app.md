@@ -3,12 +3,12 @@ title: 'Avvio rapido: Creare app - LUIS'
 description: Questo argomento di avvio rapido illustra come creare un'app LUIS che usa il domino predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589145"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701309"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app di domotica predefinita
 
@@ -42,7 +42,8 @@ In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito 
 1. Cercare **HomeAutomation**.
 1. Selezionare **Add domain** (Aggiungi dominio) nella scheda HomeAutomation.
 
-    ![Selezionare "Domini predefiniti" quindi cercare "HomeAutomation". Selezionare "Add domain" (Aggiungi dominio) nella scheda HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
+    > [!div class="mx-imgBorder"]
+    > ![Selezionare "Domini predefiniti" quindi cercare "HomeAutomation". Selezionare "Aggiungi dominio" nella scheda HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
 
     Dopo che il dominio è stato aggiunto, nella casella del dominio predefinito viene visualizzato un pulsante **Remove domain** (Rimuovi dominio).
 
@@ -50,7 +51,8 @@ In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito 
 
 1. Selezionare **Finalità** per esaminare le finalità del dominio HomeAutomation. Le finalità del dominio predefinite contengono espressioni di esempio.
 
-    ![Screenshot dell'elenco di finalità di HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot dell'elenco di finalità di HomeAutomation")
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot dell'elenco di finalità di HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot dell'elenco di finalità di HomeAutomation")
 
     > [!NOTE]
     > **None** (Nessuna) è una finalità fornita da tutte le app LUIS. Viene usata per gestire le espressioni che non corrispondono alle funzionalità offerte dall'app.
@@ -114,25 +116,25 @@ Dopo aver eseguito il training dell'app, è possibile eseguirne il test.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.984315455
+                    "score": 0.969448864
                 },
                 "HomeAutomation.QueryState": {
-                    "score": 0.009912962
-                },
-                "HomeAutomation.TurnDown": {
-                    "score": 0.00626645749
+                    "score": 0.0122336326
                 },
                 "HomeAutomation.TurnUp": {
-                    "score": 0.00572059769
+                    "score": 0.006547436
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.0050634006
                 },
                 "HomeAutomation.SetDevice": {
-                    "score": 0.00379381469
+                    "score": 0.004951761
                 },
                 "HomeAutomation.TurnOn": {
-                    "score": 0.00366983772
+                    "score": 0.00312553928
                 },
                 "None": {
-                    "score": 0.000623856
+                    "score": 0.000552945654
                 }
             },
             "entities": {
@@ -156,7 +158,7 @@ Dopo aver eseguito il training dell'app, è possibile eseguirne il test.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.907323956,
+                            "score": 0.902181149,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

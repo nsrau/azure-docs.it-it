@@ -1,0 +1,105 @@
+---
+title: "Guida introduttiva: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager"
+description: Informazioni su come proteggere l’hub virtuale con Gestione firewall di Azure (anteprima).
+services: firewall-manager
+author: vhorne
+ms.service: firewall
+ms.topic: quickstart
+ms.date: 05/19/2020
+ms.author: victorh
+ms.openlocfilehash: b9839e51fcea1e8fe4adc4760e16ae2d73b163ee
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83694135"
+---
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Guida introduttiva: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager
+
+In questo argomento di avvio rapido si userà un modello di Gestione risorse per proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima).
+
+Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Per altre informazioni su Gestione firewall di Azure (anteprima), vedere [Che cos'è Gestione firewall di Azure (anteprima)?](overview.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="create-a-secured-virtual-hub"></a>Creare un hub virtuale protetto
+
+Questo modello crea un hub virtuale protetto usando Gestione firewall di Azure (anteprima), insieme alle risorse necessarie per supportare lo scenario.
+
+### <a name="review-the-template"></a>Rivedere il modello
+
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/fwm-docs-qs/azuredeploy.json).
+
+:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
+
+Nel modello sono definite più risorse di Azure:
+
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
+- [**Microsoft.Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
+- [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
+
+### <a name="deploy-the-template"></a>Distribuire il modello
+
+Distribuire il modello di Resource Manager in Azure:
+
+1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea un'istanza di Firewall di Azure, una WAN e un hub virtuali, l'infrastruttura di rete e due macchine virtuali.
+
+   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
+2. Nella pagina **Hub virtuali protetti** del portale digitare o selezionare i valori seguenti:
+   - Sottoscrizione: selezionare una delle sottoscrizioni esistenti. 
+   - Gruppo di risorse:  selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** e quindi **OK**.
+   - Percorso: Selezionare una località
+   - Nome utente amministratore: digitare il nome utente dell'account utente amministratore. 
+   - Password amministratore: digitare una password o una chiave dell'amministratore.
+
+3. Selezionare **Rivedi e crea** e quindi **Crea**. La distribuzione può richiedere almeno 10 minuti.
+
+## <a name="validate-the-deployment"></a>Convalidare la distribuzione
+
+A questo punto testare le regole del firewall per verificare che tutto funzioni come previsto.
+
+1. Nel portale di Azure rivedere le impostazioni di rete per la macchina virtuale **Workload-Srv** e annotare l'indirizzo IP privato.
+2. Connettere una sessione di Desktop remoto alla macchina virtuale **Jump-Srv** e accedere. Da qui aprire una connessione Desktop remoto all'indirizzo IP privato di **Workload-Srv**.
+
+3. Aprire Internet Explorer e passare a `www.microsoft.com`.
+4. Selezionare **OK** > **Close** negli avvisi di sicurezza di Internet Explorer.
+
+   Verrà visualizzata la home page Microsoft.
+
+5. Passare a `www.google.com`.
+
+   Si verrà bloccati dal firewall.
+
+A questo punto si è verificato che le regole del firewall funzionano:
+
+* È possibile passare al nome di dominio completo consentito ma non agli altri.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando le risorse create con il firewall non sono più necessarie, eliminare il gruppo di risorse. Oltre al firewall verranno rimosse tutte le risorse correlate.
+
+Per eliminare il gruppo di risorse, chiamare il cmdlet `Remove-AzResourceGroup`:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name "<your resource group name>"
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Vedere le informazioni sui partner di sicurezza affidabili](trusted-security-partners.md)

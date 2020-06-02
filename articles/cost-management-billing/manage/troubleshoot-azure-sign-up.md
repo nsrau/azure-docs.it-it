@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133176"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745537"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
 
@@ -63,7 +63,7 @@ Seguire questa procedura per aggiornare le impostazioni relative ai cookie del b
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Il modulo della carta di credito non supporta il mio indirizzo di fatturazione
 
-L'indirizzo di fatturazione deve trovarsi nel paese selezionato nella sezione **Info sull'utente**. Assicurarsi di selezionare il paese corretto.
+L'indirizzo di fatturazione deve trovarsi nel paese/area geografica selezionato nella sezione **Info sull'utente**. Assicurarsi di selezionare il paese/area geografica corretto.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Assenza di messaggi di testo o chiamate durante la verifica dell'account di sottoscrizione
 
@@ -72,7 +72,7 @@ Anche se il processo è in genere rapido, il recapito del codice di verifica pot
 Altri suggerimenti:
 
 - Non è possibile usare un numero di telefono VoIP (Voice-over-IP) per il processo di verifica tramite telefono.
-- Verificare il numero di telefono immesso, incluso il prefisso internazionale selezionato nel menu a discesa.
+- Verificare il numero di telefono immesso, incluso il prefisso per paese/area geografica selezionato nel menu a discesa.
 - Se il telefono non può ricevere SMS, provare l'opzione **Chiama**.
 - Assicurarsi che il telefono possa ricevere chiamate o messaggi SMS da un numero proveniente dagli Stati Uniti.
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992aa8a4cb0ff31f7f1657be45fa1a64fdb27e7c
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128881"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780551"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -47,7 +47,7 @@ Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. U
 
 ### <a name="basic-tier"></a>Livello Basic
 
-Il livello è consigliato per soluzioni di produzione con modelli tabulari di dimensioni più ridotte, concorrenza limitata tra utenti e requisiti semplici per l'aggiornamento dei dati. Lo scale-out delle repliche delle query *non è disponibile* per questo livello. Prospettive, partizioni multiple e funzionalità del modello tabulare DirectQuery *non sono supportate* in questo livello.  
+Questo livello è consigliato per soluzioni di produzione con modelli tabulari di dimensioni più ridotte, concorrenza limitata tra utenti e requisiti semplici per l'aggiornamento dei dati. Lo scale-out delle repliche delle query *non è disponibile* per questo livello. Prospettive, partizioni multiple e funzionalità del modello tabulare DirectQuery *non sono supportate* in questo livello.  
 
 |Piano  |QPU  |Memoria (GB)  |
 |---------|---------|---------|

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48ce72ee501252e35388f958b5c2e166edc2678f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 21289874792987e35fa1cc5731a63e3f55fedc35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196163"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835768"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -65,6 +65,8 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Azure Machine Learning | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Hub IoT | Tutte le aree pubbliche    |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Servizio Azure SignalR | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://aka.ms/asrs/privatelink)   |
+| Monitoraggio di Azure <br/>(Log Analytics e Application Insights) | Tutte le aree pubbliche      |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
+
 
 Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

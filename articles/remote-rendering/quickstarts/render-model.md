@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677686"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682559"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Guida introduttiva: Eseguire il rendering di un modello con Unity
 
@@ -66,7 +66,7 @@ Il modello predefinito di cui viene eseguito il rendering è un [modello di esem
 
 1. Nel browser di asset Unity passare alla cartella *Scenes* e aprire la scena **Avvio rapido**.
 1. Nella *Gerarchia* selezionare l'oggetto gioco **RemoteRendering**.
-1. In *Inspector* immettere le [credenziali dell'account](../how-tos/create-an-account.md).
+1. In *Inspector* immettere le [credenziali dell'account](../how-tos/create-an-account.md). Se non si dispone ancora di un account, [crearne uno](../how-tos/create-an-account.md).
 
 ![Informazioni sull'account Rendering remoto di Azure](./media/arr-sample-account-info.png)
 

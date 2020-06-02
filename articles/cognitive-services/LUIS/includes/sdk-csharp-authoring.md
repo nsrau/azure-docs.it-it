@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/26/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 53e6382cf8d046b2c9818b906890bc64642fd2ed
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6f735831594e5084c56b6b1d88f18b27ddabcb7d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371602"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871272"
 ---
 Usare la libreria client di creazione di Language Understanding (LUIS) per .NET per:
 
@@ -26,56 +26,14 @@ Usare la libreria client di creazione di Language Understanding (LUIS) per .NET 
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Pacchetto di creazione (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [Esempi C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* Account del portale di Language Understanding (LUIS) - [Creare un account gratuito](https://www.luis.ai)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-
+* Dopo aver creato la sottoscrizione di Azure, [creare una risorsa di creazione Language Understanding](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa [creata](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) sono necessari per connettere l'applicazione alla creazione di Language Understanding. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido. Per provare il servizio, è possibile usare il piano tariffario gratuito (`F0`).
 
 ## <a name="setting-up"></a>Configurazione
-
-### <a name="get-your-language-understanding-luis-starter-key"></a>Ottenere la chiave di avvio di Language Understanding (LUIS)
-
-Ottenere la [chiave di avvio](../luis-how-to-azure-subscription.md#starter-key) creando una risorsa di creazione LUIS. Conservare la chiave e l'area della chiave per il passaggio successivo.
-
-### <a name="create-an-environment-variable"></a>Creare una variabile di ambiente
-
-Usando la chiave e l'area della chiave, creare due variabili di ambiente per l'autenticazione:
-
-* `COGNITIVESERVICE_AUTHORING_KEY`: la chiave della risorsa per l'autenticazione delle richieste.
-* `COGNITIVESERVICE_REGION`: area associata alla chiave. Ad esempio `westus`.
-
-Usare le istruzioni per il sistema operativo in uso.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
-setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
-```
-
-Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
-export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
-```
-
-Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Modificare `.bash_profile` e aggiungere la variabile di ambiente:
-
-```bash
-export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
-export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
-```
-
-Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` dalla finestra della console per rendere effettive le modifiche.
-***
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
@@ -147,23 +105,17 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 
 Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di sviluppo integrato o nell'editor preferito. Sostituire il codice `using` esistente con le direttive `using` seguenti:
 
-[!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
+[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-1. Creare una variabile per gestire la chiave di creazione derivata da una variabile di ambiente denominata `COGNITIVESERVICES_AUTHORING_KEY`. Se la variabile di ambiente è stata creata dopo l'avvio dell'applicazione, per accedere alla variabile sarà necessario chiudere e ricaricare l'editor, la shell o l'ambiente di sviluppo integrato in cui è in esecuzione. I metodi verranno creati in un secondo momento.
+1. Creare una variabile che contenga la chiave di creazione e l'endpoint di creazione.
 
-1. Creare le variabili per mantenere l'endpoint e l'area di creazione. L'area della chiave di creazione dipende dalla località in cui si esegue la creazione. Le [tre aree di creazione](../luis-reference-regions.md) disponibili sono:
-
-    * Australia - `australiaeast`
-    * Europa - `westeurope`
-    * Stati Uniti e altre aree - `westus` (valore predefinito)
-
-    [!code-csharp[Authorization to resource key](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Variables)]
+    [!code-csharp[Authorization to resource key](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=Variables)]
 
 1. Creare un oggetto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.apikeyserviceclientcredentials?view=azure-dotnet) con la chiave e usarlo con l'endpoint per creare un oggetto [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet).
 
-    [!code-csharp[Create LUIS client object](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateClient)]
+    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringCreateClient)]
 
 ## <a name="create-a-luis-app"></a>Creare un'app LUIS
 
@@ -173,14 +125,14 @@ Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di svilup
 
 1. Chiamare il metodo [Apps.AddAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet). La risposta corrisponde all'ID app.
 
-    [!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateApplication)]
+    [!code-csharp[Create a LUIS app](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringCreateApplication)]
 
 ## <a name="create-intent-for-the-app"></a>Creare la finalità per l'app
 L'oggetto primario in un modello di app LUIS è la finalità. La finalità è allineata a un raggruppamento di _intenzioni_ delle espressioni dell'utente. Un utente può porre una domanda o fare un'affermazione per una risposta _con finalità_ specifica da un bot o da un'altra applicazione client. Alcuni esempi di intenzioni sono la prenotazione di un volo, la richiesta di informazioni meteo per una città di destinazione e la richiesta di informazioni di contatto per il servizio clienti.
 
 Creare un oggetto [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modelcreateobject?view=azure-dotnet) con il nome della finalità univoca, quindi passare l'ID app, l'ID versione e l'oggetto ModelCreateObject al metodo [Model.AddIntentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addintentasync?view=azure-dotnet). La risposta corrisponde all'ID finalità.
 
-[!code-csharp[Create intent](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringAddIntents)]
+[!code-csharp[Create intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringAddIntents)]
 
 ## <a name="create-entities-for-the-app"></a>Creare le entità per l'app
 
@@ -192,7 +144,7 @@ Questo metodo **AddEntities** ha creato un'entità semplice `Location` con due r
 
 I metodi di creazione per le entità sono parte della classe [Model](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet). Ogni tipo di entità dispone di un modello DTO (Data Transformation Object) specifico, in genere contenente la parola `model` nello spazio dei nomi [Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet).
 
-[!code-csharp[Create entities](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringAddEntities)]
+[!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringAddEntities)]
 
 ## <a name="add-example-utterance-to-intent"></a>Aggiungere un'espressione di esempio alla finalità
 
@@ -202,7 +154,7 @@ Aggiungere le espressioni di esempio creando un elenco di oggetti [ExampleLabelO
 
 Chiamare [Examples.BatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ExamplesExtensions_BatchAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_IExamples_System_Guid_System_String_System_Collections_Generic_IList_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_Models_ExampleLabelObject__System_Threading_CancellationToken_) con l'ID app, l'ID versione e l'elenco di esempi. La chiamata risponde con un elenco di risultati. È necessario controllare il risultato di ogni esempio per assicurarsi che sia stato aggiunto correttamente al modello.
 
-[!code-csharp[Add example utterances to a specific intent](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringBatchAddUtterancesForIntent)]
+[!code-csharp[Add example utterances to a specific intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringBatchAddUtterancesForIntent)]
 
 I metodi **CreateUtterance** e **CreateLabel** sono metodi di utilità che consentono di creare gli oggetti.
 
@@ -214,13 +166,13 @@ Il metodo [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/micros
 
 Il training di un modello di dimensioni ridotte, come quello mostrato in questa esercitazione di avvio rapido, verrà eseguito molto rapidamente. Per le applicazioni a livello di produzione, il training dell'app deve includere una chiamata di polling al metodo [GetStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_TrainExtensions_GetStatusAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ITrain_System_Guid_System_String_System_Threading_CancellationToken_) per determinare quando o se il training ha avuto esito positivo. La risposta è un elenco di oggetti [ModelTrainingInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modeltraininginfo?view=azure-dotnet) con uno stato separato per ogni oggetto. Affinché il training venga considerato completato, è necessario che tutti gli oggetti abbiano esito positivo.
 
-[!code-csharp[Train the app's version](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringTrainVersion)]
+[!code-csharp[Train the app's version](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringTrainVersion)]
 
 ## <a name="publish-a-language-understanding-app"></a>Pubblicare un'app Language Understanding
 
 Pubblicare l'app LUIS con il metodo [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet). Questo metodo consente di pubblicare la versione con training corrente nello slot specificato nell'endpoint. L'applicazione client usa questo endpoint per inviare espressioni utente per la previsione della finalità e l'estrazione di entità.
 
-[!code-csharp[Create entities](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringPublishVersionAndSlot)]
+[!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/authoring/authoring-with-sdk.cs?name=AuthoringPublishVersionAndSlot)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

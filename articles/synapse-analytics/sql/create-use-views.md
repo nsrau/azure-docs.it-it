@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0f5323193706fdd00739be6c71a4fe12cfedf21b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ca60b7c12ec7e7a5e04202e377c345055ce1090c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420775"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736008"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Creare e usare viste in SQL su richiesta (anteprima) con Azure Synapse Analytics
 
@@ -22,17 +22,14 @@ Questa sezione illustra come creare e usare viste per il wrapping di query di SQ
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il primo passaggio consiste nel leggere gli articoli seguenti e assicurarsi di aver soddisfatto i prerequisiti per la creazione e l'uso di viste di SQL su richiesta:
-
-- [Prima configurazione](query-data-storage.md#first-time-setup)
-- [Prerequisiti](query-data-storage.md#prerequisites)
+Il primo passaggio consiste nel creare un database in cui verrà creata la vista e inizializzare gli oggetti necessari per l'autenticazione in archiviazione di Azure mediante l’esecuzione di [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Tutte le query in questo articolo verranno eseguite nel database di esempio.
 
 ## <a name="create-a-view"></a>Creare una vista
 
 È possibile creare viste nello stesso modo in cui si creano le normali viste di SQL Server. La query seguente crea una vista che legge il file *population.csv*.
 
 > [!NOTE]
-> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato. Se non è stato creato un database, leggere [Prima configurazione](query-data-storage.md#first-time-setup).
+> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato.
 
 ```sql
 USE [mydbname];
@@ -44,8 +41,9 @@ GO
 CREATE VIEW populationView AS
 SELECT * 
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV', 
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', 
         FIELDTERMINATOR =',', 
         ROWTERMINATOR = '\n'
     )
@@ -57,14 +55,27 @@ WITH (
 ) AS [r];
 ```
 
+La vista in questo esempio applica la funzione `OPENROWSET` che usa il percorso assoluto dei file sottostanti. Se si dispone di `EXTERNAL DATA SOURCE` con un URL radice della risorsa di archiviazione, è possibile usare `OPENROWSET` con `DATA_SOURCE` e relativo il percorso di file:
+
+```
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## <a name="use-a-view"></a>Usare una vista
 
 È possibile usare viste nelle query nello stesso modo in cui vengono usate nelle query di SQL Server.
 
-La query seguente illustra l'uso della vista *population* creata nella sezione [Creare una vista](#create-a-view). Restituisce i nomi dei paesi con la popolazione del 2019 in ordine decrescente.
+La query seguente illustra l'uso della vista *population* creata nella sezione [Creare una vista](#create-a-view). Restituisce i nomi dei paesi/aree geografiche con la popolazione del 2019 in ordine decrescente.
 
 > [!NOTE]
-> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato. Se non è stato creato un database, leggere [Prima configurazione](query-data-storage.md#first-time-setup).
+> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato.
 
 ```sql
 USE [mydbname];

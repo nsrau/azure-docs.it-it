@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199518"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715886"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Modificare una sottoscrizione di Azure in un'offerta diversa
 
@@ -51,10 +51,10 @@ I clienti con una [sottoscrizione individuale con pagamento in base al consumo](
 1. **Selezionare l'offerta preferita** dall'elenco di offerte disponibili per l'aggiornamento della sottoscrizione. L'elenco varia in base alle appartenenze associate all'account. Se non sono disponibili opzioni, controllare l'[elenco di offerte disponibili a cui è possibile passare](#whats-supported) e assicurarsi che siano disponibili le appartenenze corrette.
 
    ![Selezionare un'offerta a cui passare](./media/switch-azure-offer/selectoffer.png)
-1. A seconda dell'offerta a cui si passa, può essere visualizzata una nota relativa all'impatto del passaggio. Leggere attentamente l'elenco e seguire le istruzioni prima di procedere.
+1. A seconda dell'offerta a cui si passa, può essere visualizzata una nota relativa all'impatto del passaggio. Leggere attentamente l'elenco e seguire le istruzioni prima di continuare.
 
    ![Esaminare le note](./media/switch-azure-offer/thingstonote.png)
-1. È possibile rinominare la sottoscrizione. Per impostazione predefinita, viene impostata sul nuovo nome dell'offerta. Fare clic su **Cambia offerta** per completare il processo.
+1. È possibile rinominare la sottoscrizione. Per impostazione predefinita, non viene impostata sul nuovo nome dell'offerta. Fare clic su **Cambia offerta** per completare il processo.
 
    ![Fare clic sul pulsante verde](./media/switch-azure-offer/confirmpage.png)
 1. Operazione riuscita. La sottoscrizione viene ora trasferita alla nuova offerta.
@@ -100,7 +100,7 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>È possibile eseguire la migrazione da una sottoscrizione con pagamento in base al consumo a Cloud Solution Provider (CSP) o al contratto Enterprise Agreement?
 
-* Per eseguire la migrazione all'offerta CSP, vedere l'argomento relativo alla [migrazione della sottoscrizione di Azure con pagamento in base al consumo all'offerta CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Per eseguire la migrazione a CSP, vedere [Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP](transfer-subscriptions-subscribers-csp.md).
 * Per migrare la sottoscrizione esistente a un contratto Enterprise, chiedere all'amministratore dell'iscrizione di aggiungere l'account al contratto Enterprise. Seguire le istruzioni incluse nell'invito ricevuto tramite posta elettronica per lo spostamento delle sottoscrizioni nell'ambito dell'iscrizione al contratto Enterprise. Per altre informazioni, vedere [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Associare un account esistente) nel portale EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>È possibile eseguire la migrazione di dati e servizi a una nuova sottoscrizione?

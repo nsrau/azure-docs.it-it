@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332540"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739100"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Panoramica degli aspetti tecnici e delle funzionalità di Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Un utente con un account consumer può accedere con più identità, ad esempio n
 
 ![Identità dell'account consumer](media/technical-overview/identities.png)<br/>*Figura: un singolo account consumer con più identità in Azure AD B2C*
 
-Azure AD B2C consente di gestire gli attributi comuni dei profili degli account consumer, come il nome visualizzato, il cognome, il nome, la città e altri. È anche possibile estendere lo schema di Azure AD per archiviare informazioni aggiuntive sugli utenti, come il paese o la residenza, la lingua preferita e le preferenze, ad esempio se vogliono sottoscrivere una newsletter o abilitare l'autenticazione a più fattori.
+Azure AD B2C consente di gestire gli attributi comuni dei profili degli account consumer, come il nome visualizzato, il cognome, il nome, la città e altri. È anche possibile estendere lo schema di Azure AD per archiviare informazioni aggiuntive sugli utenti, come il paese/area geografica o la residenza, la lingua preferita e le preferenze, ad esempio se vogliono sottoscrivere una newsletter o abilitare l'autenticazione a più fattori.
 
 Per altre informazioni sui tipi di account utente in Azure AD B2C, vedere [Panoramica degli account utente in Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Per consentire di configurare rapidamente le attività più comuni di gestione d
 È possibile configurare impostazioni di flusso utente come queste per controllare i comportamenti dell'esperienza di identità nelle applicazioni:
 
 * Tipi di account usati per l'accesso, ad esempio account di social network, come Facebook, o account locali che usano un indirizzo di posta elettronica e una password per accedere
-* Attributi da raccogliere dall'utente, ad esempio nome, codice postale o paese di residenza
+* Attributi da raccogliere dall'utente, ad esempio nome, codice postale o paese/area geografica di residenza
 * Azure Multi-Factor Authentication (MFA)
 * Personalizzazione dell'interfaccia utente
 * Set di attestazioni in un token che l'applicazione riceve dopo che l'utente ha completato il flusso utente

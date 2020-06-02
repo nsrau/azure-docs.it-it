@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: f36a76187538d93b57d2d3f5973408f141271f67
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1dfac9a56e3bc299fbb0651ae1cd5644eba83267
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420165"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645822"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regole del firewall IP di Azure Synapse Analytics (anteprima)
 
@@ -30,7 +30,7 @@ Le regole del firewall IP consentono di concedere o negare l'accesso all'area di
 
 ![Configurazione IP dell'area di lavoro di Synapse nel portale di Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
 
-È anche possibile aggiungere regole del firewall IP a un'area di lavoro Synapse dopo la creazione dell'area di lavoro. Selezionare **Firewall** in **Sicurezza** del portale di Azure. Per aggiungere una nuova regola del firewall IP, assegnarle un nome, un indirizzo IP iniziale e un indirizzo IP finale. Al termine, selezionare **Salva**.
+È anche possibile aggiungere regole del firewall IP a un'area di lavoro Synapse dopo la creazione dell'area di lavoro. Selezionare **Firewall** in **Sicurezza** del portale di Azure. Per aggiungere una nuova regola del firewall IP, assegnarle un nome, un indirizzo IP iniziale e un indirizzo IP finale. Al termine, selezionare **Salva** .
 
 ![Configurazione IP dell'area di lavoro di Azure Synapse nel portale di Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
@@ -42,7 +42,7 @@ Assicurarsi che il firewall nella rete e nel computer locale consenta la comunic
 
 È inoltre necessario consentire la comunicazione in uscita attraverso la porta UDP 53 per Synapse Studio. Per connettersi con strumenti quali SSMS e Power BI, è necessario consentire la comunicazione in uscita tramite la porta TCP 1433.
 
-Se si usa l'impostazione predefinita dei criteri di connessione di reindirizzamento, potrebbe essere necessario consentire la comunicazione in uscita tramite porte aggiuntive. Per altre informazioni sui criteri di connessione, vedere qui.
+Se si usa l'impostazione predefinita dei criteri di connessione di reindirizzamento, potrebbe essere necessario consentire la comunicazione in uscita tramite porte aggiuntive. Per altre informazioni sui criteri di connessione, vedere [qui](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

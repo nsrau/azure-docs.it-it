@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
-ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80247198"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682456"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
 Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
-<a name="new-service-name"></a>
-
-## <a name="new-service-name"></a>Nuovo nome del servizio
-
-Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure** per riflettere l'uso più ampio (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni delle API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono rimasti invariati. Le soluzioni di ricerca nuove ed esistenti non sono interessate dalla modifica del nome del servizio.
-
 ## <a name="feature-announcements"></a>Annunci di funzionalità
+
+### <a name="may-2020-microsoft-build"></a>Maggio 2020 (Microsoft Build)
+
++ La funzionalità [Sessioni di debug](cognitive-search-debug-session.md) è ora disponibile in anteprima. [Iscriversi per richiedere l'accesso](https://aka.ms/DebugSessions). Le sessioni di debug forniscono un'interfaccia basata su portale per esaminare e risolvere i problemi relativi a un set di competenze. Le correzioni create nella sessione di debug possono essere salvate nei set di competenze di produzione. Introduzione a [questa esercitazione](cognitive-search-tutorial-debug-sessions.md).
+
++ I miglioramenti della sicurezza includono la possibilità di [configurare un endpoint di ricerca privato (anteprima)](service-create-private-endpoint.md) non accessibile sulla rete Internet pubblica. È anche possibile [configurare regole IP per il supporto del firewall in ingresso (anteprima)](service-configure-firewall.md).
+
++ Usare una [identità gestita dal sistema (anteprima)](search-howto-managed-identities-data-sources.md) per impostare una connessione a un'origine dati di Azure per l'indicizzazione. Si applica agli [indicizzatori](search-indexer-overview.md) che inseriscono contenuto da origini dati di Azure, ad esempio database SQL di Azure, Azure Cosmos DB e Archiviazione di Azure.
+
++ Modificare la base per il calcolo dei punteggi di ricerca, da ogni partizione a tutte le partizioni, usando il [parametro di query scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics).
 
 ### <a name="march-2020"></a>Marzo 2020
 
@@ -73,6 +77,12 @@ Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure
 ### <a name="july-2019"></a>Luglio 2019
 
 + Disponibile a livello generale in [Azure per enti pubblici](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
+
+<a name="new-service-name"></a>
+
+## <a name="new-service-name"></a>Nuovo nome del servizio
+
+Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure** per riflettere l'uso più ampio (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni delle API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono rimasti invariati. Le soluzioni di ricerca nuove ed esistenti non sono interessate dalla modifica del nome del servizio.
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 

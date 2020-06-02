@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409392"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745516"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Risolvere un problema di carta rifiutata all'iscrizione ad Azure
 
@@ -20,9 +20,9 @@ Si verifica un problema o un errore in cui una carta di credito viene rifiutata 
 
 Per risolvere il problema, selezionare l'argomento riportato di seguito che rispecchia maggiormente l'errore verificatosi.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>L'istituto della carta di credito o debito non è accettato nel proprio paese
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>L'istituto della carta di credito o debito non è accettato nel proprio paese/area geografica
 
-Quando si sceglie una carta, Azure mostra solo le opzioni valide nel paese selezionato. Contattare la banca o l'autorità emittente della carta per verificare che la carta di credito sia abilitata per le transazioni internazionali. Per altre informazioni sui paesi e le valute supportati, vedere le [Domande frequenti relative agli acquisti di Azure](https://azure.microsoft.com/pricing/faq/).
+Quando si sceglie una carta, Azure mostra solo le opzioni valide nel paese/area geografica selezionato. Contattare la banca o l'autorità emittente della carta per verificare che la carta di credito sia abilitata per le transazioni internazionali. Per altre informazioni sui paesi/aree geografiche e le valute supportati, vedere le [Domande frequenti relative agli acquisti di Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Le carte di credito American Express non sono attualmente supportate come strumento di pagamento in India. Al momento non vi sono previsioni per quando potrà essere una forma di pagamento accettata.

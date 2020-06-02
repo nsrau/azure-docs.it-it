@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420045"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696838"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS con Synapse SQL
 
@@ -78,6 +78,9 @@ SELECT <select_criteria>
 
 Popola la nuova tabella con i risultati di un'istruzione SELECT. *select_criteria* è il corpo dell'istruzione SELECT che determina i dati da copiare nella nuova tabella. Per informazioni sulle istruzioni SELECT, vedere [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> La clausola ORDER BY nella parte SELECT di CETAS non è supportata.
+
 ## <a name="permissions"></a>Autorizzazioni
 
 Per il corretto funzionamento di CETAS, è necessario avere le autorizzazioni per elencare il contenuto della cartella e scrivere nella cartella in LOCATION.
@@ -86,7 +89,9 @@ Per il corretto funzionamento di CETAS, è necessario avere le autorizzazioni pe
 
 Questi esempi usano CETAS per salvare i dati aggregati sulla popolazione totale per anno e stato in una cartella aggregated_data che si trova nell'origine dati population_ds.
 
-Questo esempio si basa su credenziali, origine dati e formato di file esterno creati in precedenza. Vedere il documento [Tabelle esterne](develop-tables-external-tables.md). Per salvare i risultati delle query in una cartella diversa nella stessa origine dati, cambiare l'argomento LOCATION. Per salvare i risultati in un account di archiviazione diverso, creare e usare un'origine dati diversa per l'argomento DATA_SOURCE.
+Questo esempio si basa su credenziali, origine dati e formato di file esterno creati in precedenza. Vedere il documento [Tabelle esterne](develop-tables-external-tables.md). Per salvare i risultati delle query in una cartella diversa nella stessa origine dati, cambiare l'argomento LOCATION. 
+
+Per salvare i risultati in un account di archiviazione diverso, creare e usare un'origine dati diversa per l'argomento DATA_SOURCE.
 
 > [!NOTE]
 > Gli esempi seguenti usano un account di archiviazione pubblico del set di dati aperti di Azure. È di sola lettura. Per eseguire queste query, è necessario specificare l'origine dati per chi si hanno autorizzazioni di scrittura.
@@ -152,7 +157,8 @@ SELECT * FROM population_by_year_state
 - TINYINT
 - bit
 
-I LOB non possono essere usati con CETAS.
+> [!NOTE]
+> I LOB non possono essere usati con CETAS.
 
 I tipi di dati seguenti non possono essere usati nella parte SELECT di CETAS:
 
@@ -167,4 +173,4 @@ I tipi di dati seguenti non possono essere usati nella parte SELECT di CETAS:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile provare a eseguire query su [tabelle Spark](develop-storage-files-spark-tables.md).
+È possibile provare a eseguire query su [tabelle esterne Apache Spark per Azure Synapse](develop-storage-files-spark-tables.md).

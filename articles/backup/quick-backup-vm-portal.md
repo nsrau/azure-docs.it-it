@@ -1,17 +1,16 @@
 ---
 title: 'Avvio rapido: Eseguire il backup di una macchina virtuale con il portale di Azure'
 description: Questa Guida di avvio rapido illustra come creare un insieme di credenziali di Servizi di ripristino, come abilitare la protezione in una macchina virtuale di Azure e come eseguire il backup della macchina virtuale con il portale di Azure.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215329"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656981"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Eseguire il backup di una macchina virtuale in Azure
 
@@ -70,7 +69,7 @@ Se si intende proseguire con l'esercitazione relativa al backup che illustra com
 
 1. Selezionare l'opzione **Backup** per la VM.
 
-2. Selezionare **Altro** per visualizzare opzioni aggiuntive e quindi scegliere **Interrompi backup**.
+2. Scegliere **Interrompi backup**.
 
     ![Interrompere il backup della VM dal portale di Azure](./media/quick-backup-vm-portal/stop-backup.png)
 

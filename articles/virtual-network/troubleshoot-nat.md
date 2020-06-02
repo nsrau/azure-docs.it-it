@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508429"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698088"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
 
@@ -31,6 +31,7 @@ Questo articolo consente agli amministratori di diagnosticare e risolvere i prob
 * [Errore del ping ICMP](#icmp-ping-is-failing)
 * [Errori di connettività](#connectivity-failures)
 * [Coesistenza di IPv6](#ipv6-coexistence)
+* [La connessione non ha origine dagli IP del gateway NAT](#connection-doesnt-originate-from-nat-gateway-ips)
 
 Per risolvere questi problemi, attenersi alla procedura descritta nella sezione seguente.
 
@@ -61,10 +62,10 @@ _**Soluzione:**_ Usare procedure consigliate e modelli appropriati
 - DNS può introdurre molti flussi individuali in grandi volumi quando il client non memorizza nella cache il risultato dei resolver DNS. Usare la memorizzazione nella cache.
 - I flussi UDP, ad esempio le ricerche DNS, allocano le porte SNAT per la durata del timeout di inattività. Più è lungo il timeout di inattività, maggiore è la pressione sulle porte SNAT. Usare un timeout di inattività breve (ad esempio 4 minuti).
 - Usare i pool di connessioni per definire il volume di connessioni.
-- Non abbandonare mai un flusso TCP e non fare affidamento sui timer TCP per pulire il flusso. Se non si lascia che TCP chiuda in modo esplicito la connessione, lo stato rimane allocato in endpoint e sistemi intermedi e rende le porte SNAT non disponibili per altre connessioni. Questo scenario può generare errori dell'applicazione e l'esaurimento SNAT. 
+- Non abbandonare mai un flusso TCP e non fare affidamento sui timer TCP per pulire il flusso. Se non si lascia che TCP chiuda in modo esplicito la connessione, lo stato rimane allocato in endpoint e sistemi intermedi e rende le porte SNAT non disponibili per altre connessioni. Questo schema può generare errori dell'applicazione e l'esaurimento SNAT. 
 - Non cambiare i valori del timer correlati alla chiusura TCP a livello di sistema operativo se non se ne conosce perfettamente l'impatto. Durante il ripristino dello stack TCP, le prestazioni dell'applicazione possono subire un impatto negativo quando gli endpoint di una connessione non hanno le stesse aspettative. La spinta a cambiare i timer è in genere segno di un problema di progettazione sottostante. Esaminare le raccomandazioni seguenti.
 
-Spesso l'esaurimento SNAT può anche essere amplificato con altri anti-modelli nell'applicazione sottostante. Esaminare questi modelli e queste procedure consigliate per migliorare la scalabilità e l'affidabilità del servizio.
+L'esaurimento SNAT può anche essere amplificato con altri anti-modelli nell'applicazione sottostante. Esaminare questi modelli e queste procedure consigliate per migliorare la scalabilità e l'affidabilità del servizio.
 
 - Analizzare l'impatto della riduzione del [timeout di inattività TCP](nat-gateway-resource.md#timers) a valori inferiori, incluso il timeout di inattività predefinito di 4 minuti, per liberare prima l'inventario delle porte SNAT.
 - Valutare l'uso di [modelli di polling asincroni](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) per le operazioni a esecuzione prolungata per liberare risorse di connessione per altre operazioni.
@@ -78,8 +79,8 @@ _**Soluzione:**_ ridimensionare la connettività in uscita come indicato di segu
 
 | Scenario | Evidenza |Strategia di riduzione del rischio |
 |---|---|---|
-| Si riscontra una contesa per le porte SNAT e l'esaurimento delle porte SNAT durante i periodi di utilizzo elevato. | La categoria "Non riuscita" per la [metrica](nat-metrics.md) Connessioni SNAT in Monitoraggio di Azure mostra gli errori temporanei o persistenti nel tempo e il volume elevato di connessioni.  | Determinare se è possibile aggiungere risorse indirizzo IP pubblico o risorse prefisso di indirizzo IP pubblico aggiuntive. Questa aggiunta garantirà fino a un totale di 16 indirizzi IP per il gateway NAT, fornirà un inventario più esteso per le porte SNAT disponibili (64.000 per indirizzo IP) e consentirà di dimensionare ulteriormente lo scenario.|
-| Sono già stati assegnati 16 indirizzi IP e si riscontra ancora l'esaurimento delle porte SNAT. | Il tentativo di aggiungere un altro indirizzo IP non riesce. Il numero totale di indirizzi IP delle risorse indirizzo IP pubblico o delle risorse prefisso di indirizzo IP pubblico supera il totale di 16. | Distribuire l'ambiente dell'applicazione tra più subnet e specificare una risorsa gateway NAT per ogni subnet.  Rivalutare il modello o i modelli di progettazione per l'ottimizzazione in base alle [indicazioni](#design-patterns) precedenti. |
+| Si riscontra una contesa per le porte SNAT e l'esaurimento delle porte SNAT durante i periodi di utilizzo elevato. | La categoria "Non riuscita" per la [metrica](nat-metrics.md) Connessioni SNAT in Monitoraggio di Azure mostra gli errori temporanei o persistenti nel tempo e il volume elevato di connessioni.  | Determinare se è possibile aggiungere risorse indirizzo IP pubblico o risorse prefisso IP pubblico aggiuntive. Questa aggiunta garantirà fino a un totale di 16 indirizzi IP per il gateway NAT, fornirà un inventario più esteso per le porte SNAT disponibili (64.000 per indirizzo IP) e consentirà di dimensionare ulteriormente lo scenario.|
+| Sono già stati assegnati 16 indirizzi IP e si riscontra ancora l'esaurimento delle porte SNAT. | Il tentativo di aggiungere un altro indirizzo IP non riesce. Il numero totale di indirizzi IP delle risorse di indirizzi IP pubblici o di prefissi IP pubblici supera il totale di 16. | Distribuire l'ambiente dell'applicazione tra più subnet e specificare una risorsa gateway NAT per ogni subnet.  Rivalutare il modello o i modelli di progettazione per l'ottimizzazione in base alle [indicazioni](#design-patterns) precedenti. |
 
 >[!NOTE]
 >È importante comprendere la causa dell'esaurimento delle porte SNAT. Assicurarsi di usare i modelli corretti per gli scenari affidabili e scalabili.  L'aggiunta di più porte SNAT a uno scenario senza aver compreso la causa della domanda deve essere l'ultima eventualità. Se non si comprende il motivo per cui lo scenario fa pressione sull'inventario di porte SNAT, l'aggiunta di più porte SNAT mediante l'aggiunta di altri indirizzi IP ritarderà solamente lo stesso errore di esaurimento man mano che le prestazioni dell'applicazione aumentano.  È possibile che si stiano mascherando altre inefficienze e anti-pattern.
@@ -105,9 +106,9 @@ I problemi di connettività di [NAT di rete virtuale](nat-overview.md) possono e
 * [Esaurimento SNAT](#snat-exhaustion) temporaneo o persistente del gateway NAT
 * Errori temporanei nell'infrastruttura di Azure 
 * Errori temporanei nel percorso tra Azure e la destinazione Internet pubblica 
-* Errori temporanei o persistenti nella destinazione Internet pubblica
+* Errori temporanei o persistenti nella destinazione Internet pubblica.
 
-Usare strumenti come i seguenti per verificare la connettività [Il ping ICMP non è supportato](#icmp-ping-is-failing).
+Usare strumenti come i seguenti per verificare la connettività. [Il ping ICMP non è supportato](#icmp-ping-is-failing).
 
 | Sistema operativo | Test di connessione TCP generico | Test del livello dell'applicazione TCP | UDP |
 |---|---|---|---|
@@ -116,7 +117,7 @@ Usare strumenti come i seguenti per verificare la connettività [Il ping ICMP no
 
 #### <a name="configuration"></a>Configurazione
 
-Verificare quindi quanto segue:
+Verificare la configurazione
 1. La risorsa gateway NAT include almeno una risorsa indirizzo IP pubblico o una risorsa prefisso di indirizzo IP pubblico? Per consentire la connettività in uscita, al gateway NAT deve essere associato almeno un indirizzo IP.
 2. La subnet della rete virtuale è configurata per l'uso del gateway NAT?
 3. Si usa la route definita dall'utente e si esegue l'override della destinazione?  Le risorse gateway NAT diventano la route predefinita (0/0) nelle subnet configurate.
@@ -182,6 +183,18 @@ _**Soluzione:**_
 _**Soluzione:**_ distribuire il gateway NAT in una subnet senza prefisso IPv6.
 
 È possibile segnalare l'interesse per altre funzionalità tramite [UserVoice per NAT di rete virtuale](https://aka.ms/natuservoice).
+
+### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>La connessione non ha origine dagli IP del gateway NAT
+
+Configurare il gateway NAT, gli indirizzi IP da usare e la subnet che deve usare una risorsa del gateway NAT. Le connessioni dalle istanze di macchine virtuali esistenti prima della distribuzione del gateway NAT, tuttavia, non usano gli indirizzi IP.  Sembra che usino indirizzi IP non usati con la risorsa gateway NAT.
+
+_**Soluzione:**_
+
+[NAT di rete virtuale](nat-overview.md) sostituisce la connettività in uscita per la subnet su cui è configurata. Quando si esegue la transizione dal metodo SNAT predefinito o SNAT in uscita di bilanciamento del carico all'uso di gateway NAT, le nuove connessioni inizieranno immediatamente a usare gli indirizzi IP associati alla risorsa del gateway NAT.  Se per una macchina virtuale è ancora presente una connessione durante il passaggio alla risorsa del gateway NAT, la connessione continuerà tuttavia a usare l'indirizzo IP SNAT precedente assegnato al momento della connessione.  Verificare di stabilire una nuova connessione anziché usare nuovamente una connessione già esistente perché il sistema operativo o il browser memorizzava nella cache le connessioni in un pool.  Quando si usa _curl_ in PowerShell, ad esempio, specificare il parametro _-DisableKeepalive_ per forzare una nuova connessione.  Se si usa un browser, è anche possibile che le connessioni siano in un pool.
+
+Non è necessario riavviare una macchina virtuale configurando una subnet per una risorsa del gateway NAT.  Se una macchina virtuale viene riavviata, tuttavia, lo stato della connessione viene eliminato.  Quando lo stato della connessione è stato eliminato, tutte le connessioni iniziano a usare gli indirizzi IP della risorsa del gateway NAT.  Si tratta tuttavia di un effetto collaterale della macchina virtuale che viene riavviata e non di un indicatore di richiesta d riavvio.
+
+Se si verificano ancora problemi, aprire un caso di supporto per un'ulteriore intervento di risoluzione dei problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79215989"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798252"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
@@ -47,7 +48,7 @@ I segnali comuni su cui si basa l'accesso condizionale per stabilire i criteri i
    - I criteri possono essere destinati a specifici utenti e gruppi offrendo agli amministratori un controllo granulare dell'accesso.
 - Informazioni sugli indirizzi IP
    - Le organizzazioni possono creare intervalli di indirizzi IP attendibili da usare per prendere decisioni sui criteri. 
-   - Gli amministratori possono specificare intervalli IP in interi paesi per bloccare o consentire il traffico in ingresso e in uscita.
+   - Gli amministratori possono specificare intervalli IP in interi paesi/aree geografiche per bloccare o consentire il traffico in ingresso e in uscita.
 - Dispositivo
    - Per applicare i criteri di accesso condizionale, è possibile considerare utenti con dispositivi di specifiche piattaforme o contrassegnati con uno stato specifico.
 - Applicazione
@@ -71,7 +72,7 @@ I segnali comuni su cui si basa l'accesso condizionale per stabilire i criteri i
 
 ## <a name="commonly-applied-policies"></a>Criteri comunemente applicati
 
-Molte organizzazioni condividono preoccupazioni che possono essere risolte con i criteri di accesso condizionale, ad esempio:
+Molte organizzazioni condividono [preoccupazioni che possono essere risolte con i criteri di accesso condizionale](concept-conditional-access-policy-common.md), ad esempio:
 
 - Obbligo di eseguire l'autenticazione a più fattori per gli utenti con ruoli amministrativi
 - Obbligo di eseguire l'autenticazione a più fattori per le attività di gestione di Azure
@@ -96,12 +97,8 @@ Anche i clienti con [licenze di Microsoft 365 Business](/office365/servicedescri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creazione dettagliata di criteri di accesso condizionale](concept-conditional-access-policies.md)
-
-Per informazioni su come implementare l'accesso condizionale nell'ambiente in uso, vedere [Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md).
-
-[Informazioni su Identity Protection](../identity-protection/overview-v2.md)
-
-[Informazioni su Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Informazioni su Microsoft Intune](/intune/index)
+- [Creazione dettagliata di criteri di accesso condizionale](concept-conditional-access-policies.md)
+- [Pianificare la distribuzione dell'accesso condizionale](plan-conditional-access.md)
+- [Informazioni su Identity Protection](../identity-protection/overview-v2.md)
+- [Informazioni su Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Informazioni su Microsoft Intune](/intune/index)

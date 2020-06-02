@@ -4,12 +4,12 @@ description: Gestione delle prestazioni delle applicazioni e monitoraggio dell'u
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891732"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828730"
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 Application Insights, una funzionalità di [Monitoraggio di Azure](../overview.md), è un servizio estendibile di gestione delle prestazioni dell''applicazione per sviluppatori e professionisti DevOps. Può essere utilizzata per monitorare le applicazioni attive. Oltre a rilevare automaticamente le anomalie nelle prestazioni, include strumenti di analisi avanzati che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app in un'ampia gamma di piattaforme, tra cui .NET, Node.js, Java e Python, ospitate in locale, ibride o in qualsiasi cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
@@ -17,9 +17,9 @@ Application Insights, una funzionalità di [Monitoraggio di Azure](../overview.m
 ## <a name="how-does-application-insights-work"></a>Come funziona Application Insights?
 Si installa un pacchetto di strumentazione di piccole dimensioni (SDK) nell'applicazione o si abilita Application Insights in modalità codeless, se [supportato](../../azure-monitor/app/platforms.md). La strumentazione monitora l'app e indirizza i dati di telemetria a una risorsa di Azure Application Insights usando un GUID univoco definito chiave di strumentazione.
 
-È possibile instrumentare non solo l'applicazione del servizio Web, ma anche i componenti in background e il codice JavaScript nelle pagine Web stesse. L'applicazione e i relativi componenti possono essere eseguiti ovunque, non devono essere necessariamente ospitati in Azure.
+È possibile instrumentare non solo l''applicazione del servizio Web, ma anche i componenti in background e il codice JavaScript nelle pagine Web stesse. L'applicazione e i relativi componenti possono essere eseguiti ovunque, non devono essere necessariamente ospitati in Azure.
 
-![La strumentazione di Application Insights nell'app invia la telemetria alla risorsa di Application Insights.](./media/app-insights-overview/diagram.png)
+![L'instrumentazione di Application Insights nell'app invia la telemetria alla risorsa di Application Insights.](./media/app-insights-overview/diagram.png)
 
 Inoltre, è possibile effettuare il pull dei dati di telemetria dagli ambienti host, ad esempio i contatori delle prestazioni, la diagnostica di Azure o i log di Docker. È possibile configurare test web che inviano periodicamente richieste sintetiche al servizio web.
 
@@ -49,7 +49,7 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 
 |  |  |
 | --- | --- |
-| [**Rilevamento intelligente e avvisi manuali**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configurare avvisi automatici che si adattano ai modelli normali di telemetria dell'app e si attivano quando qualcosa si discosta dal modello consueto. È anche possibile [impostare avvisi](../../azure-monitor/app/alerts.md) per determinati livelli di metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
+| [**Rilevamento intelligente e avvisi manuali**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configurare avvisi automatici che si adattano ai modelli normali di telemetria dell'app e si attivano quando qualcosa si discosta dal modello consueto. È anche possibile [impostare avvisi](../../azure-monitor/platform/alerts-log.md) per determinati livelli di metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
 | [**Mappa delle applicazioni**](../../azure-monitor/app/app-map.md)<br/>Esplorare i componenti dell'app, con metriche chiave e avvisi. |![Mappa delle applicazioni](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profiler**](../../azure-monitor/app/profiler.md)<br/>Ispezionare i profili di esecuzione delle richieste campionate. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Analisi dell'utilizzo**](../../azure-monitor/app/usage-overview.md)<br/>Analizzare la segmentazione e la fidelizzazione degli utenti.|![Strumento Conservazione](./media/app-insights-overview/retention.png) |
@@ -127,7 +127,7 @@ Introduzione in fase di sviluppo a:
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 * Domande e problemi:
   * [Risoluzione dei problemi][qna]
-  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Suggerimenti:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

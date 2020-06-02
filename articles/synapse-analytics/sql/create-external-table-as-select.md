@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd7666bb9f22214fb4701e6be9edc171912d9bf9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: cbf6d42f3b1d130a6bf89f07bd3a7009ff0e8fa8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691855"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647528"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Archiviare i risultati delle query nell'archiviazione usando SQL su richiesta (anteprima) con Azure Synapse Analytics
 
@@ -38,8 +38,13 @@ Il primo passaggio consiste nel leggere gli articoli seguenti e assicurarsi di a
 USE [mydbname];
 GO
 
+CREATE DATABASE SCOPED CREDENTIAL [SasTokenWrite]
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+GO
+
 CREATE EXTERNAL DATA SOURCE [MyDataSource] WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
+    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL [SasTokenWrite]
 );
 GO
 
@@ -69,9 +74,9 @@ FROM
 
 ```
 
-## <a name="use-a-external-table-created"></a>Usare una tabella esterna creata
+## <a name="use-the-external-table"></a>Usare la tabella esterna
 
-È possibile usare una tabella esterna creata tramite CETAS come una normale tabella esterna.
+È possibile usare la tabella esterna creata tramite CETAS come una normale tabella esterna.
 
 > [!NOTE]
 > Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato. Se non è stato creato un database, leggere [Prima configurazione](query-data-storage.md#first-time-setup).
@@ -91,4 +96,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come eseguire una query su tipi di file diversi, vedere gli articoli [Eseguire query su un singolo file CSV](query-single-csv-file.md), [Eseguire query su file Per](query-parquet-files.md) e [Eseguire query su file JSON](query-json-files.md).
+Per altre informazioni su come eseguire una query su tipi di file diversi, vedere gli articoli [Eseguire query su un singolo file CSV](query-single-csv-file.md), [Eseguire query su file Per](query-parquet-files.md) e [Eseguire query su file JSON](query-json-files.md).

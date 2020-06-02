@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691885"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653532"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL
 
@@ -90,7 +90,7 @@ Questi parametri aggiuntivi sono stati introdotti per l'uso di file CSV (testo d
 ```
 
 - ESCAPE_CHAR = 'char' - Specifica il carattere nel file usato per l'escape di se stesso e per tutti i valori dei delimitatori del file. Se seguito da un valore diverso da se stesso o da uno qualsiasi dei valori dei delimitatori, il carattere di escape viene eliminato durante la lettura del valore.
-Il parametro ESCAPE_CHAR verrà applicato indipendentemente dal fatto che FIELDQUOTE sia o meno abilitato. Non verrà usato per l'escape del carattere virgolette singole. L'escape del carattere virgolette singole viene eseguito con le virgolette doppie, in linea con il comportamento dei file CSV di Excel.
+Il parametro ESCAPE_CHAR verrà applicato se FIELDQUOTE è o non è abilitato. Non verrà usato per l'escape del carattere virgolette singole. L'escape del carattere virgolette singole viene eseguito con le virgolette doppie, in linea con il comportamento dei file CSV di Excel.
 - FIELDTERMINATOR ='field_terminator' - Specifica il carattere di terminazione del campo da usare. Il carattere di terminazione del campo predefinito è la virgola (" **,** ")
 - ROWTERMINATOR ='row_terminator' - Specifica il carattere di terminazione della riga da usare. Il carattere di terminazione della riga predefinito è  **\r\n**.
 
