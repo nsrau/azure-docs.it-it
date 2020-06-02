@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7664ce89c01c543544bc576c5eee3fd288d323d5
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659827"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248516"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -49,9 +49,9 @@ Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area de
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | Description | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Necessario |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatorio |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono quattro rappresentazioni diverse del testo visualizzato. L'impostazione predefinita è `simple`. | Facoltativo |
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 | `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
@@ -60,12 +60,12 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| Description | Obbligatoria / Facoltativa |
+|Header| Descrizione | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
 | `Pronunciation-Assessment` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessario |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatorio |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
@@ -74,7 +74,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Formato | Codec | Velocità in bit | Frequenza di campionamento  |
+| Format | Codec | Velocità in bit | Frequenza di campionamento  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16 kHz, mono |
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
@@ -86,9 +86,9 @@ L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno 
 
 Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione della pronuncia.
 
-| Parametro | Description | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| ReferenceText | Testo su cui verrà valutata la pronuncia. | Necessario |
+| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatorio |
 | GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
 | Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
 | Dimension | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
@@ -115,7 +115,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
 >[!NOTE]
->La funzionalità di valutazione della pronuncia è attualmente disponibile solo nelle `westus` `eastasia` aree e. Questa funzionalità è attualmente disponibile solo in `en-US` lingua.
+>La funzionalità di valutazione della pronuncia è attualmente disponibile solo nelle `westus` `eastasia` aree, e `centralindia` . Questa funzionalità è attualmente disponibile solo in `en-US` lingua.
 
 ## <a name="sample-request"></a>Richiesta di esempio
 
@@ -141,7 +141,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Description | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | `100` | Continua | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con trasferimento in blocchi) |
 | `200` | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
@@ -198,7 +198,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Stato | Description |
+| Stato | Descrizione |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |

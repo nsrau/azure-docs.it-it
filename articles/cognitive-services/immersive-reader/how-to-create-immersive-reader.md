@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78330720"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267104"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -29,7 +29,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 
 ## <a name="set-up-powershell-environment"></a>Configurare l'ambiente PowerShell
 
-1. Per iniziare, aprire il [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verificare che cloud Shell sia impostato su PowerShell nell'elenco a discesa in alto a sinistra o digitando `pwsh`.
+1. Per iniziare, aprire il [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Assicurarsi che Cloud Shell sia impostato su PowerShell nell'elenco a discesa in alto a sinistra o digitando `pwsh` .
 
 1. Copiare e incollare il frammento di codice seguente nella shell.
 
@@ -141,7 +141,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     }
     ```
 
-1. Eseguire la funzione `Create-ImmersiveReaderResource`, specificando i parametri in base alle esigenze.
+1. Eseguire la funzione `Create-ImmersiveReaderResource` , specificando i parametri in base alle esigenze.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -162,10 +162,10 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     | SubscriptionName |Nome della sottoscrizione di Azure da usare per la risorsa Reader immersiva. Per creare una risorsa, è necessario disporre di una sottoscrizione. |
     | NomeRisorsa |  Deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri.|
     | ResourceSubdomain |Per la risorsa Reader immersivo è necessario un sottodominio personalizzato. Il sottodominio viene usato dall'SDK quando si chiama il servizio di lettura immersiva per avviare il lettore. Il sottodominio deve essere globalmente univoco. Il sottodominio deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri. Questo parametro è facoltativo se la risorsa esiste già. |
-    | ResourceSKU |Opzioni: `S0`. Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
-    | ResourceLocation |Opzioni: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Questo parametro è facoltativo se la risorsa esiste già. |
+    | ResourceSKU |Opzioni: `S0` . Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
+    | ResourceLocation |Opzioni: `eastus` , `eastus2` , `southcentralus` , `westus` , `westus2` , `australiaeast` , `southeastasia` , `centralindia` , `japaneast` , `northeurope` , `uksouth` , `westeurope` . Questo parametro è facoltativo se la risorsa esiste già. |
     | ResourceGroupName |Le risorse vengono create in gruppi di risorse all'interno delle sottoscrizioni. Specificare il nome di un gruppo di risorse esistente. Se il gruppo di risorse non esiste già, ne verrà creato uno nuovo con questo nome. |
-    | ResourceGroupLocation |Se il gruppo di risorse non esiste, è necessario specificare un percorso in cui creare il gruppo. Per trovare un elenco di percorsi, eseguire `az account list-locations`. Usare la proprietà *Name* (senza spazi) del risultato restituito. Questo parametro è facoltativo se il gruppo di risorse esiste già. |
+    | ResourceGroupLocation |Se il gruppo di risorse non esiste, è necessario specificare un percorso in cui creare il gruppo. Per trovare un elenco di percorsi, eseguire `az account list-locations` . Usare la proprietà *Name* (senza spazi) del risultato restituito. Questo parametro è facoltativo se il gruppo di risorse esiste già. |
     | AADAppDisplayName |Nome visualizzato dell'applicazione Azure Active Directory. Se non viene trovata un'applicazione Azure AD esistente, ne verrà creato uno nuovo con questo nome. Questo parametro è facoltativo se l'applicazione Azure AD esiste già. |
     | AADAppIdentifierUri |URI per l'app Azure AD. Se non viene trovata alcuna app Azure AD esistente, ne verrà creata una nuova con questo URI. Ad esempio: `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |Password creata che verrà usata in seguito per eseguire l'autenticazione quando si acquisisce un token per avviare il lettore immersivo. La password deve avere una lunghezza di almeno 16 caratteri, contenere almeno un carattere speciale e contenere almeno un carattere numerico. |
@@ -183,7 +183,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare l'[esercitazione per Node.js](./quickstart-nodejs.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Node.js
+* Visualizzare l'[esercitazione per Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Node.js
 * Visualizzare l'[esercitazione per Python](./tutorial-python.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
 * Vedere l' [esercitazione Swift](./tutorial-ios-picture-immersive-reader.md) per informazioni sulle altre operazioni che è possibile eseguire con l'SDK di immersive Reader con Swift
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

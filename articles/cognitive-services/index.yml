@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 03/24/2020
-  ms.openlocfilehash: 3c68051c0df1cb2d15a1ef2bac6ea74fbf671f77
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 398ba97ed8cc221710c301017cae3624dde758f0
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591795"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259457"
 highlightedContent:
   items:
   - title: Informazioni su Servizi cognitivi
@@ -90,9 +90,6 @@ conceptualContent:
     - url: ./speech-service/index.yml
       itemType: overview
       text: Servizio Voce
-    - url: ./speaker-recognition/home.md
-      itemType: overview
-      text: Riconoscimento del parlante (anteprima)
   - title: Decisione
     summary: Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.
     links:
