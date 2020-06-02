@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
+title: 'Guida introduttiva: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà lo strumento di etichettatura campioni di Riconoscimento modulo per etichettare manualmente documenti modulo. Con i documenti etichettati, verrà quindi eseguito il training di un modello personalizzato, che verrà usato per estrarre coppie chiave-valore.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691328"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871368"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -143,6 +143,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
     > * Etichettare i valori così come appaiono nel modulo. Non provare a dividere un valore in due parti con due tag diversi. Ad esempio, un campo di indirizzo deve essere etichettato con un singolo tag anche se si estende su più righe.
     > * Non includere le chiavi nei campi etichettati, ma solo i valori.
     > * I dati delle tabelle dovrebbero essere rilevati automaticamente e saranno disponibili nel file JSON finale di output. Tuttavia, se il modello non riesce a rilevare tutti i dati di una tabella, è anche possibile etichettare manualmente questi campi. Assegnare un'etichetta diversa a ogni cella della tabella. Se i moduli includono tabelle con un numero variabile di righe, assicurarsi di etichettare almeno un modulo con la tabella più grande possibile.
+    > * Per eliminare un tag applicato, selezionare il rettangolo nella visualizzazione del documento e premere CANC.
 
 ![Finestra dell'editor principale dello strumento di etichettatura campioni](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
     * predefinito, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Vedere queste regole per la formattazione della data:
+> 
+> Come delimitatori di data DMY è possibile usare i caratteri seguenti: `, - / . \`. Non è possibile usare uno spazio come delimitatore. Ad esempio:
+> * 01.01.2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> Il giorno e il mese possono essere scritti con una o due cifre e l'anno con due o quattro cifre:
+> * 1-1-2020
+> * 1-01-20
+>
+> Se una stringa di data DMY è costituita da otto cifre, il delimitatore è facoltativo:
+> * 01012020
+> * 01 01 2020
+>
+> Il mese può anche essere scritto con il nome completo o abbreviato. Se viene usato il nome, il delimitatore è facoltativo:
+> * 01/gen/2020
+> * 01gen2020
+> * 01 gen 2020
 
 ## <a name="train-a-custom-model"></a>Eseguire il training di un modello personalizzato
 

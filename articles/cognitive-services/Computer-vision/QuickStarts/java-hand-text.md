@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva:  Visione artificiale 2.0 e 2.1 - Estrarre testo stampato e scritto a mano - REST, Java'
+title: 'Guida introduttiva:  Visione artificiale 2.1 e 3.0 - Estrarre testo stampato e scritto a mano - REST, Java'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aaaa382d41990b801d1c451b2bf416493a7ba7c6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d26b75e3839eac6c1a2ad32507a4d708495fda36
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404921"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683187"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e Java
 
@@ -85,14 +85,10 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 
 ```java
 public class Main {
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
     private static final String uriBase = endpoint + 
             "vision/v2.1/read/core/asyncBatchAnalyze";
@@ -229,9 +225,6 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 ```java
 
 public class Main {
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
@@ -239,10 +232,10 @@ public class Main {
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
     // Set the language that you want to recognize
-    private static String language = "en";  // Accepted values are "en" for English, or "es" for Spanish
+    // Accepted values are "en" for English, or "es" for Spanish
+    private static String language = "en";  
 
-    private static String uriBase = endpoint +
-            "/vision/v3.0-preview/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
 
     private static String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +

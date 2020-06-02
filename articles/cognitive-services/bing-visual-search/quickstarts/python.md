@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: b56f6743b642904349797ac5b6167194f7916b45
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7b33a857953b7f96180e306195dd0e8b21450556
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446598"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874007"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Python
 
-Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ricerca visiva Bing e visualizzare i risultati. Quest'applicazione Python carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca visiva Bing. Quest'applicazione Python carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     import requests, json
     ```
 
-2. Creare le variabili per la chiave di sottoscrizione, l'endpoint e il percorso dell'immagine da caricare. `BASE_URI` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
+2. Creare le variabili per la chiave di sottoscrizione, l'endpoint e il percorso dell'immagine da caricare. Per il valore di `BASE_URI`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```python
 
@@ -44,7 +44,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     imagePath = 'your-image-path'
     ```
     
-    Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. È necessario impostare il parametro `name` su "image" e il parametro `filename` su qualsiasi stringa. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
+3. Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. Impostare il parametro `name` su "image" e il parametro `filename` sul nome file dell'immagine. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -55,13 +55,13 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     --boundary_1234-abcd--
     ```
 
-3. Creare un oggetto dizionario per contenere le informazioni di intestazione della richiesta. Associare la chiave di sottoscrizione alla stringa `Ocp-Apim-Subscription-Key`, come illustrato di seguito:
+4. Creare un oggetto dizionario per contenere le informazioni di intestazione della richiesta. Associare la chiave di sottoscrizione alla stringa `Ocp-Apim-Subscription-Key`.
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Creare un altro dizionario per contenere l'immagine, che verrà aperta e caricata quando si invia la richiesta:
+5. Creare un altro dizionario per contenere l'immagine, che verrà aperta e caricata quando si invia la richiesta.
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -69,27 +69,27 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
 
 ## <a name="parse-the-json-response"></a>Analizzare la risposta JSON.
 
-1. Creare un metodo denominato `print_json()` per accettare la risposta dell'API e stampare il codice JSON:
+Creare un metodo denominato `print_json()` per accettare la risposta dell'API e visualizzare il codice JSON.
 
-    ```python
-    def print_json(obj):
-        """Print the object as json"""
-        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-    ```
+```python
+def print_json(obj):
+    """Print the object as json"""
+    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+```
 
 ## <a name="send-the-request"></a>Inviare la richiesta
 
-1. Usare `requests.post()` per inviare una richiesta all'API Ricerca visiva Bing. Includere la stringa per l'endpoint, l'intestazione e le informazioni sui file. Stampare `response.json()` con `print_json()`:
+Usare `requests.post()` per inviare una richiesta all'API Ricerca visiva Bing. Includere la stringa per l'endpoint, l'intestazione e le informazioni sui file. Visualizzare `response.json()` con `print_json()`.
 
-    ```python
-    try:
-        response = requests.post(BASE_URI, headers=HEADERS, files=file)
-        response.raise_for_status()
-        print_json(response.json())
+```python
+try:
+    response = requests.post(BASE_URI, headers=HEADERS, files=file)
+    response.raise_for_status()
+    print_json(response.json())
     
-    except Exception as ex:
-        raise ex
-    ```
+except Exception as ex:
+    raise ex
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

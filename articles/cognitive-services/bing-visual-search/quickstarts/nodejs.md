@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7dfb3adb5d7bf5b005beb7e7b75fb339d456cd15
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75379709"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872592"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Node.js
 
-Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ricerca visiva Bing e visualizzare i risultati della ricerca. Questa semplice applicazione JavaScript carica un'immagine nell'API e visualizza le informazioni restituite. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca visiva Bing. Questa semplice applicazione JavaScript carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in JavaScript, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     var fs = require('fs');
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine. `baseUri` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine. Per il valore di `baseUri`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -47,7 +47,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     var imagePath = "path-to-your-image";
     ```
 
-3. Creare una funzione denominata `requestCallback()` per stampare la risposta dall'API:
+3. Creare una funzione denominata `requestCallback()` per visualizzare la risposta dell'API.
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -57,25 +57,25 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
 
 ## <a name="construct-and-send-the-search-request"></a>Costruire e inviare la richiesta di ricerca
 
-Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. È necessario impostare il parametro `name` su "image" e il parametro `filename` su qualsiasi stringa. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
+1. Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. Impostare il parametro `name` su "image" e il parametro `filename` sul nome file dell'immagine. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
 
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+   ```
+   --boundary_1234-abcd
+   Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+   ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
---boundary_1234-abcd--
-```
+   --boundary_1234-abcd--
+   ```
 
-1. Creare un nuovo oggetto **FormData** usando `FormData()` e accodare il percorso dell'immagine con `fs.createReadStream()`:
+2. Creare un nuovo oggetto `FormData` con `FormData()` e accodare il percorso dell'immagine usando `fs.createReadStream()`.
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Usare la libreria di richieste per caricare l'immagine e chiamare `requestCallback()` per stampare la risposta. Assicurarsi di aggiungere la chiave di sottoscrizione all'intestazione della richiesta:
+3. Usare la libreria di richieste per caricare l'immagine e chiamare `requestCallback()` per stampare la risposta. Aggiungere la chiave di sottoscrizione all'intestazione della richiesta.
 
     ```javascript
     form.getLength(function(err, length){

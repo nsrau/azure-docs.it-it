@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382856"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869844"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js
 
-Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Node invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione JavaScript invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
+
+Anche se l'applicazione è scritta in JavaScript, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,7 +32,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare un nuovo file JavaScript nell'ambiente IDE o nell'editor preferito. Impostare la severità e l'uso obbligatorio di `https`. Creare quindi variabili per l'host, il percorso e la chiave di sottoscrizione dell'endpoint API. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+1. Creare un nuovo file JavaScript nell'ambiente IDE o nell'editor preferito. Impostare la severità e l'uso obbligatorio di `https`. Creare quindi le variabili per l'host e il percorso dell'endpoint API e per la chiave di sottoscrizione. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     'use strict';
@@ -41,7 +43,11 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Creare variabili per i parametri di ricerca e il testo da controllare. Aggiungere il codice di mercato dopo `mkt=`. Il codice di mercato è il paese da cui si effettua la richiesta. Aggiungere anche la modalità di controllo ortografico dopo `&mode=`. La modalità è `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica).
+2. Creare le variabili per i parametri di ricerca e il testo da controllare: 
+
+   a. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. Il codice di mercato è il codice del paese o dell'area geografica da cui si effettua la richiesta. 
+
+   b. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. La modalità può essere `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica).
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +58,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="create-the-request-parameters"></a>Creare i parametri della richiesta
 
-Creare i parametri della richiesta creando un nuovo oggetto con un metodo `POST`. Aggiungere il percorso accodando il percorso dell'endpoint e la stringa di query. Aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
+Creare i parametri della richiesta creando un nuovo oggetto con un metodo `POST`. Aggiungere il percorso accodando il percorso dell'endpoint e la stringa di query. Aggiungere quindi la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
 
 ```javascript
 let request_params = {
@@ -69,7 +75,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Creare un gestore per la risposta
 
-Creare una funzione denominata `response_handler` per recuperare la risposta JSON dall'API e visualizzarla. Creare una variabile per il corpo della risposta. Aggiungere la risposta quando si riceve un flag `data` usando `response.on()`. Quando si riceve un flag `end`, visualizzare il corpo JSON nella console.
+Creare una funzione denominata `response_handler` per recuperare la risposta JSON dall'API e visualizzarla. Creare una variabile per il corpo della risposta. Aggiungere la risposta quando viene ricevuto un flag `data` usando `response.on()`. Dopo la ricezione di un flag `end`, visualizzare il corpo JSON nella console.
 
 ```javascript
 let response_handler = function (response) {
@@ -89,7 +95,7 @@ let response_handler = function (response) {
 
 ## <a name="send-the-request"></a>Inviare la richiesta
 
-Chiamare l'API usando `https.request()` con i parametri della richiesta e il gestore della risposta. Scrivere il testo nell'API e terminare quindi la richiesta.
+Chiamare l'API usando `https.request()` con i parametri della richiesta e il gestore della risposta. Scrivere il testo nell'API e quindi terminare la richiesta.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -100,13 +106,13 @@ req.end ();
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Compilare ed eseguire il progetto.
+1. Compilare ed eseguire il progetto.
 
-Se si usa la riga di comando, usare i comandi seguenti per creare ed eseguire l'applicazione.
+1. Se si usa la riga di comando, usare il comando seguente per creare ed eseguire l'applicazione:
 
-```bash
-node <FILE_NAME>.js
-```
+   ```bash
+   node <FILE_NAME>.js
+   ```
 
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
@@ -154,7 +160,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
+> [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

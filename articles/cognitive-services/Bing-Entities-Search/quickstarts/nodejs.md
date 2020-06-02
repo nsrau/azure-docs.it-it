@@ -8,39 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194368acd6be65da6a800ad1394ac156a6654b50
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448625"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650233"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
-L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in JavaScript, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La versione più recente di [Node.js](https://nodejs.org/en/download/).
 
-* [Libreria di richieste JavaScript](https://github.com/request/request)
+* [Libreria di richieste JavaScript](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file JavaScript nell'ambiente di sviluppo integrato o nell'editor preferito e impostare la severità e i requisiti https.
+1. Creare un nuovo file JavaScript nell'ambiente di sviluppo integrato o nell'editor preferito e impostare la severità e i requisiti HTTPS.
 
     ```javaScript
     'use strict';
     let https = require ('https');
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e la query di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e la query di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -58,52 +58,53 @@ L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful com
 
 ## <a name="handle-and-parse-the-response"></a>Gestire e analizzare la risposta
 
-1. Definire una funzione denominata `response_handler` che accetta una chiamata HTTP, `response`, come parametro. In questa funzione eseguire i passaggi seguenti:
+1. Definire una funzione denominata `response_handler()` che accetta una chiamata HTTP, `response`, come parametro. 
 
-    1. Definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
+2. All'interno di questa funzione definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
+
+3. Archiviare il corpo della risposta quando viene chiamato il flag `data`.
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+4. Quando viene segnalato un flag `end`, analizzare il codice JSON e visualizzarlo.
+
+    ```javascript
+    response.on ('end', function () {
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
+    });
         ```
 
-    2. Memorizzare il corpo della risposta quando viene chiamato il flag **data**
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+## Send a request
 
-    3. Quando viene segnalato un flag **end**, analizzare il codice JSON e stamparlo.
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-        ```javascript
-        response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log (json);
-        });
-        ```
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
 
-## <a name="send-a-request"></a>Inviare una richiesta
-
-1. Creare una funzione denominata `Search` per inviare una richiesta di ricerca. In essa, eseguire la procedura seguente.
-
-   1. Creare un oggetto JSON contenente i parametri della richiesta: usare `Get` per il metodo e aggiungere le informazioni su host e percorso. Aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. 
-   2. Usare `https.request()` per inviare la richiesta con il gestore di risposta creato in precedenza e i parametri di ricerca.
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
-      ```javascript
-      let Search = function () {
-       let request_params = {
-           method : 'GET',
-           hostname : host,
-           path : path + query,
-           headers : {
-               'Ocp-Apim-Subscription-Key' : subscriptionKey,
-           }
-       };
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
     
-       let req = https.request (request_params, response_handler);
-       req.end ();
-      }
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
       ```
 
 2. Chiamare la funzione `Search()`.

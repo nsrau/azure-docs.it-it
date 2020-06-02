@@ -8,40 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: d366195f9cd72e6baa88c17203ae93cbbc6cbe6a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3bb31c36e8c614a72b86f95cb7e7d1c588692f97
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475531"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873096"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Node.js
 
-Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
+Usare questo argomento di avvio rapido per informazioni su come inviare richieste all'API Ricerca attività commerciali locali Bing, un servizio cognitivo di Azure. Anche se questa semplice applicazione è scritta in Node.js, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare codice JSON.
 
-Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
+Questa applicazione di esempio recupera i dati di risposta locali dall'API per una query di ricerca.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * La versione più recente di [Node.js](https://nodejs.org/en/download/).
+* [Libreria di richieste JavaScript](https://github.com/request/request).
+* Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Ricerca Bing. Per questo argomento di avvio rapido è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Salvare la chiave API fornita quando si attiva la versione di valutazione gratuita. Per altre informazioni, vedere [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-* [Libreria di richieste JavaScript](https://github.com/request/request)
-
-È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API Bing. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Usare la chiave di accesso fornita dalla versione di prova gratuita.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Scenario di codice
 
-Il codice seguente definisce e invia la richiesta. Viene implementato nei passaggi seguenti:
+Il codice seguente definisce e invia la richiesta, che viene implementata nei passaggi seguenti:
 
 1. Dichiarare le variabili per specificare l'endpoint dall'host e il percorso.
 2. Specificare la query e aggiungere il parametro di query.
 3. Creare una funzione del gestore per la risposta.
-4. Definire la funzione di ricerca che crea la richiesta e aggiunge l'intestazione Ocp-Apim-Subscription-Key.
+4. Definire la funzione di ricerca che crea la richiesta e aggiunge l'intestazione `Ocp-Apim-Subscription-Key`.
 5. Eseguire la funzione di ricerca.
 
-Il codice completo per questa demo è il seguente:
 
 ```javascript
 'use strict';
@@ -94,6 +92,6 @@ Search();
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
+* [Guida di avvio rapido a Ricerca attività commerciali locali Bing in C#](local-quickstart.md)
 * [Guida introduttiva a Local Business Search in Java](local-search-java-quickstart.md)
 * [Guida introduttiva a Local Business Search in Python](local-search-python-quickstart.md)

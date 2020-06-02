@@ -1,5 +1,7 @@
 - name: Documentazione su Servizi multimediali
   href: ./index.yml
+- name: Documentazione sul passaggio all'analisi di video live in IoT Edge
+  href: ../live-video-analytics-edge/overview.md
 - name: Panoramica
   items:
     - name: Informazioni su Servizi multimediali
@@ -369,7 +371,7 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
         - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modello di Resource Manager

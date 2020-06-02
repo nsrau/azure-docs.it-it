@@ -8,31 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 62e975121c05bd4fde2438480f7042b0957a9c82
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475607"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873124"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search in C#
 
-Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
+Usare questo argomento di avvio rapido per informazioni su come inviare richieste all'API Ricerca attività commerciali locali Bing, un servizio cognitivo di Azure. Anche se questa semplice applicazione è scritta in C#, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare codice JSON.
 
-Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
+Questa applicazione di esempio recupera i dati di risposta locali dall'API per una query di ricerca.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
-
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Ricerca Bing. Per questo argomento di avvio rapido è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Salvare la chiave API fornita quando si attiva la versione di valutazione gratuita. Per altre informazioni, vedere [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>Creare la richiesta 
 
-Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "restaurant in Bellevue".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
+Il codice seguente crea una `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per *restaurant in Bellevue*.  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -54,10 +53,10 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
 ## <a name="run-the-complete-application"></a>Eseguire l'applicazione completa
 
-L'API Bing Local Business Search restituisce i risultati della ricerca localizzata restituiti dal motore di ricerca Bing.
-1. Creare una nuova soluzione console in Visual Studio; la Community Edition va bene.
+Il codice seguente usa l'API Ricerca attività commerciali locali Bing per restituire i risultati della ricerca localizzata dal motore di ricerca Bing. È possibile usare questo codice seguendo questa procedura:
+1. Creare una nuova soluzione console in Visual Studio (la Community Edition è sufficiente).
 2. Sostituire Program.cs con il codice fornito di seguito.
-3. Sostituire il valore di accessKey con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```csharp
@@ -210,5 +209,5 @@ namespace localSearch
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Guida introduttiva a Local Business Search in Java](local-search-java-quickstart.md)
-- [Guida introduttiva a Local Business Search in Node](local-search-node-quickstart.md)
+- [Guida di avvio rapido a Ricerca attività commerciali locali Bing in Node.js](local-search-node-quickstart.md)
 - [Guida introduttiva a Local Business Search in Python](local-search-python-quickstart.md)

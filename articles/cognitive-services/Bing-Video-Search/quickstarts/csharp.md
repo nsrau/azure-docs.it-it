@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 28c900adadf7d942c9e331e7b77a369db64acf55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382702"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848941"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e C#
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione C# invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca video Bing. Questa semplice applicazione C# invia una query di ricerca video HTTP all'API e visualizza la risposta JSON. Anche se l'applicazione è scritta in C#, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) con altre annotazioni di codice, funzionalità e informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
-* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
+* Se si usa Linux/MacOS, è possibile eseguire questa applicazione con [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare una nuova soluzione console in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale.
+1. Creare una nuova soluzione console in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti al file di codice principale:
 
     ```csharp
     using System;
@@ -42,7 +42,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     using System.Collections.Generic;
     ```
 
-2. Aggiungere variabili per la chiave di sottoscrizione, l'endpoint e un termine di ricerca. `uriBase` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Aggiungere variabili per la chiave di sottoscrizione, l'endpoint e un termine di ricerca. Per il valore di `uriBase`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -50,26 +50,27 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     const string searchTerm = "kittens";
     ```
 
-### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Creare uno struct per formattare l'API Ricerca video Bing
+## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Creare uno struct per formattare l'API Ricerca video Bing
 
-1. Definire uno struct `SearchResult` in cui saranno contenuti i risultati della ricerca di immagini e le informazioni dell'intestazione JSON.
+Definire uno struct `SearchResult` in cui saranno contenuti i risultati della ricerca di immagini e le informazioni dell'intestazione JSON.
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+```csharp
+struct SearchResult
+    {
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
+    }
+```
 
 ## <a name="create-and-handle-a-video-search-request"></a>Creare e gestire una nuova richiesta di ricerca video
 
-Creare un metodo denominato `BingVideoSearch` per eseguire la chiamata all'API e impostare il tipo restituito nello struct `SearchResult` creato in precedenza. Nel metodo,eseguire i passaggi seguenti:
+1. Creare un metodo denominato `BingVideoSearch` per effettuare la chiamata all'API e impostare il tipo restituito sullo struct `SearchResult` creato in precedenza. 
 
-1. Costruire l'URI per la richiesta di ricerca. Il termine di ricerca toSearch deve essere formattato prima di poter essere aggiunto alla stringa.
+   Aggiungere codice a questo metodo nei passaggi che seguono.
 
-    ```csharp
-    
+1. Costruire l'URI per la richiesta di ricerca. Formattare il termine di ricerca `toSearch` prima di aggiungerlo alla richiesta.
+
+    ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
@@ -105,7 +106,7 @@ Creare un metodo denominato `BingVideoSearch` per eseguire la chiamata all'API e
     return searchResult;
     ```
 
-2. È quindi possibile stampare la risposta.
+2. Visualizzare la risposta.
 
     ```csharp
     Console.WriteLine(result.jsonResult);

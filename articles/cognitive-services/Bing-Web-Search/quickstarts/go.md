@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d0bd9dfa8dc115ae10831d997dccc8000a1ae25
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978799"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873906"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Go
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Go invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Go, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca Web Bing. Questa applicazione Go invia una richiesta di ricerca all'API e visualizza la risposta JSON. Anche se l'applicazione è scritta in Go, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+
+ Per gli esempi di codice in questa guida di avvio rapido sono necessarie solo le librerie principali, non sono previste dipendenze esterne.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
@@ -29,13 +31,11 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 * [File binari di Go](https://golang.org/dl/)
 * Una chiave di sottoscrizione
 
-Per questa guida introduttiva sono necessarie solo le librerie **principali**, non sono previste dipendenze esterne.  
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Creare un progetto e importare le librerie di base
 
-Creare un nuovo progetto Go nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi `net/http` per le richieste, `ioutil` per leggere la risposta, `time` e `encoding/json` per gestire il codice JSON e `fmt` per stampare l'output.
+Creare un nuovo progetto Go nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi `net/http` per le richieste, `ioutil` per leggere la risposta, `time` e `encoding/json` per gestire il codice JSON e `fmt` per visualizzare l'output.
 
 ```go
 package main
@@ -111,7 +111,13 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Dichiarare la funzione principale e definire le variabili  
 
-Questo codice dichiara la funzione principale e imposta le variabili obbligatorie. `endpoint` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `searchTerm`.
+Questo codice dichiara la funzione main e imposta le variabili obbligatorie: 
+
+1. Per il valore di `endpoint`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. 
+
+2. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure. 
+ 
+3. Se si vuole, personalizzare la query di ricerca sostituendo il valore di `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -170,7 +176,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Gestire la risposta
 
-In questo passaggio si userà lo struct creato in precedenza per formattare la risposta e stampare i risultati della ricerca.
+Usare lo struct creato in precedenza per formattare la risposta e visualizzare i risultati della ricerca.
 
 ```go
 // Create a new answer.  
@@ -305,9 +311,9 @@ func main() {
 }
 ```
 
-## <a name="sample-response"></a>Risposta di esempio  
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
-Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa risposta di esempio è stata formattata con lo struct `BingAnswer` e visualizza i valori di `result.Name` e `result.URL`.
+Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa risposta di esempio è stata formattata mediante lo struct `BingAnswer` e visualizza i valori di `result.Name` e `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
@@ -324,6 +330,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione sull'app a singola pagina di Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Esercitazione sull'app a singola pagina dell'API Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

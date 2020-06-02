@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7f1da47d913b76edb42aab82f588a2b218eac854
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448466"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869336"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Python
 
-Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Python invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Python invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
+
+Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,14 +31,14 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="initialize-the-application"></a>Inizializzare l'applicazione
 
-1. Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere l'istruzione di importazione seguente.
+1. Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere le istruzioni di importazione seguenti:
 
    ```python
    import requests
    import json
    ```
 
-2. Creare variabili per il testo di cui si vuole eseguire il controllo ortografico, la chiave di sottoscrizione e l'endpoint di Controllo ortografico Bing. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per il testo di cui si vuole eseguire il controllo ortografico, la chiave di sottoscrizione e l'endpoint di Controllo ortografico Bing. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -52,8 +54,12 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     data = {'text': example_text}
     ```
 
-2. Aggiungere i parametri della richiesta. Aggiungere il codice di mercato dopo `mkt=`. Il codice di mercato è il paese da cui si effettua la richiesta. Aggiungere anche la modalità di controllo ortografico dopo `&mode=`. La modalità è `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica).
+2. Aggiungere i parametri della richiesta: 
 
+   a. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. Il codice di mercato è il codice del paese o dell'area geografica da cui si effettua la richiesta. 
+
+   b. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. La modalità può essere `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica). 
+ 
     ```python
     params = {
         'mkt':'en-us',
@@ -78,7 +84,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Ottenere la risposta JSON e stamparla.
+2. Ottenere la risposta JSON e visualizzarla.
 
     ```python
     json_response = response.json()
@@ -88,7 +94,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Se si usa la riga di comando, usare i comandi seguenti per eseguire l'applicazione.
+Se si usa la riga di comando, usare il comando seguente per eseguire l'applicazione:
 
 ```bash
 python <FILE_NAME>.py
@@ -139,7 +145,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
+> [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

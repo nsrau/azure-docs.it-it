@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 21a8d47f80dae35553114f522c1c78a97a086518
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383946"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650229"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca notizie all'API e visualizza la risposta. 
 
-L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in PHP, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,12 +31,12 @@ L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibil
 
 ## <a name="search-entities"></a>Entità di ricerca
 
-Per eseguire l'applicazione, seguire questa procedura.
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
-4. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+4. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 5. Eseguire il programma.
 
 ```php
@@ -83,7 +83,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Risposta**
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 

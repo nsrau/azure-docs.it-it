@@ -8,32 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c50222c645926a6e48995e6c66d7844adc02699f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74665186"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873010"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Java
 
-Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
+Usare questo argomento di avvio rapido per informazioni su come inviare richieste all'API Ricerca attività commerciali locali Bing, un servizio cognitivo di Azure. Anche se questa semplice applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare codice JSON.
 
-Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
+Questa applicazione di esempio recupera i dati di risposta locali dall'API per una query di ricerca.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Ricerca Bing. Per questo argomento di avvio rapido è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Salvare la chiave API fornita quando si attiva la versione di valutazione gratuita. Per altre informazioni, vedere [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso che viene fornita quando si attiva la versione di valutazione gratuita.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
-Questa applicazione di esempio recupera i dati di risposta locali dall'API dalla query per un *hotel a Bellevue*.
 
 ## <a name="create-the-request"></a>Creare la richiesta 
 
-Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "hotel a Bellevue".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
+Il codice seguente crea una `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per *hotel in Bellevue*.  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
 ```java
     // construct URL of search request (endpoint + query string)
@@ -51,11 +49,11 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
 ## <a name="run-the-complete-application"></a>Eseguire l'applicazione completa
 
-L'API Bing Local Business Search restituisce i risultati dal motore di ricerca Bing.
+Il codice seguente usa l'API Ricerca attività commerciali locali Bing per restituire i risultati della ricerca dal motore di ricerca Bing. Eseguire questo codice seguendo questa procedura:
 1. Scaricare o installare la libreria gson.
 2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
 3. Aggiungere il codice riportato di seguito.
-4. Sostituire il valore subscriptionKey con una chiave di accesso valida per la sottoscrizione.
+4. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -165,6 +163,6 @@ public class LocalSearchCls {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Guida introduttiva a Local Business Search in Node](local-search-node-quickstart.md)
+- [Guida di avvio rapido a Ricerca attività commerciali locali Bing in C#](local-quickstart.md)
+- [Guida di avvio rapido a Ricerca attività commerciali locali Bing in Node.js](local-search-node-quickstart.md)
 - [Guida introduttiva a Local Business Search in Python](local-search-python-quickstart.md)

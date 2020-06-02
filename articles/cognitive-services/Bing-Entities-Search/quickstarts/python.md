@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 43b440b631122f7057de68871f0a3f870588dc67
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448607"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650215"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Python invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
-L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere le importazioni seguenti. Creare variabili per la chiave di sottoscrizione, l'endpoint, il mercato e una query di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+1. Creare un nuovo file Python nell'IDE o nell'editor preferito e aggiungere le importazioni seguenti. Creare le variabili per la chiave di sottoscrizione, l'endpoint, il mercato e la query di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```python
     import http.client, urllib.parse
@@ -44,7 +44,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
     query = 'italian restaurants near me'
     ```
 
-2. Creare un URL di richiesta aggiungendo la variabile relativa al mercato al parametro `?mkt=`. Codificare la query con l'URL e aggiungerla al parametro `&q=`. 
+2. Creare un URL di richiesta aggiungendo la variabile relativa al mercato al parametro `?mkt=`. Applicare la codifica URL alla query e aggiungerla al parametro `&q=`. 
     
     ```python
     params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
@@ -52,21 +52,24 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 
 ## <a name="send-a-request-and-get-a-response"></a>Inviare una richiesta e ottenere una risposta
 
-1. Creare una funzione denominata `get_suggestions()`. Quindi, eseguire i passaggi seguenti.
-   1. Aggiungere la chiave di sottoscrizione a un dizionario, usando `Ocp-Apim-Subscription-Key` come chiave.
-   2. Usare `http.client.HTTPSConnection()` per creare un oggetto client HTTPS. Inviare una richiesta `GET` usando `request()` con le informazioni di percorso, parametri e intestazione.
-   3. Archiviare la risposta con `getresponse()` e restituire `response.read()`.
+1. Creare una funzione denominata `get_suggestions()`. 
 
-      ```python
-      def get_suggestions ():
-       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-       conn = http.client.HTTPSConnection (host)
-       conn.request ("GET", path + params, None, headers)
-       response = conn.getresponse ()
-       return response.read()
-      ```
+2. In questa funzione aggiungere la chiave di sottoscrizione a un dizionario, usando `Ocp-Apim-Subscription-Key` come chiave.
 
-2. Chiamare `get_suggestions()` e stampare la risposta json.
+3. Usare `http.client.HTTPSConnection()` per creare un oggetto client HTTPS. Inviare una richiesta `GET` usando `request()` con le informazioni di percorso, parametri e intestazione.
+
+4. Archiviare la risposta con `getresponse()` e restituire `response.read()`.
+
+   ```python
+   def get_suggestions ():
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection (host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read()
+   ```
+
+5. Chiamare `get_suggestions()` e visualizzare la risposta JSON.
 
     ```python
     result = get_suggestions ()

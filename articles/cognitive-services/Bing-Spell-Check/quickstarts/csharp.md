@@ -8,33 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3bb126dc31620515c54a653ef595bfc017aaac73
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382950"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869594"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#
 
-Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione C# invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione C# invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
+
+Anche se l'applicazione è scritta in C#, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
-* Per installare `Newtonsoft.Json` come pacchetto NuGet in Visual Studio:
-    1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file della soluzione.
-    1. Scegliere **Gestisci pacchetti NuGet per la soluzione**.
-    1. Cercare `Newtonsoft.Json` e installare il pacchetto.
-* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
+* Pacchetto NuGet Newtonsoft.Json. 
+     
+   Per installare questo pacchetto in Visual Studio:
+
+     1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file della soluzione.
+     1. Scegliere **Gestisci pacchetti NuGet per la soluzione**.
+     1. Cercare *Newtonsoft.Json* e installare il pacchetto.
+
+* Se si usa Linux/MacOS, è possibile eseguire questa applicazione con [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare una nuova soluzione console denominata `SpellCheckSample` in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale.
+1. Creare una nuova soluzione console denominata SpellCheckSample in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale:
     
     ```csharp
     using System;
@@ -46,7 +52,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     using Newtonsoft.Json;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il testo da sottoporre a controllo ortografico. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il testo da sottoporre a controllo ortografico. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +68,11 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     }
     ```
 
-3. Creare una variabile per i parametri di ricerca. Aggiungere il codice di mercato dopo `mkt=`. Il codice di mercato è il paese da cui si effettua la richiesta. Aggiungere anche la modalità di controllo ortografico dopo `&mode=`. La modalità è `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica).
+3. Creare una stringa per i parametri di ricerca: 
+
+   a. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. Il codice di mercato è il codice del paese o dell'area geografica da cui si effettua la richiesta. 
+
+   b. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. La modalità può essere `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,7 +80,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="create-and-send-a-spell-check-request"></a>Creare e inviare una richiesta di controllo ortografico
 
-1. Creare una funzione asincrona denominata `SpellCheck()` per inviare una richiesta all'API. Creare un oggetto `HttpClient` e aggiungere la chiave della sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. Quindi eseguire i passaggi seguenti all'interno della funzione.
+1. Creare una funzione asincrona denominata `SpellCheck()` per inviare una richiesta all'API. Creare un oggetto `HttpClient` e aggiungere la chiave della sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. All'interno della funzione eseguire i passaggi seguenti.
 
     ```csharp
     async static void SpellCheck()
@@ -127,7 +137,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>Chiamare la funzione di controllo ortografico
 
-Nella funzione Main del progetto chiamare `SpellCheck()`.
+Nella funzione `Main()` del progetto chiamare `SpellCheck()`.
 
 ```csharp
 static void Main(string[] args)

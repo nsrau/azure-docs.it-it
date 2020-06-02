@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3d52a58e3e890ff3baff31322096038d06a1bee6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446623"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872576"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Java
 
-Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ricerca visiva Bing e visualizzare i risultati. Quest'applicazione Java carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca visiva Bing. Quest'applicazione Java carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +52,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine. `endpoint` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine. Per il valore di `endpoint`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -61,7 +61,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
     ```
 
     
-    Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. È necessario impostare il parametro `name` su "image" e il parametro `filename` su qualsiasi stringa. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
+3. Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. Impostare il parametro `name` su "image" e il parametro `filename` sul nome file dell'immagine. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -74,7 +74,7 @@ Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ri
 
 ## <a name="create-the-json-parser"></a>Creare il parser JSON
 
-Creare un metodo per rendere più leggibile la risposta JSON dall'API usando `JsonParser`:
+Creare un metodo per rendere più leggibile la risposta JSON dell'API usando `JsonParser`.
 
 ```java
 public static String prettify(String json_text) {
@@ -87,13 +87,13 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-the-search-request-and-query"></a>Costruire la richiesta di ricerca e la query
 
-1. Nel metodo main dell'applicazione, creare un client HTTP usando `HttpClientBuilder.create().build();`:
+1. Nel metodo main dell'applicazione creare un client HTTP usando `HttpClientBuilder.create().build();`.
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Creare un oggetto `HttpEntity` per caricare l'immagine nell'API:
+2. Creare un oggetto `HttpEntity` per caricare l'immagine nell'API.
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +102,7 @@ public static String prettify(String json_text) {
         .build();
     ```
 
-3. Creare un oggetto `httpPost` con l'endpoint e impostare l'intestazione in modo da usare la propria chiave di sottoscrizione:
+3. Creare un oggetto `httpPost` con l'endpoint e impostare l'intestazione in modo da usare la chiave di sottoscrizione.
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,14 +112,14 @@ public static String prettify(String json_text) {
 
 ## <a name="receive-and-process-the-json-response"></a>Ricevere ed elaborare la risposta JSON
 
-1. Usare il metodo `HttpClient.execute()` per inviare una richiesta all'API e archiviare la risposta in un oggetto `InputStream`:
+1. Usare il metodo `HttpClient.execute()` per inviare una richiesta all'API e archiviare la risposta in un oggetto `InputStream`.
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Archiviare la stringa JSON e stampare la risposta:
+2. Archiviare la stringa JSON e visualizzare la risposta.
 
     ```java
     String json = new Scanner(stream).useDelimiter("\\A").next();

@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ce1ef2b6c586ddd688bacb755d7c6f2ffd16a0a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ad52116e11f9d89bf55a23692ae4e27f53b51319
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448544"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873410"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Ruby e l'API REST Ricerca notizie Bing
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca notizie Bing e ricevere una risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca all'API ed elabora i risultati.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca notizie Bing. Questa semplice applicazione Ruby invia una query di ricerca all'API ed elabora la risposta JSON.
 
-L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Anche se l'applicazione è scritta in Ruby, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. 
+
+Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +34,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Importare i pacchetti seguenti nel file del codice.
+1. Importare i pacchetti seguenti nel file del codice:
 
     ```ruby
     require 'net/https'
@@ -40,7 +42,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
     require 'json'
     ```
 
-2. Creare variabili per l'endpoint dell'API, l'URL della ricerca notizie, la chiave di sottoscrizione e il termine di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare le variabili per l'endpoint API, l'URL della ricerca notizie, la chiave di sottoscrizione e il termine di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```ruby
     accessKey = "enter key here"
@@ -51,7 +53,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 
 ## <a name="format-and-make-an-api-request"></a>Formattare e creare una richiesta API
 
-Usare le variabili del passaggio precedente per formattare un URL di ricerca per la richiesta API. Inviare quindi la richiesta.
+Usare le variabili del passaggio precedente per formattare un URL di ricerca per la richiesta API. Quindi inviare la richiesta.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,7 +66,7 @@ end
 
 ## <a name="process-and-print-the-json-response"></a>Elaborare e stampare la risposta JSON
 
-Dopo aver ricevuto la risposta, è possibile analizzare il file JSON e stampare il corpo e le intestazioni della risposta:
+Dopo aver ricevuto la risposta, analizzare il codice JSON e visualizzare il corpo e le intestazioni della risposta.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -78,7 +80,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="json-response"></a>Risposta JSON
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
@@ -177,4 +179,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app a singola pagina](tutorial-bing-news-search-single-page-app.md)
+> [Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)

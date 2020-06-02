@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd89f2ae13b10c83c3fc22023fc2e3cae1770c98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448662"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650269"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
-L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in C#, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
    1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
    2. Scegliere **Gestisci pacchetti NuGet**.
-   3. Cercare *Newtonsoft.Json* e installare il pacchetto.
+   3. Cercare e selezionare *Newtonsoft.Json*, quindi installare il pacchetto.
 
 - Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale.
+1. Creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale:
     
     ```csharp
     using Newtonsoft.Json;
@@ -50,7 +50,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
     using System.Text;
     ```
 
-2. Creare una nuova classe, quindi aggiungere le variabili per l'endpoint API, la chiave della sottoscrizione e la query della ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare una nuova classe e aggiungere le variabili per l'endpoint API, la chiave di sottoscrizione e la query della ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     namespace EntitySearchSample
@@ -73,11 +73,13 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
 ## <a name="send-a-request-and-get-the-api-response"></a>Inviare una richiesta e ottenere la risposta dell'API
 
-1. All'interno della classe creare una funzione denominata `Search()`. Creare un nuovo oggetto `HttpClient` e aggiungere la chiave della sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
+1. All'interno della classe creare una funzione denominata `Search()`. All'interno di questa funzione creare un nuovo oggetto `HttpClient` e aggiungere la chiave della sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
 
-   1. Creare l'URI per la richiesta combinando l'host e il percorso. Quindi aggiungere il proprio mercato e codificare la query con l'URL.
-   2. Aspettare il risultato di `client.GetAsync()` per ottenere una risposta HTTP, quindi archiviare la risposta JSON aspettando `ReadAsStringAsync()`.
-   3. Formattare la stringa JSON con `JsonConvert.DeserializeObject()` e stamparla nella console.
+2. Creare l'URI per la richiesta combinando l'host e il percorso. Aggiungere quindi il proprio mercato e applicare la codifica URL alla query.
+
+3. Aspettare il risultato di `client.GetAsync()` per ottenere una risposta HTTP, quindi archiviare la risposta JSON aspettando il risultato di `ReadAsStringAsync()`.
+
+4. Formattare la stringa JSON con `JsonConvert.DeserializeObject()` e stamparla nella console.
 
       ```csharp
       async static void Search()
@@ -96,7 +98,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
       }
       ```
 
-2. Nel metodo main dell'applicazione chiamare la funzione `Search()`.
+5. Nel metodo `Main()` dell'applicazione chiamare la funzione `Search()`.
     
     ```csharp
     static void Main(string[] args)

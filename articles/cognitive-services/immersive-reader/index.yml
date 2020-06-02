@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione dello strumento di lettura immersiva
-summary: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+summary: Lo strumento di lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
 metadata:
   title: Documentazione dello strumento di lettura immersiva
-  description: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+  description: Lo strumento di lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
   services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 2ba262c7adf778099e47e636a9106f74314c2254
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 1cb7674dce24d696fd54f3d48074398dc484c01c
+  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77108698"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84267053"
 landingContent:
 - title: Informazioni sullo strumento di lettura immersiva
   linkLists:
@@ -33,19 +33,19 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: ASP.NET Core
-      url: quickstart.md
-    - text: Node.js
-      url: quickstart-nodejs.md
-    - text: Swift (iOS)
-      url: ios-quickstart.md
+    - text: Usare C# (ASP.NET Core)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Usare Node.js
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+    - text: Usare Swift (iOS)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
   - linkListType: tutorial
     links:
     - text: Python
       url: tutorial-python.md
     - text: Usare più risorse dello strumento di lettura immersiva
       url: tutorial-multiple-resources.md
-- title: Esplorare Immersive Reader
+- title: Esplorare lo strumento di lettura immersiva
   linkLists:
   - linkListType: how-to-guide
     links:

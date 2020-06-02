@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9699bb0e75aac19a2d5c5c68d07e85b1c17c7cbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75385780"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650169"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Guida introduttiva all'API Ricerca entità Bing con Ruby
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Ruby
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Ruby invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in Ruby, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibi
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Nell'editor di codice o nell'ambiente IDE preferito creare un nuovo file Ruby e importare i pacchetti seguenti.
+1. Nell'editor di codice o nell'ambiente IDE preferito creare un nuovo file Ruby e importare i pacchetti seguenti:
 
     ```ruby
     require 'net/https'
@@ -39,7 +39,7 @@ L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibi
     require 'json'
     ```
 
-2. Creare le variabili per l'endpoint dell'API, l'URL del servizio di ricerca notizie, la chiave di sottoscrizione e una query di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare le variabili per l'endpoint API, l'URL del servizio di ricerca notizie, la chiave di sottoscrizione e la query di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -65,7 +65,7 @@ L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibi
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Inviare la richiesta e stampare la risposta
+3. Inviare la richiesta e visualizzare la risposta.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169720"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873816"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare PHP per chiamare l'API Ricerca Web Bing  
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e mostra la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca Web Bing. Questa applicazione Node.js invia una richiesta di ricerca all'API e visualizza la risposta JSON. Anche se l'applicazione è scritta in JavaScript, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
@@ -33,7 +33,7 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 
 ## <a name="enable-secure-http-support"></a>Abilitare il supporto HTTP sicuro
 
-Prima di iniziare, individuare `php.ini` e rimuovere il carattere di commento da questa riga:
+Prima di iniziare, individuare il file php.ini e rimuovere il commento da questa riga:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Prima di iniziare, individuare `php.ini` e rimuovere il carattere di commento da
 
 ## <a name="create-a-project-and-define-variables"></a>Creare un progetto e definire le variabili
 
-Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito. Non dimenticare di aggiungere i tag di apertura e chiusura `<?php` e `?>`.
+1. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere i tag di apertura e chiusura `<?php` e `?>`.
 
-Prima di continuare, è necessario impostare alcune variabili. `$endpoint` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Verificare che il valore di `$endpoint` sia corretto e sostituire il valore di `$accesskey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `$term`.
+2. Per il valore di `$endpoint`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. 
+
+3. Verificare che il valore di `$endpoint` sia corretto e sostituire il valore di `$accesskey` con una chiave di sottoscrizione valida del proprio account Azure. 
+
+4. Se si vuole, personalizzare la query di ricerca sostituendo il valore di `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Risposta di esempio
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa risposta di esempio è stata troncata in modo da visualizzare un singolo risultato.  
 
@@ -284,6 +288,6 @@ Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione sull'app a singola pagina di Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Esercitazione sull'app a singola pagina dell'API Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

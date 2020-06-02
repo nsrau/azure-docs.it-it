@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva:  Visione artificiale 2.0 e 2.1 - Estrarre testo stampato e scritto a mano - REST, Python'
+title: 'Guida introduttiva:  Visione artificiale 2.1 e 3.0 - Estrarre testo stampato e scritto a mano - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 29944311c2215ebcc46ff3752004092bdeb9a9c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae83978994eb421e21ed73514a5c8fa697875349
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404401"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684119"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e Python
 

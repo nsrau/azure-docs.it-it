@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6d4e7297ba0b325aa0045c16620d716ceb1418b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75384152"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650253"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Java invia una query di ricerca notizie all'API e visualizza la risposta.
 
-L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* [Libreria Gson](https://github.com/google/gson)
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* [Libreria Gson](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito e importare le librerie seguenti.
+1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito e importare le librerie seguenti:
 
    ```java
    import java.io.*;
@@ -50,7 +50,7 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
    import com.google.gson.JsonParser;
    ```
 
-2. In una nuova classe, creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e la query di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. In una nuova classe, creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e la query di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
    ```java
    public class EntitySearch {
@@ -68,7 +68,7 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
 
 ## <a name="construct-a-search-request-string"></a>Costruire una stringa di richiesta di ricerca
 
-1. Creare una funzione denominata `search()` che restituisca un JSON `String`. Creare la versione codificata con URL della query di ricerca e aggiungerla a una stringa di parametri con `&q=`. Aggiungere il mercato alla stringa con `?mkt=`.
+1. Creare una funzione denominata `search()` che restituisca un JSON `String`. Creare la versione codificata con URL della query di ricerca e aggiungerla a una stringa di parametri con `&q=`. Aggiungere il mercato alla stringa di parametri con `?mkt=`.
  
 2. Creare un oggetto URL con host, percorso e stringhe di parametri.
     
@@ -104,7 +104,7 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
     //...
     ```
 
-3. Creare un oggetto `String` in cui archiviare la risposta ricevuta da `BufferedReader`. Eseguire l'iterazione e aggiungere ciascuna riga alla stringa. Quindi chiudere il lettore e restituire la risposta. 
+3. Creare un oggetto `String` in cui archiviare la risposta ricevuta da `BufferedReader`. Eseguire l'iterazione e aggiungere ciascuna riga alla stringa. Quindi, chiudere il lettore e restituire la risposta. 
     
     ```java
     String line;
@@ -119,9 +119,9 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
 
 ## <a name="format-the-json-response"></a>Formattare la risposta JSON
 
-1. Creare una funzione denominata `prettify` per formattare la risposta JSON. Creare un nuovo `JsonParser` e chiamare `parse()` nel testo json, quindi archiviarlo come oggetto JSON. 
+1. Creare una funzione denominata `prettify` per formattare la risposta JSON. Creare un nuovo `JsonParser`, chiamare `parse()` nel testo JSON e quindi archiviarlo come oggetto JSON. 
 
-2. Usare la libreria Gson per creare un nuovo `GsonBuilder()` e usare `setPrettyPrinting().create()` per formattare json. Quindi, restituirlo.    
+2. Usare la libreria Gson per creare un nuovo `GsonBuilder()`, usare `setPrettyPrinting().create()` per formattare l'oggetto JSON e restituirlo.    
   
    ```java
    //...
@@ -136,7 +136,7 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
 
 ## <a name="call-the-search-function"></a>Chiamare la funzione di ricerca
 
-1. Dal metodo principale del progetto, chiamare `search()` e usare `prettify()` per formattare il testo.
+- Dal metodo principale del progetto, chiamare `search()` e usare `prettify()` per formattare il testo.
     
     ```java
         public static void main(String[] args) {
@@ -220,5 +220,5 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Informazioni sull'API Ricerca entità Bing](../overview.md )
+* [Informazioni sull'API Ricerca entità Bing](../overview.md)
 * [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

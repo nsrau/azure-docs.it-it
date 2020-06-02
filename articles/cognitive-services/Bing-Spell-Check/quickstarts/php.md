@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 816f2692a71d5d4281248405cc84102cfa881f66
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44dc3f16128913f76369ad645a32e91f38272546
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382881"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869861"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e PHP
 
-Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione PHP invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione PHP invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
+
+Anche se l'applicazione è scritta in PHP, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,12 +30,12 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
-## <a name="get-spell-check-results"></a>Ottenere i risultati del controllo ortografico
+## <a name="get-bing-spell-check-rest-api-results"></a>Ottenere i risultati dell'API REST Controllo ortografico Bing
 
 1. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
-4. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+4. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 5. Eseguire il programma.
     
     ```php
@@ -140,7 +142,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
+> [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

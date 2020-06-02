@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169542"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873810"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Ruby per chiamare l'API Ricerca Web Bing  
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Ruby invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca Web Bing. Questa applicazione Ruby invia una richiesta di ricerca all'API e visualizza la risposta JSON. Anche se l'applicazione è scritta in Ruby, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Creare un progetto e dichiarare i moduli necessari
 
-Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato o nell'editor preferito. Usare il metodo require specificando `net/https` per le richieste, `uri` per la gestione degli URI e `json` per analizzare la risposta.
+Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato o nell'editor preferito. Specificare quindi `net/https` per le richieste, `uri` per la gestione degli URI e `json` per analizzare la risposta.
 
 ```ruby
 require 'net/https'
@@ -43,7 +43,13 @@ require 'json'
 
 ## <a name="define-variables"></a>Definire le variabili
 
-Prima di continuare, è necessario impostare alcune variabili. `uri` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Verificare che `uri` e `path` siano validi e sostituire il valore di `accessKey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `term`.
+Prima di continuare, è necessario impostare alcune variabili:
+
+1. Per il valore di `uri`, è possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. 
+
+2. Verificare che i valori di `uri` e `path` siano validi e sostituire il valore di `accessKey` con una chiave di sottoscrizione del proprio account Azure. 
+
+3. Se si vuole, personalizzare la query di ricerca sostituendo il valore di `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -60,7 +66,7 @@ end
 
 ## <a name="make-a-request"></a>Effettuare una richiesta
 
-Usare questo codice per eseguire una richiesta e gestire la risposta.
+Usare questo codice per eseguire una richiesta e gestire la risposta:
 
 ```ruby
 # Construct the endpoint uri.
@@ -135,7 +141,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="sample-response"></a>Risposta di esempio
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa risposta di esempio è stata troncata in modo da visualizzare un singolo risultato.
 
@@ -264,6 +270,6 @@ Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione sull'app a singola pagina di Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Esercitazione sull'app a singola pagina dell'API Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

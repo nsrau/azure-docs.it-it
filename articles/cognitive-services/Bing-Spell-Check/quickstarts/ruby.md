@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f5f841bd7fd33d4d6c7dcd1a1f7ab754610b973
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448423"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869899"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
 
-Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing con Ruby. Questa semplice applicazione invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing con Ruby. Questa semplice applicazione invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
+
+Anche se l'applicazione è scritta in Ruby, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,7 +32,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file Ruby nell'ambiente di sviluppo integrato o nell'editor preferito e aggiungere i requisiti seguenti. 
+1. Creare un nuovo file Ruby nell'ambiente di sviluppo integrato o nell'editor preferito e aggiungere i requisiti seguenti: 
 
     ```ruby
     require 'net/http'
@@ -38,7 +40,11 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     require 'json'
     ```
 
-2. Creare variabili per la chiave di sottoscrizione, l'URI dell'endpoint e il percorso. Creare i parametri della richiesta aggiungendo il parametro `mkt=` al proprio mercato e `&mode` alla modalità di prova `proof`. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+2. Creare le variabili per la chiave di sottoscrizione, l'URI dell'endpoint e il percorso. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Creare i parametri della richiesta:
+
+   a. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. Il codice di mercato è il codice del paese o dell'area geografica da cui si effettua la richiesta. 
+
+   b. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. La modalità può essere `proof` (individua la maggior parte degli errori di ortografia/grammatica) o `spell` (individua la maggior parte degli errori di ortografia, ma meno errori di grammatica). 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -59,7 +65,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
    })
    ```
 
-2. Creare una richiesta usando l'URI creato sopra. Aggiungere la chiave all'intestazione `Ocp-Apim-Subscription-Key`.
+2. Creare una richiesta usando l'URI creato in precedenza. Aggiungere la chiave all'intestazione `Ocp-Apim-Subscription-Key`.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -84,13 +90,11 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Compilare ed eseguire il progetto.
+Compilare ed eseguire il progetto. Se si usa la riga di comando, usare il comando seguente per eseguire l'applicazione:
 
-Se si usa la riga di comando, usare i comandi seguenti per eseguire l'applicazione.
-
-```bash
-ruby <FILE_NAME>.rb
-```
+   ```bash
+   ruby <FILE_NAME>.rb
+   ```
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
 
@@ -137,7 +141,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
+> [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

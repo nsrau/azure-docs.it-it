@@ -8,42 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 42ac6cac972374dbd1db42b75742212046d2ce3e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24dd1e719b9eb401038d47c4d1c42139258f36f9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383133"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872060"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Node.js e l'API REST Ricerca notizie Bing
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e ricevere una risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca all'API e visualizza i risultati non elaborati.
+Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca notizie Bing. Questa semplice applicazione JavaScript invia una query di ricerca all'API e visualizza la risposta JSON.
 
-L'applicazione è scritta in JavaScript ed eseguita in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Anche se l'applicazione è scritta in JavaScript ed eseguita in Node.js, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La versione più recente di [Node.js](https://nodejs.org/en/download/).
-
-* [Libreria di richieste JavaScript](https://github.com/request/request)
+* [Libreria di richieste JavaScript](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file JavaScript nell'ambiente di sviluppo integrato o nell'editor preferito e impostare la severità e i requisiti https.
+1. Creare un nuovo file JavaScript nell'ambiente di sviluppo integrato o nell'editor preferito e impostare la severità e i requisiti HTTPS.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Creare variabili per l'endpoint dell'API, il percorso di ricerca dell'API per le immagini, la chiave di sottoscrizione e il termine di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. 
+2. Creare le variabili per l'endpoint API, il percorso di ricerca dell'API per le notizie, la chiave di sottoscrizione e il termine di ricerca. È possibile usare l'endpoint globale nel codice seguente o l'endpoint del [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -54,38 +53,42 @@ Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.c
 
 ## <a name="handle-and-parse-the-response"></a>Gestire e analizzare la risposta
 
-1. Definire una funzione denominata `response_handler` che accetta una chiamata HTTP, `response`, come parametro. In questa funzione eseguire i passaggi seguenti:
+1. Definire una funzione denominata `response_handler` che accetta una chiamata HTTP, `response`, come parametro. 
 
-    1. Definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+   Aggiungere codice a questa funzione nei passaggi che seguono.
 
-    2. Memorizzare il corpo della risposta quando viene chiamato il flag **data**
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+2. Definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
 
-    3. Quando viene segnalato un flag **end**, è possibile visualizzare il codice JSON e le intestazioni.
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-        ```javascript
-        response.on('end', function () {
-            console.log('\nRelevant Headers:\n');
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            console.log('\nJSON Response:\n');
-            console.log(body);
-         });
-        ```
+3. Archiviare il corpo della risposta quando viene chiamato il flag `data`.
 
-## <a name="json-response"></a>Risposta JSON
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+3. Quando viene segnalato un flag `end`, è possibile visualizzare il codice JSON e le intestazioni.
+
+    ```javascript
+    response.on('end', function () {
+        console.log('\nRelevant Headers:\n');
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log('\nJSON Response:\n');
+        console.log(body);
+     });
+    ```
+
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 

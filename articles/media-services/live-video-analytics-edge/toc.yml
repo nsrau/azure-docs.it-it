@@ -1,0 +1,82 @@
+- name: Documentazione dell'analisi video live in IoT Edge (anteprima)
+  href: index.yml
+- name: Documentazione del passaggio a Servizi multimediali di Azure v3
+  href: ../latest/index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sull'analisi di video live in IoT Edge
+      href: overview.md
+    - name: Terminologia
+      href: terminology.md
+    - name: Novità
+      items:
+        - name: Note sulla versione
+          href: release-notes.md
+- name: Avvi rapidi
+  items:
+    - name: 'Introduzione: analisi di video live in IoT Edge'
+      href: get-started-detect-motion-emit-events-quickstart.md
+    - name: 'Rilevare il movimento, registrare video in Servizi multimediali'
+      href: detect-motion-record-video-clips-media-services-quickstart.md
+    - name: Rilevare il movimento e generare eventi
+      href: detect-motion-emit-events-quickstart.md
+    - name: 'Rilevare il movimento, registrare video nei dispositivi perimetrali'
+      href: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - name: Eseguire l'analisi di video live con un modello personalizzato
+      href: use-your-model-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Registrazione continua di video
+      href: continuous-video-recording-tutorial.md
+    - name: Registrazione di video basata su eventi
+      href: event-based-video-recording-tutorial.md
+    - name: Riproduzione di registrazioni di più giorni
+      href: playback-multi-day-recordings-tutorial.md
+- name: Esempi
+  items:
+    - name: 'Esempi in C# di analisi di video live in IoT Edge'
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+- name: Concetti
+  items:
+    - name: Grafico multimediale
+      href: media-graph-concept.md
+    - name: Registrazione di video
+      href: video-recording-concept.md
+    - name: Riproduzione di video
+      href: video-playback-concept.md
+    - name: Scenari
+      items:
+        - name: Registrazione continua di video
+          href: continuous-video-recording-concept.md
+        - name: Registrazione di video basata su eventi
+          href: event-based-video-recording-concept.md
+        - name: Analisi di video live senza registrazione video
+          href: analyze-live-video-concept.md
+- name: Guide pratiche
+  items:
+    - name: Creare un ruolo personalizzato di Azure Resource Manager
+      href: create-custom-azure-resource-manager-role-how-to.md
+    - name: Distribuire in un dispositivo IoT Edge
+      href: deploy-iot-edge-device.md
+    - name: Monitoraggio e registrazione
+      href: monitoring-logging.md
+    - name: Riprodurre una registrazione
+      href: playback-recordings-how-to.md
+    - name: Gestire i criteri di registrazione
+      href: manage-recording-policy-how-to.md
+    - name: Analizzare i video live con intelligenza artificiale a scelta
+      href: analyze-with-ai-your-choice-how-to.md
+    - name: Risolvere problemi
+      href: troubleshoot-how-to.md
+- name: Informazioni di riferimento
+  items:
+    - name: Metodi diretti
+      href: direct-methods.md
+    - name: Schema di configurazione del modulo gemello
+      href: module-twin-configuration-schema.md
+    - name: Quote e limitazioni
+      href: quotas-limitations.md
+    - name: Domande frequenti
+      href: faq.md
+    - name: Idoneità e procedure consigliate per la produzione
+      href: production-readiness.md
