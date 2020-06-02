@@ -50,6 +50,8 @@
               href: database/advanced-data-security.md
             - name: Advanced Threat Protection
               href: database/threat-detection-overview.md
+            - name: Individuazione e classificazione dei dati
+              href: database/data-discovery-and-classification-overview.md
             - name: Maschera dati dinamica
               href: database/dynamic-data-masking-overview.md
             - name: Valutazione della vulnerabilità SQL
@@ -73,8 +75,6 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: Bring Your Own Key (BYOK)
                   href: database/transparent-data-encryption-byok-overview.md
-                - name: Individuazione e classificazione dei dati
-                  href: database/data-discovery-and-classification-overview.md
         - name: Continuità aziendale
           displayName: 'Backup, back up, restore, recovery'
           items:
@@ -452,7 +452,7 @@
               href: database/single-database-scale.md
             - name: Dimensionare le risorse del pool
               href: database/elastic-pool-scale.md
-            - name: Gestire le risorse del pool
+            - name: Gestire le risorse in pool
               href: database/elastic-pool-manage.md
             - name: Gestione risorse in pool elastici densi
               href: database/elastic-pool-resource-management.md
@@ -870,7 +870,7 @@
           href: database/arm-templates-content-guide.md?tabs=managed-instance
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-- name: Macchina virtuale SQL Server in Azure
+- name: SQL Server in una macchina virtuale Azure
   items:
     - name: Documentazione
       href: virtual-machines/index.yml

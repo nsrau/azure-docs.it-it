@@ -190,7 +190,7 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Percorso di apprendimento
-      href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
+      href: /learn/paths/azure-fundamentals/
     - name: Pagina delle domande di Domande e risposte Microsoft
       href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Prezzi

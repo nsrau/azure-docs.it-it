@@ -199,8 +199,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Case study
       href: data-factory-customer-case-studies.md
-    - name: Percorso di apprendimento
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
     - name: Pagina delle domande di Domande e risposte Microsoft
       href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Prezzi

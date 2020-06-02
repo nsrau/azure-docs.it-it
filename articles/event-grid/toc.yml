@@ -92,6 +92,8 @@
       href: template-samples.md
     - name: Esempi di codice
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+    - name: Criteri di Azure predefiniti
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Terminologia di Griglia di eventi
