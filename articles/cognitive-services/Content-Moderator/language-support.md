@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744373"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310309"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Supporto per le lingue dell'API Content Moderator
 
@@ -39,13 +39,13 @@ ms.locfileid: "73744373"
 | Copto | Basco | Tedesco                      | Norvegese |
 | Ceco |  Bielorusso | Greco, moderno         | Polacco |
 | Dhivehi | Bosniaco (alfabeto cirillico) | Ungherese      | Portoghese |
-| Olandese | Bosniaco (alfabeto latino) | Italiano             | Rumeno |
+| Olandese | Bosniaco (alfabeto latino) | Italiano             | Romeno |
 | Inglese (Creolo) | Bretone [non GeoPol] | Giapponese  | Russo |
 | Farsi | Bulgaro | Coreano                        | Slovacco |
 | Francese | Catalano | Norvegese                        | Spagnolo |
 | Tedesco | Curdo sorani | Polacco        | Turco |
 | Greco | Cherokee | Portoghese | |
-| Haitiano | Cinese (semplificato) | Rumeno | |
+| Haitiano | Cinese (semplificato) | Romeno | |
 | Ebraico | Cinese (tradizionale) - Hong Kong | Russo | |
 | Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico) | |
 | Hmong | Croato | Serbo (alfabeto latino) | |
@@ -109,7 +109,7 @@ ms.locfileid: "73744373"
 | | Punjabi | | |
 | | Punjabi (Pakistan) | | |
 | | Quechua (Perù) | | |
-| | Rumeno | | |
+| | Romeno | | |
 | | Russo | | |
 | | Scozzese Gaelico | | |
 | | Serbo (alfabeto cirillico) | | |

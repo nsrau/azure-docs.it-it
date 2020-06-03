@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721748"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309697"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto della lingua e dell'area per l'API riconoscimento input penna
 
@@ -66,7 +66,7 @@ Questo articolo illustra le lingue supportate per l'API di riconoscimento input 
 | Portoghese (Brasile)                        |     `pt-BR`     |
 | Portoghese (Portogallo)                      |     `pt-PT`     |
 | Romancio                                    |     `rm-CH`     |
-| Rumeno                                   |     `ro-RO`     |
+| Romeno                                   |     `ro-RO`     |
 | Russo                                    |     `ru-RU`     |
 | Scozzese Gaelico                            |     `gd-GB`     |
 | Sotho del nord                           |    `nso-ZA`     |

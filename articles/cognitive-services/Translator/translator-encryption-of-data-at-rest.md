@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995769"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310836"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi di Translator
 
@@ -45,9 +45,9 @@ Per abilitare le chiavi gestite dal cliente per il traduttore, attenersi alla pr
 2. È stata abilitata l'identità gestita nel portale di Azure e si aggiungono le informazioni sulla chiave gestita dal cliente.
 3. Creare una nuova area di lavoro nel convertitore personalizzato e associare le informazioni di sottoscrizione.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-### <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
+### <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 
 È necessario utilizzare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. La risorsa Servizi cognitivi e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 

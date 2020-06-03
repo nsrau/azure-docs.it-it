@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68950240"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021603"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Esercitazione: Registrare gli asset di dati in Azure Data Catalog
 
@@ -39,7 +39,7 @@ Per configurare Data Catalog, l'utente deve essere proprietario o comproprietari
 
 ### <a name="register-a-data-source"></a>Registrazione di un'origine dati
 
-Gli asset di dati (tabelle) verranno registrati da un [esempio di database SQL di Azure](../sql-database/sql-database-single-database-get-started.md), ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati noti e più attinenti al proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
+Gli asset di dati (tabelle) verranno registrati da un [esempio di database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md), ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati noti e più attinenti al proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
 
 Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
 

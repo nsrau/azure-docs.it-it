@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536132"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169849"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -126,12 +126,12 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Se si sta creando un'app per [cloud nazionali Azure AD](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), sostituire la riga che inizia con 'let kGraphEndpoint' e 'let kAuthority' con gli endpoint corretti. Per l'accesso globale, usare i valori predefiniti:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 > 1. Gli altri endpoint sono documentati [qui](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). Per eseguire ad esempio l'avvio rapido con Azure AD Germania, seguire questa procedura:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
