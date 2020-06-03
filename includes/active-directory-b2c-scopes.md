@@ -5,22 +5,13 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183382"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297489"
 ---
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
-
-1. Selezionare **Applicazioni**.
-1. Selezionare l'applicazione *webapi1* per aprire la pagina **Proprietà**.
-1. Selezionare **Ambiti pubblicati**. Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client determinate autorizzazioni per l'API Web.
-1. Immettere `demo.read` come **AMBITO** e `Read access to the web API` come **DESCRIZIONE**.
-1. Immettere `demo.write` come **AMBITO** e `Write access to the web API` come **DESCRIZIONE**.
-1. Selezionare **Salva**.
-
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Selezionare **Registrazioni app (anteprima)** .
@@ -37,3 +28,12 @@ ms.locfileid: "78183382"
     1. **Nome ambito**: `demo.write`
     1. **Nome visualizzato per il consenso amministratore**: `Write access to demo API`
     1. **Descrizione del consenso amministratore**: `Allows write access to the demo API`
+
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+
+1. Selezionare **Applicazioni**.
+1. Selezionare l'applicazione *webapi1* per aprire la pagina **Proprietà**.
+1. Selezionare **Ambiti pubblicati**. Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client determinate autorizzazioni per l'API Web.
+1. Immettere `demo.read` come **AMBITO** e `Read access to the web API` come **DESCRIZIONE**.
+1. Immettere `demo.write` come **AMBITO** e `Write access to the web API` come **DESCRIZIONE**.
+1. Selezionare **Salva**.

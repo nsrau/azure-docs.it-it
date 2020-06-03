@@ -6,14 +6,14 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598394"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217293"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Guida introduttiva: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
+# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Avvio rapido: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
 
 Questa guida di avvio rapido descrive come configurare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager. Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo online le applicazioni aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e ripristino.
 
@@ -35,7 +35,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 Nel modello sono definite due risorse di Azure:
 
-- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): crea l'insieme di credenziali.
+- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): crea l'insieme di credenziali.
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): configura le impostazioni di ridondanza del backup dell'insieme di credenziali.
 
 Il modello include i parametri facoltativi per la configurazione di backup dell'insieme di credenziali. Le impostazioni di ridondanza dell'archiviazione sono l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica. Per altre informazioni, vedere [Impostare le opzioni di ridondanza](../backup/backup-create-rs-vault.md#set-storage-redundancy).

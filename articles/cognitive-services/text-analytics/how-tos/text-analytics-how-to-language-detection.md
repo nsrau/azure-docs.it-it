@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5b3893dce2d20b1de0a78f11263d880e262098d2
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745579"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142385"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Esempio: Rilevare la lingua con Analisi del testo
 
-La funzionalità [Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) dell'API REST Analisi del testo di Azure valuta l'input di testo per ogni documento e restituisce identificatori di lingua con un punteggio indicante il livello di attendibilità dell'analisi.
+La funzionalità [Rilevamento lingua](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) dell'API REST Analisi del testo di Azure valuta l'input di testo per ogni documento e restituisce identificatori di lingua con un punteggio indicante il livello di attendibilità dell'analisi.
 
 Questa funzionalità è utile per gli archivi di contenuto che includono testo arbitrario, in cui la lingua è sconosciuta. È possibile analizzare i risultati di questa analisi per determinare la lingua usata nel documento di input. La risposta restituisce anche un punteggio che riflette l'attendibilità del modello. Il valore del punteggio è compreso tra 0 e 1.
 
@@ -67,16 +67,16 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Per altre informazioni sulla definizione della richiesta, vedere [Chiamare l'API Analisi del testo](text-analytics-how-to-call-api.md). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta POST. Per esaminare la documentazione dell'API per la richiesta, vedere [API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
++ Creare una richiesta POST. Per esaminare la documentazione dell'API per la richiesta, vedere [API Rilevamento lingua](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages).
 
-+ Impostare l'endpoint HTTP per il rilevamento della lingua. Usare una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere `/text/analytics/v2.1/languages` nell'URL. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
++ Impostare l'endpoint HTTP per il rilevamento della lingua. Usare una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere `/text/analytics/v3.0/languages` nell'URL. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`.
 
 + Impostare un'intestazione della richiesta in modo da includere la [chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per le operazioni di Analisi del testo.
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
 > [!Tip]
-> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) per strutturare una richiesta e inviarla tramite POST al servizio.
+> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) per strutturare una richiesta e inviarla tramite POST al servizio.
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Inviare la richiesta POST
 
@@ -96,61 +96,57 @@ I risultati relativi alla richiesta di esempio dovrebbero avere un aspetto simil
 Un punteggio positivo pari a 1.0 esprime il massimo livello possibile di attendibilità dell'analisi.
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguages": [
-                    {
-                        "name": "English",
-                        "iso6391Name": "en",
-                        "score": 1
-                    }
-                ]
+{
+    "documents": [
+        {
+            "id": "1",
+            "detectedLanguage": {
+                "name": "English",
+                "iso6391Name": "en",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "2",
-                "detectedLanguages": [
-                    {
-                        "name": "Spanish",
-                        "iso6391Name": "es",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "detectedLanguage": {
+                "name": "Spanish",
+                "iso6391Name": "es",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "3",
-                "detectedLanguages": [
-                    {
-                        "name": "French",
-                        "iso6391Name": "fr",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "detectedLanguage": {
+                "name": "French",
+                "iso6391Name": "fr",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "4",
-                "detectedLanguages": [
-                    {
-                        "name": "Chinese_Simplified",
-                        "iso6391Name": "zh_chs",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "detectedLanguage": {
+                "name": "Chinese_Simplified",
+                "iso6391Name": "zh_chs",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "5",
-                "detectedLanguages": [
-                    {
-                        "name": "Russian",
-                        "iso6391Name": "ru",
-                        "score": 1
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "detectedLanguage": {
+                "name": "Russian",
+                "iso6391Name": "ru",
+                "confidenceScore": 1.0
+            },
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2019-10-01"
+}
 ```
 
 ### <a name="ambiguous-content"></a>Contenuto ambiguo
@@ -190,7 +186,7 @@ Il contesto aggiuntivo ora disponibile consente al servizio di ottenere un giudi
                     {
                         "name": "English",
                         "iso6391Name": "en",
-                        "score": 1
+                        "confidenceScore": 1
                     }
                 ]
             },
@@ -200,7 +196,7 @@ Il contesto aggiuntivo ora disponibile consente al servizio di ottenere un giudi
                     {
                         "name": "French",
                         "iso6391Name": "fr",
-                        "score": 1
+                        "confidenceScore": 1
                     }
                 ]
             }
@@ -218,7 +214,7 @@ Se l'analizzatore non riesce ad analizzare l'input, restituisce `(Unknown)`. Ci�
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
-                "score": "NaN"
+                "confidenceScore": "NaN"
             }
         ]
     }
@@ -254,7 +250,7 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
             {
               "name": "Spanish",
               "iso6391Name": "es",
-              "score": 0.9375
+              "confidencescore": 0.94
             }
           ]
         }
@@ -267,17 +263,13 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilevamento della lingua con Analisi del testo di Servizi cognitivi di Azure. È stato illustrato e dimostrato quanto segue:
 
-+ [Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) è disponibile per un'ampia gamma di lingue, varianti e dialetti e alcune lingue regionali o culturali.
++ [Rilevamento lingua](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) è disponibile per un'ampia gamma di lingue, varianti e dialetti e alcune lingue regionali o culturali.
 + I documenti JSON nel corpo della richiesta includono un ID e il testo.
 + La richiesta POST viene inviata a un endpoint `/languages` usando [una chiave di accesso e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizzati validi per la sottoscrizione.
 + L'output di risposta è costituito da identificatori di lingua per ogni ID documento. L'output può essere trasmesso a qualsiasi app che accetta JSON, ad esempio Excel e Power BI, per citarne alcune.
 
 ## <a name="see-also"></a>Vedere anche
 
- [Panoramica di Analisi del testo](../overview.md) [Domande frequenti](../text-analytics-resource-faq.md)</br>
- [Pagina del prodotto Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759712)
-
-## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
-> [Analizzare la valutazione](text-analytics-how-to-sentiment-analysis.md)
+* [Panoramica di Analisi del testo](../overview.md)
+* [Uso della libreria client di Analisi del testo](../quickstarts/text-analytics-sdk.md)
+* [Novità](../whats-new.md)

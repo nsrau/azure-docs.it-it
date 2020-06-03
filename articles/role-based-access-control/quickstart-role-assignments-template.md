@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Aggiungere un'assegnazione di ruolo di Azure tramite un modello di Azure Resource Manager - Controllo degli accessi in base al ruolo Azure"
+title: "Avvio rapido: Aggiungere un'assegnazione di ruolo di Azure tramite un modello di Azure Resource Manager - Controllo degli accessi in base al ruolo Azure"
 description: Informazioni su come concedere l'accesso alle risorse di Azure per un utente nell'ambito di un gruppo di risorse tramite modelli di Azure Resource Manager e il controllo degli accessi in base al ruolo Azure.
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -10,14 +10,14 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 56d2647c3da84e9534220e7b237ea24b2b45e8b3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853858"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300665"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Guida introduttiva: Aggiungere un'assegnazione di ruolo di Azure tramite un modello di Azure Resource Manager
+# <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Avvio rapido: Aggiungere un'assegnazione di ruolo di Azure tramite un modello di Azure Resource Manager
 
 Per gestire l'accesso alle risorse di Azure, si usa il [controllo degli accessi in base al ruolo Azure](overview.md). Questa guida introduttiva illustra come creare un gruppo di risorse e come concedere l'accesso a un utente in modo che possa creare e gestire macchine virtuali nel gruppo di risorse. In questa guida introduttiva viene usato un modello di Resource Manager per concedere l'accesso.
 
@@ -40,6 +40,10 @@ Per aggiungere un'assegnazione di ruolo, è necessario specificare tre elementi,
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Nel modello sono presenti tre parametri e una sezione relativa alle risorse. In tale sezione sono presenti i tre elementi di un'assegnazione di ruolo, ovvero l'entità di sicurezza, la definizione del ruolo e l'ambito. 
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+
+Nel modello è definita la risorsa seguente:
+
+- [Microsoft.Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 

@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Indirizzare il traffico Web con il modello di Resource Manager'
+title: 'Avvio rapido: Indirizzare il traffico Web con il modello di Resource Manager'
 titleSuffix: Azure Application Gateway
 description: Informazioni su come usare un modello di Resource Manager per creare un gateway applicazione di Azure che indirizza il traffico Web alle macchine virtuali in un pool back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604908"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170495"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Guida introduttiva: Indirizzare il traffico Web con il gateway applicazione di Azure - Modello di Resource Manager
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Modello di Resource Manager
 
 In questa guida di avvio rapido si userà un modello di Resource Manager per creare un gateway applicazione di Azure. Successivamente, verrà testato il gateway applicazione per verificare che funzioni correttamente.
 
@@ -60,7 +60,9 @@ Distribuire il modello di Resource Manager in Azure:
    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Selezionare o creare il gruppo di risorse, digitare il nome utente e la password dell'amministratore delle macchine virtuali.
-3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. Il completamento della distribuzione può richiedere più di 20 minuti.
+3. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+   Il completamento della distribuzione può richiedere più di 20 minuti.
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 

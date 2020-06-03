@@ -3,16 +3,16 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648192"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298143"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -43,7 +43,7 @@ A una registrazione possono essere associati uno dei valori di stato seguenti. O
 
 **Expired** (Scaduta): la registrazione EA scade quando raggiunge la data di fine del Contratto Enterprise. Il cliente EA è escluso dal periodo di validità esteso e tutti i relativi servizi vengono disabilitati.
 
-A partire dal 1° agosto 2019 i nuovi moduli di rifiuto esplicito non sono accettati per i clienti commerciali di Azure. Tutte le registrazioni passano invece allo stato Indefinite Extended Term (Periodo di validità esteso a tempo indeterminato). Se si vuole interrompere l'uso dei servizi di Azure, chiudere la sottoscrizione in [Azure EA Portal](https://portal.azure.com). In alternativa, il partner può inviare una richiesta di terminazione all'indirizzo https://www.explore.ms. Non sono previste modifiche per i clienti con tipi di contratto per enti pubblici.
+A partire dal 1° agosto 2019 i nuovi moduli di rifiuto esplicito non sono accettati per i clienti commerciali di Azure. Tutte le registrazioni passano invece allo stato Indefinite Extended Term (Periodo di validità esteso a tempo indeterminato). Se si vuole interrompere l'uso dei servizi di Azure, chiudere la sottoscrizione nel [portale di Azure](https://portal.azure.com). In alternativa, il partner può inviare una richiesta di terminazione all'indirizzo https://www.explore.ms. Non sono previste modifiche per i clienti con tipi di contratto per enti pubblici.
 
 **Transferred** (Trasferita): questo stato viene applicato alle registrazioni i cui account e servizi associati sono trasferiti a una nuova registrazione. Le registrazioni non vengono trasferite automaticamente se viene generato un nuovo numero di registrazione durante il rinnovo. Per il trasferimento automatico il numero di registrazione precedente deve essere incluso nella richiesta di rinnovo del cliente.
 
@@ -132,7 +132,7 @@ I partner possono usare la funzionalità di ricarico (in Azure EA) dopo l'elabor
 | Servizi ospitati di Microsoft Azure | 6 servizi ospitati | Il numero di servizi ospitati non può superare il limite di sei per singola sottoscrizione. Se sono necessari altri servizi ospitati, aggiungere altre sottoscrizioni. |
 | Archiviazione di Microsoft Azure | 5 account di archiviazione, ciascuno con una dimensione massima di 100 TB. | È possibile aumentare il numero di account di archiviazione fino a 20 per sottoscrizione. Se sono necessari altri account di archiviazione, aggiungere altre sottoscrizioni. |
 | SQL Azure | 149 database di entrambi i tipi, ovvero Web Edition o Business Edition. |   |
-| Controllo dell’accesso | 50 spazi dei nomi per account. 100 milioni di transazioni di Controllo di accesso al mese |   |
+| Controllo di accesso | 50 spazi dei nomi per account. 100 milioni di transazioni di Controllo di accesso al mese |   |
 | Bus di servizio | 50 spazi dei nomi per account. 40 connessioni del bus di servizio | I clienti che acquistano connessioni del bus di servizio tramite i pacchetti di connessione avranno quote uguali al punto medio tra il pacchetto di connessioni acquistato e la quantità del pacchetto di connessioni più alto successivo. I clienti che scelgono un pacchetto da 500 avranno una quota pari a 750. |
 
 ## <a name="resource-commitment"></a>Impegno delle risorse

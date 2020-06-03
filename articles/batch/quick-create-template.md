@@ -4,18 +4,16 @@ description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694124"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266900"
 ---
-# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Guida introduttiva: Creare un account batch utilizzando un modello di Azure Resource Manager
+# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Avvio rapido: Creare un account batch utilizzando un modello di Azure Resource Manager
 
-È necessario un account Batch per creare risorse di calcolo (pool di nodi di calcolo) e processi Batch. È possibile collegare un account di Archiviazione di Azure con l’account Batch, utile per distribuire applicazioni e archiviare dati di input e output per la maggior parte dei carichi di lavoro concreti.
-
-Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un account Batch, inclusa l’archiviazione. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+È necessario un account Batch per creare risorse di calcolo (pool di nodi di calcolo) e processi Batch. È possibile collegare un account di Archiviazione di Azure con l’account Batch, utile per distribuire applicazioni e archiviare dati di input e output per la maggior parte dei carichi di lavoro concreti. Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un account Batch, inclusa l’archiviazione. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,9 +27,9 @@ Questa guida di avvio rapido illustra come usare un modello di Azure Resource Ma
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 Nel modello sono definite due risorse di Azure:
 

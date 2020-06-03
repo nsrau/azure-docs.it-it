@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST e Java - Controllo ortografico Bing"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST e Java - Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869807"
+ms.locfileid: "83995974"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Java invia una richiesta all'API e restituisce un elenco di correzioni suggerite. 
 
@@ -59,9 +59,9 @@ Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful com
 
 1. Creare una funzione denominata `check()` per creare e inviare la richiesta all'API. All'interno di questa funzione aggiungere il codice specificato nei passaggi successivi. Creare una stringa per i parametri della richiesta:
 
-   a. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. 
+   1. Assegnare il codice di mercato al parametro `mkt` con l'operatore `=`. 
 
-   b. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. 
+   1. Aggiungere il parametro `mode` con l'operatore `&` e quindi assegnare la modalità di controllo ortografico. 
 
    ```java
    public static void check () throws Exception {

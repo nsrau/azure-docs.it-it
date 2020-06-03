@@ -1,24 +1,23 @@
 ---
-title: "Guida introduttiva: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager"
+title: "Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager"
 description: Informazioni su come proteggere l’hub virtuale con Gestione firewall di Azure (anteprima).
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/19/2020
 ms.author: victorh
-ms.openlocfilehash: b9839e51fcea1e8fe4adc4760e16ae2d73b163ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694135"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167197"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Guida introduttiva: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager
 
-In questo argomento di avvio rapido si userà un modello di Gestione risorse per proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima).
-
-Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
+In questo argomento di avvio rapido si userà un modello di Gestione risorse per proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima). Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,23 +33,23 @@ Questo modello crea un hub virtuale protetto usando Gestione firewall di Azure (
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/fwm-docs-qs/azuredeploy.json).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
 Nel modello sono definite più risorse di Azure:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
 - [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
+- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
