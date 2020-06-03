@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382731"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018719"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
 
@@ -370,7 +370,7 @@ Come indicato in precedenza, il connettore di Azure Synapse usa l'Archiviazione 
    > [!NOTE]
    > Questo esempio usa il flag `forward_spark_azure_storage_credentials`, che fa sì che Azure Synapse acceda ai dati dall'archiviazione BLOB tramite una chiave di accesso. Questo è l'unico metodo di autenticazione supportato.
    >
-   > Se l'archiviazione BLOB di Azure è limitata alla selezione di reti virtuali, Azure Synapse richiede l'[identità del servizio gestita anziché le chiavi di accesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questo comportamento provoca l'errore "This request is not authorized to perform this operation" (La richiesta non è autorizzata a eseguire questa operazione).
+   > Se l'archiviazione BLOB di Azure è limitata alla selezione di reti virtuali, Azure Synapse richiede l'[identità del servizio gestita anziché le chiavi di accesso](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questo comportamento provoca l'errore "This request is not authorized to perform this operation" (La richiesta non è autorizzata a eseguire questa operazione).
 
 6. Connettersi al database SQL e verificare che sia visualizzato un database denominato **SampleTable**.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587341"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310598"
 ---
 # <a name="long-audio-api-preview"></a>API Long audio (anteprima)
 
@@ -48,7 +48,7 @@ Quando si prepara il file di testo, verificare che:
   * Per testo normale, ogni paragrafo viene **separato premendo l'** esempio di [input di testo normale](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Per il testo SSML, ogni elemento SSML è considerato un paragrafo. Le parti SSML devono essere separate da paragrafi diversi, [ad esempio visualizzare input di testo SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> Per il cinese (terraferma), il cinese (Hong Kong), il cinese (Taiwan), il giapponese e il coreano, una parola viene conteggiata come due caratteri. 
+> Per il cinese (terraferma), il cinese (Hong Kong SAR), il cinese (Taiwan), il giapponese e il coreano, una parola viene conteggiata come due caratteri. 
 
 ## <a name="submit-synthesis-requests"></a>Invia richieste di sintesi
 
@@ -58,7 +58,7 @@ I **codici di stato http** indicano errori comuni.
 
 | API | Stato codice HTTP | Descrizione | Proposal |
 |-----|------------------|-------------|----------|
-| Crea | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
+| Create | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
 |        | 400 | Per questa area è valida solo la sottoscrizione vocale **standard** . | Modificare la chiave di sottoscrizione vocale nel piano tariffario "standard". |
 |        | 400 | Superare il limite di richieste 20.000 per l'account Azure. Rimuovere alcune richieste prima di inviarne di nuove. | Il server manterrà fino a 20.000 richieste per ogni account Azure. Eliminare alcune richieste prima di inviarne di nuove. |
 |        | 400 | Non è possibile usare questo modello nella sintesi vocale: {modelID}. | Verificare che lo stato di {modelID} sia corretto. |
@@ -71,14 +71,14 @@ I **codici di stato http** indicano errori comuni.
 |        | 404 | Il modello dichiarato nella definizione di sintesi vocale non è stato trovato: {modelID}. | Assicurarsi che {modelID} sia corretto. |
 |        | 429 | Superare il limite di sintesi vocale attiva. Attendere il completamento di alcune richieste. | Il server può eseguire e accodare fino a 120 richieste per ogni account Azure. Attendere ed evitare di inviare nuove richieste finché alcune richieste non vengono completate. |
 | Tutti       | 429 | Troppe richieste. | Il client può inviare fino a 5 richieste al server al secondo per ogni account Azure. Ridurre il numero di richieste al secondo. |
-| Elimina    | 400 | L'attività di sintesi vocale è ancora in uso. | È possibile eliminare solo le richieste **completate** o **non riuscite**. |
+| Delete    | 400 | L'attività di sintesi vocale è ancora in uso. | È possibile eliminare solo le richieste **completate** o **non riuscite**. |
 | GetByID   | 404 | Impossibile trovare l'entità specificata. | Verificare che l'ID di sintesi sia corretto. |
 
 ## <a name="regions-and-endpoints"></a>Aree ed endpoint
 
 L'API Long audio è disponibile in più aree con endpoint univoci.
 
-| Area | Endpoint |
+| Region | Endpoint |
 |--------|----------|
 | Australia orientale | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | Canada centrale | `https://canadacentral.customvoice.api.speech.microsoft.com` |

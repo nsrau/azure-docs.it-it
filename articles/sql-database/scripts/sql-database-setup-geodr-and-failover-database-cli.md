@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3bc6cbe025854286b0a24a34240396eea16292b6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93afb5b52df7ac3ff638ff5fc180c3c4774880b8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067403"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020388"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Usare l'interfaccia della riga di comando per configurare la replica geografica attiva per un singolo database nel database SQL di Azure
 
@@ -60,4 +60,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).
