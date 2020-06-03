@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388570"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310581"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Lingua e regioni supportate dall'API Ricerca personalizzata Bing
 
@@ -66,7 +66,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Taiwan|TW|
 |Turchia|TR|
 |Regno Unito|GB|
-|Stati Uniti|Stati Uniti|
+|Stati Uniti|US|
 
 
 ## <a name="markets"></a>Mercati
@@ -86,7 +86,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Finlandia|Finlandese|fi-FI|
 |Francia|Francese|fr-FR|
 |Germania|Tedesco|de-DE|
-|Hong Kong, SAR|Cinese tradizionale|zh-HK|
+|RAS di Hong Kong|Cinese tradizionale|zh-HK|
 |India|Inglese|en-IN|
 |Indonesia|Inglese|en-ID|
 |Italia|Italiano|it-IT|
