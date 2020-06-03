@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6944d2e6a8f762e62c14f6f3fa3f600a9b3c333e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673132"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195042"
 ---
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
@@ -17,7 +17,7 @@ Eseguire la funzione avviando l'host di runtime locale di Funzioni di Azure nell
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
-func start
+func host start
 ```
 ::: zone-end
 
