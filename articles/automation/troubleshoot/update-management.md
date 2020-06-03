@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735889"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170257"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -50,7 +50,7 @@ Le cause di questo errore sono le seguenti:
 
 * Passare a [Configurazione di rete](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) per informazioni sugli indirizzi e sulle porte che devono essere consentiti per il funzionamento dell'agente di Log Analytics.
 
-* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non nel portale Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../automation-scope-configurations-update-management.md) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non nel portale Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Rimuovere la configurazione del ruolo di lavoro attenendosi ai passaggi descritti in [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Windows locale](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) oppure [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Linux locale](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
