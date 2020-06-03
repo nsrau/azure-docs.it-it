@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5ebf7086aba3e311bc595c6eafa4b2debdc32e7f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836805"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118360"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Guida introduttiva: Usare SQL su richiesta
 
@@ -66,6 +66,9 @@ Per eseguire query con SQL su richiesta, creare l’origine dati che SQL su rich
 Eseguire il frammento di codice seguente per creare l’origine dati usata negli esempi di questa sezione:
 
 ```sql
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
+
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
