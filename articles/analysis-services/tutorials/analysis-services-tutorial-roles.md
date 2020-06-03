@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454255"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016390"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
 
@@ -59,7 +59,7 @@ Per le restanti attività, si usa SSMS per connettersi al server e gestirlo.
     ![Connessione in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > È consigliabile scegliere Active Directory - Universale con supporto MFA. Questo tipo di autenticazione supporta l'[autenticazione a più fattori e non interattiva](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > È consigliabile scegliere Active Directory - Universale con supporto MFA. Questo tipo di autenticazione supporta l'[autenticazione a più fattori e non interattiva](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. In **Esplora oggetti** espandere per visualizzare gli oggetti del server. Fare clic con il pulsante destro del mouse per visualizzare le proprietà del server.
    

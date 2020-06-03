@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418729"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022113"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -48,7 +48,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Account di archiviazione di Azure. Come archivio dati di origine si usa un archivio BLOB. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 * Azure Storage Explorer Per installare lo strumento, vedere [Azure Storage Explorer](https://storageexplorer.com/).
-* Database SQL di Azure. Il database viene usato come archivio dati sink. Se non si ha un database SQL di Azure, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
+* Database SQL di Azure. Il database viene usato come archivio dati sink. Se non si ha un database SQL di Azure, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. Questo articolo usa Visual Studio 2019.
 * Azure .NET SDK. Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
