@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 55ef72b23f804ce7fcdb339ba4c66bcefe39db46
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702048"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020813"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL su richiesta (anteprima) in Azure Synapse Analytics 
 
@@ -110,7 +110,7 @@ SQL su richiesta offre meccanismi per proteggere l'accesso ai dati.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
-SQL su richiesta consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione con Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory (Azure AD) supporta [Multi-Factor Authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA), per una maggiore sicurezza di dati e applicazioni, oltre a un processo Single Sign-On.
+SQL su richiesta consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione con Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory (Azure AD) supporta [Multi-Factor Authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA), per una maggiore sicurezza di dati e applicazioni, oltre a un processo Single Sign-On.
 
 #### <a name="authentication"></a>Authentication
 

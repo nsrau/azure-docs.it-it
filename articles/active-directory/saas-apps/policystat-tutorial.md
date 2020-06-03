@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848771"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
 
@@ -175,11 +175,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
    
     a. Nella casella di testo **Attributo nome utente** digitare **uid**.
 
-    b. Nella casella di testo **First Name Attribute** (Attributo nome) digitare il nome dell'attestazione dell'attributo nome da **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** di Azure.
+    b. Nella casella di testo **First Name Attribute** (Attributo nome) digitare il nome dell'attestazione dell'attributo nome da **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** di Azure.
 
-    c. Nella casella di testo **Last Name Attribute** (Attributo cognome) digitare il nome dell'attestazione dell'attributo cognome da **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** di Azure.
+    c. Nella casella di testo **Last Name Attribute** (Attributo cognome) digitare il nome dell'attestazione dell'attributo cognome da **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** di Azure.
 
-    d. Nella casella di testo **Email Attribute** (Attributo posta elettronica) digitare il nome dell'attestazione dell'attributo posta elettronica da **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** di Azure.
+    d. Nella casella di testo **Email Attribute** (Attributo posta elettronica) digitare il nome dell'attestazione dell'attributo posta elettronica da **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** di Azure.
 
     e. Fare clic su **Salva modifiche**.
 

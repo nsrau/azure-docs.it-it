@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Prima query nel portale'
 description: Questa guida di avvio rapido illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872093"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148039"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
@@ -51,7 +51,7 @@ Il browser dello schema è un ottimo modo per individuare le proprietà da usare
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Creare un grafico dalla query di Resource Graph
 
-Dopo aver eseguito l'ultima query illustrata sopra, se si seleziona la scheda **Grafici** viene visualizzato il messaggio "Il set di risultati non è compatibile con una visualizzazione grafico a torta". Le query che elencano risultati non possono essere convertite in grafico, a differenza di quelle che forniscono il numero di risorse. Usando la [query di esempio riportata in Contare le macchine virtuali per tipo di sistema operativo](./samples/starter.md#count-virtual-machines-by-os-type), creare una visualizzazione dalla query di Resource Graph.
+Dopo aver eseguito l'ultima query illustrata sopra, se si seleziona la scheda **Grafici** viene visualizzato il messaggio "Il set di risultati non è compatibile con una visualizzazione grafico a torta". Le query che elencano risultati non possono essere convertite in grafico, a differenza di quelle che forniscono il numero di risorse. Usando la [query di esempio riportata in Contare le macchine virtuali per tipo di sistema operativo](./samples/starter.md#count-os), creare una visualizzazione dalla query di Resource Graph.
 
 1. Nella sezione **Query 1** della finestra immettere la query seguente e selezionare **Esegui query**.
 

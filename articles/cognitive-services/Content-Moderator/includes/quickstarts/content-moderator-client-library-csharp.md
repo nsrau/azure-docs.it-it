@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 50572c037cc7927a06bcf8d95305353238989ae9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24319fe80130c1ac116c8423e1d82a5bc08b4b20
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186514"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124253"
 ---
 Introduzione alla libreria client di Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 

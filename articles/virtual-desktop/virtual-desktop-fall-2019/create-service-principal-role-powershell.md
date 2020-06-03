@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f87f5387fc97e3b697488b266cb2c3981409294
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613867"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117716"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -116,4 +116,4 @@ Dopo aver eseguito l'accesso, testare alcuni cmdlet di PowerShell per Desktop vi
 Dopo aver creato l'entità servizio e aver assegnato un ruolo nel tenant di Desktop virtuale Windows, è possibile usarla per creare un pool di host. Per altre informazioni sui pool di host, continuare con l'esercitazione per la creazione di pool di host in Desktop virtuale Windows.
 
  > [!div class="nextstepaction"]
- > [Creare un pool di host con Azure Marketplace](../create-host-pools-azure-marketplace.md)
+ > [Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace-2019.md)

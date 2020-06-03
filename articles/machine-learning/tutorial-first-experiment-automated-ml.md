@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656507"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118967"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -224,7 +224,7 @@ In questa esercitazione di Machine Learning automatizzato è stata usata l'inter
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 + Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
-+ Altre informazioni sullo [sviluppo di funzionalità](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Altre informazioni sullo [sviluppo di funzionalità](how-to-configure-auto-features.md#featurization).
 + Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile).
 
 
