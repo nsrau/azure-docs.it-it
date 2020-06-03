@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione dalla riga di comando e qu
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626259"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195035"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Avvio rapido: Creare una funzione in Azure che risponde a richieste HTTP
 
@@ -105,7 +105,7 @@ Quando richiesto, specificare i valori seguenti:
 | **groupId** | `com.fabrikam` | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. |
 | **artifactId** | `fabrikam-functions` | Un valore che corrisponde al nome del jar, senza un numero di versione. |
 | **version** | `1.0-SNAPSHOT` | Scegliere il valore predefinito. |
-| **package** | `com.fabrikam.functions` | Un valore che corrisponde al pacchetto Java per il codice della funzione generato. Usare il valore predefinito. |
+| **package** | `com.fabrikam` | Un valore che corrisponde al pacchetto Java per il codice della funzione generato. Usare il valore predefinito. |
 
 Digitare `Y` o premere INVIO per confermare.
 
@@ -145,7 +145,7 @@ L'oggetto restituito è [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 #### <a name="functionjava"></a>Function.java
 *Function.java* contiene un metodo `run` che riceve i dati della richiesta nella variabile `request` come oggetto [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) decorato con l'annotazione [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger), che definisce il comportamento del trigger. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 Il messaggio di risposta viene generato dall'API [HttpResponseMessage.Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder).
 
@@ -153,7 +153,7 @@ Il messaggio di risposta viene generato dall'API [HttpResponseMessage.Builder](/
 
 Le impostazioni per le risorse di Azure create per ospitare l'app sono definite nell'elemento **configuration** del plug-in con un elemento **groupId** di `com.microsoft.azure` nel file pom.xml generato. Ad esempio, l'elemento configuration seguente indica a una distribuzione basata su Maven di creare un'app per le funzioni nel gruppo di risorse `java-functions-group` nell'area `westus`. L'app per le funzioni viene eseguita in Windows ospitata nel piano `java-functions-app-service-plan`, che per impostazione predefinita è un piano a consumo serverless.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 È possibile modificare queste impostazioni per controllare la modalità di creazione delle risorse in Azure, ad esempio cambiando `runtime.os` da `windows` a `linux` prima della distribuzione iniziale. Per un elenco completo delle impostazioni supportate dal plug-in Maven, vedere i [dettagli di configurazione](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
@@ -414,3 +414,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-cli.md)
+ 
