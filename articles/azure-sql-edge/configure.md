@@ -2,19 +2,19 @@
 title: Configurare SQL Edge di Azure (anteprima)
 description: Informazioni sulla configurazione di SQL Edge di Azure (anteprima)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5dcdd1604674ca56fb7a646d4c571d63bd2c0e3e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a28724e00f59fe049d1d9d6dfbcbc5a3f9556124
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594010"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235154"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configurare SQL Edge di Azure (anteprima)
 
@@ -72,7 +72,7 @@ SQL Edge di Azure non include l'[utilità di configurazione mssql-conf](/sql/lin
 ```
 
 Le opzioni mssql.conf seguenti non sono applicabili a SQL Edge:
-</br></br>
+
 |Opzione|Descrizione|
 |:---|:---|
 |**Commenti e suggerimenti degli utenti** | Scegliere se in SQL Server è possibile o meno inviare commenti e suggerimenti a Microsoft. |

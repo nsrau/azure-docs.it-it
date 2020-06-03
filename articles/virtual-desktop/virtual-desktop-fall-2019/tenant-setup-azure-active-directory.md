@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124398"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234113"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
 
@@ -152,9 +152,6 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per una procedura più dettagliata, vedere il [percorso di apprendimento su Desktop virtuale Windows](https://docs.microsoft.com/learn/paths/m365-wvd/).
-
 Dopo aver creato il tenant, sarà necessario creare un'entità servizio in Azure Active Directory a cui assegnare un ruolo in Desktop virtuale Windows. L'entità servizio consentirà di distribuire l'offerta di Azure Marketplace di Desktop virtuale Windows per creare un pool di host. Per altre informazioni sui pool di host, continuare con l'esercitazione per la creazione di pool di host in Desktop virtuale Windows.
 
 > [!div class="nextstepaction"]

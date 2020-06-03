@@ -9,16 +9,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195622"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267206"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Esercitazione: Integrare più risorse dello strumento di lettura immersiva
 
-Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettura immersiva e come questo strumento implementa tecniche comprovate per migliorare la comprensione della lettura per studenti di lingue, lettori emergenti e studenti con differenze nell'apprendimento. Nell'[argomento di avvio rapido per Node.js](./quickstart-nodejs.md) si è appreso come usare uno strumento di lettura immersiva con una singola risorsa. Questa esercitazione illustra come integrare più risorse dello strumento di lettura immersiva nella stessa applicazione. In questa esercitazione verranno illustrate le procedure per:
+Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettura immersiva e come questo strumento implementa tecniche comprovate per migliorare la comprensione della lettura per studenti di lingue, lettori emergenti e studenti con differenze nell'apprendimento. Nell'[argomento di avvio rapido per Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) si è appreso come usare uno strumento di lettura immersiva con una singola risorsa. Questa esercitazione illustra come integrare più risorse dello strumento di lettura immersiva nella stessa applicazione. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare più risorse dello strumento di lettura immersiva in un gruppo di risorse esistente
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Seguire l'[argomento di avvio rapido](./quickstart-nodejs.md) per creare un'app Web che avvia lo strumento di lettura immersiva con Node.js. In questo argomento di avvio rapido si configura una singola risorsa dello strumento di lettura immersiva. Questa esercitazione sviluppa ulteriormente questo scenario.
+* Seguire l'[argomento di avvio rapido](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) per creare un'app Web che avvia lo strumento di lettura immersiva con Node.js. In questo argomento di avvio rapido si configura una singola risorsa dello strumento di lettura immersiva. Questa esercitazione sviluppa ulteriormente questo scenario.
 
 ## <a name="create-the-immersive-reader-resources"></a>Creare le risorse dello strumento di lettura immersiva
 

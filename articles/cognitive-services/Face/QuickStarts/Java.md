@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 241aad3e9bf78d587c7f31d8046de171bd2638b3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403433"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263993"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Java
 
@@ -248,7 +248,7 @@ Compilare ed eseguire il codice. Una risposta con esito positivo visualizzerà i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stata creata una semplice applicazione console Java che usa le chiamate REST con l'API Viso di Azure per rilevare visi in un'immagine e restituirne gli attributi. Successivamente, si apprenderà come eseguire altre operazioni con questa funzionalità in un'applicazione Android.
+In questo argomento di avvio rapido è stata creata una semplice applicazione console Java che usa le chiamate REST con l'API Viso di Azure per rilevare visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni sugli scenari supportati.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare un'app Android per rilevare e incorniciare i visi](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

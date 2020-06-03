@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Automazione di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Automazione di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 31d27eb81ec78a3eb0f638f724022b93c917e140
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e314bbc82c993db1c3fc23089f903ae68f10290e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740757"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229812"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-automation"></a>Definizioni di criteri predefiniti di Criteri di Azure per Automazione di Azure
 
