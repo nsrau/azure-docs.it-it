@@ -3,12 +3,12 @@ title: 'Esercitazione: Gestire le query nel portale di Azure'
 description: In questa esercitazione viene creata una nuova query di Resource Graph, che viene condivisa con altre persone nel portale di Azure.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637760"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148022"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Esercitazione: Creare e condividere una query di Azure Resource Graph nel portale di Azure
 
@@ -44,7 +44,7 @@ Le query private sono accessibili e visualizzabili solo dall'account che le crea
 
    Selezionare **Esegui query** per visualizzare i risultati della query nel riquadro inferiore.
 
-   Per altre informazioni su questa query, vedere [Esempi - Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-virtual-machines-by-os-type).
+   Per altre informazioni su questa query, vedere [Esempi - Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os).
 
 
 1. Selezionare **Salva** o **Salva con come**, immettere **Numero di macchine virtuali per tipo di sistema operativo** come nome, lasciare il tipo **Query privata** e selezionare **Salva** nella parte inferiore del riquadro **Salva query**. Il titolo della scheda cambia da **Query 1** a **Numero di macchine virtuali per tipo di sistema operativo**.
@@ -76,7 +76,7 @@ Per creare una nuova query condivisa, seguire questa procedura:
     
    Selezionare **Esegui query** per visualizzare i risultati della query nel riquadro inferiore.
 
-   Per altre informazioni su questa query, vedere [Esempi - Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-virtual-machines-by-os-type).
+   Per altre informazioni su questa query, vedere [Esempi - Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os).
 
 1. Selezionare **Salva** o **Salva con nome**.
 
