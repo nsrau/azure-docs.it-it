@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 0577b61cd30ef0f8fd5fc8ef1593d210c00bb25c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879361"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300085"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -59,9 +59,9 @@ Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguen
 
 È possibile connettere i computer e le reti locali a una rete virtuale usando qualsiasi combinazione delle opzioni seguenti:
 
-- **Rete privata virtuale (VPN) da punto a sito:** viene stabilita tra una rete virtuale e un singolo computer nella rete. Per ogni computer per cui si vuole stabilire la connettività con una rete virtuale è necessario configurare la connessione. Questo tipo di connessione è ideale se si sta appena iniziando a usare Azure o per gli sviluppatori, perché richiede modifiche minime o nessuna modifica alla rete esistente. La comunicazione tra il computer e una rete virtuale viene inviata attraverso un tunnel crittografato tramite Internet. Per altre informazioni, vedere [VPN da punto a sito](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
-- **VPN da sito a sito:** viene stabilita tra il dispositivo VPN locale e un gateway VPN di Azure distribuito in una rete virtuale. Questo tipo di connessione consente a qualsiasi risorsa locale autorizzata dall'utente di accedere a una rete virtuale. La comunicazione tra il dispositivo VPN locale e un gateway VPN di Azure viene inviata attraverso un tunnel crittografato tramite Internet. Per altre informazioni, vedere [VPN da sito a sito](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
-- **Azure ExpressRoute:** viene stabilita una connessione tra la rete e Azure tramite un partner ExpressRoute. La connessione è privata. Il traffico non passa da Internet. Per altre informazioni, vedere [ExpressRoute](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ExpressRoute).
+- **Rete privata virtuale (VPN) da punto a sito:** viene stabilita tra una rete virtuale e un singolo computer nella rete. Per ogni computer per cui si vuole stabilire la connettività con una rete virtuale è necessario configurare la connessione. Questo tipo di connessione è ideale se si sta appena iniziando a usare Azure o per gli sviluppatori, perché richiede modifiche minime o nessuna modifica alla rete esistente. La comunicazione tra il computer e una rete virtuale viene inviata attraverso un tunnel crittografato tramite Internet. Per altre informazioni, vedere [VPN da punto a sito](../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json#).
+- **VPN da sito a sito:** viene stabilita tra il dispositivo VPN locale e un gateway VPN di Azure distribuito in una rete virtuale. Questo tipo di connessione consente a qualsiasi risorsa locale autorizzata dall'utente di accedere a una rete virtuale. La comunicazione tra il dispositivo VPN locale e un gateway VPN di Azure viene inviata attraverso un tunnel crittografato tramite Internet. Per altre informazioni, vedere [VPN da sito a sito](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
+- **Azure ExpressRoute:** viene stabilita una connessione tra la rete e Azure tramite un partner ExpressRoute. La connessione è privata. Il traffico non passa da Internet. Per altre informazioni, vedere [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="filter-network-traffic"></a>Filtrare il traffico di rete
 

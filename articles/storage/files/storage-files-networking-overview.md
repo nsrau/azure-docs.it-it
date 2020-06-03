@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067158"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296528"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerazioni sulla rete per File di Azure 
 È possibile connettersi a una condivisione file di Azure in due modi:
@@ -51,7 +51,7 @@ File di Azure supporta i meccanismi seguenti per eseguire il tunneling del traff
 
 - [Gateway VPN di Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md): un gateway VPN è un tipo specifico di gateway di rete virtuale, usato per inviare traffico crittografato tra una rete virtuale di Azure e una posizione alternativa, ad esempio l'ambiente locale, attraverso Internet. Un gateway VPN di Azure è una risorsa di Azure che può essere distribuita in un gruppo di risorse insieme a un account di archiviazione o ad altre risorse di Azure. I gateway VPN espongono due tipi diversi di connessioni:
     - [VPN da punto a sito](../../vpn-gateway/point-to-site-about.md), ovvero connessioni VPN tra Azure e un singolo client. Questa soluzione è particolarmente utile per i dispositivi che non fanno parte della rete locale dell'organizzazione, ad esempio quelli di telelavoratori che vogliono avere la possibilità di montare la condivisione file di Azure da casa, dal bar o da un hotel mentre sono in viaggio. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Per semplificare la distribuzione di una connessione VPN da punto a sito, vedere [Configurare una VPN da punto a sito in Windows per l'uso con File di Azure](storage-files-configure-p2s-vpn-windows.md) e [Configurare una VPN da punto a sito in Linux per l'uso con File di Azure](storage-files-configure-p2s-vpn-linux.md).
-    - [VPN da sito a sito](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), ovvero connessioni VPN tra Azure e la rete dell'organizzazione. Una connessione VPN da sito a sito consente di configurare una connessione VPN una sola volta, per un dispositivo o un server VPN ospitato nella rete dell'organizzazione, invece che per ogni dispositivo client che ha la necessità di accedere alla condivisione file di Azure. Per semplificare la distribuzione di una connessione VPN da sito a sito, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
+    - [VPN da sito a sito](../../vpn-gateway/design.md#s2smulti), ovvero connessioni VPN tra Azure e la rete dell'organizzazione. Una connessione VPN da sito a sito consente di configurare una connessione VPN una sola volta, per un dispositivo o un server VPN ospitato nella rete dell'organizzazione, invece che per ogni dispositivo client che ha la necessità di accedere alla condivisione file di Azure. Per semplificare la distribuzione di una connessione VPN da sito a sito, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), che consente di creare una route definita tra Azure e la rete locale che non attraversa Internet. Fornendo un percorso dedicato tra il data center locale e Azure, ExpressRoute può risultare utile quando le prestazioni di rete rappresentano un aspetto da considerare. ExpressRoute è un'opzione valida anche laddove i criteri dell'organizzazione o i requisiti ambientali impongono un percorso deterministico verso le risorse nel cloud.
 
 Indipendentemente dal metodo di tunneling usato per accedere alle condivisioni file di Azure, è necessario un meccanismo per garantire che il traffico verso l'account di archiviazione passi attraverso il tunnel invece che sulla normale connessione Internet. È tecnicamente possibile eseguire il routing all'endpoint pubblico dell'account di archiviazione, ma in questo caso è necessario impostare come hardcoded tutti gli indirizzi IP per i cluster di archiviazione di Azure in un'area, perché gli account di archiviazione possono essere spostati tra cluster di archiviazione in qualsiasi momento. È anche necessario aggiornare costantemente i mapping degli indirizzi IP, perché vengono sempre aggiunti nuovi cluster.
