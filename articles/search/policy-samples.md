@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Ricerca cognitiva di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Ricerca cognitiva di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-samples
-ms.openlocfilehash: fe8ed12f85dcd0dedbec5369ed9ad6dcf4e4628a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea7b52ae508f1bf1a331d7e5adff4c9628bcf209
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658974"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234853"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-search"></a>Definizioni di criteri predefiniti di Criteri di Azure per Ricerca cognitiva di Azure
 

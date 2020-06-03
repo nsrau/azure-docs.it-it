@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701564"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248856"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Usare Circuit Breaker Dashboard con Azure Spring Cloud
 [Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) è ampiamente usato per aggregare più flussi di metriche [Hystrix](https://github.com/Netflix/Hystrix) in modo da poter monitorare i flussi in un'unica vista usando il dashboard di Hystrix. Questa esercitazione illustra come usarli in Azure Spring Cloud.
@@ -59,7 +59,7 @@ Una volta che tutte le app sono in esecuzione e individuabili, accedere a `user-
 Eseguire la verifica usando endpoint pubblici o endpoint di test privati.
 
 ### <a name="using-public-endpoints"></a>Uso di endpoint pubblici
-Accedere a hystrix-turbine con il percorso `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` dal browser.  La figura seguente mostra il dashboard di Hystrix in esecuzione nell'app.
+Accedere a hystrix-turbine con il percorso `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` dal browser.  La figura seguente mostra il dashboard di Hystrix in esecuzione nell'app.
 
 ![Dashboard di Hystrix](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656139"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112857"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Guida introduttiva: Creare un'area di lavoro di Azure Synapse Analytics (anteprima)
 
@@ -25,9 +25,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Account di archiviazione di Azure Data Lake Storage Gen2 ](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="register-azure-synapse-resource-provider"></a>Registrare il provider di Azure Synapse
-Se non è già stato fatto, registrare il provider di risorse di Azure Synapse. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Per la registrazione del provider di Azure Synapse, vedere [Provider e tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Quando si esegue la registrazione, scegliere *Microsoft.Synapse* dall'elenco dei provider di risorse.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684896"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267614"
 ---
 # <a name="monitor-azure-storage"></a>Monitoraggio di Archiviazione di Azure
 
@@ -407,4 +407,3 @@ No. Calcolo di Azure supporta le metriche relative ai dischi. Per altre informaz
 - Per informazioni di riferimento sui log e sulle metriche create da Archiviazione di Azure, vedere [Riferimento ai dati di monitoraggio archiviazione di Azure](monitor-storage-reference.md).
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).
 - Per altre informazioni sulla migrazione delle metriche, vedere [Migrazione delle metriche di Archiviazione di Azure](./storage-metrics-migration.md).
-

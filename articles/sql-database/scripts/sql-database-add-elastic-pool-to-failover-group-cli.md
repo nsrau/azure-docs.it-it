@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061927"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022778"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un pool elastico di database SQL di Azure a un gruppo di failover
 
@@ -61,4 +61,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).
 
-Altri esempi di script dell'interfaccia della riga di comando di Azure per database SQL sono reperibili tra gli [script dell'interfaccia della riga di comando di Azure per database SQL di Azure](../sql-database-cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Azure per database SQL sono reperibili tra gli [script dell'interfaccia della riga di comando di Azure per database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).
