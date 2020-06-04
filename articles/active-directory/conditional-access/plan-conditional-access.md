@@ -1,239 +1,502 @@
 ---
-title: Pianificare i criteri di accesso condizionale in Azure Active Directory | Microsoft Docs
-description: Questo articolo illustra come pianificare i criteri di accesso condizionale per Azure Active Directory.
+title: Pianificare la distribuzione dell'accesso condizionale in Microsoft Azure Active Directory
+description: Informazioni su come progettare i criteri di accesso condizionale e distribuirli in modo efficace nell'organizzazione.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 09/17/2019
+ms.author: baselden
+author: BarbaraSelden
 manager: daveba
-ms.reviewer: martincoetzer
+ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d4ae1c9926c7ea1d18bf5c87fbed837edc2a5d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671821"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641368"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
+# <a name="plan--a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
-Pianificare la distribuzione dell'accesso condizionale è essenziale per assicurarsi di ottenere la strategia di accesso necessaria per le app e le risorse dell'organizzazione. Dedicare la maggior parte del tempo durante la fase di pianificazione della distribuzione per progettare i diversi criteri necessari per concedere o bloccare l'accesso agli utenti in base alle condizioni selezionate. In questo documento vengono illustrati i passaggi da eseguire per implementare criteri di accesso condizionale protetti ed efficaci. Prima di iniziare, verificare di avere compreso il funzionamento dell' [accesso condizionale](overview.md) e quando è necessario utilizzarlo.
+Pianificare la distribuzione dell'accesso condizionale è fondamentale affinché la strategia di accesso per le applicazioni e le risorse dell'organizzazione sia quella desiderata.
 
-## <a name="what-you-should-know"></a>Informazioni utili
+In un mondo dominato dai dispositivi mobili e basato sul cloud, gli utenti accedono alle risorse dell'organizzazione da qualsiasi luogo con una serie di dispositivi e applicazioni. Pertanto, non è più sufficiente concentrarsi solo su chi può accedere a una risorsa. È anche necessario considerare la posizione in cui si trova l'utente, il dispositivo usato, la risorsa a cui accede e altro ancora. 
 
-L'accesso condizionale può essere considerato come un Framework che consente di controllare l'accesso alle risorse e alle app dell'organizzazione, anziché una funzionalità autonoma. Di conseguenza, alcune impostazioni di accesso condizionale richiedono la configurazione di funzionalità aggiuntive. Ad esempio, è possibile configurare un criterio che risponda a un determinato [livello di rischio di accesso](../identity-protection/howto-identity-protection-configure-risk-policies.md). Tuttavia, un criterio basato sul livello di rischio di accesso richiede l'abilitazione di [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
+L'accesso condizionale (CA) di Azure Active Directory (Azure AD) analizza segnali quali l'utente, il dispositivo e la posizione per automatizzare le decisioni e applicare i criteri di accesso dell'organizzazione per le risorse. È possibile usare i criteri di accesso condizionale per applicare controlli di accesso quali l'autenticazione a più fattori (MFA). I criteri di accesso condizionale consentono di richiedere agli utenti di usare l'autenticazione a più fattori quando necessario per la sicurezza e di evitare di ostacolare gli utenti quando non necessario.
 
-Se sono richieste funzionalità aggiuntive, può anche essere necessario ottenere le licenze correlate. Ad esempio, mentre l'accesso condizionale è Azure AD Premium funzionalità P1, Identity Protection richiede una licenza Azure AD Premium P2.
+![Panoramica dell'accesso condizionale](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Esistono due tipi di criteri di accesso condizionale: baseline e standard. Un [criterio di base](baseline-protection.md) è un criterio di accesso condizionale predefinito. L'obiettivo di questi criteri è assicurarsi di disporre almeno del livello di base della sicurezza abilitato. Criteri di base. I criteri di base sono disponibili in tutte le edizioni di Azure AD e forniscono solo opzioni di personalizzazione limitate. Se uno scenario richiede una maggiore flessibilità, disabilitare i criteri di base e implementare i requisiti in criteri standard personalizzati.
+Microsoft fornisce criteri condizionali standard denominati [impostazioni predefinite per la sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) che assicurano un livello di sicurezza di base. Tuttavia, l'organizzazione potrebbe richiedere una maggiore flessibilità rispetto a quella offerta dalle impostazioni predefinite per la sicurezza. È possibile utilizzare l'accesso condizionale per personalizzate le impostazioni predefinite per la sicurezza con maggiore granularità e per configurare nuovi criteri per la sicurezza in base alle esigenze.
 
-In un criterio di accesso condizionale standard è possibile personalizzare tutte le impostazioni per modificare i criteri in base ai requisiti aziendali. I criteri standard richiedono una licenza di Azure AD Premium P1.
+## <a name="learn"></a>Informazioni
 
->[!NOTE]
-> È consigliabile usare Azure AD criteri di accesso condizionale basato su dispositivo per ottenere l'applicazione migliore dopo l'autenticazione iniziale del dispositivo. Sono incluse le sessioni di chiusura se il dispositivo non è conforme e il flusso del codice del dispositivo.
+Prima di iniziare, assicurarsi di comprendere il funzionamento dell'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) e quando usarlo.
 
-## <a name="draft-policies"></a>Disegnare i criteri
+### <a name="benefits"></a>Vantaggi
 
-Azure Active Directory l'accesso condizionale consente di portare la protezione delle app Cloud a un nuovo livello. In questo nuovo livello, le modalità di accesso a un'app cloud si basano su una valutazione dei criteri dinamica anziché su una configurazione di accesso statica. Con i criteri di accesso condizionale, si definisce una risposta (**eseguire questa**operazione) a una condizione di accesso (in**questo caso**).
+I vantaggi della distribuzione dell'accesso condizionale sono:
 
-![Motivo e risposta](./media/plan-conditional-access/10.png)
+* Aumento della produttività. Interrupt degli utenti solo con una condizione di accesso, ad esempio l'autenticazione a più fattori quando richiesta da uno o più segnali. I criteri di accesso condizionale consentono di controllare quando agli utenti viene richiesta l'autenticazione a più fattori, quando l'accesso è bloccato e quando è necessario usare un dispositivo attendibile.
 
-Definire tutti i criteri di accesso condizionale che si desidera implementare utilizzando questo modello di pianificazione. L'esercizio di pianificazione:
+* per gestire i rischi. L'automazione della valutazione dei rischi con le condizioni dei criteri significa che gli accessi a rischio sono identificati immediatamente e vengono risolti o bloccati. L'accoppiamento dell'accesso condizionale con [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), che rileva anomalie ed eventi sospetti, consente di definire le destinazioni quando l'accesso alle risorse è bloccato o controllato. 
 
-- Aiuta a delineare le risposte e le condizioni per ogni criterio.
-- Restituisce un catalogo dei criteri di accesso condizionale ben documentato per l'organizzazione. 
+* Gestione della conformità e della governance. L'accesso condizionale consente di controllare l'accesso alle applicazioni, di presentare le condizioni per l'utilizzo per il consenso e di limitare l'accesso in base ai criteri di conformità.
 
-È possibile usare il catalogo per valutare se l'implementazione dei criteri riflette i requisiti aziendali dell'organizzazione. 
+* Gestione dei costi. Il trasferimento dei criteri di accesso a Azure AD riduce la dipendenza da soluzioni personalizzate o locali per l'accesso condizionale e i relativi costi di infrastruttura.
 
-Usare il modello di esempio seguente per creare criteri di accesso condizionale per l'organizzazione:
+### <a name="license-requirements"></a>Requisiti relativi alle licenze
 
-|Quando accade *questo*:|Fare *questo*:|
-|-|-|
-|Viene eseguito un tentativo di accesso:<br>-A un'app*<br>cloud-da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Bloccare l'accesso all'applicazione|
-|Viene eseguito un tentativo di accesso:<br>-A un'app*<br>cloud-da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (E):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
-|Viene eseguito un tentativo di accesso:<br>-A un'app*<br>cloud-da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (O):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
+Vedere [Requisiti di licenza per l'uso dell'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-Come minimo, **quando accade questo** definisce l'entità di sicurezza (**chi**) che tenta di accedere a un'app cloud (**cosa**). Se necessario, è anche possibile includere **come** viene eseguito un tentativo di accesso. Nell'accesso condizionale gli elementi che definiscono chi, cosa e come sono noti come condizioni. Per altre informazioni, vedere [quali sono le condizioni in Azure Active Directory l'accesso condizionale?](concept-conditional-access-conditions.md) 
+Se sono richieste funzionalità aggiuntive, potrebbero anche essere necessarie le licenze correlate. Per altre informazioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Con **fare questo**, si definisce la risposta dei criteri a una condizione di accesso. Nella risposta, si blocca o si concede l'accesso con requisiti aggiuntivi, ad esempio, l'autenticazione a più fattori (MFA). Per una panoramica completa, vedere [che cosa sono i controlli di accesso in Azure Active Directory l'accesso condizionale?](controls.md)  
+### <a name="prerequisites"></a>Prerequisiti
 
-La combinazione delle condizioni con i controlli di accesso rappresenta un tipo di criteri di accesso condizionale.
+* Un tenant di Azure AD funzionante con una licenza di Azure AD Premium o di valutazione. Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-![Motivo e risposta](./media/plan-conditional-access/51.png)
+* Un account con privilegi di amministratore dell'accesso condizionale.
 
-Per altre informazioni, vedere [Elementi necessari per il funzionamento di un criterio](best-practices.md#whats-required-to-make-a-policy-work).
+* Un utente non amministratore con una password conosciuta, ad esempio testuser. Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-A questo punto si può stabilire uno standard di denominazione per i criteri. Lo standard di denominazione aiuta a individuare i criteri e comprenderne le finalità senza aprirli nel portale di amministrazione di Azure. Assegnare un nome al criterio da visualizzare:
+* Un gruppo di cui l'utente non amministratore è membro. Se è necessario creare un gruppo, vedere [Creare un gruppo di base e aggiungere membri in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal).
 
-- Numero di sequenza
-- Cloud a cui si applica
-- Risposta.
-- A chi si applica
-- Quando si applica (se applicabile)
- 
-![Standard di denominazione](./media/plan-conditional-access/11.png)
+### <a name="training-resources"></a>Training delle risorse
 
-Mentre un nome descrittivo consente di ottenere una panoramica dell'implementazione dell'accesso condizionale, il numero di sequenza è utile se è necessario fare riferimento a un criterio in una conversazione. Se, ad esempio, si parla di un altro amministratore sul telefono, è possibile chiedere di aprire i criteri EM063 per risolvere un problema.
+Le seguenti risorse possono essere utili per acquisire familiarità con l'accesso condizionale:
 
-Ad esempio, il nome seguente indica che il criterio richiede l'autenticazione a più fattori per gli utenti di marketing su reti esterne che usano l'app Dynamics CRP:
 
-`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
+**Video**
+* [Informazioni sull'accesso condizionale](https://youtu.be/ffMAw2IVO7A)
+* [Distribuzione dell'accesso condizionale](https://youtu.be/c_izIRNJNuk)
+* [Distribuzione dei criteri dell'accesso condizionale agli utenti finali](https://youtu.be/0_Fze7Zpyvc)
+* [Accesso condizionale con controlli dispositivo](https://youtu.be/NcONUf-jeS4)
+* [Accesso condizionale con Microsoft Azure Multi-Factor Authentication](https://youtu.be/Tbc-SU97G-w)
+* [Accesso condizionale in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
+* [Accesso condizionale basato sul dispositivo](https://in.video.search.yahoo.com/search/video;_ylt=AwrPiBX0yHRcZiMAhFa7HAx.;_ylu=X3oDMTB0N2poMXRwBGNvbG8Dc2czBHBvcwMxBHZ0aWQDBHNlYwNwaXZz?p=conditional+access+videos+microsoft&fr2=piv-web&fr=mcafee)
 
-Oltre ai criteri attivi, è consigliabile implementare anche criteri disabilitati che agiscano come [controlli di accesso resilienti secondari in scenari di emergenza/interruzione dei servizi](../authentication/concept-resilient-controls.md). Lo standard di denominazione per i criteri di emergenza deve includere alcuni altri elementi: 
+**Corsi online su Pluralsight**
+* [Progettazione di Identity Management in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
+* [Progettazione dell'autenticazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
+* [Progettazione dell'autorizzazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
 
-- `ENABLE IN EMERGENCY` all'inizio in modo che il nome si distingua dagli altri criteri.
-- Il nome dell'interruzione a cui deve essere applicato.
-- Un numero di sequenza di ordinamento per consentire all'amministratore di sapere in che ordine devono essere abilitati i criteri. 
+**Domande frequenti**
 
-Ad esempio, il nome seguente indica che questo criterio è il primo criterio su quattro che è necessario abilitare se si verifica un'interferenza dell'autenticazione a più fattori:
+[Domande frequenti sull'accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/faqs)
+## <a name="plan-the-deployment-project"></a>Pianificare il progetto di distribuzione
 
-`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+Considerare le esigenze organizzative quando si determina la strategia per la distribuzione nell'ambiente in uso.
+### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
+Quando i progetti tecnologici hanno esito negativo, in genere la causa sono le diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi inconvenienti, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans) e che i ruoli del progetto siano chiari.
 
-## <a name="plan-policies"></a>Pianificare i criteri
+### <a name="plan-communications"></a>Pianificare le comunicazioni
+La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti su come cambierà l'esperienza, quando verrà modificata, e su come ottenere supporto in caso di problemi.
 
-Quando si pianifica la soluzione dei criteri di accesso condizionale, valutare se è necessario creare criteri per ottenere i risultati seguenti. 
+### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
+Quando i nuovi criteri sono pronti per l'ambiente, distribuirli in più fasi nell'ambiente di produzione. Applicare innanzitutto un criterio a un piccolo set di utenti in un ambiente di test e verificare se il criterio si comporta come previsto. Consultare [Procedure consigliate per un progetto pilota](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
 
-### <a name="block-access"></a>Blocca accesso
+> [!NOTE]
+> Per implementare nuovi criteri non specifici per gli amministratori, escludere tutti gli amministratori. In questo modo gli amministratori possono comunque accedere ai criteri e apportare modifiche o revocarli in caso di impatto significativo. Convalidare sempre i criteri con gruppi di utenti più piccoli prima di applicare i criteri a tutti gli utenti.
 
-L'opzione per bloccare l'accesso è notevolmente efficace perché:
+## <a name="understand-ca-policy-components"></a>Informazioni sui componenti dei criteri di accesso condizionale
 
-- È prioritaria rispetto a tutte le altre assegnazioni per un utente
-- Consente di bloccare l'accesso al tenant da parte dell'intera organizzazione
- 
-Se si vuole bloccare l'accesso per tutti gli utenti, è necessario escludere dai criteri almeno un utente (in genere gli account di accesso di emergenza). Per altre informazioni, vedere come [selezionare utenti e gruppi](block-legacy-authentication.md#select-users-and-cloud-apps).  
+I criteri di accesso condizionale sono istruzioni if-then: Se viene soddisfatta una condizione assegnata, applicare tali controlli di accesso. 
+
+![Panoramica dell'accesso condizionale](media/plan-conditional-access/10.png)
+
+Quando si configurano i criteri dell'accesso condizionale, le condizioni sono denominate *assegnazioni*. I criteri di accesso condizionale consentono di applicare i controlli di accesso alle applicazioni dell'organizzazione in base a determinate assegnazioni.
+
+![Assegnazioni e controlli di accesso ](media/plan-conditional-access/ca-policy-access.png)
+
+
+Per altre informazioni, vedere [Creazione di un criterio di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies).
+
+Le [assegnazioni](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) definiscono
+
+* gli [utenti e gruppi](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups) interessati dal criterio
+
+* le [applicazioni o azioni cloud](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps) a cui verrà applicato il criterio 
+
+* le [condizioni](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions) in base alle quali verrà applicato il criterio. 
+<p>
+
+![Schermata Crea criterio](media/plan-conditional-access/create-policy.png)
+
+Le impostazioni dei [controlli di accesso](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) stabiliscono come applicare un criterio:
+
+* [Concedere o bloccare l'accesso](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) alle applicazioni cloud.
+
+* I [controlli della sessione](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) consentono di limitare l'esperienza in applicazioni cloud specifiche.
+
+### <a name="ask-the-right-questions-to-build-your-policies"></a>Porre le domande corrette per creare i criteri
+
+I criteri rispondono alle domande sugli utenti che devono accedere alle risorse, sulle risorse a cui devono accedere e sulle condizioni. I criteri possono essere progettati per concedere o per bloccare l'accesso. Assicurarsi di porre le domande corrette sulle operazioni che i criteri tentano di eseguire. 
+
+Documentare le risposte alle domande relative a ogni criterio prima della creazione. 
+
+#### <a name="common-questions-about-assignments"></a>Domande frequenti sulle assegnazioni
+
+[Utenti e gruppi](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
+
+* Quali utenti e gruppi verranno inclusi o esclusi dal criterio?
+
+* Questo criterio include tutti gli utenti, un gruppo specifico di utenti, ruoli della directory o utenti esterni?
+
+[Applicazioni o azioni cloud](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
+
+* A quali applicazioni verrà applicato il criterio?
+
+* Quali azioni utente saranno soggette a questo criterio?
+
+[Condizioni](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions)
+
+* Quali piattaforme di dispositivo verranno incluse o escluse dal criterio?
+
+* Quali sono i percorsi attendibili dell'organizzazione?
+
+* Quali percorsi verranno inclusi o esclusi dal criterio?
+
+* Quali tipi di applicazioni client (browser, dispositivi mobili, client desktop, applicazioni con metodi di autenticazione legacy) verranno inclusi o esclusi dal criterio?
+
+* Si dispone di criteri che potrebbero escludere i dispositivi aggiunti ad Azure AD o i dispositivi aggiunti ad Azure AD ibrido dai criteri? 
+
+* Se si usa [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), si vuole incorporare la protezione per il rischio di accesso?
+
+#### <a name="common-questions-about-access-controls"></a>Domande frequenti sui controlli di accesso
+
+[Concedere o bloccare](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) 
+
+Si desidera concedere l'accesso alle risorse richiedendo uno o più degli elementi seguenti?
+
+* Richiedere l'autenticazione MFA
+
+* Richiedere che i dispositivi siano contrassegnati come conformi
+
+* Richiedere un dispositivo aggiunto ad Azure AD ibrido
+
+* Richiedere app client approvata
+
+* Richiedere criteri di protezione dell'app
+
+[Controllo della sessione](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session)
+
+Si desidera applicare uno dei controlli di accesso seguenti nelle applicazioni cloud?
+
+* Usare autorizzazioni imposte dalle applicazioni
+
+* Usare il controllo app per l'accesso condizionale
+
+* Applicare la frequenza di accesso
+
+* Usare la sessione del browser persistente
+
+### <a name="access-token-issuance"></a>Rilascio dei token di accesso
+
+È importante comprendere la modalità di rilascio dei token di accesso. 
+
+![Diagramma di rilascio dei token di accesso](media/plan-conditional-access/CA-policy-token-issuance.png)
+
+**Si noti che se non è necessaria alcuna assegnazione e non è attivo alcun criterio di accesso condizionale, il comportamento predefinito consiste nel rilasciare un token di accesso**. 
+
+Si consideri, ad esempio, un criterio in cui:
+
+"IF" l'utente è nel Gruppo 1, "THEN" forzare l'autenticazione a più fattori per l'accesso all'app 1.
+
+Se un utente non presente nel Gruppo 1 tenta di accedere all'applicazione, non viene soddisfatta la condizione "if" e viene rilasciato un token. Per escludere utenti esterni al Gruppo 1, è necessario un criterio separato per bloccare tutti gli altri utenti.
+
+## <a name="follow-best-practices"></a>Seguire le procedura consigliate
+
+Il framework di accesso condizionale offre ottima flessibilità di configurazione. Con un'elevata flessibilità, tuttavia, è consigliabile esaminare attentamente ogni criterio di configurazione prima del rilascio per evitare risultati indesiderati.
+
+### <a name="apply-ca-policies-to-every-app"></a>Applicare i criteri di accesso condizionale a tutte le applicazioni
+
+Per impostazione predefinita, i token di accesso vengono rilasciati se una condizione del criterio di accesso condizionale non attiva un controllo di accesso. Assicurarsi che tutte le applicazioni dispongano di almeno un criterio di accesso condizionale applicato
+
+> [!IMPORTANT]
+> Prestare molta attenzione nell'uso del blocco e di tutte le applicazioni in un singolo criterio. Questo potrebbe bloccare l'accesso degli amministratori al Portale di amministrazione di Azure e sarebbe impossibile configurare le esclusioni per endpoint importanti, ad esempio Microsoft Graph.
+
+### <a name="minimize-the-number-of-ca-policies"></a>Ridurre al minimo il numero di criteri di accesso condizionale
+
+La creazione di un criterio per ciascuna applicazione non è un'operazione efficiente e rende complicata l'amministrazione. L'accesso condizionale applicherà solo i primi 195 criteri per utente. Si consiglia di analizzare le applicazioni e raggrupparle in applicazioni che presentano gli stessi requisiti di risorse per gli stessi utenti. Se, ad esempio, tutte le applicazioni di Office 365 o tutte le applicazioni per la gestione delle risorse umane hanno gli stessi requisiti per gli stessi utenti, creare un singolo criterio e includere tutte le applicazioni a cui si applica. 
+
+### <a name="set-up-emergency-access-accounts"></a>Configurare account di accesso di emergenza
+
+Se si configura un criterio in modo errato, potrebbe bloccare l'accesso delle organizzazioni al portale di Azure. È possibile ridurre l'impatto di un blocco accidentale degli accessi degli amministratori creando due o più [account di accesso di emergenza](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) nell'organizzazione.
+
+* Creare un account utente dedicato all'amministrazione dei criteri ed escluso da tutti i criteri.
+
+* Scenario critico per ambienti ibridi:
+
+  * Creare un gruppo di sicurezza locale e sincronizzarlo con Azure AD. Il gruppo di sicurezza deve contenere l'account di amministrazione dei criteri dedicato. 
+
+   * ESENTARE questo gruppo di sicurezza da tutti i criteri di accesso condizionale.
+
+   * Quando si verifica un'interruzione del servizio, aggiungere gli altri amministratori al gruppo locale nel modo appropriato e forzare una sincronizzazione. In questo modo viene attivata l’esenzione dai criteri di accesso condizionale.
+
+### <a name="set-up-report-only-mode"></a>Configurare la modalità solo report
+
+Può essere difficile prevedere il numero e i nomi degli utenti interessati da iniziative comuni di distribuzione, ad esempio:
+
+* blocco dell'autenticazione legacy
+* richiesta di autenticazione a più fattori
+* implementazione di criteri di rischio di accesso
+
+La [modalità solo report ](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nell'ambiente in uso.
+
+Informazioni su come [configurare la modalità solo report in un criterio di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only).
+
+### <a name="plan-for-disruption"></a>Pianificare l'interruzione
+
+Se per proteggere i sistemi IT ci si basa sul controllo di accesso singolo, ad esempio l'autenticazione a più fattori (MFA) o un unico percorso di rete, si è soggetti a errori di accesso se tale controllo di accesso singolo non è disponibile o non è configurato correttamente. Per ridurre il rischio di blocco durante le interruzioni impreviste, [pianificare strategie](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) da adottare per la propria organizzazione.
+
+### <a name="set-naming-standards-for-your-policies"></a>Impostare gli standard di denominazione per i criteri
+
+Lo standard di denominazione aiuta a individuare i criteri e comprenderne le finalità senza aprirli nel portale di amministrazione di Azure. Si consiglia di denominare il criterio per visualizzare:
+
+* Un numero di sequenza
+
+* Le applicazioni cloud a cui si applica
+
+* Risposta.
+
+* A chi si applica
+
+* Quando si applica (se applicabile)
+
+![Standard di denominazione](media/plan-conditional-access/11.png)
+
+**Esempio**: un criterio per richiedere l'autenticazione a più fattori per gli utenti di marketing che accedono all'applicazione Dynamics CRP dalle reti esterne potrebbe essere:
+
+![Standard di denominazione](media/plan-conditional-access/naming-example.png)
+
+Un nome descrittivo consente di ottenere una panoramica dell'implementazione dell'accesso condizionale. Il numero di sequenza è utile se è necessario fare riferimento a un criterio in una conversazione. Se ad esempio si parla al telefono con un altro amministratore, è possibile chiedergli di aprire il criterio CA01 per risolvere un problema.
+
+#### <a name="naming-standards-for-emergency-access-controls"></a>Standard di denominazione per i controlli di accesso di emergenza
+
+Oltre ai criteri attivi, è opportuno implementare anche criteri disabilitati che agiscano come [controlli di accesso resilienti secondari in scenari di emergenza o di interruzione dei servizi](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls). Lo standard di denominazione per i criteri di emergenza deve includere:
+* ENABLE IN EMERGENCY all'inizio in modo che il nome si distingua dagli altri criteri.
+
+* Il nome dell'interruzione a cui deve essere applicato.
+
+* Un numero di sequenza di ordinamento per consentire all'amministratore di sapere in che ordine devono essere abilitati i criteri.
+
+**Esempio**
+
+Il nome seguente indica che questo è il primo di quattro criteri da abilitare se si verifica un'interruzione dell'autenticazione a più fattori:
+
+EM01 - ENABLE IN EMERGENCY: Interruzione dell'autenticazione a più fattori [1/4]-Exchange SharePoint: Richiesta di aggiunta ad Azure AD ibrido per utenti VIP.
+
+### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Esclusione dei paesi da cui non si prevede mai un accesso.
+
+Azure Active Directory consente di creare [località denominate](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition). Creare una località denominata che includa tutti i paesi da cui non si prevede mai che si verifichi un accesso. Creare quindi un criterio per tutte le applicazioni che blocchi l'accesso da tale località denominata. **Assicurarsi di escludere gli amministratori da questi criteri**.
+
+### <a name="plan-your-policy-deployment"></a>Pianificare la distribuzione dei criteri
+
+Quando per l'ambiente sono pronti nuovi criteri, assicurarsi di esaminare ogni criterio prima di rilasciarlo per evitare risultati indesiderati. Per informazioni importanti sul modo in cui vengono applicati i criteri e su come evitare problemi, consultare la documentazione seguente
+
+* [Informazioni utili](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+
+* [Azioni da evitare](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+
+## <a name="common-policies"></a>Criteri comuni
+
+Quando si pianifica una soluzione di criterio di accesso condizionale, valutare se è necessario creare criteri per ottenere i seguenti risultati.
 
 ### <a name="require-mfa"></a>Richiedere l'autenticazione MFA
 
-Per semplificare l'esperienza di accesso degli utenti, è possibile consentire di accedere alle app cloud usando un nome utente e una password. Tuttavia, in genere esistono almeno alcuni scenari per cui è consigliabile richiedere una forma di verifica degli account più avanzata. Con i criteri di accesso condizionale, è possibile limitare il requisito per l'autenticazione a più fattori per determinati scenari. 
+I casi d'uso comuni per richiedere l'autenticazione a più fattori:
 
-I casi d'uso comuni per richiedere l'autenticazione MFA riguardano l'accesso:
+* [Da parte degli amministratori](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
 
-- [Da parte degli amministratori](howto-baseline-protect-administrators.md)
-- [A specifiche app](app-based-mfa.md) 
-- [Da percorsi di rete che non si considerano attendibili](untrusted-networks.md).
+* [A specifiche app](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa)
+
+* [Per tutti gli utenti](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa)
+
+* [Da percorsi di rete non considerati attendibili](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)
+
+* [Per la gestione di Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-azure-management)
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Rispondere ad account potenzialmente compromessi
 
-Con i criteri di accesso condizionale, è possibile implementare risposte automatiche per accedere a identità potenzialmente compromesse. La probabilità che un account sia stato compromesso viene espressa sotto forma di livelli di rischio. Identity Protection calcola due livelli di rischio: rischio di accesso e rischio utente. Per implementare una risposta a un rischio di accesso sono disponibili due opzioni:
+Con i criteri di accesso condizionale, è possibile implementare risposte automatiche per gli accessi da identità potenzialmente compromesse. La probabilità che un account sia stato compromesso viene espressa sotto forma di livelli di rischio. Identity Protection calcola due livelli di rischio: rischio di accesso e rischio utente. Di seguito sono riportati i tre criteri predefiniti che è possibile abilitare.
 
-- [Condizione di rischio](concept-conditional-access-conditions.md#sign-in-risk) di accesso nei criteri di accesso condizionale
-- [I criteri di rischio di accesso](../identity-protection/howto-sign-in-risk-policy.md) in Identity Protection 
+* [Richiedere agli utenti di registrarsi per l'autenticazione a più fattori](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
-Usare il rischio di accesso come condizione è il metodo consigliato perché offre più opzioni di personalizzazione.
+* [Richiedere una modifica della password per gli utenti ad alto rischio](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
-Il livello di rischio utente è disponibile solo sotto forma di [criteri di rischio utente](../identity-protection/howto-user-risk-policy.md) di Identity Protection. 
-
-Per altre informazioni, vedere [Cos'è Azure Active Directory Identity Protection?](../identity-protection/overview.md) 
+* [Richiedere l'autenticazione a più fattori per gli utenti con rischi di accesso medio o elevato](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
 ### <a name="require-managed-devices"></a>Richiedere dispositivi gestiti
 
-L'ampia diffusione dei dispositivi supportati per l'accesso alle risorse cloud offre notevoli vantaggi in termini di produttività degli utenti. In alcuni casi, tuttavia, può essere necessario evitare che alcune risorse dell'ambiente risultino accessibili a dispositivi con un livello di protezione sconosciuto. Per le risorse di questo tipo è opportuno definire un requisito di accessibilità in modo che gli utenti possano accedervi solo tramite un dispositivo gestito. Per altre informazioni, vedere [come richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale](require-managed-devices.md). 
+L'ampia diffusione dei dispositivi supportati per l'accesso alle risorse cloud offre notevoli vantaggi in termini di produttività degli utenti. Può tuttavia essere necessario evitare che alcune risorse dell'ambiente risultino accessibili a dispositivi con un livello di protezione sconosciuto. Per le risorse di questo tipo, [richiedere che gli utenti possano accedervi solo tramite un dispositivo gestito](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
 
 ### <a name="require-approved-client-apps"></a>Richiedere app client approvate
 
-Una delle prime decisioni da prendere per gli scenari BYOD (Bring Your Own Device) è se gestire l'intero dispositivo o solo i dati al suo interno. I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale Azure Active Directory (Azure AD), è possibile limitare l'accesso alle app cloud alle app client approvate che possono proteggere i dati aziendali. Per altre informazioni, vedere [come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale](app-based-conditional-access.md).
+I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. Per gli scenari BYOD è necessario decidere se gestire l'intero dispositivo o solo i dati in esso contenuti. Se si gestiscono solo i dati e l'accesso, è possibile [richiedere applicazioni cloud approvate](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) in grado di proteggere i dati aziendali. È possibile, ad esempio, richiedere l'accesso alla posta elettronica solo tramite Outlook Mobile e non tramite un programma di posta elettronica generico.
 
-### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy
+### <a name="block-access"></a>Blocca accesso
 
-Azure AD supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. Come si può impedire alle app che usano l'autenticazione legacy di accedere alle risorse dei tenant? È consigliabile semplicemente bloccarli con criteri di accesso condizionale. Se necessario, è possibile autorizzare solo determinati utenti e percorsi di rete specifici per l’uso delle app basate sull’autenticazione legacy. Per ulteriori informazioni, vedere [come bloccare l'autenticazione legacy per Azure ad con accesso condizionale](block-legacy-authentication.md).
+L'opzione di [blocco di tutti gli accessi](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) è notevolmente efficace. Può essere usata, ad esempio, durante la migrazione di un'applicazione ad Azure AD quando non è possibile ancora consentire a nessuno di accedervi. Blocca accesso: 
 
-## <a name="test-your-policy"></a>Verificare i criteri
+* Esegue l'override di tutte le altre assegnazioni per un utente
 
-Prima di implementare i criteri nell'ambiente di produzione, è consigliabile testarli per verificare che tutto funzioni come previsto.
+* Consente di bloccare l'accesso al tenant da parte dell'intera organizzazione
 
-1. Creare utenti di test
-1. Creare un piano di test
-1. Configurare i criteri
-1. Valutare un accesso simulato
-1. Verificare i criteri
-1. Pulizia
+> [!IMPORTANT]
+> Se si crea un criterio per bloccare l'accesso a tutti gli utenti, assicurarsi di escludere gli account di accesso di emergenza e prendere in considerazione l'esclusione di tutti gli amministratori dal criterio.
+
+Altri scenari comuni in cui è possibile bloccare l'accesso agli utenti sono:
+
+* [Blocco di alcuni percorsi di rete](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location) dall'accesso alle applicazioni cloud. È possibile usare questo criterio per bloccare determinati paesi da cui si sa che non deve provenire traffico.
+
+* Azure AD supporta l'autenticazione legacy. Tuttavia, l'autenticazione legacy non supporta l'autenticazione a più fattori richiesta da molti ambienti per gestire la sicurezza delle identità. In questo caso è possibile [impedire alle applicazioni che usano l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication) di accedere alle risorse dei tenant.
+
+## <a name="build-and-test-policies"></a>Compilare e testare i criteri
+
+In ogni fase della distribuzione assicurarsi che i risultati siano quelli previsti. 
+
+Quando i nuovi criteri sono pronti, distribuirli in più fasi nell'ambiente di produzione:
+
+* Dare comunicazione delle modifiche agli utenti finali.
+
+* Iniziare con un set ridotto di utenti e verificare che il criterio abbia il comportamento previsto.
+
+* Quando si espande un criterio per includere un maggior numero di utenti, continuare a escludere tutti gli amministratori. Escludere gli amministratori assicura che qualcuno possa comunque accedere a un criterio, se è necessaria una modifica.
+
+* Applicare un criterio a tutti gli utenti solo dopo averlo testato accuratamente. Assicurarsi di disporre di almeno un account amministratore a cui non si applichi il criterio.
 
 ### <a name="create-test-users"></a>Creare utenti di test
 
-Per testare un criterio, creare un set di utenti simili agli utenti nell'ambiente in uso. La creazione di utenti di test consente di verificare che i criteri funzionino come previsto di applicarli agli utenti reali e potenzialmente compromettere il loro accesso alle app e alle risorse. 
+Creare un set di utenti di test che riflettano gli utenti nell'ambiente di produzione. La creazione di utenti di test consente di verificare che i criteri funzionino come previsto prima di applicarli agli utenti reali e potenzialmente compromettere il loro accesso alle applicazioni e alle risorse.
 
-Alcune organizzazioni hanno tenant di test a questo scopo. Tuttavia, può essere difficile ricreare tutte le condizioni e le app in un tenant di test per verificare completamente i risultati di un criterio. 
+Alcune organizzazioni hanno tenant di test a questo scopo. Tuttavia, può essere difficile ricreare tutte le condizioni e le app in un tenant di test per verificare completamente i risultati di un criterio.
 
 ### <a name="create-a-test-plan"></a>Creare un piano di test
 
 Il piano di test è importante per disporre di un confronto tra i risultati previsti e i risultati effettivi. È sempre necessario definire il risultato atteso prima di eseguire un test. Nella tabella seguente vengono descritti alcuni test case di esempio. Modificare gli scenari e i risultati previsti in base al modo in cui sono configurati i criteri di accesso condizionale.
 
-|Policy |Scenario |Risultato previsto | Risultato |
-|---|---|---|---|
-|[Richiedi autenticazione a più fattori quando non al lavoro](/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso attendibile/dal posto di lavoro|All'utente non viene richiesta l'autenticazione a più fattori| |
-|[Richiedi autenticazione a più fattori quando non al lavoro](/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso non attendibile/non dal posto di lavoro|All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso| |
-|[Richiedi autenticazione a più fattori (per l'amministratore)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|L'amministratore globale accede ad *App*|All'amministratore viene richiesta l'autenticazione a più fattori| |
-|[Accessi a rischio](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L'utente accede ad *App* usando un [browser Tor](/azure/active-directory/active-directory-identityprotection-playbook)|All'amministratore viene richiesta l'autenticazione a più fattori| |
-|[Gestione dei dispositivi](/azure/active-directory/conditional-access/require-managed-devices)|Un utente autorizzato cerca di accedere da un dispositivo autorizzato|Accesso concesso| |
-|[Gestione dei dispositivi](/azure/active-directory/conditional-access/require-managed-devices)|Un utente autorizzato cerca di accedere da un dispositivo non autorizzato|Accesso bloccato| |
-|[Modifica password per gli utenti a rischio](/azure/active-directory/identity-protection/howto-user-risk-policy)|Un utente autorizzato cerca di accedere con credenziali compromesse (accesso ad alto rischio)|All'utente viene richiesto di cambiare la password o l'accesso viene bloccato in base al criterio| |
+| Policy| Scenario| Risultato previsto |
+| - | - | - |
+| [Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| Un utente autorizzato accede all'applicazione da un percorso attendibile/dal posto di lavoro| All'utente non viene richiesta l'autenticazione a più fattori |
+| [Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| Un utente autorizzato accede all'applicazione da un percorso non attendibile/non dal posto di lavoro| All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso |
+| [Richiedi autenticazione a più fattori (per l'amministratore)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)| L'amministratore globale accede all'applicazione| All'amministratore viene richiesta l'autenticazione a più fattori |
+| [Accessi a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| L'utente accede all'applicazione usando un [browser Tor](https://microsoft.sharepoint.com/azure/active-directory/active-directory-identityprotection-playbook)| All'amministratore viene richiesta l'autenticazione a più fattori |
+| [Gestione del dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| Un utente autorizzato cerca di accedere da un dispositivo autorizzato| Accesso concesso |
+| [Gestione del dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| Un utente autorizzato cerca di accedere da un dispositivo non autorizzato| Accesso bloccato |
+| [Modifica password per gli utenti a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Un utente autorizzato cerca di accedere con credenziali compromesse (accesso ad alto rischio)| All'utente viene richiesto di cambiare la password o l'accesso viene bloccato in base al criterio |
 
-### <a name="configure-the-policy"></a>Configurare i criteri
 
-La gestione dei criteri di accesso condizionale è un'attività manuale. Nella portale di Azure è possibile gestire i criteri di accesso condizionale in un'unica posizione centrale, ovvero la pagina di accesso condizionale. Un punto di ingresso alla pagina accesso condizionale è la sezione **sicurezza** nel riquadro di spostamento **Active Directory** . 
+ 
 
-![Accesso condizionale](media/plan-conditional-access/03.png)
+### <a name="configure-the-test-policy"></a>Configurare il criterio di test
 
-Per altre informazioni su come creare criteri di accesso condizionale, vedere [richiedere l'autenticazione a più fattori per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md). Questo argomento di avvio rapido consente di:
+Nel [portale di Azure](https://portal.azure.com/) configurare i criteri di accesso condizionale in Azure Active Directory > Sicurezza > Accesso condizionale.
 
-- Acquisire familiarità con l'interfaccia utente.
-- Ottenere una prima impressione del funzionamento dell'accesso condizionale. 
+Per ulteriori informazioni su come creare i criteri di accesso condizionale, vedere l'esempio seguente: [Criterio di accesso condizionale per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Questo argomento dell'Avvio rapido consente di:
 
-### <a name="evaluate-a-simulated-sign-in"></a>Valutare un accesso simulato
+* Acquisire familiarità con l'interfaccia utente
 
-Ora che sono stati configurati i criteri di accesso condizionale, è possibile sapere se funzionano come previsto. Come primo passaggio, usare lo [strumento criteri](what-if-tool.md) di simulazione dell'accesso condizionale per simulare un accesso dell'utente test. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione.
+* Ottenere una panoramica del funzionamento dell'accesso condizionale
 
->[!NOTE]
-> Mentre un'esecuzione simulata dà un'idea dell'effetto di un criterio di accesso condizionale, non sostituisce un'esecuzione dei test effettiva.
+### <a name="enable-the-policy-in-report-only-mode"></a>Abilitare il criterio in modalità solo report
+
+Per valutare l'effetto del criterio, iniziare abilitandolo in [modalità solo report](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only). I criteri solo report vengono valutati durante l'accesso, ma non vengono applicati i controlli di concessione e di sessione. Dopo aver salvato il criterio in modalità solo report, è possibile osservarne l'effetto sugli accessi in tempo reale nei log di accesso. Nei log di accesso selezionare un evento e passare alla scheda Solo report per visualizzare il risultato di ogni criterio solo report.
+
+
+![Modalità solo report ](media/plan-conditional-access/report-only-mode.png)
+
+Selezionando il criterio, è anche possibile vedere come le assegnazioni e i controlli di accesso del criterio sono stati valutati usando la schermata Dettagli criteri. Per applicare un criterio a un accesso, è necessario che vengano soddisfatte tutte le assegnazioni configurate. 
+
+### <a name="understand-the-impact-of-your-policies-using-the-insights-and-reporting-workbook"></a>Comprendere l'effetto dei criteri usando la cartella di lavoro Informazioni dettagliate e report.
+
+È possibile visualizzare l'effetto aggregato dei criteri di accesso condizionale nella cartella di lavoro Informazioni dettagliate e report. Per accedere alla cartella di lavoro, è necessaria una sottoscrizione di Monitoraggio di Azure e sarà necessario [trasmettere i log di accesso a un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). 
+
+### <a name="simulate-sign-ins-using-the-what-if-tool"></a>Simulare gli accessi mediante lo strumento What If
+
+Un altro modo per convalidare i criteri di accesso condizionale consiste nell'usare lo [strumento What If](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if), che simula i criteri applicabili in circostanze ipotetiche a un utente che effettua l'accesso. Selezionare gli attributi di accesso che si desidera testare, ad esempio, utente, applicazione, piattaforma del dispositivo e posizione, e vedere quali criteri si applicano.
+
+> [!NOTE] 
+> Anche se un'esecuzione simulata offre un'impressione valida dell'impatto dei criteri di accesso condizionale, non sostituisce un'effettiva esecuzione dei test.
 
 ### <a name="test-your-policy"></a>Verificare i criteri
 
-Eseguire i test case in base al piano di test. In questo passaggio viene eseguito un test completo di ogni criterio per gli utenti di test, per verificare che il loro comportamento sia quello previsto. Usare gli scenari creati in precedenza per eseguire ogni test.
+Eseguire tutti i test nel piano di test con gli utenti di test.
 
-È importante assicurarsi di testare i criteri di esclusione di un criterio. È ad esempio possibile escludere un utente o gruppo da un criterio che richiede l'autenticazione MFA. Verificare se agli utenti esclusi viene richiesta l'autenticazione a più fattori, perché la combinazione di altri criteri potrebbe richiedere l'autenticazione a più fattori per tali utenti.
+**Assicurarsi di testare i criteri di esclusione di un criterio**. È ad esempio possibile escludere un utente o gruppo da un criterio che richiede l'autenticazione MFA. Verificare se agli utenti esclusi viene richiesta l'autenticazione MFA, perché la combinazione di altri criteri potrebbe richiedere l'autenticazione MFA per questi stessi utenti.
 
-### <a name="cleanup"></a>Pulizia
+### <a name="roll-back-policies"></a>Eseguire il rollback dei criteri
 
-La procedura di pulizia comprende i passaggi seguenti:
+Nel caso in cui sia necessario eseguire il rollback dei criteri appena implementati, usare una o più delle opzioni seguenti:
 
-1. Disabilitare il criterio.
-1. Rimuovere gli utenti e gruppi assegnati.
-1. Eliminare gli utenti di test.  
+* **Disabilitare il criterio.** La disabilitazione di un criterio garantisce che non venga applicato quando un utente tenta di accedere. È sempre possibile tornare indietro e abilitare il criterio quando si vorrà utilizzarlo.
 
-## <a name="move-to-production"></a>Passare in produzione
+![Abilitare l'immagine del criterio](media/plan-conditional-access/enable-policy.png)
 
-Quando i nuovi criteri sono pronti per l'ambiente, distribuirli in più fasi:
+* **Escludere un utente o un gruppo da un criterio.** Se un utente non è in grado di accedere all'applicazione, è possibile scegliere di escluderlo dal criterio.
 
-- Dare comunicazione delle modifiche agli utenti finali.
-- Iniziare con un set ridotto di utenti e verificare che il criterio abbia il comportamento previsto.
-- Quando si espande un criterio per includere un maggior numero di utenti, continuare a escludere tutti gli amministratori. Escludere gli amministratori assicura che qualcuno possa comunque accedere a un criterio, se è necessaria una modifica.
-- Applicare un criterio a tutti gli utenti solo se necessario.
+![Escludere utenti e gruppi](media/plan-conditional-access/exclude-users-groups.png)
 
-Come procedura consigliata, creare almeno un account utente che sia:
+> [!NOTE]
+>  Questa opzione deve essere usata solo se necessario, solo in situazioni in cui l'utente è attendibile. L'utente deve essere nuovamente aggiunto al criterio o al gruppo appena possibile.
 
-- Dedicato all'amministrazione dei criteri
-- Escluso da tutti i criteri
+* **Eliminare il criterio.** Se il criterio non è più necessario, [eliminarlo](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-## <a name="rollback-steps"></a>Procedura di ripristino dello stato precedente
+## <a name="manage-access-to-cloud-apps"></a>Gestire l'accesso alle applicazioni cloud
 
-Nel caso in cui sia necessario eseguire il rollback dei criteri appena implementati, usare uno o più delle opzioni seguenti:
+Usare le seguenti opzioni di gestione per controllare e gestire i criteri di accesso condizionale:
 
-1. **Disabilitare il criterio** -La disabilitazione di un criterio garantisce che non venga applicato quando un utente tenta di accedere. È sempre possibile tornare indietro e abilitare il criterio quando si vorrà utilizzarlo.
+![manage-access](media/plan-conditional-access/manage-access.png)
 
-   ![Disabilitare il criterio](media/plan-conditional-access/07.png)
 
-1. **Escludere un utente o gruppo da un criterio** -Se un utente non è in grado di accedere all'app, è possibile scegliere di escluderlo dal criterio
+### <a name="named-locations"></a>Posizioni specifiche
 
-   ![Escludere utenti](media/plan-conditional-access/08.png)
+La condizione della posizione dei criteri di accesso condizionale consente di associare le impostazioni dei controlli dell'accesso ai percorsi di rete degli utenti. Con le [località denominate](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) è possibile creare raggruppamenti logici di intervalli di indirizzi IP o di paesi e regioni.
 
-   > [!NOTE]
-   > Questa opzione deve essere usata solo se necessario, solo in situazioni in cui l'utente è attendibile. L'utente deve essere nuovamente aggiunto al criterio o al gruppo appena possibile.
+### <a name="custom-controls"></a>Controlli personalizzati
 
-1. **Eliminare il criterio**: se il criterio non è più necessario, eliminarlo.
+I [controlli personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) reindirizzano gli utenti a un servizio compatibile per soddisfare i requisiti di autenticazione esterni ad Azure AD. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione richieste e viene quindi reindirizzato ad Azure AD. Azure AD verifica la risposta e, se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale.
+
+### <a name="terms-of-use"></a>Condizioni per l'utilizzo
+
+Prima che gli utenti accedano ad applicazioni cloud specifiche all'interno dell'ambiente in uso, è possibile ottenere il consenso di questi sotto forma di accettazione delle Condizioni per l'utilizzo (Terms of Use, ToU). Seguire questo [Avvio rapido per creare le Condizioni per l'utilizzo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou).
+
+### <a name="classic-policies"></a>Criteri classici
+
+Nel [portale di Azure](https://portal.azure.com/) è possibile trovare i criteri di accesso condizionale in Azure Active Directory > Sicurezza > Accesso condizionale. È possibile che l'organizzazione disponga anche di criteri di accesso condizionale meno recenti, non creati utilizzando questa pagina. Questi criteri sono conosciuti come criteri classici. Si consiglia di [valutare di eseguire la migrazione dei criteri classici nel portale di Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices).
+
+## <a name="troubleshoot-conditional-access"></a>Risolvere i problemi di accesso condizionale
+
+Quando un utente ha un problema con un criterio di accesso condizionale, raccogliere le informazioni seguenti per semplificare la risoluzione dei problemi.
+
+* Nome dell'entità utente
+
+* Nome visualizzato dell'utente
+
+* Nome del sistema operativo
+
+* Timestamp (è sufficiente un'approssimazione)
+
+* Applicazione di destinazione
+
+* Tipo di applicazione client (browser rispetto a client)
+
+* ID di correlazione (univoco per l'accesso)
+
+Se l'utente ha ricevuto un messaggio con un collegamento a ulteriori dettagli, è possibile raccogliere la maggior parte di queste informazioni dal collegamento.
+
+![Messaggio di errore impossibile accedere all'applicazione](media/plan-conditional-access/cant-get-to-app.png)
+
+Dopo aver raccolto le informazioni, vedere le seguenti risorse:
+
+* [Problemi di accesso con l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access): comprendere i risultati di accesso imprevisti correlati all'accesso condizionale usando i messaggi di errore e il log degli accessi di Azure AD.
+
+* [Uso dello strumento What-If](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if): comprendere il motivo per cui un criterio è stato o non è stato applicato a un utente in una circostanza specifica o se un criterio verrebbe applicato in uno stato noto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare la [Documentazione sull'accesso condizionale di Azure AD](index.yml) per una panoramica delle informazioni disponibili.
+[Altre informazioni sull'autenticazione a più fattori](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+[Altre informazioni su Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+
+[Gestire i criteri dell'accesso condizionale con l'API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)

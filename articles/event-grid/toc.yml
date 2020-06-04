@@ -194,6 +194,8 @@
           href: metrics.md
 - name: Guide pratiche
   items:
+    - name: 'Creare, visualizzare e gestire gli argomenti di sistema'
+      href: create-view-manage-system-topics.md
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
     - name: Sottoscrivere eventi Auth0

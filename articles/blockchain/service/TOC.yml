@@ -11,7 +11,8 @@
       href: create-member.md
     - name: Creare un membro con l'interfaccia della riga di comando
       href: create-member-cli.md
-    - name: Creare un membro con un modello
+    - name: Creare un membro con un modello di Resource Manager
+      displayName: Resource Manager
       href: create-member-template.md
     - name: Connettersi al nodo della transazione
       items:

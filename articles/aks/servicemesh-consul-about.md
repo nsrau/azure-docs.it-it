@@ -5,97 +5,98 @@ author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: c518985b360fa3264bd5ac1e3fe76d61b2810b9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 77cb6a693c5a73d0498b0acf9bc4ad8cc9f8f32f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77594210"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773997"
 ---
 # <a name="consul"></a>Consul
 
 ## <a name="overview"></a>Panoramica
 
-[Console][consul] è una soluzione di rete del servizio compatibile con più data center per connettere e proteggere i servizi tra piattaforme di Runtime. [Connect][consul-features] è il componente che fornisce funzionalità di mesh di servizio.
+[Consul][consul] è una soluzione di rete per servizi compatibile con più data center per connettere e proteggere i servizi tra piattaforme di runtime. [Connect][consul-features] è il componente che fornisce le funzionalità di mesh per i servizi.
 
 ## <a name="architecture"></a>Architecture
 
-Consul fornisce un piano dati composto da [sidecar][consul-sidecar] basati su [inviato][envoy-proxy]per impostazione predefinita. Console dispone di un'architettura proxy collegabile. Questi proxy intelligenti controllano tutto il traffico di rete all'interno e all'esterno delle app e dei carichi di lavoro in rete.
+Per impostazione predefinita Consul fornisce un piano dati costituito da [sidecar][envoy-proxy] basati su [Envoy][consul-sidecar]. Console dispone di un'architettura proxy modulare. Questi proxy intelligenti controllano tutto il traffico di rete in ingresso e in uscita da carichi di lavoro e app con mesh.
 
-Il piano di controllo gestisce la configurazione e i criteri tramite i [componenti][consul-architecture]seguenti:
+Il piano di controllo gestisce la configurazione e i criteri tramite i [componenti][consul-architecture] seguenti:
 
-- **Server** : agente console in esecuzione in modalità server che gestisce lo stato del cluster console.
+- **Server**: un agente Consul in esecuzione in modalità server che gestisce lo stato del cluster Consul.
 
-- **Client** : agente console in esecuzione in modalità client Lightweight. Ogni nodo di calcolo deve disporre di un agente client in esecuzione. Questa configurazione e i criteri dei broker client tra i carichi di lavoro e la configurazione di console. 
+- **Client**: un agente Consul in esecuzione in modalità client leggera. In ogni nodo di calcolo deve essere presente un agente client in esecuzione. Questo client negozia la configurazione e i criteri tra i carichi di lavoro e la configurazione Consul. 
 
 Il diagramma dell'architettura seguente illustra il modo in cui i vari componenti all'interno del piano dati e del piano di controllo interagiscono.
 
-![Panoramica dei componenti e dell'architettura di console.](media/servicemesh/consul/about-architecture.png)
+![Panoramica dei componenti e dell'architettura Consul.](media/servicemesh/consul/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Criteri di selezione
 
-Quando si valuta console per i carichi di lavoro, è importante comprendere e considerare le aree seguenti:
+Quando si valuta Consul per i carichi di lavoro, è importante comprendere e valutare i fattori seguenti:
 
-- [Principi Consoli](#consul-principles)
+- [Principi di Consul](#consul-principles)
 - [Capabilities](#capabilities)
 - [Scenari](#scenarios)
 
 
-### <a name="consul-principles"></a>Principi Consoli
+### <a name="consul-principles"></a>Principi di Consul
 
-I principi seguenti [guidano][consul-principles] il progetto console:
+Il progetto Consul è [guidato][consul-principles] dai principi seguenti:
 
-- **Basato sull'API** : codificare tutti i criteri e la configurazione.
+- **Basato su API**: tutti i criteri e la configurazione sono scritti nel codice.
 
-- **Esegui e Connetti** i carichi di lavoro in qualsiasi luogo-Connetti tra piattaforme di runtime (Kubernetes, VM, senza server).
+- **Esecuzione e connessione ovunque**: connessione dei carichi di lavoro tra piattaforme di runtime (Kubernetes, macchine virtuali, serverless).
 
-- **Estendi e integra** -Connetti in modo sicuro i carichi di lavoro all'interno dell'infrastruttura.
+- **Estensione e integrazione**: connessione sicura dei carichi di lavoro all'interno dell'infrastruttura.
 
 
 ### <a name="capabilities"></a>Capabilities
 
-Consul fornisce il set di funzionalità seguente:
+Consul offre le funzionalità seguenti:
 
-- **Mesh** : Gateway (più Data Center), macchine virtuali (nodi fuori cluster), sincronizzazione dei servizi, opzione di debug predefinita
+- **Mesh**: gateway (più data center), macchine virtuali (nodi esterni al cluster), sincronizzazione dei servizi, opzione di debug predefinita
 
-- **Proxy: inviato** , proxy predefinito, plug-in, proxy L4 disponibile per i carichi di lavoro di Windows
+- **Proxy**: Envoy, proxy predefinito, modulare, proxy l4 disponibile per i carichi di lavoro Windows
 
-- **Gestione del traffico** -routing, suddivisione, risoluzione
+- **Gestione traffico**: routing, divisione, risoluzione
 
-- **Criteri** -intenzioni, ACL
+- **Criteri**: intenzioni, ACL
 
-- **Sicurezza** : autorizzazione, autenticazione, crittografia, identità basate su SPIFFE, CA esterna (insieme di credenziali), gestione dei certificati e rotazione
+- **Sicurezza**: autorizzazione, autenticazione, crittografia, identità basate su SPIFFE, CA esterne (insieme di credenziali), gestione dei certificati e rotazione
 
-- **Osservabilità** : metriche, dashboard dell'interfaccia utente, Prometeo, grafana
+- **Osservabilità**: metriche, dashboard dell'interfaccia utente, Prometheus, Grafana
 
 
 ### <a name="scenarios"></a>Scenari
 
-Consul è particolarmente indicato per gli scenari seguenti:
+Consul è particolarmente indicato e suggerito per gli scenari seguenti:
 
-- Estensione dei carichi di lavoro connessi a console esistenti
+- Estensione dei carichi di lavoro connessi Consul esistenti
 
 - Requisiti di conformità relativi alla gestione dei certificati
 
-- Mesh del servizio multicluster
+- Mesh dei servizi multicluster
 
-- Carichi di lavoro basati su VM da includere nella rete mesh del servizio
+- Carichi di lavoro basati su macchina virtuali da includere nella mesh dei servizi
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La documentazione seguente descrive come è possibile installare console in Azure Kubernetes Service (AKS):
+La documentazione seguente illustra come installare Consul nel servizio Azure Kubernetes:
 
 > [!div class="nextstepaction"]
-> [Installare console in Azure Kubernetes Service (AKS)][consul-install]
+> [Installare Consul nel servizio Azure Kubernetes][consul-install]
 
 È anche possibile esplorare ulteriormente le funzionalità e l'architettura di Consul:
 
-- [Funzionalità console][consul-features]
-- [Architettura Consul][consul-architecture]
-- [Console-funzionamento della connessione][consul-how-connect-works]
+- [Esercitazioni introduttive su Consul][consul-getting-started]
+- [Funzionalità di Consul][consul-features]
+- [Architettura di Consul][consul-architecture]
+- [Consul - Funzionamento del componente Connect][consul-how-connect-works]
 
 <!-- LINKS - external -->
 [consul]: https://www.consul.io/mesh.html
@@ -104,6 +105,7 @@ La documentazione seguente descrive come è possibile installare console in Azur
 [consul-sidecar]: https://www.consul.io/docs/connect/proxies.html
 [consul-how-connect-works]: https://www.consul.io/docs/connect/connect-internals.html
 [consul-principles]: https://www.consul.io/
+[consul-getting-started]:https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 
 [envoy-proxy]: https://www.envoyproxy.io/
 [grafana]: https://grafana.com/

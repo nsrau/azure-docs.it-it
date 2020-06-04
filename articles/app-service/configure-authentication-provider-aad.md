@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "82609902"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860521"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
@@ -125,14 +125,39 @@ Eseguire la procedura seguente:
 1. Dopo la creazione della registrazione dell'app, copiare il valore di **ID applicazione (client)** .
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Le mie API**.
 1. Selezionare la registrazione creata in precedenza per l'app del servizio app. Se la registrazione dell'app non è visibile, verificare di aver aggiunto l'ambito **user_impersonation** in [Creare una registrazione di app in Azure AD per l'app del servizio app](#register).
-1. Selezionare **user_impersonation**, quindi selezionare **Aggiungi autorizzazioni**.
+1. Selezionare **user_impersonation** in **Autorizzazioni delegate**, quindi selezionare **Aggiungi autorizzazioni**.
 
 È stata configurata un'applicazione client nativa che può accedere all'app del servizio app per conto dell'utente.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configurare un'applicazione client daemon per le chiamate da servizio a servizio
+
+L'applicazione può acquisire un token per chiamare un'API Web ospitata nel servizio app o nell'app per le funzioni per conto di se stessa (non per conto di un utente). Questo scenario è utile per le applicazioni daemon non interattive che eseguono attività senza un utente connesso. Usa la concessione di [credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
+
+1. Nel [Azure portal] selezionare **Active Directory** > **Registrazioni app** > **Nuova registrazione**.
+1. Nella pagina **Registra un'applicazione** immettere un valore in **Nome** per la registrazione dell'app daemon.
+1. Per un'applicazione daemon, non è necessario un URI di reindirizzamento, quindi è possibile lasciare questo campo vuoto.
+1. Selezionare **Create** (Crea).
+1. Dopo la creazione della registrazione dell'app, copiare il valore di **ID applicazione (client)** .
+1. Selezionare **Certificati e segreti** > **Nuovo segreto client** > **Aggiungi**. Copiare il valore del segreto client visualizzato nella pagina. Non verrà più visualizzato.
+
+È ora possibile [richiedere un token di accesso usando l'ID client e il segreto client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) impostando il parametro `resource` sull'**URI ID applicazione** dell'app di destinazione. Il token di accesso generato può quindi essere presentato all'app di destinazione usando l'[intestazione dell'autorizzazione OAuth 2.0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource) standard e l'autenticazione/autorizzazione del servizio app convaliderà e userà il token come di consueto per indicare che il chiamante (in questo caso un'applicazione, non un utente) è autenticato.
+
+Al momento, questo consente a _qualsiasi_ applicazione client nel tenant di Azure AD di richiedere un token di accesso ed eseguire l'autenticazione all'app di destinazione. Per imporre all'_autorizzazione_ di consentire solo determinate applicazioni client, è necessario eseguire alcune operazioni di configurazione aggiuntive.
+
+1. [Definire un ruolo dell'app](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) nel manifesto della registrazione dell'app che rappresenta il servizio app o l'app per le funzioni che si vuole proteggere.
+1. Nella registrazione app che rappresenta il client che deve essere autorizzato selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **API personali**.
+1. Selezionare la registrazione app creata in precedenza. Se la registrazione app non è visualizzata, verificare di aver [aggiunto un ruolo dell'app](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. In **Autorizzazioni applicazione** selezionare il ruolo dell'app creato in precedenza e quindi selezionare **Aggiungi autorizzazioni**.
+1. Assicurarsi di fare clic su **Fornisci il consenso amministratore** per autorizzare l'applicazione client a richiedere l'autorizzazione.
+1. Analogamente allo scenario precedente (prima dell'aggiunta di eventuali ruoli), è ora possibile [richiedere un token di accesso](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) per la stessa `resource` di destinazione e il token di accesso includerà un'attestazione `roles` contenente i ruoli dell'app autorizzati per l'applicazione client.
+1. All'interno del servizio app di destinazione o del codice dell'app per le funzioni, è ora possibile verificare che i ruoli previsti siano presenti nel token. Questa operazione non viene eseguita dall'autenticazione/autorizzazione del servizio app. Per altre informazioni, vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims).
+
+È stata configurata un'applicazione client daemon che può accedere all'app del servizio app usando la propria identità.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passaggi successivi
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure](app-service-web-tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/

@@ -1,37 +1,44 @@
 ---
-title: Come creare criteri di configurazione Guest per Linux
-description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per Linux.
+title: Come creare criteri di Configurazione guest per Linux
+description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024983"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654873"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di configurazione Guest per Linux
+# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
-Prima di creare criteri personalizzati, leggere le informazioni generali in [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md).
+Prima di creare criteri personalizzati, leggere le informazioni generali in [Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md).
  
-Per informazioni sulla creazione di criteri di configurazione Guest per Windows, vedere la pagina [come creare i criteri di configurazione Guest per Windows](./guest-configuration-create.md)
+Per informazioni sulla creazione di criteri di Configurazione guest per Windows, vedere la pagina [Come creare criteri di Configurazione guest per Windows](./guest-configuration-create.md)
 
-Quando si controlla Linux, la configurazione Guest usa [chef INSPEC](https://www.inspec.io/). Il profilo INSPEC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
+Quando si esegue il controllo di Linux, Configurazione guest usa [Chef InSpec](https://www.inspec.io/). Il profilo InSpec definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
 
-La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) può essere usata solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
+[Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md) può essere usata solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
 
 Usare le azioni seguenti per creare una configurazione personalizzata per la convalida dello stato di un computer Azure o non Azure.
 
 > [!IMPORTANT]
-> I criteri personalizzati con la configurazione Guest sono una funzionalità in anteprima.
+> I criteri personalizzati con Configurazione guest sono una funzionalità di anteprima.
 >
-> L'estensione di configurazione Guest è necessaria per eseguire controlli in macchine virtuali di Azure.
+> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure.
 > Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente:
 >   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
-## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
+## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
-La creazione di un elemento di configurazione Guest, il test automatizzato dell'artefatto, la creazione di una definizione dei criteri e la pubblicazione del criterio sono completamente automatizzabili usando il modulo di configurazione Guest in PowerShell. Il modulo può essere installato in un computer che esegue Windows, macOS o Linux con PowerShell 6,2 o versioni successive in esecuzione in locale o con [Azure cloud Shell](https://shell.azure.com)o con l' [immagine Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+Il modulo Configurazione guest automatizza il processo di creazione di contenuto personalizzato, tra cui:
+
+- La creazione di un artefatto del contenuto di Configurazione guest (.ZIP)
+- Il test automatizzato dell'artefatto
+- La creazione di una definizione di criteri
+- La pubblicazione dei criteri
+
+Il modulo può essere installato in un computer che esegue Windows, macOS o Linux con PowerShell 6.2 o versioni successive in esecuzione in locale oppure con [Azure Cloud Shell](https://shell.azure.com) o con l'[immagine Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
 > La compilazione di configurazioni non è supportata in Linux.
@@ -44,11 +51,11 @@ Sistemi operativi in cui è possibile installare il modulo:
 - macOS
 - Windows
 
-Il modulo della risorsa di configurazione Guest richiede il seguente software:
+Il modulo della risorsa Configurazione guest richiede il software seguente:
 
-- PowerShell 6,2 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/azure/install-az-ps).
-  - Sono necessari solo AZ modules ' AZ. Accounts ' è AZ. resources '.
+  - Sono necessari solo i moduli AZ 'Az.Accounts' e 'Az.Resources'.
 
 ### <a name="install-the-module"></a>Installare il modulo
 
@@ -68,19 +75,19 @@ Per installare il modulo **GuestConfiguration** in PowerShell:
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Criteri e artefatti di configurazione Guest per Linux
+## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Criteri e artefatti di Configurazione guest per Linux
 
-Anche negli ambienti Linux, la configurazione Guest usa la configurazione dello stato desiderato come astrazione del linguaggio. L'implementazione è basata sul codice nativo (C++), quindi non richiede il caricamento di PowerShell. Tuttavia, richiede un file MOF di configurazione che descrive i dettagli sull'ambiente. DSC funge da wrapper per INSPEC per standardizzare la modalità di esecuzione, come vengono forniti i parametri e come viene restituito il risultato al servizio. Quando si lavora con contenuto personalizzato INSPEC, è necessaria una conoscenza minima di DSC.
+Anche negli ambienti Linux, Configurazione guest usa Desired State Configuration come astrazione del linguaggio. L'implementazione è basata sul codice nativo (C++) in modo da non richiedere il caricamento di PowerShell. Tuttavia, richiede un file MOF di configurazione che descrive i dettagli sull'ambiente. DSC funge da wrapper per InSpec per standardizzare la modalità di esecuzione, il modo in cui vengono forniti i parametri e il modo in cui l’output viene restituito al servizio. Quando si lavora con contenuto InSpec personalizzato, è necessaria una conoscenza minima di DSC.
 
 #### <a name="configuration-requirements"></a>Requisiti di configurazione
 
-Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Gestione risorse devono essere uguali.
+Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file ZIP per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione guest nel modello di Resource Manager devono essere uguali.
 
-### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata della configurazione Guest in Linux
+### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata di Configurazione guest in Linux
 
-La configurazione Guest in Linux usa `ChefInSpecResource` la risorsa per fornire al motore il nome del [profilo INSPEC](https://www.inspec.io/docs/reference/profiles/). Il **nome** è l'unica proprietà obbligatoria della risorsa. Creare un file YaML e un file di script Ruby, come descritto di seguito.
+Configurazione guest in Linux usa la risorsa `ChefInSpecResource` per fornire al motore il nome del [profilo InSpec](https://www.inspec.io/docs/reference/profiles/). **Name** è l'unica proprietà della risorsa richiesta. Creare un file YaML e un file di script Ruby, come descritto di seguito.
 
-Per prima cosa, creare il file YaML usato da INSPEC. Il file fornisce informazioni di base sull'ambiente. Di seguito è riportato un esempio:
+Innanzitutto, creare il file YaML usato da InSpec. Il file fornisce informazioni di base sull'ambiente. Di seguito è illustrato un esempio:
 
 ```YaML
 name: linux-path
@@ -93,9 +100,9 @@ supports:
     - os-family: unix
 ```
 
-Salvare il file con il `inspec.yml` nome in una cartella `linux-path` denominata nella directory del progetto.
+Salvare questo file con il nome `inspec.yml` in una cartella denominata `linux-path` nella directory del progetto.
 
-Successivamente, creare il file Ruby con l'astrazione del linguaggio INSPEC usato per controllare il computer.
+Successivamente, creare il file Ruby con l'astrazione del linguaggio InSpec usata per controllare il computer.
 
 ```Ruby
 describe file('/tmp') do
@@ -103,7 +110,7 @@ describe file('/tmp') do
 end
 ```
 
-Salvare il file con nome `linux-path.rb` in una nuova cartella denominata `controls` all'interno `linux-path` della directory.
+Salvare questo file con il nome `linux-path.rb` in una nuova cartella denominata `controls` all'interno della directory `linux-path`.
 
 Infine, creare una configurazione, importare il modulo della risorsa **PSDesiredStateConfiguration** e compilare la configurazione.
 
@@ -127,9 +134,9 @@ import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
-Salvare il file con il `config.ps1` nome nella cartella del progetto. Eseguirlo in PowerShell eseguendo `./config.ps1` nel terminale. Verrà creato un nuovo file MOF.
+Salvare questo file con il nome `config.ps1` nella cartella del progetto. Eseguirlo in PowerShell eseguendo `./config.ps1` nel terminale. Verrà creato un nuovo file MOF.
 
-Il `Node AuditFilePathExists` comando non è tecnicamente necessario, ma produce un file `AuditFilePathExists.mof` denominato anziché quello predefinito, `localhost.mof`. Il nome del file con estensione MOF che segue la configurazione consente di organizzare in modo semplice molti file quando si opera su larga scala.
+Il comando `Node AuditFilePathExists` non è tecnicamente necessario, ma produce un file denominato `AuditFilePathExists.mof` anziché il file `localhost.mof` predefinito. Il nome del file MOF che segue la configurazione consente di organizzare in modo semplice molti file quando si opera su larga scala.
 
 
 
@@ -145,14 +152,14 @@ A questo punto dovrebbe essere disponibile una struttura di progetto come indica
             linux-path.rb 
 ```
 
-I file di supporto devono essere inclusi nel pacchetto. Il pacchetto completato viene usato dalla configurazione Guest per creare le definizioni di criteri di Azure.
+I file di supporto devono essere inclusi in un pacchetto. Il pacchetto completato viene usato da Configurazione guest per creare le definizioni di Criteri di Azure.
 
-Tramite `New-GuestConfigurationPackage` il cmdlet viene creato il pacchetto. Parametri del cmdlet `New-GuestConfigurationPackage` durante la creazione del contenuto Linux:
+Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Parametri del cmdlet `New-GuestConfigurationPackage` durante la creazione del contenuto Linux:
 
-- **Nome**: nome del pacchetto di configurazione Guest.
-- **Configurazione**: percorso completo del documento di configurazione compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non è specificato, il pacchetto viene creato nella directory corrente.
-- **ChefProfilePath**: percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
+- **Name**: Nome del pacchetto di Configurazione guest.
+- **Configurazione**: Percorso completo del documento di configurazione compilato.
+- **Percorso**: Percorso della cartella di output. Questo parametro è facoltativo e, se non è specificato, il pacchetto viene creato nella directory corrente.
+- **ChefProfilePath**: Percorso completo del profilo InSpec. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
 
@@ -163,15 +170,15 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-Dopo aver creato il pacchetto di configurazione, ma prima di pubblicarlo in Azure, è possibile testare il pacchetto dalla workstation o dall'ambiente CI/CD. Il cmdlet `Test-GuestConfigurationPackage` GuestConfiguration include lo stesso agente nell'ambiente di sviluppo usato in macchine virtuali di Azure. Con questa soluzione, è possibile eseguire test di integrazione in locale prima di rilasciare gli ambienti cloud fatturati.
+Dopo aver creato il pacchetto di configurazione, ma prima di pubblicarlo in Azure, è possibile testare il pacchetto dalla workstation o dall'ambiente CI/CD. Il cmdlet GuestConfiguration `Test-GuestConfigurationPackage` include lo stesso agente nell'ambiente di sviluppo utilizzato all'interno dei computer Azure. Con questa soluzione, è possibile eseguire test di integrazione in locale prima del rilascio in ambienti cloud fatturati.
 
-Poiché l'agente sta effettivamente valutando l'ambiente locale, nella maggior parte dei casi è necessario eseguire il cmdlet di test sulla stessa piattaforma del sistema operativo che si prevede di controllare.
+Poiché l'agente valuta effettivamente l'ambiente locale, nella maggior parte dei casi è necessario eseguire il cmdlet Test- sulla stessa piattaforma del sistema operativo che si prevede di controllare.
 
-Parametri del `Test-GuestConfigurationPackage` cmdlet:
+Parametri del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Nome**: nome dei criteri di configurazione Guest.
-- **Parametro**: parametri dei criteri forniti nel formato Hashtable.
-- **Percorso**: percorso completo del pacchetto di configurazione Guest.
+- **Name**: Nome dei criteri di Configurazione guest.
+- **Parametro**: Parametri dei criteri forniti in formato tabella hash.
+- **Percorso**: Percorso completo del pacchetto di Configurazione guest.
 
 Eseguire il comando seguente per testare il pacchetto creato dal passaggio precedente:
 
@@ -180,13 +187,13 @@ Test-GuestConfigurationPackage `
   -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
-Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inviare tramite pipe l' `New-GuestConfigurationPackage` output del cmdlet `Test-GuestConfigurationPackage` al cmdlet.
+Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inoltrare tramite pipe l'output del cmdlet `New-GuestConfigurationPackage` al cmdlet `Test-GuestConfigurationPackage`.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. I comandi usati nella `publish` funzione richiedono il `Az.Storage` modulo.
+Il passaggio successivo consiste nel pubblicare il file nell'archiviazione BLOB. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. I comandi usati nella funzione `publish` richiedono il modulo `Az.Storage`.
 
 ```azurepowershell-interactive
 function publish {
@@ -242,19 +249,19 @@ $uri = publish `
   -filePath ./AuditFilePathExists.zip `
   -blobName 'AuditFilePathExists'
 ```
-Una volta creato e caricato un pacchetto di criteri personalizzato per la configurazione Guest, creare la definizione dei criteri di configurazione Guest. Il `New-GuestConfigurationPolicy` cmdlet accetta un pacchetto di criteri personalizzato e crea una definizione di criteri.
+Una volta creato e caricato un pacchetto di criteri personalizzati di Configurazione guest, creare la definizione dei criteri di Configurazione guest. Il cmdlet `New-GuestConfigurationPolicy` prende un pacchetto di criteri personalizzati e crea una definizione di criteri.
 
-Parametri del `New-GuestConfigurationPolicy` cmdlet:
+Parametri del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: URI http (s) pubblico del pacchetto del contenuto di configurazione Guest.
-- **DisplayName**: nome visualizzato del criterio.
-- **Descrizione**: Descrizione del criterio.
-- **Parametro**: parametri dei criteri forniti nel formato Hashtable.
-- **Versione**: versione dei criteri.
-- **Path**: percorso di destinazione in cui vengono create le definizioni dei criteri.
-- **Piattaforma**: piattaforma di destinazione (Windows/Linux) per i criteri di configurazione Guest e il pacchetto di contenuto.
+- **ContentUri**: URI HTTP(s) pubblico del pacchetto del contenuto di Configurazione guest.
+- **DisplayName**: Nome visualizzato dei criteri.
+- **Descrizione**: Descrizione dei criteri.
+- **Parameter**: Parametri dei criteri forniti in formato tabella hash.
+- **Versione**: Versione dei criteri.
+- **Percorso**: Percorso di destinazione in cui vengono create le definizioni dei criteri.
+- **Platform**: Piattaforma di destinazione (Windows/Linux) per i criteri e il pacchetto di contenuto di Configurazione guest.
 
-Nell'esempio seguente vengono create le definizioni dei criteri in un percorso specificato da un pacchetto di criteri personalizzato:
+Nell'esempio seguente vengono create le definizioni dei criteri in un percorso specifico da un pacchetto di criteri personalizzati:
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
@@ -269,23 +276,31 @@ New-GuestConfigurationPolicy `
 
 I file seguenti vengono creati da `New-GuestConfigurationPolicy`:
 
-- **auditIfNotExists. JSON**
-- **deployIfNotExists. JSON**
-- **Initiative. JSON**
+- **auditIfNotExists.json**
+- **deployIfNotExists.json**
+- **Initiative.json**
 
-L'output del cmdlet restituisce un oggetto contenente il nome visualizzato e il percorso dei file di criteri di Initiative.
+L'output del cmdlet restituisce un oggetto contenente il nome visualizzato dell’iniziativa e il percorso dei file di criteri.
 
-Infine, pubblicare le definizioni dei criteri usando `Publish-GuestConfigurationPolicy` il cmdlet.
-Il cmdlet ha solo il parametro **path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
+> [!Note]
+> Il modulo Configurazione guest più recente include nuovi parametri:
+> - **Tag** aggiunge uno o più filtri di tag alla definizione dei criteri
+>   - Vedere la sezione [Filtrare i criteri di Configurazione guest usando i tag](#filtering-guest-configuration-policies-using-tags).
+> - **Category** imposta il campo dei metadati della categoria nella definizione dei criteri
+>   - Se il parametro non è incluso, per impostazione predefinita la categoria sarà Configurazione guest.
+> Queste funzionalità sono attualmente in anteprima e richiedono la versione del modulo Configurazione guest 1.20.1, che può essere installata con `Install-Module GuestConfiguration -AllowPrerelease`.
 
-Per eseguire il comando Publish, è necessario l'accesso per creare criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di criteri di Azure](../overview.md) . Il ruolo predefinito migliore è **collaboratore criteri risorse**.
+Infine, pubblicare le definizioni dei criteri usando il cmdlet `Publish-GuestConfigurationPolicy`.
+Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
+
+Per eseguire il comando Publish, è necessario l'accesso per creare criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di Criteri di Azure](../overview.md). Il ruolo predefinito migliore è **Collaboratore ai criteri delle risorse**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
   -Path '.\policyDefinitions'
 ```
 
- Il `Publish-GuestConfigurationPolicy` cmdlet accetta il percorso dalla pipeline di PowerShell. Questa funzionalità significa che è possibile creare i file di criteri e pubblicarli in un unico set di comandi inviati tramite pipe.
+ Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file di criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.
 
  ```azurepowershell-interactive
  New-GuestConfigurationPolicy `
@@ -296,12 +311,12 @@ Publish-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
  ```
 
-Con i criteri creati in Azure, l'ultimo passaggio consiste nell'assegnazione dell'iniziativa. Vedere come assegnare l'iniziativa con il [portale](../assign-policy-portal.md), l'interfaccia della riga di comando di [Azure](../assign-policy-azurecli.md)e [Azure PowerShell](../assign-policy-powershell.md).
+Una volta creati i criteri in Azure, l'ultimo passaggio consiste nell'assegnazione dell'iniziativa. Vedere come assegnare l’iniziativa con il [Portale](../assign-policy-portal.md), l’[interfaccia della riga di comando di Azure](../assign-policy-azurecli.md) e [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> I criteri di configurazione Guest devono **sempre** essere assegnati usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_ . Se viene assegnato solo il criterio _AuditIfNotExists_ , i prerequisiti non vengono distribuiti e il criterio indica sempre che i server ' 0' sono conformi.
+> I criteri di Configurazione guest devono **sempre** essere assegnati usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_. Se viene assegnato solo il criterio _AuditIfNotExists_, i prerequisiti non vengono distribuiti e il criterio indica sempre che "0" server sono conformi.
 
-Per assegnare una definizione di criteri con effetto _DeployIfNotExists_ è necessario un livello di accesso aggiuntivo. Per concedere il privilegio minimo, è possibile creare una definizione di ruolo personalizzata che estende il **collaboratore ai criteri delle risorse**. Nell'esempio seguente viene creato un ruolo denominato **collaboratore criteri risorse cena** con l'autorizzazione aggiuntiva _Microsoft. Authorization/roleAssignments/Write_.
+Per assegnare una definizione dei criteri con l’effetto _DeployIfNotExists_ è necessario un livello di accesso aggiuntivo. Per concedere il privilegio minimo, è possibile creare una definizione di ruolo personalizzata che estende **Collaboratore ai criteri delle risorse**. Nell'esempio riportato di seguito viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
 
 ```azurepowershell-interactive
 $subscriptionid = '00000000-0000-0000-0000-000000000000'
@@ -316,13 +331,13 @@ $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
 New-AzRoleDefinition -Role $role
 ```
 
-### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Utilizzo di parametri nei criteri di configurazione Guest personalizzati
+### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Utilizzo di parametri nei criteri di Configurazione guest personalizzati
 
-La configurazione Guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Questa funzionalità significa che i valori nel file MOF nel pacchetto non devono essere considerati statici. I valori di sostituzione vengono forniti tramite criteri di Azure e non influiscano sul modo in cui le configurazioni vengono create o compilate.
+Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Con questa funzionalità i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di sostituzione vengono forniti tramite Criteri di Azure e non influiscono sul modo in cui le configurazioni vengono create o compilate.
 
-Con INSPEC, i parametri vengono in genere gestiti come input in fase di esecuzione o come codice usando gli attributi. La configurazione Guest offusca questo processo, in modo che sia possibile fornire l'input quando viene assegnato un criterio. Un file degli attributi viene creato automaticamente all'interno del computer. Non è necessario creare e aggiungere un file nel progetto. Sono disponibili due passaggi per aggiungere parametri al progetto di controllo di Linux.
+Con InSpec, i parametri vengono in genere gestiti come input in fase di esecuzione o come codice usando gli attributi. Configurazione guest offusca questo processo in modo che sia possibile fornire l'input quando viene assegnato un criterio. Un file degli attributi viene creato automaticamente all'interno del computer. Non è necessario creare e aggiungere un file nel progetto. Sono disponibili due passaggi per aggiungere parametri al progetto di controllo di Linux.
 
-Definire l'input nel file Ruby in cui si esegue lo script di elementi da controllare nel computer. Di seguito viene fornito un esempio.
+Definire l'input nel file Ruby in cui si esegue lo script degli elementi da controllare nel computer. Di seguito è illustrato un esempio.
 
 ```Ruby
 attr_path = attribute('path', description: 'The file path to validate.')
@@ -332,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameters**. Questo parametro accetta una tabella hash che include tutti i dettagli su ogni parametro e crea automaticamente tutte le sezioni necessarie dei file usati per creare ogni definizione di criteri di Azure.
+I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameters**. Questo parametro prende una tabella hash che include tutti i dettagli su ogni parametro e crea automaticamente tutte le sezioni necessarie dei file usati per creare ogni definizione di Criteri di Azure.
 
 Nell'esempio seguente viene creata una definizione di criteri per controllare un percorso di file, in cui l'utente fornisce il percorso al momento dell'assegnazione dei criteri.
 
@@ -360,7 +375,7 @@ New-GuestConfigurationPolicy
     -Version 1.0.0
 ```
 
-Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori in base alle esigenze. L'agente di configurazione Guest crea automaticamente il file YAML usato da INSPEC per archiviare gli attributi. Vedere l'esempio seguente.
+Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori in base alle esigenze. L'agente di Configurazione guest crea automaticamente il file YAML usato da InSpec per archiviare gli attributi. Vedere l'esempio seguente.
 
 ```powershell
 Configuration AuditFilePathExists
@@ -380,42 +395,74 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo di vita dei criteri
 
-Per rilasciare un aggiornamento alla definizione dei criteri, sono disponibili due campi che richiedono attenzione.
+Per rilasciare un aggiornamento della definizione dei criteri, è necessario prestare attenzione a due campi.
 
-- **Versione**: quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. La proprietà aggiorna la versione dell'assegnazione di configurazione Guest in modo che l'agente riconosca il pacchetto aggiornato.
-- **contentHash**: questa proprietà viene aggiornata automaticamente dal `New-GuestConfigurationPolicy` cmdlet. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il `.zip` file pubblicato. Se viene aggiornata solo la proprietà **contentUri** , l'estensione non accetterà il pacchetto di contenuto.
+- **Versione**: Quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. La proprietà aggiorna la versione dell'assegnazione di Configurazione guest in modo che l'agente riconosca il pacchetto aggiornato.
+- **contentHash**: Questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri**, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
 
-## <a name="optional-signing-guest-configuration-packages"></a>Facoltativo: firma dei pacchetti di configurazione Guest
 
-I criteri personalizzati di configurazione Guest usano l'hash SHA256 per convalidare il pacchetto dei criteri non è stato modificato.
-Facoltativamente, i clienti possono anche usare un certificato per firmare i pacchetti e forzare l'estensione di configurazione Guest in modo che consenta solo il contenuto firmato.
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrare i criteri di Configurazione guest usando i tag
 
-Per abilitare questo scenario, è necessario completare due passaggi. Eseguire il cmdlet per firmare il pacchetto di contenuto e aggiungere un tag ai computer che devono richiedere la firma del codice.
+> [!Note]
+> Questa funzionalità è attualmente in anteprima e richiede la versione del modulo Configurazione guest 1.20.1, che può essere installata con `Install-Module GuestConfiguration -AllowPrerelease`.
 
-Per utilizzare la funzionalità di convalida della firma, `Protect-GuestConfigurationPackage` eseguire il cmdlet per firmare il pacchetto prima di pubblicarlo. Questo cmdlet richiede un certificato di firma codice.
+I criteri creati dai cmdlet nel modulo Configurazione guest possono includere facoltativamente un filtro per i tag. Il parametro **-Tag** di `New-GuestConfigurationPolicy` supporta un array di tabelle hash che contengono voci di tag singoli. I tag verranno aggiunti alla sezione `If` della definizione dei criteri e non possono essere modificati da un'assegnazione di criteri.
 
-Parametri del `Protect-GuestConfigurationPackage` cmdlet:
+Di seguito è riportato un frammento di esempio di una definizione dei criteri che filtra in base ai tag.
 
-- **Percorso**: percorso completo del pacchetto di configurazione Guest.
-- **PublicGpgKeyPath**: percorso della chiave GPG pubblico. Questo parametro è supportato solo quando si firma il contenuto per Linux.
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
-Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linux è fornito da un articolo su GitHub, che [genera una nuova chiave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
+## <a name="optional-signing-guest-configuration-packages"></a>Facoltativo: Firma dei pacchetti di Configurazione guest
 
-GuestConfiguration Agent prevede che la chiave pubblica del certificato sia presente nel percorso `/usr/local/share/ca-certificates/extra` nei computer Linux. Per consentire al nodo di verificare il contenuto firmato, installare la chiave pubblica del certificato nel computer prima di applicare il criterio personalizzato. Questo processo può essere eseguito usando qualsiasi tecnica all'interno della macchina virtuale o usando criteri di Azure. Un modello di esempio è [disponibile qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
-Il criterio di accesso Key Vault deve consentire al provider di risorse di calcolo di accedere ai certificati durante le distribuzioni. Per i passaggi dettagliati, vedere [configurare Key Vault per le macchine virtuali in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
+I criteri personalizzati di Configurazione guest usano l'hash SHA256 per convalidare che il pacchetto dei criteri non è stato modificato.
+Facoltativamente, i clienti possono anche usare un certificato per firmare i pacchetti e forzare l'estensione Configurazione guest in modo che consenta solo il contenuto firmato.
 
-Dopo la pubblicazione del contenuto, aggiungere un tag con il `GuestConfigPolicyCertificateValidation` nome e `enabled` il valore a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Vedere gli [esempi di tag](../samples/built-in-policies.md#tags) per il modo in cui i tag possono essere distribuiti su larga scala usando criteri di Azure. Una volta che questo tag è presente, la definizione dei criteri generata `New-GuestConfigurationPolicy` tramite il cmdlet Abilita il requisito tramite l'estensione di configurazione Guest.
+Per abilitare questo scenario, è necessario completare due passaggi. Eseguire il cmdlet per firmare il pacchetto di contenuto e accodare un tag ai computer che devono richiedere la firma del codice.
 
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Risoluzione dei problemi relativi alle assegnazioni dei criteri di configurazione Guest (anteprima)
+Per usare la funzionalità di convalida della firma, eseguire il cmdlet `Protect-GuestConfigurationPackage` per firmare il pacchetto prima di pubblicarlo. Questo cmdlet richiede un certificato di firma del codice.
 
-Uno strumento è disponibile in anteprima per facilitare la risoluzione dei problemi relativi alle assegnazioni di configurazione Guest di criteri di Azure. Lo strumento è in anteprima ed è stato pubblicato nel PowerShell Gallery come nome modulo [risoluzione dei problemi di configurazione Guest](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
+Parametri del cmdlet `Protect-GuestConfigurationPackage`:
 
-Per ulteriori informazioni sui cmdlet in questo strumento, utilizzare il comando Get-Help in PowerShell per visualizzare le linee guida predefinite. Poiché lo strumento sta ottenendo aggiornamenti frequenti, questo è il modo migliore per ottenere le informazioni più recenti.
+- **Percorso**: Percorso completo del pacchetto di Configurazione guest.
+- **PublicGpgKeyPath**: Percorso della chiave GPG pubblica. Questo parametro è supportato solo quando si firma il contenuto per Linux.
+
+Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linux è fornito da un articolo in GitHub, [Generazione di una nuova chiave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
+
+L’agente GuestConfiguration prevede che la chiave pubblica del certificato sia presente nel percorso `/usr/local/share/ca-certificates/extra` nei computer Linux. Per consentire al nodo di verificare il contenuto firmato, installare la chiave pubblica del certificato nel computer prima di applicare il criterio personalizzato. Questo processo può essere eseguito usando qualsiasi tecnica all'interno della macchina virtuale o usando Criteri di Azure. Un modello di esempio è [disponibile qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+Il criterio di accesso di Key Vault deve consentire al provider di risorse di calcolo di accedere ai certificati durante le distribuzioni. Per i passaggi dettagliati, vedere [Configurare Key Vault per le macchine virtuali in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
+
+Una volta pubblicato il contenuto, accodare un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Vedere gli [esempi di tag](../samples/built-in-policies.md#tags) per il modo in cui i tag possono essere distribuiti su larga scala usando Criteri di Azure. Una volta che questo tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` abilita il requisito tramite l'estensione Configurazione guest.
+
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Risoluzione dei problemi relativi alle assegnazioni dei criteri di Configurazione guest (anteprima)
+
+È disponibile uno strumento in anteprima per facilitare la risoluzione dei problemi relativi alle assegnazioni di Configurazione guest di Criteri di Azure. Lo strumento è in anteprima ed è stato pubblicato in PowerShell Gallery come nome del modulo [Risoluzione dei problemi di Configurazione guest](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
+
+Per ulteriori informazioni sui cmdlet in questo strumento, utilizzare il comando Get-Help in PowerShell per visualizzare il materiale sussidiario predefinito. Poiché lo strumento è sottoposto ad aggiornamenti frequenti, questo è il modo migliore per ottenere le informazioni più recenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul controllo delle VM con la [configurazione Guest](../concepts/guest-configuration.md).
-- Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](get-compliance-data.md).
+- Informazioni sul controllo delle macchine virtuali con [Configurazione guest](../concepts/guest-configuration.md).
+- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md).
+- Informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).

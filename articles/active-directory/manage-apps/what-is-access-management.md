@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489b15423add03d69070bc32057af97396a85309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a694c9f6fc9d3a0b7e73c1565501915aa1470bc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409067"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739826"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 
@@ -37,34 +37,34 @@ L’assegnazione dell’applicazione di Azure AD riguarda due modalità di asseg
 
 * **Singola assegnazione** : un amministratore IT con autorizzazioni di amministratore globale di directory può selezionare singoli account utente e concedere loro l'accesso all'applicazione.
 
-* **Assegnazione basata su gruppo (richiede Azure ad Premium P1 o P2)** Un amministratore IT con autorizzazioni di amministratore globale di directory può assegnare un gruppo all'applicazione. L'accesso utente specifico è determinato dall'appartenenza al gruppo dell'utente nel momento in cui tenta di accedere all'applicazione. In altri termini, un amministratore può in pratica creare una regola di assegnazione che indica che tutti i membri del gruppo assegnato hanno accesso all'applicazione. Con questa opzione di assegnazione, gli amministratori possono sfruttare le opzioni di gestione dei gruppi di Azure AD, tra cui [gruppi dinamici basati sugli attributi](../fundamentals/active-directory-groups-create-azure-portal.md), gruppi di sistema esterno (ad esempio, Active Directory locale o Workday), gruppi gestiti dall'amministratore o in modalità self-service. Un singolo gruppo può essere facilmente assegnato a più app, garantendo che le applicazioni con affinità di assegnazione condividano le regole di assegnazione, riducendo la complessità generale della gestione. Si noti che al momento le appartenenze ai gruppi annidati non sono supportate per l'assegnazione alle applicazioni in base al gruppo.
+* **Assegnazione basata su gruppo (richiede Azure AD Premium P1 o P2)** : un amministratore IT con autorizzazioni di amministratore globale nella directory può assegnare un gruppo all'applicazione. L'accesso utente specifico è determinato dall'appartenenza al gruppo dell'utente nel momento in cui tenta di accedere all'applicazione. In altri termini, un amministratore può in pratica creare una regola di assegnazione che indica che tutti i membri del gruppo assegnato hanno accesso all'applicazione. Con questa opzione di assegnazione, gli amministratori possono sfruttare le opzioni di gestione dei gruppi di Azure AD, tra cui [gruppi dinamici basati sugli attributi](../fundamentals/active-directory-groups-create-azure-portal.md), gruppi di sistema esterno (ad esempio, Active Directory locale o Workday), gruppi gestiti dall'amministratore o in modalità self-service. Un singolo gruppo può essere facilmente assegnato a più app, garantendo che le applicazioni con affinità di assegnazione condividano le regole di assegnazione, riducendo la complessità generale della gestione. Si noti che al momento le appartenenze ai gruppi annidati non sono supportate per l'assegnazione alle applicazioni in base al gruppo.
 
 Mediante queste due modalità di assegnazione, gli amministratori possono ottenere qualsiasi approccio di gestione delle assegnazioni.
 
-### <a name="requiring-user-assignment-for-an-app"></a>Richiesta dell'assegnazione utente per un'app
+### <a name="requiring-user-assignment-for-an-app"></a>Richiedere l'assegnazione di utenti per un'app
 
-Con alcuni tipi di applicazioni, è possibile scegliere di [richiedere agli utenti di essere assegnati all'applicazione](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). In questo modo si impedisce a tutti gli utenti di accedere ad eccezione di quelli assegnati in modo esplicito all'applicazione. Questa opzione è supportata dai tipi di applicazioni seguenti:
+Con alcuni tipi di applicazioni, è possibile scegliere di [richiedere che gli utenti vengano assegnati all'applicazione](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). In questo modo si impedisce a tutti gli utenti di accedere ad eccezione di quelli assegnati in modo esplicito all'applicazione. Questa opzione è supportata dai tipi di applicazioni seguenti:
 
-* Applicazioni configurate per il Single Sign-On federato (SSO) con autenticazione basata su SAML
-* Applicazioni proxy di applicazione che usano Azure Active Directory pre-autenticazione
-* Le applicazioni basate sulla piattaforma Azure AD applicazione che usano l'autenticazione OAuth 2,0/OpenID Connect dopo che un utente o un amministratore ha acconsentito a tale applicazione. Alcune applicazioni aziendali offrono maggiore controllo sugli utenti autorizzati ad eseguire l'accesso.
+* Applicazioni configurate per l'accesso Single Sign-On (SSO) federato con autenticazione basata su SAML
+* Applicazioni proxy di applicazione che usano la preautenticazione di Azure Active Directory
+* Applicazioni create direttamente sulla piattaforma applicativa Azure AD che usano l'autenticazione OAuth 2.0/OpenID Connect dopo che un utente o un amministratore ha fornito il consenso per tale applicazione. Alcune applicazioni aziendali offrono un controllo aggiuntivo sugli utenti autorizzati ad accedervi.
 
-Quando l'assegnazione dell'utente *non è necessaria*, gli utenti non assegnati non visualizzano l'app nel pannello di accesso app personali, ma possono comunque accedere all'applicazione stessa, nota anche come accesso avviato da SP, oppure possono usare l'URL di **accesso utente** nella pagina delle **proprietà** dell'applicazione (noto anche come accesso avviato da IDP).
+Quando l'assegnazione di utenti *non è richiesta*, gli utenti non assegnati non visualizzano l'app nel pannello di accesso App personali, ma possono comunque accedere all'applicazione stessa (accesso avviato dal provider di servizi) oppure possono usare l'**URL accesso utente** nella pagina **Proprietà** dell'applicazione (accesso avviato dal provider di identità).
 
-Per alcune applicazioni, l'opzione per richiedere l'assegnazione dell'utente non è disponibile nelle proprietà dell'applicazione. In questi casi, è possibile usare PowerShell per impostare la proprietà della approleassignmentrequired nell'entità servizio.
+Per alcune applicazioni, l'opzione per richiedere l'assegnazione di utenti non è disponibile nelle proprietà dell'applicazione. In questi casi, è possibile usare PowerShell per impostare la proprietà appRoleAssignmentRequired nell'entità servizio.
 
 ### <a name="determining-the-user-experience-for-accessing-apps"></a>Determinazione dell'esperienza utente per l'accesso alle app
 
-Azure AD offre [diversi modi personalizzabili per distribuire le applicazioni](end-user-experiences.md) agli utenti finali all'interno dell'organizzazione:
+Azure AD fornisce [diverse soluzioni personalizzabili per distribuire le applicazioni](end-user-experiences.md) agli utenti finali all'interno dell'organizzazione:
 
-* Pannello di accesso Azure AD app personali
+* Pannello di accesso App personali di Azure AD
 * Applicazione di avvio di Office 365
-* Accesso diretto alle app federate (Service-PR)
+* Accesso diretto alle app federate (service-pr)
 * Collegamenti diretti per applicazioni federate, basate su password o esistenti
 
-È possibile determinare se gli utenti assegnati a un'app aziendale possono visualizzarlo nel pannello di accesso e nell'utilità di avvio delle applicazioni di Office 365.
+È possibile determinare se gli utenti assegnati a un'app aziendale possono visualizzarla nel pannello di accesso e nell'utilità di avvio applicazioni di Office 365.
 
-## <a name="example-complex-application-assignment-with-azure-ad"></a>Esempio: assegnazione di applicazioni complesse con Azure AD
+## <a name="example-complex-application-assignment-with-azure-ad"></a>Esempio: Assegnazione di applicazioni complesse con Azure AD
 Si tenga in considerazione un'applicazione come Salesforce. In molte organizzazioni, Salesforce viene principalmente usata dai team di vendita e marketing. Spesso, i membri del team di marketing dispongono di privilegi elevati per l'accesso a Salesforce, mentre i membri del team di vendita ha accesso limitato. In molti casi numerosi information worker hanno accesso limitato all'applicazione ed eventuali eccezioni a tale regola rendono la questione più complessa. Spesso è prerogativa dei team responsabili del marketing o delle vendite concedere a un utente l'accesso o modificare i ruoli indipendentemente da queste regole generiche.
 
 Con Azure AD, applicazioni come Salesforce possono essere preconfigurate per l'accesso Single Sign-On e il provisioning automatizzato. Dopo aver configurato l'applicazione, un amministratore può intraprendere l'azione singola di creazione e assegnazione ai gruppi appropriati. In questo esempio un amministratore può eseguire le assegnazioni seguenti:
@@ -78,7 +78,7 @@ Con Azure AD, applicazioni come Salesforce possono essere preconfigurate per l'a
 
 In questo caso, per tutti gli utenti assegnati viene eseguito il provisioning automatico in Salesforce e, mentre vengono aggiunti a gruppi diversi, in Salesforce viene aggiornata la relativa assegnazione al ruolo. Gli utenti potranno individuare e accedere a Salesforce tramite il pannello di accesso dell'applicazione Microsoft, i client Web di Office, o anche passando alla pagina di accesso aziendale di Salesforce. Gli amministratori potranno visualizzare facilmente lo stato di assegnazione e utilizzo mediante la funzionalità di creazione di report di Azure AD.
 
-Gli amministratori possono utilizzare [Azure ad accesso condizionale](../active-directory-conditional-access-azure-portal.md) per impostare i criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
+Gli amministratori possono usare l'[accesso condizionale di Azure AD](../conditional-access/concept-conditional-access-users-groups.md) per impostare criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
 
 ## <a name="access-to-microsoft-applications"></a>Accesso alle applicazioni Microsoft
 
@@ -87,15 +87,15 @@ Le applicazioni Microsoft (ad esempio Office 365 Exchange, SharePoint, Yammer e 
 Vi sono tre principali modi con cui un utente può accedere a un'applicazione pubblicata da Microsoft.
 
 - Per le applicazioni in Office 365 o in altre famiglie di prodotti a pagamento, agli utenti è consentito l'accesso tramite l'**assegnazione di una licenza** direttamente all'account utente o tramite un gruppo utilizzando la funzionalità di assegnazione di licenze di gruppo.
-- Per le applicazioni che Microsoft o una terza parte pubblica liberamente per chiunque possa usare, è possibile che agli utenti venga concesso l'accesso tramite il [consenso dell'utente](configure-user-consent.md). Ciò significa che accedono all'applicazione con l'account aziendale o dell'Istituto di istruzione Azure AD e consentono di accedere a un set limitato di dati nel proprio account.
-- Per le applicazioni pubblicate da Microsoft o da terze parti liberamente per chiunque utilizzi, è possibile che agli utenti venga concesso l'accesso anche tramite il [consenso dell'amministratore](manage-consent-requests.md). Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
+- Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite il [consenso utente](configure-user-consent.md). Ciò significa che gli utenti accedono all'applicazione con l'account Azure AD aziendale o dell'istituto di istruzione e consentono a tale applicazione di accedere a un set limitato di dati nell'account.
+- Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite il [consenso dell'amministratore](manage-consent-requests.md). Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
 
 Alcune applicazioni combinano questi metodi. Alcune applicazioni Microsoft, ad esempio, fanno parte di una sottoscrizione di Office 365, ma richiedono comunque il consenso.
 
-Gli utenti possono accedere alle applicazioni di Office 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni di Office 365 nel pannello di accesso app personali con l' [interruttore di visibilità di office 365](hide-application-from-user-portal.md) nelle **impostazioni utente**della directory. 
+Gli utenti possono accedere alle applicazioni di Office 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni di Office 365 nel pannello di accesso App personali mediante [attivazione/disattivazione della visibilità di Office 365](hide-application-from-user-portal.md) nelle **Impostazioni utente** della directory. 
 
 Come per le app aziendali, è possibile [assegnare utenti](assign-user-or-group-access-portal.md) a determinate applicazioni Microsoft tramite il portale di Azure o, se l'opzione del portale non è disponibile, usando PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Protezione delle app con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle app con l'accesso condizionale](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [Gestione di gruppi self-service/SSAA](../users-groups-roles/groups-self-service-management.md)

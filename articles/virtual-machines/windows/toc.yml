@@ -860,8 +860,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Misurare il benchmark di un disco
               href: disks-benchmarks.md
-        - name: Trovare dischi non collegati
+        - name: Trovare dischi non collegati - PowerShell
           href: find-unattached-disks.md
+        - name: Trovare dischi non collegati - Portale
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Domande frequenti sui dischi
           href: faq-for-disks.md
     - name: Gestire la rete

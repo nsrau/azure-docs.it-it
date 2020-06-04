@@ -69,6 +69,8 @@
       items:
         - name: Diagnostica di avvio
           href: boot-diagnostics.md
+        - name: 'Errore di avvio: si è verificato un errore di lettura del disco'
+          href: boot-error-disk-read-error-occurred.md
         - name: Errori di BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Errori con schermata blu

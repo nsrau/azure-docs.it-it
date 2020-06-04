@@ -41,6 +41,8 @@
       href: ../../backup/security-baseline.md
     - name: Baseline di sicurezza di Batch
       href: ../../batch/security-baseline.md
+    - name: Baseline di sicurezza di Istanze di Container
+      href: ../../container-instances/security-baseline.md
     - name: Baseline di sicurezza di Registro Container
       href: ../../container-registry/security-baseline.md
     - name: Baseline di sicurezza di Cosmos DB
