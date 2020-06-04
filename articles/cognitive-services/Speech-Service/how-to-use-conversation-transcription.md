@@ -19,7 +19,7 @@ ms.locfileid: "82735403"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Trascrizione di conversazioni in tempo reale (anteprima)
 
-L'API **ConversationTranscriber** dell'SDK vocale consente di trascrivere riunioni e altre conversazioni con la possibilità di aggiungere, rimuovere e identificare più partecipanti tramite lo streaming di audio al servizio di riconoscimento vocale usando `PullStream` o `PushStream`. Questo argomento richiede informazioni su come usare la sintesi vocale con l'SDK di riconoscimento vocale (versione 1.8.0 o successiva). Per ulteriori informazioni, vedere la pagina relativa ai [servizi di riconoscimento vocale](overview.md).
+L'API **ConversationTranscriber** dell'SDK vocale consente di trascrivere riunioni e altre conversazioni con la possibilità di aggiungere, rimuovere e identificare più partecipanti tramite lo streaming di audio al servizio di riconoscimento vocale usando `PullStream` o `PushStream` . Questo argomento richiede informazioni su come usare la sintesi vocale con l'SDK di riconoscimento vocale (versione 1.8.0 o successiva). Per ulteriori informazioni, vedere la pagina relativa ai [servizi di riconoscimento vocale](overview.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -50,7 +50,7 @@ Il primo passaggio consiste nel creare firme vocali per i partecipanti della con
 
 ### <a name="sample-code"></a>Codice di esempio
 
-Nell'esempio seguente vengono illustrati due modi diversi per creare la firma vocale [usando l'API REST](https://aka.ms/cts/signaturegenservice) in C#. Si noti che è necessario sostituire le informazioni reali per "YourSubscriptionKey", il nome del file Wave per "speakerVoice. wav" e la propria area `{region}` per e "YourServiceRegion" (_centralus_ o _eastasia_).
+Nell'esempio seguente vengono illustrati due modi diversi per creare la firma vocale [usando l'API REST](https://aka.ms/cts/signaturegenservice) in C#. Si noti che è necessario sostituire le informazioni reali per "YourSubscriptionKey", il nome del file Wave per "speakerVoice. wav" e la propria area per `{region}` e "YourServiceRegion" (_centralus_ o _eastasia_).
 
 ```csharp
 class Program
@@ -108,12 +108,12 @@ Nell'esempio di codice seguente viene illustrato come trascrivere le conversazio
 
 Di seguito sono riportati alcuni esempi di codice:
 
-- Creazione di `Conversation` un oggetto dall' `SpeechConfig` oggetto utilizzando un identificatore della riunione generato utilizzando`Guid.NewGuid()`
-- Creazione `JoinConversationAsync()` di `ConversationTranscriber` un oggetto e aggiunta della conversazione a per avviare la trascrizione
+- Creazione di un `Conversation` oggetto dall' `SpeechConfig` oggetto utilizzando un identificatore della riunione generato utilizzando`Guid.NewGuid()`
+- Creazione `ConversationTranscriber` di un oggetto e aggiunta della conversazione `JoinConversationAsync()` a per avviare la trascrizione
 - Registrazione degli eventi di interesse
 - Aggiunta o rimozione di partecipanti alla conversazione utilizzando l'oggetto Conversation
 - Streaming dell'audio
-- Nella versione dell'SDK di riconoscimento vocale 1.9.0 e versioni `int` successive `string` e i tipi di valore sono supportati nel campo della versione della firma vocale.
+- Nella versione dell'SDK di riconoscimento vocale 1.9.0 e versioni successive `int` e `string` i tipi di valore sono supportati nel campo della versione della firma vocale.
 
 La trascrizione e l'identificatore del relatore vengono restituiti negli eventi registrati.
 

@@ -91,7 +91,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
         | PREP     | Preposizioni |
         | PRON     | Pronomi     |
         | VERB     | Verbi        |
-        | OTHER    | Altri        |
+        | OTHER    | Altro        |
 
         Come nota per l'implementazione, questi tag sono stati determinati in base alla parte del discorso che definisce la categoria in inglese e poi prendendo il tag più frequente per ogni coppia di origine/destinazione. Pertanto, se gli utenti spesso traducono una parola spagnola nel tag di una parte del discorso diversa in inglese, si potrebbe rilevare che i tag contengono errori rispetto al termine spagnolo.
 

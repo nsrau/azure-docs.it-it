@@ -96,7 +96,7 @@ Uno [scopo](#intent) è un esempio di classificatore.
 
 Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con l'accesso in base al ruolo (RBAC). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con RBAC.
 
-## <a name="contributor"></a>Autore di contributi
+## <a name="contributor"></a>Collaboratore
 
 Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce l'accesso in base al ruolo (RBAC) a un'app LUIS.
 
@@ -254,7 +254,7 @@ Si prenda, ad esempio, un modello usato per identificare se il testo del cliente
 
 Rinominata [chiave di creazione](#authoring-key).
 
-## <a name="publish"></a>Pubblicazione
+## <a name="publish"></a>Pubblica
 
 Per [pubblicazione](luis-how-to-publish-app.md) si intende rendere disponibile una versione di Luis Active nell' [endpoint](#endpoint)di gestione temporanea o di produzione.
 
@@ -283,9 +283,9 @@ Nelle entità di LUIS [List](reference-entity-list.md)è possibile creare un val
 
 |Valore Nomalized| Sinonimi|
 |--|--|
-|Piccola| il piccolo, 8 once|
-|Media| normale, 12 once|
-|Grande| grande, 16 once|
+|Small| il piccolo, 8 once|
+|Medium| normale, 12 once|
+|Large| grande, 16 once|
 |Xtra Large| quello più grande, 24 once|
 
 Il modello restituirà il valore normalizzato per l'entità quando uno dei sinonimi viene visualizzato nell'input.

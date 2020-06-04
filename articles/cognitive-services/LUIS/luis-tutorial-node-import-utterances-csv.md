@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73499470"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340182"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
-LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sito Web [LUIS](luis-reference-regions.md). In questo modo è possibile risparmiare tempo quando si dispone di dati preesistenti e sarebbe più veloce creare un'app LUIS a livello di codice anziché immettere manualmente le informazioni. 
+LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sito Web [LUIS](luis-reference-regions.md). In questo modo è possibile risparmiare tempo quando si dispone di dati preesistenti e sarebbe più veloce creare un'app LUIS a livello di codice anziché immettere manualmente le informazioni.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -32,14 +32,14 @@ LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sit
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
 * **[Consigliato]** Visual Studio Code per IntelliSense e debug. Scaricarlo [qui](https://code.visualstudio.com/) gratuitamente.
 
-Tutto il codice in questo articolo è disponibile in [Azure-samples Language Understanding repository GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+Tutto il codice in questo articolo è disponibile in [Azure-samples Language Understanding repository GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Eseguire il mapping dei dati preesistenti a finalità ed entità
 Anche se si dispone di un sistema che non è stato creato considerando LUIS, se contiene dati testuali mappati a cose diverse che gli utenti intendono realizzare, è possibile che si riesca a eseguire il mapping delle categorie di input utente esistenti alle finalità in LUIS. Se è possibile identificare parole o frasi importanti in ciò che gli utenti hanno detto, è possibile eseguire il mapping di queste parole a delle entità.
 
-Aprire il [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. Questo file contiene un log di richieste degli utenti poste a un ipotetico servizio di domotica e include una suddivisione in categorie, ciò che l'utente ha detto e alcune colonne con informazioni utili estratte da quanto richiesto. 
+Aprire il [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. Questo file contiene un log di richieste degli utenti poste a un ipotetico servizio di domotica e include una suddivisione in categorie, ciò che l'utente ha detto e alcune colonne con informazioni utili estratte da quanto richiesto.
 
-![File CSV dei dati preesistenti](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![File CSV dei dati preesistenti](./media/luis-tutorial-node-import-utterances-csv/csv.png)
 
 Si noti che il contenuto della colonna **RequestType** potrebbe rappresentare le finalità e che la colonna **Request** riporta espressioni di esempio. Gli altri campi potrebbero costituire delle entità, se si presentano nell'espressione. Poiché sono presenti finalità, entità ed espressioni di esempio, ci sono tutti i requisiti per una semplice app di esempio.
 
@@ -47,12 +47,12 @@ Si noti che il contenuto della colonna **RequestType** potrebbe rappresentare le
 Per generare un'app LUIS dal file CSV:
 
 * Analizzare i dati dal file CSV:
-    * Eseguire la conversione in un formato che sia possibile caricare in LUIS usando l'API di creazione. 
-    * Dai dati analizzati raccogliere informazioni su finalità ed entità. 
+    * Eseguire la conversione in un formato che sia possibile caricare in LUIS usando l'API di creazione.
+    * Dai dati analizzati raccogliere informazioni su finalità ed entità.
 * Eseguire chiamate API di creazione a:
     * Creare l'app.
-    * Aggiungere le finalità e le entità raccolte dai dati analizzati. 
-    * Dopo aver creato l'app LUIS, è possibile aggiungere le espressioni di esempio ottenute dai dati analizzati. 
+    * Aggiungere le finalità e le entità raccolte dai dati analizzati.
+    * Dopo aver creato l'app LUIS, è possibile aggiungere le espressioni di esempio ottenute dai dati analizzati.
 
 È possibile osservare questo flusso di programmi nell'ultima parte del file `index.js`. Copiare o [scaricare](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) questo codice e salvarlo in `index.js`.
 
@@ -61,7 +61,7 @@ Per generare un'app LUIS dal file CSV:
 
 ## <a name="parse-the-csv"></a>Analizzare il file CSV
 
-Le voci di colonna che contengono le espressioni nel file CSV devono essere analizzate in un formato JSON che LUIS è in grado di comprendere. Questo formato JSON deve contenere un campo `intentName` che identifica la finalità dell'espressione. Deve anche contenere un campo `entityLabels`, che può essere vuoto nel caso in cui non siano presenti entità nell'espressione. 
+Le voci di colonna che contengono le espressioni nel file CSV devono essere analizzate in un formato JSON che LUIS è in grado di comprendere. Questo formato JSON deve contenere un campo `intentName` che identifica la finalità dell'espressione. Deve anche contenere un campo `entityLabels`, che può essere vuoto nel caso in cui non siano presenti entità nell'espressione.
 
 Ad esempio, la voce relativa a "Turn on the lights" esegue il mapping a questo codice JSON:
 
@@ -106,7 +106,7 @@ Dopo aver creato un'app, è necessario aggiungervi le finalità. Il codice segue
 Il codice seguente aggiunge le entità all'app LUIS. Copiarlo oppure [scaricarlo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_entities.js) e salvarlo in `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
-   
+
 
 
 ## <a name="add-utterances"></a>Aggiungere espressioni
@@ -135,7 +135,7 @@ Aprire il file index.js e modificare questi valori nella parte superiore del fil
 // Change these values
 const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
-const LUIS_appCulture = "en-us"; 
+const LUIS_appCulture = "en-us";
 const LUIS_versionId = "0.1";
 ```
 
@@ -195,6 +195,6 @@ Al termine dello script, è possibile accedere a [LUIS](luis-reference-regions.m
 
 Questa applicazione di esempio usa le API LUIS seguenti:
 - [Crea app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [aggiunta finalità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [aggiungere entità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [Aggiungi Intent](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
+- [aggiungere entità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e)
 - [aggiunta espressioni](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

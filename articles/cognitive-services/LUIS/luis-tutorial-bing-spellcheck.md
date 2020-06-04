@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80396823"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344136"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
-È possibile integrare l'app LUIS con l’[API Controllo ortografico Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) per correggere l'ortografia nelle espressioni prima che LUIS preveda il punteggio e le entità dell’espressione. 
+È possibile integrare l'app LUIS con l’[API Controllo ortografico Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) per correggere l'ortografia nelle espressioni prima che LUIS preveda il punteggio e le entità dell’espressione.
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Creare la prima chiave per Controllo ortografico Bing V7
 
-La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) è gratuita. 
+La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) è gratuita.
 
 ![Creare una chiave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
@@ -36,7 +36,7 @@ La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/
 ## <a name="create-endpoint-key"></a>Creare una chiave endpoint
 Se la chiave gratuita è scaduta, creare una chiave endpoint.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com). 
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 
 2. Nell'angolo superiore sinistro selezionare **Crea una risorsa**.
 
@@ -44,9 +44,9 @@ Se la chiave gratuita è scaduta, creare una chiave endpoint.
 
     ![Ricerca dell'API Controllo ortografico Bing V7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Selezionare il servizio. 
+4. Selezionare il servizio.
 
-5. A destra viene visualizzato un pannello informativo contenente informazioni, tra cui le note legali. Selezionare **Crea** per avviare il processo di creazione della sottoscrizione. 
+5. A destra viene visualizzato un pannello informativo contenente informazioni, tra cui le note legali. Selezionare **Crea** per avviare il processo di creazione della sottoscrizione.
 
 6. Nella pannello successivo immettere le impostazioni del servizio. Attendere la fine del processo di creazione del servizio.
 
@@ -54,13 +54,13 @@ Se la chiave gratuita è scaduta, creare una chiave endpoint.
 
 7. Selezionare **Tutte le risorse** sotto il titolo **Preferiti** nel riquadro di sinistra.
 
-8. Selezionare il nuovo servizio. Il tipo è **Servizi cognitivi** e la posizione è **globale**. 
+8. Selezionare il nuovo servizio. Il tipo è **Servizi cognitivi** e la posizione è **globale**.
 
 9. Nel riquadro principale, selezionare **Chiavi** per visualizzare le nuove chiavi.
 
     ![Individuare le chiavi](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Copiare la prima chiave. È necessaria solo una delle due chiavi. 
+10. Copiare la prima chiave. È necessaria solo una delle due chiavi.
 
 <!--
 ## Using the key in LUIS test panel
@@ -76,7 +76,7 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 ## <a name="send-misspelled-utterance-to-luis"></a>Inviare un’espressione con errori di ortografia a LUIS
 1. In un browser Web, copiare la stringa precedente e sostituire `region`, `appId`, `luisKey` e `bingKey` con valori personalizzati. Assicurarsi di usare l'area di endpoint, se è diversa dall’[area](luis-reference-regions.md) di pubblicazione.
 
-2. Aggiungere un espressione contenente errori di ortografia, ad esempio "How far is the mountainn?". In inglese, `mountain` con una `n` è la versione corretta. 
+2. Aggiungere un espressione contenente errori di ortografia, ad esempio "How far is the mountainn?". In inglese, `mountain` con una `n` è la versione corretta.
 
 3. Premere INVIO per inviare la query a LUIS.
 
@@ -96,15 +96,15 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorare errori di ortografia
 
-Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta. 
+Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta.
 
 Sono disponibili due soluzioni:
 
 * Etichettare espressioni di esempio con tutte le ortografie diverse in modo che LUIS possa apprendere l'ortografia corretta e gli errori di digitazione. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
-* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio. 
+* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio.
 
 ## <a name="publishing-page"></a>Pubblicazione di una pagina
-La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione. 
+La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione.
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sulle espressioni di esempio](luis-how-to-add-example-utterances.md)

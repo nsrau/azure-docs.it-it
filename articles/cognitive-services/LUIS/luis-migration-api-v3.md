@@ -1,15 +1,15 @@
 ---
 title: Modifiche all'endpoint di stima nell'API V3
 description: Le API di query PREDICTION endpoint V3 sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849332"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338193"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -55,7 +55,7 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback.
 
 
-## <a name="not-supported"></a>Non supportata
+## <a name="not-supported"></a>Non supportate
 
 ### <a name="bing-spell-check"></a>Controllo ortografico Bing
 
@@ -88,7 +88,7 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 
 L'API V3 ha parametri di stringa di query diversi.
 
-|Nome param|Tipo|Versione|Predefinito|Scopo|
+|Nome param|Type|Versione|Predefinito|Scopo|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|Archivia query nel file di log. Il valore predefinito è False.|
 |`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454646"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012977"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -28,7 +28,7 @@ Questo articolo fornisce una panoramica dell'utilizzo della crittografia in Micr
 
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 
-I dati inattivi includono informazioni presenti nell'archivio permanente su un supporto fisico, in qualsiasi formato digitale. I dati multimediali includono i file su supporto ottico o magnetico, i dati archiviati e i backup di dati. Microsoft Azure offre un'ampia gamma di soluzioni di archiviazione dati per soddisfare le diverse esigenze, tra cui l'archiviazione su file, disco, BLOB e tabella. Microsoft include inoltre la crittografia per proteggere il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) e Azure Data Lake.
+I dati inattivi includono informazioni presenti nell'archivio permanente su un supporto fisico, in qualsiasi formato digitale. I dati multimediali includono i file su supporto ottico o magnetico, i dati archiviati e i backup di dati. Microsoft Azure offre un'ampia gamma di soluzioni di archiviazione dati per soddisfare le diverse esigenze, tra cui l'archiviazione su file, disco, BLOB e tabella. Microsoft include inoltre la crittografia per proteggere il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) e Azure Data Lake.
 
 La crittografia dei dati inattivi è disponibile per i servizi nei modelli cloud Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS) e Infrastructure-as-a-Service (IaaS). Questo articolo riepiloga e include le risorse utili per usare le opzioni di crittografia di Azure.
 
@@ -40,7 +40,7 @@ Azure supporta vari modelli di crittografia, tra cui la crittografia lato server
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
-La crittografia lato client viene eseguita all'esterno di Azure.  Sono inclusi:
+La crittografia lato client viene eseguita all'esterno di Azure. Sono inclusi:
 
 - I dati crittografati da un'applicazione in esecuzione nel data center del cliente o da un'applicazione di servizio.
 - I dati sono già crittografati quando vengono ricevuti da Azure.
@@ -79,17 +79,17 @@ Per altre informazioni sul pacchetto della Libreria client di archiviazione di A
 
 Quando si usa la crittografia lato client con Key Vault, i dati vengono crittografati usando una chiave di crittografia del contenuto (CEK) simmetrica unica generata dall'SDK client di Archiviazione di Azure. La chiave di crittografia del contenuto viene crittografata usando una chiave di crittografia della chiave, che può essere una chiave simmetrica o una coppia di chiavi asimmetriche. È possibile gestirla in locale o archiviarla in Key Vault. I dati crittografati vengono quindi caricati nel servizio Archiviazione di Microsoft Azure.
 
-Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Azure tramite Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 È infine possibile usare anche la Libreria client di archiviazione di Azure per Java per eseguire la crittografia lato client prima di caricare i dati in Archiviazione di Azure e decrittografare i dati durante il download nel client. Questa libreria supporta anche l'integrazione con [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi dell'account di archiviazione.
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Crittografia dei dati inattivi con il database SQL di Azure
 
-Il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) è un servizio di database relazionale per utilizzo generico in Azure che supporta strutture quali dati relazionali, JSON, spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
+Il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md) è un servizio di database relazionale generico di Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
-La tecnologia [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) viene usata per crittografare i file di dati di [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), del [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) e di [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in tempo reale, usando una chiave di crittografia del database (DEK) archiviata nel record di avvio del database per assicurare la disponibilità durante il ripristino.
+La tecnologia [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) viene usata per crittografare i file di dati di [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), del [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md) e di [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in tempo reale, usando una chiave di crittografia del database (DEK) archiviata nel record di avvio del database per assicurare la disponibilità durante il ripristino.
 
 La tecnologia TDE protegge i file di dati e di log usando gli algoritmi di crittografia AES e 3DES (Triple Data Encryption Standard). La crittografia del file di database viene eseguita a livello di pagina. Le pagine in un database crittografato vengono crittografate prima di essere scritte sul disco e decrittografate quando vengono lette in memoria. La tecnologia Transparent Data Encryption è ora abilitata per impostazione predefinita nei nuovi database SQL di Azure.
 
@@ -181,7 +181,7 @@ Per altre informazioni sulle connessioni VPN da punto a sito per reti virtuali d
 
 È possibile configurare una connessione VPN da sito a sito a una rete virtuale usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 [Creare una connessione da sito a sito nel portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

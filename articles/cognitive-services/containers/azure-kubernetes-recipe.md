@@ -389,7 +389,7 @@ Aprire un browser e passare all'indirizzo IP esterno del contenitore `language` 
 
 Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `language-frontend` nel formato seguente: `http://<external-ip>/helloworld`. Il testo `helloworld` nelle impostazioni cultura inglese viene stimato come `English`.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 

@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83682197"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da testo di un'espressione con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
 I dati più difficili da estrarre sono i dati di Machine Learning perché non corrispondono esattamente al testo. L'estrazione dei dati delle [entità](luis-concept-entity-types.md) di Machine Learning deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) fino a quando non si è certi di ricevere i dati previsti.
@@ -69,9 +69,9 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
+|Oggetto dati|Tipo di dati|Posizione dei dati|valore|
 |--|--|--|--|
-|Finalità|String|topScoringIntent.intent|"GetStoreInfo"|
+|Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
 
 Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
 
@@ -131,10 +131,10 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Punteggio|
+|Oggetto dati|Tipo di dati|Posizione dei dati|valore|Punteggio|
 |--|--|--|--|:--|
-|Finalità|String|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Finalità|String|intents[0].intent|"None"|0,0168218873|
+|Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Finalità|string|intents[0].intent|"None"|0,0168218873|
 
 Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, ad esempio `Utilties` o `Communication` e la finalità:
 
@@ -192,11 +192,11 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Dominio|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
+|Dominio|Oggetto dati|Tipo di dati|Posizione dei dati|valore|
 |--|--|--|--|--|
-|Utilità|Finalità|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazione|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
-||Finalità|String|intents[2].intent|"None"|
+|Utilità|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
+||Finalità|string|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dati da entità

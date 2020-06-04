@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654083"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344442"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usare le funzionalità per aumentare il segnale dell'elenco di parole
 
@@ -26,7 +26,7 @@ Esaminare i [concetti](luis-concept-feature.md) per comprendere quando e perché
 
 ## <a name="add-phrase-list-as-a-feature"></a>Aggiungere un elenco di frasi come funzionalità
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Selezionare **Compila**, quindi selezionare **funzionalità** nel pannello a sinistra dell'app.
 

@@ -46,7 +46,7 @@ Completare e inviare il [modulo di richiesta dei contenitori di sintesi vocale d
 
 ## <a name="docker-compose-file"></a>File Docker Compose
 
-Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su `DockerFile` un'immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
+Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un' `DockerFile` immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
 
 ```yaml
 version: '3.7'
@@ -172,7 +172,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Contenitori di test
 
-Aprire un browser nel computer host e passare a **localhost** usando la porta specificata dal file *Docker-compose. YAML* , ad esempio http://localhost:5021/swagger/index.html. Ad esempio, è possibile usare la funzionalità **prova** nell'API per testare l'endpoint del sistema di riconoscimento del modulo. Entrambe le pagine di spavalderia dei contenitori dovrebbero essere disponibili e testabili.
+Aprire un browser nel computer host e passare a **localhost** usando la porta specificata dal file *Docker-compose. YAML* , ad esempio http://localhost:5021/swagger/index.html . Ad esempio, è possibile usare la funzionalità **prova** nell'API per testare l'endpoint del sistema di riconoscimento del modulo. Entrambe le pagine di spavalderia dei contenitori dovrebbero essere disponibili e testabili.
 
 ![Contenitore riconoscimento form](media/form-recognizer-swagger-page.png)
 

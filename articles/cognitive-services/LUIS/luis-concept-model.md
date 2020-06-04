@@ -24,7 +24,7 @@ La metodologia di apprendimento automatico di LUIS consente di insegnare facilme
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## <a name="intents-classify-utterances"></a>Espressioni di classificazione degli Intent
+## <a name="intents-classify-utterances"></a>Classificazione di espressioni con finalità
 
 Una finalità classifica le espressioni di esempio per insegnare a LUIS lo scopo. Le espressioni di esempio all'interno di un preventivo vengono usate come esempi positivi dell'espressione. Queste stesse espressioni vengono usate come esempi negativi in tutti gli altri Intent.
 
@@ -34,7 +34,7 @@ Il seguente enunciato è un **esempio positivo** per lo `OrderBook` scopo e un *
 
 `Buy the top-rated book on bot architecture.`
 
-## <a name="entities-extract-data"></a>Entità Estrai dati
+## <a name="entities-extract-data"></a>Estrazione di dati con entità
 
 Un'entità rappresenta un'unità di dati che si desidera estrarre dall'espressione. Un'entità di Machine Learning è un'entità di primo livello che contiene sottoentità, che sono anche entità di machine learning.
 
@@ -78,7 +78,7 @@ La scomposizione dei modelli include le parti seguenti:
 
 Una [funzionalità](luis-concept-feature.md) è un tratto di distinzione o un attributo di dati osservato dal sistema. Le funzionalità di Machine Learning offrono a LUIS importanti indicazioni per la posizione in cui cercare gli elementi che distinguono un concetto. Sono suggerimenti che LUIS può usare, ma non regole rigide. Questi hint vengono usati insieme alle etichette per trovare i dati.
 
-## <a name="patterns"></a>Modelli
+## <a name="patterns"></a>Criteri
 
 I [modelli](luis-concept-patterns.md) sono progettati per migliorare l'accuratezza quando più espressioni sono molto simili. Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 

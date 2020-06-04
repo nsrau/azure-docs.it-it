@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 02952c3baea5d9089061b10f2429be57a9322398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606170"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020286"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Pulizia di log SSISDB tramite processi di Database elastico di Azure | Microsoft Docs
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare processi di Database elastico di Azure per a
 
 Processi di Database elastico è un servizio di Azure che rende più semplice automatizzare ed eseguire processi su un database o un gruppo di database. È possibile pianificare, eseguire e monitorare questi processi tramite il portale di Azure, Transact-SQL, PowerShell o le API REST. Usare il processo di Database elastico per attivare la stored procedure per la pulizia del registro una sola volta o in una pianificazione. È possibile scegliere l'intervallo di pianificazione in base all'utilizzo delle risorse SSISDB per evitare un carico eccessivo del database.
 
-Per altre informazioni, vedere [Gestire gruppi di database con i processi di database elastico](../sql-database/elastic-jobs-overview.md).
+Per altre informazioni, vedere [Gestire gruppi di database con i processi di database elastico](../azure-sql/database/elastic-jobs-overview.md).
 
 Le sezioni seguenti descrivono come attivare la stored procedure `[internal].[cleanup_server_retention_window_exclusive]`, che rimuove i log SSISDB all'esterno dell'intervallo di conservazione impostato dall'amministratore.
 
@@ -33,7 +33,7 @@ Le sezioni seguenti descrivono come attivare la stored procedure `[internal].[cl
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-I seguenti script di PowerShell di esempio creano un nuovo processo elastico per attivare la stored procedure per la pulizia del registro SSISDB. Per altre informazioni, vedere [Creare un agente processo elastico tramite PowerShell](../sql-database/elastic-jobs-powershell.md).
+I seguenti script di PowerShell di esempio creano un nuovo processo elastico per attivare la stored procedure per la pulizia del registro SSISDB. Per altre informazioni, vedere [Creare un agente processo elastico tramite PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
 
 ### <a name="create-parameters"></a>Creare un parametro
 
@@ -41,7 +41,7 @@ I seguenti script di PowerShell di esempio creano un nuovo processo elastico per
 # Parameters needed to create the Job Database
 param(
 $ResourceGroupName = $(Read-Host "Please enter an existing resource group name"),
-$AgentServerName = $(Read-Host "Please enter the name of an existing Azure SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
+$AgentServerName = $(Read-Host "Please enter the name of an existing logical SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
 $SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for the Job Database to be created in the given SQL Server"),
 # The Job Database should be a clean,empty,S0 or higher service tier. We set S0 as default.
 $PricingTier = "S0",
@@ -52,7 +52,7 @@ $SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your new Elast
 # Parameters needed to create the job credential in the Job Database to connect to SSISDB
 $PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for SSISDBLogCleanup job user to connect to SSISDB database for log cleanup"),
 # Parameters needed to create a login and a user in the SSISDB of the target server
-$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target Azure SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
+$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target logical SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
 $SSISDBServerAdminUserName = $(Read-Host "Please enter the target server admin username for SQL authentication"),
 $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin password for SQL authentication"),
 $SSISDBName = "SSISDB",
@@ -191,7 +191,7 @@ I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico p
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Concedere le autorizzazioni appropriate per il database SSISDB. Il catalogo SSISDB deve disporre delle autorizzazioni appropriate perché la stored procedure esegua correttamente la pulizia del registro SSISDB. Per istruzioni dettagliate, vedere [Gestire gli accessi](../sql-database/sql-database-manage-logins.md).
+4. Concedere le autorizzazioni appropriate per il database SSISDB. Il catalogo SSISDB deve disporre delle autorizzazioni appropriate perché la stored procedure esegua correttamente la pulizia del registro SSISDB. Per istruzioni dettagliate, vedere [Gestire gli accessi](../azure-sql/database/logins-create-manage.md).
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 
@@ -268,4 +268,4 @@ Per le attività di gestione e monitoraggio ad Azure-SSIS Integration Runtime, v
 
 -   [Riconfigurare il runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md)
 
--   [Monitorare il runtime di integrazione Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+-   [Monitorare il runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime)

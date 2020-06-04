@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: creare, eseguire il training e pubblicare la Knowledge base-QnA Maker'
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871407"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340590"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: creare, eseguire il training e pubblicare la QnA Maker Knowledge base
 
@@ -35,7 +35,7 @@ ms.locfileid: "83871407"
 1. Nel **Passaggio 3** selezionare l'istanza di Active Directory, la sottoscrizione, il servizio (risorsa) e la lingua per tutte le knowledge base create nel servizio.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
-    
+
 1. Nel **Passaggio 3** assegnare alla knowledge base il nome **My Sample QnA KB**.
 
 1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
@@ -99,7 +99,7 @@ Quando si pubblica una knowledge base, il suo contenuto viene spostato dall'indi
 
     ![Screenshot del completamento della pubblicazione](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-## <a name="create-a-bot"></a>Creazione di un bot
+## <a name="create-a-bot"></a>Creare un bot
 
 Dopo la pubblicazione è possibile creare un bot dalla pagina **Publish** (Pubblica):
 
