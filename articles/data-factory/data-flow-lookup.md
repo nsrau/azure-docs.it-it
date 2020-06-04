@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/28/2020
+ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683313"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187602"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione della ricerca nel flusso di dati per mapping
 
@@ -21,7 +21,9 @@ ms.locfileid: "83683313"
 
 Usare la trasformazione della ricerca dei dati di riferimento da un'altra origine in uno streaming del flusso di dati. La trasformazione della ricerca aggiunge le colonne dai dati corrispondenti ai dati di origine.
 
-Una trasformazione della ricerca è simile a una left outer join. Tutte le righe del flusso primario sono presenti nel flusso di output con colonne aggiuntive del flusso di ricerca. 
+Una trasformazione della ricerca è simile a una left outer join. Tutte le righe del flusso primario sono presenti nel flusso di output con colonne aggiuntive del flusso di ricerca.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
 ## <a name="configuration"></a>Configurazione
 
