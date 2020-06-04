@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836788"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171056"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Abilitare Rilevamento modifiche e inventario da una macchina virtuale di Azure
 
@@ -41,15 +41,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 5. Scegliere l'area di lavoro Log Analytics e l'account di Automazione e fare clic su **Abilita** per abilitare Rilevamento modifiche e inventario per la macchina virtuale. L'installazione richiede fino a 15 minuti. 
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Controllare la configurazione dell'ambito
-
-Rilevamento modifiche e inventario usa una configurazione dell'ambito all'interno dell'area di lavoro per individuare i computer nei quali abilitare la funzionalità. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della funzionalità a computer specifici. Per altre informazioni, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni dettagliate sull'uso della funzionalità, vedere [Gestire Rilevamento modifiche e inventario](change-tracking-file-contents.md).
-* Per informazioni sulle configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
-* Per informazioni su come usare la funzionalità per identificare il software installato nell'ambiente, vedere [Individuare il software installato nelle VM](automation-tutorial-installed-software.md).
-* Se non si vuole integrare l'account di automazione con un'area di lavoro Log Analytics quando si abilita la funzionalità, vedere [Scollegare l'area di lavoro dall'account di Automazione](automation-unlink-workspace-change-tracking.md).
-* Al termine della distribuzione delle modifiche nelle macchine virtuali, è possibile rimuoverle come descritto in [Rimuovere macchine virtuali da Rilevamento modifiche e inventario](automation-remove-vms-from-change-tracking.md).
 * Per risolvere i problemi generali relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](troubleshoot/change-tracking.md).
