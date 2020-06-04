@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: cognitive-services
 author: diberry
 manager: cjgronlund

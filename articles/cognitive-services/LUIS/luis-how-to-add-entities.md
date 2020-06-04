@@ -7,15 +7,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685293"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344476"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati
 
@@ -61,7 +61,7 @@ Usare la tabella seguente per comprendere dove creare o aggiungere ogni tipo di 
 
 Questo processo funziona per entità, elenco ed entità di espressioni regolari apprese dal computer.
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Selezionare la pagina **entità** .
 1. Selezionare **+ Crea**, quindi selezionare il tipo di entità.
@@ -69,7 +69,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
 
 ## <a name="create-a-machine-learned-entity"></a>Creare un'entità Machine Learned
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Crea**.
@@ -86,7 +86,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
 
 ## <a name="add-a-feature-to-a-machine-learned-entity"></a>Aggiungere una funzionalità a un'entità appresa dal computer
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare l'entità Machine Learned.
 1. Aggiungere una funzionalità selezionando **+ Aggiungi funzionalità** nella riga entità o sottoentità.
@@ -98,7 +98,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
 
 ## <a name="create-a-regular-expression-entity"></a>Creare un'entità di espressione regolare
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 
@@ -123,7 +123,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 |Green|Kelly, limone|
 
 Utilizzare la procedura per creare un'entità elenco. Una volta creata l'entità dell'elenco, non è necessario etichettare espressioni di esempio in uno scopo. Gli elementi dell'elenco e i sinonimi vengono confrontati con il testo esatto.
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 
@@ -151,7 +151,7 @@ Nell'espressione seguente sono presenti due posizioni e ognuna viene specificata
 `Pick up the package from Seattle and deliver to New York City.`
 
 In questa procedura aggiungere i `origin` `destination` ruoli e a un'entità geographyV2 predefinita.
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 
@@ -173,7 +173,7 @@ In questa procedura aggiungere i `origin` `destination` ruoli e a un'entità geo
 > [!TIP]
 > I ruoli possono essere sostituiti con l'assegnazione di etichette alle sottoentità di un'entità di machine learning.
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Passare alla pagina Dettagli finalità, che contiene espressioni di esempio che usano il ruolo.
 1. Per etichettare con il ruolo, selezionare l'etichetta dell'entità (linea continua sotto testo) nell'espressione di esempio, quindi selezionare **Visualizza nel riquadro entità** nell'elenco a discesa.
