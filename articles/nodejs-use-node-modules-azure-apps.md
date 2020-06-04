@@ -16,7 +16,7 @@ ms.date: 08/17/2016
 ms.author: routlaw
 ms.openlocfilehash: 8621dde43ff38cee15feb1d30b6ea80ab681c855
 ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82594781"

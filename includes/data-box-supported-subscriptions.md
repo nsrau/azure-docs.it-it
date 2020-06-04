@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: v-grpr
 ms.openlocfilehash: 4ed3bb42ed10e0510a6f21023599b05f55765854
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81398693"
 ---
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
-* Verificare di avere un account di archiviazione di Microsoft Azure con credenziali di accesso.
-* Assicurarsi che la sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
+* Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
+* La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
   * Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
   * Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).

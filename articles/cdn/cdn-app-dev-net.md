@@ -17,7 +17,7 @@ ms.author: mazha
 ms.custom: has-adal-ref
 ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82611467"
@@ -52,7 +52,7 @@ Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget.  Ora 
 1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e fare clic su **Console di Gestione pacchetti**.
 
     ![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)**:
+2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)** :
 
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Eseguire il codice seguente per installare **Azure CDN Management Library**:
@@ -74,7 +74,7 @@ Ora si scriverà la struttura di base del programma.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Assicurarsi di sostituire i segnaposto, comprese le ** &lt;parentesi&gt;angolari**, con i valori personalizzati in base alle esigenze.
+2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;** , con i valori necessari.
 
     ```csharp
     //Tenant app constants

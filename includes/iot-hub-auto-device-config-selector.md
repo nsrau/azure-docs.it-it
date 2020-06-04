@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-hub
 author: ChrisGMsft
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.author: chrisgre
 ms.custom: include file
 ms.openlocfilehash: 3b87ffed197f2504b8e63e355f2803ef6a3c722e
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180260"

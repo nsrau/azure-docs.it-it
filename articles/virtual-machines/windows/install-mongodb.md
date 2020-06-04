@@ -11,7 +11,7 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: a5ba7d7fce3f3eabd223956ca8d9cc824fbd0c5f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869444"
@@ -42,7 +42,7 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
      
      ![Configurare le impostazioni di sicurezza di Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Selezionare [MongoDB - Download](https://www.mongodb.com/downloads) pagina (https://www.mongodb.com/downloads).
-5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)**.
+5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)** .
    
     ![Scaricare il programma di installazione di MongoDB](./media/install-mongodb/download-mongodb.png)
    
@@ -54,13 +54,13 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
 ## <a name="configure-the-vm-and-mongodb"></a>Configurare la VM e MongoDB
 1. Le variabili di percorso non vengono aggiornate dal programma di installazione di MongoDB. Senza il percorso `bin` di MongoDB nella variabile di percorso, è necessario specificare il percorso completo ogni volta che si usa un file eseguibile di MongoDB. Per aggiungere il percorso alla variabile:
    
-   * Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **sistema**.
+   * Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
    * Fare clic sulla scheda **Impostazioni di sistema avanzate**, quindi su **Variabili d'ambiente**.
-   * In **Variabili di sistema** selezionare **Percorso** e quindi fare clic su **Modifica**.
+   * In **Variabili di sistema** selezionare **Percorso**, quindi fare clic su **Modifica**.
      
      ![Configurare le variabili di PERCORSO](./media/install-mongodb/configure-path-variables.png)
      
-     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:\Program Files\MongoDB*. Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
+     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:\Programmi\MongoDB*. Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin

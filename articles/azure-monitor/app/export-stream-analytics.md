@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536880"
@@ -58,7 +58,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -89,7 +89,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 ### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 
-**Assicurarsi di impostare il formato della data su aaaa-MM-GG (con i trattini).**
+**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
 
 Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
@@ -107,7 +107,7 @@ Esempio:
 > 
 
 ## <a name="add-new-output"></a>Aggiungere un nuovo output
-A questo punto, selezionare il processo > **output** > **Aggiungi**.
+Selezionare il processo > **Output** > **Aggiungi**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

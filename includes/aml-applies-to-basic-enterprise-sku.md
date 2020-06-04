@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
 ms.openlocfilehash: bfe67acf1e1bb84c7700615155ba82db1ccd114d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527060"
 ---
 **SI APPLICA A:** ![sì](media/aml-applies-to-skus/yes.png)Edizione Basic ![sì](media/aml-applies-to-skus/yes.png)Edizione Enterprise &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; ([eseguire l'aggiornamento a Enterprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade))
