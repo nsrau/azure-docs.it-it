@@ -1,90 +1,147 @@
 ---
-title: Domande frequenti sulla velocità effettiva con provisioning automatico in Azure Cosmos DB
-description: Domande frequenti sulla velocità effettiva con provisioning automatico per i database e i contenitori Azure Cosmos DB
+title: Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
+description: Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica per i database e i contenitori Azure Cosmos DB
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: fa4c2708f34a377a17914c7e6e5abdd709cbb5b1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.date: 05/10/2020
+ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791783"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656621"
 ---
-# <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning automatico in Azure Cosmos DB
+# <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 
-Con il provisioning della velocità effettiva con scalabilità automatica, Azure Cosmos DB gestirà e scalerà automaticamente le UR/sec del contenitore o del database in base all'utilizzo. Questo articolo risponde alle domande frequenti sulla scalabilità automatica.
+Con la velocità effettiva con provisioning a scalabilità automatica, Azure Cosmos DB gestisce e ridimensiona automaticamente le UR/s del database o del contenitore in base all'utilizzo. Questo articolo presenta le risposte ad alcune domande comuni sulla scalabilità automatica.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
+### <a name="what-is-the-difference-between-autopilot-and-autoscale-in-azure-cosmos-db"></a>Qual è la differenza tra "Autopilot" e "scalabilità automatica" in Azure Cosmos DB?
+"Scalabilità automatica" o "velocità effettiva con provisioning a scalabilità automatica" è il nome aggiornato della funzionalità, nota in precedenza come "Autopilot". Con la versione corrente della scalabilità automatica sono state aggiunte nuove funzionalità, tra cui la possibilità di impostare un numero massimo di UR/s personalizzato e il supporto a livello di codice. 
+
+### <a name="what-happens-to-databases-or-containers-created-in-the-previous-autopilot-tier-model"></a>Cosa accade ai database e ai contenitori creati nel modello di livello Autopilot precedente?
+Le risorse create con il modello di livello precedente sono supportate automaticamente con il nuovo modello di UR/s personalizzato con scalabilità automatica. Il limite superiore del livello diventa il nuovo numero massimo di UR/s, che ha come risultato lo stesso intervallo di scalabilità. 
+
+Se, ad esempio, in precedenza era stato selezionato il livello che è stato ridimensionato tra 400 e 4000 UR/s, il database o il contenitore viene ora visualizzato con un numero massimo di 4000 UR/s, che può essere ridimensionato tra 400 e 4000 UR/s. Da qui è possibile modificare il numero massimo di UR/s con un valore personalizzato, in modo da adattarlo al carico di lavoro. 
+
+### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Con quale velocità la scalabilità automatica aumenta e diminuisce la velocità effettiva in base ai picchi di traffico?
+Con la scalabilità automatica, il sistema ridimensiona la velocità effettiva (UR/sec) `T` verso l'alto o verso il basso entro un intervallo compreso tra `0.1 * Tmax` e `Tmax`, in base al traffico in ingresso. Poiché il ridimensionamento è automatico e istantaneo, in qualsiasi momento è possibile utilizzare fino al valore `Tmax` di cui è stato effettuato il provisioning senza alcun ritardo. 
+
+### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Come si determina il numero di UR/s a cui è attualmente dimensionato il sistema?
+Usare [metriche di Monitoraggio di Azure](how-to-choose-offer.md#measure-and-monitor-your-usage) per monitorare sia il numero massimo di UR/s di scalabilità automatica di cui è stato effettuato il provisioning che la velocità effettiva corrente (UR/s) a cui il sistema è dimensionato. 
+
+### <a name="what-is-the-pricing-for-autoscale"></a>Quali prezzi vengono applicati per la scalabilità automatica?
+Ogni ora viene addebitata la velocità effettiva più elevata `T` a cui il sistema è stato ridimensionato nel corso dell'ora. Se la risorsa non ha ricevuto richieste nel corso di tale ora o se non è stata ridimensionata oltre `0.1 * Tmax`, viene addebitato il minimo di `0.1 * Tmax`. Per informazioni dettagliate, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+
+### <a name="how-does-autoscale-show-up-on-my-bill"></a>Come viene visualizzata la funzionalità di scalabilità automatica in fattura?
+Negli account con master singolo, la tariffa della scalabilità automatica per 100 UR/s è pari a 1,5 volte la tariffa della velocità effettiva con provisioning standard (manuale). Nella fattura è visualizzato il contatore della velocità effettiva con provisioning standard esistente. La quantità di questo contatore viene moltiplicata per 1,5. Se, ad esempio, il numero massimo di UR/s del sistema è stato ridimensionato a 6000 UR/s nel corso di un'ora, per tale ora vengono addebitate 60 * 1,5 = 90 unità del contatore.
+
+Negli account multimaster, la tariffa della scalabilità automatica per 100 UR/s è uguale alla tariffa della velocità effettiva multimaster con provisioning standard (manuale). Nella fattura è visualizzato il contatore multimaster esistente. Poiché le tariffe sono le stesse, se si usa la scalabilità automatica viene visualizzata la stessa quantità rispetto alla velocità effettiva standard.
+
+### <a name="does-autoscale-work-with-reserved-capacity"></a>La scalabilità automatica funziona con la capacità riservata?
+Sì. Quando si acquista capacità riservata a master singolo, lo sconto relativo alla prenotazione per le risorse di scalabilità automatica viene applicato all'utilizzo del contatore con un rapporto di 1,5 volte rispetto al [ rapporto dell'area specifica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+
+La capacità riservata multimaster funziona allo stesso modo per la velocità effettiva con scalabilità automatica e per la velocità effettiva con provisioning standard (manuale). Vedere [Capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+
+### <a name="does-autoscale-work-with-free-tier"></a>La scalabilità automatica funziona con il livello gratuito?
+Sì. Nel livello gratuito è possibile usare la velocità effettiva con scalabilità automatica in un contenitore. Il supporto per i database con velocità effettiva condivisa con scalabilità automatica con numero massimo di UR/s personalizzato non è ancora disponibile. Vedere come [funziona la fatturazione del livello gratuito con la scalabilità automatica](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+
 ### <a name="is-autoscale-supported-for-all-apis"></a>La scalabilità automatica è supportata per tutte le API?
-Sì, la scalabilità automatica è supportata per tutte le API: Core (SQL), Gremlin, Table, Cassandra e API per MongoDB.
+Sì, la scalabilità automatica è supportata per tutte le API: Core (SQL), Gremlin, Tabella, Cassandra e API per MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>La funzionalità di scalabilità automatica è supportata per gli account multimaster?
-Sì, la funzionalità di scalabilità automatica è supportata per gli account multimaster. Le UR/sec massime sono disponibili in ogni area aggiunta all'account Cosmos. 
+### <a name="is-autoscale-supported-for-multi-master-accounts"></a>La scalabilità automatica è supportata per gli account multimaster?
+Sì. Le UR/s massime sono disponibili in ogni area aggiunta all'account Azure Cosmos DB. 
 
-### <a name="what-is-the-pricing-for-autoscale-"></a>Quali sono i prezzi per la scalabilità automatica?
-Per informazioni dettagliate, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) Azure Cosmos DB. 
+### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Come si può abilitare la scalabilità automatica nei nuovi database o nei nuovi contenitori?
+Vedere questo articolo su [come abilitare la scalabilità automatica](how-to-provision-autoscale-throughput.md).
 
-### <a name="how-do-i-enable-autoscale-for-my-containers-or-databases"></a>Ricerca per categorie abilitare la scalabilità automatica per i contenitori o i database?
-La scalabilità automatica può essere abilitata nei nuovi contenitori e database creati usando il portale di Azure.
+### <a name="can-i-enable-autoscale-on-an-existing-database-or-a-container"></a>È possibile abilitare la scalabilità automatica in un database o in un contenitore esistente?
+Sì. È anche possibile passare da velocità effettiva con scalabilità automatica a velocità effettiva con provisioning standard (manuale) e viceversa, in base alle esigenze. Per tutte le API, per eseguire queste operazioni è attualmente possibile usare solo il [portale di Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container).
 
-### <a name="is-there-cli-or-sdk-support-to-create-containers-or-databases-with-autoscale-provisioned-throughput"></a>È disponibile il supporto dell'interfaccia della riga di comando o dell'SDK per creare contenitori o database con la velocità effettiva con provisioning automatico?
-Attualmente, è possibile creare risorse solo con il provisioning della velocità effettiva con scalabilità automatica dal portale di Azure. Il supporto per l'interfaccia della riga di comando e SDK non è ancora disponibile.
+### <a name="how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work"></a>Come funziona la migrazione tra velocità effettiva con scalabilità automatica e velocità effettiva con provisioning standard (manuale)?
+Dal punto di vista concettuale, il cambiamento del tipo di velocità effettiva è un processo in due fasi. Prima si invia la richiesta di modifica delle impostazioni della velocità effettiva per l'uso della scalabilità automatica o del provisioning manuale. In entrambi i casi, il sistema determina e imposta automaticamente un valore UR/s iniziale, in base alle impostazioni della velocità effettiva e alla risorsa di archiviazione correnti. Durante questo passaggio, non viene accettato alcun valore UR/s indicato dall'utente. Dopo che l'aggiornamento sarà stato completato, sarà possibile [modificare il numero di UR/s](#can-i-change-the-max-rus-on-the-database-or-container) per adattarlo al carico di lavoro. 
 
-### <a name="can-i-enable-autoscale-on-an-existing-container-or-a-database"></a>È possibile abilitare la scalabilità automatica in un contenitore o in un database esistente?
-Attualmente, è possibile abilitare la scalabilità automatica sui nuovi contenitori e database durante la creazione. Il supporto per abilitare la scalabilità automatica per i contenitori e i database esistenti non è ancora disponibile. È possibile eseguire la migrazione di contenitori esistenti in un nuovo contenitore usando [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) o un [feed di modifiche](change-feed.md). 
+**Migrazione da velocità effettiva con provisioning standard (manuale) a velocità effettiva con scalabilità automatica**
 
-### <a name="can-i-turn-off-autoscale-on-a-container-or-database"></a>È possibile disattivare la scalabilità automatica in un contenitore o in un database?
-Sì, è possibile disattivare la scalabilità automatica passando all'opzione ' standard (Manual)' per la velocità effettiva con provisioning. Nella versione corrente, dopo il passare dalla scalabilità automatica alla velocità effettiva con provisioning standard, non è possibile abilitare di nuovo la scalabilità automatica per la stessa risorsa. 
+Per un contenitore, usare la formula seguente per stimare il numero massimo di UR/s per la scalabilità automatica iniziale: ``MAX(4000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB * 100)``, arrotondato al migliaio di UR/s più vicino. Il numero massimo di UR/s effettivo iniziale per la scalabilità automatica può variare a seconda della configurazione dell'account.
+
+Esempio 1: Si supponga di avere un contenitore con una velocità effettiva con provisioning manuale di 10.000 UR/s e 25 GB di spazio di archiviazione. Quando si abilita la scalabilità automatica, il numero massimo di UR/s iniziale della scalabilità automatica corrisponderà a 10.000 UR/s, ridimensionabili tra 1000 e 10.000 UR/s. 
+
+Esempio 2: Si supponga di avere un contenitore con una velocità effettiva con provisioning manuale di 50.000 UR/s e 2500 GB di spazio di archiviazione. Quando si abilita la scalabilità automatica, il numero massimo di UR/s iniziale della scalabilità automatica corrisponderà a 250.000 UR/s, ridimensionabili tra 25.000 e 250.000 UR/s. 
+
+**Migrazione da velocità effettiva con scalabilità automatica a velocità effettiva con provisioning standard (manuale)**
+
+La velocità effettiva con provisioning manuale iniziale è pari al numero massimo di UR/s della scalabilità automatica corrente. 
+
+Esempio: Si supponga di avere un database o un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/sec). Quando si esegue l'aggiornamento per l'uso della velocità effettiva con provisioning manuale, la velocità effettiva iniziale sarà di 20.000 UR/s. 
+
+### <a name="is-there-azure-cli-or-powershell-support-to-manage-databases-or-containers-with-autoscale"></a>L'interfaccia della riga di comando di Azure e PowerShell supportano la gestione di database o contenitori con scalabilità automatica?
+È attualmente possibile creare e gestire risorse con scalabilità automatica con il portale di Azure, .NET V3 SDK, Java V4 SDK e Azure Resource Manager. Nell'interfaccia della riga di comando di Azure, in PowerShell e negli altri SDK il supporto non è ancora disponibile.
 
 ### <a name="is-autoscale-supported-for-shared-throughput-databases"></a>La scalabilità automatica è supportata per i database con velocità effettiva condivisa?
-Sì, la scalabilità automatica è supportata per i database con velocità effettiva condivisa. Per abilitare questa funzionalità, selezionare ridimensionamento automatico e l'opzione **provisioning velocità effettiva** durante la creazione del database. 
+Sì, la scalabilità automatica è supportata per i database con velocità effettiva condivisa. Per abilitare questa funzionalità, selezionare la scalabilità automatica e l'opzione **Provisioning velocità effettiva** durante la creazione del database. 
 
-### <a name="what-is-the-number-of-allowed-collections-per-shared-throughput-database-when-autoscale-is-enabled"></a>Qual è il numero di raccolte consentite per ogni database di velocità effettiva condivisa quando è abilitata la scalabilità automatica?
-Per i database con velocità effettiva condivisa con scalabilità automatica abilitata, il numero di raccolte consentite è: MIN (25, numero massimo di ur/sec del database/1000). Se, ad esempio, la velocità effettiva massima del database è 20.000 UR/sec, il database può contenere MIN (25, 20.000 UR/s/1000) = 20 raccolte. 
+### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Qual è il numero di contenitori consentito per database con velocità effettiva condivisa quando è abilitata la scalabilità automatica?
+Azure Cosmos DB impone un massimo di 25 contenitori per un database con velocità effettiva condivisa. Questo valore si applica ai database con velocità effettiva con scalabilità automatica o con provisioning standard (manuale). 
 
-
-### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Qual è il limite di archiviazione associato a ogni opzione max ur/s?  
-Il limite di archiviazione in GB per ogni UR/s massimo è: numero massimo di ur/sec del database o del contenitore/100. Se ad esempio il numero massimo di Ur/s è 20.000 UR/sec, la risorsa può supportare 200 GB di spazio di archiviazione. Vedere l'articolo [limiti di scalabilità](provision-throughput-autoscale.md#autoscale-limits) automatica per le UR e le opzioni di archiviazione massime disponibili. 
+### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Qual è il limite di archiviazione associato a ciascun valore massimo di UR/s?  
+Il limite di archiviazione in GB per ogni numero massimo di UR/s corrisponde al numero massimo di UR/s del database o del contenitore / 100. Se ad esempio il numero massimo di UR/s è 20.000, la risorsa può supportare 200 GB di spazio di archiviazione. Vedere l'articolo sui [limiti della scalabilità automatica](provision-throughput-autoscale.md#autoscale-limits) per le opzioni disponibili per il numero massimo di UR/s e lo spazio di archiviazione corrispondente. 
 
 ### <a name="what-happens-if-i-exceed-the-storage-limit-associated-with-my-max-throughput"></a>Cosa accade se si supera il limite di archiviazione associato alla velocità effettiva massima?
-Se viene superato il limite di archiviazione associato alla velocità effettiva massima del database o del contenitore, Azure Cosmos DB aumenterà automaticamente la velocità effettiva massima al livello più alto successivo in grado di supportare tale livello di archiviazione. Si supponga, ad esempio, che venga eseguito il provisioning di un database o di un contenitore con l'opzione 4000 ur/s max throughput, che ha un limite di archiviazione di 50 GB. Se l'archiviazione della risorsa aumenta fino a 100 GB, il numero massimo di ur/sec del database o del contenitore verrà aumentato automaticamente a 20.000 UR/s, che può supportare fino a 200 GB. 
+Se il limite di archiviazione associato alla velocità effettiva massima del database o del contenitore viene superato, Azure Cosmos DB aumenta automaticamente la velocità effettiva massima al numero di UR/s più alto successivo che può essere supportato dal livello di archiviazione corrente.
 
-### <a name="how-quickly-will-autoscale-up-and-down-based-on-spikes-in-traffic"></a>Con quale rapidità la scalabilità automatica si basa su picchi di traffico?
-Con la scalabilità automatica è possibile aumentare o ridurre istantaneamente le UR/sec nell'intervallo minimo e massimo di Ur/s, in base al traffico in ingresso. La fatturazione viene eseguita a una granularità di 1 ora, in cui vengono addebitate le UR/sec più alte in un'ora specifica.
+Se ad esempio si inizia con un numero massimo di UR/s pari a 50.000 (con scalabilità compresa tra 5000 e 50.000 UR/s), è possibile archiviare fino a 500 GB di dati. Se si superano i 500 GB, se ad esempio l'archiviazione è ora pari a 600 GB, il nuovo numero massimo di UR/s è di 60.000 UR/s (con scalabilità compresa tra 6000 e 60.000 UR/s).
 
-### <a name="can-i-specify-a-custom-max-throughput-rus-value-for-autoscale"></a>È possibile specificare un valore di velocità effettiva massima (UR/sec) personalizzato per la scalabilità automatica?
-Attualmente, è possibile scegliere tra [quattro opzioni](provision-throughput-autoscale.md#autoscale-limits) per la velocità effettiva massima (UR/sec).
+### <a name="can-i-change-the-max-rus-on-the-database-or-container"></a>È possibile modificare il numero massimo di UR/s nel database o nel contenitore? 
+Sì. Vedere questo [articolo](how-to-provision-autoscale-throughput.md) su come eseguire la modifica del numero massimo di UR/s. La modifica del numero massimo di UR/s, a seconda del valore richiesto, può consistere in un'operazione asincrona il cui completamento può richiedere tempo (fino a 4-6 ore, a seconda delle UR/s selezionate)
 
-### <a name="can-i-increase-the-max-rus-move-to-a-higher-tier-on-the-database-or-container"></a>È possibile aumentare il numero massimo di Ur/s (passare a un livello superiore) nel database o nel contenitore? 
-Sì. Dall'opzione **ridimensiona & impostazioni** per il contenitore o l'opzione di **ridimensionamento** per il database, è possibile selezionare un numero massimo di Ur/s superiore per la scalabilità automatica. Si tratta di un'operazione di scalabilità verticale asincrona che può richiedere qualche minuto (in genere 4-6 ore, a seconda delle UR/sec selezionate), perché il servizio effettua il provisioning di più risorse per supportare la scalabilità più elevata. 
+#### <a name="increasing-the-max-rus"></a>Aumento del numero massimo di UR/s
+Quando si invia una richiesta di aumento del numero massimo di UR/s `Tmax`, a seconda del numero massimo di UR/s selezionato, il servizio effettua il provisioning di una quantità maggiore di risorse per supportare il numero massimo di UR/s più alto. Durante questa operazione, il carico di lavoro e le operazioni esistenti non vengono interessate. Il sistema continuerà a ridimensionare il database o il contenitore tra il `0.1*Tmax` precedente e il `Tmax` fino a quando non sarà pronto il nuovo intervallo di scalabilità da `0.1*Tmax_new` a `Tmax_new`.
 
-### <a name="can-i-reduce-the-max-rus-move-to-a-lower-tier-on-the-database-or-container"></a>È possibile ridurre il numero massimo di Ur/s (passare a un livello inferiore) nel database o nel contenitore?
-Sì. Fino a quando l'archiviazione corrente del database o del contenitore è inferiore al [limite di archiviazione](#what-is-the-storage-limit-associated-with-each-max-rus-option) associato al livello massimo di Ur/s a cui si vuole applicare la riduzione, è possibile ridurre il numero massimo di ur/sec a tale livello. Se, ad esempio, sono state selezionate 20.000 UR/s come numero massimo di ur/sec, è possibile ridurre il numero massimo di Ur/s a 4000 ur/s se sono presenti meno di 50 GB di spazio di archiviazione (limite di archiviazione associato a 4000 ur/sec).
+#### <a name="lowering-the-max-rus"></a>Riduzione del numero massimo di UR/s
+Quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arrotondato al migliaio di UR/s più vicino. 
 
-### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Qual è il mapping tra le UR/s e le partizioni fisiche massime?
-Quando si seleziona per la prima volta il numero massimo di Ur/s, Azure Cosmos DB effettuerà il provisioning: numero massimo di Ur/s/10.000 UR/sec = numero di partizioni fisiche. Ogni [partizione fisica](partition-data.md#physical-partitions) può supportare fino a 10.000 UR/sec e 50 GB di spazio di archiviazione. Man mano che le dimensioni di archiviazione aumentano, Azure Cosmos DB suddividerà automaticamente le partizioni per aggiungere più partizioni fisiche per gestire l'aumento dell'archiviazione oppure aumenterà il livello massimo di Ur/s se lo spazio di archiviazione [supera il limite associato](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Esempio 1: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/s) e 50 GB di spazio di archiviazione. Il valore minimo più basso per il quale è possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, 20.000/10, **50 * 100**) = 5000 UR/s (con scalabilità compresa tra 500 e 5000 UR/s).
 
-Il numero massimo di ur/sec del database o del contenitore è diviso uniformemente tra tutte le partizioni fisiche. Quindi, la velocità effettiva totale a cui è possibile applicare una singola partizione fisica è: numero massimo di ur/sec delle partizioni fisiche del database o del contenitore/#. 
+Esempio 2: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 100.000 e 100 GB di spazio di archiviazione. Si decide ora di ridimensionare il numero massimo di UR/s a 150.000 (con scalabilità compresa tra 15.000 e 150.000 UR/s). Il valore minimo più basso per il quale è ora possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, **150.000/10**, 100 * 100) = 15,000 UR/s (con scalabilità compresa tra 1500 e 15,000 UR/s). 
 
-### <a name="what-happens-if-incoming-requests-exceed-the-max-rus-of-the-database-or-container"></a>Cosa accade se le richieste in ingresso superano il numero massimo di ur/sec del database o del contenitore?
-Se le UR/sec utilizzate complessivamente superano il numero massimo di ur/sec del contenitore o del database, le richieste che superano il numero massimo di ur/sec saranno limitate e restituiranno un codice di stato 429. Verranno limitate anche le richieste che comportano un utilizzo normalizzato superiore al 100%. L'utilizzo normalizzato viene definito come il massimo dell'utilizzo di Ur/s tra tutte le partizioni fisiche. Si supponga, ad esempio, che la velocità effettiva massima sia di 20.000 UR/sec e che siano presenti due partizioni fisiche, P_1 e P_2, ciascuna in grado di scalare fino a 10.000 UR/sec. In un determinato secondo, se P_1 ha usato 6000 ur e P_2 8000 ur, l'utilizzo normalizzato è massimo (6000 UR/10.000 UR, 8000 UR/10.000 UR) = 0,8.
+Per un database con velocità effettiva condivisa, quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arrotondato al migliaio di UR/s più vicino.  
+
+Le formule e gli esempi precedenti sono correlati al numero massimo di UR/s con scalabilità automatica più basso che è possibile impostare, distinto dall'intervallo tra `0.1 * Tmax` e `Tmax` di ridimensionamento automatico eseguito dal sistema. Indipendentemente dal numero massimo di UR/s, il sistema esegue sempre il ridimensionamento tra `0.1 * Tmax` e `Tmax`. 
+
+### <a name="how-does-ttl-work-with-autoscale"></a>Come funziona TTL con la scalabilità automatica?
+Con la scalabilità automatica, le operazioni TTL non influiscono sul ridimensionamento delle UR/s. Tutte le UR utilizzate per operazioni TTL non rientrano tra le UR/s fatturate per il contenitore con scalabilità automatica. 
+
+Si supponga, ad esempio, di avere un contenitore con scalabilità automatica con 400 - 4000 UR/s:
+- Ora 1: T=0: Il contenitore non ha utilizzo (nessuna richiesta TTL o di carico di lavoro). Le UR/s fatturabili sono 400.
+- Ora 1: T=1: TTL abilitato.
+- Ora 1: T=2: Il contenitore inizia a ricevere richieste, che utilizzano 1000 UR in 1 secondo. È anche presente l'equivalente di 200 UR di operazioni TTL che devono essere eseguite. Le UR/s fatturabili sono comunque 1000. Indipendentemente da quando vengono eseguite, le operazioni TTL non influiscono sulla logica di ridimensionamento della scalabilità automatica.
+
+### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Qual è il mapping tra il numero massimo di UR/s e le partizioni fisiche?
+Quando si seleziona per la prima volta il numero massimo di UR/s, Azure Cosmos DB effettua il provisioning del numero massimo di UR/s / 10.000 UR/s = numero di partizioni fisiche. Ogni [partizione fisica](partition-data.md#physical-partitions) può supportare fino a 10.000 UR/s e 50 GB di spazio di archiviazione. Man mano che le dimensioni dello spazio di archiviazione aumentano, Azure Cosmos DB suddivide automaticamente le partizioni per aggiungere partizioni fisiche e gestire l'aumento dello spazio di archiviazione, oppure aumenta il numero massimo di UR/s se lo spazio di archiviazione [supera il limite associato](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+
+Il numero massimo di UR/s del database o del contenitore viene diviso uniformemente tra tutte le partizioni fisiche. Quindi la velocità effettiva totale a cui una singola partizione fisica può essere ridimensionata corrisponde al numero massimo di UR/s del database o del contenitore / numero delle partizioni fisiche. 
+
+### <a name="what-happens-if-incoming-requests-exceed-the-max-rus-of-the-database-or-container"></a>Cosa accade se le richieste in ingresso superano il numero massimo di UR/s del database o del contenitore?
+Se il numero di UR/s utilizzate complessivamente supera il numero massimo di UR/s del database o del contenitore, le richieste che superano il numero massimo di UR/s vengono limitate e restituiscono il codice di stato 429. Vengono limitate anche le richieste che comportano un utilizzo normalizzato superiore al 100%. L'utilizzo normalizzato è definito come l'utilizzo massimo delle UR/s tra tutte le partizioni fisiche. Si supponga, ad esempio, che la velocità effettiva massima sia di 20.000 UR/s e che siano presenti due partizioni fisiche, P_1 e P_2, ognuna in grado di ridimensionarsi fino a 10.000 UR/s. In un secondo specifico, se P_1 ha usato 6000 UR e P_2 8000 UR, l'utilizzo normalizzato corrisponde a MAX(6000 UR / 10.000 UR, 8000 UR / 10.000 UR) = 0,8.
 
 > [!NOTE]
-> I Azure Cosmos DB gli SDK client e gli strumenti di importazione dei dati (Azure Data Factory, bulk Executor Library) riprovare automaticamente a eseguire 429s, quindi 429s occasionali. Un numero elevato elevato di 429s può indicare che è necessario aumentare il numero massimo di ur/sec o rivedere la strategia di partizionamento per una [partizione a caldo](#autoscale-rate-limiting).
+> Gli SDK client di Azure Cosmos DB e gli strumenti di importazione dei dati (Azure Data Factory, libreria di esecuzione bulk) riprovano automaticamente in caso di codice di stato 429, quindi la comparsa occasionale di tale codice non è un problema. La frequenza elevata del codice 429 può indicare che è necessario aumentare il numero massimo di UR/s o rivedere la strategia di partizionamento per una [partizione con accesso frequente](#autoscale-rate-limiting).
 
-### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Quando è abilitata la scalabilità automatica, è ancora possibile vedere 429s (limitazione della velocità). 
-Sì. È possibile vedere 429s in due scenari. In primo luogo, quando le UR/sec consumate supera il numero massimo di ur/sec del contenitore o del database, il servizio limiterà le richieste di conseguenza. 
+### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a> Se la scalabilità automatica è abilitata, è comunque possibile vedere codici di stato 429 (limitazione delle richieste/della frequenza)? 
+Sì. È possibile vedere codici 429 in due scenari. Nel primo scenario, se le UR/s utilizzate superano il numero massimo di UR/s del database o del contenitore, il servizio limita le richieste di conseguenza. 
 
-In secondo luogo, se è presente una partizione critica, ovvero un valore di chiave di partizione logica con una quantità di richieste più elevata rispetto ad altri valori di chiave di partizione, è possibile che la partizione fisica sottostante superi il proprio budget di Ur/s. Come procedura consigliata, per evitare le partizioni a caldo, [scegliere una chiave di partizione](partitioning-overview.md#choose-partitionkey) appropriata che comportano una distribuzione uniforme di archiviazione e velocità effettiva. 
+Nel secondo scenario, nel caso di una partizione con accesso frequente, se un valore di chiave di partizione logica ha una quantità di richieste sproporzionatamente più elevata rispetto ad altri valori di chiave di partizione, è possibile che la partizione fisica sottostante superi il budget di UR/s. Come procedura consigliata, per evitare partizioni con accesso frequente, [scegliere una chiave di partizione adeguata](partitioning-overview.md#choose-partitionkey) che comporti una distribuzione uniforme sia dello spazio di archiviazione che della velocità effettiva. 
 
-Ad esempio, se si seleziona l'opzione 20.000 UR/s max throughput e si hanno 200 GB di spazio di archiviazione, con quattro partizioni fisiche, ogni partizione fisica può essere ridimensionata automaticamente fino a 5000 ur/sec. Se è presente una partizione sensibile in una determinata chiave di partizione logica, verrà visualizzato 429s quando la partizione fisica sottostante in cui si trova è superiore a 5000 ur/sec, ovvero supera il 100% di utilizzo normalizzato.
+Se ad esempio si seleziona l'opzione di velocità effettiva massima di 20.000 UR/s e si hanno 200 GB di spazio di archiviazione, con quattro partizioni fisiche, ogni partizione fisica può essere ridimensionata automaticamente fino a 5000 UR/s. Se in una chiave di partizione logica è presente una partizione con accesso frequente e la partizione fisica sottostante supera 5000 UR/s, ovvero supera il 100% di utilizzo normalizzato, vengono visualizzati codici di stato 429.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [abilitare la scalabilità automatica in un contenitore o un database di Azure Cosmos](provision-throughput-autoscale.md#create-db-container-autoscale).
-* Informazioni sui [vantaggi della velocità effettiva con provisioning con scalabilità ](provision-throughput-autoscale.md#autoscale-benefits)automatica.
+* Informazioni su come [abilitare la scalabilità automatica in un database o in un contenitore di Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
+* Informazioni sui [vantaggi della velocità effettiva con provisioning con scalabilità automatica](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Altre informazioni sulle [partizioni logiche e fisiche](partition-data.md).
+                        

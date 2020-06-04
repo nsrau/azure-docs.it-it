@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79e06fe95b48468616dce913e19c430dc2818719
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384229"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744874"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurare DPDK in una macchina virtuale Linux
 
@@ -33,24 +33,24 @@ DPDK può essere eseguito nelle macchine virtuali di Azure che supportano più d
 
 ## <a name="benefit"></a>Vantaggi
 
-**Più pacchetti al secondo (PPS)**: ignorando il kernel e acquisendo il controllo dei pacchetti nello spazio utente viene ridotto il numero di cicli grazie all'eliminazione dei cambi di contesto. Viene anche migliorata la frequenza dei pacchetti elaborati al secondo nelle macchine virtuali Linux di Azure.
+**Numero più elevato di pacchetti al secondo (PPS)** : ignorando il kernel e assumendo il controllo dei pacchetti nello spazio utente viene ridotto il numero di cicli grazie all'eliminazione dei cambi di contesto. Viene anche migliorata la frequenza dei pacchetti elaborati al secondo nelle macchine virtuali Linux di Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-Sono supportate le distribuzioni seguenti da Azure Marketplace:
+Sono supportate le distribuzioni seguenti in Azure Marketplace:
 
 | Sistema operativo Linux     | Versione del kernel               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-Azure +           | 
-| Ubuntu 18.04 | 4.15.0-1014-Azure +           |
-| SLES 15 SP1  | 4.12.14-21 cm-Azure +          | 
-| RHEL 7.5     | 3.10.0-862.11.6. EL7. x86_64 +  | 
-| CentOS 7.5   | 3.10.0-862.11.6. EL7. x86_64 +  | 
+| Ubuntu 16.04 | 4.15.0-1014-azure e versioni successive           | 
+| Ubuntu 18.04 | 4.15.0-1014-azure e versioni successive           |
+| SLES 15 SP1  | 4.12.14-8.27-azure e versioni successive          | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64 e versioni successive  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64 e versioni successive  | 
 
 **Supporto per kernel personalizzati**
 
-Per qualsiasi versione del kernel Linux non elencata, vedere [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) (Patch per la compilazione di un kernel Linux ottimizzato per Azure). Per ulteriori informazioni, è possibile contattare [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)anche. 
+Per qualsiasi versione del kernel Linux non elencata, vedere [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) (Patch per la compilazione di un kernel Linux ottimizzato per Azure). Per altre informazioni, è anche possibile contattare [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Supporto di area
 
@@ -108,7 +108,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Configurare l'ambiente delle macchine virtuali (una sola volta)
 
-1. [Scaricare il DPDK più recente](https://core.dpdk.org/download). Per Azure è necessaria la versione 18,11 LTS o 19,11 LTS.
+1. [Scaricare il DPDK più recente](https://core.dpdk.org/download). Per Azure, è necessaria la versione 18.11 LTS o 19.11 LTS.
 2. Generare la configurazione predefinita con `make config T=x86_64-native-linuxapp-gcc`.
 3. Abilitare Mellanox PMDs nel file di configurazione generato con `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Eseguire la compilazione con `make`.
@@ -120,7 +120,7 @@ Dopo il riavvio, eseguire i comandi seguenti una sola volta:
 
 1. Hugepage
 
-   * Configurare hugepage eseguendo il comando seguente, una volta per ogni nodo NUMA:
+   * Configurare le hugepage eseguendo il comando seguente, una volta per ogni numanode:
 
      ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
@@ -130,20 +130,20 @@ Dopo il riavvio, eseguire i comandi seguenti una sola volta:
    * Montare le hugepage con `mount -t hugetlbfs nodev /mnt/huge`.
    * Verificare che le hugepage siano riservate con `grep Huge /proc/meminfo`.
 
-     > Si noti È possibile modificare il file di GRUB in modo che hugepage vengano riservati all'avvio seguendo le [istruzioni](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) per il DPDK. Le istruzioni sono disponibili in fondo alla pagina. Quando si usa una macchina virtuale Linux di Azure, modificare invece i file in **/etc/config/grub.d** per riservare le hugepage dopo i riavvii.
+     > [NOTA] È possibile modificare il file di grub in modo che le hugepage vengano riservate in fase di avvio seguendo le [istruzioni](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) per DPDK. Le istruzioni sono disponibili in fondo alla pagina. Quando si usa una macchina virtuale Linux di Azure, modificare invece i file in **/etc/config/grub.d** per riservare le hugepage dopo i riavvii.
 
-2. Indirizzi MAC e IP: usare `ifconfig –a` per visualizzare l'indirizzo IP e MAC delle interfacce di rete. Le interfacce di rete *VF* e *NETVSC* hanno lo stesso indirizzo MAC, ma solo *NETVSC* ha un indirizzo IP. Le interfacce *VF* sono in esecuzione come interfacce subordinate delle interfacce *NETVSC* .
+2. Indirizzi MAC e IP: usare `ifconfig –a` per visualizzare l'indirizzo IP e MAC delle interfacce di rete. Le interfacce di rete *VF* e *NETVSC* hanno lo stesso indirizzo MAC, ma solo *NETVSC* ha un indirizzo IP. Le interfacce *VF* sono in esecuzione come subordinate delle interfacce *NETVSC*.
 
 3. Indirizzi PCI
 
    * Eseguire il comando `ethtool -i <vf interface name>` per visualizzare l'indirizzo PCI da usare per *VF*.
-   * Se *eth0* ha attivato la rete accelerata, assicurarsi che testpmd non prenda accidentalmente il dispositivo PCI *VF* per *eth0*. Se l'applicazione DPDK ha accidentalmente acquisito l'interfaccia di rete di gestione che causa la perdita della connessione SSH, usare la console seriale per terminare l'applicazione DPDK. È anche possibile usare la console seriale per arrestare o avviare la macchina virtuale.
+   * Se per *eth0* è abilitata la funzionalità di rete accelerata, verificare che testpmd non acquisisca per errore il dispositivo PCI *VF* per *eth0*. Se l'applicazione DPDK ha accidentalmente acquisito l'interfaccia di rete di gestione che causa la perdita della connessione SSH, usare la console seriale per terminare l'applicazione DPDK. È anche possibile usare la console seriale per arrestare o avviare la macchina virtuale.
 
 4. Caricare *ibuverbs* a ogni riavvio con `modprobe -a ib_uverbs`. Solo per SLES 15, caricare anche *mlx4_ib* con `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Operatore alternativo PMD
 
-Le applicazioni DPDK devono eseguite tramite l'operatore alternativo PMD esposto in Azure. Se l'applicazione viene eseguita direttamente sul *VF* PMD, non riceve **tutti i** pacchetti destinati alla macchina virtuale, poiché alcuni pacchetti vengono visualizzati sull'interfaccia sintetica. 
+Le applicazioni DPDK devono eseguite tramite l'operatore alternativo PMD esposto in Azure. Se l'applicazione viene eseguita direttamente tramite PMD *VF*, non riceverà **tutti** i pacchetti destinati alla VM, perché alcuni verranno visualizzati tramite l'interfaccia sintetica. 
 
 L'esecuzione di un'applicazione DPDK tramite l'operatore alternativo PMD garantisce che tale applicazione riceverà tutti i pacchetti ad essa destinati. Assicura inoltre che l'applicazione rimarrà in esecuzione in modalità DPDK, anche se VF viene revocato quando l'host viene servito. Per altre informazioni sull'operatore alternativo PMD, vedere [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html) (Libreria di driver in modalità poll alternativa).
 
@@ -151,7 +151,7 @@ L'esecuzione di un'applicazione DPDK tramite l'operatore alternativo PMD garanti
 
 Per eseguire testpmd in modalità root, usare `sudo` prima del comando *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: verifica dell'integrità, inizializzazione dell'adattatore di tipo operatore alternativo
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: verifica dell'integrità, inizializzazione della scheda failsafe
 
 1. Eseguire i comandi seguenti per avviare un'applicazione testpmd a porta singola:
 
@@ -179,7 +179,7 @@ Per eseguire testpmd in modalità root, usare `sudo` prima del comando *testpmd*
 
 I comandi precedenti avviano *testpmd* in modalità interattiva, consigliata per provare i comandi testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Basic: ricevitore singolo/mittente singolo
+### <a name="basic-single-sendersingle-receiver"></a>Basic: mittente singolo/ricevitore singolo
 
 I seguenti comandi stampano periodicamente i pacchetti per statistiche al secondo:
 
@@ -215,7 +215,7 @@ I seguenti comandi stampano periodicamente i pacchetti per statistiche al second
 
 Quando si eseguono i comandi precedenti in una macchina virtuale, modificare *IP_SRC_ADDR* e *IP_DST_ADDR* in `app/test-pmd/txonly.c` per la corrispondenza all'indirizzo IP effettivo delle macchine virtuali prima della compilazione. In caso contrario, i pacchetti vengono eliminati prima di raggiungere il destinatario.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avanzata: mittente singolo/server d'inoltro singolo
+### <a name="advanced-single-sendersingle-forwarder"></a>Funzionalità avanzate: mittente singolo/server d'inoltro singolo
 I seguenti comandi stampano periodicamente i pacchetti per statistiche al secondo:
 
 1. Sul lato TX, eseguire il comando seguente:

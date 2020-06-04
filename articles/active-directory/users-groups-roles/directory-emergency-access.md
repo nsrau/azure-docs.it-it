@@ -1,6 +1,6 @@
 ---
-title: Gestire gli account amministrativi di accesso di emergenza-Azure AD | Microsoft Docs
-description: Questo articolo descrive come usare gli account di accesso di emergenza per impedire che vengano inavvertitamente bloccati dall'organizzazione Azure Active Directory (Azure AD).
+title: Gestire gli account amministrativi di accesso di emergenza - Azure AD | Microsoft Docs
+description: Questo articolo descrive come usare gli account di accesso di emergenza per evitare di rimanere inavvertitamente bloccati fuori dalla propria organizzazione di Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 manager: daveba
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74028137"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816183"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
-È importante impedire il blocco accidentale dell'organizzazione Azure Active Directory (Azure AD) perché non è possibile accedere o attivare un altro account utente come amministratore. È possibile ridurre l'effetto della mancanza accidentale di accesso amministrativo creando due o più *account di accesso di emergenza* nell'organizzazione.
+È importante evitare di restare accidentalmente bloccati fuori dalla propria organizzazione di Azure Active Directory (Azure AD) perché non è possibile accedere o attivare l'account di un altro utente come amministratore. È possibile ridurre l'impatto di una accidentale mancanza di accesso amministrativo creando due o più *account di accesso di emergenza* nell'organizzazione.
 
-Gli account di accesso di emergenza hanno privilegi elevati e non sono assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati agli scenari di emergenza o "Break Glass", in cui non è possibile usare gli account amministrativi normali. Si consiglia di mantenere l'obiettivo di limitare l'utilizzo dell'account di emergenza solo ai tempi in cui è strettamente necessario.
+Gli account di accesso di emergenza hanno privilegi elevati e non sono assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari di emergenza critici, in cui non è possibile usare i normali account amministrativi. Consigliamo di mantenere l'impegno di limitare l'uso dell'account di emergenza solo ai casi strettamente necessari.
 
 Questo articolo fornisce indicazioni per la gestione degli account di accesso di emergenza in Azure AD.
 
@@ -44,7 +44,7 @@ Creare due o più account di accesso di emergenza. Devono essere account solo cl
 Durante la configurazione di questi account, devono essere soddisfatti i requisiti seguenti:
 
 - Gli account di accesso di emergenza non devono essere associati a un utente specifico dell'organizzazione. Assicurarsi che gli account non siano connessi a cellulari forniti ai dipendenti, token hardware che viaggiano con i singoli dipendenti o altre credenziali specifiche del dipendente. Questa precauzione consente di affrontare le situazioni in cui un singolo dipendente è irraggiungibile quando sono necessarie le credenziali. È importante verificare che tutti i dispositivi registrati vengano conservati in una posizione nota e sicura con più mezzi di comunicazione con Azure AD.
-- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se l'autenticazione a più fattori di Azure è la parte principale dell'autenticazione per gli account amministrativi, prendere in considerazione un approccio diverso, ad esempio l'uso dell'accesso condizionale con un provider di autenticazione a più fattori di terze parti.
+- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se Azure MFA rappresenta la parte principale dell'autenticazione per gli account amministrativi, è consigliabile adottare un approccio diverso per questi ultimi, ad esempio usare l'Accesso condizionale con un provider di autenticazione a più fattori di terze parti tramite i [Controlli personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 - Il dispositivo o le credenziali non devono scadere o trovarsi nell'ambito della pulizia automatica per mancanza di utilizzo.  
 - È necessario rendere permanente l'assegnazione del ruolo di amministratore globale per gli account di accesso di emergenza. 
 
@@ -52,17 +52,17 @@ Durante la configurazione di questi account, devono essere soddisfatti i requisi
 
 Per ridurre il rischio di attacchi derivanti da una password compromessa, in Azure AD è consigliabile richiedere l'autenticazione a più fattori per tutti gli utenti singoli. Questo gruppo include gli amministratori e tutti gli altri utenti (ad esempio dirigenti del reparto finanziario) per cui un account compromesso avrebbe un impatto significativo.
 
-Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si dispone di un criterio di accesso condizionale per richiedere [l'autenticazione a più fattori per ogni amministratore](../authentication/howto-mfa-userstates.md) per Azure ad e altre app connesse software as a Service (SaaS), è consigliabile escludere gli account di accesso di emergenza da questo requisito e configurare invece un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
+Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si hanno criteri di Accesso condizionale per richiedere l'[autenticazione a più fattori per ogni amministratore](../authentication/howto-mfa-userstates.md) per Azure AD e altre app connesse in modalità SaaS, è opportuno escludere gli account di accesso di emergenza da questo requisito e configurare un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
 
-### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Escludere almeno un account dai criteri di accesso condizionale
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Escludere almeno un account dai criteri di Accesso condizionale
 
-Durante un'emergenza, non è desiderabile che un criterio possa potenzialmente bloccare l'accesso necessario per risolvere un problema. È necessario escludere almeno un account di accesso di emergenza da tutti i criteri di accesso condizionale. Se è stato abilitato un [criterio di base](../conditional-access/baseline-protection.md), è necessario escludere gli account di accesso di emergenza.
+Durante un'emergenza, non è desiderabile che un criterio possa potenzialmente bloccare l'accesso necessario per risolvere un problema. Almeno un account di accesso di emergenza deve essere escluso da tutti i criteri di Accesso condizionale. Se è stato abilitato un [criterio di base](../conditional-access/baseline-protection.md), è necessario escludere gli account di accesso di emergenza.
 
-## <a name="federation-guidance"></a>Guida alla Federazione
+## <a name="federation-guidance"></a>Linee guida per la federazione
 
 Un'altra possibilità, per le organizzazioni che usano Azure AD Domain Services e AD FS o un provider di identità simile per eseguire la federazione con Azure AD, consiste nel configurare un account di accesso di emergenza la cui attestazione MFA può essere fornita dal provider.  Ad esempio, l'account di accesso di emergenza potrebbe essere supportato da una coppia di certificato e chiave archiviata su una smart card.  Quando l'utente viene autenticato in Active Directory, AD FS può fornire un'attestazione ad Azure AD per indicare che l'utente ha soddisfatto i requisiti MFA.  Anche con questo approccio, le organizzazioni devono comunque disporre di account di accesso di emergenza basati sul cloud nel caso in cui non sia possibile stabilire la federazione. 
 
-## <a name="store-account-credentials-safely"></a>Archiviare le credenziali dell'account in modo sicuro
+## <a name="store-account-credentials-safely"></a>Archiviare le credenziali dell'account in sicurezza
 
 Le organizzazioni devono garantire che le credenziali per gli account di accesso di emergenza siano sempre conservate in modo sicuro e siano note solo a coloro che sono autorizzati a usarle. Alcuni clienti usano una smart card, mentre altri usano password. Una password per un account di accesso di emergenza in genere è suddivisa in due o tre parti, scritte su pezzi di carta separati e archiviate in casseforti a prova di fuoco in luoghi sicuri e separati.
 
@@ -70,52 +70,52 @@ Se si usano password, assicurarsi che gli account abbiano password complesse sen
 
 ## <a name="monitor-sign-in-and-audit-logs"></a>Monitorare i log di accesso e di controllo
 
-Le organizzazioni devono monitorare l'attività di accesso e log di controllo dagli account di emergenza e attivare le notifiche ad altri amministratori. Quando si monitora l'attività sugli account break Glass, è possibile verificare che questi account vengano utilizzati solo per i test o per le emergenze effettive. È possibile usare Log Analytics di Azure per monitorare i log di accesso e attivare gli avvisi di posta elettronica e SMS agli amministratori ogni volta che gli account break Glass accedono.
+Le organizzazioni devono monitorare l'attività del log di accesso e controllo dagli account di emergenza e attivare le notifiche ad altri amministratori. Quando si monitora l'attività sugli account critici, è possibile verificare che questi account vengano usati solo per i test o per le emergenze effettive. È possibile usare Log Analytics di Azure per monitorare i log di accesso e attivare gli avvisi di posta elettronica e SMS agli amministratori ogni volta che gli account critici effettuano l'accesso.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. [Inviare i log di accesso Azure ad](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a monitoraggio di Azure.
+1. [Inviare i log di accesso Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Monitoraggio di Azure.
 
-### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Ottenere gli ID oggetto degli account break Glass
+### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Ottenere gli ID oggetto degli account critici
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo di amministratore utente.
-1. Selezionare **Azure Active Directory** > **utenti**.
-1. Cercare l'account break-Glass e selezionare il nome dell'utente.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo di amministratore utenti.
+1. Selezionare gli **utenti** di  > **Azure Active Directory**.
+1. Cercare l'account critico e selezionare il nome dell'utente.
 1. Copiare e salvare l'attributo ID oggetto in modo da poterlo usare in un secondo momento.
-1. Ripetere i passaggi precedenti per il secondo account break-Glass.
+1. Ripetere i passaggi precedenti per il secondo account critico.
 
 ### <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo Collaboratore monitoraggio in monitoraggio di Azure.
-1. Selezionare **tutti i servizi**", immettere" log Analytics "nella pagina Cerca e quindi selezionare **log Analytics aree di lavoro**.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo Collaboratore monitoraggio in Monitoraggio di Azure.
+1. Selezionare **Tutti i servizi**, immettere "log analytics" in Cerca e quindi selezionare **Aree di lavoro Log Analytics**.
 1. Selezionare un'area di lavoro.
-1. Nell'area di lavoro selezionare **avvisi** > **nuova regola di avviso**.
-    1. In **risorsa**verificare che la sottoscrizione sia quella a cui si vuole associare la regola di avviso.
-    1. In **condizione**selezionare **Aggiungi**.
-    1. Selezionare **Ricerca log personalizzata** in **nome segnale**.
-    1. In **query di ricerca**immettere la query seguente, inserendo gli ID oggetto dei due account break Glass.
+1. Nell'area di lavoro selezionare **Avvisi** > **Nuova regola di avviso**.
+    1. In **Risorsa** verificare che la sottoscrizione sia quella a cui si vuole associare la regola di avviso.
+    1. In **Condizione** selezionare **Aggiungi**.
+    1. In **Nome segnale** selezionare **Ricerca log personalizzata**.
+    1. In **Query di ricerca** immettere la query seguente, inserendo gli ID oggetto dei due account critici.
         > [!NOTE]
-        > Per ogni account break Glass aggiuntivo che si desidera includere, aggiungere un altro "o UserId = =" ObjectGuid "" alla query.
+        > Per ogni account critico aggiuntivo che si desidera includere, aggiungere un altro "or UserId ==" ObjectGuid"" alla query.
 
-        ![Aggiungere gli ID oggetto degli account break Glass a una regola di avviso](./media/directory-emergency-access/query-image1.png)
+        ![Aggiungere gli ID oggetto degli account critici a una regola di avviso](./media/directory-emergency-access/query-image1.png)
 
-    1. In **logica avvisi**immettere quanto segue:
+    1. In **Logica avvisi** immettere quanto segue:
 
         - In base a: Numero di risultati
-        - Operatore: maggiore di
+        - Operator: Maggiore di
         - Valore soglia: 0
 
-    1. In **valutata in base a**, selezionare il **periodo (in minuti)** per il tempo di esecuzione della query e la **frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al punto.
+    1. In **Valutati in base a**, selezionare il **Periodo (in minuti)** per il periodo di tempo in cui si desidera eseguire la query e la **Frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al periodo di ricerca.
 
-        ![logica di avviso](./media/directory-emergency-access/alert-image2.png)
+        ![logica avvisi](./media/directory-emergency-access/alert-image2.png)
 
     1. Selezionare **Operazione completata**. È ora possibile visualizzare il costo mensile stimato di questo avviso.
-1. Consente di selezionare un gruppo di utenti di azione a cui inviare una notifica tramite l'avviso. Se si vuole crearne uno, vedere [creare un gruppo di azione](#create-an-action-group).
-1. Per personalizzare la notifica di posta elettronica inviata ai membri del gruppo di azione, selezionare azioni in **Personalizza azioni**.
-1. In **Dettagli avviso**specificare il nome della regola di avviso e aggiungere una descrizione facoltativa.
-1. Imposta il **livello di gravità** dell'evento. È consigliabile impostarlo su **critico (gravità 0)**.
-1. In **Abilita regola al momento della creazione**, lasciarla impostata su **Sì**.
-1. Per disattivare gli avvisi per un periodo di tempo, selezionare la casella di controllo non **visualizzare gli avvisi** e immettere la durata di attesa prima di eseguire di nuovo l'avviso e quindi selezionare **Salva**.
+1. Selezionare un gruppo di azioni di utenti a cui inviare una notifica tramite l'avviso. Se si desidera crearne uno, vedere [Creare un gruppo di azioni](#create-an-action-group).
+1. Per personalizzare la notifica di posta elettronica inviata ai membri del gruppo di azioni, selezionare azioni in **Personalizza azioni**.
+1. In **Dettagli avviso** specificare il nome della regola di avviso e aggiungere una descrizione facoltativa.
+1. Impostare il **Livello di gravità** dell'evento. È consigliabile impostarlo su **Critico (gravità 0)** .
+1. In **Abilita regola al momento della creazione** lasciarla impostata come **sì**.
+1. Per disattivare gli avvisi per un periodo di tempo, selezionare la casella di controllo **Non visualizzare avvisi** e immettere la durata di attesa prima di ripetere l'avviso e quindi selezionare **Salva**.
 1. Fare clic su **Crea regola di avviso**.
 
 ### <a name="create-an-action-group"></a>Creare un gruppo di azioni
@@ -124,18 +124,18 @@ Le organizzazioni devono monitorare l'attività di accesso e log di controllo da
 
     ![creazione di un gruppo di azioni per le azioni di notifica](./media/directory-emergency-access/action-group-image3.png)
 
-1. Immettere il nome del gruppo di azioni e un nome breve.
+1. Specificare il nome gruppo di azioni e il nome breve.
 1. Verificare la sottoscrizione e il gruppo di risorse.
-1. In tipo di azione selezionare **posta elettronica/SMS/push/voce**.
-1. Immettere un nome di azione, ad esempio **Notify Global Admin**.
-1. Selezionare il **tipo di azione** come **indirizzo di posta elettronica/SMS/push/Voice**.
-1. Selezionare **Modifica dettagli** per selezionare i metodi di notifica che si vuole configurare e immettere le informazioni di contatto necessarie, quindi selezionare **OK** per salvare i dettagli.
+1. In tipo di azione selezionare **Posta elettronica/SMS/Push/Voce**.
+1. Immettere un nome di azione, ad esempio **Notifica amministratore globale**.
+1. Selezionare **Tipo di azione** come **Posta elettronica/SMS/Push/Voce**.
+1. Selezionare **Modifica dettagli** per selezionare i metodi di notifica che si desidera configurare e immettere le informazioni di contatto necessarie, quindi selezionare **Ok** per salvare i dettagli.
 1. Aggiungere eventuali azioni aggiuntive che si desidera attivare.
 1. Selezionare **OK**.
 
-## <a name="validate-accounts-regularly"></a>Convalidare regolarmente gli account
+## <a name="validate-accounts-regularly"></a>Convalidare gli account regolarmente
 
-Quando si esegue il training dei membri del personale per l'uso di account di accesso di emergenza e si convalidano gli account di accesso di emergenza, attenersi alla procedura seguente a intervalli regolari:
+Quando si formano i membri del personale per l'uso degli account di accesso di emergenza e convalidare gli account di accesso di emergenza, eseguire almeno i passaggi seguenti a intervalli regolari:
 
 - Assicurarsi che il personale che monitora la sicurezza sia informato che l'attività di verifica degli account è in corso.
 - Assicurarsi che il processo per gli scenari di emergenza per usare questi account sia documentato e corrente.

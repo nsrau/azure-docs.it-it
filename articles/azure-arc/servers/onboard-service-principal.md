@@ -1,6 +1,6 @@
 ---
-title: Connetti macchine ibride ad Azure su larga scala
-description: Questo articolo illustra come connettere i computer ad Azure usando Azure Arc per i server (anteprima) usando un'entità servizio.
+title: Connettere macchine virtuali ibride ad Azure su larga scala
+description: Questo articolo illustra come connettere computer ad Azure con Azure Arc per server (anteprima) tramite un'entità servizio.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -8,36 +8,36 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3a19dc019d2566ddddb2c0ba7988b342d30a45d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77192272"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648067"
 ---
-# <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connetti macchine ibride ad Azure su larga scala
+# <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connettere macchine virtuali ibride ad Azure su larga scala
 
-È possibile abilitare Azure Arc per i server (anteprima) per più computer Windows o Linux nell'ambiente in uso con diverse opzioni flessibili, a seconda dei requisiti. Usando lo script del modello fornito, è possibile automatizzare tutti i passaggi dell'installazione, inclusa la creazione della connessione ad Azure Arc. Tuttavia, è necessario eseguire in modo interattivo questo script con un account con autorizzazioni elevate nel computer di destinazione e in Azure. Per connettere i computer ad Azure Arc per i server, è possibile usare un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory invece di usare l'identità con privilegi per connettere in modo [interattivo il computer](onboard-portal.md). Un'entità servizio è un'identità di gestione limitata speciale a cui viene concessa solo l'autorizzazione minima necessaria per connettere i computer `azcmagent` ad Azure tramite il comando. Questa soluzione è più sicura rispetto all'uso di un account con privilegi più elevati come un Amministratore tenant e segue le procedure consigliate per la sicurezza del controllo di accesso. L'entità servizio viene utilizzata solo durante l'onboarding, ma non viene utilizzata per altri scopi.  
+È possibile abilitare Azure Arc per server (anteprima) per più computer Windows o Linux nell'ambiente in uso, con diverse opzioni flessibili a seconda dei requisiti. Usando lo script modello fornito è possibile automatizzare tutti i passaggi dell'installazione, inclusa la creazione della connessione ad Azure Arc. Tuttavia, è necessario eseguire questo script in modo interattivo con un account con autorizzazioni elevate, nel computer di destinazione e in Azure. Per connettere i computer ad Azure Arc per server, è possibile usare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory al posto dell'identità con privilegi per [connettere il computer in modo interattivo](onboard-portal.md). Un'entità servizio è un'identità di gestione limitata speciale a cui viene concessa solo l'autorizzazione minima necessaria per connettere computer ad Azure tramite il comando `azcmagent`. Questa soluzione è più sicura rispetto all'uso di un account con autorizzazioni elevate, come un Amministratore tenant, e segue le procedure consigliate per la sicurezza del controllo di accesso. L'entità servizio viene usata solo durante l'onboarding, non viene usata per altri scopi.  
 
-I metodi di installazione per installare e configurare l'agente del computer connesso richiedono che il metodo automatico utilizzato disponga delle autorizzazioni di amministratore per i computer. In Linux, usando l'account radice e in Windows, come membro del gruppo Administrators locale.
+I metodi di installazione per installare e configurare l'agente di Connected Machine richiedono che il metodo automatizzato usato disponga delle autorizzazioni di amministratore per i computer. In Linux, tramite l'account radice, e in Windows, come membri del gruppo Administrators locale.
 
-Prima di iniziare, esaminare i [prerequisiti](overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.
+Prima di iniziare, esaminare i [prerequisiti](agent-overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Al termine di questo processo, sarà possibile connettere i computer ibridi ad Azure Arc per i server.
+Al termine di questo processo è possibile connettere i computer ibridi ad Azure Arc per server.
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Creare un'entità servizio per l'onboarding su larga scala
 
-È possibile usare [Azure PowerShell](/powershell/azure/install-az-ps) per creare un'entità servizio con il cmdlet [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) . In alternativa, è possibile seguire la procedura descritta in [creare un'entità servizio usando il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) per completare questa attività.
+È possibile usare [Azure PowerShell](/powershell/azure/install-az-ps) per creare un'entità servizio con il cmdlet [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal). Oppure è possibile seguire la procedura descritta in [Creare un'entità servizio usando il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) per completare questa attività.
 
 > [!NOTE]
-> Quando si crea un'entità servizio, l'account deve essere un proprietario o un amministratore accesso utenti nella sottoscrizione che si vuole usare per l'onboarding. Se non si hanno autorizzazioni sufficienti per creare assegnazioni di ruolo, l'entità servizio potrebbe essere creata, ma non sarà in grado di eseguire l'onboarding dei computer.
+> Quando si crea un'entità servizio, è necessario essere un proprietario o un amministratore Accesso utente nella sottoscrizione che si vuole usare per l'onboarding. Se non si hanno autorizzazioni sufficienti per creare assegnazioni di ruolo, l'entità servizio potrebbe essere creata, ma non sarà in grado di eseguire l'onboarding dei computer.
 >
 
-Per creare l'entità servizio usando PowerShell, eseguire le operazioni seguenti.
+Per creare l'entità servizio tramite PowerShell, eseguire l'operazione seguente.
 
-1. Eseguire il comando seguente. È necessario archiviare l'output del [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet in una variabile oppure non sarà possibile recuperare la password necessaria in un passaggio successivo.
+1. Eseguire il comando seguente. È necessario archiviare l'output del cmdlet [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) in una variabile, altrimenti non sarà possibile recuperare la password necessaria in un passaggio successivo.
 
     ```azurepowershell-interactive
     $sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
@@ -54,43 +54,43 @@ Per creare l'entità servizio usando PowerShell, eseguire le operazioni seguenti
     Type                  :
     ```
 
-2. Per recuperare la password archiviata nella `$sp` variabile, eseguire il comando seguente:
+2. Eseguire il comando seguente per recuperare la password archiviata nella variabile `$sp`:
 
     ```azurepowershell-interactive
     $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
     $credential.GetNetworkCredential().password
     ```
 
-3. Nell'output individuare il valore della password sotto la **password** del campo e copiarlo. Trovare anche il valore nel campo **ApplicationID** e copiarlo. Salvarli per un momento successivo in un luogo sicuro. Se si dimentica o si perde la password dell'entità servizio, è possibile reimpostarla utilizzando il [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. Nell'output, individuare il valore della password nel campo **password** e copiarlo. Individuare inoltre il valore nel campo **ApplicationId** e copiarlo. Salvarli in una posizione sicura per usarli in seguito. Se si dimentica o si perde la password dell'entità servizio, è possibile reimpostarla usando il cmdlet [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential).
 
-I valori delle proprietà seguenti vengono utilizzati con i parametri passati a `azcmagent`:
+I valori delle proprietà seguenti vengono usati con i parametri passati al `azcmagent`:
 
-* Il valore della proprietà **ApplicationID** viene usato per il valore `--service-principal-id` del parametro
-* Il valore della proprietà **password** viene utilizzato per il `--service-principal-secret` parametro utilizzato per la connessione dell'agente.
+* Il valore dalla proprietà **ApplicationId** viene usata per il valore del parametro `--service-principal-id`
+* Il valore dalla proprietà **password** viene usato per il parametro `--service-principal-secret` per la connessione dell'agente.
 
 > [!NOTE]
-> Assicurarsi di usare la proprietà **ApplicationID** dell'entità servizio, non la proprietà **ID** .
+> Usare la proprietà **ApplicationId** dell'entità servizio e non la proprietà **Id**.
 >
 
-Il ruolo di **onboarding del computer connesso di Azure** contiene solo le autorizzazioni necessarie per caricare un computer. È possibile assegnare l'autorizzazione dell'entità servizio per consentire all'ambito di includere un gruppo di risorse o una sottoscrizione. Per aggiungere l'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo usando il controllo degli accessi in base al ruolo di Azure e il portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di](../../role-based-access-control/role-assignments-cli.md)Azure
+Il ruolo di **Onboarding di Azure Connected Machine** contiene solo le autorizzazioni necessarie per eseguire l'onboarding di un computer. È possibile assegnare l'autorizzazione dell'entità servizio per consentire al suo ambito di includere un gruppo di risorse o una sottoscrizione. Per aggiungere l'assegnazione di ruolo, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite il portale di Azure](../../role-based-access-control/role-assignments-portal.md) oppure [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installare l'agente e connettersi ad Azure
 
-I passaggi seguenti consentono di installare e configurare l'agente del computer connesso nei computer ibridi usando il modello di script, che esegue passaggi simili descritti in [connettere le macchine ibride ad Azure dall'articolo portale di Azure](onboard-portal.md) . La differenza si trova nel passaggio finale in cui viene stabilita la connessione ad Azure Arc `azcmagent` usando il comando usando l'entità servizio. 
+I passaggi seguenti consentono di installare e configurare l'agente del computer connesso nei computer ibridi usando il modello dello script, che esegue passaggi simili descritti nell'articolo [Connettere macchine virtuali ibride ad Azure dal portale di Azure](onboard-portal.md). La differenza si trova nel passaggio finale in cui viene stabilita la connessione ad Azure Arc tramite il comando `azcmagent` con l'uso dell'entità servizio. 
 
-Di seguito sono riportate le impostazioni che `azcmagent` consentono di configurare il comando da utilizzare per l'entità servizio.
+Le impostazioni seguenti consentono di configurare il comando `azcmagent` da usare per l'entità servizio.
 
-* `tenant-id`: Identificatore univoco (GUID) che rappresenta l'istanza dedicata di Azure AD.
-* `subscription-id`: ID sottoscrizione (GUID) della sottoscrizione di Azure in cui si desiderano le macchine virtuali.
-* `resource-group`: Nome del gruppo di risorse a cui si desidera che appartengano i computer connessi.
-* `location`: Vedere le [aree di Azure supportate](overview.md#supported-regions). Questo percorso può essere lo stesso o diverso, come la posizione del gruppo di risorse.
-* `resource-name`: (*Facoltativo*) usato per la rappresentazione della risorsa di Azure del computer locale. Se non si specifica questo valore, viene usato il nome host del computer.
+* `tenant-id` : identificatore univoco (GUID), che rappresenta l'istanza dedicata di Azure AD.
+* `subscription-id` : ID sottoscrizione (GUID) della sottoscrizione di Azure in cui si desiderano collocare i computer.
+* `resource-group` : nome del gruppo di risorse in cui si desidera che appartengano i computer connessi.
+* `location` : vedere le [aree di Azure supportate](overview.md#supported-regions). La località può essere uguale o diversa da quella del gruppo di risorse.
+* `resource-name` : (*facoltativo*) usato per la rappresentazione delle risorse di Azure del computer locale. Se non si specifica questo valore, viene usato il nome host del computer.
 
-Per altre informazioni sullo strumento da `azcmagent` riga di comando, vedere la Guida di [riferimento a Azcmagent](azcmagent-reference.md).
+Per altre informazioni sullo strumento della riga di comando `azcmagent`, vedere la pagina relativa al [riferimento Azcmagent](azcmagent-reference.md).
 
-### <a name="windows-installation-script"></a>Script di installazione di Windows
+### <a name="windows-installation-script"></a>Script di installazione in Windows
 
-Di seguito è riportato un esempio dello script di installazione dell'agente del computer connesso per Windows che è stato modificato per utilizzare l'entità servizio per supportare un'installazione completamente automatizzata e non interattiva dell'agente.
+L'esempio seguente rappresenta un agente di Connected Machine per lo script di installazione Windows modificato per usare l'entità servizio in modo che supporti un'installazione completamente automatizzata e non interattiva dell'agente.
 
 ```
  # Download the package
@@ -110,9 +110,9 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
-### <a name="linux-installation-script"></a>Script di installazione di Linux
+### <a name="linux-installation-script"></a>Script di installazione Linux
 
-Di seguito è riportato un esempio dello script di installazione dell'agente computer connesso per Linux che è stato modificato per utilizzare l'entità servizio per supportare un'installazione completamente automatizzata e non interattiva dell'agente.
+L'esempio seguente rappresenta un agente di Connected Machine per lo script di installazione Linux modificato per usare l'entità servizio in modo che supporti un'installazione completamente automatizzata e non interattiva dell'agente.
 
 ```
 # Download the installation package
@@ -137,6 +137,6 @@ Dopo aver installato l'agente e averlo configurato per la connessione ad Azure A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), ad esempio la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificando che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con le macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)e molto altro ancora.
+- Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e molto altro ancora.
 
-- Altre informazioni sull' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+- Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).

@@ -1,26 +1,26 @@
 ---
-title: Consentire la presentazione in Microsoft AppSource e Azure Marketplace con Azure Active Directory | Azure
-description: Abilitare un tipo di inserzione usando Azure Active Directory nel Marketplace di Azure e in AppSource per gli editori di app e servizi.
+title: Integrare l'offerta del marketplace commerciale Microsoft con Azure Active Directory
+description: Usare Azure Active Directory per autenticare le offerte di Microsoft AppSource e Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160614"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658036"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrare l'inserzione del marketplace commerciale con Azure Active Directory
 
- Azure Active Directory (Azure AD) è un servizio di gestione delle identità cloud che consente di eseguire l'autenticazione con un account Microsoft. Azure AD usa framework standard. [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Questo articolo illustra i requisiti per l'integrazione di un'offerta o un'inserzione del marketplace commerciale con Azure Active Directory (Azure AD). Azure AD è un servizio di gestione delle identità cloud che usa framework standard del settore per consentire l'autenticazione con un account Microsoft. [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Vantaggi di Azure AD
 
-I clienti di Microsoft AppSource e Azure Marketplace usano esperienze nel prodotto per cercare i cataloghi di inserzioni. Per poter eseguire queste azioni, tuttavia, devono eseguire l'accesso al prodotto. L'integrazione di Azure AD offre i vantaggi seguenti:
+I clienti di Microsoft AppSource e Azure Marketplace usano esperienze nel prodotto per eseguire ricerche nei cataloghi di inserzioni in vetrina. Per poter eseguire queste azioni, tuttavia, devono eseguire l'accesso al prodotto. L'integrazione di Azure AD offre i vantaggi seguenti:
 
 - Engagement più veloce e un'esperienza di accesso dei clienti ottimizzata
 - Accesso Single Sign-On (SSO) per milioni di utenti aziendali
@@ -29,7 +29,7 @@ I clienti di Microsoft AppSource e Azure Marketplace usano esperienze nel prodot
 
 ## <a name="offers-that-require-azure-ad"></a>Offerte che richiedono Azure AD
 
-Le [opzioni di presentazione e i tipi di offerta](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) per AppSource e Azure Marketplace hanno requisiti diversi relativamente all'implementazione di Azure AD. Per informazioni dettagliate, vedere la tabella seguente:
+I diversi [tipi di offerta e opzioni di inserzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) per il marketplace commerciale hanno requisiti differenti per quanto riguarda l'implementazione di Azure AD. Per informazioni dettagliate, vedere la tabella seguente.
 
 | **Tipo di offerta**    | **SSO di AAD necessario?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
@@ -73,7 +73,7 @@ Usare Azure AD per supportare le azioni seguenti:
 Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato di Azure AD, seguire questa procedura:
 
 1. Registrare l'app nel Marketplace.
-1. Sviluppare SSO con Azure AD usando [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Sviluppare l'accesso Single Sign-On con Azure AD usando [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
 1. Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per fornire un'esperienza di valutazione con un solo clic.
 
 ### <a name="single-tenant-solutions"></a>Soluzioni a tenant singolo
@@ -81,7 +81,7 @@ Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato d
 Usare Azure AD per supportare una delle azioni seguenti:
 
 - Aggiungere utenti guest alla directory tramite [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Configurare manualmente le versioni di valutazione per i clienti tramite l'opzione di pubblicazione **Contact me** .
+- Configurare manualmente le versioni di valutazione per i clienti mediante l'opzione di pubblicazione **Contattami**.
 - Sviluppare una test drive per ogni cliente.
 - Creare un'app demo di esempio multi-tenant che usa SSO.
 
@@ -89,8 +89,8 @@ Usare Azure AD per supportare una delle azioni seguenti:
 
 Se non è già stato fatto, 
 
-- [Informazioni sul Marketplace](https://azuremarketplace.microsoft.com/sell) .
+- [Vedere le informazioni](https://azuremarketplace.microsoft.com/sell) sul marketplace.
 
-Per eseguire la registrazione al centro per i partner, iniziare a creare una nuova offerta o lavorare su una esistente:
+Per eseguire la registrazione nel Centro per i partner, iniziare a creare una nuova offerta o a lavorare su una esistente:
 
-- [Accedere al centro](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per i partner per creare o completare l'offerta.
+- [Accedere al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare l'offerta.

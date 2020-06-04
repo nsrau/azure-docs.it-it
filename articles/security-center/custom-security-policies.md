@@ -1,6 +1,6 @@
 ---
-title: Creare criteri di sicurezza personalizzati nel centro sicurezza di Azure | Microsoft Docs
-description: Definizioni dei criteri personalizzati di Azure monitorati dal centro sicurezza di Azure.
+title: Creare criteri di sicurezza personalizzati nel Centro sicurezza di Azure | Microsoft Docs
+description: Definizioni di criteri personalizzati di Azure monitorate nel Centro sicurezza di Azure.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,43 +8,43 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: d703ea38c39ed556102271ac0cf9a609ce449bc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: db310cb7ea5c3a89eb727262a7a7ed63ce55b5db
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195919"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650882"
 ---
-# <a name="using-custom-security-policies"></a>Uso di criteri di sicurezza personalizzati
+# <a name="using-custom-security-policies"></a>Usare criteri di sicurezza personalizzati
 
-Per proteggere i sistemi e l'ambiente, il Centro sicurezza di Azure genera raccomandazioni sulla sicurezza. Questi consigli si basano sulle procedure consigliate del settore, che vengono incorporate nei criteri di sicurezza generici predefiniti forniti a tutti i clienti. Possono inoltre derivare dalla conoscenza di standard di settore e normativi del Centro sicurezza.
+Per semplificare la protezione dei sistemi e dell'ambiente in uso, il Centro sicurezza di Azure genera raccomandazioni sulla sicurezza. Questi consigli si basano sulle procedure consigliate del settore, che vengono integrate nei più generici criteri di sicurezza predefiniti forniti a tutti i clienti. Possono inoltre essere generati a partire dalla conoscenza del Centro sicurezza degli standard di settore e normativi.
 
-Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . Si riceveranno quindi raccomandazioni se l'ambiente non segue i criteri creati. Tutte le iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard conformità normativa, come descritto nell'esercitazione [migliorare la conformità alle normative](security-center-compliance-dashboard.md).
+Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . Si riceverà quindi una serie di raccomandazioni nel caso in cui l'ambiente non segua i criteri creati. Eventuali iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard della conformità normativa, come descritto nell'esercitazione [Migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
-Come illustrato nella [documentazione di criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), quando si specifica un percorso per l'iniziativa personalizzata, deve trattarsi di un gruppo di gestione o di una sottoscrizione. 
+Come illustrato nella [documentazione sui criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Per aggiungere un'iniziativa personalizzata alla sottoscrizione 
 
-1. Dalla barra laterale del Centro sicurezza aprire la pagina dei **criteri di sicurezza** .
+1. Dalla barra laterale del Centro sicurezza aprire la pagina **Criteri di sicurezza**.
 
-1. Selezionare una sottoscrizione o un gruppo di gestione a cui si desidera aggiungere un'iniziativa personalizzata.
+1. Selezionare la sottoscrizione o il gruppo di gestione a cui si intende aggiungere un'iniziativa personalizzata.
 
     [![Selezione di una sottoscrizione per la quale si creeranno i criteri personalizzati](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > È necessario aggiungere standard personalizzati a livello di sottoscrizione (o superiore) per la valutazione e la visualizzazione nel centro sicurezza. 
+    > È necessario aggiungere standard personalizzati a livello di sottoscrizione (o superiore) per consentirne la valutazione e la visualizzazione nel Centro sicurezza. 
     >
-    > Quando si aggiunge uno standard personalizzato, viene assegnata un' *iniziativa* a tale ambito. Si consiglia pertanto di selezionare l'ambito più ampio necessario per l'assegnazione.
+    > Quando si aggiunge uno standard personalizzato, all'ambito selezionato viene assegnata un'*iniziativa*. Si consiglia pertanto di selezionare l'ambito più ampio possibile per l'assegnazione.
 
-1. Nella pagina Criteri di sicurezza, sotto le iniziative personalizzate, fare clic su **Aggiungi un'iniziativa personalizzata**.
+1. Nella pagina Criteri di sicurezza, sotto Iniziative personalizzate, fare clic su **Aggiungi un'iniziativa personalizzata**.
 
-    [![Fare clic su * * Aggiungi un'iniziativa personalizzata * *](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Fare clic su **Aggiungi un'iniziativa personalizzata**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    Viene visualizzata la pagina seguente:
+    Verrà visualizzata la pagina seguente:
 
-    ![Creare o aggiungere un criterio](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Creare o aggiungere criteri](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. Nella pagina Aggiungi iniziative personalizzate esaminare l'elenco dei criteri personalizzati già creati nell'organizzazione. Se ne viene visualizzato uno che si vuole assegnare alla sottoscrizione, fare clic su **Aggiungi**. Se nell'elenco non è presente un'iniziativa che soddisfi le proprie esigenze, ignorare questo passaggio.
+1. Nella pagina Aggiungi iniziative personalizzate controllare l'elenco dei criteri personalizzati già creati nell'organizzazione. Se si vuole assegnarne uno alla propria sottoscrizione, fare clic su **Aggiungi**. Se nessuna delle iniziative presenti nell'elenco soddisfa le proprie esigenze, ignorare questo passaggio.
 
 1. Per creare una nuova iniziativa personalizzata:
 
@@ -53,32 +53,32 @@ Come illustrato nella [documentazione di criteri di Azure](https://docs.microsof
     1. Selezionare i criteri da includere e fare clic su **Aggiungi**.
     1. Immettere i parametri desiderati.
     1. Fare clic su **Salva**.
-    1. Nella pagina Aggiungi iniziative personalizzate fare clic su Aggiorna. La nuova iniziativa verrà visualizzata come disponibile.
-    1. Fare clic su **Aggiungi** e assegnarlo alla sottoscrizione.
+    1. Nella pagina Aggiungi iniziative personalizzate fare clic su Aggiorna. La nuova iniziativa verrà visualizzata non appena sarà disponibile.
+    1. Fare clic su **Aggiungi** per assegnarla alla propria sottoscrizione.
 
     > [!NOTE]
-    > La creazione di nuove iniziative richiede le credenziali del proprietario della sottoscrizione. Per altre informazioni sui ruoli di Azure, vedere [autorizzazioni nel centro sicurezza di Azure](security-center-permissions.md).
+    > Per creare una nuova iniziativa, è necessario specificare le credenziali del proprietario della sottoscrizione. Per altre informazioni sui ruoli di Azure, vedere [Autorizzazioni nel Centro sicurezza di Azure](security-center-permissions.md).
 
-    La nuova iniziativa ha effetto ed è possibile osservare l'impatto nei due modi seguenti:
+    La nuova iniziativa diventa effettiva ed è possibile osservarne l'impatto nei due modi seguenti:
 
-    * Nell'intestazione laterale del Centro sicurezza, in Policy & Compliance, selezionare **Compliance Regulatory**. Il dashboard di conformità si apre per mostrare la nuova iniziativa personalizzata insieme alle iniziative predefinite.
+    * Nella barra laterale del Centro sicurezza, selezionare **Conformità alle normative** in Criteri e conformità. Viene visualizzato il dashboard di conformità in cui la nuova iniziativa personalizzata appare insieme alle iniziative predefinite.
     
-    * Si inizierà a ricevere consigli se l'ambiente non segue i criteri definiti.
+    * Si inizierà a ricevere raccomandazioni nel momento in cui l'ambiente non segue più i criteri definiti.
 
-1. Per visualizzare le raccomandazioni risultanti per il criterio, fare clic su **raccomandazioni** nella barra laterale per aprire la pagina raccomandazioni. Le indicazioni verranno visualizzate con un'etichetta "personalizzata" e saranno disponibili entro circa un'ora.
+1. Per visualizzare le raccomandazioni generate per i criteri specificati, fare clic su **Raccomandazioni** nella barra laterale per aprire la pagina delle raccomandazioni. Le raccomandazioni verranno contrassegnate con l'etichetta "Personalizzata" e saranno disponibili entro un'ora circa.
 
-    [![Suggerimenti personalizzati](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![Raccomandazioni personalizzate](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Miglioramento delle raccomandazioni personalizzate con informazioni dettagliate
+## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Ottimizzazione delle raccomandazioni personalizzate con informazioni dettagliate
 
-Le raccomandazioni predefinite fornite con il Centro sicurezza di Azure includono dettagli quali i livelli di gravità e le istruzioni per la correzione. Per aggiungere questo tipo di informazioni alle raccomandazioni personalizzate in modo che vengano visualizzate nel portale di Azure o ovunque si accedano alle raccomandazioni, è necessario usare l'API REST. 
+Le raccomandazioni predefinite integrate nel Centro sicurezza di Azure includono dettagli come i livelli di gravità e istruzioni per la correzione. Per aggiungere questo tipo di informazioni alle raccomandazioni personalizzate in modo che vengano visualizzate nel portale di Azure o in qualsiasi altra posizione da cui si accede alle raccomandazioni, è necessario usare l'API REST. 
 
 I due tipi di informazioni che è possibile aggiungere sono:
 
-- **RemediationDescription** -stringa
-- **Gravità** -enum [Low, medium, High]
+- **RemediationDescription** - Stringa
+- **Severity** - Enumerazione [Low, Medium, High]
 
-I metadati devono essere aggiunti alla definizione dei criteri per un criterio che fa parte dell'iniziativa personalizzata. Deve trovarsi nella proprietà' securityCenter ', come illustrato:
+Per i criteri associati a un'iniziativa personalizzata è necessario aggiungere anche i metadati, specificandoli nella proprietà 'securityCenter', come illustrato di seguito:
 
 ```json
  "metadata": {
@@ -88,7 +88,7 @@ I metadati devono essere aggiunti alla definizione dei criteri per un criterio c
     },
 ```
 
-Di seguito è riportato un esempio di criteri personalizzati, inclusa la proprietà Metadata/securityCenter:
+Di seguito è riportato un esempio di criteri personalizzati con la proprietà metadata/securityCenter inclusa:
 
   ```json
   {
@@ -100,8 +100,8 @@ Di seguito è riportato un esempio di criteri personalizzati, inclusa la proprie
     "metadata": {
         "securityCenter": {
             "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-            "severity": "High",
-        },
+            "severity": "High"
+        }
     },
     "parameters": {
         "expressRouteLockLevel": {

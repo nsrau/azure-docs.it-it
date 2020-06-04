@@ -148,9 +148,9 @@
               href: storage-files-identity-auth-active-directory-enable.md
             - name: Abilitare l'autenticazione di Active Directory Domain Services
               href: storage-files-identity-ad-ds-enable.md
-            - name: Assegnare le autorizzazioni
+            - name: Assegnare autorizzazioni a livello di condivisione
               href: storage-files-identity-ad-ds-assign-permissions.md
-            - name: Configurare le autorizzazioni
+            - name: Assegnazione di autorizzazioni a livello di directory/file
               href: storage-files-identity-ad-ds-configure-permissions.md
             - name: Montare la condivisione file
               href: storage-files-identity-ad-ds-mount-file-share.md
@@ -234,48 +234,8 @@
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Informazioni di riferimento
   items:
-    - name: Azure PowerShell (Storage)
-      href: /powershell/module/az.storage
-    - name: Azure PowerShell (StorageSync)
-      href: /powershell/module/az.storagesync
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: File (versione 11.x)
-          href: /dotnet/api/microsoft.azure.storage.file
-        - name: Spostamento di dati
-          href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: Provider delle risorse di archiviazione
-          href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-        - name: File (versione 8.x)
-          href: /java/api/com.microsoft.azure.storage.file
-        - name: Provider delle risorse di archiviazione
-          href: /java/api/overview/azure/storage/management
-    - name: JavaScript (versione 10.x)
-      href: /javascript/api/@azure/storage-file
-    - name: Python (versione 2.x)
-      href: /python/api/azure-storage-file/?view=azure-python
-    - name: REST
-      items:
-        - name: 'BLOB, code, tabelle e file'
-          href: /rest/api/storageservices
-        - name: Provider delle risorse di archiviazione
-          href: /rest/api/storagerp
-        - name: Importazione/Esportazione
-          href: /rest/api/storageimportexport
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+    - name: Informazioni di riferimento sull'archiviazione di Condivisione file di Azure
+      href: ../files/reference.md
     - name: Modello di Resource Manager
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions

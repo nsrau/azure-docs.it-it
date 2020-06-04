@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f9fafc4b03d5ce18fcfedcffaf2d81f847537865
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596410"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744669"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Collegamento ad Azure Synapse per Azure Cosmos DB: casi d'uso dell'analisi quasi in tempo reale
 
@@ -106,7 +106,7 @@ Con Collegamento ad Azure Synapse, oltre a supportare i carichi di lavoro tradiz
 
 L'immagine seguente mostra i modelli di carico di lavoro con Azure Cosmos DB: ![Modelli di carico di lavoro di Collegamento ad Azure Synapse per Azure Cosmos DB](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-Esaminiamo l'esempio di un'azienda di e-commerce, CompanyXYZ, con operazioni globali in 20 paesi per illustrare i vantaggi derivanti dalla scelta di Azure Cosmos DB come singolo database in tempo reale che soddisfa i requisiti transazionali e analitici di una piattaforma di gestione dell'inventario.
+Si esaminerà l'esempio di un'azienda di e-commerce, CompanyXYZ, con operazioni globali in 20 paesi o aree geografiche per illustrare i vantaggi derivanti dalla scelta di Azure Cosmos DB come singolo database in tempo reale che soddisfa i requisiti transazionali e analitici di una piattaforma di gestione dell'inventario.
 
 * Il core business di CompanyXYZ dipende dal sistema di gestione dell'inventario, quindi la disponibilità e l'affidabilità sono requisiti imprescindibili. Vantaggi dell'uso di Azure Cosmos DB:
 

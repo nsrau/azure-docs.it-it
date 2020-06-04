@@ -1,26 +1,29 @@
 ---
-title: Crittografia lato server di Azure Managed Disks-interfaccia della riga di comando di Azure
-description: Archiviazione di Azure protegge i dati mediante la crittografia dei dati inattivi prima di renderli permanente nei cluster di archiviazione. È possibile basarsi sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
+title: Crittografia lato server di Azure Managed Disks - Interfaccia della riga di comando di Azure
+description: Archiviazione di Azure protegge i dati crittografandoli nello stato inattivo prima di renderli persistenti nei cluster di archiviazione. È possibile basarsi sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
 author: roygara
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651040"
 ---
-# <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
+# <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di Azure
 
-Azure Managed disks crittografa automaticamente i dati per impostazione predefinita quando vengono salvati nel cloud. La crittografia lato server consente di proteggere i dati e di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati nei dischi gestiti di Azure vengono crittografati in modo trasparente usando la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme a FIPS 140-2.   
+I dischi gestiti di Azure crittografano automaticamente i dati per impostazione predefinita quando vengono resi persistenti nel cloud. La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. 
 
-La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono previsti costi aggiuntivi per la crittografia.
+I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Per altre informazioni sui moduli di crittografia sottostanti di Azure Managed disks, vedere [API di crittografia: prossima generazione](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+La crittografia non influisce sulle prestazioni dei dischi gestiti e non sono previsti costi aggiuntivi. 
+
+> [!NOTE]
+> I dischi temporanei non sono dischi gestiti e non sono crittografati tramite SSE; per altre informazioni sui dischi temporanei, vedere [Panoramica dei dischi gestiti: ruoli del disco](managed-disks-overview.md#disk-roles).
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
@@ -30,37 +33,37 @@ Le sezioni seguenti descrivono in modo più dettagliato tutte le opzioni per la 
 
 ## <a name="platform-managed-keys"></a>Chiavi gestite dalla piattaforma
 
-Per impostazione predefinita, Managed disks USA chiavi di crittografia gestite dalla piattaforma. A partire dal 10 giugno 2017, tutti i nuovi dischi gestiti, gli snapshot, le immagini e i nuovi dati scritti nei dischi gestiti esistenti vengono crittografati automaticamente con chiavi gestite dalla piattaforma.
+Per impostazione predefinita, i dischi gestiti usano chiavi di crittografia gestite dalla piattaforma. A partire dal 10 giugno 2017, tutti i nuovi dischi gestiti, snapshot, immagini e nuovi dati scritti nei dischi gestiti esistenti vengono automaticamente crittografati in modo inattivo con le chiavi gestite dalla piattaforma.
 
 ## <a name="customer-managed-keys"></a>Chiavi gestite dal cliente
 
-È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per Managed disks con chiavi gestite dal cliente offre un'esperienza integrata con Azure Key Vault. È possibile importare [le chiavi RSA](../../key-vault/keys/hsm-protected-keys.md) nella Key Vault o generare nuove chiavi rsa in Azure Key Vault. 
+È possibile scegliere di gestire la crittografia a livello di ciascun disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con Azure Key Vault. È possibile importare [le proprie chiavi RSA](../../key-vault/keys/hsm-protected-keys.md) nel proprio insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault. 
 
-Azure Managed disks gestisce la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia envelope](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Consente di crittografare i dati usando una chiave di crittografia dei dati basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta usando le chiavi. Il servizio di archiviazione genera chiavi di crittografia dei dati e le crittografa con chiavi gestite dal cliente usando la crittografia RSA. La crittografia envelope consente di ruotare (modificare) periodicamente le chiavi in base ai criteri di conformità senza influisca sulle VM. Quando si ruotano le chiavi, il servizio di archiviazione esegue nuovamente la crittografia delle chiavi di crittografia dei dati con le nuove chiavi gestite dal cliente. 
+I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia envelope](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Consentono di crittografare i dati usando una chiave di crittografia dei dati (DEK) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che, a sua volta, viene protetta usando le proprie chiavi. Il servizio di archiviazione genera chiavi di crittografia dei dati e li crittografa con le chiavi gestite dall'utente usando la crittografia RSA. La crittografia envelope consente di ruotare (modificare) periodicamente le chiavi in base ai criteri di conformità senza influire sulle macchine virtuali. Quando si ruotano le chiavi, il servizio di archiviazione esegue nuovamente la crittografia delle chiavi di crittografia dei dati con le nuove chiavi gestite dal cliente. 
 
-È necessario concedere l'accesso a Managed disks nel Key Vault per usare le chiavi per la crittografia e la decrittografia della chiave di crittografia. In questo modo è possibile controllare completamente i dati e le chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'utilizzo della chiave di crittografia con Azure Key Vault monitoraggio per garantire che solo i dischi gestiti o altri servizi di Azure attendibili accedano alle chiavi.
+È necessario concedere l'accesso ai dischi gestiti nell'insieme di credenziali delle chiavi per usare le chiavi per la crittografia e la decrittografia della chiave DEK. In questo modo è possibile controllare completamente i dati e le chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'uso della chiave di crittografia con il monitoraggio di Azure Key Vault per garantire che solo i dischi gestiti o altri servizi di Azure attendibili accedano alle chiavi.
 
-Per SSD Premium, SSD standard e HDD standard: quando si disabilita o si elimina la chiave, tutte le VM con dischi che usano tale chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non saranno utilizzabili, a meno che la chiave non sia abilitata di nuovo o si assegni una nuova chiave.
+Per le unità SSD premium, SSD standard e HDD standard: Quando si disabilita o si elimina la chiave, tutte le macchine virtuali con dischi che usano tale chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non potranno essere usate, a meno che la chiave non sia abilitata di nuovo o si assegni una nuova chiave.
 
-Per i dischi Ultra, quando si disabilita o si elimina una chiave, le macchine virtuali con dischi Ultra con la chiave non vengono arrestate automaticamente. Dopo aver deallocato e riavviato le macchine virtuali, i dischi smetteranno di usare la chiave, quindi le macchine virtuali non torneranno in linea. Per riportare online le VM, è necessario assegnare una nuova chiave o abilitare la chiave esistente.
+Per i dischi Ultra, quando si disabilita o si elimina una chiave, le macchine virtuali con dischi Ultra che usano la chiave non vengono arrestate automaticamente. Dopo aver deallocato e riavviato le macchine virtuali, i dischi smetteranno di usare la chiave, quindi le macchine virtuali non torneranno online. Per riportare online le macchine virtuali, è necessario assegnare una nuova chiave o abilitare la chiave esistente.
 
-Il diagramma seguente illustra come i dischi gestiti usano Azure Active Directory e Azure Key Vault per eseguire richieste usando la chiave gestita dal cliente:
+Il diagramma seguente illustra il modo in cui i dischi gestiti usano Azure Active Directory e Azure Key Vault per effettuare richieste usando la chiave gestita dal cliente:
 
-![Flusso di lavoro del disco gestito e delle chiavi gestite dal cliente. Un amministratore crea una Azure Key Vault, quindi crea un set di crittografia del disco e imposta il set di crittografia del disco. Il set è associato a una VM, che consente al disco di usare Azure AD per l'autenticazione](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Flusso di lavoro del disco gestito e delle chiavi gestite dal cliente. Un amministratore crea un Azure Key Vault, quindi crea e imposta un set di crittografia dischi. Il set è associato a una macchina virtuale, che consente al disco di usare Azure AD per l'autenticazione](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-L'elenco seguente illustra il diagramma in modo ancora più dettagliato:
+Nell'elenco seguente viene illustrato il diagramma in maggiore dettaglio:
 
-1. Un amministratore Azure Key Vault crea le risorse di Key Vault.
-1. L'amministratore dell'insieme di credenziali delle chiavi importa le chiavi RSA per Key Vault o genera nuove chiavi RSA nel Key Vault.
-1. Tale amministratore crea un'istanza della risorsa del set di crittografia del disco, specificando un ID Azure Key Vault e un URL della chiave. Il set di crittografia del disco è una nuova risorsa introdotta per semplificare la gestione delle chiavi per Managed Disks. 
-1. Quando viene creato un set di crittografia del disco, viene creata un' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) in Azure Active Directory (ad) e associata al set di crittografia del disco. 
-1. L'amministratore di Azure Key Vault concede quindi l'autorizzazione di identità gestita per eseguire operazioni nell'insieme di credenziali delle chiavi.
-1. Un utente di VM crea dischi associando i dischi al set di crittografia del disco. L'utente della macchina virtuale può inoltre abilitare la crittografia lato server con chiavi gestite dal cliente per le risorse esistenti associando tali chiavi al set di crittografia del disco. 
-1. Managed disks usa l'identità gestita per inviare richieste al Azure Key Vault.
-1. Per la lettura o la scrittura di dati, Managed disks invia richieste a Azure Key Vault per crittografare (eseguire il wrapping) e decrittografare (annullare il wrapping) la chiave di crittografia dei dati per eseguire la crittografia e la decrittografia dei dati. 
+1. Un amministratore di Azure Key Vault crea le risorse dell'insieme di credenziali delle chiavi.
+1. L'amministratore dell'insieme di credenziali delle chiavi importa le proprie chiavi RSA o genera nuove chiavi RSA nell'insieme di credenziali delle chiavi.
+1. L'amministratore crea un'istanza della risorsa del set di crittografia dischi, specificando un ID di Azure Key Vault e un URL della chiave. Il set di crittografia dischi è una nuova risorsa introdotta per semplificare la gestione delle chiavi per i dischi gestiti. 
+1. Quando viene creato un set di crittografia dischi, un'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) in Azure Active Directory (AD) viene creata e associata al set di crittografia dischi. 
+1. L'amministratore di Azure Key Vault concede quindi l'autorizzazione all'identità gestita per eseguire operazioni nell'insieme di credenziali delle chiavi.
+1. Un utente della macchina virtuale crea dischi associando i dischi al set di crittografia dischi. L'utente della macchina virtuale può inoltre abilitare la crittografia lato server con chiavi gestite dal cliente per le risorse esistenti associando tali chiavi al set di crittografia dischi. 
+1. I dischi gestiti usano l'identità gestita per inviare richieste ad Azure Key Vault.
+1. Per la lettura o la scrittura di dati, i dischi gestiti inviano richieste ad Azure Key Vault per crittografare (andare a capo) e decrittografare (annullare il ritorno a capo) la chiave di crittografia dei dati per eseguire la crittografia e la decrittografia dei dati. 
 
-Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca efficacemente l'accesso a tutti i dati nell'account di archiviazione, in quanto la chiave di crittografia non è accessibile da parte di archiviazione di Azure.
+Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Modulo PowerShell di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Interfaccia della riga di comando di Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti i dati dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia.
 
 ### <a name="supported-regions"></a>Aree supportate
 
@@ -71,27 +74,27 @@ Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Azure Key Vault 
 Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti:
 
 - Se questa funzionalità è abilitata per il disco, non è possibile disabilitarla.
-    Se è necessario aggirare questo problema, è necessario [copiare tutti i dati](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) in un disco gestito completamente diverso che non usa chiavi gestite dal cliente.
-- Sono supportate solo le [chiavi RSA "soft" e "hard"](../../key-vault/keys/about-keys.md) di dimensioni 2048, senza altre chiavi o dimensioni.
+    Se è necessario risolvere questo problema, occorre [copiare tutti i dati](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) in un disco gestito completamente diverso che non usa chiavi gestite dal cliente.
+- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/keys/about-keys.md) di dimensioni 2048 e nessun'altra chiave o dimensione.
 - I dischi creati da immagini personalizzate crittografate con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
-- Tutte le risorse correlate alle chiavi gestite dal cliente (insiemi di credenziali delle chiavi di Azure, set di crittografia del disco, VM, dischi e snapshot) devono trovarsi nella stessa area e nella stessa sottoscrizione.
+- Tutte le risorse correlate alle chiavi gestite dal cliente (Azure Key Vaults, set di crittografia dischi, macchine virtuali, dischi e snapshot) devono trovarsi nella stessa area e nella stessa sottoscrizione.
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono passare a un'altra sottoscrizione.
-- Se si usa il portale di Azure per creare il set di crittografia del disco, non è possibile usare gli snapshot per il momento.
-- I dischi gestiti crittografati con chiavi gestite dal cliente non possono anche essere crittografati con crittografia dischi di Azure.
-- Per informazioni sull'uso delle chiavi gestite dal cliente con le raccolte di immagini condivise, vedere [anteprima: usare chiavi gestite dal cliente per la crittografia delle immagini](../image-version-encryption.md).
+- Se si usa il portale di Azure per creare il set di crittografia dischi, attualmente non è possibile usare gli snapshot.
+- I dischi gestiti crittografati con chiavi gestite dal cliente non possono anche essere crittografati con Crittografia dischi di Azure.
+- Per informazioni sull'uso delle chiavi gestite dal cliente con le raccolte immagini condivise, vedere [Anteprima: usare le chiavi gestite dal cliente per crittografare immagini](../image-version-encryption.md).
 
 ### <a name="cli"></a>CLI
-#### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurazione di Azure Key Vault e DiskEncryptionSet
+#### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurazione di Azure Key Vault e il set di crittografia dischi
 
 1. Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/reference-index).
 
 1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
 
-    Quando si crea l'istanza di Key Vault, è necessario abilitare la protezione eliminazione temporanea e ripulitura. L'eliminazione temporanea garantisce che la Key Vault contenga una chiave eliminata per un determinato periodo di conservazione (valore predefinito di 90 giorno). L'eliminazione della protezione garantisce che una chiave eliminata non possa essere eliminata definitivamente fino a quando non scade il periodo di conservazione. Queste impostazioni consentono di evitare la perdita di dati a causa dell'eliminazione accidentale. Queste impostazioni sono obbligatorie quando si usa un Key Vault per la crittografia dei dischi gestiti.
+    Quando si crea l'istanza di Insieme di credenziali delle chiavi, è necessario abilitare l'eliminazione temporanea e la protezione dalla rimozione. L'eliminazione temporanea garantisce che l'insieme di credenziali delle chiavi contenga una chiave eliminata per un determinato periodo di conservazione (valore predefinito di 90 giorni). La protezione dalla rimozione garantisce che una chiave eliminata non possa essere eliminata definitivamente fino a quando non scade il periodo di conservazione. Queste impostazioni consentono di evitare la perdita di dati a causa dell'eliminazione accidentale. Queste impostazioni sono obbligatorie quando si usa un insieme di credenziali delle chiavi per la crittografia dei dischi gestiti.
 
     > [!IMPORTANT]
-    > In caso contrario, è possibile che si verifichino problemi durante l'assegnazione di dischi aggiuntivi alla risorsa nel portale di Azure.
+    > Non usare la notazione Camel per l'area, altrimenti è possibile che si verifichino problemi durante l'assegnazione di dischi aggiuntivi alla risorsa nel portale di Azure.
 
     ```azurecli
     subscriptionId=yourSubscriptionID
@@ -109,7 +112,7 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.    Creare un'istanza di un DiskEncryptionSet. 
+1.    Creare un'istanza di un set di crittografia dischi. 
     
         ```azurecli
         keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
@@ -119,20 +122,18 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
         az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
         ```
 
-1.    Concedere all'insieme di credenziali delle chiavi l'accesso alla risorsa DiskEncryptionSet. 
+1.    Concedere all'insieme di credenziali delle chiavi l'accesso alla risorsa del set di crittografia dischi. 
 
         > [!NOTE]
-        > Potrebbero essere necessari alcuni minuti prima che Azure crei l'identità del DiskEncryptionSet nel Azure Active Directory. Se viene rilevato un errore simile a "Impossibile trovare l'oggetto Active Directory" quando si esegue il comando seguente, attendere alcuni minuti e riprovare.
+        > Potrebbero essere necessari alcuni minuti prima che Azure crei l'identità del set di crittografia dischi in Azure Active Directory. Se compare un errore "Impossibile trovare l'oggetto Active Directory" quando si esegue il comando seguente, attendere alcuni minuti e riprovare.
 
         ```azurecli
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
     
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
         ```
 
-#### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creare una VM usando un'immagine del Marketplace, crittografando il sistema operativo e i dischi dati con chiavi gestite dal cliente
+#### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creare una macchina virtuale usando un'immagine del Marketplace, crittografando il sistema operativo e i dischi dati con chiavi gestite dal cliente
 
 ```azurecli
 rgName=yourResourceGroupName
@@ -197,7 +198,7 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 
 ```
 
-#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Modificare la chiave di un DiskEncryptionSet per ruotare la chiave per tutte le risorse che fanno riferimento a DiskEncryptionSet
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Modificare la chiave di un set di crittografia dischi per ruotare la chiave per tutte le risorse che fanno riferimento al set di crittografia dischi
 
 ```azurecli
 
@@ -224,21 +225,21 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 ```
 
 > [!IMPORTANT]
-> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory Azure AD a un'altra, l'identità gestita associata a Managed Disks non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per ulteriori informazioni, vedere [trasferimento di una sottoscrizione tra Azure ad directory](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory di Azure AD a un'altra, l'identità gestita associata ai dischi gestiti non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere [Trasferimento di una sottoscrizione tra directory di Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 [!INCLUDE [virtual-machines-disks-encryption-portal](../../../includes/virtual-machines-disks-encryption-portal.md)]
 
 > [!IMPORTANT]
-> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory Azure AD a un'altra, l'identità gestita associata a Managed Disks non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per ulteriori informazioni, vedere [trasferimento di una sottoscrizione tra Azure ad directory](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory di Azure AD a un'altra, l'identità gestita associata ai dischi gestiti non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere [Trasferimento di una sottoscrizione tra directory di Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Crittografia lato server rispetto a crittografia dischi di Azure
+## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Crittografia lato server e crittografia dischi di Azure
 
-[Crittografia dischi di Azure per le macchine virtuali e i set di scalabilità](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) di macchine virtuali sfrutta la funzionalità [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per crittografare i dischi gestiti con chiavi gestite dal cliente all'interno della VM guest.  La crittografia lato server con chiavi gestite dal cliente migliora l'ADE consentendo di usare qualsiasi tipo di sistema operativo e immagini per le macchine virtuali crittografando i dati nel servizio di archiviazione.
+[Crittografia dischi di Azure per le macchine virtuali e set di scalabilità di macchine virtuali](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) sfrutta la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per crittografare i dischi gestiti con chiavi gestite dal cliente all'interno della macchina virtuale guest.  La crittografia lato server con chiavi gestite dal cliente migliora l'ADE consentendo di usare qualsiasi tipo di sistema operativo e immagini per le macchine virtuali crittografando i dati nel servizio di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esplorare i modelli di Azure Resource Manager per la creazione di dischi crittografati con chiavi gestite dal cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md)
+- [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)
 - [Replicare i computer con i dischi abilitati per le chiavi gestite dal cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

@@ -1,45 +1,45 @@
 ---
 title: Modelli
-description: Descrive l'aspetto di un modello nel rendering remoto di Azure
+description: Descrive l'aspetto di un modello in Rendering remoto di Azure
 author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617944"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758691"
 ---
 # <a name="models"></a>Modelli
 
-Un *modello* nel rendering remoto di Azure fa riferimento a una rappresentazione completa dell'oggetto, costituita da [entità](entities.md) e [componenti](components.md). I modelli rappresentano il metodo principale per ottenere dati personalizzati nel servizio di rendering remoto.
+In Rendering remoto di Azure, un *modello* fa riferimento a una rappresentazione completa dell'oggetto, costituita da [entità](entities.md) e [componenti](components.md). Costituisce lo strumento principale con cui è possibile trasmettere dati personalizzati al servizio di rendering remoto.
 
 ## <a name="model-structure"></a>Struttura del modello
 
-Un modello ha esattamente un' [entità](entities.md) come nodo radice. Di seguito è possibile che sia presente una gerarchia arbitraria di entità figlio. Quando si carica un modello, viene restituito un riferimento a questa entità radice.
+Un modello ha esattamente un'[entità](entities.md) come nodo radice, al di sotto della quale può avere una gerarchia arbitraria di entità figlio. Quando si carica un modello, all'entità radice viene restituito un riferimento.
 
-Ogni entità potrebbe avere [componenti](components.md) collegati. Nel caso più comune, le entità hanno *MeshComponents*, che fanno riferimento a [risorse mesh](meshes.md).
+A ogni entità possono essere associati alcuni [componenti](components.md) che, nel caso più comune, sono costituiti da *MeshComponents*, che fanno riferimento a [risorse mesh](meshes.md).
 
 ## <a name="creating-models"></a>Creazione di modelli
 
-La creazione di modelli per il runtime viene eseguita [convertendo i modelli di input](../how-tos/conversion/model-conversion.md) dai formati di file, ad esempio FBX e GLTF. Il processo di conversione estrae tutte le risorse, ad esempio trame, materiali e mesh, e le converte in formati di runtime ottimizzati. Estrae anche le informazioni strutturali e le converte nella struttura del grafico di entità/componente di ARR.
+Per creare modelli per il runtime è necessario [convertire modelli di input](../how-tos/conversion/model-conversion.md) da file di tipo FBX e GLTF. Il processo di conversione estrae tutte le risorse, quali trame, materiali e mesh, e le converte in formati di runtime ottimizzati. Estrae anche le informazioni strutturali e le converte nella struttura del grafo entità/componente di Rendering remoto di Azure.
 
 > [!IMPORTANT]
 >
-> La [conversione del modello](../how-tos/conversion/model-conversion.md) è l'unico modo per creare [mesh](meshes.md). Sebbene le maglie possano essere condivise tra entità in fase di esecuzione, non esiste un altro modo per ottenere una mesh nel runtime, ad eccezione del caricamento di un modello.
+> La [conversione di un modello](../how-tos/conversion/model-conversion.md) è l'unico modo per creare [mesh](meshes.md). Sebbene in fase di runtime sia possibile condividere le mesh tra più entità, non esiste altro modo per inserire una mesh nel runtime se non caricando un modello.
 
 ## <a name="loading-models"></a>Caricamento di modelli
 
-Una volta convertito, un modello può essere caricato dall'archiviazione BLOB di Azure al runtime.
+Dopo essere stato convertito, un modello può essere caricato da Archiviazione BLOB di Azure nel runtime.
 
-Esistono due funzioni di caricamento distinte che differiscono per il modo in cui l'asset viene risolto nell'archivio BLOB:
+Sono disponibili due funzioni di caricamento, che si differenziano per il modo in cui l'asset viene inviato nell'archiviazione BLOB:
 
-* Il modello può essere risolto tramite il relativo URI di firma di accesso condiviso. La funzione di caricamento `LoadModelFromSASAsync` pertinente `LoadModelFromSASParams`è con il parametro. Usare questa variante anche durante il caricamento [di modelli predefiniti](../samples/sample-model.md).
-* Il modello può essere risolto direttamente dai parametri di archiviazione BLOB, nel caso in [cui l'archiviazione BLOB sia collegata all'account](../how-tos/create-an-account.md#link-storage-accounts). La funzione di caricamento pertinente in `LoadModelAsync` questo caso `LoadModelParams`è con il parametro.
+* Il modello può essere inviato tramite il relativo URI SAS. La funzione di caricamento pertinente è `LoadModelFromSASAsync` con parametro `LoadModelFromSASParams`. È consigliabile usare questa variante anche quando si caricano [modelli predefiniti](../samples/sample-model.md).
+* Il modello può essere inviato direttamente tramite parametri di archiviazione BLOB, nel caso in cui l'[archiviazione BLOB sia collegata all'account](../how-tos/create-an-account.md#link-storage-accounts). La funzione di caricamento pertinente in questo caso è `LoadModelAsync` con parametro `LoadModelParams`.
 
-Nei frammenti di codice seguenti viene illustrato come caricare modelli con una delle due funzioni. Per caricare un modello usando l'URI SAS, usare un codice simile al seguente:
+I frammenti di codice seguenti illustrano come caricare i modelli con le due funzioni. Per caricare un modello usando l'URI SAS, usare un frammento di codice simile al seguente:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
@@ -58,7 +58,29 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
-Se si vuole caricare un modello usando direttamente i relativi parametri di archiviazione BLOB, usare codice simile al frammento di codice seguente:
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+{
+    LoadModelFromSASParams modelParams;
+    modelParams.ModelUrl = modelUri;
+    modelParams.Parent = modelParent;
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
+
+    loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
+    {
+        printf("Loading: finished.");
+    });
+    loadOp->ProgressUpdated([](float progress)
+    {
+        printf("Loading: %.1f%%", progress*100.f);
+    });
+
+    return loadOp;
+}
+```
+
+Se invece si vuole caricare un modello usando direttamente i parametri di archiviazione BLOB, usare un frammento di codice simile al seguente:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
@@ -77,12 +99,26 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 }
 ```
 
-Successivamente, è possibile attraversare la gerarchia delle entità e modificare le entità e i componenti. Caricando più volte lo stesso modello vengono create più istanze, ognuna con la propria copia della struttura di entità/componenti. Poiché le mesh, i materiali e le trame sono [risorse condivise](../concepts/lifetime.md), i dati non verranno caricati di nuovo. Quindi, la creazione di un'istanza di un modello più di una volta comporta un sovraccarico di memoria relativamente ridotto.
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+{
+    LoadModelParams modelParams;
+    modelParams.Parent = modelParent;
+    modelParams.Blob.StorageAccountName = std::move(storageAccount);
+    modelParams.Blob.BlobContainerName = std::move(containerName);
+    modelParams.Blob.AssetPath = std::move(assetFilePath);
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
+    // ... (identical to the SAS URI snippet above)
+}
+```
+
+Successivamente, è possibile attraversare la gerarchia delle entità e modificare le entità e i componenti. Caricando più volte lo stesso modello vengono create più istanze, ognuna con una copia specifica della struttura entità/componente. Poiché, tuttavia, le mesh, i materiali e le trame sono [risorse condivise](../concepts/lifetime.md), questi dati non vengono caricati di nuovo. Quando si crea più volte l'istanza di un modello, quindi, si verifica un sovraccarico di memoria relativamente ridotto.
 
 > [!CAUTION]
-> Tutte le funzioni *asincrone* in arr restituiscono oggetti operazione asincrona. È necessario archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, il Garbage Collector C# potrebbe eliminare l'operazione in anticipo e non può mai finire. Nel codice di esempio sopra l'uso di *await* garantisce che la variabile locale ' loadOp ' contenga un riferimento fino al completamento del caricamento del modello. Tuttavia, se invece si utilizzasse l'evento *Completed* , sarebbe necessario archiviare l'operazione asincrona in una variabile membro.
+> Tutte le funzioni *asincrone* in Rendering remoto di Azure restituiscono oggetti di operazioni asincrone. È necessario quindi archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, è possibile che il Garbage Collector C# elimini l'operazione in anticipo, che quindi non verrà mai completata. Nel codice di esempio sopra riportato, l'uso di *await* garantisce che la variabile locale 'loadOp' contenga un riferimento fino al completo caricamento del modello. Se invece si usasse l'evento *Completato*, sarebbe necessario archiviare l'operazione asincrona in una variabile membro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Entities](entities.md)
+* [Entità](entities.md)
 * [Mesh](meshes.md)

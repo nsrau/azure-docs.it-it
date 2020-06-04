@@ -77,6 +77,8 @@
       href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: Abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring Cloud
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+    - name: Diagnostica e risoluzione automatica dei problemi in Azure Spring Cloud
+      href: spring-cloud-howto-self-diagnose-solve.md
 - name: Distribuzione di DevOps in Azure Spring Cloud
   items:
     - name: CI/CD con DevOps di Azure

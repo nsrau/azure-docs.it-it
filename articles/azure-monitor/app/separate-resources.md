@@ -1,16 +1,16 @@
 ---
-title: 'Come progettare la distribuzione di Application Insights: uno rispetto a molte risorse?'
+title: 'Come progettare la distribuzione di Application Insights: una o più risorse?'
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125690"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773703"
 ---
-# <a name="how-many-application-insights-resources-should-i-deploy"></a>Il numero di risorse Application Insights da distribuire
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
 Quando si sviluppa la versione successiva di un'applicazione Web, non è desiderabile combinare la telemetria di [Application Insights](../../azure-monitor/app/app-insights-overview.md) della nuova versione con quella della versione già rilasciata. Per evitare confusione, inviare i dati di telemetria da diverse fasi di sviluppo per separare le risorse di Application Insights, con chiavi di strumentazione separate (iKey). Per rendere più semplice la modifica della chiave di strumentazione man mano che una versione si sposta da una fase all'altra, può essere utile impostare il valore ikey nel codice anziché nel file di configurazione.
 
@@ -20,24 +20,24 @@ Se il sistema è un servizio cloud di Azure, è disponibile [un altro metodo di 
 
 Quando si configura il monitoraggio di Application Insights per l'app Web, viene creata una *risorsa* di Application Insights in Microsoft Azure. Aprire questa risorsa nel portale di Azure per visualizzare e analizzare i dati di telemetria raccolti dall'app. La risorsa viene identificata da una *chiave di strumentazione* (iKey). Quando si installa il pacchetto Application Insights per monitorare l'applicazione, questo viene configurato con la chiave di strumentazione, in modo che sappia dove inviare la telemetria.
 
-Ogni risorsa Application Insights viene fornita con le metriche disponibili. Se i componenti completamente separati segnalano alla stessa risorsa di Application Insights, queste metriche potrebbero non avere senso per Dashboard/avviso su.
+Ogni risorsa di Application Insights viene fornita con metriche disponibili. Se componenti completamente separati inviano report alla stessa risorsa di Application Insights, potrebbe non essere sensato usare queste metriche per dashboard e avvisi.
 
-### <a name="when-to-use-a-single-application-insights-resource"></a>Quando usare una singola risorsa Application Insights
+### <a name="when-to-use-a-single-application-insights-resource"></a>Quando usare una singola risorsa di Application Insights
 
--   Per i componenti dell'applicazione distribuiti insieme. In genere sviluppato da un singolo team, gestito dallo stesso set di utenti DevOps/ITOps.
--   Se è opportuno aggregare gli indicatori di prestazioni chiave (KPI), ad esempio le durate di risposta, le percentuali di errore nel dashboard e così via, per impostazione predefinita, è possibile scegliere di segmentare il nome del ruolo nell'esperienza Esplora metriche.
--   Se non è necessario gestire il controllo degli accessi in base al ruolo (RBAC) in modo diverso tra i componenti dell'applicazione.
--   Se non sono necessari criteri di avviso di metrica diversi tra i componenti.
+-   Per i componenti dell'applicazione distribuiti insieme. In genere sviluppata da un singolo team, gestita dallo stesso gruppo di utenti DevOps/ITOps.
+-   Se è opportuno aggregare gli indicatori di prestazioni chiave (KPI), ad esempio le durate di risposta, le percentuali di errore nel dashboard e così via, per impostazione predefinita. È possibile scegliere di segmentare in base al nome del ruolo nell'esperienza Esplora metriche.
+-   Se non è necessario gestire il controllo degli accessi in base al ruolo in modo diverso tra i componenti dell'applicazione.
+-   Se non sono necessari criteri di avviso per le metriche diversi tra i componenti.
 -   Se non è necessario gestire le esportazioni continue in modo diverso tra i componenti.
 -   Se non è necessario gestire la fatturazione e le quote in modo diverso tra i componenti.
--   Se è corretto avere una chiave API con lo stesso accesso ai dati di tutti i componenti. E 10 chiavi API sono sufficienti per le esigenze in tutti gli elementi.
--   Se è corretto avere le stesse impostazioni di rilevamento intelligente e integrazione degli elementi di lavoro in tutti i ruoli.
+-   Se è corretto avere una chiave API con lo stesso accesso ai dati di tutti i componenti e 10 chiavi API sono sufficienti per soddisfare le esigenze di tutti i componenti.
+-   Se è corretto avere le stesse impostazioni di rilevamento intelligente e di integrazione degli elementi di lavoro in tutti i ruoli.
 
-### <a name="other-things-to-keep-in-mind"></a>Altri aspetti da tenere presente
+### <a name="other-things-to-keep-in-mind"></a>Altri aspetti da considerare
 
--   Potrebbe essere necessario aggiungere codice personalizzato per assicurarsi che i valori significativi siano impostati nell'attributo [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) . Senza valori significativi impostati per questo attributo, *Nessuna* delle esperienze del portale funzionerà.
-- Per le applicazioni Service Fabric e i servizi cloud classici, l'SDK legge automaticamente l'ambiente del ruolo di Azure e li imposta. Per tutti gli altri tipi di app, sarà probabilmente necessario impostare questa impostazione in modo esplicito.
--   L'esperienza metrica in tempo reale non supporta la suddivisione in base al nome del ruolo.
+-   Potrebbe essere necessario aggiungere codice personalizzato per assicurarsi che vengano impostati valori significativi nell'attributo [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name). Senza valori significativi impostati per questo attributo, *NESSUNA* delle esperienze del portale funzionerà.
+- Per le applicazioni Service Fabric e i servizi cloud classici, l'SDK legge automaticamente l'ambiente dei ruoli di Azure e procede all'impostazione. Per tutti gli altri tipi di app sarà probabilmente necessario definire queste impostazioni in modo esplicito.
+-   L'esperienza Metriche attive non supporta la suddivisione in base al nome del ruolo.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
 
@@ -58,7 +58,7 @@ Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs 
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
 ### <a name="web-pages"></a>Pagina Web
-IKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riquadro avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
+Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riquadro Avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
 *JavaScript in Razor*
 
@@ -75,7 +75,7 @@ IKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riq
 
 ## <a name="create-additional-application-insights-resources"></a>Creare risorse di Application Insights aggiuntive
 
-Per creare una risorsa di Application Insights, seguire la [Guida alla creazione di risorse](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Per creare una risorsa di Application Insights, seguire la [guida alla creazione di risorse](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
 ### <a name="getting-the-instrumentation-key"></a>Ottenere la chiave di strumentazione
 La chiave di strumentazione identifica la risorsa creata.
@@ -117,14 +117,14 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
     </PropertyGroup>
     ```
 
-    Verrà generato un file denominato *yourProjectName*. BuildInfo. config. il processo di pubblicazione lo rinomina in BuildInfo. config.
+    Viene generato un file denominato *NomeProgetto*.BuildInfo.config. Il processo di pubblicazione rinomina il file in BuildInfo.config.
 
     L'etichetta di compilazione contiene un segnaposto (AutoGen_) se la compilazione viene eseguita in Visual Studio. Se la compilazione viene eseguita con MSBuild, viene inserito il numero di versione corretto.
 
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*` .
 
 ## <a name="version-and-release-tracking"></a>Verifica della versione
-Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel `.csproj` file aggiungere:  
+Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file `.csproj` aggiungere:  
 
 ```XML
 
@@ -135,10 +135,10 @@ Per tenere traccia della versione dell'applicazione, assicurarsi che il processo
 
 Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/platform/metrics-charts.md).
 
-Si noti tuttavia che il numero di versione della build viene generato solo dal Microsoft Build Engine, non dalla Build dello sviluppatore da Visual Studio.
+Si noti tuttavia che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore di Visual Studio.
 
 ### <a name="release-annotations"></a>Annotazioni sulle versioni
-Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](../../azure-monitor/app/annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.
+Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](../../azure-monitor/app/annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

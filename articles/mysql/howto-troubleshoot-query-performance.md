@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi relativi alle prestazioni delle query-database di Azure per MySQL
-description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query in database di Azure per MySQL.
+title: Risolvere i problemi relativi alle prestazioni delle query - Database di Azure per MySQL
+description: Informazioni su come usare EXPLAIN per risolvere i problemi di prestazioni delle query in Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec926bf6065e11e1b6ca2e3f6df22c4b5ee2c2c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067831"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836125"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.
@@ -120,7 +120,7 @@ possible_keys: covered
 Come mostra l'istruzione EXPLAIN precedente, MySQL usa ora l'indice di copertura evitando di creare una tabella temporanea. 
 
 ## <a name="combined-index"></a>Indice combinato
-Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate.Questo metodo può essere utile in un'istruzione **GROUP BY**.
+Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate. Questo metodo può essere utile in un'istruzione **GROUP BY**.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -163,8 +163,8 @@ L'istruzione EXPLAIN mostra ora che MySQL è in grado di usare l'indice combinat
  
 ## <a name="conclusion"></a>Conclusioni
  
-L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. La presenza di un indice nella tabella non significa necessariamente che MySQL sia in grado di usarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
+L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. Il fatto che sia presente un indice sulla tabella non significa necessariamente che MySQL sia in grado di usarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per trovare risposte dai colleghi alle domande più pressanti o per pubblicare una nuova domanda o risposta, visitare il [forum MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Per trovare risposte dai colleghi alle domande più difficili o per pubblicare una nuova domanda o risposta, visitare la [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

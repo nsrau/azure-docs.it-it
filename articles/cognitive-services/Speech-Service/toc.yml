@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Nozioni di base sul riconoscimento vocale
           href: speech-to-text-basics.md
-    - name: Guida introduttiva
+    - name: Avvi rapidi
       items:
         - name: Riconoscimento vocale con input del microfono
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Riconoscimento della voce archiviata in archivio BLOB
           href: quickstarts/from-blob.md
+        - name: Testare un modello usando file audio in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: Guide pratiche
       items:
         - name: Scegliere la modalità di riconoscimento vocale

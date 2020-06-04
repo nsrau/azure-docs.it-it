@@ -90,6 +90,10 @@
                   href: tutorial-incremental-copy-change-tracking-feature-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Uso di CDC nell'Istanza gestita di SQL di Azure
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-incremental-copy-change-data-capture-feature-portal.md
             - name: Nuovi file in base agli ultimi dati modificati
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Nuovi file ordinati per nomi file partizionati in base al tempo
@@ -196,6 +200,8 @@
       items:
         - name: Creare data factory con strumenti visivi
           href: author-visually.md
+        - name: Hub di gestione
+          href: author-management-hub.md
         - name: Controllo del codice sorgente
           href: source-control.md
         - name: Integrazione continua e recapito continuo

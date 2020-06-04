@@ -190,6 +190,18 @@
               href: storage-blob-reserved-capacity.md
             - name: Pianificare e gestire i costi
               href: ../common/storage-plan-manage-costs.md
+            - name: Obiettivi di scalabilità e prestazioni
+              items:
+                - name: Archiviazione BLOB
+                  href: scalability-targets.md
+                - name: Account di archiviazione standard
+                  href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Account di archiviazione BLOB in blocchi Premium
+                  href: scalability-targets-premium-block-blobs.md
+                - name: Account di archiviazione BLOB di pagine Premium
+                  href: scalability-targets-premium-page-blobs.md
+                - name: Provider di risorse di archiviazione
+                  href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Concorrenza
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Trovare e interpretare i dati BLOB
@@ -439,7 +451,7 @@
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Configurare, ottimizzare, risolvere i problemi'
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Data factory di Azure
+            - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montare l'archivio BLOB come file system in Linux
               href: storage-how-to-mount-container-linux.md
@@ -473,60 +485,8 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Informazioni di riferimento
       items:
-        - name: Obiettivi di scalabilità e prestazioni
-          items:
-            - name: Archiviazione BLOB
-              href: scalability-targets.md
-            - name: Account di archiviazione standard
-              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Account di archiviazione BLOB in blocchi Premium
-              href: scalability-targets-premium-block-blobs.md
-            - name: Account di archiviazione BLOB di pagine Premium
-              href: scalability-targets-premium-page-blobs.md
-            - name: Provider di risorse di archiviazione
-              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure PowerShell
-          href: /powershell/module/az.storage
-        - name: Interfaccia della riga di comando di Azure
-          href: /cli/azure/storage
-        - name: .NET
-          items:
-            - name: BLOB (versione 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Spostamento di dati
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Provider delle risorse di archiviazione
-              href: /dotnet/api/overview/azure/storage/management
-        - name: Java
-          items:
-            - name: BLOB (versione 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: BLOB (versione 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Provider delle risorse di archiviazione
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (versione 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (versione 12.x)
-          href: /python/api/azure-storage-blob/
-        - name: REST
-          items:
-            - name: 'BLOB, code, tabelle e file'
-              href: /rest/api/storageservices
-            - name: Provider delle risorse di archiviazione
-              href: /rest/api/storagerp
-            - name: Importazione/Esportazione
-              href: /rest/api/storageimportexport
-        - name: C++
-          href: 'https://azure.github.io/azure-storage-cpp'
-        - name: Ruby
-          href: 'https://azure.github.io/azure-storage-ruby'
-        - name: PHP
-          href: 'https://azure.github.io/azure-storage-php/'
-        - name: iOS
-          href: 'https://azure.github.io/azure-storage-ios/'
-        - name: Android
-          href: 'https://azure.github.io/azure-storage-android'
+        - name: Informazioni di riferimento su Archiviazione BLOB
+          href: ../blobs/reference.md
         - name: AzCopy v10
           items:
             - name: azcopy
@@ -760,7 +720,7 @@
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Configurare, ottimizzare, risolvere i problemi'
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Data factory di Azure
+            - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Trasferire dati con lo strumento DistCp
               href: data-lake-storage-use-distcp.md

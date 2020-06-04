@@ -1,39 +1,39 @@
 ---
-title: Dashboard di riepilogo per partner Center Analytics nel Marketplace commerciale
-description: Informazioni su come accedere a grafici, tendenze e valori di dati aggregati che riepilogano l'attività del Marketplace dal dashboard di riepilogo nel centro per i partner.
+title: Dashboard di riepilogo per l'analisi del Centro per i partner nel marketplace commerciale
+description: Informazioni su come accedere a grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace dal dashboard di riepilogo nel Centro per i partner.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262401"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738320"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di riepilogo in analisi del Marketplace commerciale
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di riepilogo nell'analisi per il marketplace commerciale
 
-Questo articolo fornisce informazioni sul dashboard di riepilogo nel centro per i partner. Questo dashboard Visualizza i grafici, le tendenze e i valori dei dati aggregati che riepilogano le attività del Marketplace per le offerte.
+Questo articolo fornisce informazioni sul dashboard di riepilogo nel Centro per i partner. Questo dashboard mostra grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte.
 
-Per accedere al dashboard di riepilogo, aprire il **[Dashboard analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
+Per accedere al dashboard di riepilogo, aprire il **[dashboard di analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** nel marketplace commerciale.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
+> Per definizioni dettagliate della terminologia di analisi, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).
 
 ## <a name="summary-dashboard"></a>Dashboard Riepilogo
 
-Il dashboard di **Riepilogo** presenta una panoramica basata su ogni tipo di offerta. **Insights** Mostra informazioni critiche a colpo d'occhio e fornisce un'ampia panoramica dell'attività di vendita delle offerte. È possibile visualizzare questi report usando il dashboard di **Riepilogo** . Questo articolo illustra in dettaglio tutti gli elementi seguenti:
+Il dashboard **Riepilogo** presenta una panoramica in base a ogni tipo di offerta. La sezione **Informazioni dettagliate** mostra a colpo d'occhio le informazioni critiche e offre una panoramica generale dell'attività di vendita delle offerte. È possibile visualizzare questi report usando il dashboard **Riepilogo**. Questo articolo esamina in modo più dettagliato ognuno degli elementi seguenti:
 
 - [Intervallo di date](#date-range)
 - [Sezione Riepilogo](#summary-section)
-- [Clienti per geografia](#customers-by-geography)
+- [Clienti per area geografica](#customers-by-geography)
 - [Grafici delle tendenze di crescita](#growth-trend-charts)
-- [Tabellone clienti](#customer-leaderboard)
-- [Tendenza conteggio sedili](#seat-count-trend)
-- [Tendenze degli ordini SaaS gratuiti per le versioni di valutazione](#free-trials-saas-orders-trend)
+- [Classifica clienti](#customer-leaderboard)
+- [Tendenza conteggio postazioni](#seat-count-trend)
+- [Free trials SaaS orders trend](#free-trials-saas-orders-trend) (Tendenza ordini SaaS versioni di valutazione gratuite)
 
 ## <a name="elements-of-the-summary-dashboard"></a>Elementi del dashboard di riepilogo
 
@@ -41,84 +41,84 @@ Le sezioni seguenti descrivono come usare il dashboard di riepilogo e come legge
 
 ### <a name="date-range"></a>Intervallo di date
 
-È possibile trovare la selezione di un intervallo di date nell'angolo superiore destro di ogni pagina. Personalizzare l'output dei grafici della pagina di **Riepilogo** selezionando un intervallo di date basato sugli ultimi 3, 6 o 12 mesi oppure selezionando un intervallo di date personalizzato con una durata massima di 12 mesi. L'intervallo di date predefinito è di sei mesi.
+È possibile selezionare un intervallo di date nell'angolo superiore destro di ogni pagina. Personalizzare l'output dei grafici della pagina **Riepilogo** selezionando un intervallo di date basato sugli ultimi 3, 6 o 12 mesi oppure selezionando un intervallo di date personalizzato con una durata massima di 12 mesi. L'intervallo di date predefinito è di sei mesi.
 
-![Dashboard di analisi del centro per i partner](./media/analyze-dashboard.png)
+![Dashboard di analisi del Centro per i partner](./media/analyze-dashboard.png)
 
 ### <a name="summary-section"></a>Sezione Riepilogo
 
-Nella sezione Riepilogo viene visualizzato il conteggio di tutti gli ordini creati, i clienti acquisiti e l'utilizzo indicati durante l'intervallo di date selezionato. Il mese corrente parziale verrà escluso dal calcolo di queste metriche. Ad esempio, se è stato selezionato il frame di tempo 6M, le ore di utilizzo vengono calcolate per i sei mesi precedenti al mese corrente. Se viene selezionato un intervallo di date personalizzato, un importo parziale del mese corrente verrà escluso dal calcolo.
+La sezione Riepilogo mostra il conteggio di tutti gli ordini creati, i clienti acquisiti e l'utilizzo durante l'intervallo di date selezionato. Il mese corrente parziale viene escluso dal calcolo di queste metriche. Ad esempio: se è stato selezionato un intervallo di tempo di 6 mesi, le ore di utilizzo vengono calcolate per i sei mesi precedenti al mese corrente. Se è selezionato un intervallo di date personalizzato, il valore parziale del mese corrente viene escluso dal calcolo.
 
 ![Tendenze di crescita nel dashboard di riepilogo](./media/summary-summary-section.png)
 
 #### <a name="reading-the-summary-section"></a>Lettura della sezione di riepilogo
 
-- **Ordini**: numero di tutti gli ordini acquistati (esclusi gli ordini annullati) per le offerte pubblicate fino a questo momento.
-- **Clienti**: conteggio di tutti i clienti che hanno acquistato le offerte e hanno almeno un ordine non annullato.
-- **Ore di utilizzo normalizzate**: definite come ore di utilizzo normalizzate per tenere conto del numero di core VM ([numero di core VM] x [ore di utilizzo non elaborato]). Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore [Number of VM Cores].
-- **Ore di utilizzo non elaborato**: quantità di macchine virtuali in esecuzione in termini di ore. Il valore percentuale accanto a **ordini totali**, **totale clienti**, **ore di utilizzo normalizzato**, **ore di utilizzo non elaborato**, visite di **pagina**e **chiamate a azioni** rappresentano la quantità di crescita dell'utilizzo per l'intervallo di date selezionato ([utilizzo del mese precedente, utilizzo del primo mese])/utilizzo del primo mese. Come descritto in precedenza, una quantità parziale del mese corrente verrà esclusa da questa metrica.
-- **Tendenze di crescita**: se si passa il mouse sulle colonne del grafico, i grafici a barre visualizzano il valore per ogni mese.
+- **Ordini**: numero di tutti gli ordini acquistati (esclusi gli ordini annullati) per le offerte pubblicate fino al momento corrente.
+- **Clienti**: numero di tutti i clienti che hanno acquistato le offerte e hanno almeno un ordine non annullato.
+- **Ore di utilizzo normalizzato**: valore normalizzato delle ore di utilizzo per rendere conto del numero di core di macchine virtuali ([numero di core macchine virtuali] x [ore di utilizzo di base]). Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore di [numero di core macchine virtuali].
+- **Ore di utilizzo base**: tempo di esecuzione delle macchine virtuali espresso in ore. Il valore percentuale accanto a **Totale ordini**, **Totale clienti**, **Ore di utilizzo normalizzato**, **Ore di utilizzo base**, **Visite pagina** e **Inviti all'azione** rappresenta la crescita dell'utilizzo per l'intervallo di date selezionato ([utilizzo ultimo mese - utilizzo primo mese]) / utilizzo primo mese). Come descritto in precedenza, una quantità parziale del mese corrente viene esclusa da questa metrica.
+- **Tendenze di crescita**: se si passa il puntatore sulle colonne del grafico, i grafici a barre visualizzano il valore per ogni mese.
 - **Triangolo verde che punta verso l'alto**: indica una tendenza di crescita positiva.
 - **Triangolo rosso che punta verso il basso**: indica una tendenza di crescita negativa rispetto al mese precedente.
 
-### <a name="customers-by-geography"></a>Clienti per geografia
+### <a name="customers-by-geography"></a>Clienti per area geografica
 
-I **clienti di geography** mappa termica visualizzano un numero di clienti in una mappa mondiale.
+La mappa termica **Clienti per area geografica** mostra il numero di clienti su una mappa mondiale.
 
-![Clienti per geografia nel dashboard di riepilogo](./media/summary-customers-by-geography.png)
+![Clienti per area geografica nel dashboard di riepilogo](./media/summary-customers-by-geography.png)
 
 - È possibile spostare la mappa per visualizzare la posizione esatta.
-- È possibile ingrandire una posizione specifica.
-- Mappa termica dispone di una griglia supplementare per visualizzare i dettagli relativi al numero di clienti, al numero di ordini e alle ore di utilizzo normalizzato nella posizione specifica.
-- È possibile cercare e selezionare un paese nella griglia per ingrandire la posizione della mappa. Ripristinare la visualizzazione originale premendo il pulsante **Home** nella mappa.
-- Un **nuovo** cliente ha acquistato una delle offerte per la prima volta durante il mese entro l'intervallo di date selezionato.
+- È possibile fare zoom avanti su una posizione specifica.
+- La mappa termica dispone di una griglia supplementare per visualizzare i dettagli relativi al numero di clienti, al numero di ordini e alle ore di utilizzo normalizzato nella posizione specifica.
+- È possibile cercare e selezionare un paese nella griglia per fare zoom avanti sulla posizione nella mappa. Per tornare alla visualizzazione originale, premere il pulsante **Home** nella mappa.
+- Un **nuovo** cliente ha acquistato una delle offerte per la prima volta durante il mese nell'intervallo di date selezionato.
 
 ### <a name="growth-trend-charts"></a>Grafici delle tendenze di crescita
 
-È possibile visualizzare le tendenze in base alla crescita degli **ordini acquistati** (include gli ordini annullati), **i clienti acquisiti** (inclusi i clienti smarriti) e l' **utilizzo** riportato, che vengono visualizzati mese per mese in base all'intervallo di date selezionato. È possibile analizzare ulteriormente queste tendenze selezionando i collegamenti al di sotto del grafico, che passano alle pagine relative a **ordine**, **utilizzo**, **cliente**o **Marketplace Insights** .
+È possibile visualizzare le tendenze in base alla crescita degli **ordini acquistati** (inclusi gli ordini annullati), dei **clienti acquisiti** (inclusi i clienti persi) e dell'**utilizzo** segnalato, visualizzati mese per mese in base all'intervallo di date selezionato. È possibile analizzare ulteriormente queste tendenze selezionando i collegamenti al di sotto del grafico, che consentono di passare alle rispettive pagine per **Ordine**, **Utilizzo**, **Cliente** o **Informazioni dettagliate sul marketplace**.
 
-Per Azure Marketplace e AppSource in due schede vengono visualizzate le pagine relative all'offerta del Marketplace **e le chiamate ai grafici di** tendenza delle azioni.
+I grafici delle tendenze **Visite pagina e inviti all'azione** per l'offerta del marketplace sono visualizzati per Azure Marketplace e AppSource in due schede.
 
-![Pagine visite e chiamate a azioni grafici di tendenza nel dashboard di riepilogo](./media/summary-page-visits-and-cta.png)
+![Grafici delle tendenze Visite pagina e inviti all'azione nel dashboard di riepilogo](./media/summary-page-visits-and-cta.png)
 
-Il grafico **Orders by offers** consente di organizzare gli ordini in base al nome dell'offerta.
+Il grafico **Ordini per offerte** organizza gli ordini in base al nome dell'offerta.
 
-Il grafico a torta **Orders by Sales Channel** organizza gli ordini (inclusi gli ordini annullati dai clienti) nell'intervallo di date selezionato, dal canale di vendita. Canale di vendita è il tipo di contratto di licenza usato dai clienti per acquistare Azure, ovvero Cloud Solution Provider (CSP), Enterprise, Enterprise tramite Reseller, GTM e con pagamento in base al consumo.
+Il grafico a torta **Ordini per canale di vendita** organizza gli ordini (compresi quelli annullati) durante l'intervallo di date selezionato in base al canale di vendita. Il canale di vendita è il tipo di contratto di licenza usato dai clienti per acquistare Azure, ovvero Cloud Solution Provider (CSP), Enterprise, Enterprise tramite rivenditore, GMT e Pagamento a consumo.
 
-Le **offerte** e l'utilizzo da parte dei grafici a torta del **canale di vendita** presentano rispettivamente la suddivisione dell'utilizzo in base alle offerte e ai canali di vendita. Il grafico a torta interno rappresenta l'utilizzo non elaborato e il grafico a torta esterno rappresenta l'utilizzo normalizzato.
+I grafici a torta **Utilizzo per offerte** e **Utilizzo per canali di vendita** presentano la suddivisione dell'utilizzo rispettivamente in base alle offerte e ai canali di vendita principali. Il grafico a torta interno rappresenta l'utilizzo di base e quello esterno rappresenta l'utilizzo normalizzato.
 
-I grafici a torta dei tipi di licenza **Orders by Marketplace** e **Usage by Marketplace** visualizzano una suddivisione degli ordini e l'utilizzo in base al rispettivo tipo di licenza. I tipi di licenza includono:
+I grafici a torta **Ordini per tipo di licenza del marketplace** e **Utilizzo per tipo di licenza del marketplace** mostrano una suddivisione degli ordini e dell'utilizzo in base al tipo di licenza. I tipi di licenza includono:
 
-- **Fatturazione tramite Azure**: Microsoft fattura i clienti per conto dell'utente quando si sceglie di vendere l'offerta tramite Microsoft con questo tipo di licenza. I tipi di pagamento includono il pagamento in base al consumo tramite carta di credito o fatturazione aziendale.
-- **Bring your own License**: Microsoft non fattura i clienti per l'utilizzo con questo tipo di offerta Marketplace. Questo utilizzo è elencato come **Get it Now (gratuito)** nel Marketplace.
-- **Gratuito**: Microsoft non fattura i clienti per l'utilizzo con questo tipo di offerta Marketplace. Questo utilizzo è elencato come **versione di valutazione gratuita** nel Marketplace.
-- **Microsoft As Reseller**: rappresenta le offerte vendute da Microsoft Resellers come parte del **programma Cloud Solution Provider (CSP)**.
+- **Fatturazione con Azure**: Microsoft si occupa della fatturazione ai clienti per conto dell'utente quando questo sceglie di vendere l'offerta tramite Microsoft con questo tipo di licenza. I tipi di pagamento includono il pagamento a consumo tramite carta di credito o fatturazione aziendale.
+- **Bring Your Own License**: Microsoft non addebita ai clienti l'utilizzo con questo tipo di offerta del marketplace. Questo utilizzo è indicato come **Scarica ora (gratuito)** nel marketplace.
+- **Gratuito**: Microsoft non addebita ai clienti l'utilizzo con questo tipo di offerta del marketplace. Questo utilizzo è indicato come **Versione di valutazione gratuita** nel marketplace.
+- **Microsoft come rivenditore**: rappresenta le offerte vendute da rivenditori Microsoft come parte del **programma Cloud Solution Provider (CSP)** .
 
-### <a name="customer-leaderboard"></a>Tabellone clienti
+### <a name="customer-leaderboard"></a>Classifica clienti
 
-I primi 50 clienti con il maggior numero di ordini vengono visualizzati in una *bacheca*, ordinati in base al numero massimo di ordini e alla percentuale di ordine.
+I primi 50 clienti con il numero più elevato di ordini vengono visualizzati in una *classifica*, con un ordinamento in base al numero di ordini e alla percentuale di ordini più elevati.
 
-- Consente di selezionare un cliente per visualizzare i dettagli del profilo, gli ordini organizzati per offerta o gli ordini organizzati in base al tipo di licenza e al canale dei prezzi di Azure.
-- Il grafico ad anello **Offerte per ordini** presenta le prime quattro offerte (per numero di ordini) e le offerte rimanenti raggruppate come ' Rest all'.
-- Il grafico ad anello **utilizzo normalizzato per offerta** presenta le prime cinque offerte in base all'utilizzo.
+- Selezionare un cliente per visualizzare i dettagli del profilo, gli ordini organizzati per offerta o gli ordini organizzati in base al canale di prezzi e al tipo di licenza di Azure.
+- Il grafico ad anello **Offers by orders** (Offerte per ordini) presenta le prime quattro offerte (per numero di ordini) e le offerte rimanenti raggruppate come "Sospendi tutto".
+- Il grafico ad anello **Utilizzo normalizzato per offerte** presenta le prime cinque offerte in base all'utilizzo.
 
 > [!NOTE]
-> Le informazioni personali del cliente verranno presentate solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni se è stato effettuato l'accesso con un ruolo **proprietario** a livello di autorizzazioni. Gli utenti con il ruolo **collaboratore** non saranno in grado di visualizzare queste informazioni. [Altre informazioni sui ruoli utente e le autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
+> Le informazioni personali dei clienti vengono visualizzate solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni se è stato effettuato l'accesso con un livello di autorizzazioni del ruolo di **Proprietario**. Gli utenti con il ruolo **Collaboratore** non saranno in grado di visualizzare queste informazioni. [Altre informazioni su ruoli utente e autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
 
-### <a name="seat-count-trend"></a>Tendenza conteggio sedili
+### <a name="seat-count-trend"></a>Tendenza conteggio postazioni
 
-Il grafico **Orders by per postazione/per sito** presenta la suddivisione di tutti gli ordini acquistati in base al modello di prezzi. Il grafico di **tendenza del numero** di postazioni presenta le postazioni rispetto agli ordini acquistati per tutte le offerte SaaS (software as a Service) per postazione.
+Il grafico **Ordini per postazione/per sito** presenta la suddivisione di tutti gli ordini acquistati in base al modello di determinazione prezzi. Il grafico **Tendenza conteggio postazioni** presenta il confronto tra postazioni e ordini acquistati per tutte le offerte SaaS (Software as a Service, software come un servizio) per postazione.
 
-### <a name="free-trials-saas-orders-trend"></a>Tendenze degli ordini SaaS gratuiti per le versioni di valutazione
+### <a name="free-trials-saas-orders-trend"></a>Free trials SaaS orders trend (Tendenza ordini SaaS versioni di valutazione gratuite)
 
-Il grafico di **tendenza degli ordini SaaS della versione di valutazione gratuita** presenta la tendenza degli ordini per le offerte SaaS gratuite di valutazione con un periodo di valutazione di 30 giorni.
+Il grafico **Free trial SaaS orders trend** (Tendenza ordini SaaS versioni di valutazione gratuite) presenta la tendenza degli ordini di offerte SaaS di versioni di valutazione gratuite con un periodo di valutazione di 30 giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del centro per i partner, vedere [analisi per il Marketplace commerciale nel centro per i partner](./analytics.md).
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard Orders in Commercial Marketplace Analytics](./orders-dashboard.md).
-- Per la macchina virtuale (VM) offre metriche di fatturazione di utilizzo e a consumo, vedere [dashboard di utilizzo in analisi del Marketplace commerciale](./usage-dashboard.md).
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [dashboard dei clienti in analisi del Marketplace commerciale](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere la pagina relativa ai [download del dashboard in Commercial Marketplace Analytics](./downloads-dashboard.md).
-- Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard ratings and Reviews in Commercial Marketplace Analytics](./ratings-reviews.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
+- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere [Analisi per il marketplace commerciale nel Centro per i partner](./analytics.md).
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard degli ordini nell'analisi per il marketplace commerciale](./orders-dashboard.md).
+- Per le metriche di fatturazione a consumo e di utilizzo delle offerte di macchine virtuali (VM), vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](./usage-dashboard.md).
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi per il marketplace commerciale](./customer-dashboard.md).
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./downloads-dashboard.md).
+- Per una visualizzazione consolidata del feedback dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard di valutazioni e recensioni nell'analisi per il marketplace commerciale](./ratings-reviews.md).
+- Per le domande frequenti sull'analisi del marketplace commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).

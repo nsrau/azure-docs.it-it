@@ -1,27 +1,21 @@
 ---
-title: Servizi go-to-Market-procedure consigliate per il marketing | Azure Marketplace
-description: Servizi Go-To-Market - Questa sezione descrive le procedure di marketing consigliate per gli editori di Azure Marketplace
+title: Procedure consigliate per il marketing - Marketplace commerciale Microsoft
+description: Ottenere risorse sulle procedure di marketing consigliate per i partner che pubblicano offerte in Microsoft AppSource e Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684590"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658032"
 ---
 # <a name="marketing-best-practices"></a>Procedure consigliate di marketing
 
-Un elenco ottimizzato del Marketplace e campagne di immissione sul mercato possono aiutarti ad accelerare la crescita dell'acquisizione dei clienti e, di conseguenza, avere un ruolo significativo nel motore e nella strategia aziendale cloud. Prepararsi per elencare le offerte, fornire le versioni di valutazione dei clienti e connettersi con i clienti Microsoft e la community partner. Scarica la [Guida alle procedure consigliate di AppSource & Azure Marketplace](https://aka.ms/marketplacebestpractices) per scoprire come sfruttare al meglio le tue attività di marketing online.
+Tenere presenti le procedure di marketing consigliate quando si creano e si pubblicano offerte nel marketplace commerciale, si forniscono versioni di valutazione per i clienti e ci si connette con i clienti Microsoft e la community dei partner. Se si ottimizzano le inserzioni per le offerte e le campagne go-to-market, è possibile accelerare l'acquisizione dei clienti. Per informazioni su come sfruttare al meglio le attività di marketing online, scaricare la [Guida alle procedure consigliate per Azure Marketplace e AppSource](https://aka.ms/marketplacebestpractices).
 
-**Passaggi successivi**
-
-Per altre informazioni sui servizi GTM del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
-
-Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare l'offerta.
-
----
+Per altre informazioni su come Microsoft Partner Network può aiutare a espandere il business, vedere [Commercializza con Microsoft](https://partner.microsoft.com/reach-customers/gtm). Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/) per creare e configurare l'offerta.
