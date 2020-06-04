@@ -2,14 +2,14 @@
 title: Come usare le chiavi di creazione e di runtime-LUIS
 description: Quando si usa per la prima volta Language Understanding (LUIS), non è necessario creare una chiave di creazione. Quando si intende pubblicare l'app, usare l'endpoint di runtime, è necessario creare e assegnare la chiave di runtime all'app.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101026"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344459"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -51,7 +51,7 @@ Quando si è pronti per pubblicare l'endpoint di stima, [creare](#create-luis-re
 
 Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente.
 
-Risorsa `kind`:
+Risorsa `kind` :
 
 * Authoring`LUIS.Authoring`
 * Stima`LUIS`
@@ -64,13 +64,13 @@ Risorsa `kind`:
 
     Verrà visualizzato un browser che consente di selezionare l'account corretto e di fornire l'autenticazione.
 
-1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring`, denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area.
+1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring` , denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Creare una **risorsa dell'endpoint di stima Luis**, di `LUIS`tipo, `my-luis-prediction-resource` denominata nel gruppo di risorse _esistente_ denominato `my-resource-group` per `westus` l'area. Se si desidera una velocità effettiva superiore a quella del livello gratuito `F0` , `S0`modificare in. Altre informazioni sui [piani tariffari e la velocità effettiva](luis-limits.md#key-limits).
+1. Creare una **risorsa dell'endpoint di stima Luis**, di tipo `LUIS` , denominata `my-luis-prediction-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area. Se si desidera una velocità effettiva superiore a quella del livello gratuito, modificare `F0` in `S0` . Altre informazioni sui [piani tariffari e la velocità effettiva](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -111,7 +111,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|Valore|
+    |Intestazione|valore|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
@@ -124,9 +124,9 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     |Type|Impostazione|Valore|
     |--|--|--|
-    |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
-    |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
-    |Intestazione|`Content-type`|`application/json`|
+    |Header|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
+    |Header|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
+    |Header|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
@@ -150,7 +150,7 @@ Quando si annulla l'assegnazione di una risorsa, questa non viene eliminata da A
 
 Rigenerare le chiavi di Azure dalla portale di Azure, nella pagina **chiavi** .
 
-## <a name="delete-account"></a>Eliminare l'account
+## <a name="delete-account"></a>Elimina l'account
 
 Per informazioni sui dati che vengono eliminati quando viene eliminato l'account, vedere [Data storage and removal](luis-concept-data-storage.md#accounts) (Archiviazione e rimozione dei dati).
 

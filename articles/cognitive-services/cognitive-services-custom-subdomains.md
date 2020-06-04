@@ -68,7 +68,7 @@ Sì. Questo è un elenco di endpoint internazionali che è possibile usare con l
 > [!NOTE]
 > Il servizio di conversione e API di ricerca Bing utilizzano endpoint globali.
 
-| Tipo di endpoint | Area | Endpoint |
+| Tipo di endpoint | Region | Endpoint |
 |---------------|--------|----------|
 | Pubblico | Globale (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia orientale | `https://australiaeast.api.cognitive.microsoft.com` |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
-ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683647"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995820"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
@@ -85,7 +85,7 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 1.  Passare all'utente con privilegi avanzati *oracle*, quindi inizializzare il listener per la registrazione:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 
@@ -143,14 +143,14 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 
 3. Impostare le variabili Oracle
 
-Prima di connettersi, è necessario impostare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
+Prima della connessione, è necessario impostare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo, le variabili di ambiente verranno salvate per gli accessi futuri. Verificare che le istruzioni seguenti `~/.bashrc` siano state aggiunte al file usando l'editor di propria scelta.
+È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo, le variabili di ambiente verranno salvate per gli accessi successivi. Verificare che le seguenti istruzioni siano state aggiunte al file `~/.bashrc` usando l'editor scelto.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -315,7 +315,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 ![Screenshot della pagina di accesso a Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine dell'esplorazione di un primo database Oracle in Azure e quando la macchina virtuale non è più necessaria, è possibile usare il comando [az group delete](/cli/azure/group) per rimuovere il gruppo di risorse la macchina virtuale e tutte le risorse correlate.
 

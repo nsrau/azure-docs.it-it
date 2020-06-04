@@ -1,14 +1,14 @@
 ---
 title: Gestire le impostazioni di modello e apprendimento-personalizzatore
 description: Il modello di apprendimento automatico e le impostazioni di apprendimento possono essere esportate per il backup nel sistema di controllo del codice sorgente.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624297"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344357"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Come gestire le impostazioni di modellazione e apprendimento
 
@@ -49,7 +49,7 @@ Le impostazioni dei [criteri di apprendimento](concept-active-learning.md#unders
 
 1. Aprire il [portale di Azure](https://portal.azure.com)e selezionare la risorsa di personalizzazione.
 1. Selezionare **modello e impostazioni di apprendimento** nella sezione **Gestione risorse** .
-1. Per **Import Learning Settings** selezionare il pulsante **Export Learning Settings** . Il `json` file viene salvato nel computer locale.
+1. Per **Import Learning Settings** selezionare il pulsante **Export Learning Settings** . Il file viene salvato nel `json` computer locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
