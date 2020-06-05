@@ -30,17 +30,17 @@ La ricetta funziona con qualsiasi contenitore di servizi cognitivi. Prima di usa
 * **Chiave** del servizio cognitivo: le chiavi si trovano nella pagina **chiavi** della risorsa di Azure. È necessaria solo una delle due chiavi. La chiave è una stringa di 32 caratteri alfanumerici.
 * Un singolo contenitore di servizi cognitivi nell'host locale (computer). Verificare che sia possibile:
   * Estrarre l'immagine con un `docker pull` comando.
-  * Eseguire correttamente il contenitore locale con tutte le impostazioni di configurazione necessarie `docker run` con un comando.
+  * Eseguire correttamente il contenitore locale con tutte le impostazioni di configurazione necessarie con un `docker run` comando.
   * Chiamare l'endpoint del contenitore, ottenendo una risposta di HTTP 2xx e una risposta JSON.
 
-Tutte le variabili racchiuse tra parentesi `<>`angolari devono essere sostituite con valori personalizzati. Questa sostituzione include le parentesi angolari.
+Tutte le variabili racchiuse tra parentesi angolari `<>` devono essere sostituite con valori personalizzati. Questa sostituzione include le parentesi angolari.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Usare l'istanza di contenitore
 
-1. Selezionare la **Panoramica** e copiare l'indirizzo IP. Si tratta di un indirizzo IP numerico, ad `55.55.55.55`esempio.
-1. Aprire una nuova scheda del browser e usare l'indirizzo IP, ad esempio `http://<IP-address>:5000 (http://55.55.55.55:5000`,. Verrà visualizzato il home page del contenitore, che informa che il contenitore è in esecuzione.
+1. Selezionare la **Panoramica** e copiare l'indirizzo IP. Si tratta di un indirizzo IP numerico, ad esempio `55.55.55.55` .
+1. Aprire una nuova scheda del browser e usare l'indirizzo IP, ad esempio, `http://<IP-address>:5000 (http://55.55.55.55:5000` . Verrà visualizzato il home page del contenitore, che informa che il contenitore è in esecuzione.
 
 1. Selezionare **Descrizione API servizio** per visualizzare la pagina di spavalderia per il contenitore.
 

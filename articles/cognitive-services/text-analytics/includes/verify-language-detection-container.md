@@ -19,7 +19,7 @@ ms.locfileid: "80876432"
 ### <a name="verify-the-language-detection-container-instance"></a>Verificare l'istanza del contenitore Rilevamento lingua
 
 1. Selezionare la scheda **Panoramica** e copiare l'indirizzo IP.
-1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000`). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
+1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
 
     ![Visualizzare il contenitore home page per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "80876432"
     }
     ```
 
-1. Impostare **showStats** su `true`.
+1. Impostare **showStats** su `true` .
 
 1. Selezionare **Execute (Esegui** ) per determinare i sentimenti del testo.
 
@@ -127,4 +127,4 @@ ms.locfileid: "80876432"
     }
     ```
 
-È ora possibile mettere in correlazione i documenti dei dati JSON del payload di risposta ai documenti del payload della richiesta originale `id`in base al corrispondente. Ogni documento viene gestito in `characterCount` modo indipendente con diverse statistiche, ad `transactionCount`esempio e. Ogni documento `detectedLanguages` risultante dispone inoltre della matrice con `name`, `iso6391Name`e `score` per ogni lingua rilevata. Quando vengono rilevate più lingue `score` , viene usato per determinare la lingua più probabile.
+È ora possibile mettere in correlazione i documenti dei dati JSON del payload di risposta ai documenti del payload della richiesta originale in base al corrispondente `id` . Ogni documento viene gestito in modo indipendente con diverse statistiche, ad esempio `characterCount` e `transactionCount` . Ogni documento risultante dispone inoltre della `detectedLanguages` matrice con `name` , `iso6391Name` e `score` per ogni lingua rilevata. Quando vengono rilevate più lingue, `score` viene usato per determinare la lingua più probabile.

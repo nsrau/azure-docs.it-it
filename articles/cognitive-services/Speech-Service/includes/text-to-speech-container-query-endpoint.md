@@ -17,7 +17,7 @@ ms.locfileid: "81274833"
 ---
 Il contenitore fornisce [API endpoint basate su REST](../rest-text-to-speech.md). Sono disponibili molti [progetti di codice sorgente di esempio](https://github.com/Azure-Samples/Cognitive-Speech-TTS) per la piattaforma, il Framework e le varianti del linguaggio disponibili.
 
-Con il contenitore *di sintesi vocale standard* , è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato `latest` il tag le impostazioni locali predefinite `en-US` sono e `JessaRUS` la voce. L' `{VOICE_NAME}` argomento sarà [`en-US-JessaRUS`](../language-support.md#standard-voices)quindi. Vedere l'esempio di SSML di seguito:
+Con il contenitore *di sintesi vocale standard* , è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato il `latest` tag le impostazioni locali predefinite sono `en-US` e la `JessaRUS` voce. L' `{VOICE_NAME}` argomento sarà quindi [`en-US-JessaRUS`](../language-support.md#standard-voices) . Vedere l'esempio di SSML di seguito:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -55,6 +55,6 @@ Questo comando:
 
 * Costruisce una richiesta HTTP POST per l' `speech/synthesize/cognitiveservices/v1` endpoint.
 * Specifica un' `Accept` intestazione di`audio/*`
-* Specifica un' `Content-Type` intestazione di `application/ssml+xml`. per ulteriori informazioni, vedere il [corpo della richiesta](../rest-text-to-speech.md#request-body).
-* Specifica un' `X-Microsoft-OutputFormat` intestazione di `riff-16khz-16bit-mono-pcm`, per altre opzioni vedere [output audio](../rest-text-to-speech.md#audio-outputs).
-* Invia la richiesta [SSML (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) fornita `{VOICE_NAME}` all'endpoint.
+* Specifica un' `Content-Type` intestazione di `application/ssml+xml` . per ulteriori informazioni, vedere il [corpo della richiesta](../rest-text-to-speech.md#request-body).
+* Specifica un' `X-Microsoft-OutputFormat` intestazione di `riff-16khz-16bit-mono-pcm` , per altre opzioni vedere [output audio](../rest-text-to-speech.md#audio-outputs).
+* Invia la richiesta [SSML (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) fornita all' `{VOICE_NAME}` endpoint.

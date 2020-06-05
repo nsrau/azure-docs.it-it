@@ -19,7 +19,7 @@ ms.locfileid: "80876429"
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Verificare l'istanza del contenitore Analisi del sentiment
 
 1. Selezionare la scheda **Panoramica** e copiare l'indirizzo IP.
-1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000`). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
+1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
 
     ![Visualizzare il contenitore home page per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "80876429"
     }
     ```
 
-1. Impostare **showStats** su `true`.
+1. Impostare **showStats** su `true` .
 
 1. Selezionare **Execute (Esegui** ) per determinare i sentimenti del testo.
 
@@ -93,4 +93,4 @@ ms.locfileid: "80876429"
     }
     ```
 
-È ora possibile correlare il documento `id` dei dati JSON del payload di risposta al documento `id`di payload della richiesta originale. Il Punteggio di più di `0.98` indica un sentimento molto positivo.
+È ora possibile correlare il documento `id` dei dati JSON del payload di risposta al documento di payload della richiesta originale `id` . Il Punteggio di più di `0.98` indica un sentimento molto positivo.

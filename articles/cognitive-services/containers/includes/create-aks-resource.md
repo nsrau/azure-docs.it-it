@@ -37,7 +37,7 @@ ms.locfileid: "80877831"
 1. Nella scheda **autenticazione** lasciare l' **entità servizio** e **abilitare RBAC** impostato sui valori predefiniti.
 1. Nella scheda **rete** immettere le selezioni seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |--|--|
     |Routing di applicazioni HTTP|No|
     |Configurazione delle impostazioni di rete|Basic|
