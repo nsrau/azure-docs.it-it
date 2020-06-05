@@ -1,35 +1,35 @@
 ---
 title: Progettare flussi di lavoro di criteri come codice
-description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di criteri di Azure come codice e per convalidare automaticamente le risorse.
-ms.date: 11/04/2019
+description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187733"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684261"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
-Man mano che si procede con la governance del cloud, è opportuno passare dalla gestione manuale di ogni definizione di criteri nel portale di Azure o tramite i vari SDK a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali per la gestione dei sistemi su larga scala nel cloud sono:
+Lungo il percorso di implementazione dei processi di governance del cloud, arriva il momento in cui si è pronti a passare dalla gestione manuale di ogni definizione di criteri, tramite il portale di Azure o i vari SDK, a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali alla gestione dei sistemi su larga scala nel cloud sono:
 
-- Infrastruttura come codice: la pratica di trattare il contenuto che definisce gli ambienti, dal Gestione risorse modelli alle definizioni di criteri di Azure ai progetti di Azure, come codice sorgente.
-- DevOps: Unione di persone, processi e prodotti per consentire il recapito continuo di valore agli utenti finali.
+- Infrastruttura come codice: la pratica di trattare il contenuto che definisce gli ambienti, dai modelli di Resource Manager alle definizioni di criteri di Azure in Azure Blueprints, come codice sorgente.
+- DevOps: l'unione di persone, processi e prodotti per consentire il recapito continuo di valore agli utenti finali.
 
-I criteri come codice sono la combinazione di queste idee. In pratica, Mantieni le definizioni dei criteri nel controllo del codice sorgente e ogni volta che viene apportata una modifica, verifica e convalida la modifica. Tuttavia, questo non dovrebbe essere la portata dei criteri che interessano l'infrastruttura come codice o DevOps.
+Criteri come codice è la combinazione di queste idee. Essenzialmente, le definizioni dei criteri vengono mantenute nel controllo del codice sorgente e, ogni volta che viene apportata una modifica, tale modifica viene testata e convalidata. Tuttavia, questo non dovrebbe essere l'unico ambito del coinvolgimento dei criteri con Infrastruttura come codice o DevOps.
 
-Il passaggio di convalida deve anche essere un componente di altri flussi di lavoro di integrazione continua o di distribuzione continua. Gli esempi includono la distribuzione di un ambiente dell'applicazione o di un'infrastruttura virtuale. Rendendo la convalida dei criteri di Azure un componente iniziale del processo di compilazione e distribuzione, i team delle applicazioni e delle operazioni individuano se le modifiche non sono conformi, molto prima che sia troppo tardi e si stia tentando di eseguire la distribuzione nell'ambiente di produzione.
+Il passaggio della convalida dovrebbe essere un componente anche di altri flussi di lavoro di integrazione continua o distribuzione continua. Un esempio è la distribuzione di un ambiente applicativo o di un'infrastruttura virtuale. Integrando la convalida di Criteri di Azure fin dalle prime fasi del processo di compilazione e distribuzione, i team responsabili delle applicazioni e delle operazioni possono scoprire se le modifiche apportate non sono conformi molto prima che sia troppo tardi e passino alla fase di distribuzione in produzione.
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
-Il flusso di lavoro generale consigliato per i criteri come codice è simile a questo diagramma:
+Il flusso di lavoro generale consigliato di Criteri come codice è simile a questo diagramma:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Panoramica dei criteri come flusso di lavoro del codice" border="false":::
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Panoramica del flusso di lavoro di Criteri come codice" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Creare e aggiornare le definizioni dei criteri
 
-Le definizioni dei criteri vengono create usando JSON e archiviate nel controllo del codice sorgente. Ogni criterio dispone di un proprio set di file, ad esempio i parametri, le regole e i parametri di ambiente, che devono essere archiviati nella stessa cartella. La struttura seguente è un metodo consigliato per mantenere le definizioni dei criteri nel controllo del codice sorgente.
+Le definizioni dei criteri vengono create tramite JSON e archiviate nel controllo del codice sorgente. Ogni criterio ha il proprio set di file, ad esempio i parametri, le regole e i parametri di ambiente, che devono essere archiviati nella stessa cartella. Di seguito è riportata la struttura consigliata da usare per mantenere le definizioni dei criteri nel controllo del codice sorgente.
 
 ```text
 .
@@ -53,11 +53,11 @@ Le definizioni dei criteri vengono create usando JSON e archiviate nel controllo
 |
 ```
 
-Quando viene aggiunto un nuovo criterio o ne è stato aggiornato uno esistente, il flusso di lavoro deve aggiornare automaticamente la definizione dei criteri in Azure. Il test della definizione dei criteri nuova o aggiornata viene eseguito in un passaggio successivo.
+Quando viene aggiunto un nuovo criterio o ne viene aggiornato uno esistente, il flusso di lavoro deve aggiornare automaticamente la definizione dei criteri in Azure. Il test della definizione del criterio nuovo o aggiornato avviene in una seconda fase.
 
-### <a name="create-and-update-initiative-definitions"></a>Creare e aggiornare le definizioni di iniziativa
+### <a name="create-and-update-initiative-definitions"></a>Creare e aggiornare le definizioni di iniziative
 
-Analogamente, le iniziative hanno il proprio file JSON e i file correlati che devono essere archiviati nella stessa cartella. La definizione di iniziativa richiede che la definizione dei criteri esista già, pertanto non può essere creata o aggiornata finché l'origine del criterio non è stata aggiornata nel controllo del codice sorgente e quindi aggiornata in Azure. La struttura seguente è un metodo consigliato per mantenere le definizioni di iniziativa nel controllo del codice sorgente:
+Anche le iniziative hanno il proprio file JSON e i file correlati che devono essere archiviati nella stessa cartella. La definizione di iniziativa richiede che la definizione dei criteri esista già, pertanto non può essere creata o aggiornata finché l'origine del criterio non è stata aggiornata nel controllo del codice sorgente e quindi aggiornata in Azure. Di seguito è riportata la struttura consigliata da usare per mantenere le definizioni di iniziative nel controllo del codice sorgente:
 
 ```text
 .
@@ -81,53 +81,53 @@ Analogamente, le iniziative hanno il proprio file JSON e i file correlati che de
 |
 ```
 
-Analogamente alle definizioni di criteri, quando si aggiunge o si aggiorna un'iniziativa esistente, il flusso di lavoro deve aggiornare automaticamente la definizione di iniziativa in Azure. Il test della definizione di iniziativa nuova o aggiornata viene eseguito in un passaggio successivo.
+Analogamente alle definizioni di criteri, quando si aggiunge un'iniziativa o se ne aggiorna una esistente, il flusso di lavoro deve aggiornare automaticamente la definizione di iniziativa in Azure. Il test della definizione dell'iniziativa nuova o aggiornata avviene in una seconda fase.
 
 ### <a name="test-and-validate-the-updated-definition"></a>Testare e convalidare la definizione aggiornata
 
-Una volta che l'automazione ha eseguito le definizioni dei criteri o delle iniziative appena create o aggiornate ed eseguito l'aggiornamento all'oggetto in Azure, è possibile testare le modifiche apportate. I criteri o le iniziative di cui fa parte devono quindi essere assegnati alle risorse nell'ambiente più lontano dalla produzione. Questo ambiente è in genere lo _sviluppatore_.
+Dopo che il processo di automazione ha acquisito le definizioni di criteri o di iniziative create o aggiornate e ha eseguito l'aggiornamento all'oggetto in Azure, è il momento di testare le modifiche apportate. I criteri o le iniziative di cui fanno parte dovrebbero quindi essere assegnati alle risorse nell'ambiente più lontano da quello di produzione. Questo ambiente è in genere quello di _sviluppo_.
 
-L'assegnazione deve usare [enforcementMode](./assignment-structure.md#enforcement-mode) di _disabilitato_ in modo che la creazione e gli aggiornamenti delle risorse non siano bloccati, ma che le risorse esistenti siano ancora controllate per la conformità alla definizione dei criteri aggiornata. Anche con enforcementMode, è consigliabile che l'ambito di assegnazione sia un gruppo di risorse o una sottoscrizione usata in modo specifico per la convalida dei criteri.
+L'assegnazione deve _disabilitare_ la proprietà [enforcementMode](./assignment-structure.md#enforcement-mode) in modo da non bloccare le operazioni di creazione e aggiornamento delle risorse, ma in modo che la conformità delle risorse esistenti alla definizione di criteri aggiornata continui a essere controllata. Anche con enforcementMode, è consigliabile che l'ambito dell'assegnazione sia un gruppo di risorse o una sottoscrizione designata in modo specifico per la convalida dei criteri.
 
 > [!NOTE]
-> Sebbene la modalità di imposizione sia utile, non è una sostituzione per il test accurato di una definizione dei criteri in varie condizioni. La definizione dei criteri deve essere `PUT` testata `PATCH` con le chiamate API REST, le risorse conformi e non conformi e i casi Edge come una proprietà mancante dalla risorsa.
+> Sebbene la modalità di imposizione sia utile, non si sostituisce al test accurato di una definizione di criteri in varie condizioni. La definizione dei criteri deve essere testata con le chiamate API REST `PUT` e `PATCH`, con risorse conformi e non conformi e con casi limite come una proprietà mancante nella risorsa.
 
-Dopo aver distribuito l'assegnazione, usare l'SDK dei criteri per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve avere risorse sia conformi che non conformi. Come un buon unit test per il codice, è opportuno verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo per ciò che si prevede, potrebbe verificarsi un effetto imprevisto e non identificato dal criterio. Per altre informazioni, vedere [valutare l'effetto di una nuova definizione di criteri di Azure](./evaluate-impact.md).
+Dopo la distribuzione dell'assegnazione, usare l'SDK dei criteri per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve contenere risorse sia conformi che non conformi. Come un buon unit test per il codice, occorre verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo dei comportamenti previsti, i criteri potrebbero dare risultare imprevisti e non identificati. Per altre informazioni, vedere [Valutare l'impatto di una nuova definizione di Criteri di Azure](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Abilitare le attività di correzione
 
 Se la convalida dell'assegnazione soddisfa le aspettative, il passaggio successivo consiste nel convalidare la correzione.
-I criteri che usano [deployIfNotExists](./effects.md#deployifnotexists) o [Modify](./effects.md#modify) possono essere convertiti in un'attività di monitoraggio e aggiornamento e correggono le risorse da uno stato non conforme.
+I criteri che usano [deployIfNotExists](./effects.md#deployifnotexists) o [modify](./effects.md#modify) possono essere convertiti in un'attività di correzione e correggere le risorse da uno stato non conforme.
 
-Il primo passaggio per eseguire questa operazione consiste nel concedere all'assegnazione dei criteri l'assegnazione di ruolo definita nella definizione dei criteri. Questa assegnazione di ruolo assegna all'identità gestita di assegnazione dei criteri un numero sufficiente di diritti per apportare le modifiche necessarie per rendere la conformità della risorsa.
+Il primo passaggio dell'attività di correzione delle risorse consiste nel concedere all'assegnazione dei criteri l'assegnazione di ruolo definita nella definizione dei criteri. Questa assegnazione di ruolo concede all'identità gestita dell'assegnazione dei criteri un numero sufficiente di diritti per apportare le modifiche necessarie per rendere la risorsa conforme.
 
-Quando l'assegnazione di criteri dispone dei diritti appropriati, usare l'SDK dei criteri per attivare un'attività di monitoraggio e aggiornamento su un set di risorse note come non conformi. Prima di procedere, è necessario completare tre test per le attività correttive seguenti:
+Quando l'assegnazione dei criteri dispone dei diritti appropriati, usare l'SDK dei criteri per attivare un'attività di correzione su un set di risorse note come non conformi. Prima di procedere, è necessario completare tre test sulle attività di correzione seguenti:
 
-- Verificare che l'attività di monitoraggio e aggiornamento sia stata completata correttamente
+- Verificare che l'attività di correzione sia stata completata correttamente
 - Eseguire la valutazione dei criteri per verificare che i risultati di conformità dei criteri siano aggiornati come previsto
-- Eseguire un ambiente unit test direttamente sulle risorse per convalidare le proprietà modificate
+- Eseguire un unit test dell'ambiente direttamente sulle risorse per verificare che le relative proprietà siano state modificate
 
-Il test di entrambi i risultati di valutazione dei criteri aggiornati e l'ambiente forniscono direttamente conferma che le attività di correzione hanno modificato il previsto e che la definizione dei criteri ha rilevato la modifica della conformità come previsto.
+Il test sia dei risultati di valutazione dei criteri aggiornati che dell'ambiente fornisce direttamente la conferma che le attività di correzione hanno modificato ciò che ci si aspettava e che la definizione dei criteri ha rilevato la modifica di conformità come previsto.
 
 ### <a name="update-to-enforced-assignments"></a>Aggiornare le assegnazioni applicate
 
-Al termine di tutte le attività di controllo di convalida, aggiornare l'assegnazione per usare **enforcementMode** di _Enabled_. Questa modifica deve essere inizialmente effettuata nello stesso ambiente lontano dalla produzione. Una volta che l'ambiente è stato convalidato come previsto, la modifica deve essere inclusa nell'ambito per includere l'ambiente successivo e così via fino a quando il criterio non viene distribuito nelle risorse di produzione.
+Una volta completati tutti i controlli di convalida, aggiornare l'assegnazione in modo da _abilitare_ la proprietà **enforcementMode**. È consigliabile apportare questa modifica all'inizio nello stesso ambiente lontano da quello di produzione. Una volta convalidato il funzionamento previsto dell'ambiente, occorre definire l'ambito della modifica in modo da includere l'ambiente successivo e così via, finché i criteri non vengono distribuiti alle risorse di produzione.
 
-## <a name="process-integrated-evaluations"></a>Valutazioni integrate del processo
+## <a name="process-integrated-evaluations"></a>Valutazioni integrate nel processo
 
-Il flusso di lavoro generale per i criteri come codice è per lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di Gestione risorse modelli per creare un'infrastruttura.
+Il flusso di lavoro generale dei criteri come codice prevede lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione di qualsiasi flusso di lavoro che distribuisca o crei risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli di Resource Manager per creare un'infrastruttura.
 
-In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura a una sottoscrizione o a un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito verificando la convalida di tutti i criteri e le iniziative esistenti. Sebbene possano essere configurate come **enforcementMode** _disabilitate_ in un ambiente di questo tipo, è utile essere a conoscenza prima che la distribuzione di un'applicazione o di un'infrastruttura violi le definizioni dei criteri in anticipo. Questa valutazione dei criteri deve quindi essere un passaggio di tali flussi di lavoro e le distribuzioni non riuscite che creano risorse non conformi.
+In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_, è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
 
 ## <a name="review"></a>Verifica
 
-Questo articolo illustra il flusso di lavoro generale per i criteri come codice e anche per la valutazione dei criteri che deve far parte di altri flussi di lavoro di distribuzione. Questo flusso di lavoro può essere usato in qualsiasi ambiente che supporta i passaggi con script e l'automazione basata sui trigger.
+Questo articolo illustra il flusso di lavoro generale dei criteri come codice e descrive le situazioni in cui la valutazione dei criteri deve far parte di altri flussi di lavoro di distribuzione. Questo flusso di lavoro può essere usato in qualsiasi ambiente che supporti i passaggi controllati da script e l'automazione basata sui trigger.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [struttura della definizione dei criteri](./definition-structure.md).
+- Informazioni sulla [struttura delle definizioni dei criteri](./definition-structure.md).
 - Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
-- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
-- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+- Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4b4e6bf7b69f1b4c7664a104a0af70d9e486f08a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586168"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699951"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Accedere alle macchine virtuali come studente dalla visualizzazione docente
 Questo articolo illustra in che modo i docenti possono accedere alle proprie macchine virtuali per i corsi a cui partecipano come studenti. 
@@ -36,5 +36,6 @@ Ecco uno scenario in cui questa funzionalità risulta utile. Un assistente docen
 Vedere gli articoli seguenti:
 
 - [Connettersi a una macchina virtuale](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Connettersi a una macchina virtuale usando RDP in un Mac](connect-virtual-machine-mac-rdp.md)
+- [Connettersi a una macchina virtuale usando RDP in un Mac](connect-virtual-machine-mac-remote-desktop.md)
+- [Connettersi a una macchina virtuale usando RDP in un Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Usare Desktop remoto per le macchine virtuali Linux](how-to-use-remote-desktop-linux-student.md)
