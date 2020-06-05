@@ -100,6 +100,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
     - name: SDK per HoloLens C++/WinRT
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: Risorse
   items:
     - name: Note sulla versione

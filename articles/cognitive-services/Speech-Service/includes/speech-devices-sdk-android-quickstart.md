@@ -18,7 +18,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare a usare Speech Devices SDK, è necessario:
 
@@ -168,7 +168,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
 1. A questo punto, non resta che sperimentare.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se non è possibile connettersi al dispositivo di riconoscimento vocale, digitare il comando seguente in una finestra del prompt dei comandi. Verrà restituito un elenco di dispositivi.
 

@@ -190,6 +190,8 @@
           href: howto-connection-string.md
         - name: Configurare SSL
           href: howto-configure-ssl.md
+        - name: Configurare TLS
+          href: howto-tls-configurations.md
         - name: App Web
           href: howto-connect-webapp.md
         - name: Connettersi con reindirizzamento

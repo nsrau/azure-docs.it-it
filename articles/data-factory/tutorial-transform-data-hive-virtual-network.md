@@ -34,7 +34,7 @@ In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Avviare **PowerShell**. Tenere aperto Azure PowerShell fino al termine di questa guida introduttiva. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+2. Avviare **PowerShell**. Tenere aperto Azure PowerShell fino al termine di questa guida introduttiva. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
         
@@ -110,7 +110,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Creare il gruppo di risorse ADFTutorialResourceGroup se non esiste già nella sottoscrizione. 
+3. Creare il gruppo di risorse: ADFTutorialResourceGroup se non esiste già nella sottoscrizione. 
 
     ```powershell
     New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
@@ -158,7 +158,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
    Al termine della registrazione del runtime di integrazione self-hosted viene visualizzato il messaggio seguente: ![Registrazione completata](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
 
-   Quando il nodo viene connesso al servizio cloud, viene visualizzata la pagina seguente: ![Nodo connesso](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+   Quando il nodo viene connesso al servizio cloud, viene visualizzata la pagina seguente: ![Connessione del nodo](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
 
 ## <a name="author-linked-services"></a>Creare servizi collegati
 

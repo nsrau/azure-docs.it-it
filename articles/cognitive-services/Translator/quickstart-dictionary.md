@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Cercare parole con il dizionario bilingue - Translator'
+title: 'Avvio rapido: Cercare parole con il dizionario bilingue - Translator'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come usare Translator per ottenere traduzioni alternative per un termine, con alcuni esempi di tali traduzioni.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83996132"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Guida di avvio rapido: Cercare parole con il dizionario bilingue
+# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Avvio rapido: Cercare parole con il dizionario bilingue
 
 Questo argomento di avvio rapido descrive come usare Translator per ottenere traduzioni alternative per un termine, con alcuni esempi di tali traduzioni.
 

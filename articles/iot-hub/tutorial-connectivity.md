@@ -34,7 +34,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli script dell'interfaccia della riga di comando eseguiti in questa esercitazione usano l'[estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Per installare questa estensione, eseguire il comando dell'interfaccia della riga di comando seguente:
 

@@ -82,6 +82,8 @@
           href: specify-marketplace-images.md
         - name: Specificare le informazioni di supporto (proprietario dell'account lab)
           href: lab-account-owner-support-information.md
+        - name: Gestione costi per i lab
+          href: cost-management-guide.md
     - name: Creare e configurare lab per le classi (educatore)
       items:
         - name: Creare e gestire i lab per le classi

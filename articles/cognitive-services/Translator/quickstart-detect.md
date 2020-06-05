@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Rilevare la lingua del testo - Translator'
+title: 'Avvio rapido: Rilevare la lingua del testo - Translator'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come usare l'API REST Translator per rilevare la lingua del testo specificato.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83996194"
 ---
-# <a name="quickstart-use-the-translator-to-detect-text-language"></a>Guida di avvio rapido: Usare Translator per rilevare la lingua del testo
+# <a name="quickstart-use-the-translator-to-detect-text-language"></a>Avvio rapido: Usare Translator per rilevare la lingua del testo
 
 Questo argomento di avvio rapido descrive come usare l'API REST Translator per rilevare la lingua del testo specificato.
 

@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254309"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare regole di memorizzazione nella cache della rete CDN di Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure
 
 > [!NOTE] 
 > Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili della **rete CDN di Azure di Microsoft**, è necessario usare il [motore regole Standard](cdn-standard-rules-engine-reference.md). Per i profili della **rete CDN di Azure Premium di Verizon**, è necessario usare il [motore regole Verizon Premium](cdn-rules-engine.md) nel portale di **gestione** per funzionalità simili.
@@ -40,9 +40,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Aprire la pagina delle regole di memorizzazione nella cache della rete CDN di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un file audio - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un file audio - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà Speech SDK per riconoscere la voce da un file audio.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83714681"
 ---
-# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Guida introduttiva: Riconoscimento vocale da un file audio
+# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Avvio rapido: Riconoscimento vocale da un file audio
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]

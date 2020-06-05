@@ -23,8 +23,6 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: Concetti
   items:
-    - name: Panoramica
-      href: video-indexer-concepts.md
     - name: Confrontare i set di impostazioni di Video Indexer e Servizi multimediali
       href: compare-video-indexer-with-media-services-presets.md
     - name: Gestire più tenant

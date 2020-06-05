@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire Speech Devices SDK su Windows, Linux o Android - Servizio Voce'
+title: 'Avvio rapido: Eseguire Speech Devices SDK su Windows, Linux o Android - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Prerequisiti e istruzioni per iniziare con Speech Devices SDK in Windows, Linux o Android.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400126"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK in Windows, Linux o Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Avvio rapido: Eseguire l'app di esempio Speech Devices SDK in Windows, Linux o Android
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Windows platform](includes/speech-devices-sdk-windows-quickstart.md)]

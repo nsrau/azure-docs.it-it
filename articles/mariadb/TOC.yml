@@ -142,6 +142,8 @@
           href: howto-connection-string.md
         - name: Configurare SSL
           href: howto-configure-ssl.md
+        - name: Configurare TLS
+          href: howto-tls-configurations.md
     - name: Configurare i parametri del server
       items:
         - name: Portale di Azure

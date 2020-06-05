@@ -31,7 +31,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * Configurare l'integrazione continua/distribuzione continua
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Installare Git nel computer locale dalla [pagina di download di Git](https://git-scm.com/downloads). Per altre informazioni su Git, vedere la [documentazione](https://git-scm.com/docs).
 * Avere una conoscenza pratica di [Jenkins](https://jenkins.io/).

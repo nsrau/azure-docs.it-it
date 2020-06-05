@@ -183,7 +183,7 @@
           items:
             - name: Codici di errore degli endpoint di streaming
               href: streaming-endpoint-error-codes.md
-            - name: Codici errore di eventi live
+            - name: Codici di errore degli eventi live
               href: live-event-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
@@ -215,7 +215,7 @@
         - name: Accedere all'API
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Ridimensionare le unità riservate di codifica
+        - name: Dimensionare le Media Reserved Units
           href: media-reserved-units-cli-how-to.md
         - name: Creare un asset
           href: cli-create-asset.md
@@ -293,7 +293,7 @@
           href: live-events-wirecast-quickstart.md
         - name: Verificare il codificatore locale
           href: become-on-premises-encoder-partner.md
-        - name: Codici errore di eventi live
+        - name: Codici di errore degli eventi live
           href: live-event-error-codes.md
     - name: Usare Griglia di eventi
       items:
@@ -349,7 +349,7 @@
           items:
             - name: Codici di errore degli endpoint di streaming
               href: streaming-endpoint-error-codes.md
-            - name: Codici errore di eventi live
+            - name: Codici di errore degli eventi live
               href: live-event-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
@@ -376,6 +376,10 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Schemi del codificatore standard
+      items:
+        - name: Metadati di output
+          href: output-metadata-schema.md
 - name: Risorse
   items:
     - name: Community di Servizi multimediali di Azure

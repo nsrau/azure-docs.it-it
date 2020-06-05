@@ -151,7 +151,7 @@
       href: /rest/api/datalakeanalytics/
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.datalakeanalytics/allversions
-    - name: CLI
+    - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: Risorse
   items:

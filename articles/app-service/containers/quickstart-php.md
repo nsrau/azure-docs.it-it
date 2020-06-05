@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app PHP in Linux"
+title: "Avvio rapido: Creare un'app PHP in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app PHP in un contenitore Linux nel servizio app.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart

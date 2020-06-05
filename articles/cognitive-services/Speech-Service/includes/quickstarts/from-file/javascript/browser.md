@@ -36,7 +36,7 @@ Aggiungere codice che funga da scheletro del progetto.
 ```
 ## <a name="add-ui-elements"></a>Aggiungere elementi dell'interfaccia utente
 
-A questo punto verranno aggiunti degli elementi di interfaccia utente di base per le caselle di input, si farà riferimento al codice JavaScript di Speech SDK e si acquisirà un token di autorizzazione se disponibile.
+A questo punto verranno aggiunti elementi di base dell'interfaccia utente per le caselle di input, si farà riferimento al codice JavaScript di Speech SDK e si acquisirà un token di autorizzazione, se disponibile.
 
 ```html  
   <div id="content" style="display:none">

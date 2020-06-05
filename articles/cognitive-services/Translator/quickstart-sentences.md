@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Ottenere la lunghezza delle frasi - Translator'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi - Translator'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come usare Translator per determinare la lunghezza delle frasi.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83995803"
 ---
-# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Guida di avvio rapido: Usare Translator per determinare la lunghezza delle frasi
+# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Avvio rapido: Usare Translator per determinare la lunghezza delle frasi
 
 Questo argomento di avvio rapido descrive come usare Translator per determinare la lunghezza delle frasi.
 

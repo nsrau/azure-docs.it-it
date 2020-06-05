@@ -4,19 +4,19 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7ee269651662496e211e1861bf4a80f6ba4d27d1
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: c768f32e987ae7e83a5dfbb2407f8224e23fb275
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67048545"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343506"
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-È possibile usare l'attività di copia con una pipeline tramite uno degli strumenti o degli SDK seguenti. Per istruzioni dettagliate, selezionare un collegamento:
+Per usare l'attività di copia con una pipeline, è possibile usare uno degli strumenti o SDK seguenti. Per istruzioni dettagliate, selezionare un collegamento.
 
-- [Strumento copia dati](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [Strumento di copia dei dati](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)

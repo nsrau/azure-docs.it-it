@@ -114,6 +114,8 @@
   items:
     - name: Gestione
       items:
+        - name: Processi con scalabilità automatica
+          href: stream-analytics-autoscale.md
         - name: Aggiornare le credenziali
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurare i criteri di ordinamento eventi
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Risorse
   items:
     - name: Anteprime di Analisi di flusso

@@ -187,7 +187,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando l'output visualizzato da **stress** è simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
+Quando **stress** visualizza un output simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
 
 Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
@@ -215,7 +215,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Anche in questo caso, quando l'output visualizzato da **stress** è simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
+Anche in questo caso, quando **stress** visualizza un output simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
 
 Chiudere la connessione alla seconda istanza di VM. **stress** continuerà a essere eseguito nell'istanza di VM.
 

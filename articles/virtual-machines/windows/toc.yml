@@ -13,6 +13,9 @@
       href: quick-create-powershell.md
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
       href: quick-create-cli.md
+    - name: 'Creare una VM: modello di Resource Manager'
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Esercitazioni
   items:
     - name: 1 - Creare/gestire una macchina virtuale

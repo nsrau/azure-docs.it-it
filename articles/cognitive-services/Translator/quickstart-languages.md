@@ -1,5 +1,5 @@
 ---
-title: "Guida di avvio rapido: Ottenere l'elenco delle lingue supportate - Translator"
+title: "Avvio rapido: Ottenere l'elenco delle lingue supportate - Translator"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare Translator per ottenere un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83994137"
 ---
-# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Guida di avvio rapido: Usare Translator per ottenere un elenco delle lingue supportate
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Avvio rapido: Usare Translator per ottenere un elenco delle lingue supportate
 
 Questo argomento di avvio rapido illustra come usare Translator per ottenere un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari.
 

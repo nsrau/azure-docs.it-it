@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un file audio, C++ - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un file audio, C++ - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf

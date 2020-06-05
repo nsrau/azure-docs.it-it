@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81867907"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Esercitazione: integrazione di Azure Active Directory con Workstars
+# <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Esercitazione: Integrazione di Azure Active Directory con Workstars
 
 Questa esercitazione descrive come integrare Workstars con Azure Active Directory (Azure AD).
 L'integrazione di Workstars con Azure AD offre i vantaggi seguenti:
@@ -34,7 +34,7 @@ L'integrazione di Workstars con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Workstars, sono necessari gli elementi seguenti:
 

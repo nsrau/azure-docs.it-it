@@ -195,6 +195,10 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Da archivio HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+    - name: Informazioni di riferimento
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: /cli/azure/ext/databox/databox
     - name: Risorse
       items:
         - name: Prodotto Data Box

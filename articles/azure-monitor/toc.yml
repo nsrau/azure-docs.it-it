@@ -230,7 +230,7 @@
                     - name: Cronologia delle versioni
                       href: platform/diagnostics-extension-versions.md
                     - name: Formato dei log delle risorse di Righe JSON
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Risoluzione dei problemi
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Log della piattaforma
       items:
+        - name: Categorie e tipi di log delle risorse supportati
+          href: platform/resource-logs-categories.md
         - name: Schemi del log delle risorse
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: Schema del log attività
           href: platform/activity-log-schema.md
     - name: Schemi dell'estensione di diagnostica

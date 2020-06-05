@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Ruby in Linux"
+title: "Avvio rapido: Creare un'app Ruby in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Ruby in un contenitore Linux nel servizio app.
 keywords: servizio app di azure, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: 33723e6dd8fbcd91d2d5863816786c0f08cdf923
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80045840"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Creare un'app Ruby on Rails con il Servizio app di Azure in Linux

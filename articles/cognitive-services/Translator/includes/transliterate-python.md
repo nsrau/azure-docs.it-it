@@ -127,7 +127,7 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questo argomento di avvio rapido.
+Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questa guida introduttiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

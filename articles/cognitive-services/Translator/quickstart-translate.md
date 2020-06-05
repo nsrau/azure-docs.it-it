@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Tradurre un testo - Translator'
+title: 'Avvio rapido: Tradurre un testo - Translator'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come usare Translator per tradurre testo.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83993231"
 ---
-# <a name="quickstart-use-the-translator-to-translate-text"></a>Guida di avvio rapido: Usare Translator per tradurre testo
+# <a name="quickstart-use-the-translator-to-translate-text"></a>Avvio rapido: Usare Translator per tradurre testo
 
 Questo argomento di avvio rapido descrive come usare l'API REST Translator per tradurre una stringa di testo dall'inglese al tedesco, all'italiano, al giapponese e al thai.
 

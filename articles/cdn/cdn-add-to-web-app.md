@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254615"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN a un'app Web del Servizio app di Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
 
 Questa esercitazione illustra come aggiungere la [rete CDN di Azure](cdn-overview.md) a un'[app Web nel servizio app di Azure](../app-service/overview.md). Le app Web sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. 
 
@@ -38,7 +38,7 @@ Contenuto dell'esercitazione:
 > * Usare stringhe di query per controllare le versioni memorizzate nella cache.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 

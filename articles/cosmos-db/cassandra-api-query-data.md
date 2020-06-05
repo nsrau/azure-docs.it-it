@@ -27,7 +27,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Questo articolo fa parte di un'esercitazione in più parti. Prima di iniziare, assicurarsi di completare i passaggi precedenti per creare account, keyspace e tabella dell'API Cassandra e per [caricare dati di esempio nella tabella](cassandra-api-load-data.md). 
 

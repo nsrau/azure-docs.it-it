@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -17,4 +17,4 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
 ms.locfileid: "83588946"
 ---
-Queste sono solo alcune espressioni fornite a scopo dimostrativo. Un'app reale dovrebbe includere almeno 15-30 [espressioni](../luis-concept-utterance.md) di lunghezza, ordine e conteggio delle parole, tempo verbale, correttezza grammaticale e punteggiatura variabili.
+Queste espressioni solo a scopo dimostrativo. Un'app reale dovrebbe includere almeno 15-30 [espressioni](../luis-concept-utterance.md) di lunghezza, ordine e conteggio delle parole, tempo verbale, correttezza grammaticale e punteggiatura variabili.

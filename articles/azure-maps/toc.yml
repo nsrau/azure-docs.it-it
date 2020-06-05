@@ -177,6 +177,14 @@
               href: map-get-information-from-coordinate.md
             - name: Visualizzare le indicazioni stradali da A a B
               href: map-route.md
+        - name: Modulo di piante di interni
+          items:
+            - name: Modulo di piante di interni
+              href: how-to-use-indoor-module.md
+            - name: Stili dinamici per le piante di interni
+              href: indoor-map-dynamic-styling.md
+            - name: Visualizzatore errori di disegno
+              href: drawing-error-visualizer.md
         - name: Modulo di I/O spaziale
           items:
             - name: Usare il modulo di I/O spaziale
@@ -211,14 +219,6 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Visualizzare i dati sul traffico
           href: how-to-show-traffic-android.md
-    - name: Sviluppare con le piante di interni di Creator
-      items:
-        - name: Modulo di piante di interni
-          href: how-to-use-indoor-module.md
-        - name: Stili dinamici per le piante di interni
-          href: indoor-map-dynamic-styling.md
-        - name: Visualizzatore errori di disegno
-          href: drawing-error-visualizer.md
     - name: Inviare commenti e suggerimenti sui dati
       href: how-to-use-feedback-tool.md
 - name: Informazioni di riferimento
