@@ -1,26 +1,25 @@
 ---
-title: Installazione di driver GPU serie N di Azure per Linux
+title: Configurazione del driver GPU serie N di Azure per Linux
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
-author: cynthn
-ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
+author: vikancha
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: cynthn
-ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.author: vikancha
+ms.openlocfilehash: e4ee760acb441cdf70e588004d2f380ead07cd34
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628193"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779367"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
-Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure supportate da GPU NVIDIA, è necessario installare i driver GPU NVIDIA. L'[estensione del driver NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) consente di installare i driver NVIDIA CUDA o GRID appropriati in una macchina virtuale serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come l'interfaccia della riga di comando di Azure o Azure Resource Manager. Vedere le [documentazione dell'estensione dei driver GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) per le distribuzioni supportate e i passaggi di distribuzione.
+Per usufruire delle funzionalità GPU delle macchine virtuali serie N di Azure che si servono di GPU NVIDIA, è necessario installare i driver GPU NVIDIA. L'[estensione del driver NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) consente di installare i driver NVIDIA CUDA o GRID appropriati in una macchina virtuale serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come l'interfaccia della riga di comando di Azure o Azure Resource Manager. Vedere le [documentazione dell'estensione dei driver GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) per le distribuzioni supportate e i passaggi di distribuzione.
 
-Se si sceglie di installare manualmente i driver GPU NVIDIA, questo articolo fornisce le distribuzioni supportate, i driver e i passaggi di installazione e verifica. Le informazioni di configurazione manuale dei driver sono disponibili anche per le [macchine virtuali Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se si sceglie di installare manualmente i driver GPU NVIDIA, questo articolo descrive i driver e le distribuzioni supportate, nonché passaggi di installazione e verifica. Le informazioni di configurazione manuale dei driver sono disponibili anche per le [macchine virtuali Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -151,7 +150,7 @@ Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
-La connettività di rete RDMA può essere abilitata in macchine virtuali serie N con supporto per RDMA, ad esempio NC24r distribuite nello stesso set di disponibilità o in un singolo gruppo di posizionamento in un set di scalabilità di machiine virtuale (VM). La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
+La connettività di rete RDMA può essere abilitata nelle macchine virtuali serie N con supporto per RDMA, come le macchine virtuali NC24r distribuite nello stesso set di disponibilità o in un unico gruppo di selezione in un set di scalabilità di macchine virtuali. La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
 
 ### <a name="distributions"></a>Distribuzioni
 
@@ -163,9 +162,9 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 * **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
-## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i Driver GRID nelle macchine virtuali serie NV o NVv3
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i driver GRID nelle macchine virtuali serie NV o NVv3
 
-Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, effettuare una connessione SSH a ogni macchina virtuale e seguire i passaggi per la distribuzione di Linux. 
+Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -184,7 +183,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    
    sudo apt-get install linux-azure -y
    ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NVv2). A tale scopo, creare un file `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -224,7 +223,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    EnableUI=FALSE
    ```
    
-9. Rimuovere il codice seguente `/etc/nvidia/gridd.conf` se presente:
+9. Rimuovere quanto segue da `/etc/nvidia/gridd.conf` se presente:
  
    ```
    FeatureType=0
@@ -248,7 +247,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    sudo yum install hyperv-daemons
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NV2). A tale scopo, creare un file `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -296,7 +295,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. Rimuovere il codice seguente `/etc/nvidia/gridd.conf` se presente:
+9. Rimuovere quanto segue da `/etc/nvidia/gridd.conf` se presente:
  
    ```
    FeatureType=0
@@ -356,7 +355,7 @@ Creare quindi una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d`, in m
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * È possibile impostare la modalità di persistenza tramite `nvidia-smi`. In questo modo l'output del comando sarà più veloce per l'esecuzione di query sulle schede. Per impostare la modalità di persistenza, eseguire `nvidia-smi -pm 1`. Si noti che se la macchina virtuale viene riavviata, l'impostazione della modalità scompare. È sempre possibile generare script che impostino la modalità affinché venga eseguita all'avvio.
-* Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e la connettività RDMA non è più funzionante, [reinstallare i driver di RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) per ristabilire la connettività. 
+* Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e si rileva che la connettività RDMA non funziona più, [reinstallare i driver RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) per ristabilire la connettività. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

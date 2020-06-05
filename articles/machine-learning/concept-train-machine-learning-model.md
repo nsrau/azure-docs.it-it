@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592390"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683002"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -111,6 +111,18 @@ La finestra di progettazione consente di eseguire il training dei modelli usando
 + [Classificazione: Stimare varianza, appetibilità e upsell](how-to-designer-sample-classification-churn.md)
 + [Classificazione con script R personalizzato: Prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
 + [Classificazione del testo: Set di dati SP 500 di Wikipedia](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>Acceleratore di soluzioni molti modelli
+
+L'[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.
+
+Ad esempio, la creazione di un modello __per ogni istanza o unico__ negli scenari seguenti può produrre risultati migliori:
+
+* Stima delle vendite per ogni singolo negozio
+* Manutenzione predittiva per centinaia di pozzi di petrolio
+* Adattamento di un'esperienza ai singoli utenti.
+
+Per altre informazioni, vedere [Acceleratore di soluzioni molti modelli](https://aka.ms/many-models) su GitHub.
 
 ## <a name="cli"></a>CLI
 

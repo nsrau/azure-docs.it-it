@@ -4,22 +4,18 @@ description: Informazioni sulla clausola GROUP BY per Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261602"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700998"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clausola GROUP BY in Azure Cosmos DB
 
-La clausola GROUP BY divide i risultati della query in base ai valori di una o più proprietà specificate.
-
-> [!NOTE]
-> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3,3 e versioni successive, oltre a JavaScript SDK 3,4 e versioni successive.
-> Il supporto per altri linguaggi SDK non è attualmente disponibile ma è pianificato.
+La clausola GROUP BY consente di dividere i risultati della query in base ai valori di una o più proprietà specificate.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,35 +31,40 @@ La clausola GROUP BY divide i risultati della query in base ai valori di una o p
 
 - `<scalar_expression_list>`
 
-   Specifica le espressioni che verranno utilizzate per dividere i risultati della query.
+   Specifica le espressioni che verranno usate per dividere i risultati della query.
 
 - `<scalar_expression>`
   
-   Qualsiasi espressione scalare è consentita ad eccezione di sottoquery scalari e aggregazioni scalari. Ogni espressione scalare deve contenere almeno un riferimento a una proprietà. Non esiste alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
+   È consentita qualsiasi espressione scalare ad eccezione di sottoquery scalari e aggregazioni scalari. Ogni espressione scalare deve includere almeno un riferimento a proprietà. Non è previsto alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
 
 ## <a name="remarks"></a>Osservazioni
   
-  Quando in una query viene utilizzata una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e le funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è rappresentata dalle [funzioni di sistema aggregate](sql-query-aggregates.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola Group by. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
+  Quando una query usa una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è costituita dalle [funzioni di sistema di aggregazione](sql-query-aggregates.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola GROUP BY. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
 
-  La clausola GROUP BY deve essere successiva alla clausola SELECT, FROM e WHERE e prima della clausola OFFSET limite. Attualmente non è possibile utilizzare GROUP BY con una clausola ORDER BY, ma questo è pianificato.
+  La clausola GROUP BY deve seguire la clausola SELECT, FROM e WHERE e precedere la clausola OFFSET LIMIT. Al momento non è possibile usare GROUP BY con una clausola ORDER BY, ma è previsto in futuro.
 
-  La clausola GROUP BY non consente le operazioni seguenti:
+  Con la clausola GROUP BY non sono consentiti gli elementi seguenti:
   
-- Proprietà di aliasing o funzioni di sistema di alias (l'aliasing è ancora consentito nella clausola SELECT)
-- Sottoquery:
-- Funzioni di sistema aggregate (sono consentite solo nella clausola SELECT)
+- Proprietà di aliasing o funzioni di sistema di aliasing (l'aliasing è comunque consentito nella clausola SELECT)
+- Sottoquery
+- Funzioni di sistema di aggregazione (sono consentite solo nella clausola SELECT)
 
-Le query con una funzione di sistema di aggregazione e `GROUP BY` una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
+Le query con una funzione di sistema di aggregazione e una sottoquery con `GROUP BY` non sono supportate. Ad esempio, la query seguente non è supportata:
 
 ```sql
-SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
 ```
 
 ## <a name="examples"></a>Esempi
 
-In questi esempi viene usato il set di dati nutrizionale disponibile tramite il [Playground per le query Azure Cosmos DB](https://www.documentdb.com/sql/demo).
+In questi esempi viene usato il set di dati delle informazioni nutrizionali disponibile tramite [Playground per le query di Azure Cosmos DB](https://www.documentdb.com/sql/demo).
 
-Ad esempio, ecco una query che restituisce il numero totale di elementi in ogni foodGroup:
+Ecco, ad esempio, una query che restituisce il numero totale di elementi in ogni foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -71,28 +72,30 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alcuni risultati sono (la parola chiave TOP viene usata per limitare i risultati):
+Per limitare i risultati, si usa la parola chiave TOP. Alcuni risultati sono:
 
 ```json
-[{
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "foodGroup": "Meals, Entrees, and Side Dishes",
-  "foodGroupCount": 113
-},
-{
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta"
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products"
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes"
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs"
+    }
+]
 ```
 
-Questa query include due espressioni utilizzate per dividere i risultati:
+Questa query include due espressioni usate per dividere i risultati:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -103,26 +106,28 @@ GROUP BY f.foodGroup, f.version
 Alcuni risultati sono:
 
 ```json
-[{
-  "version": 1,
-  "foodGroup": "Nut and Seed Products",
-  "foodGroupCount": 133
-},
-{
-  "version": 1,
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "version": 1,
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "version": 1,
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs",
+        "version": 1
+    }
+]
 ```
 
 Questa query include una funzione di sistema nella clausola GROUP BY:
@@ -136,25 +141,27 @@ GROUP BY UPPER(f.foodGroup)
 Alcuni risultati sono:
 
 ```json
-[{
-  "foodGroupCount": 371,
-  "upperFoodGroup": "FAST FOODS"
-},
-{
-  "foodGroupCount": 267,
-  "upperFoodGroup": "FINFISH AND SHELLFISH PRODUCTS"
-},
-{
-  "foodGroupCount": 389,
-  "upperFoodGroup": "LEGUMES AND LEGUME PRODUCTS"
-},
-{
-  "foodGroupCount": 113,
-  "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
+    },
+    {
+        "foodGroupCount": 133,
+        "upperFoodGroup": "NUT AND SEED PRODUCTS"
+    },
+    {
+        "foodGroupCount": 113,
+        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
+    },
+    {
+        "foodGroupCount": 64,
+        "upperFoodGroup": "SPICES AND HERBS"
+    }
+]
 ```
 
-Questa query usa le parole chiave e le funzioni di sistema nell'espressione di proprietà Item:
+Questa query usa sia parole chiave che funzioni di sistema nell'espressione di proprietà dell'elemento:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -165,20 +172,22 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 I risultati sono:
 
 ```json
-[{
-  "correctVersion": true,
-  "containsOrangeTag": false,
-  "foodGroupCount": 8608
-},
-{
-  "correctVersion": true,
-  "containsOrangeTag": true,
-  "foodGroupCount": 10
-}]
+[
+    {
+        "foodGroupCount": 10,
+        "containsOrangeTag": true,
+        "correctVersion": true
+    },
+    {
+        "foodGroupCount": 8608,
+        "containsOrangeTag": false,
+        "correctVersion": true
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Funzioni di aggregazione](sql-query-aggregates.md)

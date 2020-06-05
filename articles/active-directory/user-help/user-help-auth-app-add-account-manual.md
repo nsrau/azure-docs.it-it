@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062320"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741727"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
 
@@ -51,7 +51,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
     La pagina **Impossibile effettuare scansione del codice a barre** verrà visualizzata con il codice segreto. Tenere aperta questa pagina per visualizzare il codice segreto.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Google) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
@@ -66,7 +66,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 1. Nella pagina **Configurare con autenticazione di terze parti**, che include il codice a matrice e un codice scritto da inserire nella app. Tenere aperta questa pagina per visualizzare il codice.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Facebook) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
@@ -85,7 +85,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
     Verrà visualizzato il messaggio **Non riesci a scansionare il codice a barre?** contenente il codice segreto. Tenere aperto questo messaggio per visualizzare il codice segreto.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Amazon) e digitare la **Chiave privata** del passaggio 1, quindi selezionare **Fine**.
 
@@ -93,7 +93,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 5. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul computer digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
 
-6. Nella pagina quasi finito decidere se rendere il computer un dispositivo attendibile, quindi selezionare **ottenuto. Attivare la verifica in due passaggi**.
+6. Nella pagina Quasi terminato, decidere se rendere il computer un dispositivo attendibile e quindi selezionare **Ho capito. Attiva la verifica in due passaggi**.
 
     Viene visualizzata la pagina **Impostazioni di sicurezza avanzate**, che mostra i dettagli aggiornati della verifica a due fattori.
 
@@ -104,6 +104,6 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Microsoft Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Se si verificano problemi durante il recupero del codice di verifica per l'account Microsoft personale, vedere la sezione **Risoluzione dei problemi del codice di verifica** dell'articolo [Informazioni di sicurezza e codici di verifica dell'account Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

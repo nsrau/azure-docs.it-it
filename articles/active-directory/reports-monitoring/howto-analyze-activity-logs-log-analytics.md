@@ -1,6 +1,6 @@
 ---
-title: Analizzare i log attività usando i log di monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come analizzare i log attività di Azure Active Directory usando i log di monitoraggio di Azure
+title: Analizzare i log attività usando i log di Monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come analizzare i log attività di Azure Active Directory con i log di Monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa952e0a237ca30a3bd109f51ee45c2f4dafa533
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008280"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758266"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure
 
@@ -38,8 +38,8 @@ Per seguire la procedura, è necessario:
 
 * Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Accesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) all'area di lavoro di log Analytics
-* I ruoli seguenti in Azure Active Directory (se si accede a Log Analytics tramite il portale di Azure Active Directory)
+*  [Accedere](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) all'area di lavoro Log Analytics
+* I ruoli seguenti in Azure Active Directory se si accede a Log Analytics tramite il portale di Azure Active Directory.
     - Amministrazione della protezione
     - Ruolo con autorizzazioni di lettura per la sicurezza
     - Lettore di report
@@ -60,8 +60,8 @@ I log vengono inviati alle tabelle **AuditLogs** e **SigninLogs** nell'area di l
 
 1. Dalla visualizzazione della query predefinita nella sezione precedente, selezionare **Schema** ed espandere l'area di lavoro. 
 
-2. Espandere la sezione **Gestione log** e quindi espandere **AuditLogs** o **SignInLogs** per visualizzare lo schema del log.
-    ![](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Log di controllo log di accesso](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+2. Espandere la sezione **Gestione log** e quindi **AuditLogs** o **SignInLogs** per visualizzare lo schema del log.
+    ![Log di controllo](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Log di accesso](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Eseguire query sui log attività di Azure AD
 
@@ -104,15 +104,15 @@ AuditLogs
 
 È anche possibile scaricare le viste predefinite di analisi dei log per i log attività di Azure AD. Le viste includono numerosi report relativi a scenari comuni che interessano gli eventi di accesso e controllo. È possibile anche impostare un avviso per tutti i dati disponibili nei report, seguendo la procedura descritta nella sezione precedente.
 
-* **Azure AD Account Provisioning Events**(Eventi di provisioning account Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
-* **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
+* **Azure AD Account Provisioning Events** (Eventi di provisioning degli account di Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
+* **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che tiene traccia del numero di accessi nel tempo.
 * **Users Performing Consent** (Consenso dagli utenti): questa vista mostra i report relativi al consenso dell'utente, ad esempio i consensi per utente, gli accessi di utenti che hanno concesso il consenso e gli accessi per applicazione per tutte le applicazioni basate sul consenso dell'utente. 
 
-Informazioni su come [installare e usare le visualizzazioni di log Analytics per i log attività di Azure ad](howto-install-use-log-analytics-views.md). 
+Vedere come [installare e usare le viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione alle query nei log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Creare e gestire gruppi di azione nel portale di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Installare e usare le visualizzazioni di log Analytics per Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installare e usare le viste di analisi dei log per Azure Active Directory](howto-install-use-log-analytics-views.md)

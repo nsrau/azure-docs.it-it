@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività hive di Hadoop
+title: Trasformare i dati usando l'attività Hive di Hadoop
 description: Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 ms.service: data-factory
@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 01/15/2019
-ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/08/2019
+ms.openlocfilehash: 877c1719a76f23f8446164b641dc2dac84261e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418933"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849281"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
 
@@ -64,9 +64,9 @@ Se non si ha familiarità con Azure Data Factory, prima di leggere questo artico
 | description         | Testo descrittivo per lo scopo dell'attività                | No       |
 | type                | Per l'Attività Hive, il tipo di attività è HDinsightHive        | Sì      |
 | linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| scriptLinkedService | Riferimento a un servizio collegato Archiviazione di Azure usato per memorizzare lo script Hive da eseguire. Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight. | No       |
+| scriptLinkedService | Riferimento a un servizio collegato Archiviazione di Azure usato per memorizzare lo script Hive da eseguire. Qui sono supportati solo i servizi collegati **[Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight.  | No       |
 | scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
-| getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No       |
+| getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always e Failure. Valore predefinito: No. | No       |
 | argomenti           | Specifica una matrice di argomenti per un processo Hadoop. Gli argomenti vengono passati a ogni attività come argomenti della riga di comando. | No       |
 | defines             | Specificare i parametri come coppie chiave/valore per fare riferimento a essi nello script Hive. | No       |
 | queryTimeout        | Valore di timeout di query (in minuti). Applicabile se il cluster HDInsight è abilitato per Enterprise Security Package. | No       |
@@ -80,5 +80,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

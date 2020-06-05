@@ -1,16 +1,16 @@
 ---
-title: Usare le applicazioni di rendering
-description: Come usare le applicazioni di rendering con Azure Batch. Questo articolo presenta una breve descrizione di come eseguire ogni applicazione per il rendering.
+title: Usare le applicazioni per il rendering
+description: Come usare le applicazioni per il rendering con Azure Batch. Questo articolo presenta una breve descrizione di come eseguire ogni applicazione per il rendering.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115806"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726503"
 ---
 # <a name="rendering-applications"></a>Applicazioni per il rendering
 

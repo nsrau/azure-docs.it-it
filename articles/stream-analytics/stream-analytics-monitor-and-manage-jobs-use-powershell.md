@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire i processi di analisi di flusso di Azure con PowerShell
+title: Monitorare e gestire processi di Analisi di flusso di Azure con PowerShell
 description: Questo articolo descrive come usare Azure PowerShell e i cmdlet per monitorare e gestire i processi di Analisi di flusso di Azure.
 author: jseb225
 ms.author: jeanb
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 295141dfd9b84428e2ee69354ab0c249fa46d1b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 58908b690464396f716801338cb22514ae4b5a66
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998876"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831263"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
 Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i cmdlet di Azure PowerShell e gli script di PowerShell che eseguono attività di base di Analisi di flusso.
@@ -50,13 +50,13 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
 > [!NOTE]
-> Nei processi di Analisi di flusso creati a livello di codice il monitoraggio non è abilitato per impostazione predefinita.  È possibile abilitare manualmente il monitoraggio nel portale di Azure passando alla pagina Monitoraggio del processo e facendo clic sul pulsante Abilita oppure è possibile eseguire questa operazione a livello di codice seguendo i passaggi disponibili in [analisi di flusso di Azure-monitorare i processi di analisi di flusso a livello di codice](stream-analytics-monitor-jobs.md).
+> Nei processi di Analisi di flusso creati a livello di codice il monitoraggio non è abilitato per impostazione predefinita.  Il monitoraggio può essere attivato manualmente nel portale di Azure passando alla pagina dedicata al monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile farlo a livello di codice seguendo i passaggi in [Analisi di flusso di Azure - Creare un monitoraggio dei processi di Analisi di flusso a livello di codice](stream-analytics-monitor-jobs.md).
 > 
 > 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlet di Azure PowerShell per Analisi dei flussi
 I cmdlet di Azure PowerShell indicati di seguito possono essere utilizzati per monitorare e gestire i processi di Analisi dei flussi di Azure. Si noti che sono disponibili diverse versioni di Azure PowerShell. 
-**Negli esempi elencati il primo comando è per Azure PowerShell 0.9.8, il secondo comando è per Azure PowerShell 1.0.** I comandi di Azure PowerShell 1,0 avranno sempre "AZ" nel comando.
+**Negli esempi elencati il primo comando è per Azure PowerShell 0.9.8, il secondo comando è per Azure PowerShell 1.0.** Nei comandi di Azure PowerShell 1.0 è sempre presente "Az".
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Elenca tutti i processi di Analisi dei flussi definiti nella sottoscrizione di Azure o nel gruppo di risorse specificato oppure ottiene informazioni su uno specifico processo all'interno di un gruppo di risorse.
@@ -222,11 +222,11 @@ Crea un nuovo input all'interno di un processo di Analisi dei flussi o aggiorna 
 
 Il nome dell'input può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
-Se si specifica un input già esistente e non si specifica il parametro-Force, il cmdlet chiederà se sostituire l'input esistente.
+Se si specifica un input già esistente e non si specifica il parametro -Force, il cmdlet chiederà se si desidera sostituire l'input esistente.
 
-Se si specifica il parametro-Force e si specifica un nome di input esistente, l'input verrà sostituito senza conferma.
+Se si specifica un nome di input esistente e il parametro -Force, l'input verrà sostituito senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Create Input (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-input] della [libreria di riferimento delle API REST di gestione di Analisi di flusso di Azure][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Creare l'input (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-input] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -281,11 +281,11 @@ Crea un nuovo processo di Analisi dei flussi in Microsoft Azure o aggiorna la de
 
 Il nome del processo può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
-Se si specifica un nome di processo già esistente e non si specifica il parametro-Force, il cmdlet chiederà se sostituire il processo esistente.
+Se si specifica un nome di processo già esistente e non si specifica il parametro -Force, il cmdlet chiederà se si desidera sostituire il processo esistente.
 
-Se si specifica il parametro-Force e si specifica un nome di processo esistente, la definizione del processo verrà sostituita senza conferma.
+Se si specifica un nome di processo esistente e il parametro -Force, la definizione del processo verrà sostituita senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Create Stream (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-job] della [libreria di riferimento delle API REST di gestione di Analisi di flusso di Azure][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Creare il processo di analisi di flusso][msdn-rest-api-create-stream-analytics-job] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -324,11 +324,11 @@ Crea un nuovo output all'interno di un processo di Analisi dei flussi o aggiorna
 
 Il nome dell'output può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
-Se si specifica un output già esistente e non si specifica il parametro-Force, il cmdlet chiederà se si desidera sostituire l'output esistente.
+Se si specifica un output già esistente e non si specifica il parametro -Force, il cmdlet chiederà se si desidera sostituire l'output esistente.
 
-Se si specifica il parametro-Force e si specifica un nome di output esistente, l'output verrà sostituito senza conferma.
+Se si specifica un nome di output esistente e il parametro -Force, l'output verrà sostituito senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Create Output (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-output] della [libreria di riferimento delle API REST di gestione di Analisi di flusso di Azure][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Creare l'output (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-output] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -367,11 +367,11 @@ Crea una nuova trasformazione all'interno di un processo di Analisi dei flussi o
 
 Il nome della trasformazione può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
-Se si specifica una trasformazione già esistente e non si specifica il parametro-Force, il cmdlet chiederà se sostituire la trasformazione esistente.
+Se si specifica una trasformazione già esistente e non si specifica il parametro -Force, il cmdlet chiederà se si desidera sostituire la trasformazione esistente.
 
-Se si specifica il parametro-Force e si specifica un nome di trasformazione esistente, la trasformazione verrà sostituita senza conferma.
+Se si specifica un nome di trasformazione esistente e il parametro -Force, la trasformazione verrà sostituita senza chiedere conferma.
 
-Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Create Transformation (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-transformation] della [libreria di riferimento delle API REST di gestione di Analisi di flusso di Azure][stream.analytics.rest.api.reference].
+Per informazioni dettagliate sulla struttura e sul contenuto dei file JSON, vedere la sezione [Creare una trasformazione (Analisi di flusso di Azure)][msdn-rest-api-create-stream-analytics-transformation] della [libreria di riferimento dell'API REST di gestione di analisi di flusso][stream.analytics.rest.api.reference].
 
 **Esempio 1**
 
@@ -407,7 +407,7 @@ New-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-C
 
 ### <a name="remove-azurestreamanalyticsinput--remove-azstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzStreamAnalyticsInput
 Elimina in modo asincrono uno specifico input da un processo di Analisi dei flussi in Microsoft Azure.  
-Se si specifica il parametro-Force, l'input verrà eliminato senza conferma.
+Se si specifica il parametro -Force, l'input verrà eliminato senza chiedere conferma.
 
 **Esempio 1**
 
@@ -427,7 +427,7 @@ Questo comando di PowerShell rimuove l'input EventStream nel processo StreamingJ
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzStreamAnalyticsJob
 Elimina in modo asincrono uno specifico processo di Analisi dei flussi in Microsoft Azure.  
-Se si specifica il parametro-Force, il processo verrà eliminato senza conferma.
+Se si specifica il parametro -Force, il processo verrà eliminato senza chiedere conferma.
 
 **Esempio 1**
 
@@ -447,7 +447,7 @@ Questo comando di PowerShell rimuove il processo StreamingJob.
 
 ### <a name="remove-azurestreamanalyticsoutput--remove-azstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzStreamAnalyticsOutput
 Elimina in modo asincrono uno specifico output da un processo di Analisi dei flussi in Microsoft Azure.  
-Se si specifica il parametro-Force, l'output verrà eliminato senza conferma.
+Se si specifica il parametro -Force, l’output verrà eliminato senza chiedere conferma.
 
 **Esempio 1**
 
@@ -541,14 +541,14 @@ Test-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-
 
 Questo comando di PowerShell verifica lo stato di connessione dell'output Output in StreamingJob.  
 
-## <a name="get-support"></a>Ottenere supporto
-Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+## <a name="get-support"></a>Supporto
+Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

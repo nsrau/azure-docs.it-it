@@ -1,82 +1,84 @@
 ---
-title: Monitoraggio con test Web in più passaggi-applicazione Azure Insights
-description: Configurare test Web in più passaggi per monitorare le applicazioni Web con applicazione Azure Insights
+title: Monitoraggio con test Web in più passi - Azure Application Insights
+description: Configurare test Web in più passi per monitorare le applicazioni Web con Azure Application Insights
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655941"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873341"
 ---
 # <a name="multi-step-web-tests"></a>Test Web in più passaggi
 
-È possibile monitorare una sequenza registrata di URL e interazioni con un sito Web tramite test Web in più passaggi. In questo articolo viene illustrato il processo di creazione di un test Web in più passaggi con Visual Studio Enterprise.
+È possibile monitorare una sequenza registrata di URL e interazioni con un sito Web tramite test Web in più passi. Questo articolo illustra il processo di creazione di un test Web in più passi con Visual Studio Enterprise.
 
 > [!NOTE]
-> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro [dei test di](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)disponibilità in più passaggi.  
+> I test Web in più passi dipendono dai file webtest di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con la funzionalità test Web. È importante comprendere che, anche se non vengono aggiunte nuove funzionalità, la funzionalità test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a esserlo durante il ciclo di vita del prodotto. Il team del prodotto Monitoraggio di Azure ha affrontato le domande relative al futuro dei test di disponibilità in più passi [qui](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> </br>
+> I test Web in più passi **non sono supportati** nel cloud di [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/).
+
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-* Visual Studio 2017 Enterprise o versione successiva.
-* Strumenti per test di carico e prestazioni Web di Visual Studio.
+* Visual Studio 2017 Enterprise o versioni successive.
+* Strumenti per test di carico e delle prestazioni Web di Visual Studio.
 
-Per individuare il prerequisito degli strumenti di test. Avviare il **programma di installazione di Visual Studio** > **singoli componenti** > **eseguendo il debug e testando** > gli**strumenti di test di carico e prestazioni Web**.
+Per individuare il prerequisito degli strumenti di test. Avviare il **Programma di installazione di Visual Studio** > **Singoli componenti** > **Debug e test** > **Strumenti per test di carico e delle prestazioni Web**.
 
-![Screenshot dell'interfaccia utente del programma di installazione di Visual Studio con singoli componenti selezionati con una casella di controllo accanto all'elemento per gli strumenti di test di carico e prestazioni Web](./media/availability-multistep/web-performance-load-testing.png)
+![Screenshot dell'interfaccia utente del programma di installazione di Visual Studio con Singoli componenti selezionato con una casella di controllo accanto all'elemento per Strumenti per test di carico e delle prestazioni Web](./media/availability-multistep/web-performance-load-testing.png)
 
 > [!NOTE]
-> Ai test Web in più passaggi sono associati costi aggiuntivi. Per ulteriori informazioni, consultare la [Guida ai prezzi ufficiale](https://azure.microsoft.com/pricing/details/application-insights/).
+> Ai test Web in più passi sono associati costi aggiuntivi. Per altre informazioni, vedere la [guida ai prezzi ufficiale](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Registrare un test Web in più passaggi 
+## <a name="record-a-multi-step-web-test"></a>Registrare un test Web in più passi 
 
 > [!WARNING]
-> Non è più consigliabile usare la registrazione in più passaggi. Il registratore è stato sviluppato per le pagine HTML statiche con interazioni di base e non fornisce un'esperienza funzionale per le pagine Web moderne.
+> Non è più consigliabile usare la registrazione in più passi. La registrazione è stata sviluppata per le pagine HTML statiche con interazioni di base e non fornisce un'esperienza funzionale per le pagine Web moderne.
 
-Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [documentazione ufficiale di Visual studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [documentazione ufficiale di Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Caricare il test Web
 
-1. Nel portale di Application Insights nel riquadro di disponibilità selezionare **Crea** > test del**tipo** > test Web in più**passaggi**.
+1. Nel portale di Application Insights nel riquadro Disponibilità selezionare **Crea test** > **Tipo di test** > **Test Web in più passi**.
 
-2. Impostare i percorsi dei test, la frequenza e i parametri di avviso.
+2. Impostare le posizioni di test, la frequenza e i parametri di avviso.
 
-### <a name="frequency--location"></a>Località & frequenza
+### <a name="frequency--location"></a>Frequenza e località
 
 |Impostazione| Spiegazione
 |----|----|----|
 |**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
-|**Percorsi test**| Sono le posizioni da cui i server inviano richieste Web all'URL. **Il numero minimo di posizioni di test consigliate è cinque** per garantire che sia possibile distinguere i problemi nel sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
+|**Località di test**| Sono le posizioni da cui i server inviano richieste Web all'URL indicato. **Il numero minimo di località di test consigliate è cinque** per essere certi di poter distinguere i problemi del sito Web da quelli della rete. È possibile selezionare fino a 16 località.
 
-### <a name="success-criteria"></a>Criteri di installazione riuscita
+### <a name="success-criteria"></a>Criteri di superamento
 
 |Impostazione| Spiegazione
 |----|----|----|
 | **Timeout test** |ridurre questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, è necessario che tutti gli script, i file di stile, le immagini e le altre risorse dipendenti siano stati ricevuti entro questo periodo.|
 | **Risposta HTTP** | codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.|
-| **Corrispondenza contenuto** | Stringa, ad esempio "Welcome!" Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa. **Con la corrispondenza del contenuto sono supportati solo i caratteri inglesi** |
+| **Il contenuto corrisponde a** | Una stringa, ad esempio "Benvenuto". Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa. **Con la corrispondenza del contenuto sono supportati solo i caratteri inglesi** |
 
 ### <a name="alerts"></a>Avvisi
 
 |Impostazione| Spiegazione
 |----|----|----|
-|**Quasi in tempo reale (anteprima)** | Si consiglia di usare gli avvisi near-realtime. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
+|**Near real-time (anteprima)** | Si consiglia di usare gli avvisi near real-time. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
 |**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
-|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è il numero **soglia** = **di posizioni di avviso per il percorso di test-2, con un minimo di cinque posizioni di test.**|
+|**Soglia località di avviso**|Si consiglia un minimo di 3-5 posizioni. Il rapporto ottimale tra la soglia località di avviso e il numero di località di test è dato da **soglia località di avviso** = **numero di località di test - 2, con un numero minimo pari a cinque località di test.**|
 
 ## <a name="configuration"></a>Configurazione
 
-### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserimento di tempi e numeri casuali nel test
+### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserimento di orari e numeri casuali nel test
 
 Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare tempi specifici impostandoli come parametri del test, StartTime e EndTime.
 
-![Schermata My Awesome Stock app](./media/availability-multistep/app-insights-72webtest-parameters.png)
+![Screenshot di my awesome stock app](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
 Quando si esegue il test, si vuole che EndTime sia sempre l'ora corrente e StartTime 15 minuti fa.
 
-Il plug-in data e ora del test Web consente di gestire i parametrizzazioni.
+Il plug-in data e ora del test Web consente di gestire i parametri di questi valori.
 
 1. Aggiungere un plug-in del test Web per ciascun valore di parametro desiderato. Nella barra degli strumenti del test Web scegliere **Aggiungi plug-in test Web**.
     
@@ -106,25 +108,25 @@ In tutti i casi è consigliabile creare un account nell'applicazione solo a scop
 
 |Nome proprietà| Descrizione|
 |----|-----|
-| URI del gruppo di destinatari | URI del destinatario per il token SAML.  Si tratta dell'URI per il servizio di controllo di accesso (ACS), inclusi lo spazio dei nomi ACS e il nome host. |
+| URI destinatario | URI del destinatario per il token SAML.  Si tratta dell'URI per il Servizio di controllo di accesso, inclusi lo spazio dei nomi e il nome host del servizio. |
 | Password certificato | Password del certificato client che consentirà l'accesso alla chiave privata incorporata. |
-| Certificato client  | Il valore del certificato client con la chiave privata nel formato con codifica Base64. |
-| Identificatore nome | Identificatore del nome per il token. |
-| Non dopo | TimeSpan per il quale il token sarà valido.  Il valore predefinito è 5 minuti. |
-| Non prima | TimeSpan per il quale un token creato in passato sarà valido (per risolvere gli sfasamento dell'ora).  Il valore predefinito è (negativo) 5 minuti. |
+| Certificato client  | Valore del certificato client con la chiave privata nel formato con codifica Base64. |
+| Identificatore nome | Identificatore nome per il token |
+| Non dopo | Periodo di validità del token.  Il valore predefinito è 5 minuti. |
+| Non prima | Periodo di validità di un token creato nel passato (per risolvere gli sfasamenti dell'ora).  Il valore predefinito è (negativo) 5 minuti. |
 | Nome parametro di contesto di destinazione | Parametro di contesto che riceverà l'asserzione generata. |
 
 
-**Segreto client** Se l'app ha una route di accesso che include un segreto client, usare tale route. Un servizio che offre l'accesso con segreto client è ad esempio Azure Active Directory (AAD). In AAD, il segreto client è la chiave dell'app.
+**Segreto client** Se l'app ha un percorso di accesso che prevede un segreto client, usare tale percorso. Un servizio che offre l'accesso con segreto client è ad esempio Azure Active Directory (AAD). In AAD, il segreto client è la chiave dell'app.
 
 Ecco un test Web di esempio di un'app Web di Azure che usa una chiave dell'app:
 
-![Schermata di esempio](./media/availability-multistep/client-secret.png)
+![Screenshot di esempio](./media/availability-multistep/client-secret.png)
 
 Ottenere il token da AAD usando il segreto client (AppKey).
 Estrarre il token di connessione dalla risposta.
 Chiamare l'API usando il token di connessione nell'intestazione dell'autorizzazione.
-Verificare che il test Web sia un client effettivo, ovvero che disponga di una propria app in AAD e che usi la chiave ClientID + app. Anche il servizio sottoposto a test ha una propria app in AAD, il cui URI ID app è riportato nel campo risorsa del test Web.
+Verificare che il test Web sia effettivamente un client, ovvero che abbia una propria app in AAD, e usare i relativi valori ClientId e AppKey. Anche il servizio sottoposto a test ha una propria app in AAD, il cui URI ID app è riportato nel campo risorsa del test Web.
 
 ### <a name="open-authentication"></a>Autenticazione aperta
 Un esempio di autenticazione aperta è l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client ed è quindi consigliabile ricercare prima di tutto tale possibilità.
@@ -139,7 +141,7 @@ Impostare i parametri dei token quando questi vengono restituiti dall'autenticat
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
+[Articolo sulla risoluzione dei problemi](troubleshoot-availability.md) dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

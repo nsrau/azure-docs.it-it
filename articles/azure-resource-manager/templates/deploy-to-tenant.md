@@ -1,34 +1,34 @@
 ---
 title: Distribuire le risorse nel tenant
-description: Viene descritto come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
+description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930064"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653327"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
-Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare i [criteri](../../governance/policy/overview.md) o i [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel tenant Azure ad. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
+Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare [criteri](../../governance/policy/overview.md) o [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel tenant di Azure AD. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
-È possibile distribuire i tipi di risorse seguenti a livello di tenant:
+A livello di tenant è possibile distribuire i tipi di risorse seguenti:
 
-* [distribuzioni](/azure/templates/microsoft.resources/deployments) : per i modelli annidati che vengono distribuiti in gruppi di gestione o sottoscrizioni.
-* managementGroups
+* [deployments](/azure/templates/microsoft.resources/deployments) - Per modelli annidati che vengono distribuiti in gruppi di gestione o sottoscrizioni.
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
-Lo schema usato per le distribuzioni tenant è diverso dallo schema per le distribuzioni di gruppi di risorse.
+Lo schema usato per le distribuzioni a livello di tenant è diverso rispetto allo schema per le distribuzioni di gruppi di risorse.
 
 Per i modelli, usare:
 
@@ -42,15 +42,15 @@ Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribu
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
-## <a name="required-access"></a>Accesso richiesto
+## <a name="required-access"></a>Accesso obbligatorio
 
-L'entità che distribuisce il modello deve avere le autorizzazioni per creare le risorse nell'ambito del tenant. L'entità deve disporre dell'autorizzazione per eseguire le azioni di`Microsoft.Resources/deployments/*`distribuzione () e per creare le risorse definite nel modello. Per creare un gruppo di gestione, ad esempio, l'entità deve disporre dell'autorizzazione Collaboratore nell'ambito del tenant. Per creare assegnazioni di ruolo, l'entità deve disporre dell'autorizzazione Owner.
+L'entità di sicurezza che distribuisce il modello deve avere le autorizzazioni per creare le risorse nell'ambito del tenant. L'entità deve disporre dell'autorizzazione per eseguire le azioni di distribuzione (`Microsoft.Resources/deployments/*`) e per creare le risorse definite nel modello. Per creare un gruppo di gestione, ad esempio, l'entità di sicurezza deve disporre dell'autorizzazione come collaboratore nell'ambito del tenant. Per creare assegnazioni di ruolo, l'entità di sicurezza deve disporre dell'autorizzazione come proprietario.
 
-L'amministratore globale del Azure Active Directory non dispone automaticamente delle autorizzazioni per assegnare i ruoli. Per abilitare le distribuzioni modello nell'ambito del tenant, l'amministratore globale deve eseguire i passaggi seguenti:
+L'amministratore globale di Azure Active Directory non dispone automaticamente dell'autorizzazione per assegnare ruoli. Per abilitare le distribuzioni di modelli nell'ambito del tenant, l'amministratore globale deve seguire questa procedura:
 
-1. Elevare l'accesso agli account in modo che l'amministratore globale possa assegnare i ruoli. Per altre informazioni, vedere [elevare l'accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](../../role-based-access-control/elevate-access-global-admin.md).
+1. Elevare i privilegi di accesso dell'account in modo che l'amministratore globale possa assegnare ruoli. Per altre informazioni, vedere [Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
-1. Assegnare un proprietario o un collaboratore al principale che deve distribuire i modelli.
+1. Assegnare un proprietario o un collaboratore all'entità di sicurezza che deve distribuire i modelli.
 
    ```azurepowershell-interactive
    New-AzRoleAssignment -SignInName "[userId]" -Scope "/" -RoleDefinitionName "Owner"
@@ -60,13 +60,13 @@ L'amministratore globale del Azure Active Directory non dispone automaticamente 
    az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
    ```
 
-L'entità dispone ora delle autorizzazioni necessarie per distribuire il modello.
+L'entità di sicurezza ha ora le autorizzazioni necessarie per distribuire il modello.
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
-I comandi per le distribuzioni tenant sono diversi dai comandi per le distribuzioni di gruppi di risorse.
+I comandi per le distribuzioni a livello di tenant sono diversi rispetto ai comandi per le distribuzioni di gruppi di risorse.
 
-Per l'interfaccia della riga di comando di Azure, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+Per l'interfaccia della riga di comando di Azure usare [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -75,7 +75,7 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
-Per Azure PowerShell, usare [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+Per Azure PowerShell usare [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
@@ -84,26 +84,26 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
-Per l'API REST, usare [distribuzioni: creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope).
+Per l'API REST, usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope).
 
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
-Per le distribuzioni a livello di tenant, è necessario specificare un percorso per la distribuzione. Il percorso della distribuzione è separato dal percorso delle risorse distribuite. Il percorso di distribuzione specifica dove archiviare i dati di distribuzione.
+Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure utilizzare il nome predefinito della distribuzione. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
-Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibile creare una distribuzione in un'unica posizione quando esiste una distribuzione esistente con lo stesso nome in una posizione diversa. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 
-Per le distribuzioni tenant, è necessario tenere presenti alcune considerazioni importanti quando si usano le funzioni di modello:
+Per le distribuzioni a livello di tenant, esistono alcune considerazioni importanti quando si usano funzioni di modello:
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
-* La funzione [Subscription ()](template-functions-resource.md#subscription) **non** è supportata.
+* La funzione [subscription()](template-functions-resource.md#subscription) **non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Usare la funzione [tenantResourceId ()](template-functions-resource.md#tenantresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di tenant.
+* Usare la funzione [tenantResourceId()](template-functions-resource.md#tenantresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di tenant.
 
-  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
+  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri usare:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
@@ -143,7 +143,7 @@ Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/m
 
 ## <a name="assign-role"></a>Assegnare un ruolo
 
-Nel [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) viene assegnato un ruolo nell'ambito del tenant.
+Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) assegna un ruolo nell'ambito del tenant.
 
 ```json
 {
@@ -185,5 +185,5 @@ Nel [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* È anche possibile distribuire modelli a livello di [sottoscrizione](deploy-to-subscription.md) o di [gruppo di gestione](deploy-to-management-group.md).
+* Per informazioni sull'assegnazione di ruoli, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* È anche possibile distribuire modelli a [livello di sottoscrizione](deploy-to-subscription.md) e a [livello di gruppo di gestione](deploy-to-management-group.md).

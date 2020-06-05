@@ -1,7 +1,7 @@
 ---
 title: Rilevamento MLflow per esperimenti ML
 titleSuffix: Azure Machine Learning
-description: Configurare MLflow con Azure Machine Learning per registrare le metriche e gli artefatti da modelli ML creati nei cluster databricks, nell'ambiente locale o nell'ambiente VM.
+description: Configurare MLflow con Azure Machine Learning per registrare le metriche e gli artefatti da modelli ML creati in cluster Databricks, nell'ambiente locale o nell'ambiente della macchina virtuale.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,45 +11,45 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: dce7db9fc508c70d79be62a7e97b3bf52a316b22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 95567a177635dc7d7ed03404487e62c76db8bdac
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76983699"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779113"
 ---
 # <a name="track-models-metrics-with-mlflow-and-azure-machine-learning-preview"></a>Monitorare le metriche dei modelli con MLflow e Azure Machine Learning (anteprima)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come abilitare l'URI di rilevamento e l'API di registrazione di MLflow, collettivamente nota come [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), per connettere gli esperimenti di MLflow e Azure Machine Learning. In questo modo è possibile rilevare e registrare le metriche e gli artefatti dell'esperimento nell' [area di lavoro Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). Se si usa già il rilevamento MLflow per gli esperimenti, l'area di lavoro offre una posizione centralizzata, sicura e scalabile per archiviare le metriche e i modelli di training.
+Questo articolo illustra come abilitare l'URI di rilevamento e l'API di registrazione di MLflow, un'operazione collettivamente nota come [Rilevamento MLflow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), per connettere gli esperimenti di MLflow e Azure Machine Learning. In questo modo è possibile rilevare e registrare le metriche e gli artefatti degli esperimenti nell'[area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). Se si usa già Rilevamento MLflow per gli esperimenti, l'area di lavoro offre una posizione centralizzata, sicura e scalabile per archiviare le metriche e i modelli di training.
 
 <!--
 + Deploy your MLflow experiments as an Azure Machine Learning web service. By deploying as a web service, you can apply the Azure Machine Learning monitoring and data drift detection functionalities to your production models. 
 -->
 
-[MLflow](https://www.mlflow.org) è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. Il rilevamento MLFlow è un componente di MLflow che registra e tiene traccia delle metriche di esecuzione del training e degli elementi del modello, indipendentemente dall'ambiente dell'esperimento, localmente nel computer, in una destinazione di calcolo remota, in una macchina virtuale o in un cluster Azure Databricks. 
+[MLflow](https://www.mlflow.org) è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. Rilevamento MLflow è un componente di MLflow che registra e tiene traccia delle metriche di esecuzione del training e degli elementi del modello, indipendentemente dall'ambiente dell'esperimento, localmente nel computer, in una destinazione di calcolo remota, in una macchina virtuale o in un cluster di Azure Databricks. 
 
-Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un esperimento e l'archiviazione degli elementi del modello nell'area di lavoro Azure Machine Learning.
+Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un esperimento e l'archiviazione degli elementi del modello nell'area di lavoro di Azure Machine Learning.
 
-![mlflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/mlflow-diagram-track.png)
+![MLflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/mlflow-diagram-track.png)
 
 > [!TIP]
-> Le informazioni contenute in questo documento sono destinate principalmente a data scientist e sviluppatori che desiderano monitorare il processo di training del modello. Se si è un amministratore interessato al monitoraggio dell'utilizzo delle risorse e degli eventi da Azure Machine Learning, ad esempio le quote, le esecuzioni di training completate o le distribuzioni del modello completate, vedere [monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> Le informazioni contenute in questo documento sono destinate principalmente a data scientist e sviluppatori che desiderano monitorare il processo di training del modello. Gli amministratori interessati al monitoraggio dell'uso delle risorse e degli eventi da Azure Machine Learning, come ad esempio quote, esecuzioni di training o distribuzioni del modello completate, possono consultare la sezione [Monitoraggio di Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Confrontare i client MLflow e Azure Machine Learning
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Client di MLflow e Azure Machine Learning a confronto
 
- La tabella seguente riepiloga i diversi client che possono usare Azure Machine Learning e le rispettive funzionalità di funzione.
+ La tabella seguente riepiloga i diversi client che possono usare Azure Machine Learning e le rispettive funzionalità.
 
- Il rilevamento MLflow offre funzionalità di registrazione delle metriche e di archiviazione degli artefatti che sono disponibili solo in caso contrario tramite il [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Rilevamento di MLflow offre funzionalità di registrazione delle metriche e di archiviazione degli artefatti disponibili in caso contrario solo tramite l'[SDK Python di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Rilevamento&nbsp;MLflow <!--& Deployment--> | SDK Azure Machine Learning Python |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
+| | Rilevamento&nbsp;MLflow <!--& Deployment--> | Python SDK di Azure Machine Learning |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | Gestire l'area di lavoro |   | ✓ | ✓ | ✓ |
-| Usare gli archivi dati  |   | ✓ | ✓ | |
-| Metrica log      | ✓ | ✓ |   | |
-| Carica artefatti | ✓ | ✓ |   | |
+| Usare archivi dati  |   | ✓ | ✓ | |
+| Metriche di log      | ✓ | ✓ |   | |
+| Caricare artefatti | ✓ | ✓ |   | |
 | Visualizzare le metriche     | ✓ | ✓ | ✓ | ✓ |
 | Gestire il calcolo   |   | ✓ | ✓ | ✓ |
 
@@ -60,25 +60,25 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Installare MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Installare Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) nel computer locale. l'SDK fornisce la connettività per MLflow per accedere all'area di lavoro.
-* [Creare un area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
+* [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) nel computer locale  L'SDK fornisce la connettività perché MLflow possa accedere all'area di lavoro.
+* [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="track-local-runs"></a>Rileva esecuzioni locali
+## <a name="track-local-runs"></a>Rilevare le esecuzioni locali
 
-Il rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche registrate e gli artefatti dalle esecuzioni locali nell'area di lavoro Azure Machine Learning.
+Rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche e gli artefatti registrati dalle esecuzioni locali nell'area di lavoro di Azure Machine Learning.
 
-Installare il `azureml-mlflow` pacchetto per usare il rilevamento MLflow con Azure Machine Learning negli esperimenti eseguiti localmente in un Jupyter notebook o in un editor di codice.
+Installare il pacchetto `azureml-mlflow` per usare Rilevamento MLflow con Azure Machine Learning sugli esperimenti eseguiti localmente in un Jupyter Notebook o in un editor di codice.
 
 ```shell
 pip install azureml-mlflow
 ```
 
 >[!NOTE]
->Lo spazio dei nomi azureml. contrib viene modificato di frequente, in quanto è possibile migliorare il servizio. Qualsiasi elemento in questo spazio dei nomi deve essere pertanto considerato come anteprima e non è completamente supportato da Microsoft.
+>Lo spazio dei nomi azureml.contrib cambia di frequente perché Microsoft è attualmente impegnata a migliorare il servizio. Qualsiasi elemento in questo spazio dei nomi deve essere pertanto considerato come anteprima e non è completamente supportato da Microsoft.
 
-Importare le `mlflow` classi [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) e per accedere all'URI di rilevamento di MLflow e configurare l'area di lavoro.
+Importare le classi `mlflow` e [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) per accedere all'URI di Rilevamento MLflow e configurare l'area di lavoro.
 
-Nel codice seguente il `get_mlflow_tracking_uri()` metodo assegna un indirizzo URI di rilevamento univoco all'area di lavoro, `ws`e `set_tracking_uri()` punta l'URI di rilevamento MLflow a tale indirizzo.
+Nel codice seguente, il metodo `get_mlflow_tracking_uri()` assegna un indirizzo URI di rilevamento univoco all'area di lavoro, `ws`, mentre `set_tracking_uri()` punta l'URI di Rilevamento MLflow a tale indirizzo.
 
 ```Python
 import mlflow
@@ -90,9 +90,9 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
 >[!NOTE]
->L'URI di rilevamento è valido fino a un'ora o meno. Se si riavvia lo script dopo un periodo di inattività, usare l'API get_mlflow_tracking_uri per ottenere un nuovo URI.
+>L'URI di rilevamento è valido fino a un massimo di un'ora. Se si riavvia lo script dopo un periodo di inattività, usare l'API get_mlflow_tracking_uri per ottenere un nuovo URI.
 
-Impostare il nome dell'esperimento MLflow `set_experiment()` con e avviare l'esecuzione del `start_run()`training con. Usare `log_metric()` quindi per attivare l'API di registrazione MLflow e iniziare la registrazione delle metriche di esecuzione del training.
+Impostare il nome dell'esperimento MLflow con `set_experiment()` e avviare l'esecuzione del training con `start_run()`. Usare quindi `log_metric()` per attivare l'API di registrazione MLflow e iniziare la registrazione delle metriche di esecuzione del training.
 
 ```Python
 experiment_name = 'experiment_with_mlflow'
@@ -102,13 +102,13 @@ with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-## <a name="track-remote-runs"></a>Rileva esecuzioni remote
+## <a name="track-remote-runs"></a>Rilevare le esecuzioni remote
 
-Il rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche registrate e gli artefatti dalle esecuzioni remote nell'area di lavoro Azure Machine Learning.
+Rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche e gli artefatti registrati dalle esecuzioni remote nell'area di lavoro di Azure Machine Learning.
 
-Le esecuzioni remote consentono di eseguire il training dei modelli su calcoli più potenti, ad esempio macchine virtuali abilitate per la GPU o cluster ambiente di calcolo di Machine Learning. Per informazioni sulle diverse opzioni di calcolo, vedere [configurare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md) .
+Le esecuzioni remote consentono di eseguire il training dei modelli su calcoli più potenti, ad esempio macchine virtuali abilitate per la GPU o cluster dell'ambiente di calcolo di Machine Learning. Per informazioni sulle diverse opzioni di calcolo, vedere la sezione [Configurare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md).
 
-Configurare l'ambiente di esecuzione di calcolo e training con [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) la classe. Includere `mlflow` i `azureml-mlflow` pacchetti PIP nella [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) sezione dell'ambiente. Costruire [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) quindi con il calcolo remoto come destinazione di calcolo.
+Configurare l'ambiente di esecuzione di calcolo e training con la classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Includere i pacchetti PIP `mlflow` e `azureml-mlflow` nella sezione [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) dell'ambiente. Creare quindi [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) con il calcolo remoto come destinazione di calcolo.
 
 ```Python
 from azureml.core.environment import Environment
@@ -130,7 +130,7 @@ src.run_config.target = 'my-remote-compute-compute'
 src.run_config.environment = mlflow_env
 ```
 
-Nello script di training importare `mlflow` per usare le API di registrazione MLflow e avviare la registrazione delle metriche di esecuzione.
+Nello script di training, importare `mlflow` per usare le API di registrazione MLflow e avviare la registrazione delle metriche di esecuzione.
 
 ```Python
 import mlflow
@@ -139,35 +139,35 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-Con questa configurazione di esecuzione di calcolo e training, usare `Experiment.submit('train.py')` il metodo per inviare un'esecuzione. Questo metodo imposta automaticamente l'URI di rilevamento MLflow e indirizza la registrazione da MLflow all'area di lavoro.
+Con questa configurazione di esecuzione di calcolo e training, usare il metodo `Experiment.submit('train.py')` per inviare un'esecuzione. Questo metodo imposta automaticamente l'URI di Rilevamento MLflow e indirizza la registrazione da MLflow all'area di lavoro.
 
 ```Python
 run = exp.submit(src)
 ```
 
-## <a name="track-azure-databricks-runs"></a>Rileva esecuzioni Azure Databricks
+## <a name="track-azure-databricks-runs"></a>Rilevare le esecuzioni di Azure Databricks
 
-Il rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche e gli artefatti registrati dalle esecuzioni di Azure Databricks nell'area di lavoro Azure Machine Learning.
+Rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche e gli artefatti registrati dalle esecuzioni di Azure Databricks nell'area di lavoro di Azure Machine Learning.
 
-Per eseguire gli esperimenti Mlflow con Azure Databricks, è necessario innanzitutto creare un' [area di lavoro Azure Databricks e un cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Nel cluster, assicurarsi di installare la libreria *azureml-mlflow* da pypi, per assicurarsi che il cluster abbia accesso alle funzioni e alle classi necessarie.
+Per eseguire esperimenti di MLflow con Azure Databricks, è necessario innanzitutto creare [un'area di lavoro e un cluster di Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Nel cluster, assicurarsi di installare la libreria *azureml-mlflow* da PyPi, per assicurarsi che il cluster abbia accesso alle funzioni e alle classi necessarie.
 
-Da qui importare il notebook dell'esperimento, collegarlo al cluster Azure Databricks ed eseguire l'esperimento. 
+Da qui, importare il notebook dell'esperimento, collegarlo al cluster di Azure Databricks ed eseguire l'esperimento. 
 
 ### <a name="install-libraries"></a>Installare le librerie
 
-Per installare le librerie nel cluster, passare alla scheda **librerie** e fare clic su **Installa nuovo**
+Per installare librerie nel cluster, passare alla scheda **Librerie** e fare clic su **Installa nuova**
 
- ![mlflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
+ ![MLflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
 
-Nel campo **pacchetto** Digitare azureml-mlflow e quindi fare clic su Installa. Ripetere questo passaggio, se necessario, per installare altri pacchetti aggiuntivi nel cluster per l'esperimento.
+Nel campo **Pacchetto**, digitare azureml-mlflow e quindi fare clic su Installa. Ripetere questo passaggio, se necessario, per installare altri pacchetti aggiuntivi nel cluster per l'esperimento.
 
- ![mlflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/install-libraries.png)
+ ![MLflow con diagramma di Azure Machine Learning](./media/how-to-use-mlflow/install-libraries.png)
 
 ### <a name="set-up-your-notebook-and-workspace"></a>Configurare il notebook e l'area di lavoro
 
 Una volta configurato il cluster, importare il notebook dell'esperimento, aprirlo e collegarvi il cluster.
 
-Il codice seguente deve trovarsi nel notebook dell'esperimento. Questo codice consente di ottenere i dettagli della sottoscrizione di Azure per creare un'istanza dell'area di lavoro. Questo codice presuppone che si disponga di un gruppo di risorse esistente e di un'area di lavoro Azure Machine Learning, in caso contrario è possibile [crearli](how-to-manage-workspace.md). 
+Il codice seguente deve trovarsi nel notebook dell'esperimento. Questo codice consente di ottenere i dettagli della sottoscrizione di Azure per creare un'istanza dell'area di lavoro. Questo codice presuppone che si disponga di un gruppo di risorse esistente e di un'area di lavoro di Azure Machine Learning. In caso contrario, è possibile [crearli](how-to-manage-workspace.md). 
 
 ```python
 import mlflow
@@ -192,37 +192,37 @@ ws = Workspace.get(name=workspace_name,
                    resource_group=resource_group)
 ```
 
-#### <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>Connettere le aree di lavoro Azure Databricks e Azure Machine Learning
+#### <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>Connettere le aree di lavoro di Azure Databricks e Azure Machine Learning
 
-Nella [portale di Azure](https://ms.portal.azure.com)è possibile collegare l'area di lavoro di Azure DATABRICKS (ADB) a un'area di lavoro Azure Machine Learning nuova o esistente. A tale scopo, passare all'area di lavoro ADB e selezionare il pulsante **collega Azure machine learning area di lavoro** in basso a destra. Il collegamento delle aree di lavoro consente di tenere traccia dei dati dell'esperimento nell'area di lavoro Azure Machine Learning. 
+Nel [portale di Azure](https://ms.portal.azure.com) è possibile collegare l'area di lavoro di Azure Databricks (ADB) a un'area di lavoro di Azure Machine Learning nuova o esistente. A tale scopo, passare all'area di lavoro di ADB e selezionare il pulsante **Collega area di lavoro di Azure Machine Learning** in basso a destra. Il collegamento delle aree di lavoro consente di tenere traccia dei dati dell'esperimento nell'area di lavoro di Azure Machine Learning. 
 
-### <a name="link-mlflow-tracking-to-your-workspace"></a>Collegare il monitoraggio MLflow all'area di lavoro
+### <a name="link-mlflow-tracking-to-your-workspace"></a>Collegare Rilevamento MLflow all'area di lavoro
 
-Dopo avere creato un'istanza dell'area di lavoro, impostare l'URI di rilevamento MLflow. In questo modo è possibile collegare il rilevamento MLflow all'area di lavoro Azure Machine Learning. Dopo il collegamento, tutti gli esperimenti si troveranno nel servizio di rilevamento Azure Machine Learning gestito.
+Dopo avere creato un'istanza dell'area di lavoro, impostare l'URI di Rilevamento MLflow. In questo modo è possibile collegare Rilevamento MLflow all'area di lavoro di Azure Machine Learning. Dopo il collegamento, tutti gli esperimenti verranno visualizzati nel servizio di rilevamento di Azure Machine Learning gestito.
 
-#### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>Imposta direttamente il rilevamento MLflow nel notebook
+#### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>Impostare direttamente Rilevamento MLflow nel notebook
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
 mlflow.set_tracking_uri(uri)
 ```
 
-Nello script di training importare mlflow per usare le API di registrazione di MLflow e avviare la registrazione delle metriche di esecuzione. L'esempio seguente registra la metrica di perdita di Epoch. 
+Nello script di training, importare MLflow per usare le API di registrazione MLflow e avviare la registrazione delle metriche di esecuzione. L'esempio seguente registra la metrica di perdita per il periodo. 
 
 ```python
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
 
-#### <a name="automate-setting-mlflow-tracking"></a>Automatizzare l'impostazione del rilevamento MLflow
+#### <a name="automate-setting-mlflow-tracking"></a>Automatizzare l'impostazione di Rilevamento MLflow
 
-Anziché impostare manualmente l'URI di rilevamento in ogni successiva sessione del notebook dell'esperimento nei cluster, eseguire questa operazione automaticamente usando lo [script di inizializzazione del cluster di rilevamento Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
+Anziché impostare manualmente l'URI di rilevamento in ogni successiva sessione del notebook dell'esperimento nei cluster, eseguire questa operazione automaticamente usando questo [script di inizializzazione del cluster di rilevamento di Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
 
-Una volta configurata correttamente, è possibile visualizzare i dati di rilevamento MLflow nell'API REST di Azure Machine Learning e in tutti i client e in Azure Databricks tramite l'interfaccia utente di MLflow o usando il client MLflow.
+Una volta configurato correttamente, è possibile visualizzare i dati di Rilevamento MLflow nell'API REST di Azure Machine Learning, in tutti i client e in Azure Databricks tramite l'interfaccia utente di MLflow o il client MLflow.
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visualizzare le metriche e gli artefatti nell'area di lavoro
 
-Le metriche e gli artefatti dalla registrazione MLflow vengono conservati nell'area di lavoro. Per visualizzarli in qualsiasi momento, passare all'area di lavoro e trovare l'esperimento in base al nome nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).  In alternativa, eseguire il codice seguente. 
+Le metriche e gli artefatti dalla registrazione MLflow vengono conservati nell'area di lavoro. Per visualizzarli in qualsiasi momento, passare all'area di lavoro e individuare l'esperimento in base al nome presente nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).  In alternativa, eseguire il comando seguente. 
 
 ```python
 run.get_metrics()
@@ -266,26 +266,9 @@ runid = runs[0].id
 model_save_path = 'model'
 ```
 
-### Create Docker image
+### Deploy the model
 
-The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
-
-The following code builds a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
-
-```python
-import mlflow.azureml
-
-azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(runid, model_save_path),
-                                                      workspace=ws,
-                                                      model_name='sklearn-model',
-                                                      image_name='sklearn-image',
-                                                      synchronous=True)
-```
-The creation of the Docker image can take several minutes. 
-
-### Deploy the Docker image 
-
-After the image is created, use the Azure Machine Learning SDK to deploy the image as a web service.
+Use the Azure Machine Learning SDK to deploy the model as a web service.
 
 First, specify the deployment configuration. Azure Container Instance (ACI) is a suitable choice for a quick dev-test deployment, while Azure Kubernetes Service (AKS) is suitable for scalable production deployments.
 
@@ -304,30 +287,21 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
-webservice = Webservice.deploy_from_image( image=azure_image, 
-                                           workspace=ws, 
-                                           name='diabetes-model-1', 
-                                           deployment_config=aci_config)
+(webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
+                      workspace=ws,
+                      model_name='sklearn-model', 
+                      service_name='diabetes-model-1', 
+                      deployment_config=aci_config, 
+                      tags=None, mlflow_home=None, synchronous=True)
 
 webservice.wait_for_deployment(show_output=True)
 ```
 #### Deploy to AKS
 
-To deploy to AKS, first create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
-
-To get the image from the previous ACI deployment use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
-
-```python
-from azureml.core.image import Image
-
-# Get the image by name, you can change this based on the image you want to deploy
-myimage = Image(workspace=ws, name='sklearn-image') 
-```
-
-Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
+To deploy to AKS, first create an AKS cluster. Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -351,26 +325,25 @@ Set up your deployment configuration with the [deploy_configuration()](https://d
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
-from azureml.core.image import ContainerImage
 
 # Set the web service configuration (using default here with app insights)
-aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
+aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
 
-# Unique service name
-service_name ='aks-service'
-```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, deploy the image by using the Azure Machine Learning SDK [deploy()](Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 # Webservice creation using single command
-aks_service = Webservice.deploy_from_image( workspace=ws, 
-                                            name=service_name,
-                                            deployment_config = aks_config
-                                            image = myimage,
-                                            deployment_target = aks_target)
+from azureml.core.webservice import AksWebservice, Webservice
+(webservice, model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
+                      workspace=ws,
+                      model_name='sklearn-model', 
+                      service_name='my-aks', 
+                      deployment_config=aks_config, 
+                      tags=None, mlflow_home=None, synchronous=True)
 
-aks_service.wait_for_deployment(show_output=True)
+
+webservice.wait_for_deployment()
 ```
 
 The service deployment can take several minutes.
@@ -393,7 +366,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
  ## <a name="example-notebooks"></a>Notebook di esempio
 
-I [notebook di MLflow con Azure ml](https://aka.ms/azureml-mlflow-examples) dimostrano e si espandono sui concetti presentati in questo articolo.
+I [notebook MLflow con Azure Machine Learning](https://aka.ms/azureml-mlflow-examples) dimostrano e ampliano le nozioni presentate in questo articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire i modelli](concept-model-management-and-deployment.md).

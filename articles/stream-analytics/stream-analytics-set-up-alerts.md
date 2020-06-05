@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 2bd1f59d5cf33ae7f1f2e33e6c3f1312b5a13e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8219fba44be608a9fd31139a89c8dac2cc3e3082
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127582"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835411"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 
 È importante monitorare il processo di Analisi di flusso di Azure per garantire che l'esecuzione del processo sia continua e senza problemi. Questo articolo descrive come configurare gli avvisi per gli scenari comuni che devono essere monitorati. 
 
-È possibile definire regole sulle metriche dei dati dei log delle operazioni tramite il portale, nonché [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
+È possibile definire le regole sulle metriche dei dati dei log operazioni tramite il portale, nonché [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurare gli avvisi nel portale di Azure
 ### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Ricevere un avviso quando un processo viene arrestato in modo imprevisto
@@ -29,7 +29,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
 2. Nella pagina **Processo** passare alla sezione **Monitoraggio**.  
 
-3. Selezionare **metrica**, quindi **nuova regola di avviso**.
+3. Selezionare **Metriche** e quindi **Nuova regola di avviso**.
 
    ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -37,7 +37,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
    ![Selezionare il nome del segnale per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare l' **evento avviato da** Blank e selezionare **fine**.
+5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare vuota l'opzione **Evento avviato da** e fare clic su **Chiudi**.
 
    ![Configurare la logica dei segnali per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -60,20 +60,20 @@ Gli avvisi seguenti sono consigliati per il monitoraggio delle prestazioni del p
 |Metrica|Condizione|Aggregazione temporale|Soglia|Azioni correttive|
 |-|-|-|-|-|
 |% utilizzo unità di streaming|Maggiore di|Massimo|80|Esistono più fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming. È possibile ridimensionare con la parallelizzazione delle query o aumentare il numero di unità di streaming. Per altre informazioni, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
-|Errori di runtime|Maggiore di|Totale|0|Esaminare i registri attività o risorse e apportare le modifiche appropriate agli input, alla query o agli output.|
+|Errori di runtime|Maggiore di|Totale|0|Esaminare i log attività o della risorsa e apportare le modifiche appropriate a input, query o output.|
 |Ritardo limite|Maggiore di|Massimo|Quando il valore medio della metrica negli ultimi 15 minuti è maggiore della tolleranza per arrivo in ritardo (in secondi). Se non è stata modificata la tolleranza per arrivo in ritardo, il valore predefinito è impostato su 5 secondi.|Provare ad aumentare il numero di unità di streaming o la parallelizzazione delle query. Per altre informazioni sulle unità di streaming, vedere [Informazioni sulle unità di streaming e su come modificarle](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Per altre informazioni sulla parallelizzazione delle query, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
-|Errori di deserializzazione dell'input|Maggiore di|Totale|0|Esaminare i registri attività o risorse e apportare le modifiche appropriate all'input. Per altre informazioni sui log delle risorse, vedere [risolvere i problemi di analisi di flusso di Azure usando i log delle risorse](stream-analytics-job-diagnostic-logs.md)|
+|Errori di deserializzazione dell'input|Maggiore di|Totale|0|Esaminare i log attività o della risorsa e apportare le modifiche appropriate all'input. Per altre informazioni sui log della risorsa, vedere [Risolvere i problemi di Analisi di flusso di Azure tramite i log delle risorse](stream-analytics-job-diagnostic-logs.md)|
 
 ## <a name="get-help"></a>Ottenere aiuto
 
 Per altre informazioni dettagliate sulla configurazione degli avvisi nel portale di Azure, vedere [Receive alert notifications](../azure-monitor/platform/alerts-overview.md) (Ricevere notifiche di avviso).  
 
-Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

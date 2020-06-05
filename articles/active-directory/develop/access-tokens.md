@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: dedaf5214305003bf302c7c74466adb84c42b2f4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926800"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772234"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -162,7 +162,7 @@ Le identità Microsoft possono eseguire l'autenticazione in vari modi, che posso
 | `otp` | Passcode monouso tramite un messaggio di posta elettronica o un SMS. |
 | `fed` | È stata usata un'asserzione di autenticazione federata (ad esempio token JWT o SAML). |
 | `wia` | Autenticazione integrata di Windows |
-| `mfa` | È stata usata l'autenticazione a più fattori. Quando è presente sono inclusi anche gli altri metodi di autenticazione. |
+| `mfa` | È stata usata l'[autenticazione a più fattori](../authentication/concept-mfa-howitworks.md). Quando è presente sono inclusi anche gli altri metodi di autenticazione. |
 | `ngcmfa` | Equivalente a `mfa`, usata per il provisioning di determinati tipi di credenziali avanzate. |
 | `wiaormfa`| L'utente ha usato Windows o una credenziale di autenticazione a più fattori per l'autenticazione. |
 | `none` | Non è stata eseguita alcuna autenticazione. |

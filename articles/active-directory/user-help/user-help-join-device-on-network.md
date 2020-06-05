@@ -1,5 +1,5 @@
 ---
-title: Aggiungere il dispositivo di lavoro all'organizzazione Network-AD
+title: Aggiungere il dispositivo aziendale alla rete dell'organizzazione - AD
 description: Informazioni su come aggiungere il dispositivo aziendale alla rete dell'organizzazione.
 services: active-directory
 author: curtand
@@ -8,16 +8,16 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266312"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745725"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
 Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'organizzazione in modo da poter accedere a risorse potenzialmente limitate.
@@ -61,7 +61,7 @@ Se il dispositivo è nuovo e non è ancora stato configurato, è possibile usare
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a * \<your_organization>* Azure ad**.
+2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>***.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Se si possiede il dispositivo da tempo ed è già stato configurato, è possibil
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a * \<your_organization>* Azure ad**.
+2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>***.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -115,4 +115,4 @@ Dopo avere aggiunto il dispositivo alla rete dell'organizzazione, è necessario 
 
 - Se l'organizzazione richiede la registrazione del dispositivo personale, ad esempio il telefono, vedere [Registrare il dispositivo personale nella rete dell'organizzazione](user-help-register-device-on-network.md).
 
-- Se l'organizzazione viene gestita con Microsoft Intune e si hanno domande sull'iscrizione, l'accesso o qualsiasi altro problema relativo a Intune, vedere il contenuto della Guida per gli [utenti di Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Se l'organizzazione viene gestita con Microsoft Intune e si hanno dubbi su iscrizione, accesso o si vuole segnalare qualsiasi altro problema correlato a Intune, vedere la [Guida per l'utente di Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

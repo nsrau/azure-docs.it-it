@@ -1,14 +1,14 @@
 ---
-title: Monitorare batch con applicazione Azure Insights
+title: Monitorare Batch con Azure Application Insights
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115466"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723613"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
@@ -19,7 +19,7 @@ Questo articolo illustra come aggiungere e configurare la libreria di Applicatio
 In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo. 
 
 > [!TIP]
-> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. Scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer. 
+> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -29,7 +29,7 @@ In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Arti
 
 * [Una risorsa di Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare *Generale* **Tipo di applicazione**.
+   * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione** *Generale*.
 
    * Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) dal portale. Sarà necessaria più avanti in questo articolo.
   
@@ -280,7 +280,7 @@ Lo screenshot seguente mostra come vengono registrate le eccezioni generate dall
 Anche le metriche personalizzate sono uno strumento prezioso nel portale. Ad esempio, è possibile visualizzare il tempo medio impiegato per scaricare il file di testo richiesto per l'elaborazione da ogni nodo di calcolo.
 
 Per creare un grafico di esempio:
-1. Nella risorsa Application Insights fare clic su **Esplora metriche** > **Aggiungi grafico**.
+1. Nella risorsa di Application Insights fare clic su **Esplora metriche** > **Aggiungi grafico**.
 2. Fare clic su **Modifica** nel grafico aggiunto.
 2. Aggiornare i dettagli del grafico come segue:
    * Impostare **Tipo di grafico** su **Griglia**.

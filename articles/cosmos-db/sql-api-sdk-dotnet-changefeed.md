@@ -1,68 +1,69 @@
 ---
-title: API del processore del feed delle modifiche di Azure Cosmos DB .NET, note sulla versione dell'SDK
-description: Tutte le informazioni sull'SDK e sull'API del processore dei feed delle modifiche, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni dell'SDK del processore dei feed delle modifiche .NET.
-author: ealsur
+title: 'Azure Cosmos DB: Note sulla versione su SDK e API del processore dei feed di modifiche .NET'
+description: Tutte le informazioni sull'SDK e sull'API del processore dei feed di modifiche, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni dell'SDK del processore dei feed di modifiche .NET.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619450"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660419"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed di modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
+> * [Esecuzione bulk - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
 |**Download dell'SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Documentazione API**|[Documentazione di riferimento sull'API della libreria del processore dei feed delle modifiche](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Operazioni preliminari**|[Introduzione all'SDK del processore dei feed delle modifiche .NET](change-feed.md)|
+|**Documentazione sull'API**|[Documentazione di riferimento sull'API della libreria del processore dei feed di modifiche](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Operazioni preliminari**|[Introduzione all'SDK del processore dei feed di modifiche .NET](change-feed.md)|
 |**Framework attualmente supportato**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> Se si usa il processore del feed delle modifiche, vedere la versione 3. x più recente di [.NET SDK](change-feed-processor.md), che include il feed delle modifiche incorporato nell'SDK. 
+> Se si usa il processore dei feed di modifiche, vedere la versione 3. x più recente di [.NET SDK](change-feed-processor.md), che include il feed di modifiche incorporato nell'SDK. 
 
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Aggiunta di un nuovo `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` metodo e di un' `ICheckpointPartitionProcessorFactory`interfaccia pubblica corrispondente. Questo consente a un'implementazione dell' `IPartitionProcessor` interfaccia di utilizzare il meccanismo di checkpoint incorporato. La nuova Factory è simile a quella esistente `IPartitionProcessorFactory`, ad eccezione del `Create` fatto che il metodo `ILeaseCheckpointer` accetta anche il parametro.
-* Per la stessa `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder` istanza è possibile utilizzare solo uno `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`dei due metodi, ovvero o.
+* Aggiunta di un nuovo metodo `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` e dell'interfaccia pubblica corrispondente `ICheckpointPartitionProcessorFactory`. In questo modo un'implementazione dell'interfaccia `IPartitionProcessor` può usare il meccanismo di checkpoint incorporato. La nuova factory è simile all'elemento `IPartitionProcessorFactory` esistente, con la differenza che il metodo `Create` accetta anche il parametro `ILeaseCheckpointer`.
+* Per la stessa istanza di `ChangeFeedProcessorBuilder` è possibile usare solo uno dei due metodi `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` e `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
-* Miglioramenti alla stabilità e alla diagnostica:
-  * Aggiunta del supporto per rilevare la lettura del feed di modifiche che richiede molto tempo. Quando impiega più tempo del valore specificato dalla `ChangeFeedProcessorOptions.ChangeFeedTimeout` proprietà, vengono eseguiti i passaggi seguenti:
-    * L'operazione di lettura del feed delle modifiche nella partizione problematica è stata interrotta.
-    * L'istanza del processore del feed delle modifiche Elimina la proprietà del lease problematico. Il lease eliminato verrà prelevato durante il successivo passaggio di acquisizione del lease che verrà eseguito dalla stessa istanza o da un'istanza diversa del processore del feed di modifiche. In questo modo, verrà riavviata la lettura del feed delle modifiche.
-    * Viene segnalato un problema al Health Monitor. Il monitoraggio di integrità predefinito invia tutti i problemi segnalati al log di traccia.
-  * È stata aggiunta una nuova proprietà `ChangeFeedProcessorOptions.ChangeFeedTimeout`pubblica:. Il valore predefinito di questa proprietà è 10 minuti.
-  * È stato aggiunto un nuovo valore enum `Monitoring.MonitoredOperation.ReadChangeFeed`pubblico:. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, indica che il problema di integrità è correlato alla lettura del feed di modifiche.
+* Miglioramenti apportati alla stabilità e alla diagnostica:
+  * Aggiunta del supporto per rilevare operazioni di lettura del feed di modifiche che richiedono molto tempo. Quando il tempo richiesto è superiore a quello specificato dalla proprietà `ChangeFeedProcessorOptions.ChangeFeedTimeout`, vengono eseguiti i passaggi seguenti:
+    * L'operazione di lettura del feed di modifiche nella partizione problematica viene interrotta.
+    * L'istanza del processore del feed di modifiche rilascia la proprietà del lease problematico. Il lease rilasciato verrà prelevato durante il passaggio di acquisizione del lease successivo che verrà eseguito dalla stessa istanza o da un'istanza diversa del processore del feed di modifiche. In questo modo, la lettura del feed delle modifiche potrà ricominciare.
+    * Viene segnalato un problema al monitoraggio integrità. Il monitoraggio integrità predefinito invia tutti i problemi segnalati al log di traccia.
+  * Aggiunta di una nuova proprietà pubblica: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Il valore predefinito di questa proprietà è 10 minuti.
+  * Aggiunta di un nuovo valore di enumerazione pubblica: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, il problema di integrità è correlato alla lettura del feed di modifiche.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
-* Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
-  * In questo scenario, l'algoritmo di bilanciamento del carico usato per considerare erroneamente i lease come scaduti, causando il furto dei lease dai proprietari attivi. Questo potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
-  * Questo problema è stato risolto in questa versione, evitando i tentativi in caso di conflitto durante l'acquisizione del lease scaduto quale proprietario non è stato modificato e posponing acquisisce il lease scaduto alla successiva iterazione del bilanciamento del carico.
+* Miglioramento della strategia di bilanciamento del carico per uno scenario in cui il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
+  * In questo scenario l'algoritmo di bilanciamento del carico usato considera erroneamente i lease come scaduti causando il furto dei lease dai proprietari attivi. Questa situazione potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
+  * Questo problema è stato risolto in questa versione, evitando nuovi tentativi in caso di conflitto durante l'acquisizione del lease scaduto che il proprietario non ha modificato e posticipando l'acquisizione del lease scaduto alla successiva iterazione del bilanciamento del carico.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -92,7 +93,7 @@ ms.locfileid: "80619450"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
-* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client del documento da usare con il processore di feed di modifiche, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire tracce aggiuntive, gestione degli errori e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato in modo da includere nuovi parametri nell'implementazione.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzata che consente di offrire un'implementazione personalizzata del client di documenti da usare con il processore dei feed di modifiche, ad esempio, decorare DocumentClient e intercettare tutte le chiamate a esso per eseguire operazioni di analisi, gestione degli errori, e così via, extra. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere i nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -153,7 +154,7 @@ ms.locfileid: "80619450"
 
 ### <a name="131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
-  * Correzione per la gestione dei problemi relativi alle attività annullate che potrebbero causare l'arresto di osservatori in alcune partizioni.
+  * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 
@@ -167,7 +168,7 @@ ms.locfileid: "80619450"
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
 
 ### <a name="110"></a><a name="1.1.0"/>1.1.0
-* Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed delle modifiche.
+* Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed di modifiche.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
 
 ### <a name="100"></a><a name="1.0.0"/>1.0.0
