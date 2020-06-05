@@ -19,7 +19,7 @@ ms.locfileid: "80876430"
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verificare l'istanza del contenitore Estrazione frasi chiave
 
 1. Selezionare la scheda **Panoramica** e copiare l'indirizzo IP.
-1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000`). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
+1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
 
     ![Visualizzare il contenitore home page per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "80876430"
     }
     ```
 
-1. Impostare **showStats** su `true`.
+1. Impostare **showStats** su `true` .
 
 1. Selezionare **Execute (Esegui** ) per determinare i sentimenti del testo.
 
@@ -100,4 +100,4 @@ ms.locfileid: "80876430"
     }
     ```
 
-È ora possibile correlare il documento `id` dei dati JSON del payload di risposta al documento `id`di payload della richiesta originale. Nel documento risultante è presente `keyPhrases` una matrice che contiene l'elenco di frasi chiave estratte dal documento di input corrispondente. Sono inoltre disponibili diverse statistiche, ad esempio `characterCount` e `transactionCount` , per ogni documento risultante.
+È ora possibile correlare il documento `id` dei dati JSON del payload di risposta al documento di payload della richiesta originale `id` . Nel documento risultante è `keyPhrases` presente una matrice che contiene l'elenco di frasi chiave estratte dal documento di input corrispondente. Sono inoltre disponibili diverse statistiche, ad esempio `characterCount` e, `transactionCount` per ogni documento risultante.

@@ -95,7 +95,7 @@ ms.locfileid: "80877832"
     ```
 
 1. Salvare il file e chiudere l'editor di testo.
-1. Eseguire il comando `apply` Kubernetes con il file *sentimento. YAML* come destinazione:
+1. Eseguire il `apply` comando Kubernetes con il file *sentimento. YAML* come destinazione:
 
     ```console
     kubectl apply -f sentiment.yaml

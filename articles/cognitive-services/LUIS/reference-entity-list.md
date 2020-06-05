@@ -125,7 +125,7 @@ Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 
 * * *
 
-|Oggetto dati|Nome dell'entità|Valore|
+|Oggetto dati|Nome dell'entità|valore|
 |--|--|--|
 |Elenca entità|`Cities`|`paris`|
 
