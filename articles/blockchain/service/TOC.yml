@@ -4,6 +4,8 @@
   items:
     - name: Informazioni sul servizio Azure Blockchain
       href: overview.md
+    - name: Novità
+      href: whats-new.md
 - name: Avvi rapidi
   expanded: true
   items:
