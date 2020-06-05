@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -17,6 +17,6 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "67180444"
 ---
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Dopo aver completato la procedura illustrata, rimuovere tutti i file creati in questa guida introduttiva. Accedere a QnA Maker ed eliminare la knowledge base.

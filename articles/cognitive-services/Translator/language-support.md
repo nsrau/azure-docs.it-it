@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996075"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434280"
 ---
 # <a name="language-and-region-support-for-translator"></a>Supporto per lingua e area geografica per Translator
 
@@ -74,10 +74,11 @@ Il convertitore supporta le seguenti lingue per la traduzione da testo a testo. 
 |Irlandese | `ga`| Neurale
 |Italiano|    `it`    |    Neurale|
 |Giapponese|    `ja`    |    Neurale|
-|Kannada|`kn`| Neurale
+|Kannada|`kn`| Neurale|
+|Kazako |`kk`| Neurale|
 |Kiswahili|    `sw`    |    Statistica|
-|Klingon|    `tlh`    |    Statistica|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Statistica|
+|Klingon|    `tlh-Latn`    |    Statistica|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Statistica|
 |Coreano    |`ko`    |    Neurale|
 |Lettone|    `lv`    |    Neurale|
 |Lituano|    `lt`    |    Neurale|
@@ -130,20 +131,20 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latino `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latino `Latn` |
 | Ebraico | `he` | Ebraico `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Giapponese | `ja` | Giapponese `Jpan` | <--> | Latino `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Oriya | `or` | Oriya `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
-| Thai | `th` | Thai `Thai` | --> | Latino `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
+| Thai | `th` | Thai `Thai` | <--> | Latino `Latn` |
 
 ## <a name="dictionary"></a>Dizionario
 
@@ -177,7 +178,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
 | Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |

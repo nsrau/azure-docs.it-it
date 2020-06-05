@@ -95,7 +95,7 @@ ms.locfileid: "80877830"
     ```
 
 1. Salvare il file e chiudere l'editor di testo.
-1. Eseguire il comando `apply` Kubernetes con il file di *chiave phrase. YAML* come destinazione:
+1. Eseguire il `apply` comando Kubernetes con il file di *chiave phrase. YAML* come destinazione:
 
     ```console
     kubectl apply -f keyphrase.yaml
