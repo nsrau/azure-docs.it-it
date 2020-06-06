@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142164"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465593"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
 > [!IMPORTANT]
-> La versione 3. x del API Analisi del testo non è attualmente disponibile nelle aree seguenti: India centrale, Fairfax, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Cina settentrionale 2 Cina orientale.
+> La versione 3. x del API Analisi del testo non è attualmente disponibile nelle aree seguenti: India centrale, Emirati Arabi Uniti settentrionali, Cina settentrionale 2 Cina orientale.
 
 
 #### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment-analysis)
@@ -54,7 +54,7 @@ ms.locfileid: "84142164"
 | Inglese               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[Riconoscimento di entità denominate (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[Riconoscimento delle entità denominate (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
 > * NER V3 supporta attualmente solo la lingua inglese. Se si chiama NER V3 con una lingua diversa, l'API restituirà i risultati v 2.1, purché la lingua sia supportata nella versione 2,1.
@@ -125,4 +125,4 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Informazioni sull'API Analisi del testo](overview.md)   
+* [Qual è la API Analisi del testo?](overview.md)   

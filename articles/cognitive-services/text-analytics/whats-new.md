@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: 32dc7e86d5cd737533a4a6c8b3d9ce7d00795c65
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140507"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462796"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -137,9 +137,9 @@ Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` )
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull'API Analisi del testo](overview.md)  
+* [Qual è la API Analisi del testo?](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)
-* [Riconoscimento entità](how-tos/text-analytics-how-to-entity-linking.md)
+* [Riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md)
 * [Estrazione delle frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md)
