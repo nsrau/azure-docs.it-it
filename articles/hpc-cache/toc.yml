@@ -38,6 +38,10 @@
       href: hpc-cache-manage.md
     - name: Configurare impostazioni facoltative
       href: configuration.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/hpc-cache/hpc-cache
 - name: Risorse
   items:
     - name: Aprire un ticket di supporto
