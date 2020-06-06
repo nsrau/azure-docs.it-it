@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: aa71057d3819acb335153ee5b4b65960320405be
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997414"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457013"
 ---
 # <a name="samples-and-faqs"></a>Esempi e domande frequenti
 
@@ -43,7 +43,7 @@ Contattare winvoiceassistants@microsoft.com per richiedere queste risorse.
 
 Quando l'applicazione viene attivata per la prima volta da Voice, viene avviata in una vista compatta. Leggere le [linee guida di progettazione per l'anteprima dell'attivazione vocale](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) per istruzioni sulle diverse visualizzazioni e transizioni tra di essi per gli assistenti vocali in Windows.
 
-Per passare dalla visualizzazione compatta alla visualizzazione completa dell'app, usare l'API `TryEnterViewModeAsync`AppView:
+Per passare dalla visualizzazione compatta alla visualizzazione completa dell'app, usare l'API appView `TryEnterViewModeAsync` :
 
 `var appView = ApplicationView.GetForCurrentView();
  await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`

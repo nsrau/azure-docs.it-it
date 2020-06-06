@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745605"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457100"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -104,7 +104,7 @@ Seguire queste istruzioni per creare una risorsa vocale:
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di una risorsa vocale:
 
-| Nome | Type  | Posizione |
+| Nome | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
 
@@ -125,7 +125,7 @@ Il passaggio successivo consiste nel creare un piano di servizio app. Un piano d
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di due risorse:
 
-| Nome | Type  | Posizione |
+| Nome | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
@@ -197,6 +197,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
    * Per **piano di hosting**selezionare **SpeechEchoBotTutorial-AppServicePlan**
    * Per **Application Insights**, lasciare come **nessuno**
 1. Fare clic su **Crea**
+1. Fare clic su **pubblica** sul lato destro del profilo appena creato.
 1. Verrà visualizzato un messaggio di operazione completata in Visual Studio simile al seguente:
 
    ```
@@ -207,7 +208,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 1. Il browser predefinito dovrebbe aprirsi e visualizzare una pagina che legge: "il bot è pronto!".
 1. A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure e verificare che siano disponibili tre risorse:
 
-| Nome | Type  | Posizione |
+| Nome | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
@@ -236,7 +237,7 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creare una registrazione per i canali di Azure bot<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. Verrà richiesto di fornire alcune informazioni:
-   * Per **handle bot**immettere **SpeechEchoBotTutorial-BotRegistration**.
+   * Per **handle bot**immettere **SpeechEchoBotTutorial-BotRegistration-# # # #** e sostituire **####** con l'utente selezionato. Si noti che l'handle bot deve essere univoco a livello globale. Se si immette un handle bot ma si ottiene il messaggio di errore _l'ID bot richiesto non è disponibile_, selezionare un numero diverso. Negli esempi seguenti è stato usato 8726
    * Per **sottoscrizione**selezionare **versione di valutazione gratuita**.
    * Per **gruppo di risorse**selezionare **SpeechEchoBotTutorial-ResourceGroup**.
    * Per **località**selezionare **Stati Uniti occidentali**.
@@ -248,25 +249,47 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
 
 A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure. A questo punto dovrebbero essere visualizzate quattro risorse:
 
-| Nome | Type  | Posizione |
+| Nome | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
-| SpeechEchoBotTutorial-BotRegistration | Registrazione canali bot | global |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Registrazione canali bot | globale |
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
 
 > [!IMPORTANT]
 > La risorsa di registrazione dei canali bot visualizzerà l'area globale anche se è stata selezionata l'opzione Stati Uniti occidentali. Si tratta di un comportamento previsto.
 
+## <a name="optional-test-in-web-chat"></a>Facoltativo: test in web chat
+
+Nella pagina di registrazione dei canali di Azure bot è presente un'opzione **test in web chat** in **gestione bot**. Per impostazione predefinita, non funzionerà con il bot, perché la chat Web deve eseguire l'autenticazione per il bot. Se si vuole testare il bot distribuito con l'input di testo, attenersi alla procedura riportata di seguito. Si noti che questi passaggi sono facoltativi e non sono necessari per continuare con i passaggi successivi dell'esercitazione. 
+
+1. Individuare e aprire la risorsa **EchoBotTutorial-BotRegistration-# # # #** nel [portale di Azure](https://portal.azure.com)
+1. Dallo spostamento **gestione bot** selezionare **Impostazioni**. Copiare il valore in **ID app Microsoft**
+1. Aprire la soluzione Visual Studio EchoBot. In Esplora soluzioni individuare e fare doppio clic su **appSettings. JSON.**
+1. Sostituire la stringa vuota accanto a **MicrosoftAppId** nel file JSON con il valore ID copiato
+1. Tornare alla portale di Azure, in **bot Management** Navigation, selezionare **Settings**e fare clic su on **(Manage)** accanto a **Microsoft App ID**
+1. Fare clic su **nuovo segreto client**. Aggiungere una descrizione (ad esempio "web chat") e fare clic su **Aggiungi**. Copia il nuovo segreto
+1. Sostituire la stringa vuota accanto a **MicrosoftAppPassword** nel file JSON con il valore Secret copiato
+1. Salvare il file JSON. L'aspetto dell'anteprima dovrebbe essere simile al seguente:
+```json
+{
+  "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
+  "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
+}
+```
+9. Ripubblicare l'app (fare clic con il pulsante destro del mouse sul progetto **EchoBot** in Esplora soluzioni di Visual Studio, selezionare **pubblica** e fare clic sul pulsante **pubblica** )
+10. A questo punto si è pronti per testare il bot in web chat.
+
 ## <a name="register-the-direct-line-speech-channel"></a>Registrare il canale vocale direct line
 
 A questo punto è giunto il momento di registrare il bot con il canale di sintesi vocale direct line. Questo canale è quello che viene usato per creare una connessione tra il bot Echo e un'app client compilata con l'SDK di riconoscimento vocale.
 
-1. Individuare e aprire la risorsa **SpeechEchoBotTutorial-BotRegistration** nel [portale di Azure](https://portal.azure.com).
-1. Dalla pagina di navigazione dei **servizi di Azure** selezionare **canali**.
+1. Individuare e aprire la risorsa **SpeechEchoBotTutorial-BotRegistration-# # # #** nel [portale di Azure](https://portal.azure.com).
+1. Dallo spostamento **gestione bot** selezionare **canali**.
    * Cercare **altri canali**, trovare e fare clic su **voce diretta linea**.
    * Esaminare il testo nella pagina denominata **Configure Direct Line Speech**, quindi espandere il menu a discesa con l'etichetta "cognitive Service account".
    * Selezionare la risorsa vocale creata in precedenza (ad esempio, **SpeechEchoBotTutorial-Speech**) dal menu per associare il bot alla chiave di sottoscrizione vocale.
+   * Ignora il resto dei campi facoltativi
    * Fare clic su **Salva**.
 
 1. Dallo spostamento **gestione bot** fare clic su **Impostazioni**.
@@ -289,7 +312,7 @@ Prima di procedere, verificare che il microfono e le relatori siano abilitati e 
    * scaricare un pacchetto ZIP contenente il file eseguibile da eseguire oppure
    * compilare il file eseguibile, clonando il repository e compilando il progetto.
 
-1. Avviare l'applicazione client e configurarla.
+1. Avviare l'applicazione client e configurarla per la connessione al bot, in base alle istruzioni nel repository GitHub
 1. Fare clic su **Riconnetti** e verificare che venga visualizzato il messaggio **premere il pulsante MIC oppure digitare per iniziare a comunicare con il bot**.
 1. È ora di provarlo. Fare clic sul pulsante del microfono e pronunciare alcune parole in inglese. Il testo riconosciuto verrà visualizzato mentre si parla. Al termine dell'operazione, il bot risponderà con la propria voce, affermando "echo" seguito dalle parole riconosciute.
 1. È anche possibile usare il testo per comunicare con il bot. È sufficiente digitare il testo nella barra inferiore. 
@@ -331,7 +354,7 @@ Ecco un esempio di codice JSON di un'attività ricevuta dal client:
     },
     "entities":[],
     "from":{
-        "id":"SpeechEchoBotTutorial-BotRegistration"
+        "id":"SpeechEchoBotTutorial-BotRegistration-8726"
     },
     "id":"89841b4d-46ce-42de-9960-4fe4070c70cc",
     "inputHint":"acceptingInput",
@@ -444,7 +467,7 @@ Se non si intende continuare a usare echo-bot distribuito in questa esercitazion
 > [!div class="nextstepaction"]
 > [Creare un'app client personalizzata con l'SDK di riconoscimento vocale](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * Distribuzione in un' [area di Azure nelle vicinanze](https://azure.microsoft.com/global-infrastructure/locations/) per visualizzare il miglioramento del tempo di risposta del bot
 * Distribuzione in un' [area di Azure che supporta le voci TTS neurali di qualità elevata](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
