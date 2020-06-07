@@ -1,209 +1,238 @@
 ---
 title: Domande frequenti
-description: Fornisce le risposte ad alcune domande comuni su Azure VMware Solution (AVS).
+description: Risposte ad alcune domande comuni sulla soluzione Azure VMware (AVS).
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854594"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873310"
 ---
-# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione VMware di Azure (AVS)
+# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione Azure VMware (AVS)
 
-Risposte alle domande frequenti sulla soluzione VMware di Azure (AVS).
+Risposte alle domande frequenti sulla soluzione Azure VMware (AVS).
 
 ## <a name="general"></a>Generale
 
 **Che cos'è la soluzione Azure VMware (AVS)?**
 
-Quando le aziende sviluppano strategie di modernizzazione per migliorare l'agilità aziendale, ridurre i costi e accelerare l'innovazione, le piattaforme cloud ibride sono emerse come gli abilitatori chiave della trasformazione digitale dei clienti. AVS combina il software SDDC (software defined Data Center) di VMware con Microsoft Azure ecosistema globale del servizio cloud. La soluzione AVS è gestita per soddisfare i requisiti di prestazioni, disponibilità, sicurezza e conformità.
+Con la ricerca da parte delle organizzazioni di strategie di modernizzazione IT in grado di migliorare l'agilità aziendale, ridurre i costi e accelerare l'innovazione, le piattaforme di cloud ibrido sono diventate elementi determinanti per la trasformazione digitale dei clienti. AVS combina il software VMware Software Defined Data Center (SDDC) con l'ecosistema globale di servizi cloud di Microsoft Azure. La soluzione AVS è gestita in modo da soddisfare i requisiti di prestazioni, disponibilità, sicurezza e conformità.
 
 ## <a name="avs-service"></a>Servizio AVS
 
 **Dove è attualmente disponibile AVS?**
 
-Durante la fase di anteprima, è disponibile negli Stati Uniti orientali in America del Nord e in Amsterdam nell'Europa occidentale.
+Durante l'anteprima è disponibile negli Stati Uniti orientali, in America del Nord, e ad Amsterdam, nell'Europa occidentale.
 
-**I carichi di lavoro in esecuzione in un'istanza di soluzione VMware di Azure (AVS) utilizzano o si integrano con i servizi di Azure?**
+**I carichi di lavoro eseguiti in un'istanza della soluzione Azure VMware (AVS) si integrano con i servizi di Azure o li utilizzano?**
 
-Tutti i servizi di Azure saranno disponibili per i clienti della soluzione AVS. Le limitazioni relative a prestazioni e disponibilità per servizi specifici devono essere risolte in base alla situazione.
+Tutti i servizi di Azure saranno disponibili per i clienti della soluzione AVS. Le limitazioni relative alle prestazioni e alla disponibilità di servizi specifici dovranno essere risolte caso per caso.
 
-**Si utilizzano gli stessi strumenti usati ora per gestire le risorse del cloud privato?**
+**Si usano gli stessi strumenti attualmente usati per gestire le risorse dei cloud privati?**
 
-Sì. Il portale di Azure viene utilizzato per la distribuzione e una serie di operazioni di gestione. vCenter e NSX Manager vengono usati per gestire le risorse vSphere e NSX-T.
+Sì. Il portale di Azure viene usato per la distribuzione e per diverse operazioni di gestione. vCenter e NSX Manager vengono usati per gestire le risorse vSphere e NSX-T.
 
-**È possibile gestire un cloud privato con vCenter locale?**
+**È possibile gestire un cloud privato con un'istanza locale di vCenter?**
 
-In fase di avvio, AVS non supporterà una singola esperienza di gestione in ambienti locali e cloud privati. I cluster di cloud privati verranno gestiti con vCenter e gestione NSX locale in un cloud privato.
+Al momento del lancio, AVS non supporterà un'unica esperienza di gestione in ambienti locali e ambienti cloud privati. I cluster dei cloud privati verranno gestiti con istanze di vCenter e NSX Manager locali rispetto al cloud privato.
 
 **È possibile usare vRealize Suite in esecuzione in locale?** 
 
-Integrazioni e casi d'uso specifici possono essere valutati in base alla situazione.
+Potranno essere valutati caso per caso integrazioni e casi d'uso specifici.
 
-**È possibile eseguire la migrazione di macchine virtuali vSphere da ambienti locali a cloud privati AVS?**
+**È possibile eseguire la migrazione di VM vSphere da ambienti locali a cloud privati AVS?**
 
-Sì. È possibile usare la migrazione di VM e vMotion per spostare le macchine virtuali in un cloud privato se vengono soddisfatte lehttps://kb.vmware.com/s/article/210695piattaforme Cross vCenter [requisiti vMotion] [] standard.
+Sì. È possibile usare la migrazione di VM e vMotion per spostare le macchine virtuali in un cloud privato se vengono soddisfatti i requisiti standard di Cross vCenter [vMotion] [https://kb.vmware.com/s/article/210695 ].
 
 **È necessaria una versione specifica di vSphere negli ambienti locali?**
 
-Poiché tutti gli ambienti cloud sono dotati di HCX, vSphere 5,5 o versioni successive negli ambienti locali per vMotion.
+Dato che tutti gli ambienti cloud includono HCX, è necessario vSphere versione 5.5 o successiva negli ambienti locali per vMotion.
 
-**Qual è l'aspetto del processo di controllo delle modifiche?**
+**Come si presenta il processo di controllo delle modifiche?**
 
-Gli aggiornamenti apportati al servizio stesso seguiranno il processo di gestione delle modifiche standard di Microsoft Azure. I clienti sono responsabili di qualsiasi attività di amministrazione del carico di lavoro e dei processi di gestione delle modifiche associati.
+Gli aggiornamenti del servizio seguiranno il processo di gestione delle modifiche standard di Microsoft Azure. I clienti sono responsabili di tutte le attività di amministrazione del carico di lavoro e dei processi di gestione delle modifiche associati.
 
-**Qual è la differenza tra la soluzione VMware di Azure e CloudSimple?**
+**Quali sono le differenze rispetto alla soluzione Azure VMware di CloudSimple?**
 
-Con la nuova soluzione VMware di Azure, Microsoft e VMware hanno una partnership diretta con il provider di servizi cloud. La nuova soluzione è interamente progettata, compilata e supportata da Microsoft e approvata da VMware. Con l'architettura, le soluzioni sono coerenti con lo stack di tecnologie VMware in esecuzione in un'infrastruttura dedicata di Azure.
+Con la nuova soluzione Azure VMware, Microsoft e VMware hanno una partnership diretta di provider di servizi cloud. La nuova soluzione è interamente progettata, realizzata e supportata da Microsoft e approvata da VMware. A livello di architettura, le soluzioni sono coerenti con lo stack di tecnologia VMware eseguito in un'infrastruttura dedicata di Azure.
 
-**Se sono un cliente esistente della soluzione VMware di Azure, cosa significa questa anteprima?**
+**Che cosa comporta questa anteprima per gli attuali clienti della soluzione Azure VMware?**
 
-Non sono state apportate modifiche alla soluzione VMware di Azure esistente da CloudSimple. Continuiamo a supportare la soluzione in Azure. La soluzione VMware di Azure è supportata dal contratto di servizio [(SLA)](https://aka.ms/CSVMwareSLA). I clienti devono continuare a usare il servizio per i carichi di lavoro di produzione; si tratta di una soluzione disponibile regolata dalle [condizioni di servizio di Microsoft](https://azure.microsoft.com/support/legal/).
+Non sono state apportate modifiche alla soluzione Azure VMware di CloudSimple esistente, che continua a essere supportata in Azure. La soluzione Azure VMware è supportata dal [contratto di servizio](https://aka.ms/CSVMwareSLA) Microsoft. I clienti dovrebbero continuare a usare il servizio per i carichi di lavoro di produzione. Si tratta di una soluzione disponibile, regolata dalle [condizioni del servizio Microsoft](https://azure.microsoft.com/support/legal/).
 
-**È possibile eseguire la migrazione dalla soluzione VMware di Azure CloudSimple alla nuova soluzione?**
+**È possibile eseguire la migrazione dalla soluzione Azure VMware di CloudSimple a questa nuova soluzione?**
 
-Sì, la soluzione VMware di Azure supporta la migrazione usando strumenti VMware noti, ad esempio HCX. Per i clienti interessati alla migrazione alla nuova soluzione, collaborare con il team di account Microsoft per esplorare le opzioni e il supporto disponibile.
+Sì. La soluzione Azure VMware supporta la migrazione con strumenti VMware noti come HCX. I clienti interessati alla migrazione alla nuova soluzione sono invitati a collaborare con il team dell'account Microsoft per esplorare le opzioni e il supporto disponibile.
+
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Come si richiede un aumento della quota di host per una soluzione Azure VMware esistente?**
+
+È possibile richiedere un aumento della quota [inviando una richiesta di supporto](..\azure-portal\supportability\how-to-create-azure-support-request.md). Il team responsabile della gestione delle quote valuterà la richiesta e la approverà entro tre giorni lavorativi.  
+
+> [!IMPORTANT]
+> Per poter richiedere un aumento della quota, assicurarsi prima di tutto di [registrare il provider di risorse **Microsoft.AVS**](tutorial-create-private-cloud.md) nel portale di Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. Nel portale di Azure creare una richiesta di supporto in **Guida e supporto** selezionando **Nuova richiesta di supporto** e quindi specificare le informazioni seguenti per il ticket.
+   - **Tipo di problema:** Tecnici
+   - **Sottoscrizione:** ID sottoscrizione
+   - **Service:**  Soluzione Azure VMware 
+   - **Riepilogo:** Aumento di quota
+   - **Tipo di problema:** Capacity Management Issues (Problemi di gestione della capacità)
+   - **Sottotipo del problema:** Customer Request for Additional Host Quota/Capacity (Richiesta del cliente di capacità/quota host aggiuntiva)
+
+1. Nella descrizione del ticket di supporto specificare le informazioni seguenti nella scheda Dettagli:
+   - Numero di nodi aggiuntivi   
+   - SKU nodi
+   - Region
+
+   > [!NOTE] 
+   > Per impostazione predefinita, verrà concesso un minimo di quattro nodi.
+
+1. Fare clic su **Rivedi e crea** per inviare la richiesta.
 
 ## <a name="compute-network-and-storage"></a>Calcolo, rete e archiviazione
 
-**È disponibile più di un tipo di host?**
+**Sono disponibili più tipi di host?**
 
 È disponibile un solo tipo di host.
 
-**Quali sono le specifiche della CPU in ogni tipo di host?**
+**Quali sono le specifiche delle CPU in ogni tipo di host?**
 
-I server hanno Dual CPU Intel da 18 Core 2,3 GHz.
+I server sono dotati di CPU dual core Intel a 18 core a 2,3 GHz.
 
-**Quantità di memoria in ogni host**
+**Quanta memoria è disponibile in ogni host?**
 
-I server hanno 576 GB di RAM.
+I server sono dotati di 576 GB di RAM.
 
 **Qual è la capacità di archiviazione di ogni host?**
 
-Ogni host ESXi ha due diskgroups rete VSAN con un livello di capacità di 15,2 TB e un livello di cache di 3,2 TB NVMe (1,6 TB in ogni gruppo dei dischi).
+Ogni host ESXi è dotato di due gruppi di dischi VSAN con livello di capacità di 15,2 TB e livello di cache NVMe di 3,2 TB (1,6 TB in ogni gruppo di dischi).
 
 **Quanta larghezza di banda di rete è disponibile in ogni host ESXi?**
 
-Gli host ESXi supportano la larghezza di banda di connettività fino a 25 Gbps.
+Gli host ESXi supportano fino a 25 Gbps di larghezza di banda di connettività.
 
-**I dati archiviati negli archivi dati rete VSAN sono crittografati?**
+**Ai dati archiviati negli archivi dati VSAN viene applicata la crittografia dei dati inattivi?**
 
-Sì, tutti i dati rete VSAN vengono crittografati per impostazione predefinita usando le chiavi archiviate in Azure Key Vault.
+Sì. Per impostazione predefinita, tutti i dati VSAN vengono crittografati usando le chiavi archiviate in Azure Key Vault.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 
 **L'infrastruttura sottostante è condivisa?**
 
-No, gli host e i cluster di cloud privati sono dedicati e cancellati in modo sicuro prima e dopo l'utilizzo.
+No. Gli host e i cluster dei cloud privati sono dedicati e cancellati in modo sicuro prima e dopo l'uso.
 
-**Quali sono il numero minimo e massimo di host per cluster?**
+**Quali sono il numero minimo e quello massimo di host per cluster?**
 
-I cluster possono essere ridimensionati tra 3 e 16 host ESXi. I cluster di valutazione sono limitati a tre host.
+I cluster sono scalabili tra 3 e 16 host ESXi. I cluster di prova sono limitati a tre host.
 
-**È possibile ridimensionare i cluster di cloud privati?**
+**I cluster dei cloud privati sono scalabili?**
 
-Sì, i cluster vengono ridimensionati tra il numero minimo e massimo di host ESXi. I cluster di valutazione sono limitati a tre host.
+Sì. I cluster sono scalabili tra il numero minimo e il numero massimo di host ESXi. I cluster di prova sono limitati a tre host.
 
-**Che cosa sono i cluster di valutazione?**
+**Che cosa sono i cluster di prova?**
 
-I cluster di valutazione sono tre cluster host usati per la valutazione di un mese dei cloud privati AVS.
+I cluster di prova sono tre cluster di host usati per valutazioni di un mese dei cloud privati AVS.
 
-**È possibile usare gli host di fascia alta per i cluster di valutazione?**
+**È possibile usare host di fascia alta per i cluster di prova?**
 
-No. Gli host ESXi di fascia alta sono riservati per l'uso nei cluster di produzione.
+No. Gli host ESXi di fascia alta sono riservati per l'uso in cluster di produzione.
 
-## <a name="avs-and-vmware-software"></a>Software AVS e VMware
+## <a name="avs-and-vmware-software"></a>AVS e software VMware
 
-**Quali versioni di VMware software viene usato nei cloud privati?**
+**Quali versioni del software VMware vengono usate nei cloud privati?**
 
-I cloud privati usano vSphere 6,7, rete VSAN 6,7, HCX e la versione 2,5 di NSX-T.  
+I cloud privati usano vSphere 6.7, vSAN 6.7, HCX e la versione 2.5 di NSX-T.  
 
 **I cloud privati usano VMware NSX?**
 
-Sì, NSX-T 2,5 viene usato per il Software Defined Networking nei cloud privati AVS.
+Sì. NSX-T 2.5 viene usato per le reti SDN (Software Defined Networking) nei cloud privati AVS.
 
 **È possibile usare VMware NSX-V in un cloud privato?**
 
-No. NSX-T è l'unica versione supportata di NSX.
+No. L'unica versione supportata di NSX è NSX-T.
 
-**NSX è necessario in ambienti locali o in reti che si connettono a un cloud privato.**
+**NSX è necessario negli ambienti locali o nelle reti che si connettono a un cloud privato?**
 
-No, non è necessario usare NSX in locale.
+No. Non è necessario usare NSX in locale.
 
-**Qual è la pianificazione dell'aggiornamento e dell'aggiornamento per il software VMware in un cloud privato?**
+**Come sono pianificati gli aggiornamenti del software VMware in un cloud privato?**
 
-Gli aggiornamenti del bundle software del cloud privato vengono eseguiti per preservare il software all'interno di una versione della versione più recente del modulo del bundle software VMware. Le versioni del software del cloud privato possono essere diverse dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, rete VSAN).
+Gli aggiornamenti del bundle software del cloud privato vengono eseguiti in modo che il software possa essere indietro al massimo di una versione rispetto alla versione più recente del modulo del bundle software VMware. Le versioni del software del cloud privato possono differire dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, VSAN).
 
-**Con quale frequenza viene aggiornato lo stack del software del cloud privato?**
+**Con quale frequenza verrà aggiornato lo stack software del cloud privato?**
 
-Il software per il cloud privato viene aggiornato in base a una pianificazione che tiene traccia con il rilascio del bundle software da VMware. Il cloud privato non richiede tempi di inattività per gli aggiornamenti.
+Il software del cloud privato viene aggiornato in base a una pianificazione allineata al rilascio del bundle software da VMware. Gli aggiornamenti non comportano tempi di inattività per il cloud privato.
 
 ## <a name="connectivity"></a>Connettività
 
-**Quale pianificazione degli indirizzi IP di rete è necessaria per incorporare cloud privati con ambienti locali?**
+**Quale pianificazione degli indirizzi IP di rete è necessaria per incorporare i cloud privati con gli ambienti locali?**
 
-Per distribuire un cloud privato AVS è necessario uno spazio degli indirizzi di rete privata/22. Questo spazio di indirizzi privato non deve sovrapporsi ad altre reti virtuali in una sottoscrizione o con reti locali.
+Per distribuire un cloud privato AVS è necessario uno spazio indirizzi di rete privato /22. Questo spazio indirizzi privato non deve sovrapporsi alle altre reti virtuali in una sottoscrizione o alle reti locali.
  
-**Ricerca per categorie connettersi da ambienti locali a un cloud privato AVS?**
+**Come si esegue la connessione dagli ambienti locali a un cloud privato AVS?**
 
-È possibile connettersi al servizio in uno dei due metodi seguenti: 
+È possibile connettersi al servizio con uno dei due metodi seguenti: 
 
-- Con una VM o un gateway applicazione distribuito in una rete virtuale di Azure con peering tramite ExpressRoute al cloud privato.
-- Tramite ExpressRoute Copertura globale dal Data Center locale a un circuito ExpressRoute di Azure.
+- Con una VM o un gateway applicazione distribuito in una rete virtuale di Azure con peering al cloud privato tramite ExpressRoute.
+- Tramite il servizio Copertura globale di ExpressRoute, dal data center locale a un circuito di Azure ExpressRoute.
 
-**Ricerca per categorie connettere una macchina virtuale del carico di lavoro a Internet o a un endpoint di servizio di Azure?**
+**Come si connette una VM del carico di lavoro a Internet o a un endpoint di servizio di Azure?**
 
-Nel portale di Azure abilitare la connettività Internet per un cloud privato. Con NSX-T Manager, creare un router NSX-T T1 e un commutire logico. Si usa quindi vCenter per distribuire una macchina virtuale nel segmento di rete definito dal Commuter logico. Tale macchina virtuale avrà accesso di rete a Internet e ai servizi di Azure.
+Nel portale di Azure abilitare la connettività Internet per un cloud privato. Con NSX-T Manager, creare un router NSX-T T1 e un commutatore logico. Usare quindi vCenter per distribuire una VM nel segmento di rete definito dal commutatore logico. Tale macchina virtuale avrà l'accesso di rete a Internet e ai servizi di Azure.
 
-**È necessario limitare l'accesso da Internet alle macchine virtuali in reti logiche in un cloud privato?**
+**È necessario limitare l'accesso da Internet alle VM nelle reti logiche di un cloud privato?**
 
-No. Il traffico di rete in ingresso da Internet direttamente ai cloud privati non è consentito.
+No. Il traffico di rete in ingresso diretto da Internet ai cloud privati non è consentito.
 
-**È necessario limitare l'accesso a Internet dalle macchine virtuali su reti logiche a Internet?**
+**È necessario limitare l'accesso a Internet dalle VM nelle reti logiche?**
 
-Sì. È necessario usare NSX-T Manager per creare un firewall che limita l'accesso alla macchina virtuale a Internet.
+Sì. Sarà necessario usare NSX-T Manager per creare un firewall che limiti l'accesso delle VM a Internet.
 
 ## <a name="accounts-and-privileges"></a>Account e privilegi
 
 **Quali account e privilegi si ottengono con il nuovo cloud privato AVS?**
 
-Sono state fornite le credenziali per un utente cloudadmin in vCenter e l'accesso amministratore su NSX-T Manager. È anche disponibile un gruppo CloudAdmin che può essere usato per incorporare Azure Active Directory. Per altre informazioni, vedere [concetti relativi all'accesso e all'identità](concepts-identity.md).
+Si ricevono le credenziali di un utente cloudadmin in vCenter e l'accesso come amministratore in NSX-T Manager. È anche disponibile un gruppo CloudAdmin che può essere usato per incorporare Azure Active Directory. Per altre informazioni, vedere [Concetti relativi ad accesso e identità](concepts-identity.md).
 
-**È possibile disporre dell'accesso amministrativo agli host ESXi?**
+**È possibile avere l'accesso come amministratore agli host ESXi?**
 
-No, l'accesso dell'amministratore a ESXi è limitato a soddisfare i requisiti di sicurezza della soluzione.
+No. L'accesso come amministratore a ESXi è limitato per soddisfare i requisiti di sicurezza della soluzione.
 
 **Quali privilegi e autorizzazioni si avranno in vCenter?**
 
-Sono disponibili i privilegi del gruppo CloudAdmin. Per altre informazioni, vedere [concetti relativi all'accesso e all'identità](concepts-identity.md).
+Si avranno i privilegi del gruppo CloudAdmin. Per altre informazioni, vedere [Concetti relativi ad accesso e identità](concepts-identity.md).
 
-**Quali privilegi e autorizzazioni sono disponibili in NSX-T Manager?**
+**Quali privilegi e autorizzazioni si avranno in NSX-T Manager?**
 
-Si avranno privilegi di amministratore completi su NSX-T e si potrà gestire il controllo degli accessi in base al ruolo come si farebbe con il Data Center in locale di NSX-T. Per altre informazioni, vedere [concetti relativi all'accesso e all'identità](concepts-identity.md).
+Si avranno privilegi di amministratore completi in NSX-T e la possibilità di gestire il controllo degli accessi in base al ruolo così come con NSX-T Data Center in locale. Per altre informazioni, vedere [Concetti relativi ad accesso e identità](concepts-identity.md).
 
 > [!NOTE]
-> Un router T0 viene creato e configurato come parte di una distribuzione di cloud privato. Eventuali modifiche apportate al router logico o alle VM del nodo perimetrale NSX-T potrebbero influire sulla connettività al cloud privato.
+> Come parte della distribuzione di un cloud privato viene creato e configurato un router T0. Qualsiasi modifica a tale router logico o alle VM dei nodi perimetrali NSX-T influirà sulla connettività al cloud privato.
 
-## <a name="billing-and-support"></a>Fatturazione e supporto tecnico
+## <a name="billing-and-support"></a>Fatturazione e supporto
 
-**Come verrà fatturato durante l'anteprima di AVS**
+**Come avverrà la fatturazione durante l'anteprima di AVS?**
 
-La fatturazione per AVS durante la fase di anteprima è mensile con pagamento in base al consumo. Opzioni aggiuntive saranno disponibili a livello generale.
+Durante l'anteprima, la fatturazione per AVS è mensile con pagamento in base al consumo. Altre opzioni saranno disponibili con il passaggio alla disponibilità generale.
 
-**In che modo verranno strutturati i prezzi durante l'anteprima di AVS?**
+**Come saranno strutturati i prezzi durante l'anteprima di AVS?**
 
-Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/azure-vmware) della soluzione VMware di Azure. I prezzi per l'anteprima sono disponibili su richiesta. contattare il team dell'account o seguire il collegamento nella pagina dei prezzi per contattare le vendite.
+Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/azure-vmware) della soluzione Azure VMware. I prezzi dell'anteprima sono disponibili su richiesta. Contattare il team dell'account oppure seguire il collegamento nella pagina dei prezzi per contattare il reparto vendite.
 
 **Chi supporta AVS?**
 
-Il supporto per AVS viene fornito da Microsoft. Si noti che, in base alle linee guida di anteprima, si fornirà il supporto per le ore 9.00 dal lunedì al venerdì. È possibile generare un ticket di supporto da [questo collegamento](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Il supporto per AVS è offerto da Microsoft. Si noti che, in base alle linee guida per l'anteprima, verrà fornito supporto nell'orario di ufficio 9-17 PST, dal lunedì al venerdì. È possibile aprire un ticket di supporto da [questo collegamento](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 **Quali account sono necessari per creare un cloud privato AVS?**
 
-È necessario un account Azure in una sottoscrizione di Azure.
+Sarà necessario un account Azure in una sottoscrizione di Azure.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952
