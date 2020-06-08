@@ -1,15 +1,15 @@
 ---
-title: Eseguire Linux nei nodi di calcolo della macchina virtuale | Documentazione Microsoft
+title: Eseguire Linux nei nodi di calcolo delle macchine virtuali
 description: Informazioni su come elaborare i carichi di lavoro di calcolo paralleli nei pool di macchine virtuali Linux in Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31e7a9558590ee3c6943e7a50c67c93f713908c7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: cd8a39556fb0aec0ddbf6c8e639281d7329228a4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993816"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726605"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
 
@@ -21,7 +21,7 @@ ms.locfileid: "82993816"
 >
 
 ## <a name="virtual-machine-configuration"></a>Configurazione della macchina virtuale
-Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni per la selezione delle dimensioni e del sistema operativo del nodo, ovvero la configurazione di servizi cloud e la configurazione della macchina virtuale.
+Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni per la selezione delle dimensioni e del sistema operativo del nodo: la configurazione di servizi cloud e la configurazione della macchina virtuale.
 
 **Cloud Services Configuration** (Configurazione servizi cloud) fornisce *solo*nodi di calcolo Windows. Le dimensioni disponibili per i nodi di calcolo sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md) e i sistemi operativi disponibili sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool che contiene nodi di Servizi cloud di Azure, è necessario specificare le dimensioni del nodo e la rispettiva famiglia del sistema operativo, descritti negli articoli menzionati in precedenza. Quando si creano pool di nodi di calcolo Windows, viene in genere usata l'opzione Servizi cloud.
 
@@ -29,7 +29,7 @@ Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni
 
 ### <a name="virtual-machine-image-reference"></a>Riferimento all'immagine della macchina virtuale
 
-Il servizio Batch usa [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per fornire nodi di calcolo nella configurazione macchina virtuale. È possibile specificare un'immagine di [Microsoft Azure Marketplace][vm_marketplace] o fornire un'immagine personalizzata precedentemente preparata. Per altri dettagli sulle immagini personalizzate, vedere [creare un pool con la raccolta di immagini condivise](batch-sig-images.md).
+Il servizio Batch usa [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per fornire nodi di calcolo nella configurazione macchina virtuale. È possibile specificare un'immagine di [Azure Marketplace][vm_marketplace] o un'immagine personalizzata precedentemente preparata. Per altri dettagli sulle immagini personalizzate, vedere [Creare un pool con Raccolta immagini condivise](batch-sig-images.md).
 
 Quando si configura un riferimento all'immagine di macchina virtuale, si specificano le proprietà di un'immagine di macchina virtuale. Le proprietà seguenti sono necessarie quando si crea un riferimento all'immagine di macchina virtuale:
 
@@ -48,7 +48,7 @@ Quando si configura un riferimento all'immagine di macchina virtuale, si specifi
 ### <a name="node-agent-sku"></a>SKU dell'agente del nodo
 L'agente del nodo Batch è un programma in esecuzione in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio Batch. Sono disponibili diverse implementazioni dell'agente del nodo, definite SKU, per sistemi operativi diversi. Quando si crea una configurazione della macchina virtuale, è essenzialmente necessario specificare prima di tutto il riferimento all'immagine della macchina virtuale e quindi l'agente del nodo da installare nell'immagine. Ogni SKU dell'agente del nodo è in genere compatibile con più immagini di macchina virtuale. Ecco alcuni esempi di SKU dell'agente del nodo:
 
-* batch. Node. Ubuntu 18,04
+* batch.node.ubuntu 18.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
@@ -58,9 +58,9 @@ L'agente del nodo Batch è un programma in esecuzione in ogni nodo del pool e fo
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Creare un pool Linux: Batch Python
-Il frammento di codice seguente illustra un esempio di come usare la [libreria client di Microsoft Azure Batch per Python][py_batch_package] per creare un pool di nodi di calcolo Ubuntu Server. La documentazione di riferimento per il modulo Python di batch è disponibile nel [pacchetto Azure. batch][py_batch_docs] per leggere i documenti.
+Il frammento di codice seguente illustra un esempio su come usare la [libreria client di Microsoft Azure Batch per Python][py_batch_package] per creare un pool di nodi di calcolo Ubuntu Server. La documentazione di riferimento per il modulo Batch Python è disponibile in [azure.batch package ][py_batch_docs] in Read the Docs.
 
-Questo frammento di codice crea in modo esplicito un metodo [ImageReference][py_imagereference], specificando tutte le rispettive proprietà, ovvero editore, offerta, SKU, versione. Nel codice di produzione, tuttavia, è consigliabile usare il metodo [list_supported_images][py_list_supported_images] per determinare e selezionare le combinazioni di immagine e SKU dell'agente del nodo disponibili in fase di esecuzione.
+Questo frammento di codice crea in modo esplicito una classe [ImageReference][py_imagereference] e ne specifica tutte le proprietà (editore, offerta, SKU, versione). Nel codice di produzione è tuttavia consigliabile usare il metodo [list_node_agent_skus][py_list_supported_images] per determinare e selezionare una delle combinazioni disponibili di immagine e SKU dell'agente del nodo in fase di esecuzione.
 
 ```python
 # Import the required modules from the
@@ -116,7 +116,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Come indicato in precedenza, invece di creare [ImageReference][py_imagereference] in modo esplicito, è consigliabile usare il metodo [list_supported_images][py_list_supported_images] per effettuare una selezione dinamica dalle combinazioni di agente nodo/immagine del Marketplace attualmente supportate. Il frammento di codice Python seguente illustra come usare questo metodo.
+Come indicato in precedenza, invece di creare la classe [ImageReference][py_imagereference] in modo esplicito, è consigliabile usare il metodo [list_supported_images][py_list_supported_images] per selezionare in modo dinamico una delle combinazioni di agente del nodo e immagine del Marketplace attualmente supportate. Il frammento di codice Python seguente illustra come usare questo metodo.
 
 ```python
 # Get the list of supported images from the Batch service
@@ -144,7 +144,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ## <a name="create-a-linux-pool-batch-net"></a>Creare un pool Linux: Batch .NET
 Il frammento di codice seguente illustra un esempio di come usare la libreria client [Batch .NET][nuget_batch_net] per creare un pool di nodi di calcolo Ubuntu Server. La [documentazione di riferimento di Batch .NET][api_net] è disponibile su docs.microsoft.com.
 
-Nel frammento di codice seguente viene usato [PoolOperations][net_pool_ops]. Metodo [ListSupportedImages][net_list_supported_images] per la selezione dall'elenco delle combinazioni di immagini del Marketplace e SKU dell'agente del nodo attualmente supportate. Questa tecnica è consigliabile perché l'elenco di combinazioni supportate può cambiare nel tempo, in genere a causa dell'aggiunta di altre combinazioni supportate.
+Il frammento di codice seguente usa il metodo [PoolOperations][net_pool_ops].[ListSupportedImages][net_list_supported_images] per selezionare dall'elenco una delle combinazioni di immagine del Marketplace e SKU dell'agente del nodo attualmente supportate. Questa tecnica è consigliabile perché l'elenco di combinazioni supportate può cambiare nel tempo, in genere a causa dell'aggiunta di altre combinazioni supportate.
 
 ```csharp
 // Pool settings
@@ -188,7 +188,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Sebbene il frammento di codice precedente usi [PoolOperations][net_pool_ops]. Metodo [ListSupportedImages][net_list_supported_images] per elencare dinamicamente e selezionare le combinazioni di immagine e SKU dell'agente del nodo supportate (scelta consigliata), è anche possibile configurare un [ImageReference][net_imagereference] in modo esplicito:
+Anche se il frammento di codice precedente usa il metodo [PoolOperations][net_pool_ops].[ListSupportedImages][net_list_supported_images] per elencare in modo dinamico e selezionare una delle combinazioni di immagine e SKU dell'agente del nodo supportate (consigliato), è anche possibile configurare una classe [ImageReference][net_imagereference] in modo esplicito:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -199,7 +199,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Elenco di immagini di macchine virtuali
-Per ottenere l'elenco di tutte le immagini di macchine virtuali del Marketplace supportate per il servizio batch e per gli agenti dei nodi corrispondenti, sfruttare il [list_supported_images][py_list_supported_images] (Python), [ListSupportedImages][net_list_supported_images] (batch .NET) o l'API corrispondente nel rispettivo SDK di linguaggio scelto.
+Per ottenere l'elenco di tutte le immagini delle macchine virtuali del Marketplace supportate per il servizio Batch e gli agenti del nodo corrispondenti, usare [list_supported_images][py_list_supported_images] (Python), [ListSupportedImages][net_list_supported_images] (Batch .NET) o l'API corrispondente nel rispettivo SDK del linguaggio scelto.
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Connettersi a nodi Linux tramite SSH
 Durante lo sviluppo o la risoluzione dei problemi potrebbe essere necessario accedere ai nodi del pool. A differenza dei nodi di calcolo Windows, non è possibile usare il protocollo RDP (Remote Desktop Protocol) per connettersi ai nodi Linux. Il servizio Batch consente invece l'accesso SSH in ogni nodo per la connessione remota.
@@ -276,7 +276,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 Invece di una password, è possibile specificare una chiave pubblica SSH durante la creazione di un utente in un nodo. In Python SDK usare il parametro **ssh_public_key** in [ComputeNodeUser][py_computenodeuser]. In .NET usare la proprietà [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
 
 ## <a name="pricing"></a>Prezzi
-Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio batch viene offerto gratuitamente, ovvero viene addebitato solo il costo per le risorse di calcolo (e i costi associati) che le soluzioni batch utilizzano. Quando si sceglie la **configurazione dei servizi cloud**, gli addebiti sono basati sulla struttura dei [prezzi di Servizi cloud][cloud_services_pricing]. Quando si sceglie la **configurazione della macchina virtuale**, gli addebiti sono basati sulla struttura di [prezzi di Macchine virtuali][vm_pricing].
+Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio Batch è gratuito, vengono quindi addebitate solo le risorse di calcolo usate dalle soluzioni Batch e i costi associati che comportano. Scegliendo la **configurazione di Servizi cloud**, i costi verranno addebitati in base alla struttura dei [prezzi di Servizi cloud][cloud_services_pricing]. Scegliendo la **configurazione della macchina virtuale**, i costi verranno addebitati in base alla struttura dei [prezzi di Macchine virtuali][vm_pricing].
 
 Se si distribuiscono applicazioni ai nodi Batch tramite [pacchetti dell'applicazione](batch-application-packages.md), vengono inoltre addebitati i costi per le risorse di Archiviazione di Azure utilizzate dai pacchetti dell'applicazione.
 

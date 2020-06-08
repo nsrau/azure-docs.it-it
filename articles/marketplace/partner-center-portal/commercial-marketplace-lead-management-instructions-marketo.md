@@ -1,48 +1,48 @@
 ---
-title: Gestione dei lead in Marketo-Microsoft Commercial Marketplace
-description: Informazioni su come usare un sistema CRM di Marketo per gestire lead da Microsoft AppSource e Azure Marketplace.
+title: Gestione dei lead in Marketo - Marketplace commerciale Microsoft
+description: Informazioni su come usare un sistema CRM Marketo per gestire lead da Microsoft AppSource e Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789879"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849179"
 ---
-# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Usare Marketo per gestire i lead del Marketplace commerciale
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Usare Marketo per gestire i lead del marketplace commerciale
 
-Questo articolo descrive come configurare il sistema CRM di Marketo per elaborare i lead di vendita dalle offerte in Microsoft AppSource e Azure Marketplace.
+Questo articolo descrive come configurare il sistema CRM Marketo per elaborare i lead di vendita dalle offerte in Microsoft AppSource e Azure Marketplace.
 
-## <a name="set-up-your-marketo-crm-system"></a>Configurare il sistema CRM di Marketo
+## <a name="set-up-your-marketo-crm-system"></a>Configurare il sistema CRM Marketo
 
 1. Accedere a Marketo.
 
 1. Selezionare **Design Studio**.
 
-    ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
+    ![Design Studio di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 1.  Selezionare **Nuovo modulo**.
 
     ![Nuovo modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
-1.  Compilare i campi obbligatori nella finestra di dialogo **nuovo modulo** , quindi selezionare **Crea**.
+1.  Compilare i campi obbligatori nella finestra di dialogo **Nuovo modulo** e quindi selezionare **Crea**.
 
     ![Creazione nuovo modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-1.  Nella pagina **Dettagli campo** selezionare **fine**.
+1.  Dalla pagina **Dettagli del campo** selezionare **Fine**.
 
     ![Completamento modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-1.  Approva e Chiudi.
+1.  Approvare e chiudere.
 
-1. Nella scheda **MarketplaceLeadBackend** selezionare **incorpora codice**. 
+1. Nella scheda **MarketplaceLeadBackend** selezionare **Codice di incorporamento**. 
 
-    ![Codice di incorporamento Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Immagine del codice di incorporamento di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
 1. L'opzione Codice di incorporamento di Marketo visualizza un codice simile all'esempio seguente.
 
@@ -51,43 +51,43 @@ Questo articolo descrive come configurare il sistema CRM di Marketo per elaborar
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-1. Copiare i valori per i seguenti campi mostrati nel formato del codice di incorporamento. Questi valori verranno usati per configurare l'offerta per la ricezione dei lead nel passaggio successivo. Usare l'esempio successivo come guida per ottenere gli ID necessari dall'esempio di codice di incorporamento Marketo.
+1. Copiare i valori per i campi seguenti riportati nel formato del codice di incorporamento. Questi valori verranno usati per configurare l'offerta per la ricezione dei lead nel passaggio successivo. Usare l'esempio seguente come guida per ottenere gli ID necessari dall'esempio di codice di incorporamento di Marketo.
 
     - ID server = **ys12**
     - ID Munchkin = **123-PQR-789**
     - ID modulo = **1179**
 
-    Un altro modo per individuare i valori seguenti:
+    Un altro modo per individuare questi valori è il seguente:
 
     - L'ID del server si trova nell'URL dell'istanza di Marketo, ad esempio `serverID.marketo.com`.
-    - Ottenere l'ID Munchkin della sottoscrizione accedendo al menu di **Amministrazione** > **Munchkin** nel campo **ID account Munchkin** o dalla prima parte del sottodominio host dell'API REST di Marketo: `https://{Munchkin ID}.mktorest.com`.
-    - ID modulo è l'ID del modulo di codice di incorporamento creato nel passaggio 7 per indirizzare i lead dal Marketplace.
+    - L'ID Munchkin della sottoscrizione si trova accedendo al menu **Admin** > **Munchkin** nel campo **ID account Munchkin** o nella prima parte del sottodominio host dell'API REST di Marketo: `https://{Munchkin ID}.mktorest.com`.
+    - L'ID del modulo è l'ID del modulo del codice di incorporamento creato nel passaggio 7 per indirizzare i lead dal marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configurare l'offerta per inviare lead a Marketo
 
 Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, seguire questa procedura. 
 
-1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home).
+1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 
-1. Selezionare l'offerta e passare alla scheda **installazione offerta** .
+1. Selezionare l'offerta e passare alla scheda **Configurazione dell'offerta**.
 
-1. Nella sezione **Lead Management** selezionare **Connect**. 
+1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connect** (Connetti).
 
-    ![Pulsante Connetti sezione Gestione lead](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Customer leads":::
 
-1. Nella finestra popup **Dettagli connessione** selezionare **Marketo** per la **destinazione principale**.
+1. Nella finestra popup **Dettagli connessione** selezionare **Marketo** per **Destinazione del lead**.
 
-    ![Scegliere una destinazione principale](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+    ![Scegliere la destinazione del lead](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Specificare l'ID del **Server**, l' **ID dell'account Munchkin**e l' **ID del modulo**.
+1. Specificare **ID server**, **ID account Munchkin** e **ID modulo**.
 
     > [!NOTE]
     > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta. 
 
-1. In **Contact email**immettere gli indirizzi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile fornire più indirizzi di posta elettronica separandoli con un punto e virgola.
+1. In **Indirizzo posta elettronica contatto** immettere gli indirizzi degli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più indirizzi di posta elettronica separandoli con un punto e virgola.
 
 1. Selezionare **OK**.
 
-   Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare **convalida**. In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
+   Per assicurarsi di avere eseguito la connessione a una destinazione del lead, selezionare **Convalida**. In caso di esito positivo, sarà presente un lead di test nella destinazione del lead.
 
-   ![Finestra popup Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Finestra di popup con i dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

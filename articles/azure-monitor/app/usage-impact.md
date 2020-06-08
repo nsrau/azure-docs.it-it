@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671036"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797914"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -56,7 +56,7 @@ Lo strumento Impatto supporta proprietà e misure sia standard che personalizzat
 2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).
 3. Nell'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
 
-In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordina in base all' **utilizzo** per visualizzare la variazione della conversione in un evento personalizzato in base al paese o all'area geografica.
+In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordinare in base all'opzione **Utilizzo** per visualizzare la variazione di conversione dell'evento personalizzato in base al paese/area geografica.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?
@@ -85,5 +85,5 @@ Il calcolo finale dell'impatto varia a seconda che l'analisi venga eseguita in b
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)

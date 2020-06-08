@@ -1,6 +1,6 @@
 ---
-title: Guida dell'amministratore di Azure Lab Services | Microsoft Docs
-description: Questa guida consente agli amministratori che creano e gestiscono account Lab usando Azure Lab Services.
+title: Azure Lab Services - Guida dell'amministratore | Microsoft Docs
+description: Questa guida è rivolta agli amministratori che creano e gestiscono account lab con Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,251 +13,252 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ce9f8ee592c1fb2f7ac98339bbd14ce57440bc1a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118465"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815707"
 ---
-# <a name="azure-lab-services---administrator-guide"></a>Guida dell'amministratore di Azure Lab Services
-Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account Lab per la propria scuola. Una volta configurato un account Lab, gli amministratori o gli educatori creano laboratori in aula contenuti nell'account Lab. Questo articolo fornisce una panoramica generale delle risorse di Azure e delle linee guida per la loro creazione.
+# <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
+Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab dell'istituto. Una volta configurato un account lab, gli amministratori o i docenti creano i lab per la classe contenuti nell'account lab. Questo articolo fornisce una panoramica generale delle risorse di Azure interessate e le istruzioni per crearle.
 
-![Visualizzazione di alto livello delle risorse di Azure in un account Lab](../media/administrator-guide/high-level-view.png)
+![Quadro generale delle risorse di Azure in un account lab](../media/administrator-guide/high-level-view.png)
 
-- I Lab in Aula sono ospitati all'interno di una sottoscrizione di Azure di proprietà di Azure Lab Services.
-- Gli account Lab, la raccolta di immagini condivise e le versioni di immagine sono ospitati all'interno della sottoscrizione.
-- È possibile avere l'account Lab e la raccolta di immagini condivise nello stesso gruppo di risorse. In questo diagramma si trovano in gruppi di risorse diversi. 
+- I lab per la classe sono ospitati all'interno di una sottoscrizione di Azure di proprietà di Azure Lab Services.
+- Gli account lab, la raccolta di immagini condivise e le versioni delle immagini sono ospitati all'interno della sottoscrizione.
+- L'account lab e la raccolta di immagini condivise possono essere nello stesso gruppo di risorse. In questo diagramma sono in gruppi di risorse diversi. 
 
 ## <a name="subscription"></a>Subscription
-L'Università ha una o più sottoscrizioni di Azure. Una sottoscrizione viene usata per gestire la fatturazione e la sicurezza per tutti i resources\services di Azure usati al suo interno, inclusi gli account Lab.
+L'Università ha una o più sottoscrizioni di Azure. Una sottoscrizione viene usata per gestire la fatturazione e la sicurezza per tutte le risorse e i servizi di Azure usati al suo interno, inclusi gli account lab.
 
-La relazione tra un account Lab e la relativa sottoscrizione è importante perché:
+La relazione tra un account lab e la relativa sottoscrizione è importante perché:
 
-- La fatturazione viene segnalata tramite la sottoscrizione che contiene l'account Lab.
-- È possibile concedere agli utenti l'accesso al tenant Azure Active Directory (AD) della sottoscrizione per Azure Lab Services. È possibile aggiungere un utente come account Lab owner\contributor, classe Lab Creator o proprietario del Lab della classe.
+- La fatturazione viene comunicata tramite la sottoscrizione che contiene l'account lab.
+- È possibile concedere agli utenti del tenant Azure Active Directory della sottoscrizione l'accesso ad Azure Lab Services. È possibile aggiungere un utente come proprietario o collaboratore dell'account lab, autore del lab per la classe o proprietario del lab per la classe.
 
-I Lab della classe e le macchine virtuali (VM) vengono gestiti e ospitati all'interno di una sottoscrizione di proprietà di Azure Lab Services.
+I lab per la classe e le relative macchine virtuali (VM) sono gestiti e ospitati all'interno di una sottoscrizione di proprietà di Azure Lab Services.
 
 ## <a name="resource-group"></a>Resource group
-Una sottoscrizione contiene uno o più gruppi di risorse. I gruppi di risorse vengono usati per creare raggruppamenti logici di risorse di Azure che vengono usati insieme all'interno della stessa soluzione.  
+Una sottoscrizione contiene uno o più gruppi di risorse. I gruppi di risorse vengono usati per creare raggruppamenti logici di risorse di Azure che vengono usate insieme all'interno della stessa soluzione.  
 
-Quando si crea un account Lab, è necessario configurare il gruppo di risorse contenente l'account Lab. 
+Quando si crea un account lab, è necessario configurare il gruppo di risorse che lo contiene. 
 
-Quando si crea una [raccolta di immagini condivise](#shared-image-gallery), è necessario anche un gruppo di risorse. È possibile scegliere di inserire l'account Lab e la raccolta di immagini condivise in due gruppi di risorse separati, che è tipico se si prevede di condividere la raccolta immagini tra diverse soluzioni. In alternativa, è possibile scegliere di inserirli nello stesso gruppo di risorse.
+Un gruppo di risorse è necessario anche quando si crea una [raccolta di immagini condivise](#shared-image-gallery). È possibile scegliere di inserire l'account lab e la raccolta di immagini condivise in due gruppi di risorse distinti, che è la scelta tipica se si prevede di condividere la raccolta immagini tra diverse soluzioni. Oppure si può scegliere di inserirli nello stesso gruppo di risorse.
 
-Quando si crea un account Lab, è possibile creare e alleghi automaticamente una raccolta di immagini condivise.  Questa opzione consente di creare l'account Lab e la raccolta di immagini condivise in gruppi di risorse separati. Questo comportamento verrà visualizzato quando si esegue la procedura descritta in questa esercitazione: [configurare la raccolta di immagini condivise al momento della creazione dell'account Lab](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). L'immagine nella parte superiore di questo articolo usa anche questa configurazione. 
+Quando si crea un account lab, è possibile allo stesso tempo creare e collegare automaticamente una raccolta di immagini condivise.  Con questa opzione l'account lab e la raccolta di immagini condivise vengono creati in gruppi di risorse separati. Una dimostrazione di questo comportamento è illustrata nei passaggi descritti in questa esercitazione: [Configurare la raccolta di immagini condivise al momento della creazione dell'account lab](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). Anche l'immagine all'inizio di questo articolo usa questa configurazione. 
 
-Si consiglia di investire tempo prima di pianificare la struttura dei gruppi di risorse perché *non* è possibile modificare il gruppo di risorse di un account Lab o di una raccolta di immagini condivise dopo che è stata creata. Se è necessario modificare il gruppo di risorse per queste risorse, è necessario eliminare e ricreare l'account Lab e\o Shared Image Gallery.
+È consigliabile investire inizialmente del tempo per pianificare la struttura dei gruppi di risorse, dato che *non* è possibile modificare il gruppo di risorse o la raccolta di immagini condivise di un account lab dopo la creazione. Se occorre cambiare il gruppo di risorse per queste risorse, sarà necessario eliminare e ricreare l'account lab e/o la raccolta di immagini condivise.
 
-## <a name="lab-account"></a>Account Lab
+## <a name="lab-account"></a>Account lab
 
-Un account Lab funge da contenitore per uno o più laboratori della classe. Quando si inizia a usare Azure Lab Services, è comune avere solo un singolo account Lab. Con la scalabilità dell'utilizzo del Lab, è possibile scegliere di creare più account Lab.
+Un account lab funge da contenitore per uno o più lab per la classe. Quando si inizia a usare Azure Lab Services, normalmente si ha un solo account lab. Man mano che l'utilizzo dei lab aumenta, è possibile scegliere di creare altri account.
 
-Nell'elenco seguente sono evidenziati gli scenari in cui è possibile che più di un account Lab risulti vantaggioso:
+Di seguito sono illustrate alcune situazioni in cui avere più account lab può essere vantaggioso:
 
-- **Gestire i requisiti dei criteri diversi nei Lab della classe**
+- **Gestire requisiti dei criteri diversi nei vari lab per le classi**
 
-    Quando si configura un account Lab, si impostano i criteri che si applicano a *tutti* i Lab in aula nell'account Lab, ad esempio:
-    - Rete virtuale di Azure con risorse condivise a cui il Lab della classe può accedere. Ad esempio, è possibile disporre di un set di Lab in Aula che necessitano dell'accesso a un set di dati condiviso all'interno di una rete virtuale.
-    - Immagini della macchina virtuale (VM) che i Lab della classe possono usare per creare macchine virtuali. Ad esempio, è possibile disporre di un set di Lab in Aula che necessitano dell'accesso al [Data Science VM per](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) l'immagine del Marketplace Linux.
+    Quando si configura un account lab, si impostano criteri che si applicano a *tutti* i lab per la classe in tale account, ad esempio:
+    - La rete virtuale di Azure con risorse condivise a cui il lab per la classe può accedere. Ad esempio, un set di lab per la classe potrebbe aver bisogno di accedere a un set di dati condiviso all'interno di una rete virtuale.
+    - Le immagini di macchina virtuale (VM) che i lab per la classe possono usare per creare VM. Ad esempio, un set di lab per la classe potrebbe aver bisogno di accedere all'immagine [Data Science VM per Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) sul Marketplace.
 
-    Se si dispone di Lab in aula con requisiti di criteri univoci, potrebbe essere utile creare account Lab distinti per gestire separatamente questi Lab in aula.
+    Se si dispone di lab per la classe con requisiti di criteri univoci, diversi da un lab all'altro, potrebbe essere utile creare account lab distinti per gestire separatamente questi lab.
 
-- **Budget separato per account Lab**
+- **Separare il budget per account lab**
   
-    Anziché segnalare tutti i costi del Lab in Aula tramite un singolo account Lab, potrebbe essere necessario un budget separato più chiaramente. Ad esempio, è possibile creare account Lab per il reparto matematico dell'Università, per il reparto informatica e così via, per separare il budget tra i reparti.  È quindi possibile visualizzare il costo per ogni singolo account Lab usando [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    Invece di segnalare tutti i costi dei lab per la classe tramite un singolo account lab, potrebbe essere necessario un budget che distingua le varie voci in modo più chiaro. Ad esempio, è possibile creare account lab per il dipartimento di Matematica dell'Università, per il dipartimento di Informatica e così via, in modo da separare il budget tra i dipartimenti.  È quindi possibile visualizzare il costo per ogni singolo account lab usando [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
 
-- **Isolare i laboratori pilota da active\production Labs**
+- **Isolare i lab pilota dai lab attivi/di produzione**
   
-    È possibile che si verifichino casi in cui si vuole eseguire il pilota delle modifiche dei criteri per un account Lab senza influire potenzialmente sul active\production Labs. In questo tipo di scenario la creazione di un account Lab separato a scopo pilota consente di isolare le modifiche. 
+    In alcuni casi può essere opportuno testare le modifiche dei criteri per un account lab senza influire potenzialmente sui lab attivi/di produzione. In questo tipo di scenario la creazione di un account lab separato a scopo di test consente di isolare le modifiche. 
 
-## <a name="classroom-lab"></a>Lab in aula
+## <a name="classroom-lab"></a>Lab per le classi
 
-Un Lab della classe contiene macchine virtuali (VM) assegnate a un singolo studente.  In generale, è possibile prevedere:
+Un lab per la classe contiene una serie di macchine virtuali (VM), ognuna assegnata a un singolo studente.  In generale si può:
 
-- Disporre di un Lab in aula per ogni classe.
-- Creare un nuovo set di Lab in aula ogni semestre (o per ogni intervallo di tempo offerto dalla classe). In genere, per le classi con le stesse esigenze di immagine, è consigliabile usare una [raccolta di immagini condivise](#shared-image-gallery) per riutilizzare le immagini tra i laboratori e i semestri.
+- Creare un lab per ogni classe.
+- Creare un nuovo set di lab per la classe ogni semestre (o per ogni intervallo di tempo offerto alla classe). In genere, per le classi con le stesse esigenze a livello di immagini, è consigliabile usare una [raccolta di immagini condivise](#shared-image-gallery) per riutilizzare le immagini nei vari lab e nel corso dei semestri.
 
-Quando si determina la struttura dei Lab in aula, tenere presenti i punti seguenti:
+Per determinare il modo in cui strutturare i lab per la classe, tenere presente quanto segue:
 
-- **Tutte le macchine virtuali all'interno di un Lab della classe vengono distribuite con la stessa immagine pubblicata**
+- **Tutte le macchine virtuali all'interno di un lab per la classe vengono distribuite con la stessa immagine pubblicata**
 
-    Di conseguenza, se si dispone di una classe che richiede la pubblicazione contemporaneamente di immagini Lab diverse, è necessario creare laboratori di classe separati per ognuno di essi.
+    Di conseguenza, se una classe richiede la pubblicazione di immagini di lab diverse contemporaneamente, è necessario creare lab per la classe distinti per ogni immagine.
   
-- **La quota di utilizzo viene impostata a livello di Lab e si applica a tutti gli utenti all'interno del Lab**
+- **La quota di utilizzo viene impostata a livello di lab e si applica a tutti gli utenti del lab**
 
-    Per impostare quote diverse per gli utenti, è necessario creare laboratori della classe distinti. È tuttavia possibile aggiungere altre ore a un utente specifico dopo aver impostato la quota.
+    Per impostare quote diverse per gli utenti, è necessario creare lab per la classe distinti. È comunque possibile aggiungere altre ore a un utente specifico dopo aver impostato la quota.
   
-- **La pianificazione di avvio o arresto viene impostata a livello di Lab e si applica a tutte le macchine virtuali all'interno del Lab**
+- **La pianificazione di avvio o arresto viene impostata a livello di lab e si applica a tutte le VM all'interno del lab**
 
-    In modo analogo al punto precedente, se è necessario impostare pianificazioni diverse per gli utenti, è necessario creare laboratori di classe distinti.
+    Analogamente al punto precedente, se occorre impostare pianificazioni diverse per gli utenti, è necessario creare lab per la classe distinti.
 
-Per impostazione predefinita, ogni Lab della classe avrà una propria rete virtuale.  Se è abilitato il peering VNET, ogni Lab della classe avrà una propria subnet con peering alla rete virtuale specificata.
+Per impostazione predefinita, ogni lab per la classe ha una rete virtuale dedicata.  Se è abilitato il peering reti virtuali, ogni lab per la classe avrà la propria subnet con peering alla rete virtuale specificata.
 
-## <a name="shared-image-gallery"></a>Raccolta immagini condivise
+## <a name="shared-image-gallery"></a>Raccolta di immagini condivise
 
-Una raccolta di immagini condivise è collegata a un account Lab e funge da repository centrale per archiviare le immagini. Un'immagine viene salvata nella raccolta quando un educatore sceglie di eseguire l'esportazione da una macchina virtuale (VM) modello del Lab della classe. Ogni volta che un insegnante apporta modifiche alla macchina virtuale e alle esportazioni del modello, le nuove versioni dell'immagine vengono salvate mantenendo le versioni precedenti.
+Una raccolta di immagini condivise è associata a un account lab e funge da repository centrale in cui archiviare le immagini. Un'immagine viene salvata nella raccolta quando un docente decide di eseguire un'esportazione da una macchina virtuale modello del lab per la classe. Ogni volta che un docente apporta modifiche alla VM modello ed esegue l'esportazione, le nuove versioni dell'immagine vengono salvate mantenendo le versioni precedenti.
 
-Gli insegnanti possono pubblicare una versione dell'immagine dalla raccolta di immagini condivise quando creano un nuovo Lab della classe. Sebbene nella raccolta vengano archiviate più versioni di un'immagine, i docenti possono solo selezionare la versione più recente durante la creazione del Lab.
+Gli insegnanti possono pubblicare una versione dell'immagine dalla raccolta di immagini condivise quando creano un nuovo lab per la classe. Sebbene nella raccolta siano archiviate più versioni di un'immagine, i docenti possono selezionare solo la versione più recente durante la creazione del lab.
 
-La raccolta di immagini condivise è una risorsa facoltativa che potrebbe non essere necessaria immediatamente quando si inizia con solo pochi laboratori della classe. Tuttavia, l'uso della raccolta di immagini condivise presenta molti vantaggi che risultano utili per la scalabilità in modo da avere più laboratori in aula:
+La raccolta di immagini condivise è una risorsa facoltativa che potrebbe non essere necessaria immediatamente, quando si hanno solo pochi lab per la classe. L'uso di questa raccolta offre però numerosi vantaggi che saranno utili man mano che si creano altri lab:
 
-- **Consente di salvare e gestire le versioni di un'immagine di macchina virtuale modello**
+- **Consente di salvare e gestire le versioni di un'immagine di VM modello**
 
-    È utile creare un'immagine personalizzata o apportare modifiche (software, configurazione e così via) a un'immagine dalla raccolta di Marketplace pubblica.  Ad esempio, è comune per gli educatori richiedere l'installazione di software\tooling diversi. Anziché richiedere agli studenti di installare manualmente questi prerequisiti, è possibile esportare in una raccolta di immagini condivise diverse versioni dell'immagine di macchina virtuale del modello. Queste versioni delle immagini possono quindi essere usate durante la creazione di nuovi Lab per la classe.
-- **Abilita sharing\reuse di immagini di VM modello nei Lab della classe**
+    È utile creare un'immagine personalizzata o apportare modifiche (software, configurazione e così via) a un'immagine della raccolta pubblica del Marketplace.  Ad esempio, accade di frequente che i docenti richiedano l'installazione di software e strumenti diversi. Invece di affidare agli studenti il compito di installare manualmente questi prerequisiti, è possibile esportare versioni diverse dell'immagine della VM modello in una raccolta di immagini condivise. Queste versioni dell'immagine possono quindi essere usate per creare nuovi lab per la classe.
+- **Consente la condivisione e il riutilizzo di immagini di VM modello nei vari lab per la classe**
 
-    È possibile salvare e riutilizzare un'immagine in modo che non sia necessario configurare l'immagine da zero ogni volta che si crea un nuovo Lab della classe. Se, ad esempio, vengono offerte più classi che necessitano della stessa immagine, questa immagine deve essere creata una sola volta ed esportata nella raccolta immagini condivise in modo da poterla condividere nei Lab della classe.
-- **Garantisce la disponibilità delle immagini tramite la replica**
+    È possibile salvare e riutilizzare un'immagine in modo da non doverla configurare da zero ogni volta che si crea un nuovo lab per la classe. Se ad esempio vengono offerte più classi che necessitano della stessa immagine, basterà creare questa immagine una volta ed esportarla nella raccolta di immagini condivise in modo da poterla condividere tra i vari lab per la classe.
+- **Garantisce la disponibilità dell'immagine tramite la replica**
 
-    Quando si salva nella raccolta di immagini condivise da un Lab della classe, l'immagine viene replicata automaticamente in altre [aree all'interno della stessa area geografica](https://azure.microsoft.com/global-infrastructure/regions/). Nel caso in cui si verifichi un'interruzione per un'area, la pubblicazione dell'immagine nel Lab della classe non ha effetto perché è possibile usare una replica di immagini di un'altra area.  La pubblicazione di VM da più repliche può essere utile anche per le prestazioni.
+    Quando si salva un'immagine nella raccolta di immagini condivise da un lab per la classe, l'immagine viene replicata automaticamente in altre [aree all'interno della stessa area geografica](https://azure.microsoft.com/global-infrastructure/regions/). Se si verifica un'interruzione in un'area, la pubblicazione dell'immagine nel lab per la classe non ne viene interessata perché è possibile usare una replica dell'immagine di un'altra area.  La pubblicazione di VM da più repliche contribuisce anche a migliorare le prestazioni.
 
-Per raggruppare logicamente le immagini condivise, sono disponibili due opzioni:
+Per raggruppare logicamente le immagini condivise sono disponibili due opzioni:
 
-- Creare più raccolte di immagini condivise. Ogni account Lab può connettersi solo a una raccolta di immagini condivise, quindi questa opzione richiederà anche la creazione di più account Lab.
-- In alternativa, è possibile usare una singola raccolta di immagini condivise condivisa da più account Lab. In questo caso, ogni account Lab può abilitare solo le immagini applicabili ai laboratori della classe che contiene.
+- Creare più raccolte di immagini condivise. Ogni account lab può connettersi solo a una raccolta di immagini condivise, quindi per usare questa opzione occorre anche creare più account lab.
+- Usare una sola raccolta di immagini condivise condivisa tra più account lab. In questo caso ogni account lab può abilitare solo le immagini applicabili ai lab per la classe che contiene.
 
 ## <a name="naming"></a>Denominazione
 
-Quando si inizia a usare Azure Lab Services, è consigliabile definire convenzioni di denominazione per i gruppi di risorse, gli account Lab, i Lab della classe e la raccolta di immagini condivise. Sebbene le convenzioni di denominazione stabilite siano univoche per le esigenze dell'organizzazione, nella tabella seguente vengono descritte le linee guida generali.
+Quando si inizia a usare Azure Lab Services, è consigliabile stabilire delle convenzioni di denominazione per i gruppi di risorse, gli account lab, i lab per la classe e la raccolta di immagini condivise. Fermo restando che le convenzioni di denominazione stabilite sono specifiche per le esigenze della propria organizzazione, la tabella seguente offre alcune indicazioni generali.
 
 | Tipo di risorsa | Ruolo | Schema consigliato | Esempi |
 | ------------- | ---- | ----------------- | -------- | 
-| Resource group | Contiene uno o più account Lab e una o più raccolte immagini condivise | \<ambiente nome breve organizzazione \> - \< \> -RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**RG** sta per il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Pilot-RG<br/>contosouniversitylabs-prod-RG |
-| Account Lab | Contiene uno o più Lab | \<ambiente nome breve organizzazione \> - \< \> -la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**La** sta per il tipo di risorsa: account Lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-Pilot-la<br/>sciencedeptlabs-prod-la |
-| Lab in aula | Contiene una o più macchine virtuali |\<Identificatore dell' \> - \< \> - \< educatore temporale nome classe\><ul><li>**Nome classe** identifica il nome della classe supportata dal Lab.</li><li>L' **intervallo** di tempo identifica l'intervallo di tempo in cui viene offerta la classe.</li>L' **identificatore dell'istruzione** identifica l'educatore proprietario del Lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Raccolta immagini condivise | Contiene una o più versioni di immagini di macchina virtuale | \<raccolta nome breve organizzazione \> | contosouniversitylabsgallery |
+| Resource group | Contiene uno o più account lab e una o più raccolte di immagini condivise | \<nome breve organizzazione\>-\<ambiente\>-rg<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
+| Account lab | Contiene uno o più lab. | \<nome breve organizzazione\>-\<ambiente\>-la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: account lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
+| Lab per le classi | Contiene una o più VM. |\<nome classe\>-\<intervallo di tempo\>-\<identificatore docente\><ul><li>**Nome classe** identifica il nome del corso in classe supportato dal lab.</li><li>**Intervallo di tempo** identifica l'intervallo di tempo in cui il corso in classe viene offerto.</li>**Identificatore docente** identifica il docente proprietario del lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
+| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<nome breve organizzazione\>gallery | contosouniversitylabsgallery |
 
-Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
+Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [Convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
 
-## <a name="regionslocations"></a>Regions\locations
+## <a name="regionslocations"></a>Aree e località
 
-Quando si configurano le risorse di Azure Lab Services, è necessario specificare un'area o un percorso del data center che ospiterà la risorsa. Di seguito sono riportate altre informazioni sul modo in cui l'area influisca su ognuna delle risorse interessate dalla configurazione di un Lab.
+Quando si configurano le risorse di Azure Lab Services, è necessario specificare l'area o la località del data center che ospiterà la risorsa. Di seguito viene descritto in dettaglio l'impatto dell'area su ognuna delle risorse coinvolte nella configurazione di un lab.
 
 ### <a name="resource-group"></a>Resource group
 
-L'area specifica il data center in cui vengono archiviate le informazioni sul gruppo di risorse. Le risorse di Azure contenute all'interno del gruppo di risorse possono trovarsi in aree diverse rispetto al relativo elemento padre.
+L'area specifica il data center in cui vengono archiviate le informazioni sul gruppo di risorse. Le risorse di Azure contenute nel gruppo di risorse possono trovarsi in aree diverse rispetto al relativo elemento padre.
 
-### <a name="lab-account"></a>Account Lab
+### <a name="lab-account"></a>Account lab
 
-Il percorso di un account Lab indica l'area in cui è presente la risorsa.  
+La località di un account lab indica l'area in cui si trova la risorsa.  
 
-### <a name="classroom-lab"></a>Lab in aula
+### <a name="classroom-lab"></a>Lab per le classi
 
-Il percorso in cui è presente un Lab della classe varia in base ai fattori seguenti:
+La località in cui è presente un lab per la classe varia in base ai fattori seguenti:
 
-  - **Il peering di un account Lab viene associato a una rete virtuale (VNet)**
+  - **L'account lab è associato tramite peering a una rete virtuale**
   
-    Un account Lab può essere sottoposto a [peering con un VNet](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) quando si trovano nella stessa area.  Quando si esegue il peering di un account Lab con una VNet, i Lab della classe vengono creati automaticamente nella stessa area dell'account Lab e di VNet.
+    Un account lab può essere [associato tramite peering a una rete virtuale](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) quando si trovano nella stessa area.  Quando un account lab è associato tramite peering a una rete virtuale, i lab per la classe vengono creati automaticamente nella stessa area dell'account lab e della rete virtuale.
 
     > [!NOTE]
-    > Quando si esegue il peering di un account Lab con un VNet, l'impostazione per **consentire al creatore del Lab di selezionare la posizione del Lab** è disabilitata. Per informazioni aggiuntive su questa impostazione, vedere l'articolo: [Allow Lab Creators to pick location for the Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
+    > Quando un account lab è associato tramite peering a una rete virtuale, l'impostazione **Consenti all'autore del lab di selezionare la località del lab** è disabilitata. Per altre informazioni su questa impostazione, vedere [Consentire all'autore del lab di selezionare la località del lab in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Nessun VNet viene sottoposto a peering ***e*** i creatori di Lab non possono scegliere la posizione del Lab**
+  - **Non esiste alcun peering con una rete virtuale ***e*** agli autori di lab non è consentito selezionare la località del lab**
   
-    Quando non è presente **alcun** VNet con peering con l'account Lab *e* i [creatori di Lab **non** sono autorizzati a scegliere la posizione del Lab, i](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)Lab della classe vengono creati automaticamente in un'area con capacità VM disponibile.  In particolare, Azure Lab Services cerca la disponibilità in [aree che si trovano all'interno della stessa area geografica dell'account Lab](https://azure.microsoft.com/global-infrastructure/regions).
+    Quando all'account lab **non** è associata una rete virtuale tramite peering *e* [agli autori di lab **non** è consentito selezionare la località del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), i lab per la classe vengono creati automaticamente in un'area con capacità di VM disponibile.  In particolare, Azure Lab Services cerca disponibilità in [aree nella stessa area geografica dell'account lab](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **Non è stato possibile eseguire il peering di VNet ***e*** gli autori del Lab possono scegliere la posizione del Lab**
+  - **Non esiste alcun peering con una rete virtuale ***e*** agli autori di lab è consentito selezionare la località del lab**
        
-    Quando non è presente **alcun** peering di VNet e gli [autori del Lab possono scegliere la posizione del Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), le posizioni selezionabili dall'autore del Lab sono basate sulla capacità disponibile.
+    Quando **non** esiste alcun peering con una rete virtuale e [agli autori di lab è consentito selezionare la località del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), le località che possono essere selezionate dall'autore del lab dipendono dalla capacità disponibile.
 
 > [!NOTE]
-> Per garantire la capacità di una macchina virtuale sufficiente per un'area, è importante richiedere prima la capacità tramite l'account Lab o quando si crea il Lab.
+> Per assicurarsi di disporre di capacità di VM sufficiente per un'area, è importante richiedere prima la capacità tramite l'account lab o quando si crea il lab.
 
-Una regola generale consiste nell'impostare l'area di una risorsa su uno più vicino ai propri utenti. Per i laboratori in aula, questo significa creare il Lab della classe più vicino agli studenti. Per i corsi online in cui gli studenti si trovano in tutto il mondo, è necessario usare il giudizio migliore per creare un Lab in aula situato centralmente. In alternativa, suddividere una classe in più laboratori in aula in base all'area degli studenti.
+Come regola generale, è consigliabile impostare l'area di una risorsa su quella più vicina agli utenti della risorsa. Per i lab per la classe, questo significa creare il lab nell'area più vicina agli studenti. Per i corsi online in cui gli studenti sono sparsi in tutto il mondo, occorre individuare un'area il più possibile centrale a tutti gli studenti in cui creare il lab per la classe. Si può anche suddividere una classe in più lab per la classe in base all'area di residenza degli studenti.
 
-### <a name="shared-image-gallery"></a>Raccolta immagini condivise
+### <a name="shared-image-gallery"></a>Raccolta di immagini condivise
 
-L'area indica l'area di origine in cui viene archiviata la prima versione dell'immagine prima che venga replicata automaticamente nelle aree di destinazione.
+L'area indica l'area di origine in cui viene archiviata la prima versione dell'immagine prima di essere replicata automaticamente nelle aree di destinazione.
 
-## <a name="vm-sizing"></a>Dimensionamento VM
+## <a name="vm-sizing"></a>Dimensioni di VM
 
-Quando gli amministratori o i creatori di Lab creano un Lab per le aule, possono scegliere tra le seguenti dimensioni della macchina virtuale in base alle esigenze della propria classe. Tenere presente che le dimensioni di calcolo disponibili dipendono dall'area in cui si trova l'account Lab:
+Quando gli amministratori o gli autori di lab creano un lab per la classe, possono scegliere tra le seguenti dimensioni di VM in base alle esigenze della propria classe. Tenere presente che le dimensioni di calcolo disponibili dipendono dall'area in cui si trova l'account lab:
 
-| Dimensione | Specifiche | Serie | Uso consigliato |
+| Dimensione | Specifiche | Serie | Uso suggerito |
 | ---- | ----- | ------ | ------------- |
-| Piccolo| <ul><li>2 core</li><li>3,5 GB DI RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
-| Media | <ul><li>4 core</li><li>7 GB DI RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. |
-| Media (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB DI RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi.  Questa dimensione supporta anche la virtualizzazione nidificata. |
-| large | <ul><li>8 core</li><li>32 GB DI RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Questa dimensione supporta anche la virtualizzazione nidificata. |
-| GPU piccola (visualizzazione) | <ul><li>6 core</li><li>56 GB DI RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. |
-| GPU piccola (calcolo) | <ul><li>6 core</li><li>56 GB DI RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono ideali per applicazioni a elevato utilizzo di computer, ad esempio l'intelligenza artificiale e l'apprendimento avanzato. |
-| GPU media (visualizzazione) | <ul><li>12 core</li><li>112 GB DI RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. |
+| Piccolo| <ul><li>2 core</li><li>3,5 GB di RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per la riga di comando, l'apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
+| Media | <ul><li>4 core</li><li>7 GB di RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi. |
+| Medium (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB di RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi.
+| large | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate.  Queste dimensioni supportano anche la virtualizzazione annidata. |
+| Grande (virtualizzazione annidata) | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate. |
+| GPU small (visualizzazione) | <ul><li>6 core</li><li>56 GB di RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
+| GPU small (calcolo) | <ul><li>6 core</li><li>56 GB di RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono più indicate per applicazioni a elevato utilizzo di calcolo quali intelligenza artificiale e Deep Learning. |
+| GPU medium (visualizzazione) | <ul><li>12 core</li><li>112 GB di RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
 
-## <a name="manage-identity"></a>Gestisci identità
+## <a name="manage-identity"></a>Gestire le identità
 
-Usando il [controllo degli accessi in base al ruolo di Azure, è](https://docs.microsoft.com/azure/role-based-access-control/overview)possibile assegnare i ruoli seguenti per concedere l'accesso agli account Lab e ai laboratori in aula:
+Usando il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) è possibile assegnare i ruoli seguenti per concedere l'accesso agli account lab e ai lab per la classe:
 
-- **Proprietario dell'account del lab**
+- **Proprietario dell'account lab**
 
-    L'amministratore che crea l'account Lab viene aggiunto automaticamente al ruolo **proprietario** dell'account Lab.  Un amministratore a cui è assegnato il ruolo di **proprietario** può:
-     - Modificare le impostazioni dell'account Lab.
-     - Concedere ad altri amministratori l'accesso all'account Lab come proprietari o collaboratori.
-     - Concedi ai docenti l'accesso ai laboratori in aula come autori, proprietari o collaboratori.
-     - Creare e gestire tutti i Lab in aula nell'account Lab.
+    L'amministratore che crea l'account lab viene aggiunto automaticamente al ruolo **Proprietario** dell'account lab.  Un amministratore a cui è assegnato il ruolo **Proprietario** può:
+     - Modificare le impostazioni dell'account lab.
+     - Concedere ad altri amministratori l'accesso all'account lab come proprietari o collaboratori.
+     - Concedere ai docenti l'accesso ai lab per la classe come autori, proprietari o collaboratori.
+     - Creare e gestire tutti i lab per la classe all'interno dell'account lab.
 
-- **Collaboratore account Lab**
+- **Collaboratore per l'account lab**
 
-    Un amministratore a cui è assegnato il ruolo **collaboratore** può:
-    - Modificare le impostazioni dell'account Lab.
-    - Crea e Gestisci tutti i Lab in aula nell'account Lab.
+    Un amministratore a cui è assegnato il ruolo **Collaboratore** può:
+    - Modificare le impostazioni dell'account lab.
+    - Creare e gestire tutti i lab per la classe all'interno dell'account lab.
 
-    Tuttavia, *non possono* concedere ad altri utenti l'accesso agli account Lab o ai Lab della classe.
+    *Non* può però concedere ad altri utenti l'accesso agli account lab o ai lab per la classe.
 
-- **Creatore Lab della classe**
+- **Autore del lab per la classe**
 
-    Per creare Lab in aula in un account Lab, un educatore deve essere un membro del ruolo **Lab Creator** .  Quando un insegnante crea un Lab in aula, viene aggiunto automaticamente come proprietario del Lab.  Vedere l'esercitazione su come [aggiungere un utente al ruolo di **autore del Lab** ](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    Per creare lab per la classe in un account lab, un docente deve essere membro del ruolo **Autore di lab**.  Quando un docente crea un lab per la classe, viene aggiunto automaticamente come proprietario del lab.  Per altre informazioni, vedere l'esercitazione che spiega come [aggiungere un utente al ruolo **Autore di lab**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
 
-- **Lab per aule owner\contributor**
+- **Proprietario/collaboratore del lab per la classe**
   
-    Un insegnante può visualizzare e modificare le impostazioni di un Lab della classe quando è membro del ruolo **proprietario** o **collaboratore** del Lab. devono inoltre essere membri del ruolo **lettore** dell'account Lab.
+    Un docente può visualizzare e modificare le impostazioni di un lab per la classe quando è membro del ruolo **Proprietario** o **Collaboratore** del lab. Deve anche essere membro del ruolo **Lettore** dell'account lab.
 
-    Una differenza fondamentale tra i ruoli **proprietario** e **collaboratore** di un Lab è che un collaboratore *non può* concedere ad altri utenti l'accesso per gestire i proprietari solo Lab può concedere ad altri utenti l'accesso per gestire il Lab.
+    Una differenza fondamentale tra il ruolo **Proprietario** e il ruolo **Collaboratore** di un lab è che un collaboratore *non può* concedere ad altri utenti l'accesso per gestire il lab. Solo i proprietari possono concedere questo tipo di accesso.
 
-    Inoltre, un insegnante *non può* creare nuovi Lab in aula a meno che non siano anche membri del ruolo di **autore del Lab** .
+    Inoltre, un docente *non può* creare nuovi lab per la classe se non è anche membro del ruolo **Autore di lab**.
 
-- **Raccolta immagini condivise**
+- **Raccolta di immagini condivise**
 
-    Quando si connette una raccolta di immagini condivise a un account Lab, all'account Lab owners\contributors e al Lab creators\owners\contributors viene concesso automaticamente l'accesso per visualizzare e salvare le immagini nella raccolta.
+    Quando si associa una raccolta di immagini condivise a un account lab, ai proprietari e collaboratori dell'account lab e agli autori, proprietari e collaboratori del lab viene concesso automaticamente l'accesso per visualizzare e salvare le immagini nella raccolta.
 
 Ecco alcuni suggerimenti utili per l'assegnazione dei ruoli:
-   - In genere, solo gli amministratori devono essere membri del ruolo **proprietario** o **collaboratore** di un account Lab; è possibile avere più di un owner\contributor.
-   - Per consentire a un insegnante di creare nuovi Lab in aula e gestire i Lab creati; è sufficiente assegnare l'accesso al ruolo **Lab Creator** .
-   - Per offrire a un insegnante la possibilità di gestire laboratori in aula specifici, ma *non* la possibilità di creare nuovi laboratori; è necessario assegnare l'accesso al ruolo **proprietario** o **collaboratore** per ogni Lab della classe che verrà gestito.  È possibile, ad esempio, consentire a un professore e a un assistente di insegnamento di creare una coordinata di un Lab in classe.  Vedere la guida su come [aggiungere un utente come proprietario a un Lab della classe](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - In genere, solo gli amministratori devono essere membri del ruolo **Proprietario** o **Collaboratore** di un account lab. Possono essere assegnati più proprietari e collaboratori.
+   - Per consentire a un docente di creare nuovi lab per la classe e gestire i lab che crea, è sufficiente assegnargli il ruolo **Autore di lab**.
+   - Per consentire a un docente di gestire lab per la classe specifici, ma *non* di creare nuovi lab, è necessario assegnargli il ruolo **Proprietario** o **Collaboratore** per ogni lab per la classe che gestirà.  Ad esempio, si può assegnare sia a un professore che a un assistente docente il ruolo di co-proprietario di un lab per la classe.  Per altre informazioni, vedere [Come aggiungere altri proprietari a un lab esistente in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## <a name="pricing"></a>Prezzi
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
-Il prezzo per Azure Lab Services è descritto nell'articolo seguente: [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
+I prezzi di Azure Lab Services sono descritti nell'articolo [Prezzi di Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
 
-È anche necessario prendere in considerazione i prezzi per la raccolta di immagini condivise se si prevede di usarla per l'archiviazione e la gestione delle versioni delle immagini. 
+Occorre prendere in considerazione anche i prezzi per la raccolta di immagini condivise se si prevede di usarla per l'archiviazione e la gestione delle versioni delle immagini. 
 
-### <a name="shared-image-gallery"></a>Raccolta immagini condivise
+### <a name="shared-image-gallery"></a>Raccolta di immagini condivise
 
-La creazione di una raccolta di immagini condivise e la relativa associazione all'account Lab sono gratuite. I costi non vengono sostenuti fino a quando non si salva una versione dell'immagine nella raccolta. In genere, i prezzi per l'uso di una raccolta di immagini condivise sono piuttosto trascurabili, ma è importante comprendere il modo in cui vengono calcolati perché non sono inclusi nei prezzi per Azure Lab Services.  
+La creazione di una raccolta di immagini condivise e la relativa associazione all'account lab sono gratuite. Non viene addebitato alcun costo finché non si salva una versione dell'immagine nella raccolta. In genere i prezzi per l'uso di una raccolta di immagini condivise sono piuttosto trascurabili, ma è importante comprendere il modo in cui vengono calcolati in quanto non sono inclusi nel prezzo di Azure Lab Services.  
 
 #### <a name="storage-charges"></a>Addebiti per l'archiviazione
 
-Per archiviare le versioni delle immagini, una raccolta di immagini condivise usa dischi standard gestiti da HDD. Le dimensioni del disco gestito da HDD usato dipendono dalle dimensioni della versione dell'immagine da archiviare. Per visualizzare i prezzi, vedere l'articolo relativo ai prezzi di [Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Per archiviare le versioni delle immagini, una raccolta di immagini condivise usa dischi gestiti HDD standard. Le dimensioni del disco gestito HDD usato dipendono dalle dimensioni della versione dell'immagine da archiviare. Per informazioni sui prezzi, vedere [Prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-#### <a name="replication-and-network-egress-charges"></a>Addebiti per la replica e l'uscita di rete
+#### <a name="replication-and-network-egress-charges"></a>Addebiti per la replica e il traffico di rete in uscita
 
-Quando si salva una versione dell'immagine usando una macchina virtuale (VM) modello di un Lab, Azure Lab Services prima la archivia in un'area di origine e quindi replica automaticamente la versione dell'immagine di origine in una o più aree di destinazione. È importante notare che Azure Lab Services replica automaticamente la versione dell'immagine di origine in tutte le aree di destinazione [all'interno dell'area geografica in](https://azure.microsoft.com/global-infrastructure/regions/) cui si trova il Lab della classe. Ad esempio, se il Lab della classe si trova nella geografia degli Stati Uniti, viene replicata una versione dell'immagine in ognuna delle otto aree presenti negli Stati Uniti
+Quando si salva una versione dell'immagine usando una macchina virtuale modello di un lab per la classe, Azure Lab Services prima la archivia in un'area di origine e quindi replica automaticamente la versione dell'immagine di origine in una o più aree di destinazione. È importante sottolineare che Azure Lab Services replica automaticamente la versione dell'immagine di origine in tutte le [aree di destinazione all'interno dell'area geografica](https://azure.microsoft.com/global-infrastructure/regions/) in cui si trova il lab per la classe. Ad esempio, se il lab per la classe si trova nell'area geografica Stati Uniti, viene replicata una versione dell'immagine in ognuna delle otto aree presenti negli Stati Uniti.
 
-Un addebito in uscita dalla rete si verifica quando una versione dell'immagine viene replicata dall'area di origine in aree di destinazione aggiuntive. L'importo addebitato è basato sulle dimensioni della versione dell'immagine quando i dati dell'immagine vengono trasferiti inizialmente in uscita dall'area di origine.  Per informazioni dettagliate sui prezzi, fare riferimento all'articolo seguente: [Dettagli prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Un addebito per traffico di rete in uscita viene applicato quando una versione dell'immagine viene replicata dall'area di origine in aree di destinazione aggiuntive. L'importo addebitato è basato sulle dimensioni della versione dell'immagine quando i dati dell'immagine vengono inizialmente trasferiti in uscita dall'area di origine.  Per informazioni dettagliate sui prezzi, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-I clienti di [soluzioni Education](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) possono rinunciare a pagare gli addebiti in uscita. Per ulteriori informazioni, rivolgersi all'account Manager.  Per ulteriori informazioni, vedere la sezione **domande frequenti** nel documento collegato, in particolare la domanda "quali sono i programmi per i trasferimenti di dati per i clienti accademici e come si qualificano?".
+I clienti di [soluzioni per gli istituti di istruzione](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) possono essere esentati dal pagamento delle tariffe per il traffico in uscita. Per altre informazioni, rivolgersi al proprio account manager.  Per altre informazioni, vedere la sezione sulle **domande frequenti** nel documento collegato, in particolare la domanda "Quali programmi di trasferimento dei dati sono disponibili per i clienti accademici e come si ottiene l'idoneità?".
 
 #### <a name="pricing-example"></a>Esempio di prezzi
 
-Per ricapitolare i prezzi descritti in precedenza, esaminiamo un esempio di salvataggio dell'immagine della macchina virtuale del modello nella raccolta di immagini condivise. Si presuppongano gli scenari seguenti:
+Per ricapitolare le informazioni sui prezzi riportate sopra, si userà un esempio in cui l'immagine della macchina virtuale modello viene salvata nella raccolta di immagini condivise. Si suppongano gli scenari seguenti:
 
-- Si dispone di un'immagine di macchina virtuale personalizzata.
-- Si stanno salvando due versioni dell'immagine.
-- Il Lab si trova negli Stati Uniti, che è costituito da un totale di otto aree.
-- Ogni versione di immagine ha una dimensione di 32 GB; di conseguenza, il prezzo del disco gestito da HDD è $1,54 al mese.
+- Si dispone di un'immagine di VM personalizzata.
+- Si vogliono salvare due versioni dell'immagine.
+- Il lab si trova negli Stati Uniti, che comprendono un totale di otto aree.
+- Le dimensioni di ogni versione dell'immagine sono di 32 GB, quindi il prezzo del disco gestito HDD è di $1,54 al mese.
 
 Il costo totale è stimato come:
 
@@ -265,14 +266,14 @@ Numero di immagini × numero di versioni × numero di repliche × prezzo del dis
 
 In questo esempio il costo è:
 
-1 immagine personalizzata (32 GB) x 2 versioni x 8 aree statunitensi x $1,54 = $24,64 al mese
+1 immagine personalizzata (32 GB) x 2 versioni x 8 aree degli Stati Uniti x $ 1,54 = $ 24,64 al mese
 
 #### <a name="cost-management"></a>Gestione dei costi
 
-È importante che l'amministratore dell'account Lab gestisca i costi eliminando periodicamente le versioni di immagine non necessarie dalla raccolta. 
+È importante che l'amministratore dell'account lab gestisca i costi eliminando periodicamente le versioni di immagini non necessarie dalla raccolta. 
 
-Non è consigliabile eliminare la replica in aree specifiche come modo per ridurre i costi. questa opzione è disponibile nella raccolta immagini condivise. Le modifiche alla replica possono avere effetti negativi sulla capacità del servizio lab di Azure di pubblicare VM da immagini salvate in una raccolta di immagini condivise.
+Non è consigliabile eliminare la replica in aree specifiche come soluzione per ridurre i costi (questa opzione è disponibile nella raccolta di immagini condivise). Le modifiche alla replica possono infatti avere effetti negativi sulla capacità di Azure Lab Services di pubblicare VM da immagini salvate in una raccolta di immagini condivise.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'esercitazione per istruzioni dettagliate per la creazione di un account Lab e di un Lab: [Guida alla configurazione](tutorial-setup-lab-account.md)
+Per istruzioni dettagliate su come creare un account lab e un lab, vedere [Esercitazione: Configurare un account lab con Azure Lab Services](tutorial-setup-lab-account.md).

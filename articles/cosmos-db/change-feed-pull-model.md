@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116714"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697719"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modello di pull del feed di modifiche in Azure Cosmos DB
 
@@ -43,7 +43,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 Con `FeedIterator` è possibile elaborare facilmente il feed di modifiche di un intero contenitore in modo personalizzato. Ad esempio:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -58,10 +58,10 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## <a name="consuming-a-partition-keys-changes"></a>Utilizzo delle modifiche di una chiave di partizione
 
-In alcuni casi può essere necessario elaborare solo le modifiche di una chiave di partizione specifica. È possibile ottenere un oggetto `FeedIterator` per una chiave di partizione specifica ed elaborare le modifiche in modo analogo a un intero contenitore:
+In alcuni casi può essere necessario elaborare solo le modifiche di una chiave di partizione specifica. È possibile ottenere un oggetto `FeedIterator` per una chiave di partizione specifica ed elaborare le modifiche allo stesso modo di un intero contenitore.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ Ecco un esempio che illustra come leggere dall'inizio del feed di modifiche del 
 Computer 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Il token di continuazione di FeedIterator non scade fino a quando esiste il contenitore Cosmos.
+
 ## <a name="comparing-with-change-feed-processor"></a>Confronto con il processore dei feed di modifiche
 
 In molti scenari è possibile elaborare il feed di modifiche usando il [processore del feed di modifiche](change-feed-processor.md) o il modello di pull. I token di continuazione del modello di pull e il contenitore di lease del processore del feed di modifiche sono entrambi "segnalibri" per l'ultimo elemento o batch di elementi elaborato nel feed di modifiche.
@@ -156,9 +158,9 @@ Non è però possibile convertire i token di continuazione in un contenitore di 
 
 È opportuno usare il modello di pull negli scenari seguenti:
 
-- Si vuole eseguire una sola lettura dei dati esistenti nel feed di modifiche
-- Si vogliono leggere solo le modifiche di una chiave di partizione specifica
-- Non si vuole usare un modello di push e si vuole utilizzare il feed di modifiche in modo personalizzato
+- Lettura delle modifiche di una chiave di partizione specifica
+- Controllo della velocità di ricezione delle modifiche per l'elaborazione da parte del client
+- Esecuzione di una sola lettura dei dati esistenti nel feed di modifiche (ad esempio per eseguire una migrazione dei dati)
 
 Ecco alcune delle differenze principali tra il processore del feed di modifiche e il modello di pull:
 
@@ -168,7 +170,7 @@ Ecco alcune delle differenze principali tra il processore del feed di modifiche 
 | Possibilità di riprodurre modifiche precedenti | Sì, con modello di push | Sì, con modello di pull|
 | Polling per le modifiche future | Verifica automaticamente della presenza di modifiche in base al parametro `WithPollInterval` specificato dall'utente | Manuale |
 | Elaborazione delle modifiche di un intero contenitore | Sì, con elaborazione parallela automatica tra più thread/computer che utilizzano lo stesso contenitore| Sì, con elaborazione parallela manuale tramite FeedToken |
-| Elaborazione delle modifiche da una sola chiave di partizione | Non supportata | Sì|
+| Elaborazione delle modifiche da una sola chiave di partizione | Non supportate | Sì|
 | Livello di supporto | Disponibile a livello generale | Anteprima |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la finalità con le API REST - LUIS'
+title: 'Avvio rapido: Ottenere la finalità con le API REST - LUIS'
 titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido dell'API REST si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo.
 services: cognitive-services
@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: cf5f2094d1db18550e8225b328adef92a6afd02a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b73b149e955eee0cb24308d2c1b5b1616b95d7e7
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655503"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416396"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Guida introduttiva: Cambiare il modello con le API REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Avvio rapido: Cambiare il modello con le API REST
 
-In questo avvio rapido si aggiungono espressioni di esempio in un'app Pizza e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
+In questo argomento di avvio rapido si aggiungeranno espressioni di esempio a un'app Pizza e si eseguirà il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

@@ -50,6 +50,8 @@
               href: class-type-big-data-analytics.md
             - name: MATLAB
               href: class-type-matlab.md
+            - name: CAD SolidWorks
+              href: class-type-solidworks.md
 - name: Guide pratiche
   items:
     - name: Guida dell'amministratore
@@ -112,6 +114,8 @@
               href: how-to-enable-nested-virtualization-template-vm-ui.md
             - name: Abilitare la virtualizzazione annidata in una VM modello con uno script
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
+        - name: Configurare un lab con GPU
+          href: how-to-setup-lab-gpu.md
         - name: Preparare una VM modello Windows
           href: how-to-prepare-windows-template.md
         - name: Controllare il comportamento di arresto di Windows

@@ -1,14 +1,14 @@
 ---
-title: Analisi Azure Batch
+title: Azure Batch Analytics
 description: Gli argomenti di Batch Analytics includono informazioni di riferimento per gli eventi e gli avvisi disponibili per le risorse del servizio Batch.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: d35bf249a3ae5dd06f42b89c3d5c2773f9508603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b07d362c3cc2d3b086cf0a82325025604907a393
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113069"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726860"
 ---
 # <a name="batch-analytics"></a>Batch Analytics
 Gli argomenti di Batch Analytics includono informazioni di riferimento per gli eventi e gli avvisi disponibili per le risorse del servizio Batch.
@@ -20,11 +20,11 @@ Per altre informazioni sull'abilitazione e sull'uso di log di diagnostica di Bat
 Il servizio Azure Batch produce i seguenti eventi di registro di diagnostica nel corso della durata di determinate risorse Batch.
 
 **Eventi del log del servizio**
-* [Pool create](batch-pool-create-event.md) (Creazione del pool)
-* [Pool delete start](batch-pool-delete-start-event.md) (Avvio dell'eliminazione del pool)
-* [Pool delete complete](batch-pool-delete-complete-event.md) (Completamento dell'eliminazione del pool)
-* [Pool resize start](batch-pool-resize-start-event.md) (Avvio del ridimensionamento del pool)
-* [Pool resize complete](batch-pool-resize-complete-event.md) (Completamento del ridimensionamento del pool)
-* [Task start](batch-task-start-event.md) (Avvio dell'attività)
-* [Task complete](batch-task-complete-event.md) (Completamento dell'attività)
-* [Task fail](batch-task-fail-event.md) (Errore dell'attività)
+* [Creazione di pool](batch-pool-create-event.md)
+* [Avvio dell'eliminazione di pool](batch-pool-delete-start-event.md)
+* [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md)
+* [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md)
+* [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md)
+* [Avvio dell'attività](batch-task-start-event.md)
+* [Attività completata](batch-task-complete-event.md)
+* [Errore dell'attività](batch-task-fail-event.md)

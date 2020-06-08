@@ -7,28 +7,28 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658983"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836380"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Se, ad esempio, si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto tecnico, DevOps Engineers) o se si usa un provider di servizi gestiti, è possibile concedere loro l'accesso solo ai dati di monitoraggio, limitando la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
+Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
 
 ## <a name="built-in-monitoring-roles"></a>Ruoli di monitoraggio predefiniti
-I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Il monitoraggio di Azure fornisce due ruoli predefiniti: un lettore di monitoraggio e un collaboratore al monitoraggio.
+I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Monitoraggio di Azure offre due ruoli predefiniti: Un lettore di monitoraggio e un collaboratore al monitoraggio.
 
 ### <a name="monitoring-reader"></a>Lettore di monitoraggio
 Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione ma non possono modificare alcuna risorsa o impostazione relativa alle risorse di monitoraggio. Questo ruolo è appropriato per gli utenti di un'organizzazione, ad esempio tecnici del supporto o delle operazioni, che devono essere in grado di:
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
 * Visualizzare le regole di avviso definite in [Avvisi di Azure](alerts-overview.md)
-* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](powershell-quickstart-samples.md) o l'[interfaccia della riga di comando multipiattaforma](cli-samples.md).
+* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](powershell-quickstart-samples.md) o l'[interfaccia della riga di comando multipiattaforma](../samples/cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
 * Visualizzare le [impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.
 * Visualizzare il [profilo di registro](activity-log-export.md) per una sottoscrizione.
@@ -38,8 +38,8 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 * Cercare i dati dell'area di lavoro Log Analytics, inclusi i dati sull'uso dell'area di lavoro.
 * Visualizzare i gruppi di gestione di Log Analytics.
 * Recuperare lo schema di ricerca nell'area di lavoro Log Analytics.
-* Elenca i Monitoring Pack nell'area di lavoro Log Analytics.
-* Recuperare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
+* Elencare i Monitoring Pack nell'area di lavoro Log Analytics.
+* Recuperare ed eseguire le ricerche salvate nell'area di lavoro Log Analytics.
 * Recuperare la configurazione di archiviazione dell'area di lavoro Log Analytics.
 
 > [!NOTE]
@@ -51,16 +51,16 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
-* Impostare [le impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
-* Impostare il [profilo di log](activity-log-export.md) per una sottoscrizione.\*
+* Configurare le [impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
+* Impostare il [profilo di registro](activity-log-export.md) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro Log Analytics.
 * Abilitare o disabilitare i Monitoring Pack nell'area di lavoro Log Analytics.
-* Consente di creare ed eliminare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
+* Creare, eliminare ed eseguire le ricerche salvate nell'area di lavoro Log Analytics.
 * Creare ed eliminare la configurazione di archiviazione dell'area di lavoro Log Analytics.
 
-\*all'utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
+\* per configurare un profilo di registro o un'impostazione di diagnostica, è necessario che all'utente sia concessa separatamente anche l'autorizzazione ListKeys nella risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi).
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -115,7 +115,7 @@ New-AzRoleDefinition -Role $role
 I dati sul monitoraggio dei dati, in particolare i file di registro, possono contenere informazioni sensibili, come indirizzi IP o nomi utente. I dati sul monitoraggio di Azure sono forniti in tre forme base:
 
 1. Registro attività, che descrive tutte le azioni del piano di controllo nella sottoscrizione di Azure.
-2. log delle risorse, che sono log generati da una risorsa.
+2. log di risorsa, cioè log generati da una risorsa.
 3. Metriche, generate dalle risorse.
 
 Tutti e tre questi tipi di dati possono essere archiviati in un account di archiviazione o trasmessi a un hub eventi, che sono entrambi risorse di Azure di scopo generico. Poiché si tratta di risorse di scopo generico, la creazione, l'eliminazione e l'accesso sono operazioni privilegiate e riservate agli amministratori. Si consiglia di usare le procedure seguenti con le risorse relative al monitoraggio per evitare un uso improprio:
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitutto necessario creare una regola di autorizzazione di ascolto dedicata. Se si desidera concedere l'accesso a un'applicazione che ha bisogno solo di ascoltare gli hub eventi relativi al monitoraggio, procedere come segue:
 
 1. Creare un criterio di accesso condiviso negli hub eventi creati per trasmettere i dati di monitoraggio solo con attestazioni di ascolto. Questa operazione può essere eseguita nel portale. Ad esempio, è possibile chiamarlo "monitoringReadOnly". Se possibile, si dovrà fornire la chiave direttamente al consumatore e ignorare il passaggio successivo.
-2. Se il consumer deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola nel Controllo degli accessi in base al ruolo:
+2. Se il consumatore deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola nel Controllo degli accessi in base al ruolo:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -181,7 +181,7 @@ Monitoraggio di Azure deve accedere alle risorse di Azure per fornire i servizi 
 ### <a name="secured-storage-accounts"></a>Account di archiviazione protetti 
 
 I dati di monitoraggio vengono spesso scritti in un account di archiviazione. È possibile assicurarsi che i dati copiati in un account di archiviazione non siano accessibili da utenti non autorizzati. Per una maggiore sicurezza, è possibile bloccare l'accesso alla rete per consentire solo alle risorse autorizzate e ai servizi Microsoft attendibili di accedere a un account di archiviazione limitando un account di archiviazione all'uso di "reti selezionate".
-![Finestra di dialogo](./media/roles-permissions-security/secured-storage-example.png) impostazioni di archiviazione di Azure il monitoraggio di Azure è considerato uno dei servizi Microsoft attendibili se si consente ai servizi Microsoft attendibili di accedere all'archiviazione protetta, monitoraggio di Azure avrà accesso all'account di archiviazione protetto. Abilitazione della scrittura di log delle risorse di monitoraggio di Azure, log attività e metriche nell'account di archiviazione in base a queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
+![Finestra di dialogo delle impostazioni di Archiviazione di Azure](./media/roles-permissions-security/secured-storage-example.png): Monitoraggio di Azure viene considerato uno di tali "servizi Microsoft attendibili". Se si consente a tali servizi Microsoft attendibili di accedere alla risorsa di archiviazione protetta, Monitoraggio di Azure potrà accedere all'account di archiviazione protetto abilitando la scrittura dei log di risorsa, log attività e metriche di Monitoraggio di Azure nell'account di archiviazione in queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
 
 
 Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../../storage/common/storage-network-security.md)

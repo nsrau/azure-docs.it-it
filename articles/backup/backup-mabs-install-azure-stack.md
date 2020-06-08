@@ -1,21 +1,21 @@
 ---
 title: Installare il server di Backup di Azure in Azure Stack
-description: Questo articolo illustra come usare server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
+description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77583436"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747444"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
 In questo articolo viene descritto come installare il server di Backup di Azure in Azure Stack. Con il server di Backup di Azure è possibile proteggere i carichi di lavoro IaaS (infrastruttura distribuita come servizio), ad esempio le macchine virtuali in esecuzione in Azure Stack. Un vantaggio dell'uso del server di Backup di Azure per proteggere i carichi di lavoro è che è possibile gestire tutta la protezione dei carichi di lavoro da una singola console.
 
 > [!NOTE]
-> Per informazioni sulle funzionalità di sicurezza, vedere la [documentazione sulle funzionalità di sicurezza di backup di Azure](backup-azure-security-feature.md).
+> Per informazioni sulle funzionalità di sicurezza, vedere la [documentazione sulle funzionalità di sicurezza di Backup di Azure](backup-azure-security-feature.md).
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
@@ -89,9 +89,9 @@ La macchina virtuale del server di Backup di Azure deve appartenere a un dominio
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Uso di una VM IaaS in Azure Stack
 
-Quando si sceglie un server per il server di Backup di Azure, usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione che consente di acquisire familiarità con la macchina virtuale consigliata. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
+Quando si sceglie un server per il server di Backup di Azure, usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione che consente di acquisire familiarità con la macchina virtuale consigliata. I requisiti minimi consigliati per la macchina virtuale di server sono: A2 Standard con due core e 3,5 GB di RAM.
 
-La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
+La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. La [matrice di protezione per il server di Backup di Microsoft Azure ](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) aiuta a comprendere questa complessità. Prima di distribuire la macchina leggere interamente questo articolo.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su una macchina virtuale dedicata, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
@@ -107,7 +107,7 @@ Aggiungere sempre il server di backup di Azure a un dominio. Se è necessario sp
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma meno durevole, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e con [ridondanza locale](../storage/common/storage-redundancy-lrs.md) , vedere [Panoramica della replica di archiviazione di Azure](../storage/common/storage-redundancy.md).
+La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma meno durevole, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e con [ridondanza locale](../storage/common/storage-redundancy-lrs.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -125,7 +125,7 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
     ![Scegliere l'opzione Tutti i servizi nel menu principale](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
-3. Nella finestra di dialogo **tutti i servizi** digitare *servizi di ripristino*. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Quando viene visualizzata, selezionare l'opzione **Insiemi di credenziali di Servizi di ripristino**.
+3. Nella finestra di dialogo **Tutti i servizi** digitare *Servizi di ripristino*. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Quando viene visualizzata, selezionare l'opzione **Insiemi di credenziali di Servizi di ripristino**.
 
     ![Digitare Servizi di ripristino nella finestra di dialogo Tutti i servizi](./media/backup-mabs-install-azure-stack/all-services.png)
 
@@ -163,7 +163,7 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
     ![Area download 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    Le dimensioni di download di tutti i file di installazione sono maggiori di 3 GB. Con un collegamento di download a 10 Mbps, scaricare tutti i file di installazione può richiedere fino a 60 minuti. I file vengono scaricati nel percorso di download specificato.
+    Le dimensioni del download di tutti i file di installazione sono superiori a 3 GB. Con un collegamento di download a 10 Mbps, scaricare tutti i file di installazione può richiedere fino a 60 minuti. I file vengono scaricati nel percorso di download specificato.
 
 ## <a name="extract-azure-backup-server-install-files"></a>Estrarre i file di installazione del server di Backup di Azure
 
@@ -243,7 +243,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     ![PreReq2 di Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per ulteriori informazioni sui pool di archiviazione, vedere [Preparare l'archiviazione dei dati](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. Nella schermata **Impostazioni di sicurezza** specificare una password complessa per gli account utente locali con restrizioni e fare clic su **Avanti**.
 
@@ -320,7 +320,7 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output del cmdlet è TRUE.
 
-Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
@@ -335,7 +335,7 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
-Se un firewall o un proxy impedisce l'accesso ad Azure, aggiungere gli indirizzi di dominio seguenti nell'elenco Consenti profilo firewall/proxy:
+Se un firewall o un proxy impedisce l'accesso ad Azure, aggiungere all'elenco elementi consentiti nel profilo del firewall/proxy gli indirizzi di dominio seguenti:
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

@@ -1,58 +1,83 @@
 ---
-title: Installare e configurare l'estensione diagnostica di Microsoft Azure (WAD)
-description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di archiviazione di Azure in modo che sia possibile visualizzarli con uno dei diversi strumenti disponibili.
+title: Installare e configurare l'estensione Diagnostica di Azure per Windows
+description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di Archiviazione di Azure per visualizzarli con uno dei diversi strumenti disponibili.
 services: azure-monitor
 author: bwren
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883108"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655653"
 ---
-# <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione diagnostica di Microsoft Azure (WAD)
-L'estensione diagnostica di Azure è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo fornisce informazioni dettagliate sull'installazione e la configurazione dell'estensione di diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di archiviazione di Azure.
+# <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione Diagnostica di Azure per Windows
+L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo include informazioni dettagliate sull'installazione e la configurazione dell'estensione Diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di Archiviazione di Azure.
 
-L'estensione di diagnostica viene implementata come [estensione della macchina virtuale](../../virtual-machines/extensions/overview.md) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni dettagliate sull'installazione e la gestione delle estensioni delle macchine virtuali, vedere [estensioni e funzionalità delle macchine virtuali per Windows](../../virtual-machines/extensions/features-windows.md) .
+L'estensione Diagnostica viene implementata come [estensione macchina virtuale](../../virtual-machines/extensions/overview.md) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di Gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni dettagliate sull'installazione e la gestione delle estensioni macchina virtuale, vedere [Estensioni e funzionalità della macchina virtuale per Windows](../../virtual-machines/extensions/features-windows.md).
 
-## <a name="install-with-azure-portal"></a>Installare con portale di Azure
-È possibile installare e configurare l'estensione di diagnostica in una singola macchina virtuale nell'portale di Azure che fornisce un'interfaccia anziché lavorare direttamente con la configurazione. Quando si Abilita l'estensione di diagnostica, viene automaticamente utilizzata una configurazione predefinita con i contatori delle prestazioni e gli eventi più comuni. È possibile modificare questa configurazione predefinita in base ai requisiti specifici.
+## <a name="overview"></a>Panoramica
+Quando si configura l'estensione Diagnostica di Azure è necessario specificare un account di archiviazione in cui verranno inviati tutti i dati specificati. Facoltativamente è possibile aggiungerne uno, in modo che più *sink di dati* inviino i dati a percorsi diversi.
 
-> [!NOTE]
-> Sono disponibili impostazioni dell'estensione di diagnostica che non è possibile configurare usando il portale di Azure incluso l'invio di dati a hub eventi di Azure. Per queste impostazioni è necessario usare uno degli altri metodi di configurazione.
-
-1. Aprire il menu per una macchina virtuale nell'portale di Azure.
-2. Fare clic su **impostazioni di diagnostica** nella sezione **monitoraggio** del menu VM.
-3. Fare clic su **Abilita monitoraggio a livello di Guest** se l'estensione diagnostica non è già stata abilitata.
-4. Verrà creato un nuovo account di archiviazione di Azure per la macchina virtuale con il nome in base al nome del gruppo di risorse per la macchina virtuale. È possibile allegare la macchina virtuale a un altro account di archiviazione selezionando la scheda **agente** .
-
-![Impostazioni di diagnostica](media/diagnostics-extension-windows-install/diagnostic-settings.png)
+- Sink Monitoraggio di Azure: inviare i dati delle prestazioni guest alle metriche di Monitoraggio di Azure.
+- Sink di Hub eventi: inviare i dati di log e prestazioni guest agli hub eventi di Azure per l'inoltro all'esterno di Azure. Non è possibile configurare questo sink nel portale di Azure.
 
 
-È possibile modificare la configurazione predefinita dopo che l'estensione di diagnostica è stata abilitata. Nella tabella seguente vengono descritte le opzioni che è possibile modificare nelle diverse schede. Alcune opzioni hanno un comando **personalizzato** che consente di specificare una configurazione più dettagliata; per informazioni dettagliate sulle diverse impostazioni, vedere lo [schema dell'estensione diagnostica di Windows](diagnostics-extension-schema-windows.md) .
-
-| Scheda | Description |
-|:---|:---|
-| Panoramica | Visualizza la configurazione corrente con i collegamenti alle altre schede. |
-| Contatori delle prestazioni | Selezionare i contatori delle prestazioni da raccogliere e la frequenza di campionamento per ogni.  |
-| Log | Selezionare i dati di log da raccogliere. Sono inclusi i registri eventi di Windows, i log di IIS, i registri applicazioni .NET e gli eventi ETW.  |
-| Dump di arresto anomalo | Abilitare il dump di arresto anomalo per processi diversi. |
-| Sink | Consentire ai sink di dati di inviare dati a destinazioni oltre ad archiviazione di Azure.<br>Monitoraggio di Azure: Invia i dati sulle prestazioni alle metriche di monitoraggio di Azure.<br>Application Insights inviare i dati a un'applicazione Application Insights. |
-| Agente | Modificare la configurazione seguente per l'agente:<br>-Modificare l'account di archiviazione.<br>-Specificare il disco locale massimo usato per l'agente.<br>-Configurare i log per l'integrità dell'agente stesso.|
-
+## <a name="install-with-azure-portal"></a>Eseguire l'installazione con il portale di Azure
+È possibile installare e configurare l'estensione Diagnostica in una singola macchina virtuale nel portale di Azure, che offre un'interfaccia ed evita di dover lavorare direttamente con la configurazione. Quando si abilita l'estensione Diagnostica, viene usata automaticamente una configurazione predefinita con i contatori delle prestazioni e gli eventi più comuni. È possibile modificare questa configurazione predefinita in base ai requisiti specifici.
 
 > [!NOTE]
-> Sebbene sia possibile formattare la configurazione per l'estensione di diagnostica in JSON o XML, qualsiasi configurazione eseguita nel portale di Azure verrà sempre archiviata come JSON. Se si usa XML con un altro metodo di configurazione e quindi si modifica la configurazione con il portale di Azure, le impostazioni verranno modificate in JSON.
+> Di seguito vengono descritte le impostazioni più comuni per l'estensione Diagnostica. Per informazioni dettagliate su tutte le opzioni di configurazione, vedere [Schema dell'estensione Diagnostica per Windows](diagnostics-extension-schema-windows.md).
+
+1. Aprire il menu di una macchina virtuale nel portale di Azure.
+
+2. Fare clic su **Impostazioni di diagnostica** nella sezione **Monitoraggio** del menu della macchina virtuale.
+
+3. Fare clic su **Abilita monitoraggio a livello di guest** se l'estensione di diagnostica non è già stata abilitata.
+
+   ![Abilitare il monitoraggio](media/diagnostics-extension-windows-install/enable-monitoring.png)
+
+4. Verrà creato un nuovo account di Archiviazione di Azure per la macchina virtuale, con un nome basato sul nome del gruppo di risorse della macchina virtuale, e verrà selezionato un set predefinito di log e contatori delle prestazioni guest.
+
+   ![Impostazioni di diagnostica](media/diagnostics-extension-windows-install/diagnostic-settings.png)
+
+5. Nella scheda **Contatori prestazioni** selezionare le metriche guest che si vuole raccogliere da questa macchina virtuale. Usare l'impostazione **Personalizzate** per una selezione più dettagliata.
+
+   ![Contatori delle prestazioni](media/diagnostics-extension-windows-install/performance-counters.png)
+
+6. Nella scheda **Log** selezionare i log da raccogliere dalla macchina virtuale. I log possono essere inviati a risorse di archiviazione o hub eventi, ma non a Monitoraggio di Azure. Usare l'[agente Log Analytics](log-analytics-agent.md) per raccogliere i log guest in Monitoraggio di Azure.
+
+   ![Log](media/diagnostics-extension-windows-install/logs.png)
+
+7. Nella scheda **Dump di arresto anomalo** specificare i processi per la raccolta di dump di memoria dopo un arresto anomalo del sistema. I dati verranno scritti nell'account di archiviazione definito dall'impostazione di diagnostica, ed è possibile specificare facoltativamente un contenitore BLOB.
+
+   ![Dump di arresto anomalo](media/diagnostics-extension-windows-install/crash-dumps.png)
+
+8. Nella scheda **Sink** specificare se inviare i dati a percorsi diversi dall'archiviazione di Azure. Se si seleziona **Monitoraggio di Azure**, i dati sulle prestazioni guest verranno inviati alle metriche di Monitoraggio di Azure. Non è possibile configurare il sink degli hub eventi usando il portale di Azure.
+
+   ![Sink](media/diagnostics-extension-windows-install/sinks.png)
+   
+   Se non è stata abilitata un'identità assegnata dal sistema per la macchina virtuale, è possibile che venga visualizzato l'avviso seguente quando si salva una configurazione con il sink di Monitoraggio di Azure. Fare clic sul banner per abilitare l'identità assegnata dal sistema.
+   
+   ![Entità gestita](media/diagnostics-extension-windows-install/managed-entity.png)
+
+9. In **Agente** è possibile modificare l'account di archiviazione, impostare la quota del disco e specificare se verranno raccolti i log dell'infrastruttura di diagnostica.  
+
+   ![Agente](media/diagnostics-extension-windows-install/agent.png)
+
+10. Fare clic su **Salva** per salvare la configurazione. 
+
+> [!NOTE]
+> La configurazione per l'estensione di diagnostica può essere salvata con il formato JSON o XML, ma qualsiasi configurazione eseguita nel portale di Azure verrà sempre salvata con il formato JSON. Se si usa XML con un altro metodo di configurazione e quindi si modifica la configurazione con il portale di Azure, le impostazioni verranno convertite in JSON.
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
-Vedere [usare il monitoraggio e la diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) sulla distribuzione dell'estensione di diagnostica con i modelli Azure Resource Manager. 
+Vedere [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) per informazioni sulla distribuzione dell'estensione di diagnostica con i modelli di Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [AZ VM Extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) come nell'esempio seguente. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set), come nell'esempio seguente. 
 
 ```azurecli
 az vm extension set \
@@ -64,7 +89,7 @@ az vm extension set \
   --settings public-settings.json 
 ```
 
-Le impostazioni protette sono definite nell' [elemento PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element) dello schema di configurazione. Di seguito è riportato un esempio minimo di un file di impostazioni protette che definisce l'account di archiviazione. Vedere [configurazione di esempio](diagnostics-extension-schema-windows.md#privateconfig-element) per i dettagli completi delle impostazioni private.
+Le impostazioni protette sono definite nell'[elemento PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element) dello schema di configurazione. Di seguito è riportato un esempio minimo di un file di impostazioni protette che definisce l'account di archiviazione. Per informazioni complete sulle impostazioni private, vedere [Configurazione di esempio](diagnostics-extension-schema-windows.md#privateconfig-element).
 
 ```JSON
 {
@@ -73,7 +98,8 @@ Le impostazioni protette sono definite nell' [elemento PrivateConfig](diagnostic
     "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
 }
 ```
-Le impostazioni pubbliche sono definite nell' [elemento Public](diagnostics-extension-schema-windows.md#publicconfig-element) dello schema di configurazione. Di seguito è riportato un esempio di file di impostazioni pubbliche che consente di raccogliere i log dell'infrastruttura di diagnostica, un singolo contatore delle prestazioni e un singolo registro eventi. Vedere [configurazione di esempio](diagnostics-extension-schema-windows.md#publicconfig-element) per informazioni complete sulle impostazioni pubbliche.
+
+Le impostazioni pubbliche sono definite nell'[elemento PublicConfig](diagnostics-extension-schema-windows.md#publicconfig-element) dello schema di configurazione. Di seguito è riportato un esempio minimale di file di impostazioni pubbliche che abilita la raccolta di log dell'infrastruttura di diagnostica, un singolo contatore delle prestazioni e un singolo registro eventi. Per informazioni complete sulle impostazioni pubbliche, vedere [Configurazione di esempio](diagnostics-extension-schema-windows.md#publicconfig-element).
 
 ```JSON
 {
@@ -107,7 +133,7 @@ Le impostazioni pubbliche sono definite nell' [elemento Public](diagnostics-exte
 
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
-PowerShell può essere usato per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) , come nell'esempio seguente. 
+PowerShell può essere usato per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension), come nell'esempio seguente. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
@@ -115,9 +141,9 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-Le impostazioni private sono definite nell' [elemento PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element), mentre le impostazioni pubbliche sono definite nell' [elemento Public](diagnostics-extension-schema-windows.md#publicconfig-element) dello schema di configurazione. È anche possibile scegliere di specificare i dettagli dell'account di archiviazione come parametri del cmdlet Set-AzVMDiagnosticsExtension anziché includerli nelle impostazioni private.
+Le impostazioni private sono definite nell'[elemento PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element), mentre le impostazioni pubbliche sono definite nell'[elemento PublicConfig](diagnostics-extension-schema-windows.md#publicconfig-element) dello schema di configurazione. È anche possibile scegliere di specificare i dettagli dell'account di archiviazione come parametri del cmdlet Set-AzVMDiagnosticsExtension, anziché includerli nelle impostazioni private.
 
-Di seguito è riportato un esempio minimo di un file di configurazione che Abilita la raccolta di log dell'infrastruttura di diagnostica, un singolo contatore delle prestazioni e un singolo registro eventi. Vedere [configurazione di esempio](diagnostics-extension-schema-windows.md#publicconfig-element) per i dettagli completi delle impostazioni private e pubbliche. 
+Di seguito è riportato un esempio minimale di file di configurazione che abilita la raccolta di log dell'infrastruttura di diagnostica, un singolo contatore delle prestazioni e un singolo registro eventi. Per informazioni complete sulle impostazioni pubbliche e private, vedere [Configurazione di esempio](diagnostics-extension-schema-windows.md#publicconfig-element). 
 
 ```JSON
 {
@@ -162,19 +188,19 @@ Di seguito è riportato un esempio minimo di un file di configurazione che Abili
 Vedere anche [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../../virtual-machines/extensions/diagnostics-windows.md).
 
 ## <a name="data-storage"></a>Archiviazione dei dati
-La tabella seguente elenca i diversi tipi di dati raccolti dall'estensione di diagnostica e se vengono archiviati come una tabella o un BLOB. I dati archiviati nelle tabelle possono anche essere archiviati in BLOB a seconda dell' [impostazione di StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) nella configurazione pubblica.
+La tabella seguente elenca i diversi tipi di dati raccolti dall'estensione di diagnostica e indica se vengono archiviati come una tabella o un BLOB. I dati archiviati nelle tabelle possono anche essere archiviati in BLOB a seconda dell'impostazione [StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) nella configurazione pubblica.
 
 
-| Data | Tipo di archiviazione | Description |
+| Data | Tipo di archiviazione | Descrizione |
 |:---|:---|:---|
-| WADDiagnosticInfrastructureLogsTable | Tabella | Monitoraggio diagnostica e modifiche di configurazione. |
+| WADDiagnosticInfrastructureLogsTable | Tabella | Monitor di diagnostica e modifiche alla configurazione. |
 | WADDirectoriesTable | Tabella | Directory monitorate dal monitor di diagnostica.  Sono inclusi i log di IIS, i log delle richieste non riuscite di IIS e le directory personalizzate.  La posizione del file di log dei BLOB è specificata nel campo Container e il nome del BLOB si trova nel campo RelativePath.  Il campo AbsolutePath indica la posizione e il nome del file esistente nella macchina virtuale di Azure. |
-| WadLogsTable | Tabella | Log scritti nel codice utilizzando il listener di traccia. |
+| WadLogsTable | Tabella | Log scritti nel codice con il listener di traccia. |
 | WADPerformanceCountersTable | Tabella | Contatori delle prestazioni. |
-| WADWindowsEventLogsTable | Tabella | Registri eventi di Windows. |
-| wad-IIS-failedreqlogfiles | BLOB | Contiene le informazioni dei log delle richieste non riuscite di IIS. |
-| wad-iis-logfiles | BLOB | Contiene informazioni sui log di IIS. |
-| personalizzato | BLOB | Un contenitore personalizzato basato sulle directory di configurazione monitorate dal monitor di diagnostica.  Il nome di questo contenitore BLOB verrà specificato in WADDirectoriesTable. |
+| WADWindowsEventLogsTable | Tabella | Log eventi di Windows. |
+| wad-iis-failedreqlogfiles | BLOB | Contiene informazioni dei log delle richieste non riuscite di IIS. |
+| wad-iis-logfiles | BLOB | Contiene le informazioni sui log di IIS. |
+| "custom" | BLOB | Contenitore personalizzato basato sulle directory di configurazione monitorate dal monitor di diagnostica.  Il nome di questo contenitore BLOB verrà specificato in WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Strumenti per visualizzare i dati di diagnostica
 Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio:
@@ -184,4 +210,4 @@ Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti 
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) include Azure Diagnostics Manager che consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni dettagliate su come inoltrare i dati di monitoraggio a hub eventi di Azure, vedere [inviare dati da Windows Azure Diagnostics Extension a hub](diagnostics-extension-stream-event-hubs.md) eventi.
+- Per informazioni dettagliate su come inoltrare i dati di monitoraggio a hub eventi di Azure, vedere [Inviare dati dall'estensione diagnostica di Microsoft Azure a hub eventi di Azure](diagnostics-extension-stream-event-hubs.md).

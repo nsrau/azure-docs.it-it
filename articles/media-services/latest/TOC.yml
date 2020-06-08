@@ -195,6 +195,19 @@
         - name: Streaming
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: Risoluzione dei problemi
+      items:
+        - name: Domande frequenti
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: Codici di errore
+          items:
+            - name: Codici di errore degli endpoint di streaming
+              href: streaming-endpoint-error-codes.md
+            - name: Codici di errore degli eventi live
+              href: live-event-error-codes.md
+            - name: Codici di errore dei processi
+              href: job-error-codes.md
     - name: Eseguire la migrazione da v2 a v3
       items:
         - name: Confronto tra v2 e v3
@@ -340,19 +353,6 @@
           href: download-results-howto.md
         - name: Segnalare l'audio descrittivo
           href: signal-descriptive-audio-howto.md
-    - name: Risolvere problemi
-      items:
-        - name: Domande frequenti
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: Codici di errore
-          items:
-            - name: Codici di errore degli endpoint di streaming
-              href: streaming-endpoint-error-codes.md
-            - name: Codici di errore degli eventi live
-              href: live-event-error-codes.md
-            - name: Codici di errore dei processi
-              href: job-error-codes.md
 - name: Informazioni di riferimento
   items:
     - name: Specifica OpenAPI (Swagger)

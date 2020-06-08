@@ -50,8 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Usare File di Azure e Azure Active Directory Domain Services
           href: create-profile-container-adds.md
-    - name: Creare condivisioni file di contenitori di profili
-      href: create-file-share.md
+        - name: Usare File di Azure e Active Directory Domain Services
+          href: create-file-share.md
     - name: Configurare le impostazioni del pool di host
       items:
         - name: Proprietà di RDP
@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identificare e diagnosticare i problemi
       href: diagnostics-role-service.md
-    - name: Creazione di pool di host e tenant
+    - name: Creazione di pool di host
       href: troubleshoot-set-up-issues.md
     - name: Configurazione di macchine virtuali nell'host sessione
       href: troubleshoot-vm-configuration.md

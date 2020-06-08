@@ -326,22 +326,26 @@
           href: search-api-migration.md
     - name: Sicurezza
       items:
-        - name: Panoramica della sicurezza
+        - name: Panoramica
           href: search-security-overview.md
-        - name: Creare un endpoint privato
-          href: service-create-private-endpoint.md
-        - name: Configurare un firewall IP
-          href: service-configure-firewall.md
-        - name: Gestione delle chiavi del servizio
-          href: search-security-api-keys.md
-        - name: Accesso amministratore in base al ruolo
-          href: search-security-rbac.md
-        - name: Filtri di sicurezza
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrare in base alle identità AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Gestire le chiavi di crittografia
-          href: search-security-manage-encryption-keys.md
+        - name: Crittografia dei dati
+          items:
+            - name: Chiavi gestite dal cliente
+              href: search-security-manage-encryption-keys.md
+        - name: Sicurezza in ingresso
+          items:
+            - name: Chiavi di accesso API
+              href: search-security-api-keys.md
+            - name: Configurare un firewall IP
+              href: service-configure-firewall.md
+            - name: Creare un endpoint privato
+              href: service-create-private-endpoint.md
+        - name: Accesso basato sull'identità
+          items:
+            - name: Filtri di sicurezza
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrare in base alle identità AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gestione
       items:
         - name: Portale
@@ -350,6 +354,8 @@
           href: search-manage-powershell.md
         - name: Spostare il servizio tra aree
           href: search-howto-move-across-regions.md
+        - name: Accesso amministratore in base al ruolo
+          href: search-security-rbac.md
     - name: Monitorare
       items:
         - name: Nozioni fondamentali
@@ -473,6 +479,8 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Forum di feedback (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Conformità e certificazioni
+      href: 'https://aka.ms/azurecompliance'
     - name: Siti di demo
       items:
         - name: Demo sui file finanziari

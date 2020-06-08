@@ -1,27 +1,30 @@
 ---
 title: Eseguire i processi end-to-end usando i modelli
 description: Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117353"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815996"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 
-Usando un'estensione Azure Batch per l'interfaccia della riga di comando di Azure è possibile eseguire processi di Batch senza scrittura del codice.
+Con un'estensione Batch nell'interfaccia della riga di comando di Azure è possibile eseguire processi Batch senza scrivere il codice.
 
 Creare e usare file modello JSON con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. Usare i comandi di estensione dell'interfaccia della riga di comando per caricare facilmente i file di input dei processi nell'account di archiviazione associato all'account Batch e scaricare i file di output dei processi.
+
+> [!NOTE]
+> I file JSON non supportano le stesse funzionalità dei [modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) e devono essere formattati come il corpo della richiesta REST non elaborato. L'estensione dell'interfaccia della riga di comando non modifica i comandi esistenti, ma dispone di un'opzione di modello simile che aggiunge in parte la funzionalità dei modelli di Azure Resource Manager. Vedere [Estensioni per interfaccia della riga di comando di Azure Batch per Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Panoramica
 
 Un'estensione dell'interfaccia della riga di comando di Azure consente a utenti non sviluppatori di usare Batch end-to-end. Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti. Non è necessario alcun codice aggiuntivo. Eseguire i comandi dell'interfaccia della riga di comando direttamente o integrarli negli script.
 
-I modelli batch si basano sul supporto batch esistente nell'interfaccia della riga di comando di [Azure](batch-cli-get-started.md#json-files-for-resource-creation) per i file JSON per specificare i valori delle proprietà durante la creazione di pool, processi, attività e altri elementi. I modelli di Batch aggiungono le funzionalità seguenti:
+I modelli di Batch si basano sul supporto di Batch esistente nell'[interfaccia della riga di comando di Azure](batch-cli-get-started.md#json-files-for-resource-creation) per i file JSON e consentono di specificare i valori delle proprietà per la creazione di pool, processi, attività e altri elementi. I modelli di Batch aggiungono le funzionalità seguenti:
 
 -   È possibile definire parametri. Quando viene usato il modello, per creare l'elemento vengono specificati solo i valori dei parametri, mentre gli altri valori delle proprietà dell'elemento sono specificati nel corpo del modello. Un utente che conosce Batch e le applicazioni che devono essere eseguite da Batch può creare modelli, specificando i valori delle proprietà di pool, processi e attività. Un utente che ha meno familiarità con Batch e/o con le applicazioni può specificare solo i valori per i parametri definiti.
 
@@ -59,13 +62,13 @@ Per accedere a un account Batch con l'interfaccia della riga di comando di Azure
 
 I modelli di Azure Batch sono simili ai modelli di Azure Resource Manager per quanto riguarda funzionalità e sintassi. Si tratta di file JSON contenenti nomi e valori delle proprietà degli elementi, ma con i seguenti importanti concetti aggiuntivi:
 
--   **Parametri**
+-   **Parameters**
 
-    -   I valori delle proprietà possono essere specificati in una sezione del corpo, in modo che quando il modello viene usato sia necessario fornire solo i valori dei parametri. È ad esempio possibile inserire la definizione completa di un pool nel corpo e definire un solo parametro per `poolId`; per creare un pool è quindi necessario fornire solo una stringa di ID del pool.
+    -   I valori delle proprietà possono essere specificati in una sezione del corpo, in modo che quando il modello viene usato sia necessario fornire solo i valori dei parametri. È ad esempio possibile inserire la definizione completa di un pool nel corpo e definire un solo parametro per `poolId`. Per creare un pool deve quindi essere specificata solo una stringa di ID del pool.
         
     -   Il corpo del modello può essere creato da un utente che conosce Batch e le applicazioni che devono essere eseguite da Batch. Quando il modello viene usato, è necessario fornire solo i valori per i parametri definiti dall'autore. Un utente senza conoscenza approfondita di Batch e/o delle applicazioni può quindi usare i modelli.
 
--   **variables**
+-   **Variabili**
 
     -   È possibile specificare valori dei parametri semplici o complessi in un'unica posizione e usarli in una o più posizioni nel corpo del modello. Le variabili possono semplificare il modello e ridurne le dimensioni, oltre che renderne più facile la gestione, grazie alla presenza di un'unica posizione per la modifica delle proprietà.
 
@@ -253,7 +256,7 @@ Come in precedenza, l'interfaccia della riga di comando richiede di specificare 
 
 Per caricare un modello:
 
-1. In batch Explorer selezionare **raccolta** > **modelli locali**.
+1. In Batch Explorer selezionare **Raccolta** > **Modelli locali**.
 
 2. Selezionare o trascinare un pool o un modello di processo locale.
 
@@ -277,7 +280,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Ad esempio, nel modello di processo specificato in precedenza, il filegroup *ffmpeg-input* viene specificato per la factory delle attività come il percorso dei file video di origine copiati nel nodo per la transcodifica. Il filegroup *ffmpeg-output* è la posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori e utenti IT che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 

@@ -1,7 +1,7 @@
 ---
 title: Usare le funzionalità di accessibilità nella finestra di progettazione (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni sulle scelte rapide da tastiera e sulle funzionalità di accessibilità per la lettura schermo disponibili nella finestra di progettazione.
+description: Informazioni sulle scelte rapide da tastiera e sulle funzionalità di accessibilità per la lettura dello schermo disponibili nella finestra di progettazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,73 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: designer
+ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77366190"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646305"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer (anteprima)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Usare una tastiera per la finestra di progettazione di Azure Machine Learning (anteprima)
 
-Informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare Azure Machine Learning Designer. Per un elenco di tasti di scelta rapida che funzionano ovunque nella portale di Azure, vedere [tasti di scelta rapida nella portale di Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
+Vengono fornite informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare la finestra di progettazione di Azure Machine Learning. Per un elenco di scelte rapide da tastiera che funzionano ovunque nel portale di Azure, vedere [Tasti di scelta rapida nel portale di Azure](../azure-portal/azure-portal-keyboard-shortcuts.md).
 
-Questo flusso di lavoro è stato testato con [Assistente vocale](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e [Jaws](https://www.freedomscientific.com/products/software/jaws/), ma dovrebbe funzionare con altre utilità per la lettura dello schermo standard.
+Questo flusso di lavoro è stato testato con [Assistente vocale](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e [JAWS](https://www.freedomscientific.com/products/software/jaws/), ma dovrebbe funzionare con altre utilità standard per la lettura dello schermo.
 
-## <a name="navigate-the-pipeline-graph"></a>Esplorare il grafico della pipeline
+## <a name="navigate-the-pipeline-graph"></a>Esplorare il grafo della pipeline
 
-Il grafico della pipeline è organizzato come elenco annidato. L'elenco esterno è un elenco di moduli, che descrive tutti i moduli nel grafico della pipeline. L'elenco interno è un elenco di connessioni che descrive tutte le connessioni di un modulo specifico.  
+Il grafo della pipeline è organizzato come elenco annidato. L'elenco esterno è un elenco di moduli che descrive tutti i moduli presenti nel grafo della pipeline. L'elenco interno è un elenco di connessioni che descrive tutte le connessioni di un modulo specifico.  
 
-1. Nell'elenco modulo usare il tasto freccia per cambiare i moduli.
+1. Nell'elenco di moduli usare il tasto di direzione per passare da un modulo a un altro.
 1. Usare TAB per aprire l'elenco di connessioni per il modulo di destinazione.
-1. Usare il tasto freccia per passare tra le porte di connessione per il modulo.
+1. Usare il tasto di direzione per alternarsi tra le porte di connessione del modulo.
 1. Usare "G" per passare al modulo di destinazione.
 
-## <a name="edit-the-pipeline-graph"></a>Modificare il grafico della pipeline
+## <a name="edit-the-pipeline-graph"></a>Modificare il grafo della pipeline
 
 ### <a name="add-a-module-to-the-graph"></a>Aggiungere un modulo al grafo
 
-1. Usare Ctrl + F6 per spostare lo stato attivo dall'area di disegno all'albero del modulo.
-1. Trovare il modulo desiderato nell'albero del modulo usando il controllo TreeView standard.
+1. Usare CTRL+F6 per spostare lo stato attivo dall'area di disegno all'albero dei moduli.
+1. Trovare il modulo desiderato nell'albero dei moduli usando il controllo TreeView standard.
 
 ### <a name="edit-a-module"></a>Modificare un modulo
 
 Per connettere un modulo a un altro modulo:
 
-1. Usare Ctrl + Maiusc + H quando la destinazione è un modulo nell'elenco dei moduli per aprire l'helper della connessione.
-1. Modificare le porte di connessione per il modulo.
+1. Usare CTRL+MAIUSC+H quando la destinazione è un modulo dell'elenco di moduli per aprire l'helper di connessione.
+1. Modificare le porte di connessione del modulo.
 
 Per modificare le proprietà del modulo:
 
-1. Usare Ctrl + Maiusc + E quando la destinazione è un modulo per aprire le proprietà del modulo.
+1. Usare CTRL+MAIUSC+ E quando la destinazione è un modulo per aprire le proprietà del modulo.
 1. Modificare le proprietà del modulo.
 
-## <a name="navigation-shortcuts"></a>Collegamenti di navigazione
+## <a name="navigation-shortcuts"></a>Scelte rapide di navigazione
 
-| Tasto o combinazione di tasti | Descrizione |
+| Combinazioni di tasti | Descrizione |
 |-|-|
-| CTRL + F6 | Attiva/Nascondi lo stato attivo tra Canvas e albero del modulo |
-| CTRL + F1   | Aprire la scheda informazioni quando si concentra su un nodo nell'albero del modulo |
-| CTRL + MAIUSC + H | Apre l'helper di connessione quando lo stato attivo si trova in un nodo |
-| CTRL + MAIUSC + E | Apre le proprietà del modulo quando lo stato attivo si trova in un nodo |
-| CTRL+G | Sposta lo stato attivo al primo nodo non riuscito se l'esecuzione della pipeline non è riuscita |
+| CTRL+F6 | Attiva/disattiva lo stato attivo tra l'area di disegno e l'albero dei moduli |
+| CTRL+F1   | Apre la scheda informazioni quando lo stato attivo passa su un nodo nell'albero dei moduli |
+| CTRL+MAIUSC+H | Apre l'helper di connessione quando lo stato attivo si trova su un nodo |
+| CTRL+MAIUSC+E | Apre le proprietà del modulo quando lo stato attivo si trova su un nodo |
+| CTRL+G | Sposta lo stato attivo sul primo nodo con errore se l'esecuzione della pipeline ha avuto esito negativo |
 
-## <a name="action-shortcuts"></a>Collegamenti azione
+## <a name="action-shortcuts"></a>Scelte rapide di azione
 
-Usare i collegamenti seguenti con la chiave di accesso. Per ulteriori informazioni sulle chiavi di accesso, https://en.wikipedia.org/wiki/Access_keyvedere.
+Usare le scelte rapide seguenti con il tasto di scelta. Per altre informazioni sui tasti di scelta, vedere https://en.wikipedia.org/wiki/Access_key.
 
-| Tasto o combinazione di tasti | Action |
+| Combinazioni di tasti | Azione |
 |-|-|
-| Chiave di accesso + R | Esegui |
-| Chiave di accesso + P | Pubblica |
-| Chiave di accesso + C | Clone |
-| Chiave di accesso + D | Distribuisci |
-| Chiave di accesso + I | Crea/aggiorna pipeline di inferenza |
-| Chiave di accesso + B | Crea/aggiorna la pipeline di inferenza batch |
-| Chiave di accesso + K | Aprire l'elenco a discesa "crea pipeline di inferenza" |
-| Chiave di accesso + U | Aprire l'elenco a discesa "Aggiorna pipeline inferenza" |
-| Chiave di accesso + M | Apri altro menu a discesa (...) |
+| Tasto di scelta+R | Esegui |
+| Tasto di scelta+P | Pubblica |
+| Tasto di scelta+C | Clone |
+| Tasto di scelta+D | Distribuire |
+| Tasto di scelta+I | Crea/aggiorna una pipeline di inferenza |
+| Tasto di scelta+B | Crea/aggiorna una pipeline di inferenza batch |
+| Tasto di scelta+K | Apre l'elenco a discesa "Create inference pipeline" (Crea pipeline inferenza) |
+| Tasto di scelta+U | Apre l'elenco a discesa "Update inference pipeline" (Aggiorna pipeline inferenza) |
+| Tasto di scelta+M | Apre l'elenco a discesa per altre opzioni (...) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

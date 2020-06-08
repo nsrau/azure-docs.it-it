@@ -1,5 +1,5 @@
 ---
-title: Configurare il flusso di credenziali password del proprietario della risorsa
+title: Configurare il flusso delle credenziali password del proprietario della risorsa
 titleSuffix: Azure AD B2C
 description: Informazioni su come configurare il flusso ROPC in Azure AD B2C.
 services: active-directory-b2c
@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189702"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636407"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -31,16 +31,16 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 1. Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
 2. Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
 3. Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
-4. Fare clic sulla scheda **tutti** e selezionare **Accedi con ROPC**.
+4. Fare clic sulla scheda **Tutti** e selezionare **Accedi con ROPC**.
 5. Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
 6. In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
 7. Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
-8. Selezionare **OK**, quindi selezionare **Crea**.
+8. Selezionare **OK**, quindi **Crea**.
 9. Fare clic su **Esegui il flusso utente**.
 
    Verrà visualizzato un endpoint come nell'esempio seguente:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Registrare un'applicazione
@@ -50,18 +50,18 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
 Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del flusso utente. Costruire una chiamata di questo tipo con le informazioni riportate nella tabella seguente come corpo della richiesta POST:
-- Sostituire * \<yourtenant.onmicrosoft.com>* con il nome del tenant B2C.
-- Sostituire * \<B2C_1A_ROPC_Auth>* con il nome completo del criterio credenziali password del proprietario della risorsa.
-- Sostituire * \<bef2222d56-552f-4A5B-B90A-1988a7d634c3>* con l'ID applicazione della registrazione.
+- Sostituire *\<tenant-name>.onmicrosoft.com>* con il nome del proprio tenant B2C.
+- Sostituire *\<B2C_1A_ROPC_Auth>* con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
+- Sostituire *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID dell'applicazione riportato nella registrazione.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chiave | valore |
 | --- | ----- |
-| nomeutente | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| ambito | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -70,8 +70,8 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 La richiesta POST effettiva è simile alla seguente:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,15 +94,15 @@ Una risposta con esito positivo con l'accesso offline è simile all'esempio segu
 
 Costruire una chiamata POST simile a quella indicata qui con le informazioni riportate nella tabella seguente come corpo della richiesta:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chiave | valore |
 | --- | ----- |
-| grant_type | token di aggiornamento |
+| grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| risorse | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| token di aggiornamento | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *resource* sono i valori annotati in precedenza come ID dell'applicazione. *Refresh_token* è il token ricevuto nella chiamata di autenticazione indicata in precedenza.
 
@@ -124,7 +124,7 @@ Una risposta con esito positivo è simile all'esempio seguente:
 }
 ```
 > [!NOTE]
-> Quando si creano utenti tramite API Graph, l'applicazione deve avere le autorizzazioni "OpenID", "offline_access" e "profile" da Microsoft Graph.
+> Quando si creano utenti tramite API Graph, l'applicazione deve avere le autorizzazioni "openid", "offline_access" e "profile" da Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementare con l'SDK nativo preferito o usare AppAuth
 

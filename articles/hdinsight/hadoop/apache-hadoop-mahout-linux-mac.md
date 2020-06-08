@@ -1,35 +1,31 @@
 ---
-title: Generare raccomandazioni usando Apache Mahout in Azure HDInsight
-description: Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight (Hadoop).
+title: Generare raccomandazioni con Apache Mahout in Azure HDInsight
+description: Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656323"
 ---
-# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film usando Apache Mahout con Apache Hadoop in HDInsight (SSH)
-
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generare raccomandazioni con Apache Mahout in Azure HDInsight
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](https://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
 
-Mahout è una libreria di [apprendimento automatico](https://en.wikipedia.org/wiki/Machine_learning) per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
+Mahout è una libreria di [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
+
+Per altre informazioni sulla versione di Mahout in HDInsight, vedere l'articolo relativo a [versioni di HDInsight e componenti di Apache Hadoop](../hdinsight-component-versioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./apache-hadoop-linux-tutorial-get-started.md).
-
-## <a name="apache-mahout-versioning"></a>Controllo delle versioni di Apache Mahout
-
-Per altre informazioni sulla versione di Mahout in HDInsight, vedere l'articolo relativo a [versioni di HDInsight e componenti di Apache Hadoop](../hdinsight-component-versioning.md).
+Un cluster Apache Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="understanding-recommendations"></a>Informazioni sulle raccomandazioni
 
@@ -37,11 +33,11 @@ Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo mot
 
 Il flusso di lavoro seguente costituisce un esempio semplificato che usa dati relativi ai film:
 
-* **Co-occorrenza**: a Joe, Alice e Bob piacciono le *guerre stellari*, *l'Impero colpisce*e il *ritorno dello Jedi*. Mahout determina che agli utenti a cui piace uno di questi film piacciono anche gli altri due.
+* **Co-occorrenza**: a Joe, Alice e Bob piacciono *Guerre stellari*, *L'Impero colpisce ancora* e *Il ritorno dello Jedi*. Mahout determina che agli utenti a cui piace uno di questi film piacciono anche gli altri due.
 
 * **Co-occorrenza**: a Bob e Alice piacciono anche *La minaccia fantasma*, *L'attacco dei cloni* e *La vendetta dei Sith*. Mahout determina che agli utenti a cui piacciono i tre film precedenti piacciono anche questi tre.
 
-* **Raccomandazione di somiglianza**: poiché Joe ha apprezzato i primi tre film, Mahout Guarda i film con preferenze simili, ma Joe non ha guardato (apprezzato/Classificato). In questo caso, Mahout raccomanda *La minaccia fantasma*, *L'attacco dei cloni* e *La vendetta dei Sith*.
+* **Raccomandazione per somiglianza**: poiché a Joe piacciono i primi tre film, Mahout cerca i film che piacciono ad altri utenti con preferenze simili, ma che Joe non ha guardato o per i quali non ha ancora espresso una preferenza o una valutazione. In questo caso, Mahout raccomanda *La minaccia fantasma*, *L'attacco dei cloni* e *La vendetta dei Sith*.
 
 ### <a name="understanding-the-data"></a>Informazioni sui dati
 
@@ -49,7 +45,7 @@ Il flusso di lavoro seguente costituisce un esempio semplificato che usa dati re
 
 Sono disponibili due file: `moviedb.txt` e `user-ratings.txt`. Il file `user-ratings.txt` viene usato durante l'analisi. `moviedb.txt` viene usato per presentare informazioni in testo descrittivo quando si visualizzano i risultati.
 
-I dati contenuti in `user-ratings.txt` hanno una struttura di `userID`, `movieID` `userRating`, e `timestamp`, che indica la frequenza con cui ogni utente ha valutato un film. Di seguito è riportato un esempio dei dati:
+I dati contenuti in `user-ratings.txt` presentano una struttura di `userID`, `movieID`, `userRating` e `timestamp` che indica la valutazione di un film effettuata da ogni utente. Di seguito è riportato un esempio dei dati:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -59,7 +55,7 @@ I dati contenuti in `user-ratings.txt` hanno una struttura di `userID`, `movieID
 
 ## <a name="run-the-analysis"></a>Eseguire l'analisi
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -174,9 +170,9 @@ I dati contenuti in `user-ratings.txt` hanno una struttura di `userID`, `movieID
 
    * Il file **user-ratings.txt** viene usato per recuperare i film che sono stati classificati.
 
-   * Il file **MovieDB. txt** viene usato per recuperare i nomi dei film.
+   * Il file **moviedb.txt** viene usato per recuperare i nomi dei film.
 
-   * Il **. txt** viene usato per recuperare le raccomandazioni relative ai film per questo utente.
+   * Il file **recommendations.txt** viene usato per recuperare le raccomandazioni di film per questo utente.
 
      L'output di questo comando è simile al testo seguente:
 
@@ -207,7 +203,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come usare Mahout, scoprire altri modi per lavorare con i dati in HDInsight:
+A questo punto, dopo aver appreso come usare Mahout, è possibile trovare altri modi per usare i dati in HDInsight:
 
 * [Apache Hive con HDInsight](hdinsight-use-hive.md)
 * [MapReduce con HDInsight](hdinsight-use-mapreduce.md)

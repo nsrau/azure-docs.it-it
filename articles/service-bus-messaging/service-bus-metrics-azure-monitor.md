@@ -1,22 +1,22 @@
 ---
-title: Metriche del bus di servizio di Azure in monitoraggio di Azure | Microsoft Docs
-description: Questo articolo illustra come usare monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
+title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft Docs
+description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f2f3c8113fb89a41b1a22567b4e5ca0085353689
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240794"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736042"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in monitoraggio di Azure
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
 Le metriche del bus di servizio indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse del bus di servizio non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato del bus di servizio. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
@@ -27,7 +27,7 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche tramite il [portale di Azure](https://portal.azure.com)o usare le API di monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio i log di monitoraggio di Azure e gli hub eventi. Per altre informazioni, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio i log di Monitoraggio di Azure e Hub eventi. Per altre informazioni, vedere [Metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
 
 Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
 
@@ -37,7 +37,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![][1]
 
-È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **metriche**. Per visualizzare le metriche filtrate nell'ambito dell'entità, selezionare l'entità e quindi fare clic su **metriche**.
+È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e fare clic su **Metriche**. Per visualizzare le metriche filtrate in base all'ambito dell'entità, selezionare l'entità, quindi fare clic su **Metriche**.
 
 ![][2]
 
@@ -45,7 +45,7 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-Le metriche e gli avvisi in monitoraggio di Azure vengono addebitati in base all'avviso. Questi addebiti dovrebbero essere disponibili nel portale quando l'avviso viene configurato e prima del salvataggio. 
+Le metriche e gli avvisi in Monitoraggio di Azure vengono addebitati in base all'avviso. Gli addebiti sono disponibili nel portale dopo aver configurato l'avviso e prima che sia salvato. 
 
 Le soluzioni aggiuntive che inseriscono i dati delle metriche vengono fatturate direttamente da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. La fatturazione viene effettuata da Log Analytics anche se si esegue lo streaming dei dati relativi alle metriche verso Log Analytics per l'esecuzione di analisi avanzate.
 
@@ -62,11 +62,11 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-| Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Richieste riuscite|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Errori server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Richieste limitate|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+| Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Richieste riuscite|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Errori server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Richieste limitate|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
 
 ### <a name="user-errors"></a>Errori utente
 
@@ -80,15 +80,15 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-|Messaggi in ingresso|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Messaggi in uscita|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-| Messaggi| Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
-| ActiveMessages| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
-| Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/>Dimensione: EntityName |
-| Messaggi pianificati| Numero di messaggi pianificati in una coda o un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media  <br/> Dimensione: EntityName |
+|Messaggi in ingresso|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Messaggi in uscita|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+| Messaggi| Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: EntityName |
+| ActiveMessages| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: EntityName |
+| Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/>Dimensione: EntityName |
+| Messaggi pianificati| Numero di messaggi pianificati in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media  <br/> Dimensione: EntityName |
 
 > [!NOTE]
-> I valori per le metriche seguenti sono valori temporizzati. I messaggi in arrivo utilizzati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
+> I valori per le metriche seguenti sono valori temporizzati. I messaggi in arrivo usati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
 > - Messaggi
 > - Messaggi attivi 
 > - Messaggi non recapitabili 
@@ -98,21 +98,23 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-|ActiveConnections|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ActiveConnections|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Connessioni aperte |Numero di connessioni aperte.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
+|Connessioni chiuse |Numero di connessioni chiuse.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Metriche di utilizzo delle risorse
 
 > [!NOTE] 
 > Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 > 
-> Le metriche importanti da monitorare per eventuali interruzioni per uno spazio dei nomi di livello Premium sono: **utilizzo CPU per spazio dei** nomi e **dimensione memoria per spazio dei nomi**. [Configurare gli avvisi](../azure-monitor/platform/alerts-metric.md) per queste metriche usando monitoraggio di Azure.
+> Le metriche importanti da monitorare per eventuali interruzioni per uno spazio dei nomi di livello Premium sono: **Utilizzo CPU per spazio dei nomi** e **Utilizzo dimensioni memoria per spazio dei nomi**. [Configurare gli avvisi](../azure-monitor/platform/alerts-metric.md) per queste metriche usando Monitoraggio di Azure.
 > 
-> L'altra metrica che è possibile monitorare è: **richieste limitate**. Non dovrebbe essere un problema, purché lo spazio dei nomi rimanga entro i limiti della memoria, della CPU e delle connessioni negoziate. Per altre informazioni, vedere [limitazione nel livello Premium del bus di servizio di Azure](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
+> L'altra metrica che è possibile monitorare è **Richieste limitate**. Non dovrebbe costituire un problema, purché lo spazio dei nomi rimanga entro i limiti della memoria, della CPU e delle connessioni negoziate. Per altre informazioni, vedere [Limitazione delle richieste nel livello Premium del bus di servizio di Azure](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-|Uso della CPU per spazio dei nomi|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
-|Uso delle dimensioni della memoria per spazio dei nomi|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
+|Uso della CPU per spazio dei nomi|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massimo <br/> Dimensione: EntityName|
+|Uso delle dimensioni della memoria per spazio dei nomi|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massimo <br/> Dimensione: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
@@ -127,22 +129,22 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
 1. Nella scheda **Metriche** della pagina **Spazio dei nomi del bus di servizio** selezionare **Configura avvisi**. 
 
     ![Pagina Metriche - menu Configura avvisi](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Selezionare l'opzione **Seleziona destinazione** ed eseguire le azioni seguenti nella pagina **selezionare una risorsa** : 
+2. Selezionare l'opzione **Seleziona la destinazione** ed eseguire le azioni seguenti nella pagina **Seleziona una risorsa**: 
     1. Selezionare **Spazio dei nomi del bus di servizio** per il campo **Filtra per tipo di risorsa**. 
     2. Selezionare la sottoscrizione di Azure per il campo **Filtra per sottoscrizione**.
     3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
-    4. Seleziona **Chiudi**. 
+    4. Selezionare **Operazione completata**. 
     
         ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
     1. Selezionare **Metriche** per **Tipo segnale**. 
-    2. Selezionare un segnale, Ad esempio: **errori del servizio**. 
+    2. Selezionare un segnale, Ad esempio: **Errori del servizio**. 
 
         ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selezionare **Greater than** (Maggiore di) per **Condizione**.
     2. Selezionare **Totale** per **Aggregazione temporale**. 
     3. Immettere **5** per **Soglia**. 
-    4. Seleziona **Chiudi**.    
+    4. Selezionare **Operazione completata**.    
 
         ![Specificare una condizione](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. Nella pagina **Crea regola** espandere **Definire i dettagli dell'avviso** ed eseguire queste azioni:
@@ -172,7 +174,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Panoramica di monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Vedere [Panoramica di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

@@ -1,18 +1,18 @@
 ---
-title: Connetti a Oracle Database
+title: Connessione a un Oracle Database
 description: Inserire e gestire i record con le API REST di Oracle Database e App per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147808"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836278"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -20,6 +20,13 @@ Usando il connettore Oracle Database, è possibile creare flussi di lavoro dell'
 
 * Creare il flusso di lavoro aggiungendo un nuovo cliente in un database di clienti o aggiornando un ordine in un database di ordini.
 * Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Quando ad esempio viene creato un record in Dynamics CRM Online (trigger), è possibile inserire una riga in Oracle Database (azione). 
+
+Questo connettore non supporta gli elementi seguenti:
+
+* Viste 
+* Tabelle con chiavi composte
+* Tipi di oggetti annidati nelle tabelle
+* Funzioni di database con valori non scalari
 
 Questo articolo illustra come usare il connettore Oracle Database in un'app per la logica.
 
@@ -32,9 +39,9 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 * Installare il gateway dati locale. Questi passaggi sono illustrati in [Connettersi ai dati locali dalle app per la logica](../logic-apps/logic-apps-gateway-connection.md). Il gateway è necessario per connettersi a un'istanza locale di Oracle Database o a una VM di Azure con Oracle DB installato. 
 
     > [!NOTE]
-    > Il gateway dati locale svolge la funzione di bridge e consente il trasferimento sicuro dei dati tra i dati locali (non nel cloud) e le app per la logica. Lo stesso gateway può essere anche usato con più servizi e più origini dati.Potrebbe quindi essere necessario installare il gateway una sola volta.
+    > Il gateway dati locale svolge la funzione di bridge e consente il trasferimento sicuro dei dati tra i dati locali (non nel cloud) e le app per la logica. Lo stesso gateway può essere anche usato con più servizi e più origini dati. Potrebbe quindi essere necessario installare il gateway una sola volta.
 
-* Installare il client Oracle nella macchina in cui è stato installato il gateway dati locale.Assicurarsi di installare il provider di dati Oracle a 64 bit per .NET da Oracle:  
+* Installare il client Oracle nella macchina in cui è stato installato il gateway dati locale. Assicurarsi di installare il provider di dati Oracle a 64 bit per .NET da Oracle:  
 
   [ODAC 64 bit 12c versione 4 (12.1.0.2.4) per Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -47,7 +54,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 > [!IMPORTANT]
 > Questo connettore non include trigger. Ha solo azioni. Quando si crea l'app per la logica, aggiungere quindi un altro trigger per avviare l'app per la logica, ad esempio **Pianificazione - Ricorrenza** o **Richiesta/Risposta - Risposta**. 
 
-1. Nel [portale di Azure](https://portal.azure.com)creare un'app per la logica vuota.
+1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota.
 
 2. All'avvio dell'app per la logica, selezionare il trigger **Richiesta/Risposta - Risposta**: 
 
@@ -72,7 +79,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole testare il recupero dei dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati Oracle usando uno dei connettori Send email, ad esempio Office 365 Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
+7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole provare a recuperare i dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati di Oracle usando uno dei connettori di invio di posta elettronica, ad esempio Office 365 o Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -95,25 +102,19 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 **Causa**: il gateway dati locale non è in grado di connettersi al cloud. 
 
-**Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione.È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
+**Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.  È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione. È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) per installare il provider ufficiale.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva'. Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
 
-**Causa**: Oracle client SDK non è installato nel computer in cui è in esecuzione il gateway dati locale.  
+**Causa**: Oracle client SDK non è installato nel computer su cui è in esecuzione il gateway dati locale.  
 
-**Risoluzione**: scaricare e installare Oracle client SDK nello stesso computer del gateway dati locale.
+**Soluzione**: scaricare e installare Oracle client SDK nello stesso computer del gateway dati locale.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Errore**: La tabella '[NomeTabella]' non definisce alcuna colonna chiave
 
 **Causa**: la tabella non ha alcuna chiave primaria.  
 
-**Risoluzione**: il connettore Oracle Database richiede l'uso di una tabella con una colonna chiave primaria.
-
-#### <a name="currently-not-supported"></a>Attualmente non supportati
-
-* Visualizzazioni 
-* Tabelle con chiavi composte
-* Tipi di oggetti annidati nelle tabelle
+**Soluzione**: il connettore Oracle Database richiede l'uso di una tabella con una colonna chiave primaria.
  
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
@@ -121,9 +122,9 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="get-some-help"></a>Ottenere aiuto
 
-Il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) è il posto ideale per porre domande, fornire risposte e vedere cosa stanno facendo gli altri utenti di App per la logica. 
+La [pagina di domande Microsoft per le App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) è il posto ideale per porre domande, aggiungere risposte e vedere cosa stanno facendo gli altri utenti delle App per la logica. 
 
-È possibile contribuire a migliorare le app per la logica e i connettori votando [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)e inviando le idee all'indirizzo. 
+È possibile migliorare App per la logica e i connettori votando e inviando le idee nella pagina [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

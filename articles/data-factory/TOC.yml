@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime di integrazione
       href: concepts-integration-runtime.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Flussi di dati
       items:
         - name: Trasformare i dati con i flussi di dati di mapping

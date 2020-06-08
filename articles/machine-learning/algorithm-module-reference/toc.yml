@@ -106,6 +106,8 @@
       href: train-clustering-model.md
     - name: Eseguire il training del modello
       href: train-model.md
+    - name: Train Pytorch Model
+      href: train-pytorch-model.md
     - name: Tune Model Hyperparameters
       href: tune-model-hyperparameters.md
 - name: Valutazione e assegnazione di punteggi al modello
@@ -118,6 +120,8 @@
       href: cross-validate-model.md
     - name: Valutare il modello
       href: evaluate-model.md
+    - name: Score Image Model
+      href: score-image-model.md
     - name: Assegnare il punteggio al modello
       href: score-model.md
 - name: Linguaggio di programmazione di Python
@@ -142,6 +146,20 @@
       href: preprocess-text.md
     - name: Latent Dirichlet Allocation
       href: latent-dirichlet-allocation.md
+- name: Visione artificiale
+  items:
+    - name: Apply Image Transformation
+      href: apply-image-transformation.md
+    - name: Convert to Image Directory
+      href: convert-to-image-directory.md
+    - name: Init Image Transformation
+      href: init-image-transformation.md
+    - name: Split Image Directory
+      href: split-to-image-directory.md
+    - name: DenseNet
+      href: densenet.md
+    - name: ResNet
+      href: resnet.md
 - name: Recommendation
   items:
     - name: Evaluate Recommender

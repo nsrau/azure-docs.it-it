@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7c5e00f2e5565393ff46dbb06b30991ebcfc01f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590265"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873697"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -127,6 +127,16 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato. Per informazioni più dettagliate, vedere [Limitazioni](concepts.md#limitations).
 
 **Risoluzione** È possibile sbloccare questo scenario in diversi modi, incluso l'uso di un proxy. Valutare un gateway applicazione o altri proxy di terze parti, ad esempio nginx o haproxy. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
+
+**Dettagli** I servizi di bilanciamento del carico interni non convertono le connessioni originate in uscita nel front-end di un servizio di bilanciamento del carico interno perché entrambi risiedono in uno spazio indirizzi IP privati. I servizi Load Balancer pubblici consentono di stabilire [connessioni in uscita](load-balancer-outbound-connections.md) dagli indirizzi IP privati interni alla rete virtuale a indirizzi IP pubblici. Per i servizi Load Balancer interni, questo approccio evita un potenziale esaurimento delle porte SNAT all'interno di uno spazio di indirizzi IP interno univoco, in cui la conversione non è obbligatoria.
+
+Un effetto collaterale consiste nella mancata corrispondenza dei due rami del flusso qualora un flusso in uscita da una macchina virtuale nel pool back-end tenti un flusso verso il front-end del servizio Load Balancer interno nel pool _e_ venga mappato a se stesso. A causa della mancata corrispondenza, il flusso ha esito negativo. Il flusso ha esito positivo se non viene mappato alla stessa macchina virtuale nel pool back-end che ha creato il flusso verso il front-end.
+
+Quando il flusso viene mappato nuovamente a se stesso, il flusso in uscita sembra provenire dalla macchina virtuale verso il front-end e il flusso in ingresso corrispondente sembra provenire dalla macchina virtuale verso se stesso. Dal punto di vista del sistema operativo guest, le parti in ingresso e in uscita dello stesso flusso non corrispondono all'interno della macchina virtuale. Lo stack TCP non riconosce queste metà come appartenenti allo stesso flusso, sebbene lo siano. L'origine e la destinazione non corrispondono. Quando il flusso viene mappato a qualsiasi altra macchina virtuale nel pool di back-end, le metà del flusso corrispondono e la macchina virtuale può rispondere al flusso stesso.
+
+Il sintomo di questo scenario è il verificarsi di timeout di connessione intermittenti quando il flusso torna nello stesso back-end che lo ha originato. Soluzioni alternative comuni includono l'inserimento di un livello proxy dietro il servizio Load Balancer interno e l'uso delle regole di stile DSR (Direct Server Return). Per altre informazioni, vedere [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
+
+È possibile combinare un servizio Load Balancer interno con qualsiasi proxy di terze parti o usare un [gateway applicazione](../application-gateway/application-gateway-introduction.md) per scenari proxy con HTTP/HTTPS. Sebbene sia possibile usare un servizio Load Balancer pubblico per attenuare questo problema, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md#snat). Evitare questo secondo approccio, a meno che non sia gestito accuratamente.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintomo: non è possibile modificare la porta back-end per la regola di bilanciamento del carico esistente di un servizio di bilanciamento del carico con set di scalabilità di macchine virtuali distribuiti nel pool back-end. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: non è possibile modificare la porta back-end per una regola di bilanciamento del carico usata da un probe di integrità per il servizio di bilanciamento del carico a cui fa riferimento il set di scalabilità di macchine virtuali.
