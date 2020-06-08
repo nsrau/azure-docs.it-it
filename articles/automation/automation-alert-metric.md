@@ -1,17 +1,17 @@
 ---
 title: Monitorare i runbook di automazione di Azure con avvisi di metrica
-description: Questo articolo illustra il monitoraggio dei runbook di automazione di Azure basato sulle metriche
+description: Questo articolo descrive come monitorare i runbook in base alle metriche.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 20aaee5b699e9721bf9083030604df1385da1915
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310550"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828747"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
+# <a name="monitor-runbooks-with-metric-alerts"></a>Monitorare i runbook con avvisi delle metriche
 
 In questo articolo sono fornite informazioni su come creare gli avvisi sullo stato di completamento dei runbook.
 
@@ -23,7 +23,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Gli avvisi consentono di definire una condizione per monitorare e un'azione da intraprendere quando viene soddisfatta tale condizione.
 
-Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**. L'ambito per la destinazione è già definito nell'account di automazione.
+Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**. L'ambito per la destinazione è già definito per l'account di Automazione.
 
 ### <a name="configure-alert-criteria"></a>Configurare i criteri di avviso
 
@@ -31,10 +31,10 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 
 2. La pagina **Configurare la logica dei segnali** viene usata per definire la logica che attiva l'avviso. Nel grafico della cronologia vengono visualizzate due dimensioni, **Nome del Runbook** e **Stato**. Le dimensioni sono proprietà diverse per una metrica che può essere usata per filtrare i risultati. Per il **Nome del Runbook**, selezionare il runbook che si desidera avvisare o lasciare vuoto per avvisare tutti i runbook. Per lo **Stato**, selezionare uno stato che si desidera monitorare dall'elenco a discesa. I valori del nome e dello stato del runbook che vengono visualizzati nell'elenco a discesa sono solo per i processi che sono stati eseguiti nella settimana precedente.
 
-   Se si desidera ricevere un avviso per uno stato o un Runbook che non viene visualizzato nell'elenco a **\+** discesa, fare clic su accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
+   Se si vuole attivare un avviso su uno stato o un runbook che non è visualizzato nell'elenco a discesa, fare clic su **\+** accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
 
    > [!NOTE]
-   > Se non si applica un nome per la dimensione **RunbookName** , se sono presenti manuali operativi che soddisfano i criteri di stato, che include manuali operativi di sistema nascosti, verrà visualizzato un avviso.
+   > Se non si applica un nome per la dimensione **RunbookName**, se sono presenti runbook che soddisfano i criteri di stato, inclusi runbook di sistema nascosti, si riceverà un avviso.
 
 3. In **Logica avvisi**, definire la condizione e la soglia per l'avviso. Viene visualizzata un'anteprima della condizione definita sotto.
 
@@ -44,13 +44,13 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 
 ### <a name="define-alert-details"></a>Definire i dettagli dell'avviso
 
-1. Inferiore a **2. Definire i dettagli dell'avviso**, assegnare all'avviso un nome descrittivo e una descrizione. Impostare la **Gravità** in base alla condizione di avviso. Esistono cinque livelli di gravità compresi tra 0 e 5. Gli avvisi sono considerati indipendenti in relazione alla gravità, è possibile abbinare il livello di gravità per abbinare la logica di business.
+1. In **2. Definire i dettagli dell'avviso** assegnare all'avviso un nome descrittivo e una descrizione. Impostare la **Gravità** in base alla condizione di avviso. Esistono cinque livelli di gravità compresi tra 0 e 5. Gli avvisi sono considerati indipendenti in relazione alla gravità, è possibile abbinare il livello di gravità per abbinare la logica di business.
 
 1. Nella parte inferiore della sezione è presente un pulsante che consente di abilitare la regola al termine dell'operazione. Per impostazione predefinita le regole sono abilitate al momento della creazione. Se si seleziona No, è possibile creare l'avviso e quest'ultimo viene creato in uno stato **Disabilitato**. Dalla pagina **Regole** in Monitoraggio di Azure è possibile selezionare l'avviso e fare clic su **Abilita** per abilitarlo quando si è pronti.
 
 ### <a name="define-the-action-to-take"></a>Definire l'azione da intraprendere
 
-1. In **3. Definire il gruppo di azioni**, fare clic su **+ nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md)
+1. In **3. Definire il gruppo di azioni** fare clic su **+ Nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
 1. Nella casella **Nome gruppo di azione** assegnare un nome descrittivo e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
 
@@ -67,7 +67,7 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 > [!NOTE]
 > Quando si aggiunge un indirizzo di posta elettronica a un gruppo di azioni, viene inviato un messaggio di posta elettronica di notifica che indica che l'indirizzo è stato aggiunto a un gruppo di azioni.
 
-## <a name="notification"></a>Notification
+## <a name="receive-notification"></a>Ricevere una notifica
 
 Quando vengono soddisfatti i criteri di avviso, il gruppo di azioni esegue l'azione definita. Nell'esempio di questo articolo, viene inviato un messaggio di posta elettronica. Nell'immagine seguente è riportato un esempio di un messaggio di posta elettronica che viene ricevuto dopo l'attivazione dell'avviso:
 
@@ -77,7 +77,4 @@ Una volta che la metrica non è più al di fuori della soglia definita, l'avviso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare con l'articolo seguente per informazioni su altri modi in cui è possibile integrare gli avvisi nell'account di automazione.
-
-> [!div class="nextstepaction"]
-> [Usare un avviso per attivare un runbook di Automazione di Azure](automation-create-alert-triggered-runbook.md)
+* Per altre informazioni, vedere [Usare un avviso per attivare un runbook di Automazione di Azure](automation-create-alert-triggered-runbook.md).

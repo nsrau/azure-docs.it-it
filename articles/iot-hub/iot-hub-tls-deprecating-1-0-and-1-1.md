@@ -1,36 +1,47 @@
 ---
-title: Deprecazione di TLS 1,0 e 1,1 nell'hub Internet Microsoft Docs
-description: Linee guida relative alla deprecazione di TLS 1,0 e 1,1 e alle crittografie supportate nell'hub Internet.
+title: Deprecazione di TLS 1.0 e 1.1 nell’hub IoT | Microsoft Docs
+description: Linee guida relative alla deprecazione di TLS 1.0 e 1.1 e alle crittografie supportate nell'hub IoT.
 author: jlian
 ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: a887dd4df44ba58b0e6646ffb1c10eb21edf3e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381306"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849519"
 ---
-# <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Deprecazione di TLS 1,0 e 1,1 nell'hub Internet
+# <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Deprecazione di TLS 1.0 e 1.1 nell'hub IoT
 
-Per fornire la crittografia migliore, l'hub Internet sta migrando a Transport Layer Security (TLS) 1,2 come meccanismo di crittografia scelto per i dispositivi e i servizi Internet. 
+Per fornire una crittografia ottimale, l'hub IoT sta adottando Transport Layer Security (TLS) 1.2 come meccanismo di crittografia scelto per i dispositivi e i servizi IoT. 
 
 ## <a name="timeline"></a>Sequenza temporale
 
-L'hub Internet delle cose continuerà a supportare TLS 1.0/1.1 fino a quando non sarà più disponibile. Tuttavia, è consigliabile eseguire la migrazione di tutti i clienti a TLS 1,2 il prima possibile.
+L'hub IoT continuerà a supportare TLS 1.0/1.1 fino a nuovo avviso. Tuttavia, si consiglia a tutti i clienti di eseguire la migrazione a TLS 1.2 il prima possibile.
 
-## <a name="supported-ciphers"></a>Crittografie supportate
+## <a name="deprecating-tls-11-ciphers"></a>Deprecazione di crittografie TLS 1.1
 
-La sequenza temporale per la disponibilità di varie crittografie usate nell'handshake TLS è la seguente:
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SH`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (attualmente supportato)
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (sarà supportato nella seconda metà del 2020)
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (sarà supportato nella seconda metà del 2020)
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (sarà supportato nella seconda metà del 2020)
+## <a name="deprecating-tls-10-ciphers"></a>Deprecazione di crittografie TLS 1.0
 
-## <a name="customer-feedback"></a>Feedback dei clienti
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-Sebbene l'imposizione di TLS 1,2 sia una scelta ottimale per la crittografia a livello di settore e verrà abilitata in base a quanto previsto, è comunque opportuno che i clienti riscontrino le loro specifiche distribuzioni e difficoltà ad adottare TLS 1,2. A questo scopo, è possibile inviare i commenti a [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+## <a name="tls-12-ciphers"></a>Crittografie TLS 1.2
+
+Vedere [Crittografie consigliate TLS 1.2 per l’hub IoT](iot-hub-tls-support.md#recommended-ciphers).
+ 
+## <a name="customer-feedback"></a>Commenti e suggerimenti degli utenti
+
+Sebbene l'imposizione di TLS 1.2 sia una scelta ottimale per la crittografia a livello di settore e verrà abilitata come previsto, invitiamo comunque i clienti a inviarci commenti sulle distribuzioni specifiche e sulle difficoltà di adozione di TLS 1.2. A tale scopo, è possibile inviare i commenti a [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

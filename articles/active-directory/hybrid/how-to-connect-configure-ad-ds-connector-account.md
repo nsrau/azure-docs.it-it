@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c69a700c9bcaa018bcfc1b1e6e01e166ef2d43bf
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72515810"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680241"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
 Il modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
 
@@ -34,13 +34,13 @@ La tabella seguente offre un riepilogo delle autorizzazioni necessarie per gli o
 
 | Funzionalità | Autorizzazioni |
 | --- | --- |
-| funzionalità ms-DS-ConsistencyGuid |Autorizzazioni di lettura e scrittura per l'attributo ms-DS-ConsistencyGuid documentato in [concetti di progettazione-uso di MS-DS-ConsistencyGuid come sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| funzionalità ms-DS-ConsistencyGuid |Autorizzazioni di lettura e scrittura per l'attributo ms-DS-ConsistencyGuid documentato in [Concetti di progettazione - Uso di ms-DS-ConsistencyGuid come sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronizzazione dell'hash delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
-| Distribuzione ibrida di Exchange |Autorizzazioni di lettura e scrittura per gli attributi documentati nel [writeback ibrido di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
+| Distribuzione ibrida di Exchange |Autorizzazioni di lettura e scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
 | writeback delle password |Autorizzazioni di lettura e scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
-| Writeback dispositivi |Autorizzazioni di lettura e scrittura per oggetti dispositivo e contenitori documentati nel [writeback dei dispositivi](how-to-connect-device-writeback.md). |
-| Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo per i **gruppi di Office 365** sincronizzati.  Per altre informazioni, vedere [Writeback dei gruppi](how-to-connect-preview.md#group-writeback).|
+| Writeback dispositivi |Autorizzazioni di lettura e scrittura per gli oggetti dispositivo e i contenitori documentate in [Writeback dei dispositivi](how-to-connect-device-writeback.md). |
+| Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo per i **gruppi di Office 365** sincronizzati.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Uso del modulo di PowerShell ADSyncConfig 
 Il modulo ADSyncConfig richiede [Strumenti di amministrazione remota del server per AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) perché dipende dal modulo e dagli strumenti di PowerShell di AD DS. Per installare gli Strumenti di amministrazione remota del server per AD DS, aprire una finestra di Windows PowerShell con 'Esegui come amministratore' ed eseguire: 
@@ -81,7 +81,7 @@ oppure
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 ```
 
-Assicurarsi di sostituire `<ADAccountName>` `<ADDomainName>` e `<ADAccountDN>` con i valori appropriati per l'ambiente.
+Assicurarsi di sostituire `<ADAccountName>`, `<ADDomainName>` e `<ADAccountDN>` con i valori appropriati per l'ambiente.
 
 Nel caso in cui non si vogliano modificare le autorizzazioni per il contenitore AdminSDHolder, usare l'opzione `-SkipAdminSdHolders`. 
 
@@ -110,7 +110,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Visualizzare le autorizzazioni di AD DS di un oggetto 
-È possibile utilizzare il cmdlet riportato di seguito per visualizzare l'elenco delle autorizzazioni attualmente impostate su un oggetto Active Directory fornendo il relativo distinto: 
+È possibile usare il cmdlet seguente per visualizzare l'elenco delle autorizzazioni attualmente impostate per un oggetto di Active Directory specificandone il nome distinto: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -148,7 +148,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurare le autorizzazioni MS-DS-Consistency-Guid 
-Per impostare le autorizzazioni per l'account del connettore di AD DS quando si usa l'attributo ms-Ds-Consistency-Guid come ancoraggio di origine (ovvero l'opzione "Consenti ad Azure di gestire automaticamente l'ancoraggio di origine"), eseguire: 
+Per impostare le autorizzazioni per l'account del connettore di Active Directory Domain Services quando si usa l'attributo ms-Ds-Consistency-Guid come ancoraggio di origine (ovvero l'opzione "Consenti ad Azure di gestire automaticamente l'ancoraggio di origine"), eseguire: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
@@ -306,7 +306,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 |Allow |Utenti autenticati |Autorizzazioni di lettura |Questo oggetto 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Azure AD Connect: account e autorizzazioni](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: Account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)
 - [Informazioni di riferimento su ADSyncConfig](reference-connect-adsyncconfig.md)

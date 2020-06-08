@@ -1,70 +1,70 @@
 ---
-title: Aggiungere e chiamare funzioni di Azure da app per la logica di Azure
-description: Chiamare ed eseguire codice personalizzato nelle funzioni di Azure da flussi di lavoro e attività automatizzate in app per la logica di Azure
+title: Aggiungere e chiamare Funzioni di Azure da App per la logica di Azure
+description: Chiamare ed eseguire codice personalizzato in Funzioni di Azure da attività e flussi di lavoro automatizzati in App per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605907"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714577"
 ---
-# <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare funzioni di Azure da app per la logica di Azure
+# <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare Funzioni di Azure da App per la logica di Azure
 
-Quando si vuole eseguire codice che esegue un processo specifico nelle app per la logica, è possibile creare una funzione personalizzata usando [funzioni di Azure](../azure-functions/functions-overview.md). Questo servizio consente di creare funzioni node. js, C# e F #, in modo da non dover compilare un'applicazione o un'infrastruttura completa per eseguire il codice. È anche possibile [chiamare le app per la logica dall'interno di Funzioni di Azure](#call-logic-app). Funzioni di Azure prevede l'elaborazione serverless nel cloud ed è utile per eseguire attività come quelle indicate di seguito:
+Quando si vuole eseguire codice per svolgere un processo specifico nelle proprie app per la logica, è possibile creare funzioni personalizzate mediante [Funzioni di Azure](../azure-functions/functions-overview.md). Questo servizio consente di creare funzioni Node.js, C# ed F#, in modo da non dover creare un'app completa o l'infrastruttura per l'esecuzione del codice. È anche possibile [chiamare le app per la logica dall'interno di Funzioni di Azure](#call-logic-app). Funzioni di Azure prevede l'elaborazione serverless nel cloud ed è utile per eseguire attività come quelle indicate di seguito:
 
 * Estendere il comportamento dell'app per la logica con funzioni in Node.js o C#.
 * Eseguire i calcoli nel flusso di lavoro dell'app per la logica.
 * Applicare formattazione avanzata o campi di elaborazione nelle app per la logica.
 
-Per eseguire frammenti di codice senza creare funzioni di Azure, imparare a [aggiungere ed eseguire codice inline](../logic-apps/logic-apps-add-run-inline-code.md).
+Per eseguire frammenti di codice senza creare funzioni di Azure, sono disponibili informazioni su come [aggiungere ed eseguire codice inline](../logic-apps/logic-apps-add-run-inline-code.md).
 
 > [!NOTE]
-> L'integrazione tra app per la logica e funzioni di Azure attualmente non funziona con gli slot abilitati.
+> L'integrazione tra App per la logica e Funzioni di Azure non è attualmente supportata con gli slot abilitati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per le funzioni di Azure, un contenitore per funzioni di Azure, insieme alla funzione di Azure. Se non si dispone di un'app per le funzioni, [occorre prima di tutto crearne una](../azure-functions/functions-create-first-azure-function.md). È quindi possibile creare la funzione all'esterno dell'app per la logica nella portale di Azure o [dall'app](#create-function-designer) per la logica nella finestra di progettazione dell'app per la logica.
+* Un'app per le funzioni di Azure, che è un contenitore di funzioni di Azure, e la funzione di Azure personalizzata. Se non si dispone di un'app per le funzioni, [occorre prima di tutto crearne una](../azure-functions/functions-create-first-azure-function.md). È quindi possibile creare la funzione all'esterno dell'app per la logica nel portale di Azure oppure [dall'interno dell'app per la logica](#create-function-designer) nella finestra Progettazione app per la logica.
 
-* Quando si lavora con le app per la logica, gli stessi requisiti si applicano alle app per le funzioni e alle funzioni, che siano nuove o esistenti:
+* Quando si lavora con le app per la logica, gli stessi requisiti si applicano alle app per le funzioni e alle funzioni, nuove o esistenti:
 
   * L'app per le funzioni e l'app per la logica devono usare la stessa sottoscrizione di Azure.
 
-  * Le nuove app per le funzioni devono usare .NET o JavaScript come stack di Runtime. Quando si aggiunge una nuova funzione alle app per le funzioni esistenti, è possibile selezionare C# o JavaScript.
+  * Le nuove app per le funzioni devono usare .NET o JavaScript come stack di runtime. Quando si aggiunge una nuova funzione alle app per le funzioni esistenti, è possibile selezionare C# o JavaScript.
 
-  * La funzione usa il modello di **trigger http** .
+  * La funzione usa il modello di **trigger HTTP**.
 
-    Il modello di trigger HTTP può accettare contenuto del tipo `application/json` dell'app per la logica. Quando si aggiunge una funzione di Azure all'app per la logica, la finestra di progettazione dell'app per la logica Mostra le funzioni personalizzate create da questo modello nella sottoscrizione di Azure.
+    Il modello di trigger HTTP può accettare contenuto del tipo `application/json` dell'app per la logica. Quando si aggiunge una funzione di Azure a App per la logica, Progettazione app per la logica mostra le funzioni personalizzate create da questo modello nella sottoscrizione di Azure.
 
-  * La funzione non usa le route personalizzate a meno che non sia stata definita una [definizione openapi](../azure-functions/functions-openapi-definition.md) (precedentemente nota come [file di spavalderia](https://swagger.io/)).
+  * La funzione non usa route personalizzate, a meno che non sia stata specificata una [definizione OpenAPI](../azure-functions/functions-openapi-definition.md) (precedentemente nota come [file Swagger](https://swagger.io/)).
 
-  * Se si ha una definizione OpenAPI per la funzione, progettazione app per la logica offre un'esperienza più completa quando si lavora con i parametri di funzione. Prima che la propria app per la logica possa trovare e accedere alle funzioni con definizioni OpenAPI, [impostare l'app per le funzioni seguendo questa procedura](#function-swagger).
+  * Se è stata specificata una definizione OpenAPI per la funzione, Progettazione app per la logica offre un'esperienza più completa quando si usano parametri di funzione. Prima che la propria app per la logica possa trovare e accedere alle funzioni con definizioni OpenAPI, [impostare l'app per le funzioni seguendo questa procedura](#function-swagger).
 
 * L'app per la logica in cui si intende aggiungere la funzione., incluso un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica
 
-  Prima di poter aggiungere azioni che eseguono funzioni, l'app per la logica deve iniziare con un trigger. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Prima di poter aggiungere azioni che eseguano funzioni, l'app per la logica deve iniziare con un trigger. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="function-swagger"></a>
 
-## <a name="find-functions-that-have-openapi-descriptions"></a>Trova funzioni con descrizioni OpenAPI
+## <a name="find-functions-that-have-openapi-descriptions"></a>Trovare funzioni con descrizioni OpenAPI
 
-Per un'esperienza più completa quando si lavora con i parametri di funzione nella finestra di progettazione di app per la logica, [generare una definizione openapi](../azure-functions/functions-openapi-definition.md), precedentemente nota come [file di spavalderia](https://swagger.io/), per la funzione. Per impostare la propria app per le funzioni in modo che l'app per la logica possa trovare e usare funzioni che includono le descrizioni Swagger, eseguire la procedura seguente:
+Per un'esperienza più completa quando si usano parametri di funzione in Progettazione app per la logica, [generare una definizione API](../azure-functions/functions-openapi-definition.md), precedentemente nota come [file Swagger](https://swagger.io/), per la propria funzione. Per impostare la propria app per le funzioni in modo che l'app per la logica possa trovare e usare funzioni che includono le descrizioni Swagger, eseguire la procedura seguente:
 
-1. Assicurarsi che l'app per le funzioni sia in esecuzione attivamente.
+1. Assicurarsi che l'app per le funzioni sia attivamente in esecuzione.
 
-1. Nell'app per le funzioni configurare la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in modo che tutte le origini siano consentite attenendosi alla procedura seguente:
+1. Nell'app per le funzioni impostare la [Condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in modo che tutte le origini siano consentite, eseguendo la procedura seguente:
 
-   1. Dall'elenco **app** per le funzioni selezionare l'app per le funzioni. Nel riquadro di destra selezionare **funzionalità** > della piattaforma**CORS**.
+   1. Nell'elenco **App per le funzioni** selezionare la propria app per le funzioni. Nel riquadro a destra selezionare **Funzionalità della piattaforma** > **CORS**.
 
       ![Selezionare la propria app per le funzioni > "Funzionalità della piattaforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. In **CORS**aggiungere il carattere jolly asterisco**`*`**(), ma rimuovere tutte le altre origini nell'elenco e selezionare **Salva**.
+   1. In **CORS** aggiungere il carattere jolly asterisco ( **`*`** ), ma rimuovere tutte le altre origini nell'elenco e selezionare **Salva**.
 
       ![Impostare "CORS* per il carattere jolly"*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -101,23 +101,23 @@ Dopo aver creato la funzione di Azure, seguire la procedura per [aggiungere le f
 
 ## <a name="create-functions-inside-logic-apps"></a>Creare funzioni all'interno delle app per la logica
 
-È possibile creare funzioni di Azure direttamente dal flusso di lavoro dell'app per la logica usando l'azione incorporata funzioni di Azure nella finestra di progettazione dell'app per la logica, ma è possibile usare questo metodo solo per le funzioni di Azure scritte in JavaScript. Per altre lingue, è possibile creare funzioni di Azure tramite l'esperienza funzioni di Azure nell'portale di Azure. Per altre informazioni, vedere [creare la prima funzione nella portale di Azure](../azure-functions/functions-create-first-azure-function.md).
+È possibile creare funzioni di Azure direttamente dal flusso di lavoro dell'app per la logica usando l'azione Funzioni di Azure incorporata nella finestra Progettazione app per la logica, ma è possibile usare questo metodo solo per le funzioni di Azure scritte in JavaScript. Per altre lingue, è possibile creare funzioni di Azure tramite l'esperienza Funzioni di Azure nel portale di Azure. Per altre informazioni, vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
 
 Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario avere già un'app per le funzioni di Azure, che è un contenitore per le funzioni. Se non si dispone di un'app per le funzioni, occorre prima di tutto crearne una. Vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
 
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
 1. Per creare e aggiungere la funzione, seguire la procedura applicabile allo scenario specifico:
 
-   * Nell'ultimo passaggio del flusso di lavoro dell'app per la logica selezionare **nuovo passaggio**.
+   * Sotto l'ultimo passaggio nel flusso di lavoro dell'app per la logica, selezionare **Nuovo passaggio**.
 
-   * Tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, spostare il puntatore del mouse sulla freccia, selezionare il segno più (+) e quindi selezionare **Aggiungi un'azione**.
+   * Tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, spostare il puntatore del mouse sulla freccia, scegliere il segno più (+) e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare l'azione **scegliere una funzione di Azure** , ad esempio:
+1. Nella casella di ricerca immettere "funzioni di Azure" come filtro. Nell'elenco delle azioni selezionare l'azione **Scegliere una funzione di Azure**, ad esempio:
 
    ![Cercare "funzioni di Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-1. Nell'elenco delle app per le funzioni selezionare l'app per le funzioni desiderata. Dopo l'apertura dell'elenco di azioni, selezionare questa azione: **Crea nuova funzione** .
+1. Nell'elenco delle app per le funzioni selezionare l'app per le funzioni desiderata. Nell'elenco delle azioni visualizzato selezionare questa azione: **Crea nuova funzione**
 
    ![Selezionare l'app per le funzioni desiderata](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -125,13 +125,13 @@ Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario avere
 
    1. Nella casella **Nome funzione** immettere un nome per la funzione.
 
-   1. Nella casella **codice** aggiungere il codice al modello di funzione, incluse la risposta e il payload che si vuole restituire all'app per la logica al termine dell'esecuzione della funzione. Al termine, selezionare **Crea**.
+   1. Nella casella **Codice** aggiungere il codice al modello di funzione, inclusi la risposta e il payload che devono essere restituiti all'app per la logica al termine dell'esecuzione della funzione. Al termine, selezionare **Crea**.
 
    Ad esempio:
 
    ![Definire la funzione](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   Nel codice del modello, l' * `context` oggetto* fa riferimento al messaggio che l'app per la logica invia tramite il campo del **corpo della richiesta** in un passaggio successivo. Per accedere alle proprietà dell'oggetto `context` all'interno della funzione, usare la sintassi seguente:
+   Nel codice del modello, l' *`context`oggetto* fa riferimento ai messaggi inviati dall'app per la logica tramite il campo **Corpo della richiesta** in un passaggio successivo. Per accedere alle proprietà dell'oggetto `context` all'interno della funzione, usare la sintassi seguente:
 
    `context.body.<property-name>`
 
@@ -146,15 +146,15 @@ Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario avere
 
 1. Nella casella **Corpo della richiesta**, specificare l'input della funzione, che deve essere formattato in JSON (JavaScript Object Notation).
 
-   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. Questo esempio specifica che il payload del contesto contiene una proprietà `content` denominata con il valore del token **from** del trigger di posta elettronica.
+   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
 
    ![Esempio di "Corpo della richiesta" - payload dell'oggetto contesto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Qui non viene eseguito il cast dell'oggetto di contesto come stringa, quindi il contenuto dell'oggetto viene aggiunto direttamente al payload JSON. Se tuttavia il contesto di ambiente non è un token JSON che passa una stringa, un oggetto JSON o una matrice JSON, viene visualizzato un errore. Se, pertanto, in questo esempio è stato utilizzato il token di **tempo ricevuto** , è possibile eseguire il cast dell'oggetto context come stringa aggiungendo virgolette doppie.
+   Qui non viene eseguito il cast dell'oggetto di contesto come stringa, quindi il contenuto dell'oggetto viene aggiunto direttamente al payload JSON. Se tuttavia il contesto di ambiente non è un token JSON che passa una stringa, un oggetto JSON o una matrice JSON, viene visualizzato un errore. Pertanto, se in questo esempio viene usato invece il token **Ora di ricezione**, è possibile eseguire il cast del contesto di ambiente sotto forma di stringa mediante l'aggiunta di virgolette doppie.
 
    ![Cast dell'oggetto come stringa](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Per specificare altri dettagli, ad esempio il metodo da usare, le intestazioni delle richieste o i parametri di query oppure l'autenticazione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le opzioni desiderate. Per l'autenticazione, le opzioni variano in base alla funzione selezionata. Vedere [abilitare l'autenticazione per funzioni di Azure](#enable-authentication-functions).
+1. Per specificare altri dettagli, ad esempio il metodo da usare, le intestazioni delle richieste, i parametri di query oppure l'autenticazione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le opzioni desiderate. Per l'autenticazione, le opzioni variano in base alla funzione selezionata. Vedere [Abilitare l'autenticazione per le funzioni di Azure](#enable-authentication-functions).
 
 <a name="add-function-logic-app"></a>
 
@@ -162,11 +162,11 @@ Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario avere
 
 Per chiamare funzioni di Azure esistenti dalle proprie app per la logica, è possibile aggiungere le funzioni di Azure come qualsiasi altra azione in Progettazione app per la logica.
 
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel passaggio in cui si vuole aggiungere la funzione selezionare **nuovo passaggio**.
+1. Nel passaggio in cui si vuole aggiungere la funzione, selezionare **Nuovo passaggio**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare l'azione **scegliere una funzione di Azure** .
+1. Nella casella di ricerca di **Scegliere un'azione** immettere "funzioni di azure" come filtro. Nell'elenco delle azioni selezionare l'azione **Scegliere una funzione di Azure**.
 
    ![Cercare "funzioni di Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -174,13 +174,13 @@ Per chiamare funzioni di Azure esistenti dalle proprie app per la logica, è pos
 
    ![Selezionare l'app per le funzioni e la funzione di Azure](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   Per le funzioni con definizioni di API (descrizioni di spavalderia) e sono [configurate in modo che l'app per la logica possa trovare e accedere a tali funzioni](#function-swagger), è possibile selezionare **azioni di spavalderia**.
+   Per le funzioni che dispongono di definizioni API (descrizioni Swagger) e che sono [impostate in modo che l'app per la logica le trovi e vi acceda](#function-swagger), è possibile selezionare **azioni Swagger**.
 
-   ![Selezionare l'app per le funzioni, "azioni spavalderia" e la funzione di Azure](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   ![Selezionare l'app per le funzioni, le "azioni Swagger" e la funzione di Azure](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. Nella casella **Corpo della richiesta**, specificare l'input della funzione, che deve essere formattato in JSON (JavaScript Object Notation).
 
-   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **corpo della richiesta** , viene visualizzato l'elenco contenuto dinamico, in modo che sia possibile selezionare i token per gli output dei passaggi precedenti. Questo esempio specifica che il payload del contesto contiene una proprietà `content` denominata con il valore del token **from** del trigger di posta elettronica.
+   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
 
    ![Esempio di "Corpo della richiesta" - payload dell'oggetto contesto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -188,7 +188,7 @@ Per chiamare funzioni di Azure esistenti dalle proprie app per la logica, è pos
 
    ![Cast dell'oggetto come stringa](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Per specificare altri dettagli, ad esempio il metodo da usare, le intestazioni delle richieste, i parametri di query o l'autenticazione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le opzioni desiderate. Per l'autenticazione, le opzioni variano in base alla funzione selezionata. Vedere [abilitare l'autenticazione in funzioni di Azure](#enable-authentication-functions).
+1. Per specificare altri dettagli, ad esempio il metodo da usare, le intestazioni delle richieste, i parametri di query oppure l'autenticazione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le opzioni desiderate. Per l'autenticazione, le opzioni variano in base alla funzione selezionata. Vedere [Abilitare l'autenticazione per le funzioni di Azure](#enable-authentication-functions).
 
 <a name="call-logic-app"></a>
 
@@ -198,119 +198,119 @@ Per attivare un'app per la logica dall'interno di una funzione di Azure, l'app p
 
 <a name="enable-authentication-functions"></a>
 
-## <a name="enable-authentication-for-azure-functions"></a>Abilitare l'autenticazione per funzioni di Azure
+## <a name="enable-authentication-for-azure-functions"></a>Abilitare l'autenticazione per le funzioni di Azure
 
-Per autenticare l'accesso alle risorse in altri tenant di Azure Active Directory (Azure AD) senza dover accedere e fornire credenziali o segreti, l'app per la logica può usare un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (precedentemente nota come identità del servizio gestita o MSI). Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Scopri di più sui [servizi di Azure che supportano identità gestite per l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Per autenticare facilmente l'accesso ad altre risorse protette da Azure Active Directory (Azure AD) senza dover accedere e fornire credenziali o segreti, l'app per la logica può usare un'[identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (in precedenza denominata identità del servizio gestita). Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Sono disponibili altre informazioni sui [servizi di Azure che supportano le identità gestite per l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Se si configura l'app per la logica in modo da usare l'identità assegnata dal sistema o un'identità assegnata manualmente dall'utente, le funzioni di Azure nell'app per la logica possono usare anche la stessa identità per l'autenticazione. Per altre informazioni sul supporto dell'autenticazione per funzioni di Azure nelle app per la logica, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Se si configura l'app per la logica in modo da usare l'identità assegnata dal sistema o un'identità assegnata dall'utente e creata manualmente, le funzioni di Azure nell'app per la logica possono usare anche la stessa identità per l'autenticazione. Per altre informazioni sul supporto dell'autenticazione per funzioni di Azure nelle app per la logica, vedere [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 Per configurare e usare l'identità gestita con la funzione, seguire questa procedura:
 
-1. Abilitare l'identità gestita nell'app per la logica e impostare l'accesso dell'identità sulla risorsa di destinazione. Vedere [autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure](../logic-apps/create-managed-service-identity.md).
+1. Abilitare l'identità gestita nell'app per la logica e impostare l'accesso dell'identità sulla risorsa di destinazione. Vedere [Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure](../logic-apps/create-managed-service-identity.md).
 
 1. Abilitare l'autenticazione nella funzione di Azure e nell'app per le funzioni attenendosi alla procedura seguente:
 
    * [Configurare l'autenticazione anonima nella funzione](#set-authentication-function-app)
-   * [Configurare Azure AD autenticazione nell'app per le funzioni](#set-azure-ad-authentication)
+   * [Configurare l'autenticazione Azure AD nell'app per le funzioni](#set-azure-ad-authentication)
 
 <a name="set-authentication-function-app"></a>
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Configurare l'autenticazione anonima nella funzione
 
-Per usare l'identità gestita dell'app per la logica nella funzione di Azure, il livello di autenticazione della funzione è stato impostato su anonimo. In caso contrario, l'app per la logica genera un errore "richiesta non valida".
+Per usare l'identità gestita dell'app per la logica nella funzione di Azure, il livello di autenticazione della funzione è stato impostato su anonimo. In caso contrario, l'app per la logica genera un errore di richiesta non valida.
 
-1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare l'app per le funzioni. Questa procedura USA "FabrikamFunctionApp" come app per le funzioni di esempio.
+1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per le funzioni. Questa procedura usa "FabrikamFunctionApp" come app per le funzioni di esempio.
 
-1. Nel riquadro app per le funzioni selezionare **funzionalità della piattaforma**. In **strumenti di sviluppo**selezionare **strumenti avanzati (kudu)**.
+1. Nel riquadro dell'app per le funzioni selezionare **Funzionalità della piattaforma**. In **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)** .
 
-   ![Apri strumenti avanzati per Kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
+   ![Aprire gli strumenti avanzati per Kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
-1. Nella barra del titolo del sito Web Kudu scegliere **cmd**dal menu **console di debug** .
+1. Nella barra del titolo del sito Web Kudu, dal menu **Debug Console** selezionare **CMD**.
 
    ![Dal menu della console di debug selezionare l'opzione "CMD"](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. Quando viene visualizzata la pagina successiva, dall'elenco cartella selezionare **site** > **wwwroot** > *your-function*. Questa procedura USA "FabrikamAzureFunction" come funzione di esempio.
+1. Quando viene visualizzata la pagina successiva, dall'elenco delle cartelle selezionare **site** > **wwwroot** > *funzione*. Questa procedura usa "FabrikamFunctionApp" come funzione di esempio.
 
    ![Selezionare "site" > "wwwroot" > funzione](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
-1. Aprire il `function.json` file per la modifica.
+1. Apre il file `function.json` per la modifica.
 
-   ![Fare clic su modifica per il file "function. JSON"](./media/logic-apps-azure-functions/edit-function-json-file.png)
+   ![Fare clic sull'icona di modifica per il file "function.json"](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
-1. Nell' `bindings` oggetto controllare se la `authLevel` proprietà esiste. Se la proprietà esiste, impostare il valore della proprietà `anonymous`su. In caso contrario, aggiungere la proprietà e impostare il valore.
+1. Nell'oggetto `bindings` controllare se la proprietà `authLevel` esiste. Se la proprietà esiste, impostare il valore della proprietà su `anonymous`. In caso contrario, aggiungere la proprietà e impostare il valore.
 
-   ![Aggiungere la proprietà "authLevel" e impostarla su "Anonymous"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
+   ![Aggiungere la proprietà "authLevel" e impostarla su "anonymous"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
 1. Al termine, salvare le impostazioni e quindi continuare con la sezione successiva.
 
 <a name="set-azure-ad-authentication"></a>
 
-### <a name="set-up-azure-ad-authentication-for-your-function-app"></a>Configurare l'autenticazione Azure AD per l'app per le funzioni
+### <a name="set-up-azure-ad-authentication-for-your-function-app"></a>Configurare l'autenticazione Azure AD nell'app per le funzioni
 
-Prima di iniziare questa attività, trovare e mettere a disposizione questi valori per un uso successivo:
+Prima di iniziare questa attività, trovare questi valori e prenderne nota per un uso successivo:
 
-* ID oggetto generato per l'identità assegnata dal sistema che rappresenta l'app per la logica
+* L'ID oggetto generato per l'identità assegnata dal sistema che rappresenta l'app per la logica
 
   * Per generare questo ID oggetto, [abilitare l'identità assegnata dal sistema dell'app per la logica](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app).
 
-  * In caso contrario, per trovare questo ID oggetto, aprire l'app per la logica nella finestra di progettazione dell'app per la logica. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Identity** > **System assegnato**.
+  * Altrimenti, per trovare questo ID oggetto, aprire l'app per la logica in Progettazione app per la logica. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Identità** > **Assegnata dal sistema**.
 
-* ID directory per il tenant in Azure Active Directory (Azure AD)
+* L'ID directory per il tenant in Azure Active Directory (Azure AD)
 
-  Per ottenere l'ID di directory del tenant, è possibile eseguire [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) il comando di PowerShell. In alternativa, nella portale di Azure seguire questa procedura:
+  Per ottenere l'ID directory del tenant, è possibile eseguire il comando PowerShell [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount). In alternativa, seguire questa procedura nel portale di Azure:
 
-  1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare l'app per le funzioni.
+  1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per le funzioni.
 
-  1. Trovare e selezionare il tenant del Azure AD. Questi passaggi usano "Fabrikam" come tenant di esempio.
+  1. Individuare e selezionare il proprio tenant Azure AD. Questa procedura usa "Fabrikam" come tenant di esempio.
 
   1. Nel menu del tenant, in **Gestisci**, selezionare **Proprietà**.
 
   1. Copiare l'ID directory del tenant, ad esempio, e salvarlo per un uso successivo.
 
-     ![Trovare e copiare Azure AD ID directory del tenant](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+     ![Trovare e copiare l'ID directory del tenant di Azure AD](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
-* ID risorsa per la risorsa di destinazione a cui si vuole accedere
+* L'ID risorsa per la risorsa di destinazione a cui si vuole accedere
 
-  * Per trovare questi ID di risorsa, esaminare i [servizi di Azure che supportano Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+  * Per trovare questi ID risorsa, consultare i [servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
   > [!IMPORTANT]
-  > Questo ID risorsa deve corrispondere esattamente al valore previsto da Azure AD, incluse le barre finali obbligatorie.
+  > Questo ID risorsa deve corrispondere esattamente a quanto previsto da Azure AD, incluse le eventuali barre finali necessarie.
 
-  Questo ID di risorsa è anche lo stesso valore usato in un secondo momento nella proprietà **audience** quando si [Configura l'azione della funzione per usare l'identità assegnata dal sistema](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+  Questo ID di risorsa è anche lo stesso valore che verrà usato in un secondo momento nella proprietà **Destinatari** quando si [imposta l'azione della funzione in modo da usare l'identità assegnata dal sistema](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
-A questo punto si è pronti per configurare Azure AD autenticazione per l'app per le funzioni.
+Ora è possibile configurare l'autenticazione Azure AD per l'app per le funzioni.
 
-1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare l'app per le funzioni.
+1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per le funzioni.
 
-1. Nel riquadro app per le funzioni selezionare **funzionalità della piattaforma**. In **rete**selezionare **autenticazione/autorizzazione**.
+1. Nel riquadro dell'app per le funzioni selezionare **Funzionalità della piattaforma**. In **Rete** selezionare **Autenticazione/Autorizzazione**.
 
    ![Visualizzare le impostazioni di autenticazione e autorizzazione](./media/logic-apps-azure-functions/view-authentication-authorization-settings.png)
 
-1. Modificare l'impostazione di **autenticazione del servizio app** **su on**. Nell'elenco **azione da eseguire quando la richiesta non è autenticato** selezionare **Accedi con Azure Active Directory**. In **Provider di autenticazione** fare clic su **Azure Active Directory**.
+1. Modificare l'impostazione **Autenticazione servizio app** su **On**. Nell'elenco **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**. In **Provider di autenticazione** fare clic su **Azure Active Directory**.
 
    ![Attivare l'autenticazione con Azure AD](./media/logic-apps-azure-functions/turn-on-authentication-azure-active-directory.png)
 
-1. Nel riquadro **impostazioni Azure Active Directory** seguire questa procedura:
+1. Nel riquadro **Impostazioni di Azure Active Directory** attenersi alla seguente procedura:
 
-   1. Impostare la **modalità di gestione** su **avanzata**.
+   1. Impostare **Modalità di gestione** su **Avanzata**.
 
    1. Nella proprietà **ID client** immettere l'ID oggetto per l'identità assegnata dal sistema dell'app per la logica.
 
-   1. Nella proprietà **URL autorità di certificazione** immettere l' `https://sts.windows.net/` URL e aggiungere l'ID directory del tenant Azure ad.
+   1. Nella proprietà **URL autorità di certificazione** immettere l'URL `https://sts.windows.net/` e aggiungere l'ID directory del tenant Azure AD.
 
       `https://sts.windows.net/<Azure-AD-tenant-directory-ID>`
 
-   1. Nella proprietà **allowed token Audiences** immettere l'ID risorsa per la risorsa di destinazione a cui si vuole accedere.
+   1. Nella proprietà **Destinatari token consentiti** immettere l'ID risorsa per la risorsa di destinazione a cui si vuole accedere.
 
-      Questo ID risorsa è lo stesso valore usato in un secondo momento nella proprietà **audience** quando si [Configura l'azione della funzione per usare l'identità assegnata dal sistema](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+      Questo ID di risorsa è alo stesso valore che verrà usato in un secondo momento nella proprietà **Destinatari** quando si [imposta l'azione della funzione in modo da usare l'identità assegnata dal sistema](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
    A questo punto, la versione ha un aspetto simile all'esempio seguente:
 
-   ![Impostazioni di autenticazione Azure Active Directory](./media/logic-apps-azure-functions/azure-active-directory-authentication-settings.png)
+   ![Impostazioni di autenticazione di Azure Active Directory](./media/logic-apps-azure-functions/azure-active-directory-authentication-settings.png)
 
 1. Al termine, fare clic su **OK**.
 
-1. Tornare alla finestra di progettazione dell'app per la logica e seguire i [passaggi per autenticare l'accesso con l'identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+1. Tornare a Progettazione app per la logica e seguire i [passaggi per autenticare l'accesso con l'identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

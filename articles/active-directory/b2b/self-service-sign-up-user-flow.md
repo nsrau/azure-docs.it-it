@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594730"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712350"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83594730"
 | L'iscrizione self-service è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-L'associazione del flusso utente a un'applicazione consente di abilitare l'iscrizione in tale app. È possibile scegliere più di un'applicazione da associare al flusso utente. Dopo aver associato il flusso utente a una o più applicazioni, gli utenti che visitano l'app potranno iscriversi usando le opzioni configurate nel flusso utente.
+È possibile creare flussi utente per le app create dall'organizzazione. L'associazione del flusso utente a un'applicazione consente di abilitare l'iscrizione in tale app. È possibile scegliere più di un'applicazione da associare al flusso utente. Dopo aver associato il flusso utente a una o più applicazioni, gli utenti che visitano l'app potranno iscriversi e ottenere un account guest usando le opzioni configurate nel flusso utente.
+
+> [!NOTE]
+> È possibile associare i flussi utente alle app create dall'organizzazione. Non è possibile usare i flussi utente per le app Microsoft, ad esempio SharePoint o Teams.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -33,9 +36,12 @@ L'associazione del flusso utente a un'applicazione consente di abilitare l'iscri
 
 Azure AD è il provider di identità predefinito per l'iscrizione self-service. Questo significa che per impostazione predefinita gli utenti possono effettuare l'iscrizione con un account Azure AD. È anche possibile includere i provider di identità basati su social network in questi flussi di iscrizione per supportare gli account Google e Facebook.
 
-- [Aggiungere Google all'elenco di provider di identità basati su social network](google-federation.md)
 - [Aggiungere Facebook all'elenco di provider di identità basati su social network](facebook-federation.md)
- 
+- [Aggiungere Google all'elenco di provider di identità basati su social network](google-federation.md)
+
+> [!NOTE]
+> Nell'anteprima corrente, se un flusso utente di iscrizione self-service è associato a un'app e si invia a un utente un invito a tale app, l'utente non sarà in grado di usare un account Gmail per riscattare l'invito. Come soluzione alternativa, l'utente può eseguire il processo di iscrizione self-service. In alternativa, è possibile riscattare l'invito accedendo a un'altra app o usando il portale App personali in https://myapps.microsoft.com.
+
 ### <a name="define-custom-attributes-optional"></a>Definire attributi personalizzati (facoltativo)
 
 Gli attributi utente sono valori raccolti dall'utente durante l'iscrizione self-service. Azure AD include un set predefinito di attributi, ma è possibile creare attributi personalizzati da usare nel flusso utente. Questi attributi supportano anche le operazioni di lettura e scrittura usando l'API Microsoft Graph. Vedere [Definire attributi personalizzati per i flussi utente](user-flow-add-custom-attributes.md).

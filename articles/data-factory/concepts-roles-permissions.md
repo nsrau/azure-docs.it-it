@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418321"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833525"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -80,11 +80,11 @@ Ecco alcuni esempi che illustrano cosa si può ottenere con i ruoli personalizza
   Questo scenario richiede due assegnazioni di ruolo.
 
   1. Assegnare il ruolo **collaboratore** predefinito a livello di data factory.
-  2. Creare un ruolo personalizzato con l'autorizzazione **Microsoft.Resources/deployments/**. Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
+  2. Creare un ruolo personalizzato con l'autorizzazione **Microsoft.Resources/deployments/** . Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
 
-- Consentire a un utente di testare la connessione solo in un servizio collegato
+- Consentire a un utente solo di testare la connessione in un servizio collegato
 
-    Creare un ruolo di ruolo personalizzato con le autorizzazioni per le azioni seguenti: **Microsoft. DataFactory/factorys/getFeatureValue/Read** e **Microsoft. DataFactory/factorys/getDataPlaneAccess/Read**. Assegnare questo ruolo personalizzato alla risorsa data factory per l'utente.
+    Creare un ruolo personalizzato con le autorizzazioni per le azioni seguenti: **Microsoft.DataFactory/factories/getFeatureValue/read** e **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assegnare questo ruolo personalizzato alla risorsa di data factory per l'utente.
 
 - Consentire a un utente di aggiornare una data factory da PowerShell o da SDK, ma non nel portale di Azure.
 

@@ -1,21 +1,21 @@
 ---
-title: Usare Azure Active Directory per autenticare le soluzioni di gestione di batch
-description: Esplorare l'uso di Azure Active Directory per eseguire l'autenticazione dalle applicazioni che usano la libreria di gestione .NET per batch.
-ms.topic: article
+title: Usare Azure Active Directory per autenticare le soluzioni di gestione Batch
+description: Informazioni sull'uso di Azure Active Directory per eseguire l'autenticazione dalle applicazioni che usano la libreria .NET per la gestione di Batch.
+ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: ec9cf15f37c3ca7e4e477c628733d34cac21c141
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726894"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticare le soluzioni di gestione Batch con Active Directory
 
 Le applicazioni che chiamano il servizio di gestione di Azure Batch vengono autenticate con [Azure Active Directory][aad_about] (Azure AD). Azure AD è il servizio Microsoft di gestione di identità e directory basato sul cloud e multi-tenant. Azure stesso usa Azure AD per l'autenticazione dei relativi clienti, amministratori del servizio e utenti dell'organizzazione.
 
-La libreria .NET per la gestione di Batch espone tipi per l'uso di account Batch, chiavi dell'account, applicazioni e pacchetti dell'applicazione. La libreria .NET per la gestione di Batch è un client del provider di risorse di Azure e viene usata in combinazione con [Azure Resource Manager][resman_overview] per gestire tali risorse a livello di codice. Azure AD deve autenticare le richieste effettuate tramite un client del provider di risorse di Azure, inclusa la libreria della gestione .NET per Batch e con [Azure Resource Manager][resman_overview].
+La libreria .NET per la gestione di Batch espone tipi per l'uso di account Batch, chiavi dell'account, applicazioni e pacchetti dell'applicazione. La libreria .NET per la gestione di Batch è un client del provider di risorse di Azure e viene usata in combinazione con [Azure Resource Manager][resman_overview] per gestire tali risorse a livello di codice. Azure AD deve autenticare le richieste effettuate tramite un client del provider di risorse di Azure, inclusa la libreria .NET per la gestione di Batch, e tramite [Azure Resource Manager][resman_overview].
 
 Questo articolo illustra l'uso di Azure AD per eseguire l'autenticazione dalle applicazioni che usano la libreria .NET per la gestione di Batch. Viene descritto come usare Azure AD per autenticare un amministratore o un co-amministratore della sottoscrizione tramite l'autenticazione integrata. In questa sezione si usa il progetto di esempio [AccountManagement][acct_mgmt_sample], disponibile in GitHub, per illustrare l'uso di Azure AD con la libreria .NET per la gestione di Batch.
 
@@ -23,7 +23,7 @@ Per altre informazioni sull'uso della libreria .NET per la gestione di Batch e d
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrare l'applicazione in Azure AD
 
-[Azure Active Directory Authentication Library][aad_adal] (ADAL) offre un'interfaccia programmatica per Azure AD da usare nelle applicazioni. Per chiamare ADAL da un'applicazione, è necessario registrare l'applicazione in un tenant di Azure AD. Quando si registra l'applicazione, si specificano in Azure AD le informazioni relative all'applicazione, incluso un nome per l'applicazione nel tenant di Azure AD. Azure AD fornisce quindi un ID applicazione che viene usato per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID applicazione, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+[Active Directory Authentication Library][aad_adal] (ADAL) di Azure offre un'interfaccia programmatica per Azure AD da usare nelle applicazioni. Per chiamare ADAL da un'applicazione, è necessario registrare l'applicazione in un tenant di Azure AD. Quando si registra l'applicazione, si specificano in Azure AD le informazioni relative all'applicazione, incluso un nome per l'applicazione nel tenant di Azure AD. Azure AD fornisce quindi un ID applicazione che viene usato per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID applicazione, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 Per registrare l'applicazione di esempio AccountManagement, seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/develop/quickstart-register-app.md) dell'articolo [Integrazione di applicazioni con Azure Active Directory][aad_integrate]. Specificare **Nativa** come tipo di applicazione. L'URI OAuth 2.0 standard per l'**URI di reindirizzamento** è `urn:ietf:wg:oauth:2.0:oob`. In **URI di reindirizzamento** è possibile specificare qualsiasi URI valido, ad esempio `http://myaccountmanagementsample`, perché non è necessario che sia un endpoint reale:
 
@@ -48,7 +48,7 @@ Seguire questa procedura nel portale di Azure:
 4. Fare clic su **Aggiungi** per aggiungere una nuova autorizzazione necessaria.
 5. Nel passaggio 1 immettere **API di gestione del servizio Microsoft Azure**, selezionare tale API nell'elenco dei risultati e fare clic sul pulsante **Seleziona**.
 6. Nel passaggio 2 selezionare la casella di controllo accanto ad **Access Azure classic deployment model as organization users** (Accedi a modello di distribuzione classica di Azure come utente dell'organizzazione) e fare clic sul pulsante **Seleziona**.
-7. Fare clic sul pulsante **Chiudi**.
+7. Fare clic sul pulsante **Fine**.
 
 Il pannello **Autorizzazioni necessarie** mostra ora che le autorizzazioni per l'applicazione sono concesse sia ad ADAL che alle API di Resource Manager. Le autorizzazioni vengono concesse ad ADAL per impostazione predefinita quando si registra per la prima volta l'app in Azure AD.
 
@@ -121,7 +121,7 @@ Per altre informazioni su Azure AD, vedere [Documentazione di Azure Active Direc
 Per eseguire l'autenticazione di applicazioni del servizio Batch con Azure AD, vedere [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autenticare le soluzioni del servizio Batch con Active Directoy).
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Che cos'è Azure Active Directory?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Informazioni su Azure Active Directory"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Scenari di autenticazione per Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrazione di applicazioni con Azure Active Directory"
