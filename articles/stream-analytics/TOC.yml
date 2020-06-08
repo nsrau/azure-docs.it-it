@@ -49,10 +49,6 @@
       href: feature-comparison.md
     - name: Sviluppare in locale
       href: develop-locally.md
-    - name: Sicurezza
-      items:
-        - name: Baseline di sicurezza
-          href: security-baseline.md
     - name: Tipi di input per un processo
       items:
         - name: Panoramica degli input
