@@ -1,91 +1,91 @@
 ---
-title: Proteggere il traffico Pod con i criteri di rete
+title: Proteggere il traffico tra pod con criteri di rete
 titleSuffix: Azure Kubernetes Service
-description: Informazioni su come proteggere il traffico che passa da e verso i pod usando i criteri di rete Kubernetes in Azure Kubernetes Service (AKS)
+description: Informazioni su come proteggere il traffico in ingresso e in uscita dai pod usando i criteri di rete Kubernetes nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854235"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683202"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
-Quando si eseguono applicazioni moderne basate su microservizi in Kubernetes, spesso è necessario controllare quali componenti possono comunicare tra loro. Il principio del privilegio minimo deve essere applicato al modo in cui il traffico può fluire tra i pod in un cluster di Azure Kubernetes Service (AKS). Supponiamo di voler bloccare il traffico direttamente verso le applicazioni back-end. La funzionalità dei *criteri di rete* in Kubernetes consente di definire le regole per il traffico in ingresso e in uscita tra i pod in un cluster.
+Quando si eseguono applicazioni moderne basate su microservizi in Kubernetes, spesso è necessario controllare quali componenti possono comunicare tra loro. Il principio dei privilegi minimi deve essere applicato al modo in cui il traffico scorre tra i pod in un cluster del servizio Azure Kubernetes. Si supponga di voler bloccare il traffico direttamente alle applicazioni back-end. In Kubernetes, la funzionalità *Criteri di rete* consente di definire le regole per il traffico in ingresso e in uscita tra i pod in un cluster.
 
-Questo articolo illustra come installare il motore dei criteri di rete e creare i criteri di rete Kubernetes per controllare il flusso di traffico tra i pod in AKS. I criteri di rete devono essere usati solo per i nodi basati su Linux e i pod in AKS.
+Questo articolo illustra come installare il motore dei criteri di rete e creare criteri di rete Kubernetes per controllare il flusso del traffico tra i pod nel servizio Azure Kubernetes. I criteri di rete devono essere usati solo per pod e nodi basati su Linux nel servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.61 o versioni successive. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 > [!TIP]
-> Se è stata usata la funzionalità dei criteri di rete durante l'anteprima, si consiglia di [creare un nuovo cluster](#create-an-aks-cluster-and-enable-network-policy).
+> Nel caso in cui, durante la fase di anteprima, sia stata usata la funzionalità criteri di rete, è consigliabile [creare un nuovo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
-> Se si vuole continuare a usare i cluster di test esistenti che hanno usato i criteri di rete durante l'anteprima, aggiornare il cluster a una nuova versione di Kubernetes per la versione GA più recente e quindi distribuire il manifesto YAML seguente per correggere il server delle metriche in arresto anomalo e il dashboard di Kubernetes. Questa correzione è necessaria solo per i cluster che usano il motore dei criteri di rete di calice.
+> Per continuare a usare i cluster di test esistenti che hanno usato i criteri di rete durante l'anteprima, aggiornare il cluster a una nuova versione di Kubernetes per la versione di disponibilità generale più recente e quindi distribuire il manifesto YAML seguente per correggere l'arresto anomalo del sistema del server delle metriche e del dashboard di Kubernetes. Questa correzione è necessaria solo per i cluster che usano il motore dei criteri di rete di Calico.
 >
-> Come procedura consigliata di sicurezza, [esaminare il contenuto del manifesto YAML][calico-aks-cleanup] per capire cosa viene distribuito nel cluster AKS.
+> Come procedura di sicurezza consigliata, [esaminare il contenuto di questo manifesto YAML][calico-aks-cleanup] per capire cosa viene distribuito nel cluster del servizio Azure Kubernetes.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Panoramica dei criteri di rete
 
-Per impostazione predefinita, tutti i pod in un cluster AKS possono inviare e ricevere traffico senza limitazioni. Per migliorare la sicurezza, è possibile definire regole per il controllo del flusso del traffico. Le applicazioni back-end vengono spesso esposte solo ai servizi front-end richiesti, ad esempio. In alternativa, i componenti del database sono accessibili solo ai livelli applicazione a cui si connettono.
+Per impostazione predefinita, tutti i pod in un cluster del servizio Azure Kubernetes possono inviare e ricevere traffico senza limitazioni. Per migliorare la sicurezza, è possibile definire regole per il controllo del flusso del traffico. Ad esempio, le applicazioni back-end vengono spesso esposte solo ai servizi front-end richiesti. In alternativa, i componenti del database sono accessibili solo ai livelli applicazione a cui si connettono.
 
-Criteri di rete è una specifica Kubernetes che definisce i criteri di accesso per la comunicazione tra i pod. Usando i criteri di rete, si definisce un set ordinato di regole per inviare e ricevere traffico e applicarle a una raccolta di pod che corrispondono a uno o più selettori di etichette.
+Criteri di rete è una specifica Kubernetes che definisce i criteri di accesso per la comunicazione tra pod. Criteri di rete permette di definire un set ordinato di regole per inviare e ricevere traffico e applicarle a una raccolta di pod che corrispondono a uno o più selettori di etichette.
 
-Queste regole dei criteri di rete sono definite come manifesti YAML. I criteri di rete possono essere inclusi come parte di un manifesto più ampio che crea anche una distribuzione o un servizio.
+Queste regole dei criteri di rete sono definite come manifesti YAML. I criteri di rete vengono definiti come manifesti YAML e possono essere inclusi come parte di un manifesto più ampio che crea anche una distribuzione o un servizio.
 
-### <a name="network-policy-options-in-aks"></a>Opzioni dei criteri di rete in AKS
+### <a name="network-policy-options-in-aks"></a>Opzioni dei criteri di rete nel servizio Azure Kubernetes
 
-Azure offre due modi per implementare i criteri di rete. Quando si crea un cluster AKS si sceglie un'opzione di criteri di rete. L'opzione dei criteri non può essere modificata dopo la creazione del cluster:
+Azure offre due modi per implementare i criteri di rete. Quando si crea un cluster del servizio Azure Kubernetes è possibile scegliere un'opzione per i criteri di rete. L'opzione relativa ai criteri non può essere modificata dopo la creazione del cluster:
 
-* Implementazione di Azure, denominata *criteri di rete di Azure*.
-* *Criteri di rete di calice*, una soluzione di sicurezza di rete e di rete open source fondata da [tigera][tigera].
+* L'implementazione di Azure, denominata *Criteri di rete di Azure*.
+* *Criteri di rete Calico*, una soluzione di sicurezza di rete e di rete open source fondata da [Tigera][tigera].
 
-Entrambe le implementazioni usano *iptables* Linux per applicare i criteri specificati. I criteri vengono convertiti in set di coppie IP consentite e non consentite. Queste coppie vengono quindi programmate come regole di filtro IPTable.
+Entrambe le implementazioni usano Linux *IPTables* per applicare i criteri specificati. I criteri vengono convertiti in set di coppie IP consentite e non consentite. Queste coppie vengono quindi programmate come regole del filtro IPTable.
 
-### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra i criteri di Azure e di calice e le relative funzionalità
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra criteri di Azure e Calico e relative funzionalità
 
 | Funzionalità                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Piattaforme supportate                      | Linux                      | Linux                       |
 | Opzioni di rete supportate             | Azure CNI                  | Azure CNI e kubenet       |
-| Conformità con la specifica Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
-| Funzionalità aggiuntive                      | Nessuno                       | Modello di criteri esteso costituito da criteri di rete globali, da un set di reti globale e da un endpoint host. Per ulteriori informazioni sull'utilizzo dell' `calicoctl` interfaccia della riga di comando per la gestione di queste funzionalità estese, vedere [calicoctl User Reference][calicoctl]. |
-| Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community di calice. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [Opzioni di supporto per Project calice][calico-support]. |
-| Registrazione                                  | Le regole aggiunte/eliminate in IPTables vengono registrate in ogni host in */var/log/Azure-NPM.log* | Per ulteriori informazioni, vedere [log dei componenti di calice][calico-logs] |
+| Conformità con le specifiche Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
+| Funzionalità aggiuntive                      | nessuno                       | Modello di criteri esteso, composto da criteri di rete globali, da un set di servizi di rete globale e da un endpoint host. Per altre informazioni sull'uso dell'interfaccia della riga di comando di `calicoctl` per gestire queste funzionalità estese, vedere i [riferimenti utente calicoctl][calicoctl]. |
+| Supporto                                  | Supporto fornito dal team di progettazione e supporto tecnico di Azure | Supporto della community di Calico. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere le opzioni di supporto di [Project Calico][calico-support]. |
+| Registrazione                                  | Le regole aggiunte/eliminate in IPTables vengono registrate in ogni host in */var/log/azure-npm.log* | Per altre informazioni, vedere [Log dei componenti Calico][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
 
-Per visualizzare i criteri di rete in azione, è possibile creare ed espandere i criteri che definiscono il flusso del traffico:
+Per vedere i criteri di rete in azione, è possibile creare e quindi espandere un criterio che definisce il flusso del traffico:
 
 * Rifiutare tutto il traffico verso il pod.
 * Consentire il traffico in base alle etichette del pod.
 * Consentire il traffico in base allo spazio dei nomi.
 
-Prima di tutto, creare un cluster AKS che supporti i criteri di rete. 
+Prima di tutto, creare un cluster del servizio Azure Kubernetes che supporti i criteri di rete. 
 
 > [!IMPORTANT]
 >
-> La funzionalità dei criteri di rete può essere abilitata solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes.
+> La funzionalità criteri di rete può essere abilitata solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes.
 
-Per usare i criteri di rete di Azure, è necessario usare il [plug-in CNI di Azure][azure-cni] e definire la rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking]. I criteri di rete di calice possono essere usati con lo stesso plug-in CNI di Azure o con il plug-in Kubenet CNI.
+Per usare Criteri di rete di Azure, è necessario usare il [plug-in Azure CNI][azure-cni] e definire la propria rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking]. I criteri di rete di Calico possono essere usati con lo stesso plug-in di Azure CNI o con il plug-in di Kubenet CNI.
 
 Lo script di esempio seguente:
 
 * Crea una rete virtuale e una subnet.
-* Crea un'entità servizio Azure Active Directory (Azure AD) per l'uso con il cluster AKS.
+* Crea un'entità servizio di Azure Active Directory (Azure AD) da usare con il cluster del servizio Azure Kubernetes.
 * Assegna autorizzazioni di *Collaboratore* per l'entità servizio del cluster del servizio Azure Kubernetes nella rete virtuale.
-* Crea un cluster AKS nella rete virtuale definita e Abilita i criteri di rete.
-    * Viene usata l'opzione dei criteri di rete di *Azure* . Per usare invece l'opzione dei criteri di rete, usare il `--network-policy calico` parametro. Nota: è possibile usare il calice `--network-plugin azure` con `--network-plugin kubenet`o.
+* Crea un cluster del servizio Azure Kubernetes nella rete virtuale definita e abilita i criteri di rete.
+    * Viene usata l'opzione _Criteri di rete di Azure_. Per usare invece Calico come opzione dei criteri di rete, usare il parametro `--network-policy calico`. Nota: Calico può essere usato con `--network-plugin azure` o `--network-plugin kubenet`.
 
-Si noti che invece di usare un'entità servizio, è possibile usare un'identità gestita per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+Si noti che è possibile usare un'identità gestita anziché un'entità servizio per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
-Specificare la propria *SP_PASSWORD* protetta. È possibile sostituire le variabili *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* :
+Specificare la propria *SP_PASSWORD* protetta. È possibile sostituire le variabili *RESOURCE_GROUP_NAME* e *CLUSTER_NAME*:
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-La creazione del cluster richiede alcuni minuti. Quando il cluster è pronto, configurare `kubectl` per connettersi al cluster Kubernetes usando il comando [AZ AKS Get-credentials][az-aks-get-credentials] . Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle:
+La creazione del cluster richiede alcuni minuti. Al termine, configurare `kubectl` per la connessione al cluster Kubernetes usando il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -146,34 +146,34 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Rifiutare tutto il traffico in ingresso verso un pod
 
-Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio offre un punto di partenza per iniziare a inserire nell'elenco elementi consentiti solo il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
+Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio fornisce un punto iniziale per creare un elenco elementi consentiti solo per il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
 
-Per l'ambiente dell'applicazione di esempio e le regole del traffico, creare prima di tutto uno spazio dei nomi denominato *sviluppo* per eseguire i pod di esempio:
+Per l'ambiente dell'applicazione di esempio e le regole del traffico, è necessario creare per prima cosa uno spazio dei nomi chiamato *development* per eseguire i pod di esempio:
 
 ```console
 kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-Creare un pod back-end di esempio che esegue NGINX. Questo pod back-end può essere usato per simulare un'applicazione basata sul Web back-end di esempio. Creare il pod nello spazio dei nomi *development* e aprire la porta *80* per gestire il traffico Web. Assegnare al pod l'etichetta *app=webapp,role=backend* in modo che sia possibile usarlo come destinazione con un criterio di rete nella sezione successiva:
+Creare un pod back-end di esempio che esegue NGINX. Questo pod back-end può essere usato per simulare un'applicazione back-end di esempio basata sul Web. Creare il pod nello spazio dei nomi *development* e aprire la porta *80* per gestire il traffico Web. Assegnare al pod l'etichetta *app=webapp,role=backend* in modo che sia possibile usarlo come destinazione con un criterio di rete nella sezione successiva:
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-Creare un altro pod e alleghi una sessione terminal per verificare che sia possibile raggiungere correttamente la pagina Web NGINX predefinita:
+Per verificare che si possa raggiungere correttamente la pagina Web di NGINX predefinita, creare un altro pod e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per confermare che è possibile accedere alla pagina web nginx predefinita:
+Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
 
 ```console
 wget -qO- http://backend
 ```
 
-L'output di esempio seguente mostra che è stata restituita la pagina Web NGINX predefinita:
+L'output di esempio seguente mostra che viene restituita la pagina Web di NGINX predefinita:
 
 ```output
 <!DOCTYPE html>
@@ -191,7 +191,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Creare e applicare i criteri di rete
 
-A questo punto, dopo aver verificato che è possibile usare la pagina Web NGINX di base sul Pod back-end di esempio, creare un criterio di rete per negare tutto il traffico. Creare un file denominato `backend-policy.yaml` e incollare il manifesto YAML seguente. Questo manifesto usa un *podSelector* per allineare i criteri ai pod con l'etichetta *app: webapp, Role: backend* , come il Pod nginx di esempio. Non sono definite regole per *ingress*, pertanto viene rifiutato tutto il traffico in ingresso verso il pod:
+Dopo aver confermato che è possibile usare la pagina Web di NGINX di base sul pod back-end di esempio, creare un criterio di rete per rifiutare tutto il traffico. Creare un file denominato `backend-policy.yaml` e incollare il manifesto YAML seguente. Questo manifesto usa un *podSelector* per collegare il criterio ai pod con l'etichetta *app=webapp,role=backend*, come il pod NGINX di esempio. Non sono definite regole per *ingress*, pertanto viene rifiutato tutto il traffico in ingresso verso il pod:
 
 ```yaml
 kind: NetworkPolicy
@@ -207,9 +207,9 @@ spec:
   ingress: []
 ```
 
-Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure cloud Shell nel browser.
+Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure Cloud Shell nel browser.
 
-Applicare i criteri di rete usando il comando [kubectl Apply][kubectl-apply] e specificare il nome del manifesto YAML:
+Applicare il criterio di rete usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
@@ -217,13 +217,13 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-network-policy"></a>Testare i criteri di rete
 
-Vediamo se è possibile usare di nuovo la pagina Web NGINX sul Pod back-end. Creare un altro pod di test e collegare una sessione del terminale:
+È il momento di verificare se è possibile usare nuovamente la pagina Web di NGINX nel pod back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita. Questa volta impostare un valore di timeout di *2* secondi. Il criterio di rete ora blocca tutto il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
+Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. Questa volta impostare un valore di timeout di *2* secondi. I criteri di rete ora bloccano tutto il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
 
 ```console
 wget -qO- --timeout=2 http://backend
@@ -241,9 +241,9 @@ exit
 
 ## <a name="allow-inbound-traffic-based-on-a-pod-label"></a>Consentire il traffico in ingresso in base a un'etichetta del pod
 
-Nella sezione precedente è stato pianificato un pod back-end NGINX ed è stato creato un criterio di rete per negare tutto il traffico. Viene ora creato un pod front-end e vengono aggiornati i criteri di rete per consentire il traffico dai pod front-end.
+Nella sezione precedente è stato pianificato un pod NGINX back-end ed è stato creato un criterio di rete per rifiutare tutto il traffico. Creare adesso un pod front-end e aggiornare i criteri di rete per consentire il traffico da tali pod.
 
-Aggiornare i criteri di rete per consentire il traffico dai pod con le etichette *app:webapp,role:frontend* e in qualsiasi spazio dei nomi. Modificare il file con *estensione YAML del criterio back-end* precedente e aggiungere le regole di ingresso *matchLabels* in modo che il manifesto appaia come nell'esempio seguente:
+Aggiornare i criteri di rete per consentire il traffico dai pod con le etichette *app:webapp,role:frontend* e in qualsiasi spazio dei nomi. Modificare il file *backend-policy.yaml* precedente e aggiungere un regola per il traffico in ingresso *matchLabels* in modo che il manifesto sia simile all'esempio seguente:
 
 ```yaml
 kind: NetworkPolicy
@@ -266,27 +266,27 @@ spec:
 ```
 
 > [!NOTE]
-> Il criterio di rete usa un *namespaceSelector* e un elemento *podSelector* (elemento) per la regola per il traffico in ingresso. La sintassi YAML è importante per l'aggiunta delle regole in ingresso. In questo esempio, entrambi gli elementi devono corrispondere perché la regola per il traffico in ingresso venga applicata. Le versioni di Kubernetes precedenti alla *1,12* potrebbero non interpretare correttamente questi elementi e limitare il traffico di rete come previsto. Per ulteriori informazioni su questo comportamento, vedere il [comportamento dei selettori da a e da][policy-rules].
+> Il criterio di rete usa un *namespaceSelector* e un elemento *podSelector* (elemento) per la regola per il traffico in ingresso. La sintassi YAML è importante perché le regole per il traffico in ingresso siano complementari. In questo esempio, entrambi gli elementi devono corrispondere perché la regola per il traffico in ingresso venga applicata. Le versioni di Kubernetes precedenti alla *1.12* potrebbero non interpretare correttamente questi elementi e limitare il traffico di rete nel modo previsto. Per altre informazioni su questo comportamento, vedere [Comportamento dei selettori di ingresso e uscita][policy-rules].
 
-Applicare i criteri di rete aggiornati usando il comando [kubectl Apply][kubectl-apply] e specificare il nome del manifesto YAML:
+Applicare il criterio di rete aggiornato usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
 ```
 
-Pianificare un pod con etichetta *app = webapp, Role = frontend* e alleghi una sessione terminal:
+Pianificare un pod etichettato *app=webapp,role=frontend* e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita:
+Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita:
 
 ```console
 wget -qO- http://backend
 ```
 
-Poiché la regola di ingresso consente il traffico con Pod con l'app labels *: webapp, Role: frontend*, il traffico dal Pod front-end è consentito. L'output di esempio seguente mostra la pagina Web NGINX predefinita restituita:
+Dal momento che la regola per il traffico in ingresso consente il traffico con i pod etichettati *app: webapp,role: frontend*, il traffico dal pod front-end è consentito. L'output di esempio seguente mostra la pagina Web di NGINX predefinita restituita:
 
 ```output
 <!DOCTYPE html>
@@ -296,7 +296,7 @@ Poiché la regola di ingresso consente il traffico con Pod con l'app labels *: w
 [...]
 ```
 
-Uscire dalla sessione del terminale collegata. Il Pod viene eliminato automaticamente.
+Uscire dalla sessione del terminale collegata. Il pod viene eliminato automaticamente.
 
 ```console
 exit
@@ -304,13 +304,13 @@ exit
 
 ### <a name="test-a-pod-without-a-matching-label"></a>Testare un pod senza un'etichetta corrispondente
 
-I criteri di rete consentono il traffico dai pod etichettati *app: webapp,role: frontend*, ma dovrebbero rifiutare tutto il resto del traffico. Viene ora testato per verificare se un altro Pod senza tali etichette può accedere al pod di NGINX back-end. Creare un altro pod di test e collegare una sessione del terminale:
+I criteri di rete consentono il traffico dai pod etichettati *app: webapp,role: frontend*, ma dovrebbero rifiutare tutto il resto del traffico. A questo punto è possibile verificare se un altro pod privo di queste etichette sia in grado di accedere al pod NGINX back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita. Il criterio di rete blocca il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
+Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. I criteri di rete bloccano il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
 
 ```console
 wget -qO- --timeout=2 http://backend
@@ -328,7 +328,7 @@ exit
 
 ## <a name="allow-traffic-only-from-within-a-defined-namespace"></a>Consentire solo il traffico da uno spazio dei nomi definito
 
-Negli esempi precedenti sono stati creati criteri di rete che hanno negato tutto il traffico, quindi sono stati aggiornati i criteri per consentire il traffico da Pod con un'etichetta specifica. Un'altra esigenza comune consiste nel limitare il traffico solo all'interno di uno spazio dei nomi specifico. Se gli esempi precedenti erano relativi al traffico in uno spazio dei nomi di *sviluppo* , creare criteri di rete che impediscono il traffico da un altro spazio dei nomi, ad esempio la *produzione*, di raggiungere i pod.
+Negli esempi precedenti sono stati creati criteri di rete per rifiutare tutto il traffico e successivamente questi criteri sono stati aggiornati per consentire il traffico dai pod con un'etichetta specifica. Un'altra esigenza comune è quella di limitare il traffico solo a un determinato spazio dei nomi. Se gli esempi precedenti si riferivano al traffico in uno spazio dei nomi *development*, creare un criterio di rete per impedire al traffico proveniente da un altro spazio dei nomi, ad esempio *production*, di raggiungere i pod.
 
 Per prima cosa, creare un nuovo spazio dei nomi per simulare quello dell'ambiente di produzione:
 
@@ -343,13 +343,13 @@ Pianificare un pod di test nello spazio dei nomi *production* con l'etichetta *a
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per confermare che è possibile accedere alla pagina web nginx predefinita:
+Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
 
 ```console
 wget -qO- http://backend.development
 ```
 
-Poiché le etichette per il Pod corrispondono a quanto attualmente consentito nei criteri di rete, il traffico è consentito. I criteri di rete non esaminano gli spazi dei nomi, ma solo le etichette dei pod. L'output di esempio seguente mostra la pagina Web NGINX predefinita restituita:
+Dal momento che le etichette per il pod corrispondono a quanto attualmente consentito nei criteri di rete, il traffico è consentito. I criteri di rete non esaminano gli spazi dei nomi, ma solo le etichette dei pod. L'output di esempio seguente mostra la pagina Web di NGINX predefinita restituita:
 
 ```output
 <!DOCTYPE html>
@@ -367,7 +367,7 @@ exit
 
 ### <a name="update-the-network-policy"></a>Aggiornare i criteri di rete
 
-Viene ora aggiornata la sezione *namespaceSelector* della regola in ingresso per consentire solo il traffico dallo spazio dei nomi di *sviluppo* . Modificare il file manifesto *backend-policy.yaml* come illustrato nell'esempio seguente:
+È ora possibile aggiornare la sezione della regola per il traffico in ingresso *namespaceSelector* per consentire solo il traffico dall'interno dello spazio dei nomi *development*. Modificare il file manifesto *backend-policy.yaml* come illustrato nell'esempio seguente:
 
 ```yaml
 kind: NetworkPolicy
@@ -391,9 +391,9 @@ spec:
           role: frontend
 ```
 
-In esempi più complessi, è possibile definire più regole di ingresso, ad esempio un *namespaceSelector* e un *podSelector*.
+Negli esempi più complessi è possibile definire più regole per il traffico in ingresso, come ad esempio un *namespaceSelector* e quindi un *podSelector*.
 
-Applicare i criteri di rete aggiornati usando il comando [kubectl Apply][kubectl-apply] e specificare il nome del manifesto YAML:
+Applicare il criterio di rete aggiornato usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
@@ -401,13 +401,13 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-updated-network-policy"></a>Testare i criteri di rete aggiornati
 
-Pianificare un altro Pod nello spazio dei nomi *Production* e alleghi una sessione terminal:
+Pianificare un altro pod nello spazio dei nomi *production* e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare che il criterio di rete neghi ora il traffico:
+Nel prompt della shell usare `wget` per vedere che i criteri di rete ora rifiutano il traffico:
 
 ```console
 wget -qO- --timeout=2 http://backend.development
@@ -423,19 +423,19 @@ Uscire dal pod di test:
 exit
 ```
 
-Con il traffico negato dallo spazio dei nomi di *produzione* , pianificare un pod di test nello spazio dei nomi di *sviluppo* e associare una sessione terminal:
+Con il traffico rifiutato dallo spazio dei nomi *production*, pianificare nuovamente un pod di test nello spazio dei nomi *development* e collegare una sessione del terminale:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare che i criteri di rete consentano il traffico:
+Nel prompt della shell usare `wget` per vedere che i criteri di rete consentono il traffico:
 
 ```console
 wget -qO- http://backend
 ```
 
-Il traffico è consentito perché il Pod è pianificato nello spazio dei nomi che corrisponde a ciò che è consentito nei criteri di rete. L'output di esempio seguente mostra la pagina Web NGINX predefinita restituita:
+Dal momento che il pod viene pianificato nello spazio dei nomi corrispondente a quanto consentito nei criteri di rete, il traffico è consentito. L'output di esempio seguente mostra la pagina Web di NGINX predefinita restituita:
 
 ```output
 <!DOCTYPE html>
@@ -453,7 +453,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-In questo articolo sono stati creati due spazi dei nomi e sono stati applicati criteri di rete. Per pulire queste risorse, usare il comando [kubectl Delete][kubectl-delete] e specificare i nomi delle risorse:
+In questo articolo sono stati creati due spazi dei nomi e sono stati applicati criteri di rete. Per eseguire la pulizia di queste risorse, usare il comando [kubectl delete][kubectl-delete] e specificare i nomi delle risorse:
 
 ```console
 kubectl delete namespace production
@@ -462,9 +462,9 @@ kubectl delete namespace development
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle risorse di rete, vedere [concetti di rete per le applicazioni in Azure Kubernetes Service (AKS)][concepts-network].
+Per altre informazioni sulle risorse di rete, vedere [Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes][concepts-network].
 
-Per ulteriori informazioni sui criteri, vedere [criteri di rete Kubernetes][kubernetes-network-policies].
+Per altre informazioni sui criteri, fare riferimento ai [Criteri di rete Kubernetes][kubernetes-network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -474,9 +474,9 @@ Per ulteriori informazioni sui criteri, vedere [criteri di rete Kubernetes][kube
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/reference/calicoctl/
 [calico-support]: https://www.tigera.io/tigera-products/calico/
-[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

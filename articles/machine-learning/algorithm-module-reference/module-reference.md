@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento su algoritmi e moduli
-description: Informazioni sui moduli disponibili in Azure Machine Learning Designer (anteprima)
+description: Informazioni sui moduli disponibili nella finestra di progettazione di Azure Machine Learning (anteprima).
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -8,66 +8,66 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/13/2020
-ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/19/2020
+ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458200"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848212"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer (anteprima)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informazioni di riferimento su algoritmi e moduli della finestra di progettazione di Azure Machine Learning (anteprima)
 
-Questo contenuto di riferimento fornisce lo sfondo tecnico su ognuno degli algoritmi e dei moduli di machine learning disponibili in Azure Machine Learning Designer (anteprima).
+Questi contenuti di riferimento offrono il background tecnico per ognuno degli algoritmi e dei moduli di Machine Learning disponibili nella finestra di progettazione di Azure Machine Learning (anteprima).
 
-Ogni modulo rappresenta un set di codice che può essere eseguito in modo indipendente ed eseguire un'attività di Machine Learning, in base agli input necessari. Un modulo può contenere un particolare algoritmo o eseguire un'attività di particolare rilevanza nell'apprendimento automatico, ad esempio la sostituzione di valori mancanti o l'analisi statistica.
+Ogni modulo rappresenta un set di codice che può essere eseguito in modo indipendente e può eseguire un'attività di Machine Learning, a condizione che vengano specificati i necessari valori di input. Un modulo può contenere un particolare algoritmo o eseguire un'attività di particolare rilevanza nell'apprendimento automatico, ad esempio la sostituzione di valori mancanti o l'analisi statistica.
 
-Per informazioni sulla scelta degli algoritmi, vedere 
+Per assistenza nella scelta degli algoritmi, vedere: 
 * [Come selezionare gli algoritmi](../how-to-select-algorithms.md)
-* [Foglio informativo sugli algoritmi di Azure Machine Learning](../algorithm-cheat-sheet.md)
+* [Scheda di riferimento rapido sugli algoritmi di Azure Machine Learning](../algorithm-cheat-sheet.md)
 
 > [!TIP]
-> In qualsiasi pipeline della finestra di progettazione è possibile ottenere informazioni su un modulo specifico. Selezionare il modulo e quindi fare clic sul collegamento **more help** (altre informazioni) nel riquadro **Quick Help** (Guida rapida).
+> In qualsiasi pipeline della finestra di progettazione è possibile ottenere informazioni su uno specifico modulo. Selezionare il collegamento **Altre informazioni** nella scheda del modulo quando si passa il mouse sul modulo nell'elenco dei moduli o nel riquadro destro del modulo.
 
 ## <a name="data-preparation-modules"></a>Moduli di preparazione dei dati
 
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Input e output dei dati | Spostare i dati dalle origini cloud alla pipeline. Scrivere i risultati o i dati intermedi in archiviazione di Azure, un database SQL o hive, durante l'esecuzione di una pipeline, oppure usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Immettere i dati manualmente](enter-data-manually.md) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
-| Trasformazione dei dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la riduzione della dimensionalità e la conversione dei dati tra diversi formati di file.| [Aggiungere colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Applicare operazioni matematiche](apply-math-operation.md) <br/> [Applicare la trasformazione SQL](apply-sql-transformation.md) <br/> [Pulire i dati mancanti](clean-missing-data.md) <br/> [Ritagliare valori](clip-values.md) <br/> [Eseguire la conversione in CSV](convert-to-csv.md) <br/> [Eseguire la conversione in set di dati](convert-to-dataset.md) <br/> [Eseguire la conversione in valori di indicatori](convert-to-indicator-values.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unire dati](join-data.md) <br/> [Normalizzare i dati](normalize-data.md) <br/> [Creare partizioni ed eseguire campionamenti](partition-and-sample.md)  <br/> [Rimuovere righe duplicate](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Select Columns Transform](select-columns-transform.md) <br/> [Select Columns in Dataset](select-columns-in-dataset.md) <br/> [Dividere dati](split-data.md) |
-| Selezione caratteristiche | Consente di selezionare un subset di funzionalità utili rilevanti da utilizzare per la compilazione di un modello analitico. | [Filter Based Feature Selection](filter-based-feature-selection.md) <br/> [Permutation Feature Importance](permutation-feature-importance.md) |
-| Funzioni di statistiche | Fornire un'ampia gamma di metodi statistici correlati a data science. | [Riepilogare i dati](summarize-data.md)|
+| Dati di input e di output | Spostano i dati da origini cloud nella pipeline. Scrivono i risultati o i dati intermedi in Archiviazione di Azure, in un database SQL o in Hive durante l'esecuzione di una pipeline oppure usano l'archiviazione cloud per consentire lo scambio di dati tra pipeline.  | [Enter Data Manually](enter-data-manually.md) (Immissione manuale dei dati) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
+| Trasformazioni dei dati | Operazioni su dati specifici per l'apprendimento automatico, ad esempio la normalizzazione o il binning dei dati, la riduzione della dimensionalità e la conversione dei dati tra vari formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Add Rows](add-rows.md) (Aggiungi righe) <br/> [Apply Math Operation](apply-math-operation.md) (Applica operazione matematica) <br/> [Apply SQL Transformation](apply-sql-transformation.md) (Applica trasformazione SQL) <br/> [Clean Missing Data](clean-missing-data.md) (Pulisci dati mancanti) <br/> [Clip Values](clip-values.md) (Ritaglia valori) <br/> [Convert to CSV](convert-to-csv.md) (Converti in CSV) <br/> [Convert to Dataset](convert-to-dataset.md) (Converti in set di dati) <br/> [Convert to Indicator Values](convert-to-indicator-values.md) (Converti in valori indicatore) <br/> [Edit Metadata](edit-metadata.md) (Modifica metadati) <br/> [Group Data into Bins](group-data-into-bins.md) (Raggruppa dati in contenitori) <br/> [Join Data](join-data.md) (Unisci dati) <br/> [Normalize Data](normalize-data.md) (Normalizza dati) <br/> [Partition and Sample](partition-and-sample.md) (Crea partizioni ed esegui campionamenti)  <br/> [Remove Duplicate Rows](remove-duplicate-rows.md) (Rimuovi righe duplicate) <br/> [SMOTE](smote.md) <br/> [Select Columns Transform](select-columns-transform.md) (Seleziona trasformazione colonne) <br/> [Select Columns in Dataset](select-columns-in-dataset.md) (Seleziona colonne nel set di dati) <br/> [Dividere dati](split-data.md) |
+| Selezione caratteristiche | Selezionano un subset di funzionalità utili e pertinenti da usare per la creazione di un modello di analisi. | [Filter Based Feature Selection](filter-based-feature-selection.md) (Selezione caratteristiche basata su filtro) <br/> [Permutation Feature Importance](permutation-feature-importance.md) (Importanza caratteristica permutazione) |
+| Funzioni di statistiche | Offrono un'ampia gamma di metodi statistici correlati al data science. | [Summarize Data](summarize-data.md) (Riepiloga dati)|
 
 ## <a name="machine-learning-algorithms"></a>Algoritmi di apprendimento automatico
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Regressione | Stimare un valore. | [Regressione albero delle decisioni incrementato](boosted-decision-tree-regression.md) <br/> [Regressione foresta delle decisioni](decision-forest-regression.md) <br/> [Linear Regression](linear-regression.md)  <br/> [Regressione rete neurale](neural-network-regression.md)  <br/> |
-| Clustering | Raggruppare i dati.| [Clustering K-means](k-means-clustering.md)
-| Classificazione | Stimare una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) <br/> [Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two-Class Support Vector Machine](two-class-support-vector-machine.md) | 
+| Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> |
+| Clustering | Raggruppa i dati.| [Clustering K-Means](k-means-clustering.md)
+| Classificazione | Prevedono una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Uno contro tutti multiclasse) <br/> [Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Macchina a vettori di supporto a due classi) | 
 
-## <a name="modules-for-building-and-evaluating-models"></a>Moduli per la compilazione e la valutazione dei modelli
+## <a name="modules-for-building-and-evaluating-models"></a>Moduli per la creazione e la valutazione dei modelli
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Training dei modelli | Eseguire i dati tramite l'algoritmo. |  [Eseguire il training del modello di clustering](train-clustering-model.md) <br/> [Eseguire il training del modello](train-model.md)  <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) |
-| Valutazione e punteggio del modello | Misurare l'accuratezza del modello sottoposto a training. | [Applicare la trasformazione](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) <br/> [Cross Validate Model](cross-validate-model.md) <br/> [Valutare il modello](evaluate-model.md) <br/> [Assegnare il punteggio al modello](score-model.md) |
-| Linguaggio di programmazione di Python | Scrivere il codice e incorporarlo in un modulo per integrare Python con la pipeline. | [Creare il modello Python](create-python-model.md) <br/> [Eseguire lo script Python](execute-python-script.md) |
-| Linguaggio R | Scrivere codice e incorporarlo in un modulo per integrare R con la pipeline. | [Execute R Script](execute-r-script.md) |
-| Text Analytics | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) <br/> [Feature Hashing](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) <br/> [Latent Dirichlet Allocation](latent-dirichlet-allocation.md) |
-| Recommendation | Compilare i modelli di raccomandazione. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
-| Anomaly Detection | Modelli di rilevamento delle anomalie di compilazione. | [Rilevamento anomalie basato su PCA](pca-based-anomaly-detection.md) <br/> [Eseguire il training del modello di rilevamento anomalie](train-anomaly-detection-model.md) |
+| Training del modello | Eseguono i dati tramite l'algoritmo. |  [Train Clustering Model](train-clustering-model.md) (Training del modello di clustering) <br/> [Eseguire il training del modello](train-model.md)  <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Ottimizza iperparametri del modello) |
+| Valutazione e assegnazione di punteggi al modello | Misurano l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (Assegna dati ai cluster) <br/> [Cross Validate Model](cross-validate-model.md) (Convalida incrociata modello) <br/> [Evaluate Model](evaluate-model.md) (Valuta modello) <br/> [Score Model](score-model.md) (Punteggio modello) |
+| Linguaggio di Python | Scrivono codice e lo incorporano in un modulo per integrare Python con la pipeline. | [Create Python Model](create-python-model.md) (Crea modello Python) <br/> [Execute Python Script](execute-python-script.md) (Esegui script Python) |
+| Linguaggio di R | Scrivono codice e lo incorporano in un modulo per integrare R con la pipeline. | [Execute R Script](execute-r-script.md) (Esegui script R) |
+| Text Analytics | Forniscono strumenti di calcolo specializzati per usare testo strutturato e non strutturato. |  [Convert Word to Vector](convert-word-to-vector.md) (Converti parola in vettore) <br/> [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) (Estrai caratteristiche n-gramma da testo) <br/> [Hashing di funzioni](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) (Preelabora il testo) <br/> [Latent Dirichlet Allocation](latent-dirichlet-allocation.md) (Allocazione Dirichlet latente) |
+| Recommendation | Creano modelli di raccomandazione. | [Evaluate Recommender](evaluate-recommender.md) (Valuta modelo di raccomandazione) <br/> [Score SVD Recommender](score-svd-recommender.md) (Punteggio modulo di raccomandazione SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Training modulo di raccomandazione SVD) |
+| Anomaly Detection | Creano modelli di rilevamento delle anomalie. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) (Rilevamento anomalie basato su PCA) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (Training modello di rilevamento anomalie) |
 
 
 ## <a name="web-service"></a>Servizio Web
 
-Informazioni sui [moduli del servizio Web](web-service-input-output.md) che sono necessari per l'inferenza in tempo reale in Azure Machine Learning Designer.
+Vedere le informazioni sui [moduli del servizio Web](web-service-input-output.md) necessari per l'inferenza in tempo reale nella finestra di progettazione di Azure Machine Learning.
 
-## <a name="error-messages"></a>Messaggi di errore
+## <a name="error-messages"></a>messaggi di errore
 
-Informazioni sui [messaggi di errore e i codici di eccezione](designer-error-codes.md) che possono verificarsi usando i moduli in Azure Machine Learning Designer.
+Vedere le informazioni su [messaggi di errore e codici di eccezione](designer-error-codes.md) che possono verificarsi usando moduli della finestra di progettazione di Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: creare un modello in progettazione per stimare i prezzi automatici](../tutorial-designer-automobile-price-train-score.md)
+* [Esercitazione: Creare un modello nella finestra di progettazione per la previsione dei prezzi delle automobili](../tutorial-designer-automobile-price-train-score.md)

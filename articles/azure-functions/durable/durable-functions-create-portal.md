@@ -1,24 +1,24 @@
 ---
-title: Creare funzioni Durable Functions con il portale di Azure
+title: Creare funzioni permanenti con il portale di Azure
 description: Informazioni su come installare l'estensione Durable Functions per Funzioni di Azure per lo sviluppo nel portale.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7aa283480d95693e2630e24d5642fc7cb909b34b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83120149"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848761"
 ---
-# <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni Durable Functions con il portale di Azure
+# <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
-L'estensione [Durable Functions](durable-functions-overview.md) di Funzioni di Azure è inclusa nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Questa estensione deve essere installata nell'app per le funzioni. Questo articolo illustra come installare questo pacchetto in modo da poter sviluppare funzioni Durable Functions nel portale di Azure.
+L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di Azure è inclusa nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Questa estensione deve essere installata nell'app per le funzioni. Questo articolo illustra come installare questo pacchetto in modo da poter sviluppare funzioni permanenti nel portale di Azure.
 
 > [!NOTE]
 > 
 > * Se si sviluppano funzioni Durable Functions in C#, considerare lo [sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
-> * Se si sviluppano funzioni Durable Functions in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
+> * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -57,6 +57,8 @@ Se si stanno creando funzioni Durable Functions in JavaScript, è necessario ins
 4. Dopo aver caricato il file `package.json`, eseguire il comando `npm install` nella console di esecuzione remota Kudu.
 
    ![Esecuzione npm install in Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
+   
+5. Infine, abilitare la modalità di compatibilità [https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1 ] aggiungendo un'impostazione dell'app `FUNCTIONS_V2_COMPATIBILITY_MODE` con il valore `true`.
 
 ## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
 

@@ -1,14 +1,14 @@
 ---
-title: Azure Batch di monitoraggio
+title: Monitoraggio di Azure Batch
 description: Informazioni su servizi di monitoraggio Azure, metriche, log di diagnostica e altre funzionalità di monitoraggio per Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113891"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723528"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -22,7 +22,7 @@ Al livello della sottoscrizione, che include gli account Batch, il [log attivit�
 
 Per gli account Batch in particolare, il log attività raccoglie gli eventi correlati alla creazione ed eliminazione degli account e alla gestione delle chiavi.
 
-Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **tutti i servizi** > **log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **Tutti i servizi** > **Log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitoraggio a livello di account Batch
 
@@ -55,7 +55,7 @@ Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo st
   > È possibile incorrere in costi aggiuntivi per l'uso di Application Insights. Vedere le [opzioni per i prezzi](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. Scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Facoltativamente, configurare la soluzione Batch per [visualizzare i dati di Application Insights](https://github.com/Azure/batch-insights), ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Facoltativamente, configurare la soluzione Batch per [visualizzare i dati di Application Insights](https://github.com/Azure/batch-insights), ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

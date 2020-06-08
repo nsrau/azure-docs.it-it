@@ -1,17 +1,17 @@
 ---
-title: Analisi di utenti, sessioni ed eventi in applicazione Azure Insights
+title: Analisi di utenti, sessioni ed eventi in Azure Application Insights
 description: Analisi demografica degli utenti dell'app Web.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10ea3c68695e7e4fb4950fbcc4a190e9f1d83f49
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670985"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797710"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 
@@ -28,8 +28,8 @@ Se nei pannelli degli utenti, delle sessioni e degli eventi nel portale di Appli
 Tre pannelli d'uso usano lo stesso strumento per effettuare un'analisi approfondita dei dati di telemetria dell'app Web da tre diverse prospettive. Applicando i filtri e dividendo i dati, si possono scoprire informazioni dettagliate sull'uso di pagine e funzionalità diverse.
 
 * **Strumento Utenti**: numero di persone che hanno usato l'app e le relative funzionalità.  Gli utenti vengono conteggiati tramite ID anonimi memorizzati nei cookie del browser. Una singola persona che usa browser o computer diversi verrà conteggiata più di una volta.
-* **Strumento Sessioni**: il numero di sessioni delle attività dell'utente che include determinate pagine e funzionalità dell'app. Una sessione viene conteggiata dopo mezz'ora di inattività dell'utente o in seguito a 24 ore di utilizzo continuo.
-* **Strumento Eventi**: la frequenza con cui vengono usate alcune pagine e funzionalità dell'app. La visualizzazione di una pagina viene conteggiata quando un browser carica la pagina dell'app, purché sia stata [instrumentata](../../azure-monitor/app/javascript.md). 
+* **Strumento Sessioni**: numero di sessioni delle attività dell'utente che include determinate pagine e funzionalità dell'app. Una sessione viene conteggiata dopo mezz'ora di inattività dell'utente o in seguito a 24 ore di utilizzo continuo.
+* **Strumento Eventi**: frequenza con cui vengono usate alcune pagine e funzionalità dell'app. La visualizzazione di una pagina viene conteggiata quando un browser carica la pagina dell'app, purché sia stata [instrumentata](../../azure-monitor/app/javascript.md). 
 
     Un evento personalizzato indica che nell'app si verifica un'operazione, spesso si tratta di un'interazione dell'utente ad esempio il clic su un pulsante o il completamento di alcune attività. Inserire codice nell'app per [generare eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -38,10 +38,10 @@ Tre pannelli d'uso usano lo stesso strumento per effettuare un'analisi approfond
 Modificando le opzioni di query nella parte superiore dello strumento Utenti, è possibile esaminare diversi gruppi di utenti:
 
 * Mostra: scegliere una coorte di utenti da analizzare.
-* Who used (Usato da): scegliere gli eventi personalizzati e le visualizzazioni di pagina.
+* Che ha usato: scegliere le visualizzazioni pagina e gli eventi personalizzati.
 * Durante: scegliere un intervallo di tempo.
-* By (Da): scegliere la modalità di ordinazione dei dati in base un intervallo di tempo o a un'altra proprietà, ad esempio la città o il browser.
-* Split By (Dividi per): scegliere una proprietà in base alla quale dividere o segmentare i dati. 
+* Entro: scegliere la modalità di ordinazione dei dati in base a un intervallo di tempo o a un'altra proprietà, ad esempio la città o il browser.
+* Dividi per: scegliere una proprietà in base alla quale dividere o segmentare i dati. 
 * Aggiungi filtri: limitare le query a determinati utenti, sessioni o eventi in base alle relative proprietà, ad esempio città o browser. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvataggio e condivisione di report 
@@ -62,5 +62,5 @@ La sezione **Meet your users** (Conosci gli utenti) mostra informazioni relative
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)

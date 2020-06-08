@@ -7,27 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838774"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831195"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
 Come prerequisito è necessario conoscere la nozione di unità di streaming descritta in [Informazioni e modifica delle unità di streaming](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quali sono le parti di un processo di Analisi di flusso?
-Una definizione del processo di analisi di flusso include almeno un input di flusso, una query e un output. Gli input sono le origini da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input dei dati e l'output è la destinazione a cui il processo invia i risultati.
+Una definizione del processo di Analisi di flusso include almeno un input, una query e un output di flusso. Gli input sono le origini da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input dei dati e l'output è la destinazione a cui il processo invia i risultati.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Partizioni in input e output
-Il partizionamento consente di dividere i dati in subset in base a una [chiave di partizione](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Se l'input (ad esempio, Hub eventi) viene partizionato con una chiave, è consigliabile specificare questa chiave di partizione quando si aggiunge l'input al processo di analisi di flusso. Il ridimensionamento di un processo di analisi di flusso sfrutta le partizioni nell'input e nell'output. Un processo di analisi di flusso può utilizzare e scrivere partizioni diverse in parallelo, aumentando così la velocità effettiva. 
+Il partizionamento consente di suddividere i dati in subset in base a una [chiave di partizione](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Se l'input (ad esempio, Hub eventi) viene partizionato con una chiave, è vivamente consigliabile specificare questa chiave di partizione quando si aggiunge l'input al processo di analisi di flusso. Il ridimensionamento di un processo di Analisi di flusso sfrutta i vantaggi offerti dall'uso di partizioni nell'input e nell'output. Un processo di Analisi di flusso può usare diverse partizioni e scrivervi in parallelo, aumentando così la velocità effettiva. 
 
 ### <a name="inputs"></a>Input
 Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del partizionamento:
--   EventHub (è necessario impostare la chiave di partizione in modo esplicito con la parola chiave PARTITION BY se si usa il livello di compatibilità 1,1 o inferiore)
--   Hub tutto (è necessario impostare la chiave di partizione in modo esplicito con la parola chiave PARTITION BY se si usa il livello di compatibilità 1,1 o inferiore)
+-   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito con la parola chiave PARTITION BY tramite il livello di compatibilità 1.1 o inferiore)
+-   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito con la parola chiave PARTITION BY tramite il livello di compatibilità 1.1 o inferiore)
 -   Archiviazione BLOB
 
 ### <a name="outputs"></a>Output
@@ -52,13 +52,13 @@ Per altre informazioni sulle partizioni, vedere gli articoli seguenti:
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Processi perfettamente paralleli
-Un processo perfettamente *parallelo* è lo scenario più scalabile in analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Questo parallelismo presenta i requisiti seguenti:
+Un processo *perfettamente parallelo* è lo scenario più scalabile che può presentarsi in Analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Questo parallelismo presenta i requisiti seguenti:
 
-1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi e l'hub IoT, questo significa che per i dati degli eventi deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Un esempio è costituito da un'istanza di query che aggrega i dati per userID dove Hub eventi di input viene partizionato usando userID come chiave di partizione. Tuttavia, se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
+1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi e l'hub IoT, questo significa che per i dati degli eventi deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Un esempio è costituito da un'istanza di query che aggrega i dati per userID, dove l'hub eventi di input viene partizionato usando userID come chiave di partizione. Tuttavia, se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
 
-2. Il passaggio successivo consiste nell'eseguire il partizionamento della query. Per i processi con livello di compatibilità 1,2 o superiore (scelta consigliata), è possibile specificare una colonna personalizzata come chiave di partizione nelle impostazioni di input e il processo verrà paralellized automaticamente. Per i processi con livello di compatibilità 1,0 o 1,1, è necessario usare **Partition by PartitionID** in tutti i passaggi della query. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. 
+2. Il passaggio successivo consiste nell'eseguire il partizionamento della query. Per i processi con livello di compatibilità 1.2 o superiore (scelta consigliata), è possibile specificare una colonna personalizzata come chiave di partizione nelle impostazioni di input e il processo verrà eseguito automaticamente in parallelo. Per i processi con livello di compatibilità 1.0 o 1.1, è necessario usare **PARTITION BY PartitionId** in tutti i passaggi della query. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. 
 
-3. La maggior parte degli output supportati in analisi di flusso può trarre vantaggio dal partizionamento. Se si usa un tipo di output che non supporta il partizionamento, il processo non sarà perfettamente *parallelo*. Per gli output dell'hub eventi, verificare che la **colonna chiave di partizione** sia impostata sulla stessa chiave di partizione usata nella query. Per altri dettagli, vedere la [sezione output](#outputs).
+3. Per la maggior parte degli output supportati in Analisi di flusso di Azure, è possibile sfruttare il partizionamento. Se si usa un tipo di output che non supporta il partizionamento, il processo non risulterà *perfettamente parallelo*. Per gli output dell'hub eventi, assicurarsi che la **colonna Chiave di partizione** sia impostata sulla stessa chiave di partizione usata nella query. Per altri dettagli, vedere la [sezione output](#outputs).
 
 4. Il numero delle partizioni di input deve essere uguale a quello delle partizioni di output. L'output dell'archiviazione BLOB può supportare le partizioni ed eredita lo schema di partizionamento della query a monte. Quando viene specificata una chiave di partizione per l'archiviazione BLOB, i dati vengono partizionati per partizione di input, pertanto il risultato è ancora completamente parallelo. Ecco alcuni esempi di valori di partizioni che consentono un processo perfettamente parallelo:
 
@@ -73,7 +73,7 @@ Le sezioni seguenti illustrano alcuni esempi di scenari perfettamente paralleli.
 ### <a name="simple-query"></a>Query semplice
 
 * Input: hub eventi con 8 partizioni
-* Output: Hub eventi con 8 partizioni ("colonna chiave di partizione" deve essere impostato per usare "PartitionId")
+* Output: Hub eventi con 8 partizioni ("colonna Chiave di partizione" deve essere impostato per usare "PartitionId")
 
 Query:
 
@@ -89,12 +89,12 @@ Query:
     WHERE TollBoothId > 100
 ```
 
-Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che i processi con livello di compatibilità prima di 1,2 devono includere la clausola **Partition by PartitionID** , quindi soddisfano i requisiti #2 precedenti. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
+Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che i processi con livello di compatibilità precedente a 1.2 devono includere la clausola **PARTITION BY PartitionId**, in modo da soddisfare il requisito 2 descritto in precedenza. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
 
 ### <a name="query-with-a-grouping-key"></a>Query con chiave di raggruppamento
 
 * Input: hub eventi con 8 partizioni
-* Output: archiviazione BLOB
+* Output: Archiviazione BLOB
 
 Query:
 
@@ -120,7 +120,7 @@ Nella sezione precedente sono stati presentati alcuni scenari perfettamente para
 * Input: hub eventi con 8 partizioni
 * Output: hub eventi con 32 partizioni
 
-Se il numero delle partizioni di input non corrisponde al numero di partizioni di output, la topologia non è perfettamente parallela, indipendentemente dalla query. Tuttavia è comunque possibile ottenere un livello o una parallelizzazione.
+Se il numero delle partizioni di input non corrisponde a quello delle partizioni di output, la topologia non è perfettamente parallela, indipendentemente dalla query. Tuttavia, è comunque possibile ottenere un livello o una parallelizzazione.
 
 ### <a name="query-using-non-partitioned-output"></a>Query con output non partizionati
 * Input: hub eventi con 8 partizioni
@@ -131,7 +131,7 @@ L'output Power BI attualmente non supporta il partizionamento. Pertanto, questo 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Query a più passaggi con valori diversi per PARTITION BY
 * Input: hub eventi con 8 partizioni
 * Output: hub eventi con 8 partizioni
-* Livello di compatibilità: 1,0 o 1,1
+* Livello di compatibilità: 1.0 o 1.1
 
 Query:
 
@@ -151,8 +151,8 @@ Come è possibile osservare, il secondo passaggio usa **TollBoothId** come chiav
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Query a più passaggi con valori diversi per PARTITION BY
 * Input: hub eventi con 8 partizioni
-* Output: Hub eventi con 8 partizioni ("colonna chiave di partizione" deve essere impostato per usare "TollBoothId")
-* Livello di compatibilità-1,2 o versione successiva
+* Output: Hub eventi con 8 partizioni ("colonna Chiave di partizione" deve essere impostato per usare "TollBoothId")
+* Livello di compatibilità - 1.2 e superiore
 
 Query:
 
@@ -168,7 +168,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Il livello di compatibilità 1,2 o versione successiva consente l'esecuzione di query parallele per impostazione predefinita. Ad esempio, la query della sezione precedente verrà partizionata a condizione che la colonna "TollBoothId" sia impostata come chiave di partizione di input. La clausola PARTITION BY PartitionId non è obbligatoria.
+Per impostazione predefinita, il livello di compatibilità 1.2 o versione successiva consente l'esecuzione di query in parallelo. Ad esempio, la query della sezione precedente verrà partizionata a condizione che la colonna "TollBoothId" sia impostata come chiave di partizione di input. La clausola PARTITION BY PartitionId non è richiesta.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcolare il numero massimo di unità di streaming di un processo
 Il numero totale di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni per ogni passaggio.
@@ -200,7 +200,7 @@ Il partizionamento di un passaggio richiede le condizioni seguenti:
 
 * L'origine di input deve essere partizionata. 
 * L'istruzione **SELECT** della query deve leggere da un'origine di input partizionata.
-* Per la query all'interno del passaggio deve essere presente la parola chiave **Partition by** .
+* La query all'interno del passaggio deve includere la parola chiave **PARTITION BY**.
 
 Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi separati di partizioni e per ogni gruppo vengono generati eventi di output. Se si vuole un aggregato combinato, è necessario creare un secondo passaggio non partizionato per l'aggregazione.
 
@@ -256,9 +256,9 @@ Per questa query è possibile aumentare il numero di unità di streaming fino a 
 > 
 > 
 
-## <a name="achieving-higher-throughputs-at-scale"></a>Ottenere velocità effettiva più elevate su larga scala
+## <a name="achieving-higher-throughputs-at-scale"></a>Ottenimento di una velocità effettiva più elevata su larga scala
 
-Un processo perfettamente [parallelo](#embarrassingly-parallel-jobs) è necessario ma non sufficiente per sostenere una velocità effettiva più elevata su larga scala. Ogni sistema di archiviazione e l'output di analisi di flusso corrispondente hanno variazioni su come ottenere la massima velocità effettiva di scrittura. Come per qualsiasi scenario su larga scala, è possibile risolvere alcuni problemi usando le configurazioni corrette. Questa sezione illustra le configurazioni per alcuni output comuni e fornisce esempi per sostenere la velocità di inserimento di eventi da 1.000, 5K e 10.000 al secondo.
+Anche se necessario, un processo [perfettamente parallelo](#embarrassingly-parallel-jobs) non è sufficiente per sostenere una velocità effettiva più elevata su larga scala. Ogni sistema di archiviazione e l'output di analisi di flusso corrispondente presentano variazioni su come ottenere la massima velocità effettiva di scrittura. Come per qualsiasi scenario su larga scala, è possibile risolvere alcuni problemi usando le configurazioni corrette. Questa sezione illustra le configurazioni per alcuni output comuni e fornisce esempi per sostenere la velocità di inserimento di 1.000, 5.000 e 10.000 eventi al secondo.
 
 Le osservazioni seguenti usano un processo di analisi di flusso con query senza stato (passthrough), una funzione definita dall'utente JavaScript di base che scrive nell'hub eventi, nel database SQL di Azure o in Cosmos DB.
 
@@ -266,31 +266,31 @@ Le osservazioni seguenti usano un processo di analisi di flusso con query senza 
 
 |Velocità di inserimento (eventi al secondo) | Unità di streaming | Risorse di output  |
 |--------|---------|---------|
-| 1K     |    1    |  2 TU   |
-| 5K     |    6    |  6 U   |
-| 10K    |    12   |  10 U  |
+| 1\.000     |    1    |  2 TU   |
+| 5\.000     |    6    |  6 TU   |
+| 10.000    |    12   |  10 TU  |
 
-La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) si ridimensiona in modo lineare in termini di unità di streaming e velocità effettiva, rendendola il modo più efficiente ed efficace per analizzare e trasmettere i dati da analisi di flusso. I processi possono essere ridimensionati fino a 192 unità di streaming, che approssimativamente si traduce nell'elaborazione fino a 200 MB/s o 19 mila miliardi eventi al giorno.
+La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) garantisce una scalabilità lineare in termini di unità di streaming e velocità effettiva, che la rende il modo più efficiente ed efficace per analizzare e trasmettere i dati da analisi di flusso. I processi possono essere ridimensionati fino a 192 unità di streaming, che approssimativamente si traduce nell'elaborazione fino a 200 MB/s o 19.000 miliardi di eventi al giorno.
 
 #### <a name="azure-sql"></a>SQL di Azure
 |Velocità di inserimento (eventi al secondo) | Unità di streaming | Risorse di output  |
 |---------|------|-------|
-|    1K   |   3  |  S3   |
-|    5K   |   18 |  P4   |
-|    10K  |   36 |  P6   |
+|    1\.000   |   3  |  S3   |
+|    5\.000   |   18 |  P4   |
+|    10.000  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) supporta la scrittura in parallelo, denominata ereditarietà del partizionamento, ma non è abilitata per impostazione predefinita. Tuttavia, l'abilitazione del partizionamento ereditato, insieme a una query completamente parallela, potrebbe non essere sufficiente per ottenere una velocità effettiva più elevata. Le velocità effettiva di scrittura di SQL dipendono significativamente dalla configurazione del database SQL Azure e dallo schema della tabella. L'articolo relativo alle [prestazioni dell'output SQL](./stream-analytics-sql-output-perf.md) offre maggiori dettagli sui parametri che possono ottimizzare la velocità effettiva di scrittura. Come indicato nell'articolo [output di analisi di flusso di Azure per il database SQL di Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics) , questa soluzione non viene ridimensionata in modo lineare come pipeline completamente parallela oltre 8 partizioni e potrebbe essere necessario eseguire la ripartizionamento prima dell'output SQL (vedere [in](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Gli SKU Premium sono necessari per sostenere velocità di i/o elevate, oltre a sovraccarico dai backup del log che si verificano ogni pochi minuti.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) supporta la scrittura in parallelo, denominata " Eredita schema di partizione", ma non è abilitata per impostazione predefinita. Tuttavia, l'abilitazione del partizionamento ereditario, assieme a una query completamente parallela, potrebbe non essere sufficiente per ottenere una velocità effettiva più elevata. Le velocità effettive di scrittura di SQL dipendono ampiamente dalla configurazione del database SQL di Azure e dallo schema della tabella. L'articolo relativo alle [prestazioni output di SQL](./stream-analytics-sql-output-perf.md) offre maggiori dettagli sui parametri che possono ottimizzare la velocità effettiva di scrittura. Come indicato nell'articolo [Output di Analisi di flusso di Azure nel database SQL di Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics), questa soluzione non viene ridimensionata in modo lineare come pipeline completamente parallela oltre 8 partizioni e potrebbe essere necessario eseguire nuovamente la partizione prima dell'output SQL (vedere [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Gli SKU Premium sono necessari per sostenere velocità di I/O elevate, oltre al sovraccarico dovuto ai backup del log effettuati ogni pochi minuti.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Velocità di inserimento (eventi al secondo) | Unità di streaming | Risorse di output  |
 |-------|-------|---------|
-|  1K   |  3    | 20.000 UR  |
-|  5K   |  24   | 60K UR  |
-|  10K  |  48   | 120K UR |
+|  1\.000   |  3    | 20.000 UR  |
+|  5\.000   |  24   | 60.000 UR  |
+|  10.000  |  48   | 120.000 UR |
 
-[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output di analisi di flusso è stato aggiornato per usare l'integrazione nativa con il [livello di compatibilità 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Il livello di compatibilità 1,2 consente una velocità effettiva significativamente superiore e riduce il consumo delle unità richiesta rispetto a 1,1, che rappresenta il livello di compatibilità predefinito per i nuovi processi. La soluzione USA i contenitori CosmosDB partizionati in/deviceId e il resto della soluzione è configurato in modo identico.
+L'output di [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) da Analisi di flusso è stato aggiornato per usare l'integrazione nativa con il [livello di compatibilità 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Il livello di compatibilità 1.2 consente una velocità effettiva significativamente superiore e riduce il consumo di UR rispetto al livello 1.1, che rappresenta il livello di compatibilità predefinito per i nuovi processi. La soluzione usa contenitori CosmosDB partizionati in /deviceId, mentre il resto della soluzione è configurato in modo identico.
 
-Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure-Samples/streaming-at-scale) usano un hub eventi alimentato da Load Simulating client di test come input. Ogni evento di input è un documento JSON 1 KB, che converte facilmente i tassi di inserimento configurati in velocità effettiva (1 MB/s, 5 MB/s e 10 MB/s). Gli eventi simulano un dispositivo molto che invia i dati JSON seguenti (in forma abbreviata) per un massimo di 1K dispositivi:
+Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure-Samples/streaming-at-scale) usano un hub eventi alimentato da client di test di simulazione del carico come input. Ogni evento di input è un documento JSON da 1 kB, che converte facilmente i tassi di inserimento configurati in velocità effettiva (1 MB/s, 5 MB/s e 10 MB/s). Gli eventi simulano un dispositivo IoT che invia i dati JSON seguenti (in forma abbreviata) per un massimo di 1.000 dispositivi:
 
 ```
 {
@@ -307,20 +307,20 @@ Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure
 ```
 
 > [!NOTE]
-> Le configurazioni sono soggette a modifiche a causa dei vari componenti usati nella soluzione. Per una stima più accurata, personalizzare gli esempi per adattarlo allo scenario.
+> Le configurazioni sono soggette a modifiche a causa dei vari componenti usati nella soluzione. Per una stima più accurata, personalizzare gli esempi per adattarli allo scenario.
 
 ### <a name="identifying-bottlenecks"></a>Individuazione dei colli di bottiglia
 
-Usare il riquadro metriche nel processo di analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Esaminare **gli eventi di input/output** per la velocità effettiva e il ["ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **gli eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **le richieste limitate** e modificare di conseguenza le unità di soglia. Per Cosmos DB metrica, esaminare il **numero massimo di ur/sec utilizzati per ogni intervallo di chiavi di partizione** in velocità effettiva per assicurarsi che gli intervalli di chiavi di partizione siano utilizzati in modo uniforme. Per il database SQL di Azure, monitorare IO e **CPU**del **log** .
+Usare il riquadro Metriche nel processo di Analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Vedere **Eventi di input/output** per la velocità effettiva e ["Ritardo limite"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **Eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **Richieste limitate** e modificare di conseguenza le unità di soglia. Per le metriche di Cosmos DB, vedere **Numero massimo di unità richiesta al secondo usate per intervallo di chiavi di partizione** in "Velocità effettiva" per assicurarsi che gli intervalli delle chiavi di partizione siano usati in modo uniforme. Per il database SQL di Azure, monitorare **I/O LOG** e **CPU**.
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

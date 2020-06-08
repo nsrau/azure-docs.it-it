@@ -1,24 +1,22 @@
 ---
-title: Creare soluzioni con modelli di Visual Studio - Azure Batch | Microsoft Docs
+title: Creare soluzioni con modelli di Visual Studio
 description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117523"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779506"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
 
 I modelli di Visual Studio **Gestore di processi** e **Task Processor** (Elaboratore di attività) per Batch forniscono il codice per implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Batch con il minimo sforzo. Questo documento illustra tali modelli e fornisce le linee guida per usarli.
 
 > [!IMPORTANT]
-> Questo articolo illustra solo le informazioni applicabili a questi due modelli e presuppone che si abbia familiarità con il servizio Batch e con i concetti chiave correlati: pool, nodi di calcolo, processi e attività, attività del gestore di processi, variabili di ambiente e altre informazioni pertinenti. È possibile trovare altre informazioni in [Nozioni di base su Azure Batch](batch-technical-overview.md) e [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
-> 
-> 
+> Questo articolo illustra solo le informazioni applicabili a questi due modelli e presuppone che si abbia familiarità con il servizio Batch e con i concetti chiave correlati: pool, nodi di calcolo, processi e attività, attività del gestore di processi, variabili di ambiente e altre informazioni pertinenti. È possibile trovare altre informazioni in [Nozioni di base su Azure Batch](batch-technical-overview.md) e [Flusso di lavoro e risorse del servizio Batch](batch-service-workflow-features.md). 
 
 ## <a name="high-level-overview"></a>Panoramica generale
 I modelli Job Manager (Gestore di processi) e Task Processor (Elaboratore di attività) possono essere usati per creare due utili componenti:
@@ -51,13 +49,13 @@ Per usare i modelli di Batch, sarà necessario quanto segue:
     
     * Azure Batch Job Manager with Job Splitter (Gestore di processi di Azure Batch con componente di suddivisione dei processi)
     * Azure Batch Task Processor (Elaboratore di attività di Azure Batch)
-  * Scaricare i modelli dalla raccolta online per Visual Studio: [Microsoft Azure Batch Project Templates][vs_gallery_templates] (Modelli di progetto di Microsoft Azure Batch).
+  * Scaricare i modelli dalla raccolta online per Visual Studio: [Modelli di progetto di Microsoft Azure Batch][vs_gallery_templates]
 * Se si prevede di usare la funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) per distribuire il gestore di processi e l'elaboratore di attività nei nodi di calcolo di Batch, è necessario collegare un account di archiviazione all'account Batch.
 
 ## <a name="preparation"></a>Preparazione
 Si consiglia di creare una soluzione che possa contenere il gestore di processi oltre all'elaboratore di attività, perché può semplificare la condivisione del codice tra i programmi del gestore di processi e dell'elaboratore di attività. Per creare la soluzione, seguire questi passaggi:
 
-1. Aprire Visual Studio e selezionare **file** > **nuovo** > **progetto**.
+1. Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 2. In **Modelli** espandere **Altri tipi di progetti**, fare clic su **Soluzioni di Visual Studio** e selezionare **Soluzione vuota**.
 3. Digitare un nome che descriva l'applicazione e lo scopo di questa soluzione, ad esempio "ProgrammiAttivitàBatchLitware".
 4. Per creare la nuova soluzione, fare clic su **OK**.
@@ -69,7 +67,7 @@ Il modello Job Manager (Gestore di processi) consente di implementare un'attivit
 * Inviare tali attività per l'esecuzione in Batch.
 
 > [!NOTE]
-> Per altre informazioni sulle attività del gestore di processi, vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md#job-manager-task).
+> Per altre informazioni sulle attività del gestore di processi, vedere [Processi e attività](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -77,7 +75,7 @@ Il modello Job Manager (Gestore di processi) consente di implementare un'attivit
 Per aggiungere un gestore di processi alla soluzione creata prima, seguire questi passaggi:
 
 1. Aprire la soluzione esistente in Visual Studio.
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **nuovo progetto**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Aggiungi** > **Nuovo progetto**.
 3. In **Visual C#** fare clic su **Cloud** e su **Azure Batch Job Manager with Job Splitter** (Gestore di processi di Azure Batch con componente di suddivisione dei processi).
 4. Digitare un nome che descriva l'applicazione e identifichi questo progetto come gestore di processi, ad esempio "GestoreProcessiLitware".
 5. Per creare il progetto, fare clic su **OK**.
@@ -87,7 +85,7 @@ Per aggiungere un gestore di processi alla soluzione creata prima, seguire quest
 Quando si crea un progetto usando il modello Job Manager (Gestore di processi), questo genera tre gruppi di file di codice:
 
 * Il file di programma principale (Program.cs), che contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello. In genere non è necessario modificarlo.
-* La directory Framework, In genere non è necessario modificare questi file.
+* La directory Framework, che contiene i file responsabili delle operazioni del "boilerplate" eseguite dal programma del gestore di processi, ad esempio decompressione dei parametri, aggiunta di attività al processo batch e così via. In genere non è necessario modificare questi file.
 * Il file del componente di suddivisione dei processi (JobSplitter.cs), in cui si inserirà la logica specifica dell'applicazione per suddividere un processo in attività.
 
 Ovviamente è possibile aggiungere altri file, se necessari per supportare il codice del componente di suddivisione dei processi, in base alla complessità della logica di suddivisione dei processi.
@@ -113,7 +111,7 @@ La parte restante di questa sezione illustra i diversi file e la struttura del c
 **File di progetto della riga di comando .NET standard**
 
 * `App.config`: file di configurazione dell'applicazione .NET standard.
-* `Packages.config`: file di dipendenza del pacchetto NuGet standard.
+* `Packages.config`: file delle dipendenze del pacchetto NuGet standard.
 * `Program.cs`: contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello.
 
 ### <a name="implementing-the-job-splitter"></a>Implementazione del componente di suddivisione dei processi
@@ -188,7 +186,7 @@ Un'attività del gestore di processi implementata con il modello Job Manager (Ge
 
 In caso di errore dell'attività del gestore di processi, alcune attività potrebbero essere state ugualmente aggiunte al servizio prima che si verificasse l'errore. Queste attività verranno eseguite normalmente. Per informazioni su questo percorso del codice, vedere sopra "Errore del componente di suddivisione dei processi".
 
-Tutte le informazioni restituite dalle eccezioni vengono scritte nei file stdout.txt e stderr.txt. Per altre informazioni, vedere [Gestione degli errori](batch-api-basics.md#error-handling).
+Tutte le informazioni restituite dalle eccezioni vengono scritte nei file stdout.txt e stderr.txt. Per altre informazioni, vedere [Gestione degli errori](error-handling.md).
 
 ### <a name="client-considerations"></a>Considerazioni sul client
 Questa sezione illustra alcuni requisiti dell'implementazione client quando si richiama un gestore di processi basato su questo modello. Per informazioni dettagliate sul passaggio dei parametri e delle impostazioni di ambiente, vedere [Passare i parametri e le variabili di ambiente dal codice client](#pass-environment-settings) .
@@ -223,7 +221,7 @@ In genere per il client è sicuro impostare *runExclusive* su **false**.
 
 Il client deve usare la raccolta *resourceFiles* o *applicationPackageReferences* per distribuire l'eseguibile del gestore di processi (e le DLL necessarie) nel nodo di calcolo.
 
-Per impostazione predefinita, l'esecuzione del gestore di processi non verrà riprovata in caso di errore. A seconda della logica del gestore di processi, il client potrebbe voler abilitare i tentativi tramite *vincoli*/*maxTaskRetryCount*.
+Per impostazione predefinita, l'esecuzione del gestore di processi non verrà riprovata in caso di errore. A seconda della logica del gestore di processi, il client può consentire i tentativi tramite *constraints*/*maxTaskRetryCount*.
 
 **Impostazioni del processo**
 
@@ -256,7 +254,7 @@ Per aggiungere un elaboratore di attività alla soluzione creata prima, seguire 
 Quando si crea un progetto usando il modello di elaboratore di attività, questo genera tre gruppi di file di codice:
 
 * Il file di programma principale (Program.cs), che contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello. In genere non è necessario modificarlo.
-* La directory Framework, In genere non è necessario modificare questi file.
+* La directory Framework, che contiene i file responsabili delle operazioni del "boilerplate" eseguite dal programma del gestore di processi, ad esempio decompressione dei parametri, aggiunta di attività al processo batch e così via. In genere non è necessario modificare questi file.
 * Il file dell'elaboratore di attività (TaskProcessor.cs), in cui si inserirà la logica specifica dell'applicazione per l'esecuzione di un'attività, in genere chiamando un eseguibile esistente. Anche il codice di pre-elaborazione e post-elaborazione, ad esempio per il download di dati aggiuntivi o il caricamento dei file dei risultati, viene inserito qui.
 
 Ovviamente è possibile aggiungere altri file, se necessari per supportare il codice dell'elaboratore di attività, in base alla complessità della logica di suddivisione dei processi.
@@ -287,7 +285,7 @@ La parte restante di questa sezione illustra i diversi file e la struttura del c
 **File di progetto della riga di comando .NET standard**
 
 * `App.config`: file di configurazione dell'applicazione .NET standard.
-* `Packages.config`: file di dipendenza del pacchetto NuGet standard.
+* `Packages.config`: file delle dipendenze del pacchetto NuGet standard.
 * `Program.cs`: contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello.
 
 ## <a name="implementing-the-task-processor"></a>Implementazione dell'elaboratore di attività
@@ -399,7 +397,7 @@ Un client può passare informazioni all'attività del gestore di processi sotto 
 * URL dell'account Batch
 * Chiave dell'account Batch
 
-Il servizio Batch ha un semplice meccanismo per passare le impostazioni di ambiente a un'attività del gestore di processi usando la proprietà `EnvironmentSettings` in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+Il servizio Batch ha un meccanismo semplice per passare le impostazioni di ambiente a un'attività del gestore di processi usando la proprietà `EnvironmentSettings` in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
 Ad esempio, per ottenere l'istanza di `BatchClient` per un account Batch, è possibile passare come variabili di ambiente dal codice client l'URL e le credenziali con chiave condivisa per l'account Batch. Analogamente, per accedere all'account di archiviazione collegato all'account Batch, è possibile passare il nome dell'account di archiviazione e la chiave dell'account di archiviazione come variabili di ambiente.
 
@@ -426,7 +424,7 @@ parameters.json e, se lo trova, lo carica come dizionario di parametri. Per pass
 
 ## <a name="next-steps"></a>Passaggi successivi
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Rendere persistenti l'output di attività e processi in Archiviazione di Azure
-Un altro strumento utile nello sviluppo di soluzioni Batch è [Azure Batch File Conventions][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
+Un altro strumento utile nello sviluppo di soluzioni Batch è [Convenzioni file di Azure Batch][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

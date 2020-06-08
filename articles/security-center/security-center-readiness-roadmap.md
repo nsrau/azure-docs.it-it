@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: de14f334b2a68d820dbf80f194ac93430c452038
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879463"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833371"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -63,7 +63,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 Usare le risorse seguenti per semplificare la gestione degli avvisi di sicurezza e la protezione delle risorse.
 
 Articoli    
-* [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 * [Protezione della rete nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 * [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
@@ -73,7 +73,7 @@ Video
 * [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center) (Riduzione dei problemi di sicurezza tramite il Centro sicurezza di Azure)
 
 ### <a name="security-center-for-incident-response"></a>Centro sicurezza per la risposta agli eventi imprevisti
-Per ridurre i costi e i danni, è importante disporre di un piano di risposta agli eventi imprevisti prima che venga intrapreso un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
+Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima che si verifichi un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
 
 Usare le risorse seguenti per ottenere informazioni su come incorporare il Centro sicurezza nel processo di risposta agli eventi imprevisti.
 
@@ -83,20 +83,20 @@ Video
 
 Articoli    
 * [Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatizzare la risposta con l'automazione del flusso di lavoro](workflow-automation.md)
+* [Automatizzare le risposte con l'automazione del flusso di lavoro](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Difesa cloud avanzata
 
-Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso just-in-time alle macchine virtuali (VM) e i controlli applicazione adattivi.
+Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso just-in-time alle macchine virtuali e i controlli applicazioni adattivi.
 
 Usare le risorse seguenti per ottenere informazioni sull'uso di queste funzionalità nel Centro sicurezza.
 
 Video    
-* [Centro sicurezza di Azure: accesso just-in-time alle macchine virtuali](https://youtu.be/UOQb2FcdQnU)
+* [Centro sicurezza di Azure - Accesso JIT alle macchine virtuali](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Centro sicurezza di Azure - Controlli delle applicazioni adattivi)
 
 Articoli    
-* [Gestire l'accesso alle macchine virtuali con Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gestire l'accesso alle macchine virtuali con la funzionalità just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controlli delle applicazioni adattivi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Attività pratiche
@@ -114,12 +114,11 @@ Articoli
 * [Procedure consigliate per la sicurezza di rete](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Consigli relativi a PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformità](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [I clienti di log Analytics possono ora usare il Centro sicurezza di Azure per proteggere i propri carichi di lavoro cloud ibridi](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [I clienti di Log Analytics possono ora usare il Centro sicurezza di Azure per proteggere i propri carichi di lavoro cloud ibridi](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Risorse della community
 
 * [UserVoice per il Centro sicurezza](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Forum della community per il Centro sicurezza](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)
-
+* [Pagina di domande e risposte di Microsoft sul Centro sicurezza](https://docs.microsoft.com/answers/topics/azure-security-center.html)
 
 

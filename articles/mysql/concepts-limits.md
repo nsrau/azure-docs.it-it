@@ -1,24 +1,24 @@
 ---
-title: Limitazioni-database di Azure per MySQL
+title: Limiti - Database di Azure per MySQL
 description: Questo articolo descrive i limiti di Database di Azure per MySQL, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548478"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659937"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
 ## <a name="server-parameters"></a>Parametri del server
 
-I valori minimo e massimo di diversi parametri server comuni sono determinati dal piano tariffario e da vcore. Per i limiti, vedere le tabelle seguenti.
+I valori minimo e massimo di molti parametri server comuni sono determinati dal piano tariffario e dai vCore. Per i limiti, fare riferimento alle tabelle seguenti.
 
 ### <a name="max_connections"></a>max_connections
 
@@ -39,21 +39,21 @@ I valori minimo e massimo di diversi parametri server comuni sono determinati da
 |Con ottimizzazione per la memoria|32|10000|10|20000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
-> ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
+> ERROR 1040 (08004): Troppe connessioni
 
 > [!IMPORTANT]
-> Per un'esperienza ottimale, è consigliabile usare una connessione pool come ProxySQL per gestire in modo efficiente le connessioni.
+> Per un'esperienza ottimale, è consigliabile usare un pool di connessioni come ProxySQL per gestire in modo efficiente le connessioni.
 
-La creazione di nuove connessioni client a MySQL richiede tempo e una volta stabilite, queste connessioni occupano le risorse del database, anche in caso di inattività. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che comunicano questa situazione. Il risultato è un minor numero di risorse disponibili per il carico di lavoro effettivo, causando una riduzione delle prestazioni. Un pool di connessione che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare questo problema. Per informazioni sulla configurazione di ProxySQL, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+La creazione di nuove connessioni client a MySQL richiede tempo e una volta stabilite, queste connessioni occupano risorse del database, anche se inattive. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che generano questa situazione. Di conseguenza sarà disponibile un minor numero di risorse per il carico di lavoro effettivo e le prestazioni saranno ridotte. Un pool di connessioni che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare il problema. Per informazioni sulla configurazione di ProxySQL, visitare il [post di blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) di Microsoft.
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Per impostazione predefinita, la cache delle query è disattivata. Per abilitare la cache delle query, configurare `query_cache_type` il parametro. 
+La cache della query è disattivata per impostazione predefinita. Per abilitare la cache delle query, configurare il parametro `query_cache_type`. 
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) .
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
 
 > [!NOTE]
-> La cache delle query è deprecata a partire da MySQL 5.7.20 ed è stata rimossa in MySQL 8,0
+> La cache delle query è deprecata a partire da MySQL 5.7.20 ed è stata rimossa in MySQL 8.0
 
 |**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
@@ -73,7 +73,7 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di MyS
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) .
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size).
 
 |**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
@@ -93,7 +93,7 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di MyS
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) .
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size).
 
 |**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
@@ -113,7 +113,7 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di MyS
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) .
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size).
 
 |**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
@@ -133,7 +133,7 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di MyS
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) .
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size).
 
 |**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
@@ -153,26 +153,32 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di MyS
 
 ### <a name="time_zone"></a>time_zone
 
-Le tabelle del fuso orario possono essere popolate chiamando `mysql.az_load_timezone` il stored procedure da uno strumento come la riga di comando MySQL o MySQL Workbench. Vedere gli articoli [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o dell'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) per chiamare l'stored procedure e impostare i fusi orari a livello globale o di sessione.
+Per popolare le tabelle di fuso orario, è possibile chiamare la stored procedure `mysql.az_load_timezone` da uno strumento come la riga di comando di MySQL o MySQL Workbench. Fare riferimento agli articoli sul [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) per le modalità in cui è possibile chiamare la stored procedure e impostare i fusi orari a livello globale o di sessione.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MySQL archivia la tabella InnoDB in spazi di tabella diversi in base alla configurazione specificata durante la creazione della tabella. Lo [spazio di tabella del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) è l'area di archiviazione per il dizionario dei dati InnoDB. Uno [spazio di tabella di un file per tabella](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene dati e indici per una sola tabella InnoDB e viene archiviato nel file system del file di dati in uso. Questo comportamento è controllato dal server dei parametri `innodb_file_per_table`. Impostando `innodb_file_per_table` su `OFF` InnoDB crea tabelle nello spazio di tabella del sistema. Altrimenti, InnoDB crea tabelle in spazi di tabella di un file per tabella.
+
+Database di Azure per MySQL supporta al massimo **1 TB** in un unico file di dati. Se le dimensioni del database sono maggiori di 1 TB, è necessario creare la tabella nello spazio di tabella [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Se si dispone di una singola tabella di dimensioni superiori a 1 TB, è necessario usare la tabella di partizione.
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 
 ### <a name="supported"></a>Supportato
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [MEMORIA](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Non supportato
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [Archivio](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>Supporto dei privilegi
 
 ### <a name="unsupported"></a>Non supportato
 - Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
-- Privilegio con privilegi avanzati: è anche possibile limitare i [privilegi Super](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) .
-- Definir: richiede privilegi Super per creare ed è limitato. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
+- Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) presentano limitazioni.
+- DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
@@ -199,11 +205,11 @@ Le tabelle del fuso orario possono essere popolate chiamando `mysql.az_load_time
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
 ### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
-- Per i limiti di dimensioni di archiviazione per ogni piano tariffario, fare riferimento ai [piani tariffari](concepts-pricing-tiers.md) .
+- Per i limiti delle dimensioni di archiviazione per ogni piano tariffario, fare riferimento ai [piani tariffari](concepts-pricing-tiers.md).
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Funzionalità disponibili in ogni livello di servizio](concepts-pricing-tiers.md)
+- [Opzioni disponibili in ogni livello di servizio](concepts-pricing-tiers.md)
 - [Versioni supportate del database MySQL](concepts-supported-versions.md)
