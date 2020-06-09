@@ -1,78 +1,19 @@
 - name: Gemelli digitali di Azure
   href: index.yml
 - name: Panoramica
-  items:
-    - name: Informazioni su Gemelli digitali di Azure
-      href: about-digital-twins.md
 - name: Avvi rapidi
   expanded: true
-  items:
-    - name: Trovare le stanze disponibili
-      href: quickstart-view-occupancy-dotnet.md
 - name: Esercitazioni
   items:
     - name: Monitorare un edificio con Gemelli digitali
-      items:
-        - name: Distribuire e configurare
-          href: tutorial-facilities-setup.md
-        - name: Effettuare il provisioning e monitorare le condizioni
-          href: tutorial-facilities-udf.md
-        - name: Inviare notifiche con App per la logica
-          href: tutorial-facilities-events.md
-        - name: Visualizzare eventi con Time Series Insights
-          href: tutorial-facilities-analyze.md
 - name: Concetti
   items:
-    - name: Modello a oggetti di Gemelli digitali e grafico di intelligenza spaziale
-      href: concepts-objectmodel-spatialgraph.md
-    - name: Connettività dei dispositivi e dati di telemetria in ingresso
-      href: concepts-device-ingress.md
-    - name: Elaborazione dati e funzioni definite dall'utente
-      href: concepts-user-defined-functions.md
-    - name: Routing di eventi e messaggi
-      href: concepts-events-routing.md
-    - name: Limiti del servizio durante l'anteprima pubblica
-      href: concepts-service-limits.md
     - name: Sicurezza
-      items:
-        - name: Procedure consigliate per la sicurezza
-          href: security-best-practices.md
-        - name: Controllo degli accessi in base al ruolo
-          href: security-role-based-access-control.md
-        - name: Creare e gestire le assegnazioni di ruoli
-          href: security-create-manage-role-assignments.md
-        - name: Autenticazione per le API di gestione
-          href: security-authenticating-apis.md
 - name: Guide pratiche
   items:
-    - name: Abilitare applicazioni multi-tenant
-      href: how-to-multitenant-applications.md
-    - name: Creare funzioni definite dall'utente
-      href: how-to-user-defined-functions.md
-    - name: Instradare eventi e messaggi tramite endpoint
-      href: how-to-egress-endpoints.md
-    - name: Aggiungere BLOB agli oggetti
-      href: how-to-add-blobs.md
-    - name: Usare Swagger per Gemelli digitali
-      href: how-to-use-swagger.md
-    - name: Eseguire il debug di funzioni definite dall'utente
-      href: how-to-diagnose-user-defined-functions.md
-    - name: Configurare il monitoraggio
-      href: how-to-configure-monitoring.md
     - name: Eseguire query sulle API per Gemelli digitali
-      items:
-        - name: Configurare Postman
-          href: how-to-configure-postman.md
-        - name: Usare le API per Gemelli digitali
-          href: how-to-navigate-apis.md
-        - name: Modelli di query comuni
-          href: how-to-query-common-apis.md
 - name: Informazioni di riferimento
-  items:
-    - name: Libreria client di funzioni definite dall'utente
-      href: reference-user-defined-functions-client-library.md
 - name: Risorse
-  expanded: true
   items:
     - name: Risorse per sviluppatori
       items:
@@ -116,3 +57,4 @@
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Aggiornamenti di Azure IoT
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
+  expanded: true

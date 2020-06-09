@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle app Web statiche
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Sviluppare la prima app Web statica
@@ -43,6 +43,8 @@
           href: publish-hugo.md
         - name: VuePress
           href: publish-vuepress.md
+        - name: Jekyll
+          href: publish-jekyll.md
     - name: Distribuire da un framework
       items:
         - name: Next.js

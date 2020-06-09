@@ -4,13 +4,13 @@
   items:
     - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
       expanded: true
       items:
-        - name: Utilizzare l’interfaccia della riga di comando di Azure
+        - name: Usare l'interfaccia della riga di comando di Azure
           href: kubernetes-walkthrough.md
         - name: Usare Azure PowerShell
           href: kubernetes-walkthrough-powershell.md
@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: Usare il contratto di servizio relativo al tempo di attività
           href: uptime-sla.md
+        - name: Aggiornare l'immagine del nodo (anteprima)
+          href: node-image-upgrade.md
         - name: Elaborare gli aggiornamenti del sistema operativo del nodo
           href: node-updates-kured.md
         - name: Configurare un cluster del servizio Azure Kubernetes
@@ -141,7 +143,7 @@
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
             - name: Usare il portale di Azure
               href: virtual-nodes-portal.md
@@ -236,7 +238,7 @@
           items:
             - name: Integrare Azure AD (anteprima)
               href: managed-aad.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: azure-ad-integration-cli.md
             - name: Usare il portale di Azure
               href: azure-ad-integration.md

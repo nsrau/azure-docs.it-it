@@ -87,7 +87,7 @@
           href: concepts-pricing-tiers.md
         - name: Pagare in anticipo la capacità riservata
           href: concept-reserved-pricing.md
-        - name: Limiti
+        - name: Limitazioni
           href: concepts-limits.md
     - name: Accesso ai dati e sicurezza
       items:
@@ -132,6 +132,8 @@
           href: concepts-query-performance-insight.md
         - name: Raccomandazioni per le prestazioni
           href: concepts-performance-recommendations.md
+        - name: Parametri del server
+          href: concepts-server-parameters.md
     - name: Sviluppo
       items:
         - name: Compatibilità di driver e strumenti

@@ -1,20 +1,25 @@
-- name: Documentazione sulle macchine virtuali per data science
+- name: Documentazione sulle Data Science Virtual Machine
   href: index.yml
   items: null
 - name: Panoramica
   expanded: true
   items:
-    - name: Che cos'è Data Science Virtual Machine (DSVM)?
+    - name: Che cos'è una Data Science Virtual Machine (DSVM)?
       href: overview.md
     - name: Strumenti inclusi nella Data Science Virtual Machine
       href: tools-included.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
-    - name: Creare una macchina virtuale data science Windows
+    - name: Creare una Data Science Virtual Machine Windows
       href: provision-vm.md
     - name: Creare una Data Science Virtual Machine Ubuntu
       href: dsvm-ubuntu-intro.md
+- name: Esercitazioni
+  items:
+    - name: Creare una Data Science Virtual Machine con un modello di Resource Manager
+      displayName: Resource Manager
+      href: dsvm-tutorial-resource-manager.md
 - name: Concetti
   items:
     - name: Apprendimento avanzato e framework AI

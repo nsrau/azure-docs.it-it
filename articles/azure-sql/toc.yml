@@ -447,7 +447,7 @@
             - name: Usare Integrità risorse per i problemi di connettività
               href: database/resource-health-to-troubleshoot-connectivity.md
             - name: Eseguire la migrazione di DTU a vCore
-              href: database/resource-health-to-troubleshoot-connectivity.md
+              href: database/migrate-dtu-to-vcore.md
             - name: Ridimensionare le risorse di database
               href: database/single-database-scale.md
             - name: Dimensionare le risorse del pool
