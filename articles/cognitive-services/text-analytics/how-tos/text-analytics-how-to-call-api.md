@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219302"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561017"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
-Le chiamate dell'**API Analisi del testo** sono chiamate HTTP POST/GET che è possibile formulare in qualsiasi linguaggio. In questo articolo si usa REST e [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) per illustrare i concetti chiave.
+Le chiamate dell'**API Analisi del testo** sono chiamate HTTP POST/GET che è possibile formulare in qualsiasi linguaggio. In questo articolo si usa REST e [Postman](https://www.postman.com/downloads/) per illustrare i concetti chiave.
 
 Ogni richiesta deve includere la chiave di accesso e un endpoint HTTP. L'endpoint specifica l'area scelta durante la registrazione, l'URL del servizio e una risorsa utilizzata nella richiesta: `sentiment`, `keyphrases`, `languages` e `entities`. 
 
@@ -39,11 +39,11 @@ L'input deve essere JSON in testo non elaborato e non strutturato. XML non è su
 
 Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di Analisi del testo: sentiment, frase chiave, rilevamento della lingua e identificazione delle entità. In futuro probabilmente lo schema varierà per ogni analisi.
 
-| Elemento | Valori validi | Necessaria? | Utilizzo |
+| Elemento | Valori validi | Obbligatorio? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
-|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Variabile | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
+|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Varia | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
 
@@ -83,7 +83,7 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-  + [Riconoscimento entità](text-analytics-how-to-entity-linking.md)  
+  + [Riconoscimento delle entità](text-analytics-how-to-entity-linking.md)  
 
 
 6. Fare clic su **Send** (Invia) per inviare la richiesta. Per informazioni sul numero di richieste che è possibile inviare al minuto e al secondo, vedere la sezione relativa ai [limiti dei dati](../overview.md#data-limits) nella panoramica.

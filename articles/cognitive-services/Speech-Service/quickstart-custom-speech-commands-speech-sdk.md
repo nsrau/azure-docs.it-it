@@ -3,19 +3,19 @@ title: "Guida introduttiva: connettersi a un'app comandi personalizzata con rico
 titleSuffix: Azure Cognitive Services
 description: In questo articolo verrà creata un'applicazione client per l'SDK di riconoscimento vocale con comandi personalizzati.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: donkim
-ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.author: nitinme
+ms.openlocfilehash: f2e8292ccace38e1a167c3ecdfb924589e4ebf0e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872508"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508931"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)
 
@@ -120,7 +120,7 @@ La visualizzazione Progettazione viene aggiornata per mostrare l'interfaccia ute
 
 Aggiungere l'origine code-behind in modo che l'applicazione funzioni come previsto. Il file di origine code-behind include quanto segue:
 
-- Istruzioni `using` obbligatorie per gli `Speech` spazi `Speech.Dialog` dei nomi e
+- `using`Istruzioni obbligatorie per gli `Speech` `Speech.Dialog` spazi dei nomi e
 - Un'implementazione semplice per garantire l'accesso al microfono, collegato a un gestore del pulsante
 - Helper di base dell'interfaccia utente per presentare i messaggi e gli errori nell'applicazione
 - Un punto di destinazione per il percorso del codice di inizializzazione che verrà popolato più avanti
@@ -129,7 +129,7 @@ Aggiungere l'origine code-behind in modo che l'applicazione funzioni come previs
 
 Aggiungere l'origine code-behind come indicato di seguito:
 
-1. In **Esplora soluzioni**aprire il file `MainPage.xaml.cs` di origine code-behind (raggruppato in `MainPage.xaml`)
+1. In **Esplora soluzioni**aprire il file di origine code-behind `MainPage.xaml.cs` (raggruppato in `MainPage.xaml` )
 
 1. Sostituire il contenuto del file con il codice seguente: 
 
@@ -321,7 +321,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Sostituire le stringhe `YourApplicationId`, `YourSpeechSubscriptionKey`e `YourServiceRegion` con i valori personalizzati per l'app, la sottoscrizione vocale e l' [area](regions.md)
+1. Sostituire le stringhe `YourApplicationId` , `YourSpeechSubscriptionKey` e `YourServiceRegion` con i valori personalizzati per l'app, la sottoscrizione vocale e l' [area](regions.md)
 
 1. Aggiungere il frammento di codice seguente alla fine del corpo del metodo di`InitializeDialogServiceConnector`
 
@@ -405,7 +405,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
    }
    ```
 
-1. Dalla barra dei menu scegliere **file** > **Salva tutto** per salvare le modifiche
+1. Dalla barra dei menu scegliere **file**  >  **Salva tutto** per salvare le modifiche
 
 ## <a name="build-and-run-the-application"></a>Compilare ed eseguire l'applicazione
 
@@ -424,8 +424,8 @@ Aggiungere l'origine code-behind come indicato di seguito:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [procedura: aggiungere convalide ai parametri di comando personalizzati (anteprima)](./how-to-custom-speech-commands-validations.md)
+> [Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md) 
+>  [Procedura: aggiungere convalide a parametri di comando personalizzati (anteprima)](./how-to-custom-speech-commands-validations.md)
 
 ## <a name="sample-source-code"></a>Codice sorgente di esempio
 Vedere i codici di esempio client in [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

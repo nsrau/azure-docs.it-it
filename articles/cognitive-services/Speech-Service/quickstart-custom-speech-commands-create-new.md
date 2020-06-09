@@ -3,19 +3,19 @@ title: 'Guida introduttiva: creare un servizio personalizzato anteprima app-rico
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come creare e testare un'applicazione di anteprima di comandi personalizzati ospitati. L'applicazione elaborerà le espressioni.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 80111ff370f3a5412b45adc04c82c9dee103c01d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 5b54923bb667053ffc886b335ab9d1b0cf4cb754
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142351"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509356"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-app"></a>Guida introduttiva: creare un'app di anteprima per i comandi personalizzati
 
@@ -101,7 +101,7 @@ Il riquadro centrale elenca le proprietà del comando:
 | Configurazione            | Descrizione                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Frasi di esempio** | Esempi di espressioni pronunciate dall'utente per attivare il comando.                                                                 |
-| **Parametri**       | Informazioni necessarie per completare il comando.                                                                                |
+| **Parameters**       | Informazioni necessarie per completare il comando.                                                                                |
 | **Regole di completamento** | Azioni che verranno eseguite per completare il comando. Ad esempio, rispondendo all'utente o comunicando con un altro servizio Web. |
 | **Regole di interazione**   | Regole aggiuntive per gestire situazioni più specifiche o complesse.                                                              |
 
@@ -133,7 +133,7 @@ Aggiungere ora una regola di completamento con la configurazione seguente. Quest
 | Impostazione    | Valore consigliato                          | Descrizione                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
 | **Nome**  | **ConfirmationResponse**                  | Nome che descrive lo scopo della regola.          |
-| **Condizioni** | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita.    |
+| **Condizioni** | nessuno                                     | Condizioni che determinano quando la regola può essere eseguita.    |
 | **Actions**    | **Invia risposta vocale-> OK, accendere la TV** | Azione da eseguire quando la condizione della regola è true. |
 
 1. Creare una nuova regola di completamento selezionando **Aggiungi** nella parte superiore del riquadro centrale.
