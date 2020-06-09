@@ -1,14 +1,14 @@
 ---
-title: Evento di completamento dell'attività Azure Batch
+title: Evento di completamento attività di Azure Batch
 description: Riferimento per l'evento di completamento dell'attività batch. Questo evento viene generato al completamento di un'attività, indipendentemente dal codice di uscita.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 9e11eac04009def2bce4476ba2d77c798f25ca15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e3959a34b96ef4cebdbedadf736418d08cb2746
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116503"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726367"
 ---
 # <a name="task-complete-event"></a>Evento di completamento attività
 
@@ -45,12 +45,12 @@ ms.locfileid: "82116503"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`jobId`|Stringa|ID del processo che contiene l'attività.|
-|`id`|Stringa|ID dell'attività.|
-|`taskType`|Stringa|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
+|`jobId`|string|ID del processo contenente l'attività.|
+|`id`|string|ID dell'attività.|
+|`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) informazioni dettagliate, vedere.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
 |[`constraints`](#constraints)|Tipo complesso|Vincoli di esecuzione che si applicano a questa attività.|
 |[`executionInfo`](#executionInfo)|Tipo complesso|Contiene informazioni sull'esecuzione dell'attività.|
 
@@ -58,22 +58,22 @@ ms.locfileid: "82116503"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`poolId`|Stringa|ID del pool in cui è stata eseguita l'attività.|
-|`nodeId`|Stringa|ID del nodo in cui è stata eseguita l'attività.|
+|`poolId`|string|ID del pool in cui viene eseguita l'attività.|
+|`nodeId`|string|ID del nodo in cui viene eseguita l'attività.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Numero di nodi di calcolo richiesti dall'attività.|
 
-###  <a name="constraints"></a><a name="constraints"></a>vincoli
+###  <a name="constraints"></a><a name="constraints"></a> constraints
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Numero massimo di tentativi consentiti per l'attività. Il servizio Batch ripete un'attività se il relativo codice di uscita è diverso da zero.<br /><br /> Si noti che questo valore controlla specificamente il numero di tentativi. Il servizio Batch eseguirà l'attività una volta e quindi ripeterà l'esecuzione fino al limite di tentativi specificato. Ad esempio, se il numero massimo di tentativi è 3, il servizio Batch eseguirà l'attività 4 volte, ovvero una iniziale e 3 ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è 0, il servizio Batch non eseguirà ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è -1, il servizio Batch continuerà a eseguire tentativi senza limiti.<br /><br /> Il valore predefinito è 0, ovvero nessun tentativo.|
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|

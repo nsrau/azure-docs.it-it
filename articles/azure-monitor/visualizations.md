@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535370"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797493"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -19,7 +19,7 @@ Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i 
 Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitoraggio per il drill-down dei problemi e per identificare i criteri. A seconda dello strumento usato, potrebbe essere possibile anche condividere visualizzazioni con altri utenti all'interno e all'esterno dell'organizzazione.
 
 ## <a name="workbooks"></a>Workbooks
-Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
+Le [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Cartella di lavoro](media/visualizations/workbook.png)
 
@@ -46,7 +46,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 - Supporto sia per le metriche sia per i log.
 - Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](platform/metrics-charts.md), [query di Log](log-query/log-query-overview.md), [mappe](app/app-map.md) e disponibilità in Application Insights.
 - Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
-- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti Registra l'aggiornamento ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
+- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti I log si aggiornano ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
 - Opzioni di layout flessibili.
 - Modalità schermo intero.
@@ -111,12 +111,12 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
 
 > [!IMPORTANT]
-> Le visualizzazioni sono in fase di deprecazione. Per informazioni aggiuntive sulla conversione delle visualizzazioni nelle cartelle di lavoro di, vedere la [Guida di Progettazione vista di monitoraggio di Azure alla cartella di lavoro](platform/view-designer-conversion-overview.md) .
+> Le visualizzazioni stanno per diventare deprecate. Per informazioni aggiuntive sulla conversione delle visualizzazioni nelle cartelle di lavoro di, vedere [Guida alla transizione da Progettazione visualizzazioni a Cartelle di lavoro di Monitoraggio di Azure](platform/view-designer-conversion-overview.md).
 
 Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
 
-![Visualizza](media/visualizations/view.png)
+![Visualizzazione](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate per i dati di log.
@@ -137,7 +137,7 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Informazioni sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md)di.
+- Informazioni sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
 - Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
 

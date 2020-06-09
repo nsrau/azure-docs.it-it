@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512964"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647261"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
 Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
@@ -37,9 +37,9 @@ I contenuti concettuali, sulla pianificazione delle procedure, sulla distribuzio
 Il monitoraggio frequente di queste risorse consente di ottenere informazioni sulle notizie più recenti e aggiornamenti relativi alle soluzioni di gestione dei dispositivi mobili:
 
 * [Blog di Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Blog di Microsoft In The Cloud](https://blogs.technet.com/b/in_the_cloud/)
-* [Blog di Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
-* [Blog di Microsoft endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
+* [Blog di Microsoft In The Cloud](https://cloudblogs.microsoft.com/)
+* [Blog di Microsoft Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
+* [Blog di Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)

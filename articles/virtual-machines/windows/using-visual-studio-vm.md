@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 8dc0fa53423a4b181ab50cd4c1552115de175c89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652667"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è un modo semplice e rapido per avere subito a disposizione un ambiente di sviluppo pienamente operativo. In [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio.
@@ -23,18 +23,18 @@ L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è 
 Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Non tutte le sottoscrizioni sono idonee per la distribuzione di immagini di Windows 10. Per altre informazioni, vedere [usare il client Windows in Azure per scenari di sviluppo/test](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Non tutte le sottoscrizioni sono idonee per la distribuzione di immagini di Windows 10. Per altre informazioni vedere [Usare client Windows in Azure per scenari di sviluppo/test](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quali configurazioni e versioni sono disponibili?
-In Azure Marketplace sono disponibili immagini per le versioni principali più recenti: Visual Studio 2019, Visual Studio 2017 e Visual Studio 2015.  Per ogni versione principale rilasciata vengono visualizzate la versione rilasciata in origine sul Web e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
+Le immagini per le versioni principali più recenti, Visual Studio 2019, Visual Studio 2017 e Visual Studio 2015, sono disponibili in Azure Marketplace.  Per ogni versione principale sono elencate la versione originariamente rilasciata sul Web (RTW) e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
 
 | Versione di rilascio                                                                                                                                                | Edizioni              | Versione del prodotto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: versione più recente (versione 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.5.4    |
-| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise | Versione 16.0.13    |
-| [Visual Studio 2017: più recente (versione 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | Versione 15.9.22   |
-| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | Versione 15.0.28  |
-| [Visual Studio 2015: più recente (Update 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | Versione 14.0.25431.01 |
+| [Visual Studio 2019: versione più recente (versione 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.5.4    |
+| Visual Studio 2019: RTW                         | Enterprise | Versione 16.0.13    |
+| Visual Studio 2017: Versione più recente (versione 15.9)           | Enterprise, Community | Versione 15.9.22   |
+| Visual Studio 2017: RTW                             | Enterprise, Community | Versione 15.0.28  |
+| Visual Studio 2015: Versione più recente (aggiornamento 3)               | Enterprise, Community | Versione 14.0.25431.01 |
 
 > [!NOTE]
 > In base ai criteri di manutenzione di Microsoft, il supporto per la manutenzione della versione di Visual Studio 2015 originariamente rilasciata (RTW) è scaduto. Visual Studio 2015 Update 3 è l'unica versione rimanente offerta per la linea di prodotti Visual Studio 2015.
@@ -94,7 +94,7 @@ La gamma di ambienti di sviluppo è enorme e la configurazione di ambienti parti
 
 In sintesi, usare l'Utilità preparazione sistema (Sysprep) e arrestare la macchina virtuale in esecuzione, quindi acquisire *(figura 1)* la macchina virtuale come immagine tramite l'interfaccia utente del portale di Azure. Azure salva il file `.vhd` contenente l'immagine nell'account di archiviazione selezionato e la nuova immagine verrà quindi visualizzata come risorsa Immagine nell'elenco delle risorse della sottoscrizione.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.* </center>
 
 Per altre informazioni, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource).
 

@@ -1,16 +1,16 @@
 ---
-title: Panoramica del rendering - Azure Batch
+title: Panoramica del rendering
 description: Introduzione all'uso di Azure per il rendering e panoramica delle funzionalità di rendering di Azure Batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 515fc92aa14c0a86746d0a97d2bc601fab553aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115704"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726435"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 

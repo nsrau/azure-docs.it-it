@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdc99ca50255bd9b75828f0a051f364c5218471
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 217cf8822fcd8ef515ac9ce2dacdac3682e5fd12
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115490"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680174"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerazioni sulle identità ibride per il cloud di Azure per enti pubblici
 
@@ -41,7 +41,7 @@ Prima di distribuire l'agente di autenticazione pass-through, verificare se esis
 |URL |Uso|
 |-----|-----|
 |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|L'agente usa questi URL per comunicare con il servizio cloud di Azure AD. |
-|mscrl.microsoft.us:80 </br>crl.microsoft.us:80 </br>ocsp.msocsp.us:80 </br>www.microsoft.us:80| L'agente usa questi URL per verificare i certificati.|
+|`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| L'agente usa questi URL per verificare i certificati.|
 |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| L'agente usa questi URL durante il processo di registrazione.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Installare l'agente per il cloud di Azure per enti pubblici
@@ -76,7 +76,7 @@ Se come metodo di accesso si usa l'autenticazione pass-through, non sono necessa
 
 ### <a name="roll-out-seamless-single-sign-on"></a>Implementare l'accesso Single Sign-On facile
 
-È possibile implementare gradualmente l'accesso Single Sign-on facile di Azure AD per gli utenti usando le istruzioni seguenti. Prima di tutto, aggiungere l'URL di Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) alle impostazioni dell'area Intranet di tutti gli utenti o di quelli selezionati usando Criteri di gruppo in Active Directory.
+È possibile implementare gradualmente l'accesso Single Sign-on facile di Azure AD per gli utenti usando le istruzioni seguenti. Prima di tutto, aggiungere l'URL di Azure AD `https://autologon.microsoft.us` alle impostazioni dell'area Intranet di tutti gli utenti o di quelli selezionati usando Criteri di gruppo in Active Directory.
 
 È inoltre necessario abilitare l'impostazione **Consenti aggiornamenti alla barra di stato tramite script con Criteri di gruppo** relativa ai criteri dell'area Intranet.
 
@@ -89,16 +89,16 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 1. Eseguire Firefox e immettere  **about:config** nella barra degli indirizzi. Ignorare tutte le eventuali notifiche visualizzate.
 1. Cercare la preferenza **network.negotiate-auth.trusted-uris** . Questa preferenza elenca i siti considerati attendibili da Firefox per l'autenticazione Kerberos.
 1. Fare clic con il pulsante destro del mouse sul nome della preferenza e scegliere  **Modifica**.
-1. Immettere [ **https://autologon.microsoft.us** ](https://autologon.microsoft.us**)  nella casella.
+1. Immettere `https://autologon.microsoft.us` nella casella.
 1. Fare clic su  **OK** e riaprire il browser.
 
 ### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basato su Chromium (tutte le piattaforme)
 
-Se è stato eseguito l'override delle impostazioni di criteri `AuthNegotiateDelegateAllowlist` o `AuthServerAllowlist` nell'ambiente, assicurarsi di aggiungere gli URL di Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us).
+Se è stato eseguito l'override delle impostazioni di criteri `AuthNegotiateDelegateAllowlist` o `AuthServerAllowlist` nell'ambiente, assicurarsi di aggiungere gli URL di Azure AD `https://autologon.microsoft.us`.
 
 ### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
-Se è stato eseguito l'override delle impostazioni di criteri `AuthNegotiateDelegateWhitelist` o `AuthServerWhitelist` nell'ambiente, assicurarsi di aggiungere gli URL di Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us).
+Se è stato eseguito l'override delle impostazioni di criteri `AuthNegotiateDelegateWhitelist` o `AuthServerWhitelist` nell'ambiente, assicurarsi di aggiungere gli URL di Azure AD `https://autologon.microsoft.us`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
