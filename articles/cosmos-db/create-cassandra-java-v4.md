@@ -1,6 +1,6 @@
 ---
 title: Creare un'app Java con l'API Cassandra di Azure Cosmos DB
-description: Questo argomento di avvio rapido mostra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
+description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6c56dc32ff733aa9dbbba8102ff8d79a592ea957
+ms.openlocfilehash: b87c4c0beec2b3b10c81355fc51ded870d7d1d9e
 ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309748"
+ms.locfileid: "84310919"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB (driver v3)
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB (driver v4)
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -25,9 +25,9 @@ ms.locfileid: "84309748"
 > * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
->  
+> 
 
-In questo argomento di avvio rapido si crea un account dell'API Cassandra di Azure Cosmos DB e si usa un'app Java Cassandra clonata da GitHub per creare un database e contenitore Cassandra con i [driver Apache Cassandra v3.x](https://github.com/datastax/java-driver/tree/3.x) per Java. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
+In questo argomento di avvio rapido si crea un account dell'API Cassandra di Azure Cosmos DB e si usa un'app Java Cassandra clonata da GitHub per creare un database e contenitore Cassandra con i [driver Apache Cassandra v4.x](https://github.com/datastax/java-driver/tree/4.x) per Java. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,66 +61,73 @@ Si può ora passare a usare il codice. Clonare un'app Cassandra da GitHub, impos
 3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started-v4.git
     ```
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
 Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le risorse del database, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). Questi frammenti di codice sono tutti tratti dal file *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java*.  
 
-* Vengono impostate le opzioni per host, porta, nome utente, password e TLS/SSL di Cassandra. Le informazioni per la stringa di connessione derivano dalla pagina della stringa di connessione nel portale di Azure.
-
-   ```java
-   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
-   ```
-
-* Il `cluster` si connette all'API Cassandra di Azure Cosmos DB e restituisce una sessione per l'accesso.
+* `CqlSession` si connette all'API Cassandra di Azure Cosmos DB e restituisce una sessione per l'accesso. L'oggetto `Cluster` del driver v3 è ora obsoleto. Host, porta, nome utente e password di Cassandra vengono impostati nella pagina della stringa di connessione del portale di Azure.
 
     ```java
-    return cluster.connect();
+        this.session = CqlSession.builder().withSslContext(sc)
+                .addContactPoint(new InetSocketAddress(cassandraHost, cassandraPort)).withLocalDatacenter(region)
+                .withAuthCredentials(cassandraUsername, cassandraPassword).build();
     ```
+
 
 I frammenti di codice seguenti provengono dal file *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java*.
 
-* Creare un nuovo keyspace.
+* Eliminare il keyspace esistente se è già presente da un'esecuzione precedente.
+
+    ```java
+    public void dropKeyspace() {
+        String query = "DROP KEYSPACE IF EXISTS "+keyspace+"";
+        session.execute(query);
+        LOGGER.info("dropped keyspace '"+keyspace+"'");
+    } 
+    ```
+* Viene creato un nuovo keyspace.
 
     ```java
     public void createKeyspace() {
-        final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+        String query = "CREATE KEYSPACE "+keyspace+" WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 }";
         session.execute(query);
-        LOGGER.info("Created keyspace 'uprofile'");
+        LOGGER.info("Created keyspace '"+keyspace+"'");
     }
     ```
 
-* Creare una nuova tabella.
+* Viene creata una nuova tabella.
 
    ```java
-   public void createTable() {
-        final String query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+    public void createTable() {
+        String query = "CREATE TABLE "+keyspace+"."+table+" (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         session.execute(query);
-        LOGGER.info("Created table 'user'");
-   }
+        LOGGER.info("Created table '"+table+"'");
+    }
    ```
 
-* Inserire le entità utente usando un oggetto istruzione preparata.
+* Per inserire le entità utente si usa un oggetto istruzione preparata.
 
     ```java
-    public PreparedStatement prepareInsertStatement() {
-        final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-        return session.prepare(insertStatement);
+    public String prepareInsertStatement() {
+        final String insertStatement = "INSERT INTO  "+keyspace+"."+table+" (user_id, user_name , user_bcity) VALUES (?,?,?)";
+        return insertStatement;
     }
 
-    public void insertUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
+    public void insertUser(String preparedStatement, int id, String name, String city) {
+        PreparedStatement prepared = session.prepare(preparedStatement);
+        BoundStatement bound = prepared.bind(id, city, name).setIdempotent(true);
+        session.execute(bound);
     }
     ```
 
-* Eseguire una query per ottenere tutte le informazioni utente.
+* Eseguire una query per ottenere le informazioni su tutti gli utenti.
 
     ```java
-   public void selectAllUsers() {
-        final String query = "SELECT * FROM uprofile.user";
+    public void selectAllUsers() {
+        final String query = "SELECT * FROM "+keyspace+"."+table+"";
         List<Row> rows = session.execute(query).all();
 
         for (Row row : rows) {
@@ -129,11 +136,11 @@ I frammenti di codice seguenti provengono dal file *src/main/java/com/azure/cosm
     }
     ```
 
-* Eseguire una query per ottenere le informazioni su un singolo utente.
+ * Eseguire una query per ottenere le informazioni su un singolo utente.
 
     ```java
     public void selectUser(int id) {
-        final String query = "SELECT * FROM uprofile.user where user_id = 3";
+        final String query = "SELECT * FROM "+keyspace+"."+table+" where user_id = 3";
         Row row = session.execute(query).one();
 
         LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
@@ -174,14 +181,20 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 6. Se la riga 6 è stata modificata per usare un certificato TLS/ specifico, aggiornare la riga 7 in modo da usare la password per tale certificato. 
 
-7. Salvare il file *config.properties*.
+7. Tenere presente che è necessario aggiungere l'area predefinita (ad esempio `West US`) per il punto di contatto, ad esempio
+
+    `region=West US`
+
+    Questo perché il driver v. 4x consente di associare un solo controller di dominio locale al punto di contatto. Se si vuole aggiungere un'area diversa da quella predefinita, ovvero l'area specificata al momento della creazione dell'account Cosmos DB, sarà necessario usare il suffisso di area quando si aggiunge il punto di contatto, ad esempio `host-westus.cassandra.cosmos.azure.com`.
+
+8. Salvare il file *config.properties*.
 
 ## <a name="run-the-java-app"></a>Eseguire l'app Java
 
-1. Nella finestra del terminale Git passare con il comando `cd` alla cartella `azure-cosmosdb-cassandra-java-getting-started`.
+1. Nella finestra del terminale Git passare con il comando `cd` alla cartella `azure-cosmosdb-cassandra-java-getting-started-v4`.
 
     ```git
-    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started"
+    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started-v4"
     ```
 
 2. Nella finestra del terminale Git usare il comando seguente per generare il file `cosmosdb-cassandra-examples.jar`.

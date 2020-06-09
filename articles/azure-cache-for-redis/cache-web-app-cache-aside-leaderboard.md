@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411950"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195583"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
@@ -642,9 +642,9 @@ Per eseguire l'app in locale:
 
 ## <a name="publish-and-run-in-azure"></a>Pubblicare ed eseguire l'app in Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Effettuare il provisioning di un database di SQL Azure per l'app
+### <a name="provision-a-database-for-the-app"></a>Effettuare il provisioning di un database per l'app
 
-In questa sezione si effettuerà il provisioning di un nuovo database di SQL Azure che l'app userà mentre è ospitata in Azure.
+In questa sezione si effettuerà il provisioning di un nuovo database nel database SQL che l'app userà mentre è ospitata in Azure.
 
 1. Nell'angolo in alto a sinistra del [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa**.
 
@@ -736,4 +736,4 @@ Al termine dell'uso dell'applicazione di esempio dell'esercitazione, è possibil
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Come ridimensionare Cache Redis di Azure](./cache-how-to-scale.md)
+> [Come dimensionare Cache Redis di Azure](./cache-how-to-scale.md)

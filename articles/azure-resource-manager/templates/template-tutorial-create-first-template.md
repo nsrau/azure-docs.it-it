@@ -2,21 +2,21 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 05/20/2020
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714798"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235225"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
 Questa esercitazione presenta i modelli di Azure Resource Manager (ARM). e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
 
-Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono state esaminate tutti gli elementi fondamentali di un modello di Azure Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
+Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono stati esaminati tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 
 Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Modelli di Azure Resource Manager](overview.md).
 
@@ -39,6 +39,9 @@ Per distribuire il modello, è necessario usare anche l'interfaccia della riga d
 - [Installare l'interfaccia della riga di comando di Azure in Linux](/cli/azure/install-azure-cli-linux)
 
 Dopo aver installato Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di accedere per la prima volta. Per informazioni, vedere [Accesso - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Accesso - Interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli#sign-in).
+
+> [!IMPORTANT]
+> Se si usa l'interfaccia della riga di comando di Azure, assicurarsi di avere la versione 2.6 o successiva. I comandi illustrati in questa esercitazione non funzioneranno se si usano versioni precedenti. Per controllare la versione installata, usare: `az --version`.
 
 A questo punto è possibile iniziare a familiarizzare con i modelli.
 

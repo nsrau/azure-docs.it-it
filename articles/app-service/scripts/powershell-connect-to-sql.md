@@ -6,12 +6,12 @@ ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: bb5fc8bcc99a4439276f53325c029635143c86c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e050675282d8a7784d31aaf45a564da991ff6e63
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74685393"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020031"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>Connettere un'app del servizio app a un database SQL
 
@@ -42,9 +42,9 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Consente di creare un piano di servizio app. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Consente di creare un'app del servizio app. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Creare un server di database SQL. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creare una nuova regola del firewall per un server di database SQL. |
-| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea un database o un database elastico. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Consente di creare un server. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Consente di creare una regola del firewall a livello di server. |
+| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Consente di creare un database o un database elastico. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica la configurazione di un'app del servizio app. |
 
 ## <a name="next-steps"></a>Passaggi successivi

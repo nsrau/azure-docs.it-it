@@ -1,22 +1,22 @@
 ---
 title: Usare l'API Tabella e Java per creare un'app - Azure Cosmos DB
-description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Java
+description: Questo argomento di avvio rapido illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Java
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e3517804cb66a9f98351e4c68f4f7c4387cee8fe
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 979f93ef19a2c2aec96c51f81f412468070f7b1d
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82083802"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218001"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Guida introduttiva: Creare un'app Java per gestire i dati dell'API Tabella di Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Tabella di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "82083802"
 > * [Python](create-table-python.md)
 > 
 
-In questa guida di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Java clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
+In questo argomento di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Java clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,7 +72,86 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-> ![SUGGERIMENTO] Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-java.md). 
+> [!TIP]
+> Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-java.md). 
+
+## <a name="review-the-code"></a>Esaminare il codice
+
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare alla sezione [Aggiornare la stringa di connessione](#update-your-connection-string) di questo documento.
+
+* Il codice seguente mostra come creare una tabella in Archiviazione di Azure:
+
+  ```java
+  private static CloudTable createTable(CloudTableClient tableClient, String tableName) throws StorageException, RuntimeException, IOException, InvalidKeyException,   IllegalArgumentException, URISyntaxException, IllegalStateException {
+  
+    // Create a new table
+    CloudTable table = tableClient.getTableReference(tableName);
+    try {
+        if (table.createIfNotExists() == false) {
+            throw new IllegalStateException(String.format("Table with name \"%s\" already exists.", tableName));
+        }
+    }
+    catch (StorageException s) {
+        if (s.getCause() instanceof java.net.ConnectException) {
+            System.out.println("Caught connection exception from the client. If running with the default configuration please make sure you have started the storage emulator.");
+        }
+        throw s;
+    }
+
+    return table;
+  }
+  ```
+
+* Il codice seguente mostra come inserire i dati nella tabella:
+
+  ```javascript
+  private static void batchInsertOfCustomerEntities(CloudTable table) throws StorageException {
+  
+  // Create the batch operation
+  TableBatchOperation batchOperation1 = new TableBatchOperation();
+  for (int i = 1; i <= 50; i++) {
+      CustomerEntity entity = new CustomerEntity("Smith", String.format("%04d", i));
+      entity.setEmail(String.format("smith%04d@contoso.com", i));
+      entity.setHomePhoneNumber(String.format("425-555-%04d", i));
+      entity.setWorkPhoneNumber(String.format("425-556-%04d", i));
+      batchOperation1.insertOrMerge(entity);
+  }
+  
+  // Execute the batch operation
+  table.execute(batchOperation1);
+  }
+  ```
+
+* Il codice seguente mostra come eseguire query sui dati dalla tabella:
+
+  ```java
+  private static void partitionScan(CloudTable table, String partitionKey) throws StorageException {
+  
+      // Create the partition scan query
+      TableQuery<CustomerEntity> partitionScanQuery = TableQuery.from(CustomerEntity.class).where(
+          (TableQuery.generateFilterCondition("PartitionKey", QueryComparisons.EQUAL, partitionKey)));
+  
+      // Iterate through the results
+      for (CustomerEntity entity : table.execute(partitionScanQuery)) {
+          System.out.println(String.format("\tCustomer: %s,%s\t%s\t%s\t%s", entity.getPartitionKey(), entity.getRowKey(), entity.getEmail(), entity.getHomePhoneNumber(), entity.  getWorkPhoneNumber()));
+      }
+  }
+  ```
+
+* Il codice seguente mostra come eliminare i dati dalla tabella:
+
+  ```java
+  
+  System.out.print("\nDelete any tables that were created.");
+  
+  if (table1 != null && table1.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table1.getName()));
+  }
+  
+  if (table2 != null && table2.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table2.getName()));
+  }
+  ```
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
@@ -131,7 +210,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app Java per aggiungere i dati della tabella.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app Java per aggiungere i dati della tabella.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
 
 > [!div class="nextstepaction"]
 > [Importare i dati delle tabelle nell'API Tabelle](table-import.md)

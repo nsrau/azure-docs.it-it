@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754321"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018396"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager
 
 Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli artefatti della distribuzione sono tutti i file, oltre ai file modello principali, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi.
 
-In questa esercitazione verrà creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni su come distribuire le estensioni macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
+In questa esercitazione verrà creato un modello per distribuire un [server SQL logico](../../azure-sql/database/logical-servers.md) e un database singolo e importare un file BACPAC. Per informazioni su come distribuire le estensioni macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
 Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
+>
 > * Preparare un file BACPAC.
 > * Aprire un modello di avvio rapido.
 > * Modificare il modello.
@@ -34,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
-* Per una maggiore sicurezza, usare una password generata per l'account amministratore del server Azure SQL. Di seguito è riportato un esempio che è possibile usare per generare una password:
+* Per una maggiore sicurezza, usare una password generata per l'account amministratore del server. Di seguito è riportato un esempio che è possibile usare per generare una password:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="prepare-a-bacpac-file"></a>Preparare un file BACPAC
 
-Un file BACPAC viene condiviso in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Per creare un file BACPAC, vedere [Esportare un database SQL di Azure in un file BACPAC](../../sql-database/sql-database-export.md). Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare il modello più avanti in questa esercitazione.
+Un file BACPAC viene condiviso in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Per creare un file BACPAC, vedere [Esportare un database SQL di Azure in un file BACPAC](../../azure-sql/database/database-export.md). Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare il modello più avanti in questa esercitazione.
 
 Il file BACPAC deve essere archiviato in un account di archiviazione di Azure prima di poter essere importato con un modello di Azure Resource Manager. Lo script di PowerShell seguente prepara il file BACPAC con questi passaggi:
 
@@ -142,7 +143,7 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 
 1. Aggiungere altre due risorse al modello.
 
-    * Per consentire all'estensione Database SQL di importare file BACPAC, è necessario consentire il traffico proveniente dai servizi di Azure. Aggiungere la definizione della regola del firewall seguente nella definizione di SQL Server:
+    * Per consentire all'estensione Database SQL di importare file BACPAC, è necessario consentire il traffico proveniente dai servizi di Azure. Aggiungere la definizione della regola del firewall seguente nella definizione del server:
 
         ```json
         "resources": [
@@ -238,7 +239,7 @@ Usare una password generata. Vedere [Prerequisiti](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
-Per accedere a SQL Server dal computer client, è necessario aggiungere una regola del firewall aggiuntiva. Per altre informazioni, vedere [Creare e gestire le regole del firewall IP](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Per accedere al server dal computer client, è necessario aggiungere una regola del firewall aggiuntiva. Per altre informazioni, vedere [Creare e gestire le regole del firewall IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 Nel portale di Azure selezionare il database SQL nel gruppo di risorse appena distribuito. Selezionare **Editor di query (anteprima)** e quindi immettere le credenziali di amministratore. Verranno visualizzate le due tabelle importate nel database.
 
@@ -255,7 +256,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC. Per informazioni su come risolvere i problemi di distribuzione del modello, vedere:
+In questa esercitazione sono stati distribuiti un server e un database ed è stato importato un file BACPAC. Per informazioni su come risolvere i problemi di distribuzione del modello, vedere:
 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager](./template-tutorial-troubleshoot.md)

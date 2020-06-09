@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: API Cassandra con .NET - Azure Cosmos DB'
-description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET
+title: 'Avvio rapido: API Cassandra con .NET Core - Azure Cosmos DB'
+description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET Core
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 author: TheovanKraay
@@ -8,14 +8,14 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: abab57a84a7c630bcce71056b49d73024ae75e9f
+ms.openlocfilehash: 9df32b441d5dd2653fd3708013bb75660ef593c5
 ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310802"
+ms.locfileid: "84310941"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET Core e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "84310802"
 > * [Python](create-cassandra-python.md)
 >  
 
-Questo argomento di avvio rapido mostra come usare .NET e l'[API Cassandra](cassandra-introduction.md) di Azure Cosmos DB per creare un'app di profilo clonando un esempio di GitHub. Questo argomento di avvio rapido illustra anche come usare il portale di Azure basato sul Web per creare un account Azure Cosmos DB.
+Questo argomento di avvio rapido illustra come usare .NET Core e l'[API Cassandra](cassandra-introduction.md) di Azure Cosmos DB per creare un'app di profilo clonando un esempio disponibile in GitHub. Questo argomento di avvio rapido illustra anche come usare il portale di Azure basato sul Web per creare un account Azure Cosmos DB.
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
@@ -63,51 +63,64 @@ Si può ora passare a usare il codice. Clonare ora un'app per le API Cassandra d
 3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-core-getting-started.git
     ```
 
 4. Aprire quindi il file della soluzione CassandraQuickStartSample in Visual Studio. 
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le risorse del database, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice provengono tutti dal file `Program.cs` installato nella cartella `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string).
+Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le risorse del database, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice provengono tutti dal metodo `async Task ProcessAsync()` incluso nel file `Program.cs` installato nella cartella `C:\git-samples\azure-cosmos-db-cassandra-dotnet-core-getting-started\CassandraQuickStart`. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string).
 
 * Inizializzare la sessione tramite la connessione a un endpoint cluster Cassandra. L'API Cassandra in Azure Cosmos DB supporta solo TLSv1.2. 
 
   ```csharp
-   var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-   options.SetHostNameResolver((ipAddress) => CassandraContactPoint);
-   Cluster cluster = Cluster.Builder().WithCredentials(UserName, Password).WithPort(CassandraPort).AddContactPoint(CassandraContactPoint).WithSSL(options).Build();
-   ISession session = cluster.Connect();
+      var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+      options.SetHostNameResolver((ipAddress) => CASSANDRACONTACTPOINT);
+      Cluster cluster = Cluster
+          .Builder()
+          .WithCredentials(USERNAME, PASSWORD)
+          .WithPort(CASSANDRAPORT)
+          .AddContactPoint(CASSANDRACONTACTPOINT)
+          .WithSSL(options)
+          .Build()
+      ;
+      ISession session = await cluster.ConnectAsync();
    ```
+
+* Eliminare il keyspace esistente se è già presente.
+
+    ```csharp
+    await session.ExecuteAsync(new SimpleStatement("DROP KEYSPACE IF EXISTS uprofile")); 
+    ```
 
 * Creare un nuovo keyspace.
 
     ```csharp
-    session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
+    await session.ExecuteAsync(new SimpleStatement("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"));
     ```
 
 * Creare una nuova tabella.
 
    ```csharp
-  session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
+  await session.ExecuteAsync(new SimpleStatement("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)"));
    ```
 
 * Inserire le entità utente usando l'oggetto IMapper con una nuova sessione che si connette al keyspace uprofile.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    await mapper.InsertAsync<User>(new User(1, "LyubovK", "Dubai"));
     ```
-    
+
 * Eseguire una query per ottenere tutte le informazioni utente.
 
     ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
+    foreach (User user in await mapper.FetchAsync<User>("Select * from user"))
+    {
+        Console.WriteLine(user);
+    }
     ```
-    
+
 * Eseguire una query per ottenere le informazioni su un singolo utente.
 
     ```csharp
@@ -126,27 +139,26 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 2. In Visual Studio aprire il file Program.cs. 
 
-3. Incollare il valore di NOME UTENTE dal portale su `<FILLME>` nella riga 13.
+3. Incollare il valore di NOME UTENTE dal portale su `<PROVIDE>` nella riga 13.
 
     La riga 13 del file Program.cs dovrebbe ora essere simile alla seguente: 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. Tornare al portale e copiare il valore di PASSWORD. Incollare il valore di PASSWORD dal portale su `<FILLME>` nella riga 14.
+    È anche possibile incollare lo stesso valore su `<PROVIDE>` alla riga 15 per il valore CONTACT POINT:
+
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
+
+3. Tornare al portale e copiare il valore di PASSWORD. Incollare il valore di PASSWORD dal portale su `<PROVIDE>` nella riga 14.
 
     La riga 14 del file Program.cs dovrebbe ora essere simile alla seguente: 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. Tornare al portale e copiare il valore di PUNTO DI CONTATTO. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 15.
 
-    La riga 15 del file Program.cs dovrebbe ora essere simile alla seguente: 
-
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
-
-5. Salvare il file Program.cs.
+4. Salvare il file Program.cs.
     
-## <a name="run-the-net-app"></a>Eseguire l'app .NET
+## <a name="run-the-net-core-app"></a>Eseguire l'app .NET Core
 
 1. In Visual Studio selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 

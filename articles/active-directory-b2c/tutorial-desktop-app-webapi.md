@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183381"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298849"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
@@ -51,17 +51,11 @@ Per chiamare un'API Web protetta da un'applicazione client nativa, è necessario
 
 Nell'esercitazione sui prerequisiti è stata registrata un'applicazione client nativa denominata *nativeapp1*. I passaggi seguenti consentono di configurare la registrazione dell'applicazione nativa con gli ambiti dell'API esposti per *webapi1* nella sezione precedente. Ciò consente all'applicazione desktop di ottenere un token di accesso da Azure AD B2C che l'API Web può usare per verificare e fornire l'accesso con ambito alle relative risorse. Gli esempi di codice dell'applicazione desktop e dell'API Web vengono configurati ed eseguiti più avanti nell'esercitazione.
 
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
 
-1. Selezionare **Applicazioni** e quindi *nativeapp1*.
-1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
-1. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
-1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
-1. Selezionare **OK**.
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
-
-1. Selezionare **Registrazioni app (anteprima)** e quindi l'applicazione client nativa che deve avere accesso all'API. Ad esempio, *nativeapp1*.
+1. Selezionare **Registrazioni app** e quindi l'applicazione client nativa che deve avere accesso all'API. Ad esempio, *nativeapp1*.
 1. In **Gestisci** selezionare **Autorizzazioni API**.
 1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **Le mie API**.
@@ -72,6 +66,14 @@ Nell'esercitazione sui prerequisiti è stata registrata un'applicazione client n
 1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
 1. Selezionare **Accetto**.
 1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
+
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
+
+1. Selezionare **Applicazioni (legacy)** e quindi *nativeapp1*.
+1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
+1. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
+1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
+1. Selezionare **OK**.
 
 * * *
 

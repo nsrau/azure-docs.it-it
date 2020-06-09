@@ -1,23 +1,22 @@
 ---
-title: 'Esercitazione: ASP.NET Core Linux con database SQL'
-description: Informazioni su come usare un'app ASP.NET Core Linux basata sui dati da usare in Servizio app di Azure, con connessione a un database SQL.
+title: 'Esercitazione: Linux ASP.NET Core con database SQL'
+description: Informazioni su come usare un'app ASP.NET Core Linux basata sui dati da usare in Servizio app di Azure, con connessione al database SQL.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 303177f1ee7a076a5c1756bfbb13a4364f43aca0
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846937"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020235"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure in Linux
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app .NET Core e database SQL nel servizio app di Azure](../app-service-web-tutorial-dotnetcore-sqldb.md).
->
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione mostra come creare un'app .NET Core e connetterla a un database SQL. Al termine, si avrà un'app .NET Core MVC in esecuzione nel servizio app in Linux.
 
@@ -26,7 +25,8 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Creare un database SQL in Azure
+>
+> * Creare un database nel database SQL di Azure
 > * Connettere un'app .NET Core al database SQL
 > * Distribuire l'app in Azure
 > * Aggiornare il modello di dati e ridistribuire l'app
@@ -77,28 +77,25 @@ Per arrestare .NET Core in qualsiasi momento, premere `Ctrl+C` nel terminale.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-sql-database"></a>Creare il database SQL di produzione
+## <a name="create-a-database-in-azure-sql-database"></a>Creare un database nel database SQL di Azure
 
-In questo passaggio si crea un database SQL in Azure. Quando viene distribuita in Azure, l'app usa questo database basato sul cloud.
-
-Come database SQL questa esercitazione usa [Database SQL di Azure](/azure/sql-database/).
+In questo passaggio si crea un database nel [database SQL di Azure](/azure/sql-database/). Quando viene distribuita in Azure, l'app usa questo database.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
-### <a name="create-a-sql-database-logical-server"></a>Creare un server logico per il database SQL
+### <a name="create-a-server-in-azure-sql-database"></a>Creare un server nel database SQL di Azure
 
-In Cloud Shell creare un server logico di database SQL con il comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
+In Cloud Shell creare un [server](../../azure-sql/database/logical-servers.md) nel database SQL di Azure con il comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create). Un server è un costrutto logico che contiene un gruppo di database gestiti come gruppo.
 
-Sostituire il segnaposto *\<server-name>* con un nome di database SQL *univoco*. Questo nome viene usato nell'endpoint del database SQL univoco globale `<server-name>.database.windows.net`. I caratteri validi sono `a`-`z`, `0`-`9`, `-`. Sostituire anche *\<db-username>* e *\<db-password>* con un nome utente e una password di propria scelta. 
-
+Sostituire il segnaposto *\<server-name>* con un nome di database SQL *univoco*. Questo nome viene usato nell'endpoint del database SQL univoco globale `<server-name>.database.windows.net`. I caratteri validi sono `a`-`z`, `0`-`9`, `-`. Sostituire anche *\<db-username>* e *\<db-password>* con un nome utente e una password di propria scelta.
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-Al termine della creazione del server logico di database SQL, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente:
+Dopo aver creato il server, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente:
 
 <pre>
 {
@@ -120,15 +117,14 @@ Al termine della creazione del server logico di database SQL, l'interfaccia dell
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall a livello di server di database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
+Creare una [regola del firewall a livello di server](../../azure-sql/database/firewall-configure.md) con il comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure.
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP] 
+> [!TIP]
 > È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](../overview-inbound-outbound-ips.md#find-outbound-ips).
->
 
 In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
 
@@ -136,9 +132,9 @@ In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal compute
 az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
-### <a name="create-a-database"></a>Creazione di un database
+### <a name="create-a-database-in-azure-sql-database"></a>Creare un database nel database SQL di Azure
 
-Creare un database con [livello di prestazioni S0](../../sql-database/sql-database-service-tiers-dtu.md) nel server con il comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
+Creare un database con [livello di prestazioni S0](../../azure-sql/database/service-tiers-dtu.md) nel server con il comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -174,11 +170,10 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 > [!IMPORTANT]
 > Per le app di produzione per cui è necessario aumentare il numero di istanze, seguire le procedure consigliate illustrate in [Applicazione delle migrazioni nell'ambiente di produzione](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
-> 
 
 ### <a name="run-database-migrations-to-the-production-database"></a>Eseguire le migrazioni del database al database di produzione
 
-L'app si connette attualmente a un database SQLite locale. Ora che è stato configurato un database SQL di Azure, creare di nuovo la migrazione iniziale per usarlo come destinazione. 
+L'app si connette attualmente a un database SQLite locale. Ora che è stato configurato un database di Azure, creare di nuovo la migrazione iniziale per usarlo come destinazione.
 
 Eseguire i comandi seguenti dalla radice del repository. Sostituire *\<connection-string>* con la stringa di connessione creata in precedenza.
 
@@ -210,7 +205,7 @@ dotnet run
 
 Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_. L'app ora legge e scrive i dati nel database di produzione.
 
-Eseguire il commit delle modifiche locali e quindi eseguire il commit nel repository GIT. 
+Eseguire il commit delle modifiche locali e quindi eseguire il commit nel repository GIT.
 
 ```bash
 git add .
@@ -233,11 +228,11 @@ In questo passaggio si distribuisce l'applicazione .NET Core connessa al databas
 
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
 ### <a name="configure-connection-string"></a>Configurare la stringa di connessione
 
-Per impostare le stringhe di connessione per l'app Azure, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Nel comando seguente sostituire *\<app-name>* e il parametro *\<connection-string>* con la stringa di connessione creata prima.
+Per impostare le stringhe di connessione per l'app Azure, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Nel comando seguente sostituire *\<app-name>* e il parametro *\<connection-string>* con la stringa di connessione creata in precedenza.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
@@ -398,8 +393,8 @@ Mentre l'app ASP.NET Core è in esecuzione nel servizio app di Azure, è possibi
 
 Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) con due modifiche della configurazione:
 
-- Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
+* Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+* Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
 Per impostare il [livello di registrazione](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) di ASP.NET Core nel Servizio app su `Information` dal livello predefinito `Error`, usare il comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in Cloud Shell.
 
@@ -409,7 +404,6 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 > [!NOTE]
 > Il livello di registrazione del progetto è già impostato su `Information` in *appsettings.json*.
-> 
 
 Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
 
@@ -438,12 +432,14 @@ Per impostazione predefinita, il portale visualizza la pagina **Panoramica** del
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Contenuto dell'esercitazione:
 
 > [!div class="checklist"]
-> * Creare un database SQL in Azure
+>
+> * Creare un database nel database SQL di Azure
 > * Connettere un'app .NET Core al database SQL
 > * Distribuire l'app in Azure
 > * Aggiornare il modello di dati e ridistribuire l'app

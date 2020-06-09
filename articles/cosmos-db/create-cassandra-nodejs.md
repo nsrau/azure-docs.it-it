@@ -1,25 +1,27 @@
 ---
-title: 'Guida introduttiva: API Cassandra con Node.js - Azure Cosmos DB'
-description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Node.js
-author: SnehaGunda
-ms.author: sngun
+title: 'Avvio rapido: API Cassandra con Node.js - Azure Cosmos DB'
+description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Node.js
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/18/2020
+ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77210359"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310054"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Node.js SDK e Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Node.js SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  

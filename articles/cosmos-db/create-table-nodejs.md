@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API Tabella con Node.js - Azure Cosmos DB'
-description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Node.js
+title: 'Avvio rapido: API Tabella con Node.js - Azure Cosmos DB'
+description: Questo argomento di avvio rapido mostra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Node.js
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: e0d2d2ea99822c95b9fab73642db37430771c583
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82083768"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217930"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "82083768"
 > * [Python](create-table-python.md)
 > 
 
-In questa guida di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Node.js clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
+In questo argomento di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Node.js clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,8 +70,68 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-> ![SUGGERIMENTO] Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-nodejs.md). 
+> [!TIP]
+> Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-nodejs.md). 
 
+## <a name="review-the-code"></a>Esaminare il codice
+
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare alla sezione [Aggiornare la stringa di connessione](#update-your-connection-string) di questo documento.
+
+* Il codice seguente mostra come creare una tabella in Archiviazione di Azure:
+
+  ```javascript
+  storageClient.createTableIfNotExists(tableName, function (error, createResult) {
+    if (error) return callback(error);
+
+    if (createResult.isSuccessful) {
+      console.log("1. Create Table operation executed successfully for: ", tableName);
+    }
+  }
+
+  ```
+
+* Il codice seguente mostra come inserire i dati nella tabella:
+
+  ```javascript
+  var customer = createCustomerEntityDescriptor("Harp", "Walter", "Walter@contoso.com", "425-555-0101");
+
+  storageClient.insertOrMergeEntity(tableName, customer, function (error, result, response) {
+    if (error) return callback(error);
+
+    console.log("   insertOrMergeEntity succeeded.");
+  }
+  ```
+
+* Il codice seguente mostra come eseguire query sui dati dalla tabella:
+
+  ```javascript
+  console.log("6. Retrieving entities with surname of Smith and first names > 1 and <= 75");
+
+  var storageTableQuery = storage.TableQuery;
+  var segmentSize = 10;
+
+  // Demonstrate a partition range query whereby we are searching within a partition for a set of entities that are within a specific range. 
+  var tableQuery = new storageTableQuery()
+      .top(segmentSize)
+      .where('PartitionKey eq ?', lastName)
+      .and('RowKey gt ?', "0001").and('RowKey le ?', "0075");
+  
+  runPageQuery(tableQuery, null, function (error, result) {
+  
+      if (error) return callback(error);
+  
+  ```
+
+* Il codice seguente mostra come eliminare i dati dalla tabella:
+
+  ```javascript
+  storageClient.deleteEntity(tableName, customer, function entitiesQueried(error, result) {
+      if (error) return callback(error);
+  
+      console.log("   deleteEntity succeeded.");
+  }
+  ```
+  
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
@@ -126,7 +186,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app Node.js per aggiungere i dati della tabella.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app Node.js per aggiungere i dati della tabella.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
 
 > [!div class="nextstepaction"]
 > [Importare i dati delle tabelle nell'API Tabelle](table-import.md)

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 280a59d8c378de6b3667560a4eb2b1cf95041f8d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78187424"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298789"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET con Azure Active Directory B2C
 
@@ -40,31 +40,31 @@ Completare i passaggi e i prerequisiti riportati in [Esercitazione: Abilitare l'
 
 Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
 
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Ad esempio, *webapi1*.
+1. In **URI di reindirizzamento**  selezionare **Web** e quindi immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
+1. Selezionare **Registra**.
+1. Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
+
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi **Aggiungi**.
+4. Selezionare **Applicazioni (legacy)** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
 6. In **Includi app Web/API Web** selezionare **Sì**.
 7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
 8. Per **URI ID app** immettere l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. Ad esempio: `https://contosotenant.onmicrosoft.com/api`.
 9. Fare clic su **Crea**.
 10. Nella pagina delle proprietà prendere nota dell'ID applicazione, che verrà usato durante la configurazione dell'applicazione Web.
-
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
-1. Immettere un **nome** per l'applicazione. Ad esempio, *webapi1*.
-1. In **URI di reindirizzamento**  selezionare **Web** e quindi immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
-1. Selezionare **Registra**.
-1. Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 * * *
 

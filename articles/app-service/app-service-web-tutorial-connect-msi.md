@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: 142cd2611e0dcf3227474efadded7bac88a4390a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e38711cbb5ccd9fe4cc8584a9229a1c57550d618
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207633"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021229"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -45,13 +45,13 @@ Contenuto dell'esercitazione:
 
 Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) o [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md). Se non è già stato fatto, seguire prima una delle due esercitazioni. In alternativa, è possibile adattare le procedure alla propria app .NET con un database SQL.
 
-Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi di aver consentito la connessione client dal computer. In caso contrario, aggiungere l'indirizzo IP del client seguendo la procedura descritta in [Gestire regole del firewall IP a livello di server tramite il portale di Azure](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi di aver consentito la connessione client dal computer. In caso contrario, aggiungere l'indirizzo IP del client seguendo la procedura descritta in [Gestire regole del firewall IP a livello di server tramite il portale di Azure](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Concedere l'accesso al database all'utente di Azure AD
 
-Abilitare prima di tutto l'autenticazione di Azure AD nel database SQL assegnando un utente di Azure AD come amministratore di Active Directory del server di database SQL. Questo utente è diverso dall'account Microsoft usato per effettuare l'iscrizione alla sottoscrizione di Azure. Deve essere un utente creato, importato, sincronizzato o invitato in Azure AD. Per altre informazioni sugli utenti di Azure AD consentiti, vedere [Funzionalità e limitazioni di Azure AD nel database SQL](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+Abilitare prima di tutto l'autenticazione di Azure AD nel database SQL assegnando un utente di Azure AD come amministratore di Active Directory del server. Questo utente è diverso dall'account Microsoft usato per effettuare l'iscrizione alla sottoscrizione di Azure. Deve essere un utente creato, importato, sincronizzato o invitato in Azure AD. Per altre informazioni sugli utenti di Azure AD consentiti, vedere [Funzionalità e limitazioni di Azure AD nel database SQL](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
 Se il tenant di Azure AD non contiene ancora utenti, crearne uno seguendo la procedura descritta in [Aggiungere o eliminare utenti con Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -64,13 +64,13 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Per visualizzare l'elenco di tutti i nomi delle entità utente in Azure AD, eseguire `az ad user list --query [].userPrincipalName`.
 >
 
-Aggiungere questo utente di Azure AD come amministratore di Active Directory usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) in Cloud Shell. Nel comando seguente sostituire *\<server-name>* con il nome del server di database SQL (senza il suffisso `.database.windows.net`).
+Aggiungere questo utente di Azure AD come amministratore di Active Directory usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) in Cloud Shell. Nel comando seguente sostituire *\<server-name>* con il nome del server (senza il suffisso `.database.windows.net`).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
 ```
 
-Per altre informazioni sull'aggiunta di un amministratore di Active Directory, vedere [Effettuare il provisioning di un amministratore di Azure Active Directory per il server di database SQL di Azure](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
+Per altre informazioni sull'aggiunta di un amministratore di Active Directory, vedere [Effettuare il provisioning di un amministratore di Azure Active Directory per il server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
 
 ## <a name="set-up-visual-studio"></a>Configurare Visual Studio
 
@@ -130,7 +130,7 @@ In *Web.config* apportare le modifiche seguenti partendo dall'inizio del file:
 > [!NOTE]
 > Il provider SqlAuthenticationProvider appena registrato è basato sulla libreria AppAuthentication installata in precedenza. Per impostazione predefinita, usa un'identità assegnata dal sistema. Per sfruttare un'identità assegnata dall'utente, sarà necessario specificare una configurazione aggiuntiva. Per la libreria AppAuthentication, vedere le [opzioni supportate per la stringa di connessione](../key-vault/general/service-to-service-authentication.md#connection-string-support).
 
-Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app.
+Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app.
 
 Digitare `Ctrl+F5` per eseguire di nuovo l'app. La stessa app CRUD nel browser si connette ora al database SQL di Azure direttamente, usando l'autenticazione di Azure AD. Questa configurazione consente di eseguire migrazioni del database da Visual Studio.
 
@@ -158,7 +158,7 @@ conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceT
 > [!NOTE]
 > Questo codice dimostrativo è sincrono per maggiore chiarezza e semplicità.
 
-Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app. La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Per aggiornare il token, non è necessario specificare codice personalizzato.
+Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app. La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Per aggiornare il token, non è necessario specificare codice personalizzato.
 
 > [!TIP]
 > Se l'utente di Azure AD configurato ha accesso a più tenant, chiamare `GetAccessTokenAsync("https://database.windows.net/", tenantid)` con l'ID tenant desiderato per recuperare il token di accesso corretto.
@@ -204,7 +204,7 @@ Ecco un esempio di output:
 > ```
 >
 
-In Cloud Shell accedere al database SQL con il comando SQLCMD. Sostituire _\<server-name>_ con il nome del server di database SQL, _\<db-name>_ con il nome del database usato dall'app e _\<aad-user-name>_ e _\<aad-password>_ con le credenziali dell'utente di Azure AD.
+In Cloud Shell accedere al database SQL con il comando SQLCMD. Sostituire _\<server-name>_ con il nome del server, _\<db-name>_ con il nome del database usato dall'app e _\<aad-user-name>_ e _\<aad-password>_ con le credenziali dell'utente di Azure AD.
 
 ```azurecli-interactive
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
@@ -220,7 +220,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name >* è il nome dell'identità gestita in Azure AD. Se l'identità è assegnata dal sistema, il nome corrisponde sempre a quello dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
+*\<identity-name>* è il nome dell'identità gestita in Azure AD. Se l'identità è assegnata dal sistema, il nome corrisponde sempre a quello dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
 
 Digitare `EXIT` per tornare al prompt di Cloud Shell.
 

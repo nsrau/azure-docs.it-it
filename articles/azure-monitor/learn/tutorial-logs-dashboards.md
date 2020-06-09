@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661533"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148260"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -35,6 +35,14 @@ Selezionare **Dashboard** per aprire il [dashboard](../../azure-portal/azure-por
 ![Dashboard del portale di Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Qui è possibile raggruppare i dati operativi più importanti di tutte le risorse di Azure per l'IT, inclusi i dati di telemetria di Azure Log Analytics.  Prima di procedere alla visualizzazione di una query di log, è necessario creare un dashboard e condividerlo.  Sarà quindi possibile concentrarsi sulla query di log di esempio relativa alle prestazioni, che verrà visualizzata come grafico a linee, e aggiungerla al dashboard.  
+
+> [!NOTE]
+> Quando si usano query di log nei dashboard di Azure, sono supportati i tipi di grafico seguenti:
+> - areachart
+> - columnchart
+> - piechart (verrà visualizzato nel dashboard come grafico ad anello)
+> - scatterchart
+> - timechart
 
 Per creare un dashboard, selezionare il pulsante **Nuovo dashboard** accanto al nome del dashboard corrente.
 

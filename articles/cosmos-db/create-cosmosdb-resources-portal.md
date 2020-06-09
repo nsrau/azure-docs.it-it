@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Creare risorse di Azure Cosmos DB dal portale di Azure'
-description: Questa guida di avvio rapido mostra come creare un database, un contenitore ed elementi di Azure Cosmos con il portale di Azure.
+description: Questo argomento di avvio rapido mostra come creare un database, un contenitore ed elementi di Azure Cosmos con il portale di Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: 79deb2f33a11e8ccb6f059bde7590b7cc0fe20c0
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 0f7e210c0818bd317f8e69ebed28301fd9b06dc0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521118"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263874"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Guida introduttiva: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)
@@ -56,6 +56,9 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     |Applica sconto per il livello gratuito|Applica o Non applicare|Azure Cosmos DB livello gratuito offre i primi 400 UR/s e 5 GB di spazio di archiviazione gratuiti per account. Altre informazioni sul [livello gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|Area più vicina ai propri utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.|
     |Tipo di account|Produzione o Non di produzione|Selezionare **Produzione** se l'account verrà usato per un carico di lavoro di produzione. Selezionare **Non di produzione** se l'account non verrà usato per un carico di lavoro di produzione, ad esempio per lo sviluppo, il test, il controllo di qualità o lo staging. Si tratta di un'impostazione di tag delle risorse di Azure che consente di ottimizzare l'esperienza del portale, ma non influisce sull'account Azure Cosmos DB sottostante. È possibile modificare questo valore in qualsiasi momento.|
+    |Ridondanza geografica|Abilitare o disabilitare|Abilitare o disabilitare la distribuzione globale nell'account associando la propria area a un'altra area. È possibile aggiungere altre aree al proprio account in un secondo momento.|
+    |Scritture in più aree|Abilitare o disabilitare|La funzionalità Scritture in più aree consente di sfruttare la velocità effettiva di cui è stato effettuato il provisioning per i database e i contenitori in tutto il mondo.|
+    |Zone di disponibilità|Abilitare o disabilitare|Le zone di disponibilità consentono di migliorare ulteriormente la disponibilità e la resilienza dell'applicazione.|
 
 
 > [!NOTE]
@@ -140,7 +143,7 @@ Se si vuole eliminare solo il database e usare l'account Azure Cosmos in futuro,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

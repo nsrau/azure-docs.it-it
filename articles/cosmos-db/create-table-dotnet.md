@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API Tabella con .NET - Azure Cosmos DB'
-description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e .NET
+title: 'Avvio rapido: API Tabella con .NET - Azure Cosmos DB'
+description: Questo argomento di avvio rapido mostra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e .NET
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: df26021a3718c17d72f0fdb25588487043918732
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 45c1f9b5425b7e826776dc0f52681c67846bfdc5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084108"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218182"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con .NET SDK e Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con .NET SDK e Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "82084108"
 > * [Python](create-table-python.md)
 >  
 
-Questa guida introduttiva descrive come usare .NET e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. La guida introduttiva illustra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
+Questo argomento di avvio rapido mostra come usare .NET e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. Questo argomento di avvio rapido mostra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +66,8 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
-> ![SUGGERIMENTO] Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-dotnet.md).
+> [!TIP]
+> Per una procedura dettagliata più completa con codice simile, vedere l'articolo relativo all'[esempio di API Tabella di Cosmos DB](table-storage-how-to-use-dotnet.md).
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Aprire l'applicazione di esempio in Visual Studio
 
@@ -75,6 +76,26 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
    ![Aprire la soluzione](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
 2. Passare alla cartella in cui è stata clonata l'applicazione di esempio e aprire il file TableStorage.sln.
+
+## <a name="review-the-code"></a>Esaminare il codice
+
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare alla sezione [Aggiornare la stringa di connessione](#update-your-connection-string) di questo documento.
+
+* Il codice seguente mostra come creare una tabella in Archiviazione di Azure:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* Il codice seguente mostra come inserire i dati nella tabella:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* Il codice seguente mostra come eseguire query sui dati dalla tabella:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* Il codice seguente mostra come eliminare i dati dalla tabella:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
@@ -155,7 +176,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
 
 > [!div class="nextstepaction"]
 > [Importare i dati delle tabelle nell'API Tabelle](table-import.md)
