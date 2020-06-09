@@ -6,37 +6,37 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120097"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634126"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
-L'eliminazione temporanea protegge i dati BLOB da modifiche accidentali o erroneamente o eliminati. Quando l'eliminazione temporanea è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di memorizzazione specificato.
+L'eliminazione temporanea protegge i dati BLOB da modifiche accidentali o erronee o eliminazioni. Quando l'eliminazione temporanea è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di conservazione specificato.
 
-Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea.
+Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea.
 
-Questo articolo illustra come iniziare a usare l'eliminazione temporanea.
+Questo articolo illustra le attività iniziali da eseguire con l'eliminazione temporanea.
 
 ## <a name="enable-soft-delete"></a>Abilitare l'eliminazione temporanea
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usando portale di Azure:
+Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usando il portale di Azure:
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione. 
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/). 
 
-2. Passare all'opzione **protezione dati** in **servizio BLOB**.
+2. Passare all'opzione **Protezione dati** in **Servizio BLOB**.
 
-3. Fare clic su **abilitato** in **eliminazione temporanea BLOB**
+3. Fare clic su **Abilitato** in **Eliminazione temporanea BLOB**
 
-4. Immettere il numero di giorni che si desidera *mantenere per* i **criteri di conservazione**
+4. Immettere il numero di giorni per cui *mantenere* i dati in **Criteri di conservazione**
 
 5. Scegliere il pulsante **Salva** per confermare le impostazioni di protezione dati
 
@@ -137,7 +137,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+Per ripristinare i BLOB eliminati accidentalmente, chiamare Undelete su tali BLOB. Tenere presente che chiamando **Annulla Elimina** sia sui BLOB attivi che su quelli eliminati temporaneamente, tutti gli snapshot eliminati temporaneamente associati ad essi verranno ripristinati come attivi. L'esempio seguente chiama Undelete su tutti i BLOB eliminati temporaneamente e attivi presenti in un contenitore:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+Per eseguire il ripristino a una versione di BLOB specifica, chiamare prima Undelete su un BLOB, quindi copiare lo snapshot desiderato su di esso. L'esempio seguente ripristina un BLOB in blocchi al relativo ultimo snapshot generato:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -153,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Per ripristinare i BLOB eliminati accidentalmente, chiamare Undelete su tali BLOB. Tenere presente che chiamando **Undelete Blob** sia sui BLOB attivi che su quelli eliminati temporaneamente, tutti gli snapshot eliminati temporaneamente associati ad essi verranno ripristinati come attivi. L'esempio seguente chiama Undelete su tutti i BLOB eliminati temporaneamente e attivi presenti in un contenitore:
+Per ripristinare i BLOB eliminati accidentalmente, chiamare Undelete su tali BLOB. Tenere presente che chiamando **Annulla Elimina** sia sui BLOB attivi che su quelli eliminati temporaneamente, tutti gli snapshot eliminati temporaneamente associati ad essi verranno ripristinati come attivi. L'esempio seguente chiama Undelete su tutti i BLOB eliminati temporaneamente e attivi presenti in un contenitore:
 
 ```csharp
 // Recover all blobs in a container
@@ -177,7 +191,7 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 
