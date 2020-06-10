@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ec1b03bf0b3cf95f65013bddbc54e15ab985198e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401023"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607999"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Ottenere l'elenco delle voci per la sintesi vocale usando Python
 

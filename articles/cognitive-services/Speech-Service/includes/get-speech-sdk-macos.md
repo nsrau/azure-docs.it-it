@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d9c6062e7106f764058d6c96c6f730d235b2ef0c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cea48f2d30687e85c39f0969874489aa1d70a4a5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673034"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637456"
 ---
 Quando si sviluppa per macOS, sono disponibili tre SDK per la sintesi vocale.
 
@@ -43,11 +43,11 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.1'
 end
 ```
 
-# <a name="xamarinmac"></a>[Novell. Mac](#tab/mac-xamarin)
+# <a name="xamarinmac"></a>[Xamarin.Mac](#tab/mac-xamarin)
 
 :::row:::
     :::column span="3":::

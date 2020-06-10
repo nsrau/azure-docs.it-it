@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140933"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637467"
 ---
 > [!NOTE]
 > Per rilevare `PHI` , usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
@@ -27,21 +27,21 @@ Quando si inviano richieste all'endpoint, vengono restituite le categorie di ent
 | Persona     | N/D         | Nomi delle persone.  | `2019-10-01`  | Restituito anche con `domain=phi` . |
 | PersonType | N/D         | Tipi di processo o ruoli contenuti da una persona. | `2020-02-01` | |
 | PhoneNumber | N/D | Numeri di telefono (solo numeri di telefono US e UE). | `2019-10-01` | Restituito anche con`domain=phi` |
-|Organizzazione  | N/D | Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche.  | `2019-10-01` | Le nazionalità e le religioni non sono incluse in questo tipo di entità.  |
-|Organizzazione | Medicina | Società e gruppi medicali. | `2020-04-01` | Restituito anche con `domain=phi` . |
-|Organizzazione | Scambio scorte | Gruppi di scambio azionario. | `2020-04-01` | Restituito anche con `domain=phi` . |
-| Organizzazione | Sport | Organizzazioni correlate allo sport. | `2020-04-01` | Restituito anche con `domain=phi` . |
+|Organization  | N/D | Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche.  | `2019-10-01` | Le nazionalità e le religioni non sono incluse in questo tipo di entità.  |
+|Organization | Medicina | Società e gruppi medicali. | `2020-04-01` | Restituito anche con `domain=phi` . |
+|Organization | Scambio scorte | Gruppi di scambio azionario. | `2020-04-01` | Restituito anche con `domain=phi` . |
+| Organization | Sport | Organizzazioni correlate allo sport. | `2020-04-01` | Restituito anche con `domain=phi` . |
 | Indirizzo | N/D | Indirizzi di posta elettronica completi.  | `2020-04-01` | Restituito anche con `domain=phi` . |
 | Coordinate GPS EU | N/D | Coordinate GPS per le località all'interno dell'Unione europea.  | `2019-10-01` |  |
-| E-mail | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
+| Posta elettronica | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
 | URL | N/D | URL per siti Web. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | IP | N/D | Indirizzi IP di rete. | `2019-10-01` | |
 | Datetime | N/D | Date e ore del giorno. | `2019-10-01` |  | 
 | Datetime | Data | Date calendario. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | Quantità | N/D | Numeri e quantità numeriche. | `2019-10-01` |  |
 | Quantità | Age | Età. | `2019-10-01` | | |
-| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, nona revisione.   | `2020-04-01` | Restituito anche con `domain=phi` . |
-| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, decima revisione.    | `2020-04-01` | Restituito anche con `domain=phi` . |
+| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, nona revisione.   | `2020-04-01` | |
+| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, decima revisione.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informazioni su Azure
 

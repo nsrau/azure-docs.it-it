@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806321"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636127"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 
@@ -97,7 +97,7 @@ Una tipica soluzione usa questi servizi:
 - [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) consente di creare l'URI di firma di accesso condiviso per ogni registrazione e attivare la richiesta POST HTTP per avviare una trascrizione. Inoltre, Funzioni di Azure consente di creare richieste per recuperare ed eliminare trascrizioni usando l'API di trascrizione batch.
 
 Microsoft usa internamente le suddette tecnologie per supportare le chiamate dei clienti in modalità batch.
-![Architettura batch](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tecnologie usate per supportare le chiamate dei clienti Microsoft in modalità batch.":::
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Trascrizione in tempo reale dei dati del call center
 
@@ -125,7 +125,7 @@ Un altro scenario è l'integrazione diretta con SIP (Session Initiation Protocol
 | -------------- | ----- | ----------- |
 | Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 |                | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
-|                | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato, è possibile definire il form fonetico e visualizzarlo per una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Per iniziare, è sufficiente un file di pronuncia, ovvero un file semplice `.txt` . |
+|                | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato, è possibile definire il form fonetico e visualizzarlo per una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Per iniziare, è sufficiente un file di pronuncia, ovvero un `.txt` file semplice. |
 | Sintesi vocale | [Carattere voce](how-to-customize-voice-font.md) | I caratteri voce personalizzati consentono di creare una voce distintiva e unica per il proprio marchio. Per iniziare è necessaria solo una piccola quantità di dati. Più dati si forniscono, più naturale e umano risulterà il carattere voce. |
 
 ## <a name="sample-code"></a>Codice di esempio

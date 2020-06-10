@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261786"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635170"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Che cos'è il servizio Riconoscimento del parlante di Azure?
 
@@ -27,7 +27,7 @@ Verifica voce semplifica il processo di verifica dell'identità di un altoparlan
 
 ### <a name="how-does-speaker-verification-work"></a>In che modo Verifica voce funziona?
 
-![Funzionamento della verifica dell'altoparlante](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Diagramma di flusso Verifica voce.":::
 
 La verifica dell'altoparlante può essere dipendente dal testo o indipendente dal testo. La verifica **dipendente dal testo** indica che i relatori devono scegliere la stessa passphrase da usare durante le fasi di registrazione e di verifica. La verifica **indipendente dal testo** indica che i relatori possono parlare in linguaggio quotidiano nelle frasi di registrazione e di verifica.
 
@@ -59,4 +59,5 @@ Come per tutte le risorse di servizi cognitivi, gli sviluppatori che usano il se
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
+> * Completare l' [articolo Nozioni di base](speaker-recognition-basics.md) su riconoscimento del parlante per un'esecuzione di modelli di progettazione comuni che è possibile usare nelle applicazioni.
 > * Vedere l' [esercitazione video](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) per la verifica del relatore indipendente dal testo.

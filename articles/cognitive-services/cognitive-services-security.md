@@ -1,5 +1,5 @@
 ---
-title: Security
+title: Sicurezza
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulle diverse considerazioni sulla sicurezza per l'utilizzo di servizi cognitivi.
 services: cognitive-services
@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: tracking-python
+ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202002"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608452"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -30,7 +31,7 @@ Tutti gli endpoint di servizi cognitivi esposti tramite HTTP applicano TLS 1,2. 
 
 Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedure <span class="docon docon-navigate-external x-hidden-focus"></span> consigliate Transport Layer Security </a>.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo (RBAC). È possibile utilizzare il controllo degli accessi in base al ruolo per semplificare la cerimonia relativa alla gestione manuale delle entità. Per informazioni dettagliate, vedere [controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/overview.md).
 
@@ -200,7 +201,7 @@ NSString* value =
 
 Customer Lockbox è disponibile per questo servizio cognitivo:
 
-* Funzione di conversione
+* Traduttore
 
 Per Language Understanding, i tecnici Microsoft non accederanno ai dati dei clienti nello SKU di E0. Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata per l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
