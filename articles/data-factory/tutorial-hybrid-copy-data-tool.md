@@ -1,6 +1,6 @@
 ---
 title: Copiare dati locali con lo strumento Copia dati di Azure
-description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per copiare i dati da un database SQL Server locale all'archivio BLOB di Azure.
+description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per copiare i dati da un database di SQL Server all'archiviazione BLOB di Azure.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: 6b4df324fec38d08355754146d8be76d225e6cb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418593"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194598"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure con lo strumento Copia dati
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si usa il portale di Azure per creare una data factory. Si userà quindi lo strumento Copia dati per creare una pipeline che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure.
+In questa esercitazione si usa il portale di Azure per creare una data factory. Si userà quindi lo strumento Copia dati per creare una pipeline che copia i dati da un database di SQL Server all'archiviazione BLOB di Azure.
 
 > [!NOTE]
 > - Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
@@ -37,7 +37,7 @@ In questa esercitazione si segue questa procedura:
 > * Usare lo strumento Copia dati per creare una pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -47,7 +47,7 @@ Per creare istanze di Data Factory, all'account utente usato per accedere ad Azu
 Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure. Selezionare il nome utente nell'angolo superiore destro e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-In questa esercitazione si usa un database di SQL Server locale come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server locale (origine) a un archivio BLOB (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e si inseriscono alcune voci di esempio nella tabella.
+In questa esercitazione si usa un database di SQL Server come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e si inseriscono alcune voci di esempio nella tabella.
 
 1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ In questa esercitazione si usa un database di SQL Server locale come archivio da
     ```
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa esercitazione, come archivio dati di destinazione/sink si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB). Se non si ha un account di archiviazione per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per istruzioni su come crearne uno. La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server locale (origine) a questo archivio BLOB (sink). 
+In questa esercitazione, come archivio dati di destinazione/sink si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB). Se non si ha un account di archiviazione per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per istruzioni su come crearne uno. La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server (origine) all'archiviazione BLOB (sink). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
 In questa esercitazione si usano il nome e la chiave dell'account di archiviazione. Per recuperare il nome e la chiave dell'account di archiviazione, seguire questa procedura:
@@ -128,7 +128,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
      Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
 1. In **Versione** selezionare **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
 
@@ -169,13 +169,13 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
     a. In **Nome** immettere **SqlServerLinkedService**.
 
-    b. In **Nome server** immettere il nome dell'istanza di SQL Server locale.
+    b. In **Nome server** immettere il nome dell'istanza di SQL Server.
 
     c. In **Nome database** immettere il nome del database locale.
 
     d. In **Tipo di autenticazione** selezionare l'autenticazione appropriata.
 
-    e. In **Nome utente** immettere il nome dell'utente con accesso all'istanza di SQL Server locale.
+    e. In **Nome utente** immettere il nome dell'utente con accesso a SQL Server.
 
     f. Immettere la **password** dell'utente.
 
@@ -233,7 +233,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-La pipeline di questo esempio copia i dati da un database di SQL Server locale a un archivio BLOB. Si è appreso come:
+La pipeline di questo esempio copia i dati da un database di SQL Server all'archiviazione BLOB. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare una data factory.

@@ -3,17 +3,17 @@ title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azur
 description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877950"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142316"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -49,17 +49,15 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-daily-export"></a>Creare un'esportazione giornaliera
 
-Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi selezionare **Esporta** e quindi scegliere un'opzione di esportazione. Ad esempio, selezionare **Pianifica l'esportazione**.  
+Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi selezionare **Impostazioni** e quindi **Esporta** e infine scegliere un'opzione di esportazione.
 
 > [!NOTE]
 > - Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, account, reparti e iscrizioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 >- Dopo aver eseguito l'accesso come partner a livello dell'ambito dell'account di fatturazione o nel tenant di un cliente, è possibile esportare i dati in un account di archiviazione di Azure collegato all'account di archiviazione partner. Tuttavia, è necessario disporre di una sottoscrizione attiva nel tenant CSP.
->
-
 
 Selezionare **Aggiungi**, digitare un nome per l'esportazione e quindi selezionare l'opzione **Esportazione giornaliera dei costi da inizio mese**. Selezionare **Avanti**.
 
-![Nuovo esempio di esportazione con tipo di esportazione](./media/tutorial-export-acm-data/basics_exports.png)
+[![Nuovo esempio di esportazione con tipo di esportazione](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Specificare la sottoscrizione per l'account di archiviazione di Azure, quindi selezionare l'account di archiviazione.  Specificare il contenitore di archiviazione e il percorso della directory dove si desidera memorizzare il file di esportazione. Selezionare **Avanti**.
 
@@ -83,10 +81,19 @@ Esistono due tipi di opzioni di esportazione:
 **Personalizzata**: consente di pianificare esportazioni settimanali e mensili con le opzioni da inizio settimana e da inizio mese. *L'esportazione iniziale verrà eseguita immediatamente.*
 
 Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per tali tipi di sottoscrizioni e gruppi di risorse, è possibile creare un'esportazione allineata al periodo di fatturazione o ai mesi di calendario. Per creare un'esportazione allineata al mese di fatturazione, passare a **Personalizzato**, quindi selezionare **Periodo di fatturazione a oggi**.  Per creare un'esportazione allineata al mese di calendario, selezionare **Da inizio mese**.
->
->
 
 ![Nuova esportazione - scheda Informazioni di base in cui è illustrata la selezione dell'opzione personalizzata per l'esportazione settimanale da inizio settimana](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Creare un'esportazione per più sottoscrizioni
+
+Se si ha un Contratto Enterprise, è possibile usare un gruppo di gestione per aggregare le informazioni sui costi della sottoscrizione in un singolo contenitore. È quindi possibile esportare i dati di gestione dei costi per il gruppo di gestione.
+
+Le esportazioni per i gruppi di gestione di altri tipi di sottoscrizione non sono supportate.
+
+1. Creare un gruppo di gestione e assegnarvi le sottoscrizioni.
+1. In Esportazioni selezionare **Ambito**.
+1. Selezionare **Selezionare questo gruppo di gestione**.
+1. Creare un'esportazione a livello di ambito per ottenere i dati di gestione dei costi per le sottoscrizioni nel gruppo di gestione.
 
 ## <a name="verify-that-data-is-collected"></a>Verificare che i dati vengano raccolti
 
@@ -104,6 +111,18 @@ Il file viene aperto con l'applicazione o il programma impostato per aprire le e
 
 ![Esempio di esportazione di dati CSV visualizzati in Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Scaricare un file di dati CSV esportato
+
+È anche possibile scaricare il file CSV esportato nel portale di Azure. Nei passaggi seguenti viene illustrato come individuarlo dall'analisi dei costi.
+
+1. Nell'analisi dei costi selezionare **Impostazioni** e quindi selezionare **Esportazioni**.
+1. Nell'elenco delle esportazioni selezionare l'account di archiviazione per un'esportazione.
+1. Nell'account di archiviazione fare clic su **Contenitori**.
+1. Nell'elenco dei contenitori selezionare il contenitore.
+1. Spostarsi tra le directory e i BLOB di archiviazione fino alla data desiderata.
+1. Selezionare il file CSV e quindi selezionare **Scarica**.
+
+[![Download di esportazione di esempio](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Accedere a dati esportati da altri sistemi
 

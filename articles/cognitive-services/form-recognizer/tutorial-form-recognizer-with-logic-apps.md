@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118279"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118542"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Esercitazione: Usare Riconoscimento modulo con App per la logica di Azure per analizzare le fatture
 
@@ -377,11 +377,10 @@ Per testare l'app per la logica, usare le fatture di esempio nella cartella **/T
       }
     ]
     ```
-    L'esercitazione è stata completata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è configurato un flusso di lavoro di App per la logica di Azure per l'uso di Riconoscimento modulo per eseguire il training di un modello ed estrarre il contenuto di una fattura. Successivamente, verrà illustrato come creare un set di dati di training in modo da poter creare uno scenario simile con moduli personalizzati.
+In questa esercitazione si è configurato un flusso di lavoro di App per la logica di Azure per usare Riconoscimento modulo per eseguire il training di un modello ed estrarre il contenuto di una fattura. Successivamente, verrà illustrato come creare un set di dati di training in modo da poter creare uno scenario simile con moduli personalizzati.
 
 > [!div class="nextstepaction"]
 > [Creare un set di dati di training](build-training-data-set.md)

@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117098"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418178"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch 
 
@@ -24,7 +24,7 @@ Questa esercitazione mostra come distribuire un pool di Batch ed eseguire un pro
 > * Creare un pool di Batch come back-end parallelo per la sessione R
 > * Eseguire una simulazione di esempio in parallelo nel pool
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una distribuzione [R](https://www.r-project.org/) installata, ad esempio [Microsoft R Open](https://mran.microsoft.com/open). Usare R versione 3.3.1 o successive.
 
@@ -220,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-La simulazione distribuisce le attività nei nodi nel pool di Batch. È possibile visualizzare l'attività nella mappa di calore per il pool nel portale di Azure. Passare a **Account Batch** > *AccountBatch*. Fare clic su **Pool** > *NomePool*. 
+La simulazione distribuisce le attività nei nodi nel pool di Batch. È possibile visualizzare l'attività nella mappa termica relativa al pool nel portale di Azure. Passare a **Account Batch** > *AccountBatch*. Fare clic su **Pool** > *NomePool*. 
 
 ![Mappa di calore del pool che esegue attività R parallele](media/tutorial-r-doazureparallel/pool.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di interfaccia della riga di comando: Importare un file BACPAC in un database SQL di Azure'
-description: Script di esempio dell'interfaccia della riga di comando di Azure per importare un file BACPAC in un database SQL
+title: 'Interfaccia della riga di comando di Azure: Importare un file BACPAC in un database di Database SQL di Azure'
+description: Script di esempio dell'interfaccia della riga di comando di Azure per importare un file BACPAC in un database di Database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: f47d0ec2edf54aaa708c176e92a9e1026b446882
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e3638c9823ed0fbae61a0dc5a93dff2e211d3f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061825"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022642"
 ---
-# <a name="use-cli-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Usare l'interfaccia della riga di comando per importare un file BACPAC in un database SQL di Azure
+# <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Usare l'interfaccia della riga di comando per importare un file BACPAC in un database di Database SQL di Azure
 
-Questo esempio di script dell'interfaccia della riga di comando di Azure importa un database da un file *BACPAC* in un database SQL di Azure.  
+Questo esempio di script dell'interfaccia della riga di comando di Azure importa un database da un file con estensione *bacpac* in un database di Database SQL di Azure.  
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -55,4 +55,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

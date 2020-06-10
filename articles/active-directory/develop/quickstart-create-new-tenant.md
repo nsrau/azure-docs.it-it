@@ -12,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883814"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308490"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Guida di avvio rapido: Configurare un tenant
+# <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 
@@ -34,7 +34,7 @@ Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e 
 * account aziendali, e dell'istituto di istruzione (account di Azure AD) o account Microsoft (ad esempio outlook.com e live.com).
 * Account di social e locali (Azure AD B2C)
 
-La guida di avvio rapido è suddivisa in due scenari a seconda del tipo di app che si vuole creare. Per altro supporto su come definire come target un tipo di identità, vedere [Microsoft Identity Platform](about-microsoft-identity-platform.md).
+La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che si vuole creare. Per altro supporto su come definire come target un tipo di identità, vedere [Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Account aziendali e dell'istituto di istruzione o account Microsoft personali
 
@@ -73,4 +73,4 @@ Per iniziare a creare app che consentono l'accesso agli account di social e loca
 
 * [Registrare un'app](quickstart-register-app.md) e integrarla con Microsoft Identity Platform. 
 * Informazioni sulle [nozioni di base dell'autenticazione](authentication-scenarios.md).
-* Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

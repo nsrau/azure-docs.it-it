@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre le informazioni sul layout e sul testo usando Python - Riconoscimento modulo'
+title: 'Avvio rapido: Estrarre le informazioni sul layout e sul testo usando Python - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà l'API REST di layout di Riconoscimento modulo con Python per leggere il testo e i dati delle tabelle dai moduli.
 author: PatrickFarley
@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: f0c1e9eccda8171ab816d33dac3f1947cea67eea
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c30374b21c1d95b6b710de10da08391d0af4f538
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714611"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141960"
 ---
-# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Guida introduttiva: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
+# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
 
 In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo di Azure con Python per estrarre informazioni sul layout del testo e i dati delle tabelle da documenti modulo.
 
@@ -27,6 +27,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
 - Un documento modulo. È possibile scaricare un'immagine dal [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) per questo argomento di avvio rapido.
+
+> [!NOTE]
+> Questo argomento di avvio rapido usa un documento archiviato localmente. Per informazioni sull'uso di file remoti accessibili tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 

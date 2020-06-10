@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677926"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021441"
 ---
 # <a name="about-azure-remote-rendering"></a>Informazioni su Rendering remoto di Azure
 
@@ -22,7 +22,11 @@ ms.locfileid: "80677926"
 
 ![Modello di esempio](../media/arr-engine.png)
 
-I dispositivi non collegati hanno una potenza di calcolo limitata per il rendering di modelli complessi. Per molte applicazioni sarebbe però inaccettabile ridurre in qualche modo la fedeltà visiva.
+I dispositivi non collegati hanno una potenza di calcolo limitata per il rendering di modelli complessi. Per molte applicazioni sarebbe però inaccettabile ridurre in qualche modo la fedeltà visiva. Lo screenshot seguente mette a confronto il modello in dettaglio con un modello che è stato decimato con un comune strumento di creazione di contenuti:
+
+![Modello di esempio](./media/engine-model-decimated.png)
+
+Il modello ridotto è costituito da circa 200.000 triangoli (incluse le parti interne dettagliate), rispetto a oltre 18 milioni di triangoli nel modello originale.
 
 *Rendering remoto* risolve questo problema spostando il carico di lavoro del rendering in GPU di fascia alta nel cloud. Un motore di grafica ospitato nel cloud esegue il rendering dell'immagine, la codifica come flusso video e la trasmette al dispositivo di destinazione.
 

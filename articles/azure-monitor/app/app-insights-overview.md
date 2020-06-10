@@ -4,18 +4,18 @@ description: Gestione delle prestazioni delle applicazioni e monitoraggio dell'u
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828730"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996092"
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 Application Insights, una funzionalità di [Monitoraggio di Azure](../overview.md), è un servizio estendibile di gestione delle prestazioni dell''applicazione per sviluppatori e professionisti DevOps. Può essere utilizzata per monitorare le applicazioni attive. Oltre a rilevare automaticamente le anomalie nelle prestazioni, include strumenti di analisi avanzati che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app in un'ampia gamma di piattaforme, tra cui .NET, Node.js, Java e Python, ospitate in locale, ibride o in qualsiasi cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Come funziona Application Insights?
-Si installa un pacchetto di strumentazione di piccole dimensioni (SDK) nell'applicazione o si abilita Application Insights in modalità codeless, se [supportato](../../azure-monitor/app/platforms.md). La strumentazione monitora l'app e indirizza i dati di telemetria a una risorsa di Azure Application Insights usando un GUID univoco definito chiave di strumentazione.
+Si installa un pacchetto di strumentazione di piccole dimensioni (SDK) nell'applicazione o si abilita Application Insights usando l'agente di Application Insights, se [supportato](../../azure-monitor/app/platforms.md). La strumentazione monitora l'app e indirizza i dati di telemetria a una risorsa di Azure Application Insights usando un GUID univoco definito chiave di strumentazione.
 
 È possibile instrumentare non solo l''applicazione del servizio Web, ma anche i componenti in background e il codice JavaScript nelle pagine Web stesse. L'applicazione e i relativi componenti possono essere eseguiti ovunque, non devono essere necessariamente ospitati in Azure.
 
@@ -26,7 +26,7 @@ Inoltre, è possibile effettuare il pull dei dati di telemetria dagli ambienti h
 Tutti questi flussi di telemetria vengono integrati in Monitoraggio di Azure. Nel portale di Azure è possibile applicare potenti strumenti di analisi e ricerca ai dati non elaborati.
 
 ### <a name="whats-the-overhead"></a>Informazioni sul sovraccarico
-L'impatto sulle prestazioni dell'app è molto ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.
+L'impatto sulle prestazioni dell'app è ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.
 
 ## <a name="what-does-application-insights-monitor"></a>Quali sono gli elementi monitorati da Application Insights?
 

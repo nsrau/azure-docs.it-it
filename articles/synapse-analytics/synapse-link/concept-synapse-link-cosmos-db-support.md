@@ -9,22 +9,25 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658850"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235292"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
 
-Questo articolo descrive le funzionalità attualmente supportate in Collegamento ad Azure Synapse per Azure Cosmos DB. 
+Questo articolo descrive le funzionalità attualmente supportate in Collegamento ad Azure Synapse per Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Supporto di Azure Synapse
 
 In Azure Cosmos DB sono disponibili due tipi di contenitori:
 * Contenitore HTAP: un contenitore con Collegamento a Synapse abilitato. Questo contenitore include sia l'archivio transazionale che l'archivio analitico. 
 * Contenitore OLTP: un contenitore che include solo l'archivio transazionale; Collegamento a Synapse non è abilitato. 
+
+> [!IMPORTANT]
+> Collegamento ad Azure Synapse per Azure Cosmos DB è attualmente supportato per le aree di lavoro in cui non è abilitata la rete virtuale gestita. 
 
 È possibile connettersi a un contenitore Azure Cosmos DB senza abilitare Collegamento a Synapse, nel qual caso l'archivio transazionale sarà disponibile solo in lettura/scrittura. Di seguito è riportato un elenco delle funzionalità attualmente supportate all'interno di Collegamento a Synapse per Azure Cosmos DB. 
 

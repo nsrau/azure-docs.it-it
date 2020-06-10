@@ -3,17 +3,17 @@ title: 'Esercitazione: Creare e gestire i budget di Azure'
 description: Questa esercitazione illustra come pianificare e controllare i costi dei servizi di Azure utilizzati.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101757"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142436"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -115,6 +115,15 @@ Dopo averlo creato, il budget viene visualizzato nell'analisi dei costi. La visu
 
 Nell'esempio precedente, è stato creato un budget per una sottoscrizione. È possibile creare un budget anche per un gruppo di risorse. Se si vuole creare un budget per un gruppo di risorse, passare a **Gestione dei costi e fatturazione** &gt; **Sottoscrizioni**&gt; selezionare una sottoscrizione > **Gruppi di risorse** > selezionare un gruppo di risorse > **Budget** > quindi fare clic su **Aggiungi** per aggiungere un budget.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Creare un budget per i costi combinati di Azure e AWS
+
+È possibile raggruppare i costi di Azure e AWS assegnando un gruppo di gestione al connettore insieme agli account consolidati e collegati. Assegnare le sottoscrizioni di Azure allo stesso gruppo di gestione. Creare quindi un budget per i costi combinati.
+
+1. In Gestione costi selezionare **Budget**.
+1. Selezionare **Aggiungi**.
+1. Selezionare **Cambia ambito** quindi selezionare il gruppo di gestione.
+1. Continuare a creare il budget fino al completamento.
+
 ## <a name="costs-in-budget-evaluations"></a>Costi nelle valutazioni del budget
 
 Le valutazioni dei costi del budget includono ora istanze riservate e dati di acquisto. Se i costi vengono addebitati all'utente, è possibile che si ricevano avvisi in quanto per le valutazioni sono previsti addebiti. È consigliabile accedere al [portale di Azure](https://portal.azure.com) per verificare che le soglie del budget siano configurate correttamente per calcolare i nuovi costi. Gli addebiti di fatturazione di Azure non subiscono modifiche. I budget vengono ora valutati in base a un set più completo dei costi. Se i costi vengono addebitati all'utente, il comportamento del budget rimane invariato.
@@ -125,7 +134,6 @@ Se si vogliono filtrare i nuovi costi in modo che i budget siano valutati in bas
 - Tipo di addebito: Uso
 
 Le valutazioni dei costi del budget si basano sul costo effettivo. Non includono l'ammortamento. Per altre informazioni sulle opzioni di filtro disponibili nei budget, vedere [Informazioni sulle opzioni di raggruppamento e filtro](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
 
 ## <a name="trigger-an-action-group"></a>Attivare un gruppo di azioni
 

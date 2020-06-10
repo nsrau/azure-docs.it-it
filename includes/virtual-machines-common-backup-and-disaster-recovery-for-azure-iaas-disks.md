@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77179105"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124183"
 ---
 Questo articolo illustra come pianificare il backup e il ripristino di emergenza di macchine virtuali (VM) e dischi IaaS in Azure. Questo documento è relativo a dischi gestiti e non gestiti.
 
@@ -96,7 +96,7 @@ I problemi relativi ai dati delle applicazioni IaaS costituiscono un'altra possi
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Soluzione per il ripristino di emergenza: Backup di Azure 
 
-[Backup di Azure](https://azure.microsoft.com/services/backup/) viene usato per i backup e il ripristino di emergenza e funziona anche con i [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) e con i dischi non gestiti. È possibile creare un processo di backup con backup basati su orari specifici e con criteri semplici per il ripristino delle VM e la conservazione dei backup.
+[Backup di Azure](https://azure.microsoft.com/services/backup/) viene usato per i backup e il ripristino di emergenza e funziona con [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) e non gestiti. È possibile creare un processo di backup con backup basati su orari specifici e con criteri semplici per il ripristino delle VM e la conservazione dei backup.
 
 Se si usano [unità SSD Premium](../articles/virtual-machines/windows/disks-types.md), [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) o altri tipi di dischi con l'opzione di [archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md), è particolarmente importante eseguire backup periodici per il ripristino di emergenza. Backup di Azure archivia i dati nell'insieme di credenziali dei servizi di ripristino per la conservazione a lungo termine. Scegliere l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) per l'insieme di credenziali dei servizi di ripristino di backup. Questa opzione assicura che i backup vengano replicati in un'area di Azure differente per la protezione da emergenze a livello di area.
 
@@ -109,11 +109,11 @@ Per i dischi non gestiti è possibile usare il tipo di archiviazione con ridonda
 
 | Scenario | Replica automatica | Soluzione di ripristino di emergenza |
 | --- | --- | --- |
-| Dischi SSD Premium | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Dischi gestiti | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Dischi non gestiti con archiviazione con ridondanza locale | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Dischi non gestiti con archiviazione con ridondanza geografica | Tra aree ([archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[snapshot coerenti](#alternative-solution-consistent-snapshots) |
-| Dischi non gestiti con archiviazione con ridondanza geografica e accesso in lettura | Tra aree ([archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[snapshot coerenti](#alternative-solution-consistent-snapshots) |
+| Dischi SSD Premium | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
+| Dischi gestiti | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
+| Dischi non gestiti con archiviazione con ridondanza locale | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
+| Dischi non gestiti con archiviazione con ridondanza geografica | Tra aree ([archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
+| Dischi non gestiti con archiviazione con ridondanza geografica e accesso in lettura | Tra aree ([archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
 
 La disponibilità elevata si ottiene usando dischi gestiti in un set di disponibilità insieme a Backup di Azure. Se si usano dischi non gestiti, è comunque possibile usare Backup di Azure per il ripristino di emergenza. Se non si può usare Backup di Azure, la creazione di [snapshot coerenti](#alternative-solution-consistent-snapshots), come illustrato in una sezione successiva, è una soluzione alternativa per il backup e il ripristino di emergenza.
 
@@ -128,7 +128,7 @@ Le opzioni per la disponibilità elevata, il backup e il ripristino di emergenza
 
 [Backup di Azure](../articles/backup/backup-azure-vms-introduction.md) può eseguire il backup delle VM che eseguono Windows o Linux nell'insieme di credenziali dei servizi di ripristino di Azure. Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che il backup di tali dati deve essere eseguito mentre le applicazioni che generano i dati sono in esecuzione. 
 
-Per risolvere questo problema, Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft. Si avvale del Servizio Copia Shadow del volume per garantire che i dati vengano scritti correttamente nella risorsa di archiviazione. Per le macchine virtuali Linux, la modalità di coerenza dei backup predefinita è costituita da backup coerenti con i file, perché Linux non ha funzionalità equivalenti al servizio shadow del volume come nel caso di Windows. Per i computer Linux, vedere [backup coerente con le applicazioni di VM Linux di Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Per risolvere questo problema, Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft. Si avvale del Servizio Copia Shadow del volume per garantire che i dati vengano scritti correttamente nella risorsa di archiviazione. Per le macchine virtuali Linux, la modalità di coerenza predefinita dei backup è costituita da backup coerenti con i file, perché Linux non offre una funzionalità equivalente al servizio Copia shadow del volume. Per le macchine virtuali Linux, vedere [Backup coerente con le applicazioni per macchine virtuali Linux in Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 ![Flusso di Backup di Azure][1]
 
@@ -146,7 +146,7 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
     b. Dal menu **Insiemi di credenziali dei servizi di ripristino** scegliere **Aggiungi** e seguire la procedura per la creazione di un nuovo insieme di credenziali nella stessa area in cui si trova la VM. Se ad esempio la VM si trova nell'area Stati Uniti occidentali, scegliere Stati Uniti occidentali per l'insieme di credenziali.
 
-1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in insiemi di credenziali **dei servizi di ripristino** e passare a **Proprietà** > **backup configurazione** > **aggiornamento**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
+1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in **Insiemi di credenziali di Servizi di ripristino** e passare a **Proprietà** > **Configurazione di backup** > **Aggiorna**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
 
 1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 
@@ -168,7 +168,7 @@ Per altre informazioni, vedere le istruzioni per [usare il portale di Azure per 
 
 È anche possibile usare PowerShell per la [creazione di una nuova macchina virtuale dai dischi ripristinati](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Soluzione alternativa: snapshot coerenti
+## <a name="alternative-solution-consistent-snapshots"></a>Soluzioni alternativa: snapshot coerenti
 
 Se non si può usare Backup di Azure, è possibile implementare un meccanismo di backup personalizzato tramite gli snapshot. La creazione di snapshot coerenti per tutti i dischi usati da una VM e quindi la replica di tali snapshot in un'altra area è un processo complicato. Azure considera quindi l'uso del servizio Backup come un'opzione migliore rispetto alla creazione di una soluzione personalizzata.
 
@@ -188,7 +188,7 @@ Per evitare questo problema, è necessario che il processo di backup implementi 
 
 1.  [Creazione di uno snapshot del BLOB](../articles/storage/blobs/storage-blob-snapshots.md) per tutti i dischi.
 
-Alcune applicazioni Windows, ad esempio SQL Server, forniscono un meccanismo di backup coordinato tramite il Servizio Copia Shadow del volume per creare backup coerenti con l'applicazione. In Linux è possibile usare uno strumento come *fsfreeze* per il coordinamento dei dischi. Questo strumento assicura backup coerenti con i file, ma non snapshot coerenti con l'applicazione. Questo processo è complesso, pertanto è consigliabile prendere in considerazione l'uso di [Backup di Azure](../articles/backup/backup-azure-vms-introduction.md) o di una soluzione di backup di terze parti che implementa già questa procedura.
+Alcune applicazioni Windows, ad esempio SQL Server, forniscono un meccanismo di backup coordinato tramite il Servizio Copia Shadow del volume per creare backup coerenti con l'applicazione. In Linux è possibile usare uno strumento come *fsfreeze* per coordinare i dischi. Questo strumento assicura backup coerenti con i file, ma non snapshot coerenti con l'applicazione. Questo processo è complesso, pertanto è consigliabile prendere in considerazione l'uso di [Backup di Azure](../articles/backup/backup-azure-vms-introduction.md) o di una soluzione di backup di terze parti che implementa già questa procedura.
 
 Il processo precedente consente di ottenere una raccolta di snapshot coordinati per tutti i dischi della VM, rappresentando una visualizzazione temporizzata specifica della VM. Questo è un punto di ripristino del backup per la VM. È possibile ripetere il processo a intervalli pianificati per creare backup periodici. Vedere [Copiare gli snapshot in un'altra area](#copy-the-snapshots-to-another-region) per la procedura per la copia degli snapshot in un'altra area per il ripristino di emergenza.
 
@@ -231,7 +231,7 @@ Per le VM con più dischi, è necessario copiare tutti gli snapshot che fanno pa
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server in esecuzione in una VM include funzionalità predefinite per il backup del database di SQL Server nell'archivio BLOB di Azure o in una condivisione file. Se l'account di archiviazione è di tipo archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai backup nel data center secondario dell'account di archiviazione in caso di emergenza, con le stesse restrizioni illustrate in precedenza. Per altre informazioni, vedere [Backup e ripristino per SQL Server in macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Oltre al backup e al ripristino, i [gruppi di disponibilità AlwaysOn di SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) possono mantenere repliche secondarie dei database. Questa capacità riduce notevolmente il tempo necessario per il ripristino di emergenza.
+SQL Server in esecuzione in una VM include funzionalità predefinite per il backup del database di SQL Server nell'archivio BLOB di Azure o in una condivisione file. Se l'account di archiviazione è di tipo archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai backup nel data center secondario dell'account di archiviazione in caso di emergenza, con le stesse restrizioni illustrate in precedenza. Per altre informazioni, vedere [Backup e ripristino per SQL Server in macchine virtuali di Azure](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Oltre al backup e al ripristino, i [gruppi di disponibilità AlwaysOn di SQL Server](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) possono mantenere repliche secondarie dei database. Questa capacità riduce notevolmente il tempo necessario per il ripristino di emergenza.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 

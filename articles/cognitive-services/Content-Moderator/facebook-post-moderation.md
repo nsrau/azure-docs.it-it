@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774278"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118647"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Esercitazione: Moderare i post e i comandi di Facebook con Azure Content Moderator
 
@@ -70,14 +70,14 @@ Accedere al [portale di Azure](https://portal.azure.com/) e seguire questi passa
     
     | Nome impostazione app | Valore   | 
     | -------------------- |-------------|
-    | cm:TeamId   | ID del team di Content Moderator  | 
-    | cm:SubscriptionKey | Chiave di sottoscrizione di Content Moderator - Vedere [Credenziali](review-tool-user-guide/credentials.md) |
-    | cm:Region | Nome dell'area di Content Moderator, senza gli spazi. È possibile trovarlo nel campo **Località** della scheda **Panoramica** della risorsa di Azure.|
-    | cm:ImageWorkflow | Nome del flusso di lavoro da eseguire sulle immagini |
-    | cm:TextWorkflow | Nome del flusso di lavoro da eseguire sul testo |
-    | cm:CallbackEndpoint | URL dell'app per le funzioni CMListener che verrà creata più avanti in questa guida |
-    | fb:VerificationToken | Un token segreto che viene creato e usato per sottoscrivere eventi di feed di Facebook |
-    | fb:PageAccessToken | Il token di accesso per l'API Graph di Facebook non scade e permette alla funzione di nascondere/eliminare post per conto dell'utente. Questo token verrà recuperato in un passaggio successivo. |
+    | `cm:TeamId`   | ID del team di Content Moderator  | 
+    | `cm:SubscriptionKey` | Chiave di sottoscrizione di Content Moderator - Vedere [Credenziali](review-tool-user-guide/credentials.md) |
+    | `cm:Region` | Nome dell'area di Content Moderator, senza gli spazi. È possibile trovarlo nel campo **Località** della scheda **Panoramica** della risorsa di Azure.|
+    | `cm:ImageWorkflow` | Nome del flusso di lavoro da eseguire sulle immagini |
+    | `cm:TextWorkflow` | Nome del flusso di lavoro da eseguire sul testo |
+    | `cm:CallbackEndpoint` | URL dell'app per le funzioni CMListener che verrà creata più avanti in questa guida |
+    | `fb:VerificationToken` | Un token segreto che viene creato e usato per sottoscrivere eventi di feed di Facebook |
+    | `fb:PageAccessToken` | Il token di accesso per l'API Graph di Facebook non scade e permette alla funzione di nascondere/eliminare post per conto dell'utente. Questo token verrà recuperato in un passaggio successivo. |
 
     Fare clic sul pulsante **Salva** nella parte superiore della pagina.
 

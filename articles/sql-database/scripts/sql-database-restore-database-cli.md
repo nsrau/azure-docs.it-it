@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di interfaccia della riga di comando: Ripristinare un database SQL di Azure da un backup'
-description: Script di esempio dell'interfaccia della riga di comando di Azure per ripristinare uno stato precedente di un database SQL di Azure singolo dai backup automatici
+title: 'Interfaccia della riga di comando di Azure: Ripristinare un backup'
+description: Script di esempio dell'interfaccia della riga di comando di Azure per ripristinare uno stato precedente di un database di Database SQL di Azure dai backup automatici
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774266"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022625"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usare l'interfaccia della riga di comando per ripristinare uno stato precedente di un database SQL di Azure singolo
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Usare l'interfaccia della riga di comando per ripristinare uno stato precedente di un database di Database SQL di Azure
 
-Questo esempio dell'interfaccia della riga di comando di Azure ripristina uno specifico stato precedente di un database SQL di Azure.  
+Questo esempio dell'interfaccia della riga di comando di Azure ripristina uno specifico stato precedente di un database di Database SQL di Azure.  
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

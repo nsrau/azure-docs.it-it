@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale dei dati tramite Rilevamento modifiche
-description: In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure.
+description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415433"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196301"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche
 
@@ -42,7 +42,7 @@ In una soluzione di integrazione dei dati il caricamento incrementale di dati do
 Ecco alcuni passaggi del tipico flusso di lavoro end-to-end per caricare dati in modo incrementale usando la tecnologia Rilevamento modifiche.
 
 > [!NOTE]
-> Sia il database SQL di Azure sia SQL Server supportano la tecnologia Rilevamento modifiche. Questa esercitazione usa il database SQL di Azure come archivio dati di origine. È anche possibile usare un database di SQL Server locale.
+> Sia il database SQL di Azure sia SQL Server supportano la tecnologia Rilevamento modifiche. Questa esercitazione usa il database SQL di Azure come archivio dati di origine. È anche possibile usare un'istanza di SQL Server.
 
 1. **Caricamento iniziale di dati cronologici** (una sola esecuzione):
     1. Abilitare la tecnologia Rilevamento modifiche nel database SQL di Azure di origine.
@@ -70,11 +70,11 @@ In questa esercitazione vengono create due pipeline che eseguono le due operazio
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
+* **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creare una tabella di origine dati nel database SQL di Azure
-1. Avviare **SQL Server Management Studio** e connettersi al server SQL di Azure.
+1. Avviare **SQL Server Management Studio** e connettersi al database SQL.
 2. In **Esplora server** fare clic con il pulsante destro del mouse sul **database** e scegliere **Nuova query**.
 3. Eseguire questo comando SQL sul database SQL di Azure per creare una tabella denominata `data_source_table` come archivio dell'origine dati.  
 
@@ -216,8 +216,8 @@ In questo passaggio viene collegato il database SQL di Azure alla data factory.
 3. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura:
 
     1. Immettere **AzureSqlDatabaseLinkedService** nel campo **Nome**.
-    2. Selezionare il server di Azure SQL nel campo **Nome server**.
-    4. Selezionare il database SQL di Azure nel campo **Nome database**.
+    2. Selezionare il server nel campo **Nome server**.
+    4. Selezionare il database nel campo **Nome database**.
     5. Immettere il nome dell'utente nel campo **Nome utente**.
     6. Immettere la password dell'utente nel campo **Password**.
     7. Fare clic su **Test connessione** per testare la connessione.

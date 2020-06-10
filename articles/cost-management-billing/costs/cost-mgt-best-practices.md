@@ -3,17 +3,17 @@ title: Ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 description: Questo articolo consente di ottenere il massimo valore dagli investimenti per il cloud, ridurre i costi e valutare come viene speso il denaro.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791613"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142419"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -131,14 +131,39 @@ Per altre informazioni, vedere [Azure Migrate](https://docs.microsoft.com/azure/
 
 Rimanere informati su come i costi dell'organizzazione evolvono nel tempo. Usare le tecniche seguenti per conoscere e gestire le spese correttamente.
 
-### <a name="organize-and-tag-your-resources"></a>Organizzare e contrassegnare le risorse
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>Organizzare le risorse per massimizzare le informazioni sui costi e la responsabilità
 
-Organizzare le risorse tenendo in considerazione i costi. Quando si creano sottoscrizioni e gruppi di risorse, considerare i team responsabili dei costi associati. Assicurarsi che la creazione di report tenga presente l'organizzazione. Le sottoscrizioni e i gruppi di risorse sono strumenti adatti per organizzare e attribuire le spese all'interno dell'organizzazione. I tag offrono un modo valido per attribuire i costi. È possibile usare i tag come filtro e per creare raggruppamenti quando si analizzano i dati e si esaminano i costi. I clienti con contratto Enterprise possono anche creare reparti in cui inserire le sottoscrizioni. L'organizzazione basata sui costi in Azure consente di fare in modo che le persone rilevanti all'interno dell'organizzazione continuino a essere responsabili della riduzione delle spese del team.
+Una struttura organizzativa ben progettata per la fatturazione e le gerarchie di risorse di Azure consente di ottenere una buona comprensione e il controllo dei costi durante la creazione dell'infrastruttura cloud. Guardare il video sulla [configurazione delle gerarchie di entità](https://www.youtube.com/watch?v=n3TLRaYJ1NY) per comprendere meglio gli strumenti organizzativi disponibili e come sfruttarli. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
-Guardare il video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Come esaminare i criteri per i tag con Gestione costi di Azure) per informazioni gli strumenti disponibili per l'imposizione di tag delle risorse scalabili nell'organizzazione. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Mentre si valuta e si crea una gerarchia che soddisfi le proprie esigenze, è possibile porsi le domande seguenti.
+
+*Quale gerarchia di fatturazione è disponibile e quali sono i diversi ambiti che è possibile usare?*
+
+Identificare la modalità di fatturazione per l'organizzazione determinando il tipo di offerta di Azure. Gli ambiti disponibili per ogni modalità di fatturazione di Azure sono documentati in [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+
+*Se si hanno più team, come si organizzano le sottoscrizioni e i gruppi di risorse?*
+
+La creazione di una sottoscrizione o di un gruppo di risorse per ogni team è una pratica comune. Consente di differenziare i costi e di responsabilizzare i team. Tuttavia, i costi sono associati alla sottoscrizione o al gruppo di risorse.
+
+Se si hanno già team con più sottoscrizioni, provare a raggruppare le sottoscrizioni in gruppi di gestione per analizzare insieme i costi. I gruppi di gestione, le sottoscrizioni e i gruppi di risorse fanno tutti parte della gerarchia del controllo degli accessi in base al ruolo di Azure. È possibile usarli collettivamente per il controllo di accesso nei team.
+
+Le risorse possono estendersi su più ambiti, soprattutto quando sono condivise da più team o carichi di lavoro. Provare a identificare le risorse con i tag. I tag verranno descritti ulteriormente nella sezione successiva.
+
+*Si hanno ambienti di sviluppo e di produzione?*
+
+Provare a creare sottoscrizioni di sviluppo/test per gli ambienti di sviluppo per usufruire della riduzione dei prezzi. Se i carichi di lavoro si estendono su più team o ambiti di Azure, provare a usare i tag per identificarli.
+
+### <a name="tag-shared-resources"></a>Assegnare tag alle risorse condivise
+
+I tag sono un modo efficace per comprendere i costi che si estendono su più team e ambiti di Azure. Ad esempio, si potrebbe avere una risorsa come un server di posta elettronica usato da molti team. È possibile inserire una risorsa condivisa, ad esempio il server di posta elettronica, in una sottoscrizione dedicata alle risorse condivise o inserirla in una sottoscrizione esistente. Se la si inserisce in una sottoscrizione esistente, il proprietario della sottoscrizione potrebbe non volere che il costo di tale risorsa venga addebitato al proprio team ogni mese. Per questo esempio, è possibile usare un tag per identificare la risorsa come condivisa.
+
+Analogamente, si potrebbero avere anche app Web o ambienti, ad esempio test o produzione, che usano risorse in più sottoscrizioni di proprietà di diversi team. Per comprendere meglio il costo totale dei carichi di lavoro, contrassegnare le risorse che usano. Quando i tag vengono applicati correttamente, è possibile applicarli come filtro nell'analisi dei costi per comprendere meglio le tendenze.
+
+Dopo aver pianificato l'assegnazione di tag alle risorse, è possibile configurare criteri di Azure per applicare l'assegnazione di tag alle risorse. Guardare il video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Come esaminare i criteri per i tag con Gestione costi di Azure) per informazioni gli strumenti disponibili per l'applicazione di tag alle risorse scalabili. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>Usare l'analisi dei costi
 

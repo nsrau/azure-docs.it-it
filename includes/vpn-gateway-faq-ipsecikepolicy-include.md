@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74903153"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200370"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU del gateway VPN di Azure?
-I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU di Azure, ad eccezione dello SKU Basic.
+I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU di Azure ad eccezione dello SKU Basic.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Quanti criteri è possibile specificare per una connessione?
 Per una determinata connessione è possibile specificare ***una*** sola combinazione di criteri.
@@ -42,7 +42,7 @@ La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi 
 > [!IMPORTANT]
 > 1. DHGroup2048 e PFS2048 corrispondono al gruppo Diffie-Hellman **14** in PFS IKE e IPsec. Per i mapping completi, vedere [Gruppi Diffie-Hellman](#DH).
 > 2. Per gli algoritmi GCMAES, è necessario specificare lo stesso algoritmo e la stessa lunghezza della chiave GCMAES sia per la crittografia che per l'integrità IPsec.
-> 3. La durata dell'associazione di IKEv2 in modalità principale è fissata a 28.800 secondi nei gateway VPN di Azure.
+> 3. Nei gateway VPN di Azure la durata dell'associazione di sicurezza IKEv2 (modalità principale) è fissata a 28.800 secondi.
 > 4. Le durate dell'associazione di sicurezza QM sono parametri facoltativi. Se non ne è stato specificato nessuno, vengono usati i valori predefiniti pari a 27.000 secondi (7,5 ore) e 102400000 KB (102 GB).
 > 5. UsePolicyBasedTrafficSelector è un parametro facoltativo per la connessione. Per informazioni su "UsePolicyBasedTrafficSelectors", vedere la domanda frequente successiva
 
@@ -103,17 +103,17 @@ Sì. Un tunnel da rete virtuale a rete virtuale è costituito da due risorse di 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>I criteri IPsec/IKE personalizzati funzionano in una connessione ExpressRoute?
 No. I criteri IPsec/IKE funzionano solo in connessioni VPN da sito a sito e da rete virtuale a rete virtuale tramite gateway VPN di Azure.
 
-### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Ricerca per categorie creare connessioni con il tipo di protocollo IKEv1 o IKEv2?
-Le connessioni IKEv1 possono essere create in tutti gli SKU di tipo VPN RouteBased, ad eccezione dello SKU Basic. È possibile specificare un tipo di protocollo di connessione IKEv1 o IKEv2 durante la creazione di connessioni. Se non si specifica un tipo di protocollo di connessione, IKEv2 viene usato come opzione predefinita, ove applicabile. Per ulteriori informazioni, vedere la documentazione del [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) . Per i tipi di SKU e il supporto di IKEv1/IKEv2, vedere [connettere gateway a dispositivi VPN basati su criteri](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Come si creano le connessioni con il tipo di protocollo IKEv1 o IKEv2?
+Le connessioni IKEv1 possono essere create in tutti gli SKU di tipo VPN RouteBased ad eccezione dello SKU legacy. È possibile specificare un tipo di protocollo di connessione IKEv1 o IKEv2 durante la creazione delle connessioni. Se non si specifica un tipo di protocollo di connessione, viene usato IKEv2 come opzione predefinita, se applicabile. Per altre informazioni, vedere la documentazione sui [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Per i tipi di SKU e il supporto di IKEv1/IKEv2, vedere [Connettere gateway a dispositivi VPN basati su criteri](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Il transito tra le connessioni IKEv1 e IKEv2 è consentito?
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>È consentito il transito tra le connessioni IKEv1 e IKEv2?
 Sì. Il transito tra le connessioni IKEv1 e IKEv2 è supportato.
 
-### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>È possibile avere connessioni da sito a sito IKEv1 per SKU di base di tipo VPN RouteBased?
-No. Lo SKU Basic non supporta questa operazione.
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>È possibile avere connessioni IKEv1 da sito a sito per gli SKU Basic di tipo VPN RouteBased?
+No. Lo SKU Basic non supporta questo scenario.
 
-### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>È possibile modificare il tipo di protocollo di connessione dopo la creazione della connessione (IKEv1 a IKEv2 e viceversa)?
-No. Una volta creata la connessione, non è possibile modificare i protocolli IKEv1/IKEv2. È necessario eliminare e ricreare una nuova connessione con il tipo di protocollo desiderato.
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>È possibile modificare il tipo di protocollo di connessione dopo la creazione della connessione (da IKEv1 a IKEv2 e viceversa)?
+No. Una volta creata la connessione, non è possibile modificare i protocolli IKEv1/IKEv2. È necessario eliminare la connessione e ricrearne una nuova con il tipo di protocollo desiderato.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Dove sono reperibili altre informazioni di configurazione per IPSec?
 Vedere [Configurare criteri IPSec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 4e56063891a92ef06e3e14651e26f0b73d280e79
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657587"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231552"
 ---
 Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che è possibile pubblicare in un'app per le funzioni in Azure. È possibile usare un'app per le funzioni per raggruppare le funzioni in un'unità logica e semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse.
 
@@ -27,12 +27,11 @@ Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che �
 
     | Impostazione      | valore  | Descrizione                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Runtime di Funzioni** | **Funzioni di Azure v2 <br />(.NET Core)** | Con questo valore viene creato un progetto per le funzioni che usa la versione 2.x del runtime di Funzioni di Azure e supporta .NET Core. Funzioni di Azure 1.x supporta .NET Framework. Per altre informazioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](../articles/azure-functions/functions-versions.md).   |
+    | **Runtime di Funzioni** | **Funzioni di Azure v3 <br />(.NET Core)** | Con questo valore viene creato un progetto per le funzioni che usa la versione 3.x del runtime di Funzioni di Azure e supporta .NET Core 3.x. Funzioni di Azure 1.x supporta .NET Framework. Per altre informazioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](../articles/azure-functions/functions-versions.md).   |
     | **Modello di funzione** | **Trigger HTTP** | Con questo valore viene creata una funzione attivata da una richiesta HTTP. |
     | **Storage Account**  | **Emulatore di archiviazione** | Poiché per una funzione di Azure è richiesto un account di archiviazione, ne viene assegnato o creato uno quando si pubblica il progetto in Azure. Un trigger HTTP non usa una stringa di connessione dell'account di archiviazione di Azure. Tutti gli altri tipi di trigger richiedono una stringa di connessione dell'account di archiviazione di Azure valida.  |
     | **Diritti di accesso** | **Anonimo** | Viene creata una funzione che può essere attivata da qualsiasi client senza dover fornire una chiave. Questa impostazione di autorizzazione consente di testare più facilmente la nuova funzione. Per altre informazioni sulle chiavi e l'autorizzazione, vedere [Chiavi di autorizzazione](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in [Associazioni di webhook e HTTP](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
-
     
     ![Impostazioni del progetto di Funzioni di Azure](./media/functions-vs-tools-create/functions-project-settings.png)
 

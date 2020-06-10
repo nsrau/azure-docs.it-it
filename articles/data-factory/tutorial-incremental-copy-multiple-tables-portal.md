@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con il portale di Azure
-description: In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure.
+description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419273"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247258"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
+In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server in un database SQL di Azure.    
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -67,13 +67,13 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
-* **SQL Server**. Usare un database di SQL Server locale come archivio dati di origine in questa esercitazione. 
-* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno. 
+## <a name="prerequisites"></a>Prerequisiti
+* **SQL Server**. In questa esercitazione si usa un database di SQL Server come archivio dati di origine. 
+* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creare le tabelle di origine nel database di SQL Server
 
-1. Aprire SQL Server Management Studio e connettersi al database SQL Server locale.
+1. Aprire SQL Server Management Studio e connettersi al database di SQL Server.
 
 1. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
@@ -281,10 +281,10 @@ Mentre si spostano i dati da un archivio dati di una rete privata (locale) a un 
 1. Verificare che **MySelfHostedIR** sia visualizzato nell'elenco di runtime di integrazione.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server locale e al database SQL di Azure. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database SQL di Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server
-In questo passaggio si collega il database di SQL Server locale alla data factory.
+In questo passaggio si collega il database di SQL Server alla data factory.
 
 1. Nella finestra **Connessioni** passare dalla scheda **Integration Runtimes** (Runtime di integrazione) alla scheda **Servizi collegati** e fare clic su **+ Nuovo**.
 
@@ -310,7 +310,7 @@ Nell'ultimo passaggio viene creato un servizio collegato per collegare il databa
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura:
 
     1. Immettere **AzureSqlDatabaseLinkedService** per **Nome**. 
-    1. Per **Nome server** selezionare il nome del server di Azure SQL dall'elenco a discesa. 
+    1. Per **Nome server** selezionare il nome del server dall'elenco a discesa. 
     1. Per **Nome database** selezionare il database SQL di Azure in cui sono stati creati customer_table e project_table come parte dei prerequisiti. 
     1. Per **Nome utente** immettere il nome dell'utente che ha accesso al database SQL di Azure. 
     1. Per **Password** immettere la **password** dell'utente. 
@@ -388,7 +388,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 
 1. Nel riquadro a sinistra fare clic su **+ (segno più)** e quindi su **Pipeline**.
 
-1. Nella scheda **Generale** immettere **IncrementalCopyPipeline** in **Nome**. 
+1. Nel pannello Generale in **Proprietà** specificare **IncrementalCopyPipeline** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo in alto a destra.  
 
 1. Nella scheda **Parametri** seguire questa procedura: 
 
@@ -450,7 +450,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
         
 1. Eseguire i passaggi seguenti:
 
-    1. In **Proprietà set di dati** immettere **per il parametro**SinkTableName`@{item().TABLE_NAME}`.
+    1. In **Proprietà set di dati** immettere `@{item().TABLE_NAME}` per il parametro **SinkTableName**.
     1. Per la proprietà **Stored Procedure Name** (Nome stored procedure) immettere `@{item().StoredProcedureNameForMergeOperation}`.
     1. Per la proprietà **Table Type** (Tipo di tabella) immettere `@{item().TableType}`.
     1. Per la proprietà **Table type parameter name** (Nome del parametro di tipo di tabella) immettere `@{item().TABLE_NAME}`.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: e078893b3bbe0ef5661cd87bad62b320f78ceb5d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421235"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112762"
 ---
 # <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo di risorse di Azure Synapse Analytics SQL
 
@@ -77,7 +77,7 @@ Con l'aumentare delle unità Data Warehouse si aumentano in modo lineare le riso
 
 #### <a name="capacity-limits"></a>Limiti di capacità
 
-Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="how-many-data-warehouse-units-do-i-need"></a>Quante unità Data Warehouse sono necessarie?
 
@@ -106,7 +106,7 @@ I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database S
 Per visualizzare l'impostazione corrente per le unità DWU:
 
 1. Aprire Esplora oggetti di SQL Server in Visual Studio.
-2. Connettersi al database master associato al server di database SQL logico.
+2. Connettersi al database master associato al server SQL logico.
 3. Effettuare una selezione nella vista a gestione dinamica sys.database_service_objectives. Esempio:
 
 ```sql
@@ -148,7 +148,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU, cambiarle 
 
 Per modificare le DWU:
 
-1. Connettersi al database master associato al server di database SQL logico.
+1. Connettersi al database master associato al server.
 2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW.
 
 ```Sql
@@ -184,7 +184,7 @@ Non è possibile verificare lo stato del database per le operazioni di scalabili
 
 Per controllare lo stato delle modifiche alle DWU:
 
-1. Connettersi al database master associato al server di database SQL logico.
+1. Connettersi al database master associato al server.
 2. Inviare la query seguente per controllare lo stato del database.
 
 ```sql

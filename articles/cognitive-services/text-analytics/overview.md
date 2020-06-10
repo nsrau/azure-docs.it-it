@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395726"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141858"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -88,7 +88,7 @@ Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elabor
 |------------------------|---------------|
 | Dimensioni massime di un singolo documento | 5\.120 caratteri misurati da [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Dimensioni massime dell'intera richiesta | 1 MB |
-| Numero massimo di documenti in una richiesta | 1\.000 documenti |
+| Numero massimo di documenti in una richiesta | Fino a 1.000 documenti ([varia per ogni funzionalità](concepts/data-limits.md)) |
 
 Il limite di frequenza varia con il piano tariffario.
 

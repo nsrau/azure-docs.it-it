@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: glenga
-ms.openlocfilehash: 960bbfc82e6cea0b868f93f784103b8ea1743e00
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3fcca11e4e27a8ad291cffeda68d9e32e02a0912
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76964014"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84269148"
 ---
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Prima di potere pubblicare l'app, è necessario accedere ad Azure. 
 
-1. Se non si è ancora effettuato l'accesso, selezionare l'icona di Azure nella barra attività, quindi nell'area **Azure: Funzioni** scegliere **Accedi ad Azure**. Se non si ha già un account, è possibile **creare un account Azure gratuito**. 
+1. Se non si è ancora effettuato l'accesso, selezionare l'icona di Azure nella barra attività, quindi nell'area **Azure: Funzioni** scegliere **Accedi ad Azure**. Se non si ha già un account, è possibile **[creare un account Azure gratuito](https://azure.microsoft.com/free/)** . Gli studenti possono fare clic qui per **[creare un account Azure for Students gratuito](https://azure.microsoft.com/free/students/)**
 
     ![Risposta localhost della funzione nel browser](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 

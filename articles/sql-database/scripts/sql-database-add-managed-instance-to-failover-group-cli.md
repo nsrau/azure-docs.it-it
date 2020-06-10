@@ -1,6 +1,6 @@
 ---
-title: "Esempio di interfaccia della riga di comando: Aggiungere un'istanza gestita di database SQL di Azure a un gruppo di failover"
-description: Script di esempio dell'interfaccia della riga di comando di Azure per creare un'istanza gestita di database SQL di Azure, aggiungerla a un gruppo di failover e testare il failover.
+title: Esempio di interfaccia della riga di comando - Gruppo di failover - Istanza gestita di SQL di Azure
+description: Script di esempio dell'interfaccia della riga di comando di Azure per creare un istanza di Istanza gestita di SQL di Azure, aggiungerla a un gruppo di failover e testare il failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 8ffe40662ffaf8a1fb35a3d31acfaea78ea0fbeb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9efb4e222e74f97a4f3d88639b02a86a3a6d660
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061925"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115419"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un'istanza gestita di database SQL di Azure a un gruppo di failover
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un'istanza di Istanza gestita di SQL di Azure a un gruppo di failover
 
 Questo esempio di interfaccia della riga di comando di Azure crea due istanze gestite, le aggiunge a un gruppo di failover e quindi testa il failover dall'istanza gestita primaria all'istanza gestita secondaria.
 
@@ -52,13 +52,13 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Comandi per la subnet di rete virtuale. |
 | [az network nsg](/cli/azure/network/nsg) | Comandi per il gruppo di sicurezza di rete. |
 | [az network route-table](/cli/azure/network/route-table) | Comandi per le tabelle di route. |
-| [az sql mi](/cli/azure/sql/mi) | Comandi per le istanze gestite. |
+| [az sql mi](/cli/azure/sql/mi) | Comandi per Istanza gestita di SQL. |
 | [az network public-ip](/cli/azure/network/public-ip) | Comandi per gli indirizzi IP pubblici di rete. |
 | [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Comandi per il gateway di rete virtuale. |
-| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandi per il gruppo di failover dell'istanza gestita. |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandi per il gruppo di failover di Istanza gestita di SQL. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

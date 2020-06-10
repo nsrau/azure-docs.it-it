@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73682847"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119274"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -189,7 +189,7 @@ In questo passaggio il database SQL di Azure viene collegato alla data factory.
 1. Creare un file JSON denominato AzureSqlLinkedService.json nella cartella C:\ADFGetStartedPSH con il contenuto seguente:
 
     > [!IMPORTANT]
-    > Sostituire &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; e &lt;password&gt; con i nomi del server, database, account utente e password di Azure SQL.
+    > Sostituire &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; e &lt;password&gt; con i nomi del server, database, account utente e password.
     
     ```json
     {
@@ -218,7 +218,7 @@ In questo passaggio il database SQL di Azure viene collegato alla data factory.
     ProvisioningState : Succeeded
     ```
 
-   Verificare che l'impostazione **Consenti l'accesso a Servizi di Azure** sia attivata per il server di database SQL. Per verificare e attivare l'impostazione, seguire questa procedura:
+   Verificare che l'impostazione **Consenti l'accesso a Servizi di Azure** sia attivata per il server. Per verificare e attivare l'impostazione, seguire questa procedura:
 
     1. Accedere al [portale di Azure](https://portal.azure.com)
     1. Fare clic su **Altri servizi >** a sinistra e selezionare **Server SQL** nella categoria **DATABASE**.

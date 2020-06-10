@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204886"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997129"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -246,7 +246,7 @@ Se la proprietà **PartnerEarnedCreditApplied** è _True_, per il costo associat
 
 Se la proprietà **PartnerEarnedCreditApplied** è _False_, il costo associato non ha soddisfatto i requisiti di idoneità necessari per il credito. Oppure il servizio acquistato non è idoneo per il credito ottenuto dai partner.
 
-I dati sull'utilizzo del servizio in genere vengono visualizzati in Gestione costi dopo 8-24 ore. Per altre informazioni, vedere [Variazione della frequenza di aggiornamento dei dati sull'utilizzo](understand-cost-mgt-data.md#usage-data-update-frequency-varies). I crediti ottenuti dai partner vengono visualizzati entro 48 ore dal momento dell'accesso in Gestione costi di Azure.
+I dati sull'utilizzo del servizio in genere vengono visualizzati in Gestione costi dopo 8-24 ore. Per altre informazioni, vedere [Aggiornamenti e conservazione dei dati relativi a costi e utilizzo](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). I crediti ottenuti dai partner vengono visualizzati entro 48 ore dal momento dell'accesso in Gestione costi di Azure.
 
 
 È anche possibile raggruppare e filtrare in base alla proprietà **PartnerEarnedCreditApplied** usando le opzioni di **raggruppamento**. Usare le opzioni per esaminare i costi che hanno e non hanno crediti ottenuti dai partner.

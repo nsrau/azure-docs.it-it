@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di interfaccia della riga di comando: Copiare un database SQL di Azure in un nuovo server'
-description: Script di esempio dell'interfaccia della riga di comando di Azure per copiare un database SQL in un nuovo server
+title: 'Interfaccia della riga di comando di Azure: Copiare il database di Database SQL di Azure in un nuovo server'
+description: Script di esempio dell'interfaccia della riga di comando di Azure per copiare un database di Database SQL di Azure in un nuovo server
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067486"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022693"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>Usare l'interfaccia della riga di comando per copiare un database SQL in un nuovo server
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Usare l'interfaccia della riga di comando per copiare un database di Database SQL di Azure in un nuovo server
 
 Questo esempio di script dell'interfaccia della riga di comando di Azure crea una copia di un database esistente in un nuovo server.
 
@@ -61,4 +61,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

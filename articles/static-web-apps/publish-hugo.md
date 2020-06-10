@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870695"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298032"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Hugo in App Web statiche di Azure (anteprima)
 
@@ -109,7 +109,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. Per _Gruppo di risorse_ selezionare **Nuovo**. In _Nome nuovo gruppo di risorse_ immettere **hugo-static-app** e scegliere **OK**.
 
-1. Specificare quindi un nome univoco globale per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`. Questo valore viene usato come prefisso dell'URL per l'app statica in formato `https://<APP_NAME>....`.
+1. Immettere quindi un nome per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`.
 
 1. In _Area_selezionare un'area disponibile nelle vicinanze.
 
@@ -153,7 +153,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Aprire l'app Hugo in un editor di testo e aprire il file _.github/workflows/azure-pages-<NOME_FLUSSO_DI_LAVORO>.yml_.
 
-1. Sostituire la riga `- uses: actions/checkout@v2` (riga 18) con la seguente per compilare l'applicazione Hugo.
+1. Sostituire la riga `- uses: actions/checkout@v2` (riga 18) con la seguente per compilare l'applicazione Hugo. Se è necessario Hugo Extended, rimuovere il commento `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

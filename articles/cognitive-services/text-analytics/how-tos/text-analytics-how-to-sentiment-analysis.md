@@ -8,59 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/27/2020
+ms.date: 05/18/2020
 ms.author: aahi
-ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195639"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141246"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
 La funzionalità Analisi del sentiment dell'API Analisi del testo valuta il testo e restituisce i punteggi e le etichette del sentiment per ogni frase. Questa funzionalità è utile per il rilevamento del sentiment positivo e negativo nei social media, nelle recensioni dei clienti, nei forum di discussione e così via. I modelli di intelligenza artificiale usati dall'API vengono forniti dal servizio, quindi è sufficiente inviare contenuto per l'analisi.
 
-> [!TIP]
-> Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per il rilevamento della lingua, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
+Dopo l'invio di una richiesta di analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento.
 
 Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri disponibili in anteprima. Per altre informazioni, vedere [Linguaggi supportati](../text-analytics-supported-languages.md).
 
-## <a name="concepts"></a>Concetti
-
-L'API Analisi del testo usa un algoritmo di classificazione basato su Machine Learning per generare un punteggio di sentiment compreso tra 0 e 1. I punteggi più vicini a 1 indicano un sentiment positivo, mentre quelli più vicini allo 0 indicano un sentiment negativo. L'analisi del sentiment viene eseguita sull'intero documento, invece che su singole entità del testo. Questo significa che i punteggi del sentiment vengono restituiti a livello di documento o di frase. 
-
-Il modello usato viene sottoposto a training con una raccolta completa di associazioni di testo e sentiment. Utilizza una combinazione di tecniche di analisi, tra cui l'elaborazione del testo, l'analisi di parti del discorso, nonché il posizionamento e le associazioni delle parole. Per altre informazioni sull'algoritmo, vedere [Introducing Text Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/) (Introduzione ad Analisi del testo). Non è attualmente possibile per l'utente specificare i propri dati di training. 
-
-L'accuratezza nell'assegnazione dei punteggi tende a essere maggiore quando i documenti contengono poche frasi invece di un blocco di testo di grandi dimensioni. Durante una fase di valutazione dell'obiettività, il modello determina se un documento nel suo complesso è obiettivo o contiene sentiment. Un documento principalmente obiettivo non passa alla fase di rilevamento del sentiment e restituisce un punteggio pari a 0,5 senza ulteriore elaborazione. Per i documenti che proseguono nella pipeline, la fase successiva genera un punteggio superiore o inferiore a 0,5. Il punteggio dipende dal grado di sentiment rilevato nel documento.
-
 ## <a name="sentiment-analysis-versions-and-features"></a>Versioni e funzionalità di Analisi del sentiment
 
-L'API Analisi del testo prevede due versioni di Analisi del sentiment, v2 e v3. Analisi del sentiment v3 (anteprima pubblica) offre miglioramenti significativi nell'accuratezza e nel dettaglio per la classificazione del testo e l'assegnazione di punteggi dell'API.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-> [!NOTE]
-> * Il formato della richiesta e i [limiti dei dati](../overview.md#data-limits) di Analisi del sentiment versione 3 sono gli stessi della versione precedente.
-> * Analisi del sentiment v3 è disponibile nelle aree `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` e `West US 2`.
+| Funzionalità                                   | Analisi del sentiment v3 | Analisi del sentiment v3.1 (anteprima) |
+|-------------------------------------------|-----------------------|-----------------------------------|
+| Metodi per richieste singole e batch    | X                     | X                                 |
+| Punteggi ed etichettatura dei sentiment             | X                     | X                                 |
+| [Contenitore Docker](text-analytics-how-to-install-containers.md) basato su Linux | X  |  |
+| Opinion mining                            |                       | X                                 |
 
-| Funzionalità                                   | Analisi del sentiment v2 | Analisi del sentiment v3 |
-|-------------------------------------------|-----------------------|-----------------------|
-| Metodi per richieste singole e batch    | X                     | X                     |
-| Punteggi del sentiment per l'intero documento  | X                     | X                     |
-| Punteggi del sentiment per singole frasi |                       | X                     |
-| Assegnazione di etichette per la valutazione                        |                       | X                     |
-| Gestione della versione dei modelli                   |                       | X                     |
+### <a name="sentiment-scoring-and-labeling"></a>Punteggi ed etichettatura dei sentiment
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+Analisi del sentiment v3 applica le etichette del sentiment al testo, che vengono restituite a livello di frase e documento, con un punteggio di attendibilità per ognuna. 
 
-### <a name="sentiment-scoring"></a>Assegnazione di punteggi del sentiment
-
-Analisi del sentiment V3 classifica il testo con le etichette del sentiment (descritte di seguito). I punteggi restituiti rappresentano l'attendibilità del modello che indica che il testo è positivo, negativo o neutro. I valori più elevati indicano una maggiore attendibilità. 
-
-### <a name="sentiment-labeling"></a>Assegnazione di etichette per la valutazione
-
-Analisi del sentiment v3 restituisce le etichette del sentiment a livello di frase e documento (`positive`, `negative`e `neutral`) insieme ai punteggi di attendibilità. L'etichetta del sentiment `mixed` può essere restituita anche a livello di documento. 
-
-Il sentiment del documento è determinato di seguito:
+Le etichette sono `positive`, `negative` e `neutral`. A livello di documento, può anche essere restituita l'etichetta del sentiment `mixed`. Il sentiment del documento è determinato di seguito:
 
 | Valutazione della frase                                                                            | Etichetta di documento restituita |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -69,25 +49,20 @@ Il sentiment del documento è determinato di seguito:
 | Nel documento è presente almeno una frase `negative` e almeno una frase `positive`.    | `mixed`                 |
 | Tutte le frasi del documento sono `neutral`.                                                  | `neutral`               |
 
-### <a name="model-versioning"></a>Gestione della versione dei modelli
+I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. La somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1.
 
-> [!NOTE]
-> Il controllo delle versioni dei modelli per l'analisi del sentiment è disponibile a partire dalla versione `v3.0-preview.1`.
+### <a name="opinion-mining"></a>Opinion mining
 
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1-Preview.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
 
-### <a name="example-c-code"></a>Codice C# di esempio
+Se ad esempio un cliente lascia il feedback su un hotel, come "la stanza è fantastica, ma il personale è scortese", la funzionalità di opinion mining individuerà gli aspetti nel testo e le opinioni e i sentiment associati:
 
-Un'applicazione C# di esempio che chiama questa versione di Analisi del sentiment è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
+| Aspetto | Opinione    | Valutazione |
+|--------|------------|-----------|
+| stanza   | fantastica      | positivo  |
+| staff  | scortese | negativo  |
 
-
-#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>Assegnazione di punteggi del sentiment
-
-L'analizzatore del sentiment classifica il testo come prevalentemente positivo o negativo, assegnando un punteggio compreso tra 0 e 1. I valori vicini a 0,5 sono neutri o indeterminati. Un punteggio pari a 0,5 indica neutralità. Se una stringa non può essere analizzata per valutarne il sentiment o non viene riscontrato alcun sentiment, il punteggio è sempre 0,5. Se ad esempio si passa una stringa in spagnolo con un codice di lingua inglese, il punteggio è pari a 0,5.
-
----
+Per ottenere i risultati di opinion mining, è necessario includere il flag `opinionMining=true` in una richiesta di analisi del sentiment. I risultati di opinion mining verranno inclusi nella risposta dell'analisi del sentiment.
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST 
 
@@ -103,28 +78,36 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Creare una richiesta POST. È possibile [usare Postman](text-analytics-how-to-call-api.md) o la **console di test dell'API** nei collegamenti di riferimento seguenti per strutturarne e inviarne rapidamente una. 
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
-[Informazioni di riferimento su Analisi del sentiment v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+[Informazioni di riferimento su Analisi del sentiment v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
-#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
 
-[Informazioni di riferimento su Analisi del sentiment v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+[Informazioni di riferimento su Analisi del sentiment v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ---
+
+### <a name="request-endpoints"></a>Endpoint di richiesta
 
 Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un'istanza di [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere l'URL corretto per la versione che si vuole usare. Ad esempio:
 
 > [!NOTE]
 > È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
-#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+
+Per ottenere risultati di opinion mining, è necessario includere il parametro `opinionMining=true`. Ad esempio:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+
+Questo parametro è impostato su `false` per impostazione predefinita. 
 
 ---
 
@@ -132,22 +115,17 @@ Impostare un'intestazione della richiesta per includere la chiave dell'API Anali
 
 ### <a name="example-sentiment-analysis-request"></a>Esempio di richiesta di Analisi del sentiment 
 
-Di seguito è riportato un esempio di contenuto che può essere inviato per l'analisi del sentiment. Il formato della richiesta è identico per entrambe le versioni dell'API.
+Di seguito è riportato un esempio di contenuto che può essere inviato per l'analisi del sentiment. Il formato della richiesta è identico per entrambe le versioni.
     
 ```json
 {
-    "documents": [
+  "documents": [
     {
-        "language": "en",
-        "id": "1",
-        "text": "Hello world. This is some input text that I love."
-    },
-    {
-        "language": "en",
-        "id": "2",
-        "text": "It's incredibly sunny outside! I'm so happy."
+      "language": "en",
+      "id": "1",
+      "text": "The restaurant had great food and our waiter was friendly."
     }
-    ],
+  ]
 }
 ```
 
@@ -160,15 +138,15 @@ L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account
 
 ### <a name="view-the-results"></a>View the results
 
-L'analizzatore del sentiment classifica il testo come prevalentemente positivo o negativo, assegnando un punteggio compreso tra 0 e 1. I valori vicini a 0,5 sono neutri o indeterminati. Un punteggio pari a 0,5 indica neutralità. Se una stringa non può essere analizzata per valutarne il sentiment o non viene riscontrato alcun sentiment, il punteggio è sempre 0,5. Se ad esempio si passa una stringa in spagnolo con un codice di lingua inglese, il punteggio è pari a 0,5.
+L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di attendibilità per l'intero documento e per ogni frase al suo interno. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Un documento può includere più frasi e la somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1.
 
 L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per altre informazioni, vedere [come elaborare gli offset](../concepts/text-offsets.md).
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
-### <a name="sentiment-analysis-v3-example-response"></a>Risposta di esempio di Analisi del sentiment versione 3
+### <a name="sentiment-analysis-v30-example-response"></a>Risposta di esempio di Analisi del sentiment v3.0
 
-Le risposte di Analisi del sentiment v3 contengono le etichette e i punteggi del sentiment per ogni frase e ogni documento analizzato. `documentScores` non viene restituito se l'etichetta del sentiment del documento è `mixed`.
+Le risposte di Analisi del sentiment v3 contengono le etichette e i punteggi del sentiment per ogni frase e ogni documento analizzato.
 
 ```json
 {
@@ -176,86 +154,125 @@ Le risposte di Analisi del sentiment v3 contengono le etichette e i punteggi del
         {
             "id": "1",
             "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
             },
             "sentences": [
                 {
                     "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
                     },
                     "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
-            ]
+            ],
+            "warnings": []
         }
     ],
-    "errors": []
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
-#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
 
-### <a name="sentiment-analysis-v2-example-response"></a>Risposta di esempio di Analisi del sentiment v2
+### <a name="sentiment-analysis-v31-example-response"></a>Risposta di esempio di Analisi del sentiment v3.1
 
-Le risposte di Analisi del sentiment v2 contengono i punteggi del sentiment per ogni documento inviato.
+Analisi del sentiment v3.1 offre funzionalità di opinion mining oltre all'oggetto risposta nella scheda **Versione 3.0**. Nella risposta seguente la frase *The restaurant had great food and our waiter was friendly* include due aspetti, ovvero *food* e *waiter*. La proprietà `relations` di ogni aspetto contiene un valore `ref` con il riferimento URI agli oggetti `documents`, `sentences` e `opinions` associati.
 
 ```json
 {
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly.",
+                    "aspects": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 25,
+                            "length": 4,
+                            "text": "food",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/0"
+                                }
+                            ]
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 38,
+                            "length": 6,
+                            "text": "waiter",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/1"
+                                }
+                            ]
+                        }
+                    ],
+                    "opinions": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 19,
+                            "length": 5,
+                            "text": "great",
+                            "isNegated": false
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 49,
+                            "length": 8,
+                            "text": "friendly",
+                            "isNegated": false
+                        }
+                    ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
@@ -265,7 +282,7 @@ Le risposte di Analisi del sentiment v2 contengono i punteggi del sentiment per 
 
 In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'analisi del sentiment eseguita con l'API Analisi del testo. In sintesi:
 
-+ Analisi del sentiment è disponibile solo per determinate lingue in due versioni.
++ Analisi del sentiment è disponibile per determinate lingue.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
 + La richiesta POST viene inviata a un endpoint `/sentiment` usando [una chiave di accesso e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizzati validi per la sottoscrizione.
 + L'output di risposta, costituito da un punteggio del sentiment per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, Ad esempio, Excel e Power BI.

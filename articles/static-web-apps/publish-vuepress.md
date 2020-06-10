@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: bd9eaad0c141eda815da159e3c13d6c51f5e6200
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593599"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297998"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito VuePress in App Web statiche di Azure (anteprima)
 
@@ -120,7 +120,7 @@ I passaggi seguenti illustrano come creare una nuova applicazione di App Web sta
 
 1. Per _Gruppo di risorse_ selezionare **Nuovo**. In _Nome nuovo gruppo di risorse_ immettere **vuepress-static-app** e scegliere **OK**.
 
-1. Specificare quindi un nome univoco globale per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`. Questo valore viene usato come prefisso dell'URL per l'app statica in formato `https://<APP_NAME>.azurestaticapps.net`.
+1. Immettere quindi un nome per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`.
 
 1. In _Area_selezionare un'area disponibile nelle vicinanze.
 

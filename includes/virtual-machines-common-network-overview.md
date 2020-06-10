@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461861"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237690"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -38,7 +38,7 @@ Un'[interfaccia di rete (NIC)](../articles/virtual-network/virtual-network-netwo
 
 È possibile creare una macchina virtuale con più interfacce di rete e aggiungere o rimuovere le interfacce durante il ciclo di vita di una macchina virtuale. Con più interfacce di rete, una macchina virtuale può connettersi a subnet diverse e inviare o ricevere il traffico attraverso l'interfaccia più appropriata. Possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. 
 
-Ogni interfaccia di rete collegata a una VM deve trovarsi nello stesso percorso e nella stessa sottoscrizione della VM. Ogni interfaccia di rete deve essere connessa a una rete virtuale che si trova nello stesso percorso e nella stessa sottoscrizione di Azure dell'interfaccia. Dopo la creazione di una macchina virtuale è possibile modificare la subnet a cui è connessa, ma non la rete virtuale. A ogni scheda di interfaccia di rete collegata a una VM viene assegnato un indirizzo MAC che non cambia fino a quando la macchina virtuale non viene eliminata.
+Ogni interfaccia di rete collegata a una VM deve trovarsi nello stesso percorso e nella stessa sottoscrizione della VM. Ogni interfaccia di rete deve essere connessa a una rete virtuale che si trova nello stesso percorso e nella stessa sottoscrizione di Azure dell'interfaccia. Dopo la creazione di una macchina virtuale è possibile modificare la subnet a cui è connessa, ma non la rete virtuale. A ogni interfaccia di rete collegata a una VM viene assegnato un indirizzo MAC che non cambia finché non viene eliminata la VM.
 
 Questa tabella elenca i metodi che è possibile usare per creare un'interfaccia di rete.
 
@@ -51,7 +51,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un'interfaccia 
 
 ## <a name="ip-addresses"></a>Indirizzi IP 
 
-È possibile assegnare questi tipi di [indirizzi IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) a un'interfaccia di rete in Azure:
+È possibile assegnare questi tipi di [indirizzi IP](../articles/virtual-network/public-ip-addresses.md) a un'interfaccia di rete in Azure:
 
 - **Indirizzi IP pubblici**: usati per comunicare in ingresso e in uscita, senza NAT (Network Address Translation), con Internet e altre risorse di Azure non connesse a una rete virtuale. L'assegnazione di un indirizzo IP pubblico a un'interfaccia di rete è facoltativa. Per gli indirizzi IP pubblici è previsto un addebito nominale ed è fissato un numero massimo per ogni sottoscrizione.
 - **Indirizzi IP privati**: usati per la comunicazione nella rete virtuale, nella rete locale e in Internet (con NAT). È necessario assegnare almeno un indirizzo IP privato a una VM. Per altre informazioni su NAT in Azure, vedere [Informazioni sulle connessioni in uscita in Azure](../articles/load-balancer/load-balancer-outbound-connections.md).
@@ -79,7 +79,7 @@ Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile di
 
 Quando si configura una rete virtuale si specifica la topologia, inclusi gli spazi degli indirizzi e le subnet disponibili. Se la rete virtuale deve essere connessa ad altre reti virtuali o a reti locali, è necessario selezionare intervalli di indirizzi che non si sovrappongano. Gli indirizzi IP sono privati e non accessibili da Internet. In passato questo valeva solo per gli indirizzi IP non instradabili come 10.0.0.0/8, 172.16.0.0/12 o 192.168.0.0/16. Azure considera ora qualunque intervallo di indirizzi come parte dello spazio degli indirizzi IP privato della rete virtuale raggiungibile solo all'interno della rete virtuale, delle reti virtuali interconnesse e dal percorso locale. 
 
-Se si lavora in un'organizzazione in cui un altro utente è responsabile delle reti interne, è consigliabile consultare questa persona prima di selezionare lo spazio degli indirizzi. Assicurarsi che non vi siano sovrapposizioni e informare lo spazio che si vuole usare, in modo che non tenti di usare lo stesso intervallo di indirizzi IP. 
+Se si lavora in un'organizzazione in cui un altro utente è responsabile delle reti interne, è consigliabile consultare questa persona prima di selezionare lo spazio degli indirizzi. Verificare che non ci siano sovrapposizioni e comunicare al responsabile lo spazio che si intende usare in modo che non venga usato lo stesso intervallo di indirizzi IP. 
 
 Per impostazione predefinita non esiste alcun limite di sicurezza tra subnet, quindi le VM in ognuna di queste subnet possono comunicare tra loro. È tuttavia possibile configurare gruppi di sicurezza di rete (NSG) che consentono di controllare il flusso di traffico da e verso le subnet e da e verso le VM. 
 
@@ -90,7 +90,7 @@ Questa tabella elenca i metodi che è possibile usare per creare una rete virtua
 | [Azure portal](../articles/virtual-network/quick-create-portal.md) | Se è Azure a creare una rete virtuale quando si crea una VM, il nome sarà una combinazione del nome del gruppo di risorse che contiene la rete virtuale e **-vnet**. Lo spazio degli indirizzi è 10.0.0.0/24, il nome della subnet è **default** e l'intervallo di indirizzi della subnet è 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Usare [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) e [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) per creare una subnet e una rete virtuale. È anche possibile usare [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) per aggiungere una subnet a una rete virtuale esistente. |
 | [Interfaccia della riga di comando di Azure](../articles/virtual-network/quick-create-cli.md) | La subnet e la rete virtuale vengono create nello stesso momento. Specificare un parametro **--subnet-name** per [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) con il nome della subnet. |
-| Modello | Il modo più semplice per creare una VNet e le subnet consiste nel scaricare un modello esistente, ad esempio una [rete virtuale con due subnet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), e modificarlo in base alle esigenze. |
+| Modello | Il modo più semplice per creare una rete virtuale e le subnet consiste nello scaricare un modello esistente, ad esempio [Rete virtuale con due subnet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), e modificarlo in base alle esigenze. |
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
@@ -100,7 +100,7 @@ I gruppi di sicurezza di rete includono due tipi di regole: In ingresso e In usc
 
 Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. 
 
- Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Un gruppo di sicurezza di rete applicato a una singola interfaccia di rete di una VM con più interfacce di rete non influisce sul traffico verso le altre interfacce di rete. È possibile associare più gruppi di sicurezza di rete a un'interfaccia di rete (o a una VM, a seconda del modello di distribuzione) e alla subnet a cui è associata un'interfaccia di rete o una VM. La priorità viene assegnata in base alla direzione del traffico.
+Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Un gruppo di sicurezza di rete applicato a una singola interfaccia di rete di una VM con più interfacce di rete non influisce sul traffico verso le altre interfacce di rete. È possibile associare più gruppi di sicurezza di rete a un'interfaccia di rete (o a una VM, a seconda del modello di distribuzione) e alla subnet a cui è associata un'interfaccia di rete o una VM. La priorità viene assegnata in base alla direzione del traffico.
 
 [Pianificare](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i gruppi di sicurezza di rete quando si pianificano le VM e la rete virtuale.
 
@@ -121,18 +121,18 @@ Il servizio di bilanciamento del carico esegue il mapping del traffico in ingres
 
 Quando si crea un servizio di bilanciamento del carico è anche necessario considerare questi elementi di configurazione:
 
-- **Configurazione IP front-end** : un servizio di bilanciamento del carico può includere uno o più indirizzi IP front-end. Questi indirizzi IP vengono usati come ingresso per il traffico.
+- **Configurazione IP front-end**: un servizio di bilanciamento del carico può includere uno o più indirizzi IP front-end. Questi indirizzi IP vengono usati come ingresso per il traffico.
 - **Pool di indirizzi back-end**: indirizzi IP associati all'interfaccia di rete in cui viene distribuito il carico.
-- **[Port porting](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** : definisce il modo in cui il traffico in ingresso passa attraverso l'IP front-end e viene distribuito all'IP back-end usando le regole NAT in ingresso.
+- **[Port forwarding](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** : definisce il modo in cui il traffico in ingresso attraversa l'IP front-end e viene distribuito all'IP back-end tramite regole NAT in ingresso.
 - **Regole di bilanciamento del carico**: eseguono il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP e una porta front-end e un IP e una porta back-end associata alle VM.
-- **[Probe](../articles/load-balancer/load-balancer-custom-probe-overview.md)**: monitorano l'integrità delle VM. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni alla VM non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle VM integre.
-- **[Regole in uscita](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** : una regola in uscita Configura NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end del Load Balancer standard da tradurre nel front-end.
+- **[Probe](../articles/load-balancer/load-balancer-custom-probe-overview.md)** : monitorano l'integrità delle VM. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni alla VM non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle VM integre.
+- **[Regole in uscita](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** : una regola in uscita configura NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end del servizio Load Balancer Standard da trasferire nel front-end.
 
 Questa tabella elenca i metodi che è possibile usare per creare un servizio di bilanciamento del carico con connessione Internet.
 
 | Metodo | Descrizione |
 | ------ | ----------- |
-| Portale di Azure |  È possibile [bilanciare il carico del traffico Internet alle macchine virtuali usando il portale di Azure](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
+| Portale di Azure |  È possibile [bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
 | [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Usare [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PublicIpAddress** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. Usare [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
 | [Interfaccia della riga di comando di Azure](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Usare [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Usare [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) per aggiungere l'indirizzo IP pubblico creato in precedenza. Usare [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) per aggiungere i probe. |
 | [Modello](../articles/load-balancer/quickstart-load-balancer-standard-public-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
@@ -141,14 +141,14 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
 
 | Metodo | Descrizione |
 | ------ | ----------- |
-| Portale di Azure | È possibile [bilanciare il carico di traffico interno con un servizio di bilanciamento del carico nella portale di Azure](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
+| Portale di Azure | È possibile [bilanciare il carico del traffico interno con un servizio di bilanciamento del carico nel portale di Azure](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Per specificare un indirizzo IP privato nella subnet della rete, usare [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PrivateIpAddress**. Usare [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
 | [Interfaccia della riga di comando di Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Per definire l'indirizzo IP privato, usare [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) con il parametro **--private-ip-address**. Usare [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) per aggiungere i probe.|
 | [Modello](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
 
-### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
-Per altre informazioni sul bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere [networking per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
+Per altre informazioni sul servizio di bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere [Rete per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## <a name="vms"></a>VM
 
@@ -175,4 +175,4 @@ Sono anche disponibili esercitazioni sul bilanciamento del carico delle VM e la 
 - Informazioni sulla configurazione di [route definite dall'utente e inoltro IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Informazioni sulla configurazione di [connessioni tra reti virtuali](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Informazioni sulla [risoluzione dei problemi relativi alle route](../articles/virtual-network/diagnose-network-routing-problem.md).
-- Altre informazioni sulla [larghezza di banda di rete della macchina virtuale](../articles/virtual-network/virtual-machine-network-throughput.md).
+- Altre informazioni sulla [larghezza di banda della rete di macchine virtuali](../articles/virtual-network/virtual-machine-network-throughput.md).

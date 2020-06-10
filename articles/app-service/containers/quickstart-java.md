@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Java in Linux"
+title: "Avvio rapido: Creare un'app Java in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Java in un contenitore Linux nel servizio app.
 keywords: azure, app service, Web app, linux, java, maven, avvio rapido
 author: msangapu-msft
@@ -8,14 +8,14 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732890"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300070"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida di avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in di App Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web (WAR) Java nel sistema operativo Linux.
 
@@ -34,7 +34,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 Eseguire il comando Maven seguente nel prompt di Cloud Shell per creare una nuova app denominata `helloworld`:
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
 ```
 Passare quindi dalla directory di lavoro alla cartella del progetto:
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurare il plug-in Maven
 
-Il processo di distribuzione in Servizio app di Azure usa le credenziali dell'account dell'interfaccia della riga di comando di Azure. [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) prima di continuare.
+Il processo di distribuzione in Servizio app di Azure può prelevare automaticamente le credenziali dall'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è installata, il plug-in Maven consentirà di accedere tramite OAuth o credenziali del dispositivo. Controllare i dettagli sull'[autenticazione con i plug-in Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) se necessario.
 
-```azurecli
-az login
-```
-
-Successivamente è possibile configurare la distribuzione, eseguire il comando maven nel prompt dei comandi e usare le configurazioni predefinite premendo **INVIO** finché non viene visualizzato il prompt **Confirm (Y/N)** , quindi premere **'y'** per completare la configurazione. 
+Per configurare la distribuzione, eseguire il comando maven nel prompt dei comandi e usare le configurazioni predefinite premendo **INVIO** finché non viene visualizzato il prompt **Confirm (Y/N)** , quindi premere **'y'** per completare la configurazione. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
 
-Passare nuovamente a `pom.xml` per visualizzare che la configurazione del plug-in è aggiornata. Se necessario, è possibile modificare altre configurazioni per Servizio app di Azure direttamente nel file .pom. Alcune configurazioni comuni sono elencate di seguito:
+Aprire `pom.xml` per visualizzare la configurazione aggiornata.
+
+```bash
+code pom.xml
+```
+
+È possibile modificare le configurazioni per Servizio app di Azure direttamente nel file pom, se necessario. Alcune configurazioni comuni sono elencate di seguito:
 
  Proprietà | Obbligatoria | Descrizione | Versione
 ---|---|---|---
@@ -147,7 +149,7 @@ L'esecuzione del comando può richiedere un minuto.
 > [Connettersi al database SQL di Azure per PostgreSQL con Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configurare l'app Java](configure-custom-container.md)
+> [Configurare l'app Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [Integrazione continua e distribuzione continua con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

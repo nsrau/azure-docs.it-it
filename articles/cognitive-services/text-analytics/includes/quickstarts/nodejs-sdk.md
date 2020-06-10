@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
 description: Introduzione alla libreria client di Analisi del testo v3 per Node.js.
 author: aahill
 manager: nitinme
@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 8bcc919aee7548e8596d1f44c8a357d3f84dfb14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82095923"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140726"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 [Documentazione di riferimento v3](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Codice sorgente della libreria v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Pacchetto (NPM) v3](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Esempi v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
@@ -56,12 +56,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>Installare la libreria client
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Installare i pacchetti NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.4
+npm install --save @azure/ai-text-analytics@1.0.0-preview.5
 ```
 
 > [!TIP]
@@ -83,7 +83,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 Il file `package.json` dell'app viene aggiornato con le dipendenze.
 Creare un file denominato `index.js` e aggiungere quanto segue:
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -128,7 +128,7 @@ L'oggetto risposta è un elenco contenente le informazioni di analisi per ogni d
 
 ## <a name="client-authentication"></a>Client Authentication (Autenticazione client)
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Creare un nuovo oggetto `TextAnalyticsClient` con la chiave e l'endpoint come parametri.
 
@@ -146,7 +146,7 @@ Creare un nuovo oggetto [TextAnalyticsClient](https://docs.microsoft.com/javascr
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Creare una matrice di stringhe contenente il documento da analizzare. Chiamare il metodo `analyzeSentiment()` del client e ottenere l'oggetto `SentimentBatchResult` restituito. Scorrere l'elenco dei risultati e stampare l'ID di ogni documento, il sentiment a livello di documento con i punteggi di attendibilità. Per ogni documento, il risultato contiene il sentiment a livello di frase oltre a scostamenti, lunghezza e punteggi di attendibilità.
 
@@ -213,7 +213,7 @@ Eseguire il codice con `node index.js` nella finestra della console.
 
 ## <a name="language-detection"></a>Rilevamento della lingua
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Creare una matrice di stringhe contenente il documento da analizzare. Chiamare il metodo `detectLanguage()` del client e ottenere l'oggetto `DetectLanguageResultCollection` restituito. Scorrere quindi i risultati e stampare l'ID di ogni documento con la rispettiva lingua principale.
 
@@ -262,7 +262,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 > [!NOTE]
 > Nella versione `3.0-preview`:
@@ -283,7 +283,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
         });
     });
 }
@@ -297,26 +297,20 @@ Eseguire il codice con `node index.js` nella finestra della console.
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 1
+        Score: 0.29
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.67
+        Score: 0.78
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.81
+        Score: 0.82
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
         Score: 0.8
-        Name: interpreters      Category: PersonType    Subcategory: N/A
-        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
         Score: 0.8
 Document ID: 1
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.96
-        Name: Redmond   Category: Location      Subcategory: GPE
-        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.31
+        Score: 0.25
 ```
 
 ## <a name="entity-linking"></a>Collegamento delle entità
@@ -337,8 +331,8 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
-            });
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
         });
     });
 }
@@ -353,24 +347,24 @@ Eseguire il codice con `node index.js` nella finestra della console.
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800       Score: 0.78
+                Text: Altair 8800       Score: 0.88
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates        Score: 0.55
-                Text: Gates     Score: 0.55
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen        Score: 0.53
+                Text: Paul Allen        Score: 0.60
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft         Score: 0.47
-                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4   Score: 0.25
+                Text: April 4   Score: 0.32
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC     Score: 0.28
+                Text: BASIC     Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
@@ -418,7 +412,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Estrazione di frasi chiave
 
-#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
+#### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Creare una matrice di stringhe contenente il documento da analizzare. Chiamare il metodo `extractKeyPhrases()` del client e ottenere l'oggetto `ExtractKeyPhrasesResult` restituito. Eseguire l'iterazione attraverso i risultati e stampare l'ID di ogni documento e le frasi chiave rilevate.
 

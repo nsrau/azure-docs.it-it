@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745410"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258284"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta (anteprima) con Power BI Desktop e creare un report
 
@@ -29,10 +29,14 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, è necessario il software seguente:
+Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/): necessario per visualizzare i dati e creare report.
+- [Area di lavoro di Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio): necessaria per creare database, origini dati esterne e visualizzazioni.
+
+Facoltativo:
 
 - Strumento di query SQL, ad esempio [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) oppure [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Valori per i parametri seguenti:
 

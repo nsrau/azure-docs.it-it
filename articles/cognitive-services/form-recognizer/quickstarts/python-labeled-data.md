@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire il training con le etichette usando l'API REST e Python - Riconoscimento modulo"
+title: "Avvio rapido: Eseguire il training con le etichette usando l'API REST e Python - Riconoscimento modulo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare la funzionalità dei dati etichettati di Riconoscimento modulo con l'API REST e Python per eseguire il training di un modello personalizzato.
 author: PatrickFarley
@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 482e1bfe14181a59b744efd794a5636a442ce9a4
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594169"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141943"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python
 
@@ -28,13 +28,16 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
 - Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
+> [!NOTE]
+> Questo argomento di avvio rapido usa documenti remoti accessibili tramite URL. Per usare invece file locali, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="set-up-training-data"></a>Configurare i dati di training
 
-È quindi necessario configurare i dati di input necessari. La funzionalità dei dati etichettati prevede requisiti di input specifici oltre a quelli necessari per eseguire il training di un modello personalizzato. 
+È quindi necessario configurare i dati di input necessari. La funzionalità dei dati etichettati prevede requisiti di input specifici oltre a quelli necessari per eseguire il training di un modello personalizzato senza etichette.
 
 Assicurarsi che tutti i documenti di training abbiano lo stesso formato. Se si usano moduli in più formati, organizzarli in sottocartelle basate sul formato comune. Quando si esegue il training, è necessario indirizzare l'API a una sottocartella.
 
@@ -116,7 +119,7 @@ I file dei risultati dell'OCR sono necessari perché il servizio consideri i fil
 
 ### <a name="create-the-label-files"></a>Creare i file di etichette
 
-I file di etichette contengono associazioni chiave-valore immesse manualmente da un utente. Sono necessari per il training dei dati etichettati, ma non è necessario che ogni file di origine abbia un file di etichette corrispondente. I file di origine senza etichette verranno considerati come normali documenti di training. Per un training affidabile, è consigliabile usare almeno cinque file di etichette.
+I file di etichette contengono associazioni chiave-valore immesse manualmente da un utente. Sono necessari per il training dei dati etichettati, ma non è necessario che ogni file di origine abbia un file di etichette corrispondente. I file di origine senza etichette verranno considerati come normali documenti di training. Per un training affidabile, è consigliabile usare almeno cinque file di etichette. Per generare questi file, è possibile usare uno strumento dell'interfaccia utente come lo [strumento di etichettatura campioni](./label-tool.md).
 
 Quando si crea un file di etichette, è possibile specificare facoltativamente le aree, ovvero le posizioni esatte dei valori nel documento. In questo modo si otterrà una maggiore accuratezza del training. Le aree vengono formattate come un set di otto valori corrispondenti a quattro coordinate X,Y: in alto a sinistra, in alto a destra, in basso a destra e in basso a sinistra. I valori delle coordinate sono compresi tra zero e uno, rapportati alle dimensioni della pagina.
 
@@ -187,7 +190,7 @@ Per ogni modulo di origine, il file di etichette corrispondente deve avere il no
                 ...
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > È possibile applicare un'unica etichetta a ogni elemento di testo e ogni etichetta può essere applicata solo una volta per pagina. Attualmente non è possibile applicare un'etichetta tra più pagine.
 
 
@@ -554,4 +557,7 @@ Questo scenario è essenziale per i nostri clienti e stiamo lavorando per miglio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come usare l'API REST Riconoscimento modulo con Python per eseguire il training di un modello personalizzato con dati etichettati manualmente. Successivamente, vedere la [documentazione di riferimento delle API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) per esplorare l'API Riconoscimento modulo in maggior dettaglio.
+In questo argomento di avvio rapido si è appreso come usare l'API REST Riconoscimento modulo con Python per eseguire il training di un modello personalizzato con dati etichettati manualmente. Successivamente, vedere la documentazione di riferimento delle API per esplorare l'API Riconoscimento modulo in maggior dettaglio.
+
+> [!div class="nextstepaction"]
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

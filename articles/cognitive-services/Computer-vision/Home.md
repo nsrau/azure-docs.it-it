@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131758"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117526"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o può individuare tutti i visi umani in un'immagine.
+Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Ad esempio, Visione artificiale consente di determinare se un'immagine contiene contenuto per adulti, di trovare specifici marchi o oggetti o di individuare visi umani.
 
-È possibile usare Visione artificiale nell'applicazione tramite un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+È possibile usare Visione artificiale nell'applicazione tramite un SDK della libreria client oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visione artificiale per la gestione delle risorse digitali
 
@@ -32,7 +32,7 @@ Visione artificiale può ottimizzare molti scenari di gestione delle risorse dig
 
 ## <a name="analyze-images-for-insight"></a>Analizzare le immagini per ottenere informazioni dettagliate
 
-È possibile analizzare le immagini per rilevare e fornire informazioni dettagliate sugli elementi visivi e sulle caratteristiche. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisi dell'immagine).
+È possibile analizzare le immagini per ricevere informazioni dettagliate sulle caratteristiche e gli aspetti visivi. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisi dell'immagine).
 
 | Azione | Descrizione |
 | ------ | ----------- |
@@ -50,7 +50,7 @@ Visione artificiale può ottimizzare molti scenari di gestione delle risorse dig
 
 ## <a name="extract-text-from-images"></a>Estrarre testo dalle immagini
 
-È possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente l'inglese e lo spagnolo sono le uniche lingue supportate.
+È possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente funziona per sette lingue diverse. Vedere [Lingue supportate](./language-support.md).
 
 È anche possibile usare l'API di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) per estrarre testo stampato in diverse lingue. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
 

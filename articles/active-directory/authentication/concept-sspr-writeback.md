@@ -1,6 +1,6 @@
 ---
-title: Writeback delle password locali con reimpostazione password self-service-Azure Active Directory
-description: Informazioni sul modo in cui è possibile eseguire il writeback degli eventi Azure Active Directory di modifica o reimpostazione della password in un ambiente di directory locale
+title: Writeback delle password locali con reimpostazione della password self-service - Azure Active Directory
+description: Informazioni su come eseguire il writeback degli eventi di modifica o reimpostazione della password in Azure Active Directory in un ambiente di directory locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127837"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639793"
 ---
-# <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Come funziona il writeback della reimpostazione della password self-service in Azure Active Directory?
+# <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Come funziona il writeback per la reimpostazione della password self-service in Azure Active Directory?
 
-Azure Active Directory (Azure AD) la reimpostazione della password self-service (SSPR) consente agli utenti di reimpostare le password nel cloud, ma la maggior parte delle società dispone anche di un ambiente di Active Directory Domain Services locale (AD DS) in cui si trovano gli utenti. Il writeback delle password è una funzione abilitata con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) che consente di riscrivere le modifiche alle password nel cloud in una directory locale esistente in tempo reale. In questa configurazione, quando gli utenti modificano o reimpostano le proprie password usando SSPR nel cloud, le password aggiornate vengono anche scritte nell'ambiente Active Directory Domain Services locale
+La reimpostazione della password self-service (SSPR) in Azure Active Directory (Azure AD) consente agli utenti di reimpostare le password nel cloud, ma la maggior parte delle società dispone anche di un ambiente di Active Directory Domain Services (AD DS) locale in cui si trovano gli utenti. Il writeback delle password è una funzione abilitata con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) che consente di riscrivere le modifiche alle password nel cloud in una directory locale esistente in tempo reale. In questa configurazione, quando gli utenti modificano o reimpostano le proprie password usando SSPR nel cloud, le password aggiornate vengono anche scritte nell'ambiente Active Directory Domain Services locale
 
-Il writeback delle password è supportato negli ambienti che usano i modelli di identità ibrida seguenti:
+Il writeback delle password è supportato in ambienti che usano i seguenti modelli di identità ibridi:
 
 * [Sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticazione pass-through](../hybrid/how-to-connect-pta.md)
@@ -30,11 +30,11 @@ Il writeback delle password è supportato negli ambienti che usano i modelli di 
 
 Il writeback delle password offre le funzionalità seguenti:
 
-* **Imposizione dei criteri password di Active Directory Domain Services locali (ad DS)**: quando un utente reimposta la password, viene controllata per verificare che soddisfi i criteri di servizi di dominio Active Directory locali prima di eseguirne il commit a tale directory. Questa revisione include il controllo della cronologia, della complessità, della validità, dei filtri password e di qualsiasi altra restrizione di password definita in servizi di dominio Active Directory.
-* **Nessun ritardo nei feedback**: il writeback delle password è un'operazione sincrona. Gli utenti vengono informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
-* **Supporta le modifiche delle password dal pannello di accesso e da Office 365**: quando gli utenti federati o con sincronizzazione di hash della password hanno la funzione di modificare le password scadute o non scadute, le password vengono riscritte in servizi di dominio Active Directory.
-* **Supporta il writeback delle password quando un amministratore li Reimposta dal portale di Azure**: quando un amministratore reimposta la password di un utente nel [portale di Azure](https://portal.azure.com), se tale utente è federato o con sincronizzazione dell'hash delle password, la password viene riscritta in locale. Questa funzionalità non è attualmente supportata nel portale di amministrazione di Office.
-* **Non richiede regole del firewall in ingresso**: il writeback delle password usa un inoltro del bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
+* **Applicazione di criteri delle password Active Directory Domain Services (AD DS) locali**: quando un utente reimposta la propria password, viene verificato che soddisfi i criteri di AD DS locali prima di eseguirne il commit nella directory. Questo esame include il controllo di cronologia, complessità, validità, filtri delle password e altre restrizioni per le password definite in AD DS.
+* **Nessun ritardo nel feedback**:  Il writeback delle password è un'operazione sincrona. Gli utenti vengono informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
+* **Supporta la modifica delle password dal pannello di accesso e da Office 365**: quando gli utenti federati o sincronizzati con l'hash delle password modificano le password scadute o non scadute, queste verranno riscritte in AD DS.
+* **Supporta il writeback delle password quando un amministratore le reimposta dal portale di Azure**: quando un amministratore reimposta la password di un utente nel [portale di Azure](https://portal.azure.com), se tale utente è federato o sincronizzato con l'hash delle password, la password verrà riscritta in locale. Questa funzionalità non è attualmente supportata nel portale di amministrazione di Office.
+* **Non richiede regole del firewall in entrata**: il writeback delle password usa un bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
 
 > [!NOTE]
 > Gli account amministratore presenti all'interno di gruppi protetti nell'istanza locale di AD possono essere usati con il writeback delle password. Gli amministratori possono modificare la propria password nel cloud, ma non possono usare la reimpostazione della password per reimpostare una password dimenticata. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
@@ -51,7 +51,7 @@ Quando un utente federato o sincronizzato con l'hash delle password tenta di rei
 1. Quando l'utente seleziona **Invia**, la password non crittografata viene crittografata con una chiave simmetrica creata durante il processo di installazione della funzionalità di writeback.
 1. La password crittografata viene inclusa in un payload inviato tramite un canale HTTPS al servizio Inoltro del bus di servizio specifico del tenant, che viene configurato automaticamente durante il processo di installazione della funzionalità di writeback. L'inoltro è protetto da una password generata casualmente, nota solo all'installazione locale.
 1. Dopo che il messaggio ha raggiunto il bus di servizio, l'endpoint di reimpostazione della password si attiva automaticamente e rileva la richiesta di reimpostazione in sospeso.
-1. Il servizio cerca quindi l'utente usando l'attributo di ancoraggio cloud. Affinché la ricerca abbia esito positivo, è necessario che siano soddisfatte le condizioni seguenti:
+1. Il servizio cerca quindi l'utente usando l'attributo di ancoraggio cloud. Affinché questa ricerca abbia esito positivo devono essere soddisfatte le condizioni seguenti:
 
    * L'oggetto utente deve esistere nello spazio connettore Active Directory.
    * L'oggetto utente deve essere collegato all'oggetto metaverse (MV) corrispondente.
@@ -64,26 +64,26 @@ Quando un utente federato o sincronizzato con l'hash delle password tenta di rei
 1. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata.
 
    > [!NOTE]
-   > Se l'hash della password dell'utente viene sincronizzato con Azure AD con la sincronizzazione dell'hash delle password, è possibile che i criteri password locali siano più vulnerabili rispetto ai criteri password cloud. In questo caso vengono applicati i criteri locali. Questi criteri garantiscono che i criteri locali siano applicati nel cloud, indipendentemente dal fatto che si usi la sincronizzazione dell'hash delle password o la federazione per il Single Sign-On.
+   > Se l'hash delle password dell'utente viene sincronizzato con Azure AD usando la sincronizzazione dell'hash delle password, è probabile che i criteri della password locali siano più deboli rispetto ai criteri della password cloud. In questo caso vengono applicati i criteri locali. Questi criteri garantiscono che i criteri locali siano applicati nel cloud, indipendentemente dal fatto che si usi la sincronizzazione dell'hash delle password o la federazione per il Single Sign-On.
 
-1. Se l'operazione di impostazione della password non riesce, viene restituito un messaggio di errore con la richiesta all'utente di riprovare. L'operazione potrebbe non riuscire a causa dei motivi seguenti:
+1. Se l'operazione di impostazione della password non riesce, viene restituito un messaggio di errore con la richiesta all'utente di riprovare. L'operazione potrebbe non riuscire per i motivi seguenti:
     * Il servizio era inattivo.
-    * La password selezionata non soddisfa i criteri dell'organizzazione.
+    * La password selezionata non rispetta i criteri dell'organizzazione.
     * Non è stato trovato l'utente in Azure Active Directory locale.
 
    I messaggi di errore forniscono indicazioni agli utenti in modo che possano tentare di risolvere il problema senza l'intervento dell'amministratore.
 
 ## <a name="password-writeback-security"></a>Sicurezza del writeback delle password
 
-Il writeback delle password è un servizio altamente sicuro. Per assicurarsi che le informazioni siano protette, viene abilitato un modello di sicurezza a quattro livelli, come indicato di seguito:
+Il writeback delle password è un servizio altamente sicuro. Per garantire che le informazioni siano protette, viene abilitato un modello di sicurezza a quattro livelli come descritto di seguito:
 
 * **Inoltro del bus di servizio specifico del tenant**
    * Quando si configura il servizio, viene configurato l'inoltro del bus di servizio specifico del tenant, protetto da una password complessa generata in modo casuale, a cui Microsoft non può mai accedere.
 * **Chiave di crittografia bloccata e crittograficamente complessa per le password**
-   * Dopo aver creato l'inoltro del bus di servizio, viene creata una chiave simmetrica complessa that'is usata per crittografare la password mentre viene cablata. Questa chiave si trova solo nell'archivio segreto dell'azienda nel cloud, bloccato in modo sicuro e controllato, come qualsiasi altra password nella directory.
+   * Dopo la creazione dell'inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto dell'azienda nel cloud, bloccato in modo sicuro e controllato, come qualsiasi altra password nella directory.
 * **Transport Layer Security (TLS) standard di settore**
    1. Quando si verifica nel cloud un'operazione di reimpostazione o modifica della password, la password non crittografata viene crittografata con la chiave pubblica dell'utente.
-   1. La password crittografata viene inserita in un messaggio HTTPS inviato tramite un canale crittografato utilizzando i certificati Microsoft TLS/SSL per l'inoltro del bus di servizio.
+   1. La chiave crittografata viene inclusa in un messaggio HTTPS inviato tramite un canale crittografato mediante certificati TLS/SSL Microsoft al proprio inoltro del bus di servizio.
    1. Quando il messaggio arriva nel bus di servizio, l'agente locale viene attivato e autenticato al bus di servizio tramite la password complessa generata in precedenza.
    1. L'agente locale preleva il messaggio crittografato e lo decrittografa con la chiave privata.
    1. L'agente locale tenta di impostare la password tramite l'API SetPassword di AD DS. Questo passaggio consente di applicare i criteri password locali di Active Directory, come complessità, validità, cronologia, filtri e così via, nel cloud.
@@ -94,8 +94,8 @@ Il writeback delle password è un servizio altamente sicuro. Per assicurarsi che
 
 Dopo che un utente ha inviato una reimpostazione password, la richiesta di reimpostazione passa attraverso diverse operazioni di crittografia prima di arrivare nell'ambiente locale. Queste operazioni di crittografia garantiscono la massima affidabilità del servizio e sicurezza. Sono descritte come segue:
 
-1. **Crittografia della password con chiave RSA a 2048 bit**: dopo che un utente ha inviato una password per la scrittura in locale, la password inviata viene crittografata con una chiave rsa a 2048 bit.
-1. **Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto, la password più i metadati necessari, viene crittografato usando AES-GCM. Questa crittografia impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto.
+1. **Crittografia della password con una chiave RSA a 2048 bit**: dopo che un utente ha inviato una password per il writeback in locale, la password inviata viene crittografata con una chiave RSA a 2048 bit.
+1. **Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto, ovvero la password più i metadati necessari, viene crittografato con AES-GCM. Questa crittografia impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto.
 1. **Tutte le comunicazioni avvengono tramite TLS/SSL**: tutte le comunicazioni con ServiceBus avvengono in un canale SSL/TLS. Questa crittografia protegge i contenuti da terze parti non autorizzate.
 1. **Rollover automatico delle chiavi ogni 6 mesi**: ogni 6 mesi o ogni volta che il writeback delle password viene disabilitato e di nuovo abilitato in Azure AD Connect, viene eseguito automaticamente il rollover di tutte le chiavi per garantire i massimi livelli di sicurezza e protezione del servizio.
 
@@ -121,33 +121,34 @@ La dimensione di ogni messaggio illustrato in precedenza è in genere inferiore 
 Il writeback delle password viene eseguito in tutte le situazioni seguenti:
 
 * **Attività degli utenti finali supportate**
-   * Qualsiasi operazione di modifica della password self-service volontaria dell'utente finale.
-   * Qualsiasi operazione self-service forzata di modifica della password dell'utente finale, ad esempio la scadenza della password.
-   * Qualsiasi reimpostazione della password self-service dell'utente finale originata dal [portale di reimpostazione della password](https://passwordreset.microsoftonline.com).
+   * Qualsiasi operazione self-service volontaria di modifica della password dell'utente finale.
+   * Qualsiasi operazione self-service forzata di modifica della password dell'utente finale, ad esempio in seguito a scadenza della password.
+   * Qualsiasi reimpostazione password self-service dell'utente finale originata dal [portale di reimpostazione password](https://passwordreset.microsoftonline.com).
 
 * **Operazioni degli amministratori supportate**
-   * Qualsiasi operazione di modifica della password self-service volontaria dell'amministratore.
-   * Qualsiasi operazione self-service forzata di modifica della password dell'amministratore, ad esempio la scadenza della password.
-   * Qualsiasi reimpostazione della password self-service dell'amministratore originata dal [portale di reimpostazione della password](https://passwordreset.microsoftonline.com).
+   * Qualsiasi operazione self-service volontaria di modifica della password dell'amministratore.
+   * Qualsiasi operazione self-service forzata di modifica della password dell'amministratore, ad esempio in seguito a scadenza della password.
+   * Qualsiasi reimpostazione password self-service dell'amministratore originata dal [portale di reimpostazione password](https://passwordreset.microsoftonline.com).
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di Azure](https://portal.azure.com).
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'[API Graph di Microsoft versione beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Operazioni di writeback non supportate
 
-Le password non vengono riscritte nelle situazioni seguenti:
+Il writeback delle password non viene eseguito nelle situazioni seguenti:
 
 * **Attività degli utenti finali non supportate**
-   * Tutti gli utenti finali reimpostano la propria password usando PowerShell versione 1, versione 2 o l'API Microsoft Graph.
+   * Qualsiasi reimpostazione, da parte dell'utente finale, della propria password tramite PowerShell versione 1, versione 2 o l'API Graph di Microsoft.
 * **Operazioni degli amministratori non supportate**
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o API Microsoft Graph (il [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) è supportata).
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com).
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Microsoft (l'[API Graph di Microsoft versione beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) è supportata).
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
+   * Qualsiasi amministratore non può usare lo strumento di reimpostazione della password per reimpostare la propria password per il writeback delle password.
 
 > [!WARNING]
-> Utilizzare la casella di controllo "l'utente deve modificare la password all'accesso successivo" in strumenti di amministrazione di servizi di dominio Active Directory locali come Active Directory utenti e computer oppure il Centro di amministrazione di Active Directory è supportato come funzionalità di anteprima di Azure AD Connect. Per altre informazioni, vedere [implementare la sincronizzazione dell'hash delle password con Azure ad Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+> L'uso della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" negli strumenti di amministrazione di Active Directory Domain Services locali come Utenti e computer di Active Directory oppure il Centro di amministrazione di Active Directory è supportato come funzionalità di anteprima di Azure AD Connect. Per altre informazioni, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare il writeback di SSPR, completare l'esercitazione seguente:
+Per iniziare a usare il writeback della reimpostazione della password self-service, completare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: abilitare il writeback della reimpostazione della password self-service (SSPR)](tutorial-enable-writeback.md)
+> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](tutorial-enable-writeback.md)

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: 2eab7ab62f6a7a105dab33aa889af9f2be3a3fa3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052374"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267274"
 ---
 # <a name="what-is-immersive-reader"></a>Cos'è lo strumento di lettura immersiva?
 
@@ -61,6 +61,6 @@ Lo strumento di lettura immersiva è un'app Web autonoma che può essere richiam
 
 Iniziare a usare lo strumento di lettura immersiva:
 
-* Accedere all'[argomento di avvio rapido](./quickstart.md)
+* Passare agli [argomenti di avvio rapido](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Esplorare [Immersive Reader SDK in GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Leggere le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

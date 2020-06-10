@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844523"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995650"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -28,7 +28,7 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 
 | **Categoria**  | **Nome dell'offerta** | **ID quota** | **Numero offerta** | **Dati disponibili da** |
 | --- | --- | --- | --- | --- |
-| **Azure Government** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | <sup>1</sup> maggio 2014 |
+| **Azure per enti pubblici** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | <sup>1</sup> maggio 2014 |
 | **Contratto Enterprise** | Sviluppo/test Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | <sup>1</sup> maggio 2014 |
 | **Contratto Enterprise** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | <sup>1</sup> maggio 2014 |
 | **Contratto del cliente Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D | <sup>3</sup> marzo 2019 |
@@ -60,7 +60,7 @@ Le offerte seguenti non sono ancora supportate:
 | Category  | **Nome dell'offerta** | **ID quota** | **Numero offerta** |
 | --- | --- | --- | --- |
 | **Azure Germania** | [Azure Germania con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government con pagamento in base al consumo | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
+| **Azure per enti pubblici** | Azure Government con pagamento in base al consumo | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | CSP Azure per enti pubblici                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germania in CSP per Microsoft Cloud Germania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -75,7 +75,12 @@ Le offerte seguenti non sono ancora supportate:
 | **Piani di supporto** | Supporto Pro-Direct di Azure per enti pubblici | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Piani di supporto** | Supporto tecnico Developer di Azure per enti pubblici  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Determinare il tipo di offerta
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Aggiornamento della versione di valutazione gratuita al pagamento in base al consumo
+
+Per informazioni sulla disponibilità di servizi di livello gratuito dopo l'aggiornamento ai prezzi con pagamento in base al consumo da una versione di valutazione gratuita, vedere le [domande frequenti sull'account Azure gratuito](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Determinare il tipo di offerta
+
 Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole determinare se la sottoscrizione rientra tra le offerte supportate, è possibile convalidare che la sottoscrizione sia supportata. Per convalidare il supporto di una sottoscrizione di Azure, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Tutti i servizi** nel riquadro del menu a sinistra. Nell'elenco dei servizi selezionare **Sottoscrizioni**. Nel menu dell'elenco delle sottoscrizioni selezionare la sottoscrizione da verificare. La sottoscrizione verrà visualizzata nella scheda Panoramica e sarà possibile vedere le informazioni in **Offerta** e **ID offerta**. La figura seguente mostra un esempio.
 
 ![Esempio della scheda Panoramica della sottoscrizione che mostra l'offerta e l'ID offerta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ Gestione costi di Azure riceve i tag come parte di ogni record di utilizzo invia
 - I tag di risorsa sono supportati solo per le risorse distribuite in gruppi di risorse.
 - Alcune risorse distribuite potrebbero non supportare i tag o non includere i tag nei dati di utilizzo. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md).
 - I tag di risorsa vengono inclusi solo nei dati di utilizzo quando il tag viene applicato. I tag non vengono applicati ai dati cronologici.
-- I tag di risorsa sono disponibili in Gestione costi solo dopo l'aggiornamento dei dati. Vedere [Variazione della frequenza di aggiornamento dei dati sull'utilizzo](#usage-data-update-frequency-varies).
+- I tag di risorsa sono disponibili in Gestione costi solo dopo l'aggiornamento dei dati. Vedere [Aggiornamenti e conservazione dei dati relativi a costi e utilizzo](#cost-and-usage-data-updates-and-retention).
 - I tag di risorsa sono disponibili in Gestione costi solo quando la risorsa è attiva o in esecuzione e produce record di utilizzo, quindi non quando una macchina virtuale viene deallocata, ad esempio.
 - Per la gestione dei tag è necessario l'accesso come collaboratore a ogni risorsa.
 - Per la gestione dei criteri di tag è necessario l'accesso come proprietario o collaboratore ai criteri a un gruppo di gestione, una sottoscrizione o un gruppo di risorse.
@@ -114,7 +119,7 @@ Gestione costi di Azure riceve i tag come parte di ogni record di utilizzo invia
 Se non si trova un tag specifico in gestione costi, considerare quanto segue:
 
 - Il tag è stato applicato direttamente alla risorsa?
-- Il tag è stato applicato più di 24 ore fa? Vedere [Variazione della frequenza di aggiornamento dei dati sull'utilizzo](#usage-data-update-frequency-varies)
+- Il tag è stato applicato più di 24 ore fa? Vedere [Aggiornamenti e conservazione dei dati relativi a costi e utilizzo](#cost-and-usage-data-updates-and-retention)
 - Il tipo di risorsa supporta i tag? I tipi di risorse seguenti non supportano i tag nei dati di utilizzo a partire dal 1° dicembre 2019. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md) per l'elenco completo dei tag supportati.
     - Directory di Azure Active Directory B2C
     - Firewall di Azure
@@ -134,24 +139,22 @@ Ecco alcuni suggerimenti per l'uso dei tag:
 - Usare l'API Tag insieme a Query o UsageDetails per ottenere tutti i costi in base ai tag correnti.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Aggiornamento della versione di valutazione gratuita al pagamento in base al consumo
+## <a name="cost-and-usage-data-updates-and-retention"></a>Aggiornamenti e conservazione dei dati relativi a costi e utilizzo
 
-Per informazioni sulla disponibilità di servizi di livello gratuito dopo l'aggiornamento ai prezzi con pagamento in base al consumo da una versione di valutazione gratuita, vedere le [domande frequenti sull'account Azure gratuito](https://azure.microsoft.com/free/free-account-faq/).
+I dati sui costi e sull'utilizzo sono in genere disponibili in Gestione costi e fatturazione nel portale di Azure e nelle [API di supporto](../index.yml) entro 8-24 ore. Durante l'analisi dei costi, tenere presente quanto segue:
 
-## <a name="rated-usage-data-refresh-schedule"></a>Pianificazione dell'aggiornamento dei dati sull'utilizzo valutato
-
-I dati sui costi e sull'utilizzo sono disponibili in Gestione dei costi e fatturazione nel portale di Azure e nelle [API di supporto](../index.yml). Durante l'analisi dei costi, tenere presente quanto segue:
-
+- Ogni servizio di Azure, ad esempio Archiviazione, Calcolo e SQL, genera un utilizzo a intervalli diversi. È possibile che i dati di alcuni servizi vengano visualizzati prima di altri.
 - Gli addebiti stimati per il periodo di fatturazione corrente vengono aggiornati sei volte al giorno.
 - Gli addebiti stimati per il periodo di fatturazione corrente possono variare a causa di un aumento dell'utilizzo.
 - Ogni aggiornamento è cumulativo e comprende tutte le voci e le informazioni relative all'aggiornamento precedente.
 - Azure finalizza o _chiude_ il periodo di fatturazione corrente fino a 72 ore (tre giorni di calendario) dopo il termine del periodo di fatturazione.
 
-Gli esempi seguenti illustrano come possono terminare i periodi di fatturazione.
+Gli esempi seguenti illustrano come possono terminare i periodi di fatturazione:
 
-Sottoscrizioni Enterprise Agreement (EA) - Se il mese di fatturazione termina il 31 marzo, gli addebiti stimati vengono aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 4 aprile.
+* Sottoscrizioni Enterprise Agreement (EA) - Se il mese di fatturazione termina il 31 marzo, gli addebiti stimati vengono aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 4 aprile.
+* Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione termina il 15 maggio, gli addebiti stimati potrebbero essere aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 19 maggio.
 
-Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione termina il 15 maggio, gli addebiti stimati potrebbero essere aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 19 maggio.
+Quando i dati relativi ai costi e all'utilizzo diventano disponibili in Gestione costi e fatturazione, verranno conservati per almeno 7 anni.
 
 ### <a name="rerated-data"></a>Dati rivalutati
 
@@ -166,16 +169,6 @@ I costi indicati in Gestione costi sono arrotondati. I costi restituiti dall'API
   - Addebito 2: $ 0,004
   -    Aggregazione degli addebiti: 0,004 + 0,004 = 0,008. L'addebito visualizzato è $ 0,01.
 - API di query: gli addebiti vengono visualizzati con otto cifre decimali senza arrotondamento.
-
-
-## <a name="usage-data-update-frequency-varies"></a>Variazione della frequenza di aggiornamento dei dati sull'utilizzo
-
-La disponibilità dei dati sull'utilizzo in Gestione costi dipende da due fattori:
-
-- La frequenza con cui i servizi di Azure (ad esempio Archiviazione, Calcolo, Rete CDN e SQL) generano i dati sull'utilizzo.
-- Il tempo necessario per l'elaborazione dei dati sull'utilizzo tramite il motore di valutazione e le pipeline di gestione dei costi.
-
-Alcuni servizi generano i dati sull'utilizzo più spesso rispetto ad altri. Pertanto, i dati per alcuni servizi potrebbero essere visualizzati in Gestione costi più rapidamente rispetto ad altri servizi che generano i dati con minore frequenza. In genere, la visualizzazione in Gestione costi dei dati sull'utilizzo richiede da 8 a 24 ore. Tenere presente che i dati per un mese aperto vengono aggiornati in caso di aumento dell'utilizzo, perché gli aggiornamenti sono cumulativi.
 
 ## <a name="historical-data-might-not-match-invoice"></a>I dati cronologici potrebbero non corrispondere alla fattura
 

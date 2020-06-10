@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 4
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 4. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024830"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168982"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 4
 
@@ -132,9 +132,7 @@ I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area d
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Verifica, analisi e report di controllo | Funzionalità di integrazione/analisi e monitoraggio
 
-Questo progetto fornisce le definizioni dei criteri per il controllo dei record con l'analisi della valutazione della vulnerabilità in macchine virtuali, set di scalabilità di macchine virtuali, istanze gestite di SQL e server SQL.
-Controllano anche la configurazione dei log di diagnostica per fornire informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
-Per informazioni dettagliate sull'analisi e sul monitoraggio della vulnerabilità, è consigliabile sfruttare anche Azure Sentinel e il Centro sicurezza di Azure.
+Questo progetto fornisce le definizioni dei criteri per il controllo dei record con l'analisi della valutazione della vulnerabilità in macchine virtuali, set di scalabilità di macchine virtuali, server di database SQL e server dell'istanza gestita di SQL. Controllano anche la configurazione dei log di diagnostica per fornire informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive. Per informazioni dettagliate sull'analisi e sul monitoraggio della vulnerabilità, è consigliabile sfruttare anche Azure Sentinel e il Centro sicurezza di Azure.
 
 - \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL

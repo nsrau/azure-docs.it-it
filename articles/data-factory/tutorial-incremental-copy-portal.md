@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409325"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249094"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da un database SQL di Azure ad archiviazione BLOB di Azure tramite il portale di Azure
 
@@ -65,7 +65,7 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno.
+* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno.
 * **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creare una tabella di origine dati nel database SQL
@@ -182,7 +182,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 1. Nella pagina **Attività iniziali** dell'interfaccia utente di Data Factory fare clic sul riquadro **Create pipeline** (Crea pipeline).
 
    ![Pagina Attività iniziali dell'interfaccia utente di Data Factory](./media/doc-common-process/get-started-page.png)    
-3. Nella pagina **Generale** della finestra **Proprietà** per la pipeline immettere il nome **IncrementalCopyPipeline**.
+3. Nel pannello Generale in **Proprietà** specificare **IncrementalCopyPipeline** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo in alto a destra.
 
 4. Verrà ora aggiunta la prima attività di ricerca per recuperare il valore limite precedente. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Cerca** nell'area di progettazione della pipeline. Modificare il nome dell'attività in **LookupOldWaterMarkActivity**.
 
@@ -196,7 +196,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 8. Per **Servizio collegato**, selezionare **Nuovo** e quindi seguire questa procedura:
 
     1. Immettere **AzureSqlDatabaseLinkedService** per **Nome**.
-    2. Selezionare il server di Azure SQL per **Nome server**.
+    2. Selezionare il server per **Nome server**.
     3. Selezionare il **Nome del database** dall'elenco a discesa.
     4. Completare i campi **Nome utente** & **Password**.
     5. Per testare la connessione al database SQL di Azure, fare clic su **Test connessione**.
@@ -398,7 +398,7 @@ In questa esercitazione sono stati eseguiti i passaggi seguenti:
 > * Monitorare la seconda esecuzione della pipeline
 > * Esaminare i risultati della seconda esecuzione.
 
-In questa esercitazione, la pipeline ha copiato dati da una singola tabella di un database SQL a un archivio BLOB. Passare all'esercitazione successiva per informazioni sulla copia di dati da più tabelle di un database di SQL Server locale a un database SQL.
+In questa esercitazione, la pipeline ha copiato dati da una singola tabella di un database SQL a un archivio BLOB. Passare all'esercitazione successiva per informazioni sulla copia di dati da più tabelle di un database di SQL Server a un database SQL.
 
 > [!div class="nextstepaction"]
 >[Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure](tutorial-incremental-copy-multiple-tables-portal.md)

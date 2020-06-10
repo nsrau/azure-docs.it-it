@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203965"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237716"
 ---
 Questa guida introduttiva basata su cURL assiste nell'ottenimento di una risposta dalla knowledge base.
 
@@ -77,9 +77,11 @@ Usare la knowledge base dell'argomento di avvio rapido precedente per eseguire u
     }
     ```
 
-    Se è presente un set di domande e risposte che non soddisfa il termine di ricerca ma soddisfa il filtro, non viene restituito. Viene invece restituita la risposta generale `No good match found in KB.`.
+    Se è presente una coppia di domande e risposte che non soddisfa il termine di ricerca ma soddisfa il filtro, non viene restituita. Viene invece restituita la risposta generale `No good match found in KB.`.
 
 ## <a name="use-debug-query-property"></a>Usare una proprietà per la query di debug
+> [!NOTE]
+>Non è consigliabile usare la proprietà Debug per una dipendenza. Questa proprietà è stata aggiunta per assistere il team di prodotto nella risoluzione dei problemi.
 
 Le informazioni di debug consentono di capire come è stata determinata la risposta restituita. Sebbene siano utili, non sono necessarie. Per generare una risposta con le informazioni di debug, aggiungere la proprietà `debug`:
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418661"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022062"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
 
@@ -42,7 +42,7 @@ In questa esercitazione si segue questa procedura:
 
 * **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**: Usare un archivio BLOB come archivio dati di _origine_. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
-* **Database SQL di Azure**: Usare un database SQL come archivio dati _sink_. Se non si ha un database SQL, vedere le istruzioni in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
+* **Database SQL di Azure**: Usare un database SQL come archivio dati _sink_. Se non si ha un database SQL, vedere le istruzioni in [Creare un database SQL](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
 
@@ -76,7 +76,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue il database SQL sia abilitata l'impostazione **Consenti ai servizi di Azure di accedere al server**, che consente a Data Factory di scrivere dati nell'istanza di database. Per verificare e attivare l'impostazione, passare a Server di Azure SQL > Sicurezza > Firewall e reti virtuali, quindi impostare l'opzione **Consenti ai servizi di Azure di accedere al server** su **SÌ**.
+2. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue il database SQL sia abilitata l'impostazione **Consenti ai servizi di Azure di accedere al server**, che consente a Data Factory di scrivere dati nell'istanza di database. Per verificare e attivare l'impostazione, passare al server SQL logico > Sicurezza > Firewall e reti virtuali, quindi impostare l'opzione **Consenti ai servizi di Azure di accedere al server** su **SÌ**.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -89,7 +89,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
     ![Messaggio di errore per nuova data factory](./media/doc-common-process/name-not-available-error.png)
 
-    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
 1. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
 
@@ -101,7 +101,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
 1. In **Versione** selezionare la versione **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Al termine della creazione verrà visualizzata la home page **Data factory**.
 

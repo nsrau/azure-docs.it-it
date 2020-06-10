@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Aggiungere domande e risposte nel portale di QnA Maker'
-description: Questo argomento di avvio rapido illustra come aggiungere set di domande e risposte con metadati in modo che gli utenti possano trovare la risposta corretta per la loro domanda.
+title: 'Avvio rapido: Aggiungere domande e risposte nel portale di QnA Maker'
+description: Questo argomento di avvio rapido illustra come aggiungere coppie di domande e risposte con metadati in modo che gli utenti possano trovare la risposta corretta per la loro domanda.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873679"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266577"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Guida introduttiva: Aggiungere domande e risposte con il portale di QnA Maker
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Avvio rapido: Aggiungere domande e risposte con il portale di QnA Maker
 
-Una volta creata una knowledge base, aggiungere i set di domande e risposte con i metadati per filtrare la risposta. Le domande riportate nella tabella seguente sono relative ai limiti dei servizi di Azure, ma ognuna riguarda un servizio di Azure diverso.
+Una volta creata una knowledge base, aggiungere le coppie di domande e risposte con i metadati per filtrare la risposta. Le domande riportate nella tabella seguente sono relative ai limiti dei servizi di Azure, ma ognuna riguarda un servizio di Azure diverso.
 
 <a name="qna-table"></a>
 
-|Set|Domande|Risposta|Metadati|
+|Coppia|Domande|Risposta|Metadati|
 |--|--|--|--|
 |#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -39,11 +39,11 @@ Una volta aggiunti i metadati a una coppia di domande e risposte, l'applicazione
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Aggiungere altre domande formulate in modi alternativi
 
-Nella knowledge base corrente sono presenti le coppie di domande e risposte per la risoluzione dei problemi di QnA Maker. Questi set sono stati creati quando l'URL è stato aggiunto alla knowledge base durante il processo di creazione.
+Nella knowledge base corrente sono presenti le coppie di domande e risposte per la risoluzione dei problemi di QnA Maker. Queste coppie sono state create quando l'URL è stato aggiunto alla knowledge base durante il processo di creazione.
 
 Quando questo URL è stato importato, è stata creata una sola domanda con una sola risposta. In questa procedura si aggiungeranno altre domande.
 
-1. Nella pagina **Edit** (Modifica) usare la casella di ricerca sopra i set di domande e risposte per trovare la domanda `How large a knowledge base can I create?`
+1. Nella pagina **Edit** (Modifica) usare la casella di ricerca sopra le coppie di domande e risposte per trovare la domanda `How large a knowledge base can I create?`
 
 1. Nella colonna **Question** (Domanda) selezionare **+ Add alternative phrasing** (Aggiungi formulazione alternativa), quindi aggiungere ogni nuova formulazione, fornita nella tabella seguente.
 
@@ -70,9 +70,9 @@ Quando questo URL è stato importato, è stata creata una sola domanda con una s
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Aggiungere metadati per filtrare le risposte
 
-L'aggiunta di metadati a un set di domande e risposte consente all'applicazione client di richiedere risposte filtrate. Questo filtro viene applicato prima dell'applicazione [del primo e del secondo classificatore](../concepts/query-knowledge-base.md#ranker-process).
+L'aggiunta di metadati a una coppia di domande e risposte consente all'applicazione client di richiedere risposte filtrate. Questo filtro viene applicato prima dell'applicazione [del primo e del secondo classificatore](../concepts/query-knowledge-base.md#ranker-process).
 
-1. Aggiungere il secondo set di domande e risposte, senza i metadati, dalla [prima tabella di questa guida di avvio rapido](#qna-table), quindi continuare con i passaggi seguenti.
+1. Aggiungere la seconda coppia di domande e risposte, senza i metadati, dalla [prima tabella di questa guida di avvio rapido](#qna-table), quindi continuare con i passaggi seguenti.
 
 1. Selezionare **View options** (Opzioni di visualizzazione), quindi **Show metadata** (Mostra metadati).
 
@@ -85,7 +85,7 @@ L'aggiunta di metadati a un set di domande e risposte consente all'applicazione 
 1. Aggiungere coppie di metadati per gli stessi due tag di metadati:
 
     `link_in_answer`: `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     Si hanno ora due domande con gli stessi tag di metadati con valori diversi.
 

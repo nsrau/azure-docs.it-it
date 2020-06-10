@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a4d52ee3f39daef0e89ccb08cf5ab6a4ebfb735
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739100"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140795"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Panoramica degli aspetti tecnici e delle funzionalità di Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Le risorse principali usate in un tenant di Azure AD B2C sono:
   * Provider di identità *basati su social network*, come Facebook, LinkedIn o Twitter, che si vuole supportare nelle applicazioni.
   * Provider di identità *esterni* che supportano protocolli di identità standard come OAuth 2.0, OpenID Connect e altri.
   * Account *locali* che consentono agli utenti di iscriversi e accedere con un nome utente (o un indirizzo di posta elettronica o un altro ID) e una password.
-* **Chiavi**: aggiungere e gestire chiavi di crittografia per la firma e la convalida dei token.
+* **Chiavi**: aggiungere e gestire chiavi di crittografia per la firma e la convalida di token, segreti, certificati e password.
 
 Un tenant di Azure AD B2C è la prima risorsa che è necessario creare per iniziare a usare Azure AD B2C. Per le procedure, vedere [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -69,7 +69,7 @@ Per altre informazioni sui tipi di account utente in Azure AD B2C, vedere [Panor
 
 ## <a name="external-identity-providers"></a>Provider di identità esterni
 
-È possibile configurare Azure AD B2C per consentire agli utenti di accedere all'applicazione con credenziali ottenute da provider di identità di social network o aziendali. Azure AD B2C supporta provider di identità esterni come Facebook, account Microsoft, Google, Twitter e qualsiasi provider di identità che supporta i protocolli OAuth 1.0, OAuth 2.0, OpenID Connect, SAML o WS-Federation.
+È possibile configurare Azure AD B2C per consentire agli utenti di accedere all'applicazione con credenziali ottenute da provider di identità di social network o aziendali. Azure AD B2C supporta provider di identità esterni come Facebook, account Microsoft, Google, Twitter e qualsiasi provider di identità che supporta i protocolli OAuth 1.0, OAuth 2.0, OpenID Connect e SAML.
 
 ![Provider di identità esterni](media/technical-overview/external-idps.png)
 
@@ -134,15 +134,13 @@ Per altre informazioni sui criteri personalizzati, vedere [Criteri personalizzat
 
 ## <a name="protocols-and-tokens"></a>Protocolli e token
 
-Per i percorsi utente, Azure AD B2C supporta i [protocolli OpenID Connect e OAuth 2.0](protocols-overview.md). Nell'implementazione di OpenID Connect in Azure AD B2C, l'applicazione avvia il percorso utente inviando richieste di autenticazione ad Azure AD B2C.
+- Per le applicazioni, Azure AD B2C supporta i protocolli [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) e [SAML](connect-with-saml-service-providers.md) per i percorsi utente. L'applicazione avvia il percorso utente inviando richieste di autenticazione ad Azure AD B2C. Il risultato di una richiesta ad Azure AD B2C è un token di sicurezza, ad esempio [un token ID, un token di accesso](tokens-overview.md) o un token SAML. Questo token di sicurezza definisce l'identità dell'utente con l'applicazione.
 
-Il risultato di una richiesta ad Azure AD B2C è un token di sicurezza, ad esempio [un token ID o un token di accesso](tokens-overview.md). Questo token di sicurezza definisce l'identità dell'utente. I token vengono ricevuti da endpoint di Azure AD B2C come l'endpoint `/token` o `/authorize`. Con questi token è possibile accedere alle attestazioni utilizzabili per convalidare un'identità e consentire l'accesso a risorse sicure.
+- Per le identità esterne, Azure AD B2C supporta la federazione con qualsiasi provider di identità OAuth 1.0, OAuth 2.0, OpenID Connect e SAML.
 
-Per le identità esterne, Azure AD B2C supporta la federazione con qualsiasi provider di identità OAuth 1.0, OAuth 2.0, OpenID Connect, SAML e WS-Fed.
+Il diagramma seguente illustra come Azure AD B2C può comunicare usando diversi protocolli all'interno dello stesso flusso di autenticazione:
 
 ![Diagramma della federazione di un'app client basata su OIDC con un provider di identità basato su SAML](media/technical-overview/protocols.png)
-
-Questo diagramma illustra come Azure AD B2C può comunicare usando diversi protocolli all'interno dello stesso flusso di autenticazione:
 
 1. L'applicazione relying party avvia una richiesta di autorizzazione ad Azure AD B2C mediante OpenID Connect.
 1. Quando un utente dell'applicazione sceglie di accedere usando un provider di identità esterno che usa il protocollo SAML, Azure AD B2C richiama il protocollo SAML per comunicare con tale provider di identità.

@@ -3,12 +3,12 @@ title: Cos'è il servizio QnA Maker?
 description: QnA Maker è un servizio NLP basato sul cloud che consente di creare facilmente un livello di conversazione naturale sui dati. Può essere usato per trovare la risposta più appropriata per qualsiasi tipo specifico di input in linguaggio naturale della knowledge base (KB) personalizzata di informazioni.
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873716"
+ms.locfileid: "83994868"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Cos'è il servizio QnA Maker?
 
@@ -40,9 +40,9 @@ Una volta pubblicata una knowledge base di QnA Maker, un'applicazione client inv
 
 ## <a name="what-is-a-knowledge-base"></a>Cos'è una knowledge base?
 
-QnA Maker [importa il contenuto](../concepts/knowledge-base.md) in una knowledge base costituita da una serie di domande e risposte. Il processo di importazione estrae informazioni sulla relazione tra le parti del contenuto strutturato e semistrutturato in modo da implicare le relazioni tra le serie di domande e risposte. È possibile modificare queste serie di domande e risposte o aggiungerne di nuove.
+QnA Maker [importa il contenuto](../concepts/knowledge-base.md) in una knowledge base costituita da una coppia di domande e risposte. Il processo di importazione estrae informazioni sulla relazione tra le parti del contenuto strutturato e semistrutturato in modo da implicare le relazioni tra le coppie di domande e risposte. È possibile modificare queste coppie di domande e risposte o aggiungerne di nuove.
 
-Il contenuto della serie di domande e risposte include:
+Il contenuto della coppia di domande e risposte include:
 * Tutte le forme alternative della domanda
 * Tag dei metadati usati per filtrare le opzioni di risposta durante la ricerca
 * Richieste di completamento per continuare l'affinamento della ricerca
@@ -53,7 +53,7 @@ Dopo aver pubblicato la knowledge base, un'applicazione client invia la domanda 
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Creare, gestire e pubblicare in un bot senza codice
 
-Il portale di QnA Maker offre l'esperienza completa di creazione di knowledge base. È possibile importare documenti, nel formato corrente, nella knowledge base. Questi documenti, ad esempio domande frequenti, manuali di prodotti, fogli di calcolo o pagine Web, vengono convertiti in serie di domande e risposte. Ogni serie viene analizzata per trovare richieste di completamento e viene collegata ad altre serie. Il formato _Markdown_ finale supporta una presentazione avanzata, con immagini e collegamenti.
+Il portale di QnA Maker offre l'esperienza completa di creazione di knowledge base. È possibile importare documenti, nel formato corrente, nella knowledge base. Questi documenti, ad esempio domande frequenti, manuali di prodotti, fogli di calcolo o pagine Web, vengono convertiti in coppie di domande e risposte. Ogni coppia viene analizzata per trovare richieste di completamento e viene collegata ad altre coppie. Il formato _Markdown_ finale supporta una presentazione avanzata, con immagini e collegamenti.
 
 Una volta modificata la knowledge base, pubblicarla in un [bot app Web di Azure](https://azure.microsoft.com/services/bot-service/) funzionante senza scrivere codice. Testare il bot nel [portale di Azure](https://portal.azure.com) o scaricarlo e continuare lo sviluppo.
 
@@ -63,7 +63,7 @@ Il sistema di QnA Maker è un approccio di classificazione a più livelli. I dat
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker migliora il processo di conversazione
 
-QnA Maker offre richieste a più turni e apprendimento attivo per migliorare le serie di domande e risposte di base.
+QnA Maker offre richieste a più turni e apprendimento attivo per migliorare le coppie di domande e risposte di base.
 
 Le **richieste a più turni** offrono la possibilità di collegare coppie di domande e risposte. Questo collegamento consente all'applicazione client di fornire una risposta principale e aggiunge altre domande per affinare la ricerca di una risposta finale.
 

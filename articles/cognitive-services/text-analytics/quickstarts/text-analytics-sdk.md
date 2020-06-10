@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Analisi del testo v3 | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Analisi del testo v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per connettere le applicazioni all'API Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/25/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80240105"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140729"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Guida introduttiva: Usare la libreria client di Analisi del testo
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
 
 Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -32,7 +32,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * L'ultima versione di anteprima dell'API Analisi del testo è `3.0-preview`, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). L'ultima versione stabile è `2.1`.
+> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 
@@ -43,7 +43,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Questo argomento di avvio rapido riguarda solo la versione `3.0-preview` della libreria client di Analisi del testo, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -53,7 +53,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * L'ultima versione di anteprima dell'API Analisi del testo è `3.0-preview`, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). L'ultima versione stabile è `2.1`.
+> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 > * È anche possibile eseguire questa versione della libreria client di Analisi del testo [nel browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -65,7 +65,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * L'ultima versione di anteprima dell'API Analisi del testo è `3.0-preview`, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). L'ultima versione stabile è `2.1`.
+> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito. 
 

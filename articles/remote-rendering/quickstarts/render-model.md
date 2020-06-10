@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682559"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300573"
 ---
-# <a name="quickstart-render-a-model-with-unity"></a>Guida introduttiva: Eseguire il rendering di un modello con Unity
+# <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
 Questo argomento di avvio rapido illustra come eseguire un esempio di Unity che esegue il rendering di un modello predefinito in modalità remota usando il servizio Rendering remoto di Azure.
 
@@ -33,6 +33,9 @@ Per ottenere l'accesso al servizio Rendering remoto di Azure, è prima di tutto 
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
+  * **Sviluppo per desktop con C++**
+  * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Installare questi moduli in Unity:

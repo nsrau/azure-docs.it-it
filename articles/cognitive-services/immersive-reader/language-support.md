@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538367"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309306"
 ---
 # <a name="language-support-for-immersive-reader"></a>Supporto delle lingue per lo strumento di lettura immersiva
 
@@ -33,16 +33,16 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Catalano | ca-ES |
 | Cinese | zh |
 | Cinese (Cina) | zh-CN |
-| Cinese (Hong Kong) | zh-HK |
-| Cinese (Macao) | zh-MO |
+| Cinese (Hong Kong - R.A.S.) | zh-HK |
+| Cinese (RAS di Macao) | zh-MO |
 | Cinese (Singapore) | zh-SG |
 | Cinese (Taiwan) | zh-TW |
 | Cinese semplificato | zh-Hans |
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
 | Cinese tradizionale | zh-Hant-CN |
-| Cinese tradizionale (Hong Kong) | zh-Hant-HK |
-| Cinese tradizionale (Macao) | zh-Hant-MO |
+| Cinese tradizionale (RAS di Hong Kong) | zh-Hant-HK |
+| Cinese tradizionale (RAS di Macao) | zh-Hant-MO |
 | Cinese tradizionale (Taiwan) | zh-Hant-TW |
 | Croato | hr |
 | Croato (Croazia) | hr-HR |
@@ -135,16 +135,16 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Catalano | ca-ES |
 | Cinese | zh |
 | Cinese (Cina) | zh-CN |
-| Cinese (Hong Kong) | zh-HK |
-| Cinese (Macao) | zh-MO |
+| Cinese (Hong Kong - R.A.S.) | zh-HK |
+| Cinese (RAS di Macao) | zh-MO |
 | Cinese (Singapore) | zh-SG |
 | Cinese (Taiwan) | zh-TW |
 | Cinese semplificato | zh-Hans |
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
 | Cinese tradizionale | zh-Hant-CN |
-| Cinese tradizionale (Hong Kong) | zh-Hant-HK |
-| Cinese tradizionale (Macao) | zh-Hant-MO |
+| Cinese tradizionale (RAS di Hong Kong) | zh-Hant-HK |
+| Cinese tradizionale (RAS di Macao) | zh-Hant-MO |
 | Cinese tradizionale (Taiwan) | zh-Hant-TW |
 | Croato | hr |
 | Croato (Croazia) | hr-HR |
@@ -267,8 +267,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
 | Cinese tradizionale | zh-Hant-CN |
-| Cinese tradizionale (Hong Kong) | zh-Hant-HK |
-| Cinese tradizionale (Macao) | zh-Hant-MO |
+| Cinese tradizionale (RAS di Hong Kong) | zh-Hant-HK |
+| Cinese tradizionale (RAS di Macao) | zh-Hant-MO |
 | Cinese tradizionale (Taiwan) | zh-Hant-TW |
 | Croato | hr |
 | Croato (Croazia) | hr-HR |

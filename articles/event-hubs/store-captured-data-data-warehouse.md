@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ef24e78ea88bb0922c0affbe47f2591475024601
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130856"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016016"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Esercitazione: Eseguire la migrazione dei dati di Hub eventi acquisiti in SQL Data Warehouse con Griglia di eventi e Funzioni di Azure
 
@@ -22,18 +22,19 @@ ms.locfileid: "80130856"
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
-*   Per iniziare, si crea un hub eventi con la funzionalità **Acquisizione** abilitata e si imposta un archivio BLOB di Azure come destinazione. I dati generati da WindTurbineGenerator vengono trasmessi in streaming nell'hub eventi e acquisiti automaticamente in Archiviazione di Azure come file Avro. 
-*   Si crea quindi una sottoscrizione a Griglia di eventi di Azure con lo spazio dei nomi di Hub eventi come origine e l'endpoint di Funzioni di Azure come destinazione.
-*   Ogni volta che la funzionalità Acquisizione di Hub eventi recapita un nuovo file Avro al BLOB di Archiviazione di Azure, la Griglia eventi invia alla funzione di Azure una notifica con l'URI del BLOB. La funzione esegue quindi la migrazione dei dati dal BLOB a un SQL Data Warehouse.
+- Per iniziare, si crea un hub eventi con la funzionalità **Acquisizione** abilitata e si imposta un archivio BLOB di Azure come destinazione. I dati generati da WindTurbineGenerator vengono trasmessi in streaming nell'hub eventi e acquisiti automaticamente in Archiviazione di Azure come file Avro.
+- Si crea quindi una sottoscrizione a Griglia di eventi di Azure con lo spazio dei nomi di Hub eventi come origine e l'endpoint di Funzioni di Azure come destinazione.
+- Ogni volta che la funzionalità Acquisizione di Hub eventi recapita un nuovo file Avro al BLOB di Archiviazione di Azure, la Griglia eventi invia alla funzione di Azure una notifica con l'URI del BLOB. La funzione esegue quindi la migrazione dei dati dal BLOB a un SQL Data Warehouse.
 
-In questa esercitazione vengono completate le azioni seguenti: 
+In questa esercitazione vengono completate le azioni seguenti:
 
 > [!div class="checklist"]
-> * Distribuire l'infrastruttura
-> * Pubblicare il codice in un'app per le funzioni
-> * Creare una sottoscrizione a Griglia di eventi dall'app per le funzioni
-> * Trasmettere in streaming dati di esempio in Hub eventi 
-> * Verificare i dati acquisiti in SQL Data Warehouse
+>
+> - Distribuire l'infrastruttura
+> - Pubblicare il codice in un'app per le funzioni
+> - Creare una sottoscrizione a Griglia di eventi dall'app per le funzioni
+> - Trasmettere in streaming dati di esempio in Hub eventi
+> - Verificare i dati acquisiti in SQL Data Warehouse
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,20 +42,22 @@ In questa esercitazione vengono completate le azioni seguenti:
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Durante l'installazione, assicurarsi di installare i carichi di lavoro seguenti: Sviluppo per desktop .NET, Sviluppo di Azure, Sviluppo ASP.NET e Web, Sviluppo Node.js, Sviluppo Python
 - Scaricare l'[esempio Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo). La soluzione di esempio contiene i componenti seguenti:
-    - *WindTurbineDataGenerator*: un server di pubblicazione semplice che invia dati di turbine eoliche di esempio a un hub eventi con Acquisizione abilitata
-    - *FunctionDWDumper*: una funzione di Azure che riceve una notifica da Griglia di eventi quando un file Avro viene acquisito nel BLOB di Archiviazione di Azure. La funzione riceve il percorso URI del BLOB, ne legge il contenuto ed esegue il push di questi dati in un SQL Data Warehouse.
 
-    In questo esempio viene usato il pacchetto Azure.Messaging.EventHubs più recente. L'esempio precedente che usa il pacchetto Microsoft.Azure.EventHubs è disponibile [qui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
+  - *WindTurbineDataGenerator*: un server di pubblicazione semplice che invia dati di turbine eoliche di esempio a un hub eventi con Acquisizione abilitata
+  - *FunctionDWDumper*: una funzione di Azure che riceve una notifica da Griglia di eventi quando un file Avro viene acquisito nel BLOB di Archiviazione di Azure. La funzione riceve il percorso URI del BLOB, ne legge il contenuto ed esegue il push di questi dati in un SQL Data Warehouse.
+
+  In questo esempio viene usato il pacchetto Azure.Messaging.EventHubs più recente. L'esempio precedente che usa il pacchetto Microsoft.Azure.EventHubs è disponibile [qui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ### <a name="deploy-the-infrastructure"></a>Distribuire l'infrastruttura
+
 Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire l'infrastruttura necessaria per questa esercitazione con questo [modello di Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Questo modello crea le risorse seguenti:
 
--   Hub eventi con la funzionalità Acquisizione abilitata
--   Account di archiviazione per i dati degli eventi acquisiti
--   Piano di servizio app di Azure per l'hosting dell'app per le funzioni
--   App per le funzioni per l'elaborazione dei file degli eventi acquisiti
--   SQL Server per l'hosting del Data Warehouse
--   SQL Data Warehouse per l'archiviazione dei dati migrati
+- Hub eventi con la funzionalità Acquisizione abilitata
+- Account di archiviazione per i dati degli eventi acquisiti
+- Piano di servizio app di Azure per l'hosting dell'app per le funzioni
+- App per le funzioni per l'elaborazione dei file degli eventi acquisiti
+- SQL Server logico per l'hosting del Data Warehouse
+- SQL Data Warehouse per l'archiviazione dei dati migrati
 
 Le sezioni seguenti riportano i comandi dell'interfaccia della riga di comando di Azure e di Azure PowerShell per distribuire l'infrastruttura necessaria per l'esercitazione. Aggiornare i nomi degli oggetti seguenti prima di eseguire i comandi: 
 
@@ -62,7 +65,7 @@ Le sezioni seguenti riportano i comandi dell'interfaccia della riga di comando d
 - Regione del gruppo di risorse
 - Spazio dei nomi di Hub eventi
 - Hub eventi
-- Azure SQL Server
+- Server SQL logico
 - Utente SQL (e password)
 - Database SQL di Azure
 - Archiviazione di Azure 
@@ -71,6 +74,7 @@ Le sezioni seguenti riportano i comandi dell'interfaccia della riga di comando d
 Questi script richiedono un po' di tempo per creare tutti gli artefatti di Azure. Attendere il completamento dello script prima di procedere. Se la distribuzione non riesce per qualche motivo, eliminare il gruppo di risorse, risolvere il problema segnalato e rieseguire il comando. 
 
 #### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
 Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, usare i comandi seguenti:
 
 ```azurecli-interactive
@@ -91,8 +95,8 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
+### <a name="create-a-table-in-sql-data-warehouse"></a>Creare una tabella in un SQL Data Warehouse
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Creare una tabella in un SQL Data Warehouse 
 Creare una tabella in SQL Data Warehouse eseguendo lo script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) o l'Editor di query nel portale. 
 
 ```sql
@@ -143,7 +147,7 @@ Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento di acq
 
    ![Aggiungere una sottoscrizione](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Create** (Crea).
+1. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Crea**.
 
    ![Creare la sottoscrizione](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
