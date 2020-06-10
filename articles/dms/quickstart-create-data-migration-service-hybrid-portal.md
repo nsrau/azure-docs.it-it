@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza in modalità ibrida con portale di Azure"
+title: "Avvio rapido: Creare un'istanza in modalità ibrida con portale di Azure"
 titleSuffix: Azure Database Migration Service
 description: Usare il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure in modalità ibrida.
 services: database-migration
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370237"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195681"
 ---
-# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Guida introduttiva: Creare un'istanza in modalità ibrida con il portale di Azure e il Servizio Migrazione del database di Azure
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Avvio rapido: Creare un'istanza in modalità ibrida con il portale di Azure e il Servizio Migrazione del database di Azure
 
 La modalità ibrida del Servizio Migrazione del database di Azure gestisce le migrazioni dei database usando un ruolo di lavoro di migrazione ospitato in locale insieme a un'istanza del Servizio Migrazione del database di Azure in esecuzione nel cloud. La modalità ibrida è particolarmente utile per gli scenari in cui si verifica una mancanza di connettività da sito a sito tra la rete locale e Azure oppure è disponibile una larghezza di banda di connettività da sito a sito limitata.
 
 >[!NOTE]
 >Attualmente, il Servizio Migrazione del database di Azure in esecuzione in modalità ibrida supporta le migrazioni di SQL Server alle destinazioni seguenti:
 >
->- Istanza gestita di database SQL di Azure con tempi di inattività quasi nulli (online).
+>- Istanza gestita di SQL di Azure con tempi di inattività quasi nulli (online).
 >- Database singolo di database SQL di Azure con tempi di inattività (offline).
 >- MongoDb in Azure CosmosDB con tempi di inattività quasi nulli (online).
 >- MongoDb in Azure CosmosDB con tempi di inattività (offline).
@@ -191,5 +191,5 @@ Inserire i parametri nella parte superiore dello script, quindi eseguire lo scri
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione online di SQL Server a un'istanza gestita di database SQL di Azure](tutorial-sql-server-managed-instance-online.md)
-> [Eseguire la migrazione offline di SQL Server a un database singolo o in pool in Database SQL di Azure](tutorial-sql-server-to-azure-sql.md)
+> [Eseguire la migrazione online di SQL Server a Istanza gestita di SQL di Azure](tutorial-sql-server-managed-instance-online.md)
+> [Eseguire la migrazione offline di SQL Server al Database SQL di Azure](tutorial-sql-server-to-azure-sql.md)

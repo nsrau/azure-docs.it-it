@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Data Factory, un servizio di integrazione dei dati
-description: 'Informazioni su Azure Data Factory: è un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.'
+description: Informazioni su Azure Data Factory, un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73666810"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196604"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -112,13 +112,13 @@ Ad esempio, un servizio collegato di Archiviazione di Azure specifica una string
 
 In Data factory i servizi collegati vengono usati per i due motivi seguenti:
 
-* Per rappresentare un *archivio dati* che include, a titolo esemplificativo, un database di SQL Server locale, un database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Vedere la sezione [Attività di spostamento dei dati](#data-movement-activities) per un elenco di archivi dati supportati.
+* Per rappresentare un *archivio dati* che include, a titolo esemplificativo, un database di SQL Server, un database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Vedere la sezione [Attività di spostamento dei dati](#data-movement-activities) per un elenco di archivi dati supportati.
 
 * Per rappresentare una *risorsa di calcolo* che può ospitare l'esecuzione di un'attività. Ad esempio, l'attività HDInsightHive viene eseguita in un cluster HDInsight Hadoop. Vedere la sezione [Attività di trasformazione dei dati](#data-transformation-activities) per un elenco di ambienti di calcolo supportati.
 
 ### <a name="relationship-between-data-factory-entities"></a>Relazioni tra le entità di Data Factory
 
-![Diagramma: Data Factory, servizio di integrazione dei dati cloud - concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagramma: Data Factory, servizio di integrazione dei dati cloud - Concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Aree supportate
 È attualmente possibile creare data factory nelle aree Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo.
@@ -144,4 +144,4 @@ Per informazioni su come creare data factory con pipeline di dati, seguire le is
 | --- | --- |
 | [Spostare dati tra due archivi dati cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Creare una data factory con una pipeline per spostare i dati dall'archivio BLOB a un database SQL. |
 | [Trasformare i dati usando cluster Hadoop](data-factory-build-your-first-pipeline.md) |Compilare la prima istanza di Azure Data Factory con una pipeline di dati che elabora i dati eseguendo uno script Hive in un cluster Azure HDInsight (Hadoop). |
-| [Spostare dati tra un archivio dati locale e un archivio dati cloud usando il gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) |Creare una data factory con una pipeline che sposta i dati da un database di SQL Server locale a un BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il gateway di gestione dati nel computer. |
+| [Spostare dati tra un archivio dati locale e un archivio dati cloud usando il gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) |Creare una data factory con una pipeline che sposta i dati da un database di SQL Server a un BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il gateway di gestione dati nel computer. |

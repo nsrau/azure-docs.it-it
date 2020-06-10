@@ -3,14 +3,14 @@ title: 'Esercitazione: Configurare la rete per il cloud privato VMware in Azure'
 description: Informazioni su come creare e configurare la rete necessaria per distribuire il cloud privato in Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6cac420fb77526746dbdbfef5a88b071c007d555
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873855"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148107"
 ---
-# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Esercitazione: Configurare la rete per il cloud privato VMWare in Azure
+# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Esercitazione: Configurare la rete per il cloud privato VMware in Azure
 
 Un cloud privato della soluzione Azure VMware (AVS) richiede una rete virtuale. Poiché la soluzione AVS non supporta un'istanza locale di vCenter durante l'anteprima, è necessario completare altri passaggi per l'integrazione con l'ambiente locale. È inoltre necessario impostare un circuito ExpressRoute e un gateway di rete virtuale, come illustrato in questa esercitazione.
 

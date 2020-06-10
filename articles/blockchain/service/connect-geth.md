@@ -1,19 +1,19 @@
 ---
 title: Usare Geth per collegarsi al servizio Azure Blockchain
 description: Collegarsi a un'istanza Geth nel nodo della transazione del servizio Azure Blockchain
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74455840"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994784"
 ---
-# <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Guida introduttiva: Usare Geth per collegarsi a un nodo della transazione del servizio Azure Blockchain
+# <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Avvio rapido: Usare Geth per collegarsi a un nodo della transazione del servizio Azure Blockchain
 
-In questa guida di avvio rapido si usa il client Geth per collegarsi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain. Dopo aver stabilito il collegamento, si usa la console JavaScript di Geth per chiamare un'API Dapp JavaScript web3.
+In questa guida di avvio rapido si usa il client Geth per collegarsi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain. Dopo il collegamento, usare la console di Geth per chiamare un'API JavaScript Ethereum.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ La stringa di connessione di Geth per un nodo della transazione del servizio Azu
     geth attach <connection string>
     ```
 
-1. Dopo la connessione alla console Ethereum del nodo della transazione, è possibile chiamare l'API di Dapp JavaScript web3 o l'API di amministrazione.
+1. Dopo la connessione alla console Ethereum del nodo della transazione, è possibile usare l'API JavaScript Ethereum.
 
     Ad esempio, usare l'API seguente per trovare il valore di chainId.
 

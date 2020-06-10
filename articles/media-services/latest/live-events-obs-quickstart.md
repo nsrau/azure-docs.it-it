@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 04/16/2020
-ms.openlocfilehash: 74aa17fb17d682449bd817945c3b8bbf3f95363e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727688"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147818"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Creare un evento di streaming live di Servizi multimediali di Azure con OBS
 
@@ -174,7 +174,7 @@ In questa parte verranno configurati gli output e sarà possibile salvare una re
 
    ![Casella del nome del localizzatore](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Lasciare invariati tutti gli altri campi della schermata per il momento.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Riprodurre l'output trasmesso con Azure Media Player
 

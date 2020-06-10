@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996313"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
@@ -33,7 +33,7 @@ Per la protezione perimetrale in HDInsight si usano le [reti virtuali](../hdinsi
 
 Tutti i cluster distribuiti in una rete virtuale avranno anche un endpoint privato. L'endpoint viene risolto in un indirizzo IP privato all'interno della rete virtuale per consentire accesso HTTP privato ai gateway del cluster.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 L'offerta [Enterprise Security Package](apache-domain-joined-architecture.md) di HDInsight supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo. Per l'integrazione di Active Directory si usa [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Con queste funzionalità è possibile creare un cluster HDInsight aggiunto a un dominio di Active Directory. È quindi necessario configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione al cluster.
 
@@ -43,7 +43,7 @@ Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi de
 
 Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di non offrire a tutti i dipendenti accesso completo a tutte le risorse aziendali. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. Questa azione è disponibile solo nei cluster ESP.
 
-L'amministratore di Hadoop può configurare il controllo degli accessi in base al ruolo. Le configurazioni proteggono Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) e [Kafka](apache-domain-joined-run-kafka.md) con plug-in Apache Range. La configurazione dei criteri del controllo degli accessi in base al ruolo consente di associare le autorizzazioni a un ruolo nell'organizzazione. Con questo livello di astrazione risulta ancor più semplice assicurarsi che le persone dispongano solo delle autorizzazioni necessarie per completare le attività lavorative assegnate. Ranger consente anche di controllare l'accesso ai dati da parte dei dipendenti e qualsiasi modifica apportata ai criteri di controllo di accesso.
+L'amministratore di Hadoop può configurare il controllo degli accessi in base al ruolo. Le configurazioni proteggono Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) e [Kafka](apache-domain-joined-run-kafka.md) con plug-in Apache Ranger. La configurazione dei criteri del controllo degli accessi in base al ruolo consente di associare le autorizzazioni a un ruolo nell'organizzazione. Con questo livello di astrazione risulta ancor più semplice assicurarsi che le persone dispongano solo delle autorizzazioni necessarie per completare le attività lavorative assegnate. Ranger consente anche di controllare l'accesso ai dati da parte dei dipendenti e qualsiasi modifica apportata ai criteri di controllo di accesso.
 
 Ad esempio, l'amministratore può configurare [Apache Ranger](https://ranger.apache.org/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce l'applicazione di filtri a livello di riga e di colonna (maschera dati) e impedisce a utenti non autorizzati di visualizzare dati sensibili.
 

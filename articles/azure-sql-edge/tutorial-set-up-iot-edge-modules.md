@@ -2,19 +2,19 @@
 title: Configurare i moduli IoT Edge in SQL Edge di Azure
 description: Nella seconda delle tre parti di questa esercitazione di SQL Edge di Azure sulla stima delle impurità del minerale di ferro, si configureranno i moduli e le connessioni IoT Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: bbbbe09aac30165a2f9b7bbe54f58e0c09a6cf09
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593500"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235030"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurare i moduli e le connessioni IoT Edge
 
@@ -25,7 +25,7 @@ Nella seconda delle tre parti di questa esercitazione sulla stima delle impurit�
 
 ## <a name="create-azure-stream-analytics-module"></a>Creare il modulo Analisi di flusso di Azure
 
-Creare un modulo Analisi di flusso di Azure che verrà usato in questa esercitazione. Per altre informazioni sull'uso dei processi di streaming con SQL Edge, vedere [Uso dei processi di streaming con il database SQL Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+Creare un modulo Analisi di flusso di Azure che verrà usato in questa esercitazione. Per altre informazioni sull'uso dei processi di streaming con SQL Edge, vedere [Uso dei processi di streaming con il SQL Edge](stream-analytics.md).
 
 Dopo la creazione del processo di Analisi di flusso di Azure con l'ambiente di hosting impostato come Edge, configurare gli input e gli output per l'esercitazione.
 
@@ -101,7 +101,7 @@ A questo punto, specificare le credenziali del contenitore nel modulo IoT Edge.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Distribuire il modulo SQL Edge di Azure
 
-1. Per distribuire il modulo SQL Edge di Azure, seguire i passaggi elencati in [Distribuire l'anteprima del database SQL Edge di Azure](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge).
+1. Per distribuire il modulo SQL Edge di Azure, seguire i passaggi elencati in [Distribuire SQL Edge di Azure (anteprima)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. In **Specifica route** nella pagina **Imposta moduli** specificare le route per il modulo relative alla comunicazione con l'hub di IoT Edge, come segue. 
 

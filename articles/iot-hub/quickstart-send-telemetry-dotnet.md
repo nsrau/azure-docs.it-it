@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/01/2020
+ms.openlocfilehash: 2efd2c982fcd4c799a6c9daa1d89fde25e7f2c64
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769126"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307640"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggerli i dati con un'applicazione back-end (.NET)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggerli i dati con un'applicazione back-end (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
+Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 3.0 o versione successiva nel computer di sviluppo.
 
 È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
 
@@ -42,6 +42,9 @@ Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritt
 ```cmd/sh
 dotnet --version
 ```
+
+> [!NOTE]
+> È consigliabile .NET Core SDK 3.0 o versione successiva per la compilazione del codice del servizio Hub eventi usato per leggere i dati di telemetria in questo avvio rapido. È possibile usare .NET Core SDK 2.1 se si imposta la versione del linguaggio per il codice del servizio su anteprima, come indicato nella sezione [Leggere i dati di telemetria dell'hub](#read-the-telemetry-from-your-hub).
 
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
@@ -125,7 +128,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
     La schermata seguente mostra l'output mentre l'applicazione del dispositivo simulato invia i dati di telemetria all'hub IoT:
 
-    ![Eseguire il dispositivo simulato](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Eseguire il dispositivo simulato](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
 
@@ -137,9 +140,12 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
 
     | Variabile | valore |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Sostituire il valore della variabile con l'endpoint compatibile con hub eventi annotato in precedenza. |
-    | `s_eventHubsCompatiblePath`     | Sostituire il valore della variabile con il percorso compatibile con hub eventi annotato in precedenza. |
-    | `s_iotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria di servizio annotata in precedenza. |
+    | `EventHubsCompatibleEndpoint` | Sostituire il valore della variabile con l'endpoint compatibile con hub eventi annotato in precedenza. |
+    | `EventHubName`                | Sostituire il valore della variabile con il percorso compatibile con hub eventi annotato in precedenza. |
+    | `IotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria di servizio annotata in precedenza. |
+
+    > [!NOTE]
+    > Se si usa .NET Core SDK 2.1, è necessario impostare la versione del linguaggio su anteprima per compilare il codice. A questo scopo, aprire il file **read-d2c-messages.csproj** e impostare il valore dell'elemento `<LangVersion>` su `preview`.
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
 
@@ -155,7 +161,7 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
 
     La schermata seguente mostra l'output mentre l'applicazione back-end riceve i dati di telemetria inviati dal dispositivo simulato all'hub:
 
-    ![Eseguire l'applicazione back-end](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Eseguire l'applicazione back-end](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

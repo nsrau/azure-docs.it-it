@@ -1,18 +1,18 @@
 ---
 title: Informazioni su Azure Lighthouse
 description: Azure Lighthouse consente ai provider di servizi di offrire servizi gestiti ai clienti con maggiore automazione ed efficienza su larga scala.
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.topic: overview
-ms.openlocfilehash: bc54a6f67ed3d0ac194793baba4270d524edf5b1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 27f99cb398294d570b2d91131fcf40dd0648e981
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857141"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219066"
 ---
 # <a name="what-is-azure-lighthouse"></a>Informazioni su Azure Lighthouse
 
-Azure Lighthouse offre ai provider di servizi un singolo piano di controllo per visualizzare e gestire Azure tra tutti i loro clienti, con livelli più elevati di automazione, scalabilità e governance ottimizzata. Con Azure Lighthouse, i provider di servizi possono offrire servizi gestiti con strumenti di gestione completi e affidabili integrati nella piattaforma Azure. Questa offerta può anche agevolare le organizzazioni IT aziendali che gestiscono le risorse tra più tenant. 
+Azure Lighthouse offre ai provider di servizi un singolo piano di controllo per visualizzare e gestire Azure tra tutti i loro clienti, con livelli più elevati di automazione, scalabilità e governance ottimizzata. Con Azure Lighthouse, i provider di servizi possono offrire servizi gestiti con strumenti di gestione completi e affidabili integrati nella piattaforma Azure. Questa offerta può anche agevolare le organizzazioni IT aziendali che gestiscono le risorse tra più tenant.
 
 ![Diagramma di panoramica di Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -20,7 +20,7 @@ Azure Lighthouse offre ai provider di servizi un singolo piano di controllo per 
 
 Azure Lighthouse consente di creare e distribuire in modo efficiente e proficuo i servizi gestiti per i clienti. Questo approccio offre i vantaggi seguenti:
 
-- **Gestione su larga scala**: l'engagement dei clienti e le operazioni del ciclo di vita per gestire le risorse dei clienti sono più semplici e più scalabili. Le API, gli strumenti di gestione e i flussi di lavoro esistenti possono essere usati con risorse del cliente delegate.
+- **Gestione su larga scala**: l'engagement dei clienti e le operazioni del ciclo di vita per gestire le risorse dei clienti sono più semplici e più scalabili. Le API, gli strumenti di gestione e i flussi di lavoro esistenti possono essere usati con risorse del cliente delegate, indipendentemente dalle aree in cui si trovano.
 - **Maggiore visibilità e precisione per i clienti**: i clienti avranno una maggiore visibilità sulle azioni e un controllo preciso sull'ambito delegato per la gestione, inclusa la possibilità di rimuovere completamente l'accesso, mentre l'IP viene mantenuto.
 - **Strumenti di piattaforma completi e unificati**: l'esperienza con gli strumenti si applica ai principali scenari dei provider di servizi, inclusi più modelli di licenza, ad esempio EA, CSP e con pagamento in base al consumo. Le nuove funzionalità usano gli strumenti e le API esistenti, i modelli di licenza e i programmi per i partner, ad esempio il [programma Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview). È possibile integrare Azure Lighthouse nei flussi di lavoro e nelle applicazioni esistenti, nonché tenere traccia dell'impatto sugli engagement dei clienti [collegando l'ID partner](../billing/billing-partner-admin-link-started.md).
 

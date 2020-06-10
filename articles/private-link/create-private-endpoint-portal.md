@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637251"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021705"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Guida introduttiva: Creare un endpoint privato con il portale di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Avvio rapido: Creare un endpoint privato con il portale di Azure
 
-Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
+Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questo avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server SQL logico con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro al database SQL dalla VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -93,8 +93,9 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
-## <a name="create-a-sql-database-server"></a>Creare un server di database SQL
-In questa sezione si creerà un server di database SQL in Azure. 
+## <a name="create-a-logical-sql-server"></a>Creare un server SQL logico
+
+In questa sezione si creerà un server SQL logico in Azure. 
 
 1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Database** > **Database SQL**.
 
@@ -193,7 +194,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla VM
+## <a name="access-sql-database-privately-from-the-vm"></a>Accedere al database SQL privatamente dalla macchina virtuale
 
 1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
@@ -233,4 +234,4 @@ Quando non si ha più bisogno dell'endpoint privato, del server SQL e della macc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva sono stati creati una macchina virtuale in una rete virtuale, un server di database SQL e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione al server di database SQL usando Collegamento privato. Per altre informazioni sugli endpoint privati, vedere [Informazioni sull'endpoint privato di Azure](private-endpoint-overview.md).
+In questo avvio rapido sono stati creati una macchina virtuale in una rete virtuale, un server SQL logico e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione al database SQL usando Collegamento privato. Per altre informazioni sugli endpoint privati, vedere [Informazioni sull'endpoint privato di Azure](private-endpoint-overview.md).

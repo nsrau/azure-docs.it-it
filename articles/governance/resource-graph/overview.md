@@ -3,12 +3,12 @@ title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381523"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167265"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 
@@ -22,7 +22,7 @@ Azure Resource Graph è un servizio di Azure che consente di estendere la gestio
 In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato.
 
 > [!NOTE]
-> Azure Resource Graph è usato dalla barra di ricerca e dalla nuova esperienza di navigazione "Tutte le risorse" del portale di Azure e dal _diff visivo_ di [Cronologia modifiche](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> Azure Resource Graph è usato dalla barra di ricerca e dalla nuova esperienza di navigazione "Tutte le risorse" del portale di Azure e dal _diff visivo_ di [Cronologia modifiche](../policy/how-to/determine-non-compliance.md#change-history)
 >  di Criteri di Azure. Il suo scopo è aiutare i clienti a gestire ambienti su larga scala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
@@ -79,16 +79,17 @@ Per altre informazioni, vedere [Guidance for throttled requests](./concepts/guid
 
 ## <a name="running-your-first-query"></a>Esecuzione della prima query
 
-Azure Resource Graph Explorer, parte del portale di Azure, consente l'esecuzione di query di Resource Graph direttamente in portale di Azure. Aggiungere i risultati come grafici dinamici per fornire informazioni dinamiche in tempo reale al flusso di lavoro del portale. Per altre informazioni, vedere [Prima query con Azure Resource Graph Explorer](first-query-portal.md).
+Azure Resource Graph Explorer, parte del portale di Azure, consente l'esecuzione di query di Resource Graph direttamente in portale di Azure. Aggiungere i risultati come grafici dinamici per fornire informazioni dinamiche in tempo reale al flusso di lavoro del portale. Per altre informazioni, vedere [Prima query con Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resource Graph supporta l'interfaccia della riga di comando di Azure, Azure PowerShell, Azure SDK per .NET e altro ancora. La query è strutturata nello stesso modo per ogni linguaggio. Informazioni su come abilitare Resource Graph con:
+Resource Graph supporta l'interfaccia della riga di comando di Azure, Azure PowerShell, Azure SDK per Python e altro ancora. La query è strutturata nello stesso modo per ogni linguaggio. Informazioni su come abilitare Resource Graph con:
 
-- [Portale di Azure e Resource Graph Explorer](first-query-portal.md) 
-- [Interfaccia della riga di comando di Azure](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Portale di Azure e Resource Graph Explorer](./first-query-portal.md) 
+- [Interfaccia della riga di comando di Azure](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Eseguire la prima query tramite il [portale di Azure](first-query-portal.md).
-- Eseguire la prima query con l'[interfaccia della riga di comando di Azure](first-query-azurecli.md).
-- Eseguire la prima query con [Azure PowerShell](first-query-powershell.md).
+- Altre informazioni sul [linguaggio di query](./concepts/query-language.md).
+- Vedere il linguaggio in uso in [Query di base](./samples/starter.md).
+- Vedere gli usi avanzati in [Query avanzate](./samples/advanced.md).

@@ -10,20 +10,20 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743522"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996670"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Avvio rapido: creare un hub di notifica usando un modello di Azure Resource Manager
 
 Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle e così via) da qualsiasi back-end (cloud o locale). Per altre informazioni sul servizio, vedere [Informazioni su Hub di notifica](notification-hubs-push-notification-overview.md).
 
-Questo argomento di avvio rapido usa un modello di Azure Resource Manager per creare uno spazio dei nomi di Hub di notifica di Microsoft Azure e un hub di notifica denominato "MyHub" all'interno di tale spazio dei nomi.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Questo argomento di avvio rapido usa un modello di Azure Resource Manager per creare uno spazio dei nomi di Hub di notifica di Microsoft Azure e un hub di notifica denominato **MyHub** all'interno di tale spazio dei nomi.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -32,8 +32,6 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 No.
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Creare un hub e uno spazio dei nomi per Hub di notifica
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
@@ -48,7 +46,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello acquisisce il nome dello spazio dei nomi di Hub di notifica come parametro. Il modello crea quindi uno spazio dei nomi con tale nome e un hub di notifica denominato **MyHub** all’interno dello spazio dei nomi.
 
-[![Distribuzione in Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 

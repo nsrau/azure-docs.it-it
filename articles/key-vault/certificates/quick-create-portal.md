@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b0d6221aaafe3ade70bc23ce4196a7b53c9474c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421035"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169968"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con il portale di Azure
 
@@ -67,13 +67,14 @@ Dopo avere ricevuto il messaggio che indica che il certificato è stato creato, 
 
 ![Proprietà del certificato](../media/certificates/quick-create-portal/current-version-hidden.png)
 
+## <a name="export-certificate-from-key-vault"></a>Esportare un certificato da Key Vault
 Fare clic sul pulsante "Scarica in formato CER" o "Scarica in formato PFX/PEM" per scaricare il certificato. 
 
 ![Download del certificato](../media/certificates/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide di avvio rapido ed esercitazioni relative a Key Vault si basano su questa guida di avvio rapido. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
 1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.
