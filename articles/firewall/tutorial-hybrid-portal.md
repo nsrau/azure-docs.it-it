@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239678"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298959"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con il portale di Azure
 
@@ -79,7 +79,7 @@ Prima di tutto, creare un gruppo di risorse per contenere tutte le risorse per q
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Area** selezionare **Stati Uniti orientali**. Tutte le risorse create in seguito devono trovarsi nella stessa località.
 6. Selezionare **Rivedi e crea**.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 A questo punto, creare la rete virtuale:
 
@@ -131,18 +131,6 @@ A questo punto creare una seconda subnet per il gateway.
 4. In **Intervallo di indirizzi (blocco CIDR)** digitare **192.168.2.0/24**.
 5. Selezionare **OK**.
 
-### <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-
-Questo è l'indirizzo IP pubblico usato per il gateway locale.
-
-1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
-2. Nella casella di testo di ricerca digitare **indirizzo IP pubblico** e premere **INVIO**.
-3. Selezionare **Indirizzo IP pubblico** e quindi **Crea**.
-4. Per il nome digitare **VNet-Onprem-GW-pip**.
-5. Per il gruppo di risorse digitare **FW-Hybrid-Test**.
-6. In **Località** selezionare la stessa località usata in precedenza.
-7. Accettare le altre impostazioni predefinite e quindi selezionare **Crea**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Configurare e distribuire il firewall
 
 A questo punto distribuire il firewall nella rete virtuale dell'hub del firewall.
@@ -153,7 +141,7 @@ A questo punto distribuire il firewall nella rete virtuale dell'hub del firewall
 
    |Impostazione  |valore  |
    |---------|---------|
-   |Subscription     |\<sottoscrizione in uso\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nome     |**AzFW01**|
    |Location     |Selezionare la stessa località usata in precedenza|
@@ -300,11 +288,11 @@ Creare quindi due route:
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di testo di ricerca digitare **tabella di route** e premere **INVIO**.
 3. Selezionare **Tabella di route**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Per il nome digitare **UDR-Hub-Spoke**.
 6. Selezionare **FW-Hybrid-Test** come gruppo di risorse.
 8. In **Località** selezionare la stessa località usata in precedenza.
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 10. Al termine della creazione della tabella di route, selezionarla per aprire la pagina corrispondente.
 11. Selezionare **Route** nella colonna di sinistra.
 12. Selezionare **Aggiungi**.
@@ -328,12 +316,12 @@ A questo punto creare la route predefinita dalla subnet spoke.
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di testo di ricerca digitare **tabella di route** e premere **INVIO**.
 3. Selezionare **Tabella di route**.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. Per il nome digitare **UDR-DG**.
 7. Selezionare **FW-Hybrid-Test** come gruppo di risorse.
 8. In **Località** selezionare la stessa località usata in precedenza.
 4. In **Propagazione route del gateway di rete virtuale** selezionare **Disabilitato**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 2. Al termine della creazione della tabella di route, selezionarla per aprire la pagina corrispondente.
 3. Selezionare **Route** nella colonna di sinistra.
 4. Selezionare **Aggiungi**.
@@ -402,7 +390,7 @@ Si tratta di una macchina virtuale usata per connettersi all'indirizzo IP pubbli
 2. In **Più comuni** selezionare **Windows Server 2016 Datacenter**.
 3. Immettere i valori seguenti per la macchina virtuale:
     - **Gruppo di risorse**: selezionare Usa esistente e quindi **FW-Hybrid-Test**.
-    - **Nome della macchina virtuale**: *VM-Onprem*.
+    - **Nome della macchina virtuale**: - *VM-Onprem*.
     - **Area**: la stessa area usata in precedenza.
     - **Nome utente**: *azureuser*.
     - **Password**: *Azure123456!* .
@@ -422,7 +410,7 @@ Si tratta di una macchina virtuale usata per connettersi all'indirizzo IP pubbli
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Aprire un Web browser in **VM-Onprem** e andare a http://\<IP privato VM-spoke-01\>.
+3. Aprire un Web browser in **VM-Onprem** e andare a http://\<VM-spoke-01 private IP\>.
 
    Viene visualizzata la pagina **VM-spoke-01**: ![Pagina Web VM-Spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
