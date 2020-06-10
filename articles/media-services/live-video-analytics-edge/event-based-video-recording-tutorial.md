@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione video basata su eventi nel cloud e riproduz
 description: In questa esercitazione si apprenderà come usare Analisi di video live in IoT Edge per eseguire una registrazione video basata su eventi nel cloud e la riproduzione dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 92367634a2f5785ecbb102db1e03f3d5f12d744e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7ff8502688e2b507b8a576c177948f29c2248be4
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300825"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456611"
 ---
 # <a name="tutorial-event-based-video-recording-to-cloud-and-playback-from-cloud"></a>Esercitazione: Registrazione video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -181,7 +181,7 @@ Per visualizzare gli eventi dal modulo contatore oggetti e da Analisi di video l
 
 1. Nel nodo GraphTopologySet, modificare quanto segue:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
 1. Quindi, nei nodi GraphInstanceSet e GraphTopologyDelete modificare
 

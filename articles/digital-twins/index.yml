@@ -1,75 +1,81 @@
 ### YamlMime:Landing
 title: Documentazione di Gemelli digitali di Azure (anteprima)
-summary: Informazioni su come usare Gemelli digitali di Azure per connettere persone, luoghi e cose e creare soluzioni IoT con intelligenza spaziale. La guida introduttiva e le esercitazioni consentiranno di monitorare un edificio intelligente immaginario, approfondire i concetti e creare una soluzione IoT di nuova generazione per modellare l'ambiente fisico.
+summary: Informazioni su come usare Gemelli digitali di Azure per creare una rappresentazione digitale degli asset, degli ambienti e dei sistemi aziendali, per creare soluzioni IoT di prossima generazione che modellano il mondo reale.
 metadata:
   title: Documentazione di Gemelli digitali di Azure (Anteprima) - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   description: Informazioni su come usare Gemelli digitali di Azure per connettere persone, luoghi e oggetti, nonché creare soluzioni IoT con intelligenza spaziale.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 02/07/2020
-  ms.openlocfilehash: e5d66ffb35cb0ce50aa7898cad30bf9fd0bf57ac
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77110581"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84610033"
 landingContent:
 - title: Informazioni su Gemelli digitali di Azure
   linkLists:
   - linkListType: overview
     links:
     - text: Cos'è il servizio Gemelli digitali di Azure?
-      url: about-digital-twins.md
-  - linkListType: concept
-    links:
-    - text: Informazioni sul modello a oggetti e sul grafico di intelligenza spaziale di Gemelli digitali
-      url: concepts-objectmodel-spatialgraph.md
-  - linkListType: video
-    links:
-    - text: Introduzione a Gemelli digitali di Azure
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-- title: Introduzione
+      url: overview.md
+- title: Introduzione alle esercitazioni
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Trovare le stanze disponibili
-      url: quickstart-view-occupancy-dotnet.md
   - linkListType: tutorial
     links:
-    - text: Distribuire e configurare
-      url: tutorial-facilities-setup.md
-    - text: Effettuare il provisioning e monitorare le condizioni
-      url: tutorial-facilities-udf.md
-    - text: Inviare notifiche con App per la logica
-      url: tutorial-facilities-events.md
-    - text: Visualizzare eventi con Time Series Insights
-      url: tutorial-facilities-analyze.md
-- title: Sviluppare con Gemelli digitali di Azure
+    - text: Scrivere il codice di un'app client
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: Esplorare le nozioni di base con un'app client di esempio
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: Connettere una soluzione end-to-end
+      url: tutorial-end-to-end.md
+- title: Informazioni
   linkLists:
   - linkListType: concept
     links:
-    - text: Connettività dei dispositivi e dati di telemetria in ingresso
-      url: concepts-device-ingress.md
-    - text: Elaborazione dati e funzioni definite dall'utente
-      url: concepts-user-defined-functions.md
+    - text: Modelli personalizzati
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Gemelli digitali e grafo dei gemelli
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: Linguaggio di query
+      url: concepts-query-language.md
+- title: Sviluppo
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configurare Postman
-      url: how-to-configure-postman.md
-    - text: Creare funzioni definite dall'utente
-      url: how-to-user-defined-functions.md
+    - text: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un'istanza di Gemelli digitali di Azure
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticare un'applicazione client
+      url: how-to-authenticate-client.md
 - title: Informazioni di riferimento sulle API
   linkLists:
-  - linkListType: reference
-    links:
-    - text: Libreria client di funzioni definite dall'utente
-      url: reference-user-defined-functions-client-library.md
   - linkListType: how-to-guide
     links:
-    - text: Usare Swagger per Gemelli digitali
-      url: how-to-use-swagger.md
+    - text: Usare le API e gli SDK di Gemelli digitali di Azure
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare SDK personalizzati con AutoRest
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

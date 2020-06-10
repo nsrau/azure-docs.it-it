@@ -3,17 +3,17 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997129"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554565"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -152,7 +152,7 @@ Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate neg
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizzare i costi nell'analisi dei costi
 
-I partner con accesso agli ambiti di fatturazione nel tenant partner possono esplorare e analizzare nell'analisi dei costi di tutti i clienti i costi fatturati per un cliente o una fattura specifici. Nella vista dell'[analisi dei costi](quick-acm-cost-analysis.md) è anche possibile [salvare le viste](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+I partner con accesso agli ambiti di fatturazione nel tenant partner possono esplorare e analizzare nell'analisi dei costi di tutti i clienti i costi fatturati per un cliente o una fattura specifici. Nella vista dell'[analisi dei costi](quick-acm-cost-analysis.md) è anche possibile [salvare le viste](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e PNG](quick-acm-cost-analysis.md#download-usage-data).
 
 Gli utenti RBAC con accesso alla sottoscrizione nel tenant del cliente possono anche analizzare i costi al dettaglio per le sottoscrizioni nel tenant del cliente, salvare le viste ed esportare i dati in file CSV e PNG.
 

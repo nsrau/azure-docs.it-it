@@ -1,5 +1,7 @@
 - name: Modelli di esempio
   href: sample-model.md
+- name: Strumento per gli asset di Rendering remoto di Azure
+  href: azure-remote-rendering-asset-tool.md
 - name: Applicazione di presentazione Unity
   href: showcase-app.md
 - name: Script di Azure PowerShell di esempio

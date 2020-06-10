@@ -42,6 +42,8 @@
               href: class-type-ethical-hacking.md
             - name: Gestione di database
               href: class-type-database-management.md
+            - name: Gestione e sviluppo del database SQL di Azure
+              href: class-type-sql-server.md
             - name: Python e Jupyter Notebook
               href: class-type-jupyter-notebook.md
             - name: Sviluppo di app per dispositivi mobili con Android Studio
@@ -74,6 +76,8 @@
           href: allow-lab-creator-pick-lab-location.md
         - name: Connettersi a una rete virtuale peer
           href: how-to-connect-peer-virtual-network.md
+        - name: Come creare un lab con una risorsa condivisa
+          href: how-to-create-a-lab-with-shared-resource.md
         - name: Collegare o scollegare una raccolta immagini condivisa
           href: how-to-attach-detach-shared-image-gallery.md
         - name: Aggiungere altri proprietari a un lab della classe

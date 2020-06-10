@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -217,10 +217,14 @@
           href: sap-hana-db-restore.md
         - name: Gestione
           href: sap-hana-db-manage.md
-    - name: Server di backup di Azure (MABS)
+    - name: Server di Backup di Azure (MABS)
       items:
-        - name: Matrice di protezione del server di Backup di Azure
-          href: backup-mabs-protection-matrix.md
+        - name: Matrici di protezione
+          items:
+            - name: Matrice di protezione del Server di Backup di Microsoft Azure V3 UR1
+              href: backup-mabs-protection-matrix.md
+            - name: Matrice di protezione del Server di Backup di Microsoft Azure V3 RTM
+              href: microsoft-azure-backup-server-protection-v3.md
         - name: Installare o aggiornare
           items:
             - name: Installare il server di Backup di Azure
@@ -229,7 +233,7 @@
               href: backup-mabs-add-storage.md
             - name: Novità di MABS
               href: backup-mabs-whats-new-mabs.md
-            - name: Note sulla versione di Server di Backup di Microsoft Azure versione 3
+            - name: Note sulla versione di Server di Backup di Microsoft Azure
               href: backup-mabs-release-notes-v3.md
             - name: Installazione automatica
               href: backup-mabs-unattended-install.md
@@ -284,7 +288,9 @@
         - name: Backup offline con Importazione/Esportazione (MARS)
           href: backup-azure-backup-import-export.md
         - name: Backup offline con Importazione/Esportazione (DPM/MABS)
-          href: backup-azure-backup-server-import-export-.md
+          href: backup-azure-backup-server-import-export.md
+        - name: Backup offline per DPM e MABS (versioni precedenti)
+          href: offline-backup-server-previous-versions.md
     - name: Monitoraggio e avvisi
       items:
         - name: Uso di Esplora backup

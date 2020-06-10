@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142436"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559312"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -133,7 +133,7 @@ Se si vogliono filtrare i nuovi costi in modo che i budget siano valutati in bas
 - Tipo server di pubblicazione: Azure
 - Tipo di addebito: Uso
 
-Le valutazioni dei costi del budget si basano sul costo effettivo. Non includono l'ammortamento. Per altre informazioni sulle opzioni di filtro disponibili nei budget, vedere [Informazioni sulle opzioni di raggruppamento e filtro](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+Le valutazioni dei costi del budget si basano sul costo effettivo. Non includono l'ammortamento. Per altre informazioni sulle opzioni di filtro disponibili nei budget, vedere [Informazioni sulle opzioni di raggruppamento e filtro](group-filter.md).
 
 ## <a name="trigger-an-action-group"></a>Attivare un gruppo di azioni
 

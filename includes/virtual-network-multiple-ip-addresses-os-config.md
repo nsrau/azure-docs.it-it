@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-network
 author: jimdial
 ms.service: virtual-network
@@ -8,51 +8,55 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76159073"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194208"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
 Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo della macchina virtuale.
 
-### <a name="windows"></a>Windows
+### <a name="windows-server"></a>Windows Server
+<details>
+  <summary>Espandere</summary>
 
-1. Al prompt dei comandi digitare *ipconfig*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
+1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
 2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Visualizzare le proprietà per la scheda appropriata: **Connessione alla rete locale (LAN)**.
+3. Visualizzare le proprietà per la scheda appropriata: **Ethernet**.
 4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
 5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
 
-    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
+    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primario*
     * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
     * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
     * Selezionare **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
+        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.  Per un server DNS alternativo è possibile selezionare qualsiasi indirizzo del server DNS pubblico gratuito.
     * Selezionare il pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere tutti gli indirizzi IP secondari, aggiunti all'interfaccia di rete di Azure in un passaggio precedente, all'interfaccia di rete di Windows assegnata all'indirizzo IP primario assegnato all'interfaccia di rete di Azure.
 
         Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale. Quando si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). L'assegnazione di un indirizzo IP pubblico di Azure all'interno del sistema operativo è un'operazione sempre sconsigliata.
 
     * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
 
-6. Al prompt dei comandi digitare *ipconfig*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
+6. Da un prompt dei comandi digitare *ipconfig /all*. Verificare che tutti gli indirizzi IP aggiunti siano visualizzati e che DHCP sia disattivato.
 7. Configurare Windows per usare l'indirizzo IP privato della configurazione IP primaria in Azure come indirizzo IP primario per Windows. Per i dettagli, vedere [Nessun accesso a Internet da una macchina virtuale Windows Azure che dispone di più indirizzi IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
-### <a name="validation-windows"></a>Convalida (Windows)
+### <a name="validation-windows-server"></a>Convalida (Windows Server)
 
-Per assicurarsi che sia possibile connettersi a Internet dalla configurazione dell'indirizzo IP secondaria tramite l'indirizzo IP ad essa associato, usare il comando seguente dopo averlo aggiunto correttamente seguendo la procedura precedente:
+Per assicurarsi che sia possibile connettersi a Internet dalla configurazione dell'indirizzo IP secondaria tramite l'indirizzo IP ad essa associato, usare il comando seguente dopo averlo aggiunto correttamente seguendo la procedura precedente (sostituendo 10.0.0.7 con l'indirizzo IP privato secondario):
 
 ```bash
-ping -S 10.0.0.5 hotmail.com
+ping -S 10.0.0.7 outlook.com
 ```
 >[!NOTE]
 >Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
+</details>
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-
+<details>
+  <summary>Espandere</summary>
 Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
 
 1. Aprire una finestra del terminale.
@@ -112,9 +116,34 @@ Si consiglia di esaminare la documentazione più recente per la distribuzione di
 
    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+### <a name="validation-ubuntu-1416"></a>Convalida (Ubuntu 14/16)
 
-Ubuntu 18,04 e versioni successive sono state `netplan` modificate in per la gestione della rete del sistema operativo. Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
+Per assicurarsi che sia possibile connettersi a Internet dalla configurazione dell'indirizzo IP secondaria tramite l'indirizzo IP ad essa associato, usare il comando seguente:
+
+```bash
+ping -I 10.0.0.5 outlook.com
+```
+>[!NOTE]
+>Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
+
+Per le macchine virtuali Linux, quando si prova a convalidare la connettività in uscita da una scheda di interfaccia di rete secondaria, potrebbe essere necessario aggiungere le route appropriate. Per eseguire questa operazione è possibile procedere in molti modi. Per informazioni sulla distribuzione Linux, vedere la documentazione appropriata. Ecco un metodo per ottenere questo risultato:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- Assicurarsi di sostituire:
+    - **10.0.0.5** con l'indirizzo IP privato a cui è associato un indirizzo IP pubblico
+    - **10.0.0.1** con il gateway predefinito
+    - **eth2** con il nome della scheda di interfaccia di rete secondaria </details>
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
+<details>
+  <summary>Espandere</summary>
+Ubuntu 18.04 e versioni successive sono stati modificati in `netplan` per la gestione della rete del sistema operativo. Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
@@ -129,7 +158,7 @@ Ubuntu 18,04 e versioni successive sono state `netplan` modificate in per la ges
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Aggiungere le righe seguenti al file, sostituendo `10.0.0.6/24` con l'indirizzo IP/Netmask:
+4. Aggiungere le righe seguenti al file, sostituendo `10.0.0.6/24` con l'IP/netmask usati:
 
     ```bash
     network:
@@ -146,16 +175,16 @@ Ubuntu 18,04 e versioni successive sono state `netplan` modificate in per la ges
     :wq
     ```
 
-6. Testare le modifiche usando [Netplan provare](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) a confermare la sintassi:
+6. Testare le modifiche usando [netplan try](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) per verificare la sintassi:
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try`le modifiche verranno applicate temporaneamente ed eseguire il rollback delle modifiche dopo 120 secondi. Se si verifica una perdita di connettività, attendere 120 secondi e quindi riconnettersi. In quel momento, verrà eseguito il rollback delle modifiche.
+> `netplan try` applicherà le modifiche temporaneamente ed eseguirà il rollback delle modifiche dopo 120 secondi. Se si verifica una perdita di connettività, attendere 120 secondi e quindi riconnettersi. A quel punto, sarà stato eseguito il rollback delle modifiche.
 
-7. Se non si verificano problemi con, applicare le modifiche di `netplan try`configurazione:
+7. Se non si verificano problemi con `netplan try`, applicare le modifiche alla configurazione:
 
     ```bash
     netplan apply
@@ -185,8 +214,33 @@ Ubuntu 18,04 e versioni successive sono state `netplan` modificate in per la ges
         inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
         valid_lft forever preferred_lft forever
     ```
-    
+### <a name="validation-ubuntu-1804"></a>Convalida (Ubuntu 18.04+)
+
+Per assicurarsi che sia possibile connettersi a Internet dalla configurazione dell'indirizzo IP secondaria tramite l'indirizzo IP ad essa associato, usare il comando seguente:
+
+```bash
+ping -I 10.0.0.5 outlook.com
+```
+>[!NOTE]
+>Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
+
+Per le macchine virtuali Linux, quando si prova a convalidare la connettività in uscita da una scheda di interfaccia di rete secondaria, potrebbe essere necessario aggiungere le route appropriate. Per eseguire questa operazione è possibile procedere in molti modi. Per informazioni sulla distribuzione Linux, vedere la documentazione appropriata. Ecco un metodo per ottenere questo risultato:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- Assicurarsi di sostituire:
+    - **10.0.0.5** con l'indirizzo IP privato a cui è associato un indirizzo IP pubblico
+    - **10.0.0.1** con il gateway predefinito
+    - **eth2** con il nome della scheda di interfaccia di rete secondaria </details>
+
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (RedHat, CentOS e altri)
+<details>
+  <summary>Espandere</summary>
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
@@ -246,12 +300,12 @@ Ubuntu 18,04 e versioni successive sono state `netplan` modificate in per la ges
 
     L'indirizzo IP aggiunto, *eth0:0*, dovrebbe essere incluso nell'elenco restituito.
 
-### <a name="validation-linux"></a>Convalida (Linux)
+### <a name="validation-red-hat-centos-and-others"></a>Convalida (RedHat, CentOS e altri)
 
 Per assicurarsi che sia possibile connettersi a Internet dalla configurazione dell'indirizzo IP secondaria tramite l'indirizzo IP ad essa associato, usare il comando seguente:
 
 ```bash
-ping -I 10.0.0.5 hotmail.com
+ping -I 10.0.0.5 outlook.com
 ```
 >[!NOTE]
 >Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
@@ -268,4 +322,4 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Assicurarsi di sostituire:
     - **10.0.0.5** con l'indirizzo IP privato a cui è associato un indirizzo IP pubblico
     - **10.0.0.1** con il gateway predefinito
-    - **eth2** con il nome della scheda di interfaccia di rete secondaria
+    - **eth2** con il nome della scheda di interfaccia di rete secondaria </details>
