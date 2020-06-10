@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700934"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629547"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -183,6 +183,7 @@ ssh azureuser@13.92.224.66 -p 50001
 Dopo aver effettuato l'accesso, installare l'utilità **stress**. Avviare *10* ruoli di lavoro di **stress**che generano carico della CPU. Questi ruoli di lavoro vengono eseguiti per *420* secondi, che costituiscono un intervallo di tempo sufficiente affinché le regole di scalabilità automatica implementino l'azione desiderata.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```

@@ -10,12 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
-ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.custom: tracking-python
+ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844361"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609132"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Esercitazione: Avviare lo strumento di lettura immersiva usando il progetto di esempio Python
 

@@ -3,17 +3,17 @@ title: 'Guida introduttiva: Inviare eventi personalizzati a una funzione di Azur
 description: "Guida introduttiva: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
 services: event-grid
 keywords: ''
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: cc429fd38fc3322887affb72e71e0f583823c297
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292160"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557850"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
 

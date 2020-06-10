@@ -15,8 +15,6 @@
       href: provision-vm.md
     - name: Creare una Data Science Virtual Machine Ubuntu
       href: dsvm-ubuntu-intro.md
-- name: Esercitazioni
-  items:
     - name: Creare una Data Science Virtual Machine con un modello di Resource Manager
       displayName: Resource Manager
       href: dsvm-tutorial-resource-manager.md

@@ -3,13 +3,13 @@ title: "Avvio rapido: Creare un'app Python in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Python in un contenitore Linux nel servizio app.
 ms.topic: quickstart
 ms.date: 04/03/2020
-ms.custom: seo-python-october2019, cli-validate
-ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: seo-python-october2019, cli-validate, tracking-python
+ms.openlocfilehash: 622709098d8b45f6c7badfddd3006dc730a6bf14
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690870"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561708"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -102,11 +102,6 @@ Nella cartella *python-docs-hello-world* che contiene il codice di esempio esegu
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
-> [!CAUTION]
-> Se si usa l'**interfaccia della riga di comando di Azure versione 2.5.0**, in `az webapp up` è presente una regressione per cui determinati scenari non riusciranno se non si include il parametro `-l <location-name>`. Questo problema viene [segnalato qui](https://github.com/Azure/azure-cli/issues/13257).  
-> 
->Per controllare la versione dell'interfaccia della riga di comando di Azure in uso, eseguire il comando `az --version`.
->
 
 Con l'argomento `--sku F1` l'app Web viene creata nel piano tariffario Gratuito. È possibile omettere questo argomento per usare un livello Premium, che però comporta un costo orario.
 
