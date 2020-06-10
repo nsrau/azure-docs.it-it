@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199127"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194156"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Esercitazione: Controllare una singola fattura di Azure
 
 Questo articolo consente di comprendere e controllare una fattura di Azure. Per ogni periodo di fatturazione si riceve in genere una fattura tramite posta elettronica. La fattura è una rappresentazione della fattura di Azure. Le stesse informazioni sui costi riportate nella fattura sono disponibili nella portale di Azure. In questa esercitazione si confronterà una fattura con il file di utilizzo giornaliero dettagliato e con l'analisi dei costi nel portale di Azure.
 
 Questa esercitazione si applica solo ai clienti di Azure con una singola sottoscrizione. In genere le sottoscrizioni singole sono quelle con tariffe con pagamento in base al consumo acquistate direttamente dal sito Web di Azure.
+
+Per informazioni sugli addebiti imprevisti, vedere [Analizzare gli addebiti imprevisti](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). In alternativa, se è necessario annullare la sottoscrizione di Azure, vedere [Annullare la sottoscrizione di Azure](../manage/cancel-azure-subscription.md).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -47,7 +49,7 @@ Il primo passaggio per confrontare l'utilizzo e i costi consiste nello scaricare
 
 Nel portale di Azure digitare *sottoscrizioni* nella casella di ricerca e quindi fare clic su [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Passare a sottoscrizioni](./media/review-individual-bill/navigate-subscriptions.png)
+[![Passare alle sottoscrizioni](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Nell'elenco delle sottoscrizioni fare clic sulla sottoscrizione.
 
@@ -147,7 +149,7 @@ Ad esempio, in una singola macchina virtuale creata in Azure possono essere crea
 
 Dopo la creazione della VM, ogni contatore inizia a emettere record di utilizzo. L'utilizzo e il costo indicato dal contatore vengono registrati nel sistema di misurazione di Azure.
 
-È possibile visualizzare i contatori usati per calcolare la fattura nel file CSV di utilizzo.
+È possibile visualizzare i contatori usati per calcolare la fattura nel file CSV di utilizzo, come nell'esempio precedente.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Pagare la fattura
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678652"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300590"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Esercitazione: Configurazione di un progetto Unity da zero
 
@@ -31,7 +31,10 @@ Per eseguire questa esercitazione, è necessario avere:
 
 * Informazioni sull'account (ID account, chiave dell'account, ID sottoscrizione). Se non si ha un account Azure, [crearne uno](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
+  * **Sviluppo per desktop con C++**
+  * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Installare questi moduli in Unity:
@@ -77,7 +80,7 @@ Dopo aver modificato e salvato il manifesto, Unity verrà aggiornato automaticam
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Assicurarsi di avere l'ultima versione del pacchetto
 
 I passaggi seguenti consentono di verificare l'uso dell'ultima versione del pacchetto di rendering remoto per il progetto.
-1. Selezionare il pacchetto nella finestra Project (Progetto) e fare clic sull'icona del pacchetto: ![Selezione dell'icona del pacchetto](media/package-icons.png)
+1. Selezionare il pacchetto nella finestra del progetto e fare clic sull'icona :::no-loc text="package":::: ![Selezione dell'icona del pacchetto](media/package-icons.png)
 1. Nella finestra Inspector (Controllo) fare clic su "View in Package Manager" (Visualizza in Gestione pacchetti): ![controllo pacchetti](media/package-properties.png)
 1. Nella pagina di gestione pacchetti per il pacchetto di rendering remoto, vedere se è disponibile il pulsante di aggiornamento. Se lo è, fare clic su di esso per aggiornare il pacchetto all'ultima versione disponibile: ![Il pacchetto di Rendering remoto di Azure in gestione pacchetti](media/package-manager.png)
 1. Talvolta l'aggiornamento del pacchetto può generare errori nella console. In questo caso, provare a chiudere e riaprire il progetto.
@@ -90,11 +93,11 @@ Selezionare il nodo **Main Camera** (Fotocamera principale).
 
     ![reimpostare la trasformazione della fotocamera](media/camera-reset-transform.png)
 
-1. Impostare **Clear flags** (Flag di cancellazione) su *Solid Color* (Tinta unita)
+1. Impostare **:::no-loc text="Clear flags":::** su *:::no-loc text="Solid Color":::*
 
-1. Impostare **Background** (Sfondo) su *Black* (Nero)
+1. Impostare **:::no-loc text="Background":::** su *:::no-loc text="Black":::*
 
-1. Impostare **Clipping Planes** (Pian di ritaglio) su *Near = 0.3* (Vicino = 0,3) e *Far = 20* (Lontano = 20). In questo modo il rendering ritaglierà la geometria più vicina di 30 cm o più lontana di 20 metri.
+1. Impostare **:::no-loc text="Clipping Planes":::** su *Near = 0,3* e *Far = 20*. In questo modo il rendering ritaglierà la geometria più vicina di 30 cm o più lontana di 20 metri.
 
     ![Proprietà della fotocamera Unity](media/camera-properties.png)
 

@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76906282"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220276"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
@@ -89,7 +89,7 @@ Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispo
    | Location | Scegliere una località vicina. |
    | Ambiente di hosting | Selezionare **Edge**. |
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ### <a name="configure-your-job"></a>Configurare il processo
 
@@ -169,7 +169,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **SimulatedT
    1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
    1. Per il nome digitare **SimulatedTemperatureSensor.**
    1. Per l'URI dell'immagine, immettere **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
-   1. Lasciare invariate le altre impostazioni e fare clic su **Save** (Salva).
+   1. Lasciare invariate le altre impostazioni e fare clic su **Aggiungi**.
 
 1. Aggiungere il processo Edge di Analisi di flusso di Azure seguendo questa procedura:
 
@@ -187,7 +187,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **SimulatedT
 
    Per impostazione predefinita, il modulo di analisi di flusso prende lo stesso nome del processo su cui si basa. Se lo si desidera, è possibile modificare il nome del modulo in questa pagina, ma non è necessario.
 
-1. Selezionare **Annulla** o **Salva**.
+1. Selezionare **Aggiorna** o **Annulla**.
 
 1. Prendere nota del nome del modulo di Analisi di flusso perché sarà necessario nel passaggio successivo, quindi selezionare **Avanti: Route** per continuare.
 

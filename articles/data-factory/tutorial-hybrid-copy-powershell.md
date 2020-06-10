@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 70bc79470cd72ce01007265c6c1236c951ddd7d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81411429"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194569"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure
+# <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
+In questa esercitazione si usa Azure PowerShell per creare una pipeline di data factory che copia i dati da un database di SQL Server all'archiviazione BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
 
 > [!NOTE]
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](introduction.md).
@@ -38,7 +38,7 @@ In questa esercitazione si segue questa procedura:
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare l'esecuzione della pipeline.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -48,7 +48,7 @@ Per creare istanze di Data Factory, all'account utente usato per accedere ad Azu
 Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure, selezionare il nome utente nell'angolo in alto a destra e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-In questa esercitazione si usa un database di SQL Server locale come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server locale (origine) all'archivio BLOB di Azure (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e inserire una coppia di voci di esempio nella tabella.
+In questa esercitazione si usa un database di SQL Server come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB di Azure (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e inserire una coppia di voci di esempio nella tabella.
 
 1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -76,7 +76,7 @@ In questa esercitazione si usa un database di SQL Server locale come archivio da
 
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa esercitazione si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati di destinazione/sink. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md). La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server locale (origine) a questo archivio BLOB di Azure (sink). 
+In questa esercitazione si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati di destinazione/sink. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md). La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server (origine) all'archiviazione BLOB di Azure (sink). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
 In questa esercitazione si usano il nome e la chiave dell'account di archiviazione di Azure. Recuperare il nome e la chiave dell'account di archiviazione nel modo seguente:
@@ -179,7 +179,7 @@ Installare la versione più recente di Azure PowerShell, se non è già presente
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account deve essere un *amministratore* della sottoscrizione di Azure.
-> * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+> * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 >
 >
 
@@ -309,7 +309,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
     Annotare tutti i valori precedenti per usarli più avanti in questa esercitazione.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-Creare servizi collegati nella data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa esercitazione si collegano l'account di archiviazione di Azure e l'istanza di SQL Server locale all'archivio dati. I servizi collegati hanno le informazioni di connessione usate dal servizio Data Factory in fase di esecuzione per la connessione.
+Creare servizi collegati nella data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa esercitazione si collegano l'account di archiviazione di Azure e l'istanza di SQL Server all'archivio dati. I servizi collegati hanno le informazioni di connessione usate dal servizio Data Factory in fase di esecuzione per la connessione.
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Creare un servizio collegato Archiviazione di Azure (destinazione/sink)
 In questo passaggio, l'account di archiviazione di Azure viene collegato alla data factory.
@@ -317,7 +317,7 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
 1. Creare un file JSON denominato *AzureStorageLinkedService.json* nella cartella *C:\ADFv2Tutorial* con il codice seguente. Creare la cartella *ADFv2Tutorial*, se non esiste già.  
 
     > [!IMPORTANT]
-    > Sostituire \<accountName> e \<accountKey> con il nome e la chiave dell'account di archiviazione di Azure prima di salvare il file. Questi valori sono stati annotati nella sezione [Prerequisiti](#get-storage-account-name-and-account-key).
+    > Prima di salvare il file, sostituire \<accountName> e \<accountKey> con il nome e la chiave dell'account di archiviazione di Azure. Questi valori sono stati annotati nella sezione [Prerequisiti](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -355,7 +355,7 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
     Se viene visualizzato un errore di tipo "File non trovato", verificare che il file esista eseguendo il comando `dir`. Se il nome del file ha estensione *txt*, ad esempio AzureStorageLinkedService.json.txt, rimuovere l'estensione ed eseguire di nuovo il comando di PowerShell.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Creare e crittografare un servizio collegato SQL Server (origine)
-In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
+In questo passaggio si collega l'istanza di SQL Server alla data factory.
 
 1. Creare un file JSON denominato *SqlServerLinkedService.json* nella cartella *C:\ADFv2Tutorial* usando il codice seguente:
 
@@ -432,7 +432,7 @@ In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
 
 
 ## <a name="create-datasets"></a>Creare set di dati
-In questo passaggio vengono creati set di dati di input e di output, che rappresentano i dati di input e di output per l'operazione di copia dal database SQL Server locale all'archivio BLOB di Azure.
+In questo passaggio vengono creati set di dati di input e di output, che rappresentano i dati di input e di output per l'operazione di copia dal database di SQL Server all'archiviazione BLOB di Azure.
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>Creare un set di dati per il database SQL Server di origine
 In questo passaggio si definisce un set di dati che rappresenta i dati nell'istanza di database di SQL Server. Il set di dati è di tipo SqlServerTable. Fa riferimento al servizio collegato SQL Server creato nel passaggio precedente. Il servizio collegato ha le informazioni di connessione usate dal servizio Data Factory per connettersi all'istanza di SQL Server in fase di esecuzione. Questo set di dati specifica la tabella SQL nel database che contiene i dati. In questa esercitazione, la tabella **emp** contiene i dati di origine.

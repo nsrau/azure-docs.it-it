@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con PowerShell
-description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database SQL Server locale a un database SQL di Azure.
+description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410002"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194519"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database SQL Server locale a un database SQL di Azure.    
+In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server in un database SQL di Azure.    
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -69,12 +69,12 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **SQL Server**. Usare un database di SQL Server locale come archivio dati di origine in questa esercitazione. 
-* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno. 
+* **SQL Server**. In questa esercitazione si usa un database di SQL Server come archivio dati di origine. 
+* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creare le tabelle di origine nel database di SQL Server
 
-1. Aprire [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e connettersi al database SQL Server locale.
+1. Aprire [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e connettersi al database di SQL Server.
 
 2. In **Esplora server (SSMS)** o nel **riquadro Connessioni (Azure Data Studio)** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
@@ -113,7 +113,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creare le tabelle di destinazione nel database SQL di Azure
 
-1. Aprire [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e connettersi al database SQL Server locale.
+1. Aprire [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e connettersi al database di SQL Server.
 
 2. In **Esplora server (SSMS)** o nel **riquadro Connessioni (Azure Data Studio)** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
@@ -289,11 +289,11 @@ Tenere presente quanto segue:
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database SQL Server locale e al database SQL di Azure. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database SQL di Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server
 
-In questo passaggio si collega il database di SQL Server locale alla data factory.
+In questo passaggio si collega il database di SQL Server alla data factory.
 
 1. Nella cartella C:\ADFTutorials\IncCopyMultiTableTutorial (creare le cartelle locali se non sono già esistenti) creare un file JSON denominato **SqlServerLinkedService.json** con il contenuto seguente. Selezionare la sezione corretta in base all'autenticazione usata per connettersi a SQL Server.  
 

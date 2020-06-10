@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774466"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019844"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usare l'interfaccia della riga di comando per ripristinare un database in Istanza gestita in un'altra area geografica
 
@@ -28,7 +28,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Coppia di istanze gestite esistente, vedere [Usare l'interfaccia della riga di comando di Azure per creare un'istanza gestita di database SQL di Azure](sql-database-create-configure-managed-instance-cli.md).
+Una coppia esistente di istanze gestite. Vedere [Usare l'interfaccia della riga di comando di Azure per creare un'istanza di Istanza gestita di SQL di Azure](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -64,4 +64,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
+Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

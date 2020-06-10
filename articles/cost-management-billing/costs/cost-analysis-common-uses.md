@@ -3,20 +3,69 @@ title: Utilizzi dell'analisi dei costi comune in Gestione costi di Azure
 description: Questo articolo illustra come ottenere risultati per le attività di analisi dei costi comune in Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 130d313c1ca549f3a4e6f1ec1bbac2a16a753709
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261499"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142511"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizzi dell'analisi dei costi comune
 
 Gli utenti di Gestione costi di Azure spesso desiderano rispondere alle domande poste da molti altri utenti. Questo articolo illustra come ottenere risultati per le attività di analisi dei costi comune in Gestione costi.
+
+## <a name="view-forecasted-costs"></a>Visualizzare i costi previsti
+
+I costi previsti vengono visualizzati nelle aree di analisi dei costi per le visualizzazioni di area e istogramma in pila. La previsione è basata sull'utilizzo delle risorse cronologiche. Le modifiche apportate all'uso delle risorse influiscono sui costi previsti.
+
+Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+
+Nella visualizzazione predefinita il grafico in alto presenta le sezioni costo effettivo/ammortizzato e costo previsto. Il colore a tinta unita del grafico indica il costo effettivo/ammortizzato. Il colore ombreggiato mostra il costo previsto.
+
+[![Costo stimato](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
+
+## <a name="view-forecasted-costs-grouped-by-service"></a>Visualizzare i costi previsti raggruppati per servizio
+
+La visualizzazione predefinita non mostra il gruppo di costi previsti per un servizio, quindi è necessario aggiungere un gruppo tramite selezione.
+
+Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+
+Selezionare **Raggruppa per** > **Nome servizio**.
+
+La visualizzazione mostra i costi raggruppati per ogni servizio. Il costo previsto non viene calcolato per ogni servizio. Viene previsto per il **Totale** di tutti i servizi.
+
+[![Costo previsto raggruppato](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
+
+## <a name="view-forecasted-costs-for-a-service"></a>Visualizzare i costi previsti per un servizio
+
+È possibile visualizzare i costi previsti limitati a un singolo servizio. È ad esempio possibile volere visualizzare i costi previsti solo per le macchine virtuali.
+
+1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+1. Selezionare **Aggiungi filtro** quindi selezionare **Nome servizio**.
+1. Nell'elenco di **scelta** selezionare un servizio. Ad esempio, selezionare **macchine virtuali**.
+
+Verificare il costo effettivo per la selezione e il costo previsto.
+
+È possibile aggiungere altre personalizzazioni alla visualizzazione.
+
+1. Aggiungere un secondo filtro per **Contatore** e selezionare un valore da filtrare per un singolo tipo di contatore sotto il nome del servizio selezionato.
+1. Raggruppare per **Risorsa** per visualizzare le risorse specifiche che stanno determinando un incremento dei costi. Il costo previsto non viene calcolato per ogni servizio. Viene previsto per il **Totale** di tutte le risorse.
+
+[![Costo previsto per un servizio](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
+
+## <a name="view-your-azure-and-aws-costs-together"></a>Visualizzare i costi di Azure e AWS insieme  
+
+Per visualizzare i costi di Azure e AWS insieme, è possibile usare gli ambiti del gruppo di gestione in Azure.
+
+1. Creare un gruppo di gestione o selezionarne uno esistente.
+1. Assegnare le sottoscrizioni di Azure esistenti desiderate al gruppo di gestione.
+1. Assegnare lo *stesso* gruppo di gestione all'account collegato del connettore.
+1. Passare all'analisi dei costi e selezionare **Costi accumulati**.
+1. Selezionare **Raggruppa per** - **Provider**.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Visualizzare la suddivisione dei costi per servizio di Azure
 
@@ -37,7 +86,6 @@ Per visualizzare i dettagli della fattura nel portale di Azure, passare ad Anali
 La visualizzazione dei dettagli della fattura consente di identificare il servizio con costi imprevisti e determinare le risorse direttamente associate alla risorsa in Analisi dei costi. Se, ad esempio, si vogliono analizzare gli addebiti per il servizio Macchine virtuali, passare alla visualizzazione **Costi accumulati**. Impostare quindi la granularità su **Giornaliera**, filtrare gli addebiti per **Nome del servizio: Macchine virtuali** e raggruppare gli addebiti per **Risorsa**.
 
 [![Esempio che mostra i costi accumulati per Macchine virtuali](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
-
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Visualizzare la ripartizione dei costi per servizio di Azure
 

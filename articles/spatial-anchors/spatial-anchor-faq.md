@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004478"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296670"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -72,21 +72,21 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 
 **D: Viene fornito un contratto di servizio?**
 
-**R:** Come per i servizi Azure, puntiamo ad una disponibilità superiore al 99,9%. Si noti che Ancoraggi nello spazio di Azure è attualmente in anteprima e di conseguenza si applicano le [Condizioni Supplementari per l'Utilizzo delle Anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+**R:** Come per i servizi Azure, puntiamo ad una disponibilità superiore al 99,9%. 
 
 **D: È possibile pubblicare le app con Ancoraggi nello spazio di Azure negli App Store? È possibile usare gli Ancoraggi nello spazio di Azure per scenari di produzione cruciali?**
 
-**R:** Ancoraggi nello spazio di Azure è attualmente in anteprima e durante questo periodo invitiamo gli utenti a sviluppare app, a [fornire commenti e suggerimenti](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sul prodotto e a pianificare le distribuzioni di produzione.
-
-Le date di disponibilità generale (GA) saranno annunciate a breve.
+**R:** Sì, gli ancoraggi nello spazio di Azure sono disponibili a livello generale e hanno un contratto di servizio standard di Azure. Invitiamo gli utenti a sviluppare app per le distribuzioni di produzione e a [condividere commenti e suggerimenti](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sul prodotto.
 
 **D: Sono previste delle limitazioni?**
 
-**R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrs@microsoft.com). Durante questa fase di anteprima, non sono state ancora pubblicate la suddivisione in livelli e la struttura dei prezzi, ma si prevede di farlo presto.
+**R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrs@microsoft.com). 
 
 **D: In quali aree è disponibile Ancoraggi nello spazio di Azure?**
 
-**R:** È possibile creare subito un account di Ancoraggi nello spazio di Azure nell'area di Azure Stati Uniti orientali 2. Ciò significa che sia l'ambiente di calcolo che l'archiviazione alla base di questo servizio risiedono in questa area. Detto questo, non esistono restrizioni per la posizione in cui si trovano i client. In futuro si estenderà la disponibilità del servizio a livello di area a tutte le principali aree di Azure.
+**R:** Gli ancoraggi nello spazio di Azure sono attualmente disponibili nelle aree Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-meridionali, Europa occidentale, Europa settentrionale, Regno Unito meridionale e Australia orientale. In futuro saranno disponibili altre aree.
+
+Ciò significa che sia l'ambiente di calcolo che l'archiviazione alla base di questo servizio risiedono in queste aree. Detto questo, non esistono restrizioni per la posizione in cui si trovano i client. 
 
 **D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?**
 

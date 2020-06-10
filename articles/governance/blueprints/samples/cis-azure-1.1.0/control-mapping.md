@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark in Criteri di Azure.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863961"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167231"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 
@@ -192,14 +192,14 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Assicurarsi che "Sicurezza dei dati avanzata" in un server SQL sia impostata su "Attivata"
 
-Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che la soluzione Sicurezza dei dati avanzata sia abilitata nei server SQL e nelle istanze gestite di SQL.
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che la soluzione Sicurezza dei dati avanzata sia abilitata nei server di database SQL e dell'istanza gestita di SQL.
 
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 assicurarsi che "Tipi di rilevamento minacce" sia impostato su "Tutti"
 
-Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che la soluzione Advanced Threat Protection sia configurata correttamente nei server SQL e nelle istanze gestite di SQL.
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che la soluzione Advanced Threat Protection sia configurata correttamente nei server di database SQL e dell'istanza gestita di SQL.
 
 - È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata nell'istanza gestita di SQL
@@ -232,7 +232,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Assicurarsi che la protezione TDE di SQL Server sia crittografata con BYOK (Bring Your Own Key)
 
-Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) che consentono di garantire che la protezione TPE di SQL Server e delle istanze gestite di SQL sia crittografata con una chiave personalizzata
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) che consentono di garantire che la protezione TDE per i server di database SQL e dell'istanza gestita di SQL sia crittografata con una chiave personalizzata.
 
 - È consigliabile che la protezione TDE di SQL Server sia crittografata con una chiave personalizzata
 - È consigliabile che la protezione TDE dell'istanza gestita di SQL sia crittografata con una chiave personalizzata

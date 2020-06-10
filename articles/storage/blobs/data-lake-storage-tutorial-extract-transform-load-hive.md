@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74327565"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014911"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight
 
@@ -244,12 +244,12 @@ Per eseguire questa operazione, è necessario il nome del server di database SQL
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. Al termine dell'installazione usare il comando seguente per connettersi al server di database SQL.
+6. Al termine dell'installazione, usare il comando seguente per connettersi a Database SQL.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Sostituire il segnaposto `<server-name>` con il nome del server di database SQL.
+   * Sostituire il segnaposto `<server-name>` con il nome del server logico SQL.
 
    * Sostituire il segnaposto `<admin-login>` con l'account di accesso amministratore per il database SQL.
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418780"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249179"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 
@@ -58,7 +58,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 **Preparare il database SQL di Azure di origine**:
 
-Creare un database SQL di Azure con i dati dell'esempio Adventure Works LT, seguendo le istruzioni disponibili nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+Creare un database SQL di Azure con i dati dell'esempio Adventure Works LT, seguendo le istruzioni disponibili nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 
 **Preparare l'istanza sink di Azure Synapse Analytics (in precedenza SQL Data Warehouse)** :
 
@@ -68,11 +68,12 @@ Creare un database SQL di Azure con i dati dell'esempio Adventure Works LT, segu
 
 ## <a name="azure-services-to-access-sql-server"></a>Accesso dei servizi di Azure a SQL Server
 
-Per il database SQL e per Azure Synapse Analytics (in precedenza SQL Data Warehouse) è necessario consentire ai servizi di Azure di accedere a SQL server. Assicurarsi che l'impostazione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** sia **ON** per il server Azure SQL. Questa impostazione consente al servizio Data Factory di leggere dati dal database SQL di Azure e di scrivere dati in Azure Synapse Analytics (in precedenza SQL Data Warehouse). 
+Per il database SQL e per Azure Synapse Analytics (in precedenza SQL Data Warehouse) è necessario consentire ai servizi di Azure di accedere a SQL server. Assicurarsi che l'impostazione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** sia attivata (**ON**) per il server. Questa impostazione consente al servizio Data Factory di leggere dati dal database SQL di Azure e di scrivere dati in Azure Synapse Analytics (in precedenza SQL Data Warehouse). 
 
-Per verificare e attivare l'impostazione, passare a Server di Azure SQL > Sicurezza > Firewall e reti virtuali, quindi impostare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** su **ON**.
+Per verificare e attivare l'impostazione, passare al server > Sicurezza > Firewall e reti virtuali, quindi impostare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** su **ON**.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
+
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Nel menu del portale di Azure a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**. 
@@ -114,7 +115,7 @@ In questo passaggio viene creato un servizio collegato per collegare il database
 
     a. Immettere **AzureSqlDatabaseLinkedService** per **Nome**.
     
-    b. Selezionare il server di Azure SQL per **Nome server**.
+    b. Selezionare il server per **Nome server**
     
     c. Selezionare il database SQL di Azure per **Nome database**. 
     
@@ -135,7 +136,7 @@ In questo passaggio viene creato un servizio collegato per collegare il database
    
     a. Immettere **AzureSqlDWLinkedService** per **Nome**.
      
-    b. Selezionare il server di Azure SQL per **Nome server**.
+    b. Selezionare il server per **Nome server**
      
     c. Selezionare il database SQL di Azure per **Nome database**. 
      
@@ -212,7 +213,8 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
 1. Nel riquadro a sinistra fare clic su **+ (segno più)** e quindi su **Pipeline**.
 
     ![Menu per nuova pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. Nella scheda **Generale** specificare **IterateAndCopySQLTables** come nome. 
+ 
+1. Nel pannello Generale in **Proprietà** specificare **IterateAndCopySQLTables** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo in alto a destra.
 
 1. Passare alla scheda **Parametri** ed eseguire le azioni seguenti: 
 

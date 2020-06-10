@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: a835e67b1091a55c832955d8dac8615289a6d99e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418695"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118158"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](htt
 ## <a name="prerequisites"></a>Prerequisiti
 
 * *Account di archiviazione di Azure*. Usare l'archivio BLOB come archivio dati di *origine*. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione per utilizzo generico](../storage/common/storage-account-create.md).
-* *Database SQL di Azure*. Usare il database come archivio dati *sink*. Se non si ha un database SQL di Azure, vedere [Creare un database SQL di Azure](../sql-database/sql-database-single-database-get-started.md).
+* *Database SQL di Azure*. Usare il database come archivio dati *sink*. Se non si ha un database SQL di Azure, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2019.
 * *[Azure SDK per .NET](/dotnet/azure/dotnet-tools)* .
 * *Applicazione Azure Active Directory*. Se non si dispone di un'applicazione Azure Active Directory, vedere la sezione [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dell'articolo [Procedura: Usare il portale per creare un'applicazione Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copiare i valori seguenti per l'uso nei passaggi successivi: **ID applicazione (client)** , **chiave di autenticazione** e **ID della directory (tenant)** . Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo.
@@ -81,7 +81,7 @@ Creare quindi una tabella SQL sink:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Consentire ai servizi di Azure di accedere a SQL Server. Assicurarsi di aver consentito l'accesso ai servizi di Azure nel server SQL Azure in modo che il servizio Data Factory possa scrivere dati nel server. Per verificare e attivare l'impostazione, seguire questa procedura:
+2. Consentire ai servizi di Azure di accedere al database SQL. Assicurarsi di aver consentito l'accesso ai servizi di Azure nel server in modo che il servizio Data Factory possa scrivere dati nel database SQL. Per verificare e attivare l'impostazione, seguire questa procedura:
 
     1. Passare al [portale di Azure](https://portal.azure.com) per gestire il server SQL. Cercare e selezionare **Server SQL**.
 

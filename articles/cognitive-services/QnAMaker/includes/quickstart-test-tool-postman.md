@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203966"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237721"
 ---
 Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risposta da una knowledge base.
 
@@ -64,7 +64,7 @@ In un argomento di avvio rapido precedente sono stati aggiunti i metadati a due 
     }
     ```
 
-    La domanda è costituita solo da una singola parola, `size`, che può restituire uno dei due set di domande e risposte. La matrice `strictFilters` indica di limitare le risposte a quelle con tag `qna_maker`.
+    La domanda è costituita solo da una singola parola, `size`, che può restituire una delle due coppie di domande e risposte. La matrice `strictFilters` indica di limitare le risposte a quelle con tag `qna_maker`.
 
 1. La risposta include solo la risposta che soddisfa i criteri di filtro.
 
@@ -103,9 +103,12 @@ In un argomento di avvio rapido precedente sono stati aggiunti i metadati a due 
     }
     ```
 
-    Se è presente un set di domande e risposte che non soddisfa il termine di ricerca ma soddisfa il filtro, non viene restituito. Viene invece restituita la risposta generale `No good match found in KB.`.
+    Se è presente una coppia di domande e risposte che non soddisfa il termine di ricerca ma soddisfa il filtro, non viene restituita. Viene invece restituita la risposta generale `No good match found in KB.`.
 
 ## <a name="use-debug-query-property"></a>Usare una proprietà per la query di debug
+
+> [!NOTE]
+>Non è consigliabile usare la proprietà Debug per una dipendenza. Questa proprietà è stata aggiunta per assistere il team di prodotto nella risoluzione dei problemi.
 
 Le informazioni di debug consentono di capire come è stata determinata la risposta restituita. Sebbene siano utili, non sono necessarie. Per generare una risposta con le informazioni di debug, aggiungere la proprietà `debug`:
 
