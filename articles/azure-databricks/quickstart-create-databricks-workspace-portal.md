@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.date: 03/23/2020
-ms.custom: mvc
-ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 6c7226a56d5811438ec9d0703e0b8242df13e17b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132699"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559311"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida di avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 

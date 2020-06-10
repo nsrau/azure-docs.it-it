@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 05/20/2020
 ms.author: sngun
-ms.openlocfilehash: 3b92ae206aa623e948a612f31b48213421bf9da3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: tracking-python
+ms.openlocfilehash: c52651e15f648bede419501f516392acbc266e8a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798504"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558015"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Esempi Python per Azure Cosmos DB
 

@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: Testare la knowledge base con domande batch'
 description: Usare lo strumento di test batch di QnA Maker per testare le knowledge base nella risorsa QnA Maker e verificare le risposte previste, i punteggi di attendibilità e i prompt multiturno.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873666"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337734"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Guida introduttiva: Testare la Knowledge base con domande batch e risposte previste
 

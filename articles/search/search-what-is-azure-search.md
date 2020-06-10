@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 87295278f39f7e7097b1f4d1ce1c729a71599c9f
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891547"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466222"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
@@ -68,7 +68,7 @@ Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari 
 |-------------------|----------|
 | Strumenti per la creazione di prototipi e l'ispezione | Nel portale è possibile usare la [**procedura guidata di importazione dei dati**](search-import-data-portal.md) per configurare gli indicizzatori, indicizzare la finestra di progettazione e usare [**Esplora ricerche**](search-explorer.md) per testare le query e migliorare i profili di punteggio. È inoltre possibile aprire un indice qualsiasi per visualizzarne lo schema. |
 | Monitoraggio e diagnostica | [**Abilitare le funzionalità di monitoraggio**](search-monitor-usage.md) per andare oltre le metriche sempre visibili a colpo d'occhio nel portale. Le metriche sulle query al secondo, sulla latenza e sulla limitazione vengono acquisite e inserite in report nelle pagine del portale, senza necessità di configurazioni aggiuntive.|
-| Modello di crittografia lato server | La [**crittografia dei dati inattivi gestita da Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) è incorporata nel livello di archiviazione interno ed è irrevocabile. Facoltativamente, è possibile integrare la crittografia predefinita con [**chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md). Le chiavi create e gestite in Azure Key Vault vengono usate per crittografare indici e mappe di sinonimi in Ricerca cognitiva di Azure. |
+| Modello di crittografia lato server | La [**crittografia dei dati inattivi gestita da Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) è incorporata nel livello di archiviazione interno ed è irrevocabile. Facoltativamente, è possibile integrare la crittografia predefinita con [**chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md). Le chiavi create e gestite in Azure Key Vault vengono usate per crittografare indici e mappe di sinonimi in Ricerca cognitiva di Azure. |
 | Infrastruttura | La **piattaforma a disponibilità elevata** garantisce un'esperienza del servizio di ricerca estremamente affidabile. Se si applica una scala corretta, [Ricerca cognitiva di Azure offre un contratto di servizio con disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gestita e scalabile** come soluzione end-to-end, Ricerca cognitiva di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Come usare Ricerca cognitiva di Azure
