@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722627"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629029"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per Riconoscimento vocale personalizzato
 
-Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto. Maggiore è il numero di set di dati nel dominio forniti, ovvero i dati correlati a ciò che gli utenti indicheranno e cosa si prevede di riconoscere, maggiore sarà l'accuratezza del modello, con conseguente miglioramento del riconoscimento. Tenere presente che, inserendo dati non correlati nel training, è possibile ridurre o danneggiare l'accuratezza del modello.
+Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi DataSet insieme ai dati audio caricati in precedenza vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Usare il training per risolvere i problemi di accuratezza
 
@@ -39,7 +39,7 @@ Se si riscontrano problemi di riconoscimento con il modello, l'uso di trascrizio
 Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](how-to-custom-speech-test-data.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 
 1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
-2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > Training**.
+2. Passare a **> vocale Riconoscimento vocale personalizzato > [nome del progetto] > Training**.
 3. Fare clic su **Train Model**.
 4. Successivamente, assegnare un **nome** e una **Descrizione**al training.
 5. Dal menu a discesa **scenario e modello di base** selezionare lo scenario più adatto al dominio. Se non si è certi dello scenario da scegliere, selezionare **generale**. Il modello di base è il punto di partenza per il training. Il modello più recente è in genere la scelta migliore.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717321"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629008"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
@@ -28,7 +28,7 @@ Controllare le lingue supportate per la funzionalità Voice personalizzata: [lin
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
-Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale. Selezionare `en-GB` , ad esempio, se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
+Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale. Selezionare, ad esempio, `en-GB` se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
 
 Passare alla scheda **dati** e fare clic su **Carica dati**. Nella procedura guidata selezionare il tipo di dati corretto che corrisponde a quello preparato.
 
@@ -62,13 +62,13 @@ Valutare se ripetere la registrazione di qualsiasi espressione con punteggi di p
 
 Dopo che il set di dati è stato convalidato, è possibile usarlo per compilare il modello Voice personalizzato.
 
-1.  Passa a sintesi vocale **> Training > personalizzato**.
+1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > Training**.
 
 2.  Fare clic su **Train Model**.
 
 3.  Immettere quindi un **nome** e una **Descrizione** che consentano di identificare questo modello.
 
-    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, \_ad esempio-, e (','). Usare nomi diversi per modelli vocali diversi.
+    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, ad esempio-, \_ e (','). Usare nomi diversi per modelli vocali diversi.
 
     Un utilizzo comune del campo **Description** consiste nel registrare i nomi dei set di dati utilizzati per creare il modello.
 
@@ -106,7 +106,7 @@ Se si utilizza la funzionalità di training per la voce neurale, è possibile sc
 
 Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di distribuirlo per l'uso.
 
-1.  Passare a sintesi vocale **> test > personalizzato**.
+1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > test**.
 
 2.  Fare clic su **Aggiungi test**.
 
@@ -117,7 +117,7 @@ Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di
     > [!NOTE]
     > La lingua del testo deve corrispondere a quella del carattere voce. Solo i modelli con training completato possono essere testati. In questo passaggio è supportato solo testo normale.
 
-5.  Scegliere **Crea**.
+5.  Fare clic su **Crea**.
 
 Dopo aver inviato la richiesta di test, si tornerà alla pagina test. La tabella ora include una voce che corrisponde alla nuova richiesta e alla colonna di stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna stato viene indicato **succeeded**, è possibile riprodurre l'audio oppure scaricare l'input di testo (un file con estensione txt) e l'output audio (un file con estensione wav) ed effettuare un provino per la qualità.
 

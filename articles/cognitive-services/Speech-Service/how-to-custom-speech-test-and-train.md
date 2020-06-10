@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725551"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628060"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
-Quando si esegue il test dell'accuratezza del riconoscimento vocale Microsoft o del training dei modelli personalizzati, saranno necessari dati audio e di testo. In questa pagina vengono illustrati i tipi di dati, come usarli e gestirli.
+Quando si esegue il test dell'accuratezza del riconoscimento vocale Microsoft o del training dei modelli personalizzati, saranno necessari dati audio e di testo. In questa pagina vengono descritti i tipi di dati necessari per un modello di riconoscimento vocale personalizzato.
+
+## <a name="data-diversity"></a>Diversità dei dati
+
+Testo e audio usati per testare ed eseguire il training di un modello personalizzato devono includere esempi da un set diversificato di altoparlanti e scenari per cui è necessario che il modello sia in grado di riconoscere.
+Considerare questi fattori quando si raccolgono i dati per il training e il testing del modello personalizzato:
+
+* I dati audio di testo e sintesi vocale devono comprendere i tipi di istruzioni verbali che gli utenti faranno quando interagiscono con il modello. Ad esempio, un modello che aumenta e riduce la temperatura necessita di training sulle istruzioni che possono essere eseguite da persone per richiedere tali modifiche.
+* È necessario che i dati includano tutte le varianze vocali che dovranno essere riconosciute dal modello. Molti fattori possono variare la voce, inclusi accenti, dialetti, combinazione di lingue, età, sesso, tono vocale, livello di stress e ora del giorno.
+* È necessario includere esempi da ambienti diversi (interni, esterni, rumori stradali) in cui verrà usato il modello.
+* L'audio deve essere raccolto usando i dispositivi hardware che verranno usati dal sistema di produzione. Se il modello deve identificare il riconoscimento vocale registrato sui dispositivi di registrazione di qualità variabile, i dati audio forniti per il training del modello devono rappresentare anche questi diversi scenari.
+* È possibile aggiungere più dati al modello in un secondo momento, ma è necessario tenere in considerazione il set di dati in modo diverso e rappresentativo delle esigenze del progetto.
+* L'inclusione di dati che *non* rientrano nelle esigenze di riconoscimento del modello personalizzato può danneggiare la qualità complessiva, quindi non includere i dati che non devono essere trascritti dal modello.
+
+Un modello sottoposto a training su un subset di scenari può essere eseguito correttamente in questi scenari. Scegliere con attenzione i dati che rappresentano l'ambito completo degli scenari necessari per riconoscere il modello personalizzato.
+
+> [!TIP]
+> Inizia con piccoli set di dati di esempio che corrispondono alla lingua e all'acustica che il tuo modello incontrerà.
+> Registrare, ad esempio, un campione piccolo ma rappresentativo di audio sullo stesso hardware e nello stesso ambiente acustico che il modello troverà negli scenari di produzione.
+> I set di dati di piccole dimensioni dei dati rappresentativi possono esporre problemi prima di investire nella raccolta di set di dati di dimensioni molto più grandi per il training.
 
 ## <a name="data-types"></a>Tipi di dati
 
@@ -55,7 +74,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà                 | Value                 |
+| Proprietà                 | valore                 |
 |--------------------------|-----------------------|
 | Formato file              | RIFF (WAV)            |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz |
@@ -83,7 +102,7 @@ Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microso
 
 I file audio possono avere un silenzio all'inizio e alla fine della registrazione. Se possibile, includere almeno un mezzo secondo di silenzio prima e dopo il riconoscimento vocale in ogni file di esempio. Anche se l'audio con un volume di registrazione basso o un rumore di fondo a disturbo non è utile, non dovrebbe danneggiare il modello personalizzato. Provare sempre a aggiornare i microfoni e l'hardware di elaborazione dei segnali prima di raccogliere esempi di audio.
 
-| Proprietà                 | Value                               |
+| Proprietà                 | valore                               |
 |--------------------------|-------------------------------------|
 | Formato file              | RIFF (WAV)                          |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz               |
@@ -136,7 +155,7 @@ Come materiale sussidiario generale, l'adattamento del modello è più efficace 
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le espressioni sia formattato correttamente:
 
-| Proprietà | Value |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | UTF-8 BOM |
 | N. di espressioni per riga | 1 |
@@ -167,14 +186,14 @@ Il form vocale è la sequenza fonetica digitata. Può essere costituito da lette
 
 La pronuncia personalizzata è disponibile in inglese ( `en-US` ) e tedesco ( `de-DE` ). Questa tabella mostra i caratteri supportati per lingua:
 
-| Linguaggio | Locale | Caratteri |
+| Linguaggio | Impostazioni locali | Caratteri |
 |----------|--------|------------|
 | Inglese | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tedesco | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Usare la tabella seguente per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di dimensioni ridotte e devono contenere solo pochi kilobyte.
 
-| Proprietà | Value |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | BOM UTF-8 (ANSI è supportato anche per l'inglese) |
 | numero di pronunce per riga | 1 |

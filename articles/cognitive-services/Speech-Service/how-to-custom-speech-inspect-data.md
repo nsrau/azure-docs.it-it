@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a8fec876556d943d29756a38ffc27ae8095e3c4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466239"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629047"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
 
@@ -33,7 +33,7 @@ In questa pagina si apprenderà come esaminare visivamente la qualità del model
 Per creare un test, seguire queste istruzioni:
 
 1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
-2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > test**.
+2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > [nome del progetto] > test**.
 3. Fare clic su **Aggiungi test**.
 4. Selezionare **Controlla qualità (dati solo audio)**. Assegnare al test un nome, una descrizione e selezionare il set di dati audio.
 5. Selezionare fino a due modelli che si desidera testare.

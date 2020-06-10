@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67341717"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607034"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token Insights per ottenere informazioni dettagliate per un'immagine
 
-L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](overview.md). Questo articolo illustra l'uso di un token di informazioni dettagliate. Per esempi che illustrano come caricare un'immagine per ottenere informazioni dettagliate, vedere le guide introduttive ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](overview.md). Questo articolo illustra l'uso di un token di informazioni dettagliate. Per esempi che illustrano come caricare un'immagine per ottenere informazioni dettagliate, vedere le guide introduttive ([C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
-Se si invia Ricerca visiva Bing un token o un URL dell'immagine, di seguito vengono indicati i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere `Content-Disposition` l'intestazione ed è necessario impostare il `name` relativo parametro su "knowledgeRequest". Per informazioni dettagliate sull' `imageInfo` oggetto, vedere la richiesta:
+Se si invia Ricerca visiva Bing un token o un URL dell'immagine, di seguito vengono indicati i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere l' `Content-Disposition` intestazione ed è necessario impostare il relativo `name` parametro su "knowledgeRequest". Per informazioni dettagliate sull' `imageInfo` oggetto, vedere la richiesta:
 
 ```json
 {
@@ -58,7 +59,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Per esempi che usano il token Insights, vedere [C#](#use-with-c) | [Java](#use-with-java) | [node. js](#use-with-nodejs) | [Python](#use-with-python).
+Per esempi che usano il token Insights, vedere [C#](#use-with-c)  |  [Java](#use-with-java)  |  [node. js](#use-with-nodejs)  |  [Python](#use-with-python).
 
 ## <a name="use-with-c"></a>Usare con C #
 
