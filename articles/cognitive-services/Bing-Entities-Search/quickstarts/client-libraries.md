@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Ricerca entità Bing'
+title: 'Avvio rapido: Usare la libreria client di Ricerca entità Bing'
 titleSuffix: Azure Cognitive Services
 description: L'API Ricerca entità offre librerie client che semplificano l'integrazione delle funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.author: aahi
-ms.openlocfilehash: 206d3514e231fdedc6c13592da0c51d2f93bbe84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 507b0e8a777642b374eecf03110cc5fb0b65b10d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136592"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604168"
 ---
-# <a name="quickstart-use-the-bing-entity-search-client-library"></a>Guida introduttiva: Usare la libreria client di Ricerca entità Bing
+# <a name="quickstart-use-the-bing-entity-search-client-library"></a>Avvio rapido: Usare la libreria client di Ricerca entità Bing
 
 ::: zone pivot="programming-language-csharp"
 

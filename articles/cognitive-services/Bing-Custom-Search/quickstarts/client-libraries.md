@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Ricerca personalizzata Bing'
+title: 'Avvio rapido: Usare la libreria client di Ricerca personalizzata Bing'
 titleSuffix: Azure Cognitive Services
 description: L'API Ricerca personalizzata offre librerie client che semplificano l'integrazione delle funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 91beae69489c8ac7741b173b25fdbc87c861a9e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 6f0a40b5fd32f56af97a492880bbcaff4cbe6f27
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78270937"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608282"
 ---
-# <a name="quickstart-use-the-bing-custom-search-client-library"></a>Guida introduttiva: Usare la libreria client di Ricerca personalizzata Bing
+# <a name="quickstart-use-the-bing-custom-search-client-library"></a>Avvio rapido: Usare la libreria client di Ricerca personalizzata Bing
 
 ::: zone pivot="programming-language-csharp"
 

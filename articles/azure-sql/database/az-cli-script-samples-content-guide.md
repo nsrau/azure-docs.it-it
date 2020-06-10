@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1006b8719a1141bd38792bdbbe116d0c477071dd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190050"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344663"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Esempi dell'interfaccia della riga di comando di Azure per Database SQL di Azure e Istanza gestita di SQL 
  
@@ -57,7 +57,7 @@ La tabella seguente contiene collegamenti a esempi di script dell'interfaccia de
 | [Importare un database da un file BACPAC](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Importa un database nel database SQL da un file BACPAC. |
 |||
 
-Altre informazioni sull'[API dell'interfaccia della riga di comando di Azure per i database singoli](single-database-manage.md#azure-cli).
+Altre informazioni sull'[API dell'interfaccia della riga di comando di Azure per i database singoli](single-database-manage.md#the-azure-cli).
 
 # <a name="azure-sql-managed-instance"></a>[Istanza gestita di database SQL di Azure](#tab/managed-instance)
 

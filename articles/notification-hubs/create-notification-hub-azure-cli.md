@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300013"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485140"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Avvio rapido: Creare un hub di notifica di Azure con l'interfaccia della riga di comando di Azure
 
@@ -112,7 +112,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 2. Ottenere un elenco di spazi dei nomi.
 
-   Per visualizzare informazioni dettagliate sul nuovo spazio dei nomi, usare il comando [az notification-hub namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list).  Il parametro `--resource-group` è facoltativo se si vogliono visualizzare tutti gli spazi dei nomi per una sottoscrizione.
+   Per visualizzare informazioni dettagliate sul nuovo spazio dei nomi, usare il comando [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list).  Il parametro `--resource-group` è facoltativo se si vogliono visualizzare tutti gli spazi dei nomi per una sottoscrizione.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 3. Ottenere un elenco di hub di notifica.
 
-   L'interfaccia della riga di comando di Azure restituisce un messaggio di esito positivo o di errore con ogni comando eseguito. Risulta comunque utile potere eseguire una query per ottenere un elenco di hub di notifica.  Il comando [az notification-hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) è stato progettato per questa finalità.
+   L'interfaccia della riga di comando di Azure restituisce un messaggio di esito positivo o di errore con ogni comando eseguito. Risulta comunque utile potere eseguire una query per ottenere un elenco di hub di notifica.  Il comando [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) è stato progettato per questa finalità.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

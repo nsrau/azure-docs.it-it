@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: a4aa7240cb91ef1048626b1578d7ab9e649832c6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263721"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558075"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Avvio rapido: Creare un registro contenitori con replica geografica usando un modello di Resource Manager
 

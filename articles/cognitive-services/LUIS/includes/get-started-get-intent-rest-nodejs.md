@@ -6,15 +6,17 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: f60b4391f5b68f163eb2e97153667d82454639d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 05142c1d98906a591fae41658c5c7b9d36cdb8c4
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654272"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418040"
 ---
+[Documentazione di riferimento](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [Esempio](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-predict-with-rest/predict.js)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Linguaggio di programmazione [Node.js](https://nodejs.org/)
@@ -50,58 +52,15 @@ Usare Node.js per eseguire query sull'[endpoint di previsione](https://aka.ms/lu
 
 1. Copiare il frammento di codice seguente in un file denominato `predict.js`:
 
-    ```javascript
-    var requestPromise = require('request-promise');
-    var queryString = require('querystring');
+    [!code-javascript[Code snippet](~/cognitive-services-quickstart-code/javascript/LUIS/node-predict-with-rest/predict.js)]
 
-    // Analyze a string utterance.
-    getPrediction = async () => {
-
-        //////////
-        // Values to modify.
-
-        // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-        const LUIS_appId = "YOUR-APP-ID";
-
-        // YOUR-PREDICTION-KEY: Your LUIS authoring key, 32 character value.
-        const LUIS_predictionKey = "YOUR-PREDICTION-KEY";
-
-        // YOUR-PREDICTION-ENDPOINT: Replace this with your authoring key endpoint.
-        // For example, "https://westus.api.cognitive.microsoft.com/"
-        const LUIS_endpoint = "YOUR-PREDICTION-ENDPOINT";
-
-        // The utterance you want to use.
-        const utterance = "I want a deep dish supreme pizza with extra cheese, hold the onions.";
-        //////////
-
-        // Create query string
-        const queryParams = {
-            "show-all-intents": true,
-            "verbose":  true,
-            "query": utterance,
-            "subscription-key": LUIS_predictionKey
-        }
-
-        // Create the URI for the REST call.
-        const URI = `${LUIS_endpoint}luis/prediction/v3.0/apps/${LUIS_appId}/slots/production/predict?${queryString.stringify(queryParams)}`
-
-        // Send the REST call.
-        const response = await requestPromise(URI);
-
-        // Display the response from the REST call.
-        console.log(response);
-    }
-
-    // Pass an utterance to the sample LUIS app
-    getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
-    ```
-
-1. Sostituire i valori `YOUR-KEY` e `YOUR-ENDPOINT` con la chiave di **runtime** e l'endpoint di previsione.
+1. Sostituire i valori che iniziano con `YOUR-` con i propri valori.
 
     |Informazioni|Scopo|
     |--|--|
-    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
-    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-APP-ID`|L'ID app. Disponibile nel portale LUIS, pagina Impostazioni applicazione per l'app.
+    |`YOUR-PREDICTION-KEY`|La chiave di previsione di 32 caratteri. Disponibile nel portale LUIS, pagina delle risorse di Azure per l'app.
+    |`YOUR-PREDICTION-ENDPOINT`| L'endpoint dell'URL di previsione. Disponibile nel portale LUIS, pagina delle risorse di Azure per l'app.<br>Ad esempio: `https://westus.api.cognitive.microsoft.com/`.|
 
  1. Esaminare la risposta di previsione restituita in formato JSON:
 

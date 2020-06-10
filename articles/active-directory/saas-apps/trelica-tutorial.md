@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402449"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994273"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Trelica
 
@@ -66,12 +66,12 @@ Configurare e testare l'accesso SSO di Azure AD con Trelica usando un utente di 
 
 Per configurare e testare l'accesso SSO di Azure AD con Trelica, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Trelica](#configure-trelica-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Trelica](#create-a-trelica-test-user)** : per avere una controparte di B.Simon in Trelica. Tale controparte è collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -90,9 +90,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     1. Nella casella **URL di risposta** immettere un URL nel formato `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
     > [!NOTE]
-    > Il valore di **URL di risposta** non è reale. Aggiornare questo valore con l'URL di risposta effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Trelica](mailto:support@trelica.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore di URL di risposta non è reale. Aggiornarlo con l'URL di risposta effettivo, noto anche come ACS.
+    > Per trovarlo, accedere a Trelica e passare alla [pagina di configurazione dei provider di identità SAML](https://app.trelica.com/Admin/Profile/SAML) facendo clic su Admin > Account > SAML (Amministrazione > Account > SAML). Fare clic sul pulsante di copia accanto a **Assertion Consumer Service (ACS) URL** (URL servizio consumer di asserzione) per inserirlo negli Appunti, pronto per essere incollato nella casella di testo **URL di risposta** in Azure AD.
+    > Per eventuali domande, vedere la [documentazione della guida di Trelica](https://docs.trelica.com/admin/saml/azure-ad) o contattare il [team di supporto clienti di Trelica](mailto:support@trelica.com).
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** passare alla sezione **Certificato di firma SAML**. A destra di **URL dei metadati di federazione dell'app** selezionare il pulsante di copia per copiare l'URL. Salvare l'URL nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
 
     ![Sezione Certificato di firma SAML con il pulsante di copia evidenziato accanto a URL dei metadati di federazione dell'app](common/copy-metadataurl.png)
 
@@ -103,10 +105,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro all'estrema sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B.Simon**.
+   1. Nel campo **Nome** immettere **B. Simon**.
    1. Nel campo **Nome utente** immettere **B.Simon@** _dominio_aziendale_ **.** _estensione_. Ad esempio: B.Simon@contoso.com.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Create** (Crea).
+   1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
@@ -128,11 +130,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-trelica-sso"></a>Configurare l'accesso Single Sign-On di Trelica
 
-Per configurare l'accesso Single Sign-On sul lato **Trelica**, inviare il valore di **URL dei metadati di federazione dell'app** copiato al [team di supporto di Trelica](mailto:support@trelica.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Trelica**, passare alla [pagina di configurazione dei provider di identità SAML](https://app.trelica.com/Admin/Profile/SAML) facendo clic su Admin > Account > SAML (Amministrazione > Account > SAML). Fare clic sul pulsante **New** (Nuovo). Immettere **Azure AD** come nome e scegliere **Metadata from url** (Metadati da URL) come tipo di metadati. Incollare l'**URL dei metadati di federazione dell'app** copiato da Azure AD nel campo **Metadata url** (URL metadati) in Trelica.
+
+Per eventuali domande, vedere la [documentazione della guida di Trelica](https://docs.trelica.com/admin/saml/azure-ad) o contattare il [team di supporto clienti di Trelica](mailto:support@trelica.com).
 
 ### <a name="create-a-trelica-test-user"></a>Creare l'utente di test di Trelica
-
-In questa sezione viene creato un utente di nome B.Simon in Trelica.
 
 Trelica supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. In questa sezione non è necessario alcun intervento da parte dell'utente. Se non esiste già un utente in Trelica, ne viene creato uno nuovo dopo l'autenticazione.
 

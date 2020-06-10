@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un gateway NAT - Portale di Azure'
+title: 'Avvio rapido: Creare un gateway NAT - Portale di Azure'
 titlesuffix: Azure Virtual Network NAT
 description: Questa guida di avvio rapido mostra come creare un gateway NAT usando il portale di Azure
 services: virtual-network
@@ -8,20 +8,21 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066394"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341236"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Guida introduttiva: Creare un gateway NAT usando il portale di Azure
+# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Avvio rapido: Creare un gateway NAT usando il portale di Azure
 
 Questa guida di avvio rapido illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 

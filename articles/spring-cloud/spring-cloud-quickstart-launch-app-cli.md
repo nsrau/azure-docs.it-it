@@ -1,19 +1,19 @@
 ---
-title: "Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure"
+title: "Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene distribuita un'applicazione di esempio in Azure Spring Cloud con l'interfaccia della riga di comando di Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: c05e53bd8ad8ade8c1e42729f46c99a0059c4dce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ab6eb9b516ca30d92437bdc358e3f1f56cfe8e71
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470861"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457219"
 ---
-# <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
 
 Azure Spring Cloud consente di eseguire facilmente un'applicazione di microservizi basata su Spring Boot in Azure.
 
@@ -154,16 +154,8 @@ az spring-cloud app update -n gateway --is-public true
 
 2. Eseguire una query sull'applicazione **gateway** per trovare il relativo indirizzo IP pubblico in modo da verificare se è in esecuzione:
 
-Linux:
-
 ```azurecli
-az spring-cloud app show --name gateway | grep url
-```
-
-Windows:
-
-```azurecli
-az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
+az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Passare all'URL specificato dal comando precedente per eseguire l'applicazione PiggyMetrics.

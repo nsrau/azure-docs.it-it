@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Ricerca immagini Bing'
+title: 'Avvio rapido: Usare la libreria client di Ricerca immagini Bing'
 titleSuffix: Azure Cognitive Services
 description: L'API Ricerca immagini offre librerie client che semplificano l'integrazione delle funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4fa00a3f218276804c80229affb23e99e7994cb3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 430558049aecd6dbf6ccb504a93e8a20f9038bf2
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899371"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606718"
 ---
-# <a name="quickstart-use-the-bing-image-search-client-library"></a>Guida introduttiva: Usare la libreria client di Ricerca immagini Bing
+# <a name="quickstart-use-the-bing-image-search-client-library"></a>Avvio rapido: Usare la libreria client di Ricerca immagini Bing
 
 ::: zone pivot="programming-language-csharp"
 

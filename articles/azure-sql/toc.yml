@@ -967,8 +967,6 @@
                   items:
                     - name: Interfaccia della riga di comando delle macchine virtuali di Azure SQL
                       href: virtual-machines/windows/availability-group-az-cli-configure.md
-                    - name: Modello del portale di Azure
-                      href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
                     - name: Modelli di avvio rapido di Azure
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Più aree geografiche

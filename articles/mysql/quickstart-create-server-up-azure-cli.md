@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Creare un database di Azure per MySQL con az mysql up'
+title: 'Avvio rapido: Creare un database di Azure per MySQL con az mysql up'
 description: Guida di avvio rapido per creare un server Database di Azure per MySQL con un comando dell'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067714"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608026"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Guida di avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
+# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
 
 > [!IMPORTANT]
 > Il comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) dell'interfaccia della riga di comando di Azure è disponibile in anteprima.
@@ -64,7 +64,7 @@ sku-name | GP_Gen5_2 | Il nome dello SKU. Segue la convenzione {piano tariffario
 backup-retention | 7 | Specifica per quanto tempo deve essere conservato un backup. L'unità è giorni.
 geo-redundant-backup | Disabled | Indica se abilitare i backup con ridondanza geografica per questo server.
 posizione | westus2 | Località di Azure per il server.
-ssl-enforcement | Disabled | Indica se abilitare SSL per questo server.
+ssl-enforcement | Attivato | Indica se abilitare SSL per questo server.
 storage-size | 5120 | Capacità di archiviazione del server (l'unità è MB).
 version | 5.7 | La versione principale di MySQL.
 admin-user | Generata dal sistema | Nome utente per l'account di accesso dell'amministratore.

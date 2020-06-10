@@ -19,8 +19,6 @@
       href: terminology.md
     - name: Ruoli e requisiti
       href: concepts-roles-permissions.md
-    - name: Ripristino di emergenza
-      href: disaster-recovery.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -43,6 +41,10 @@
       href: how-to-delete-invitation.md
     - name: Revocare una sottoscrizione di condivisione
       href: how-to-revoke-share-subscription.md
+    - name: Sicurezza
+      href: security.md
+    - name: Ripristino di emergenza
+      href: disaster-recovery.md
 - name: Informazioni di riferimento
   items:
     - name: .NET

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Content Moderator'
+title: 'Avvio rapido: Usare la libreria client di Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: L'API Content Moderator offre librerie client che semplificano l'integrazione di Content Moderator nelle applicazioni.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
-ms.openlocfilehash: 36160c4fb2ee49b5b516c23d4debd8ab5a9c98d3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: f7de66a2abde812fc5916277288d5176fa5bfbf7
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186522"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611002"
 ---
-# <a name="quickstart-use-the-content-moderator-client-library"></a>Guida introduttiva: Usare la libreria client di Content Moderator
+# <a name="quickstart-use-the-content-moderator-client-library"></a>Avvio rapido: Usare la libreria client di Content Moderator
 
 ::: zone pivot="programming-language-csharp"
 

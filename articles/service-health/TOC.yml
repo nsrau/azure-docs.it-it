@@ -30,11 +30,9 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Inviare avvisi a OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Recuperare gli eventi di integrità con REST
-      href: service-health-rest.md
     - name: Configurare gli avvisi per gli eventi di integrità delle risorse
       href: resource-health-alert-arm-template-guide.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Proprietà delle notifiche sull'integrità dei servizi
       href: service-health-notifications-properties.md

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Ricerca video Bing'
+title: 'Avvio rapido: Usare la libreria client di Ricerca video Bing'
 titleSuffix: Azure Cognitive Services
 description: L'API Ricerca video offre librerie client che semplificano l'integrazione delle funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 03/19/2020
 ms.author: aahi
-ms.openlocfilehash: 5e3d6ea4d2defa9567d142063bcdcdeef663e1f2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: aef9f086f27a1d184723b712760bff3c1239c097
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289868"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608717"
 ---
-# <a name="quickstart-use-the-bing-video-search-client-library"></a>Guida introduttiva: Usare la libreria client di Ricerca video Bing
+# <a name="quickstart-use-the-bing-video-search-client-library"></a>Avvio rapido: Usare la libreria client di Ricerca video Bing
 
 ::: zone pivot="programming-language-csharp"
 

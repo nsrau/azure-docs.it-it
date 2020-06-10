@@ -624,7 +624,7 @@
           href: ../extensions/agent-windows.md
         - name: Attenuazione dell'esecuzione speculativa
           href: mitigate-se.md
-        - name: Monitorare i metadati
+        - name: Servizio metadati dell'istanza di Azure
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
           href: nested-virtualization.md

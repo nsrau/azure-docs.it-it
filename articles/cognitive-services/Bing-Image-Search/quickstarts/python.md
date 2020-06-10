@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Python"
+title: "Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Python"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando Python e ricevere risposte JSON.
 services: cognitive-services
@@ -10,15 +10,15 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 6cdee6dd30c1af44b321b12c96f3e2ecdcd0d2b3
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, tracking-python
+ms.openlocfilehash: c913e6a8f1acf6603fad7a0b93758e5a7678f9a5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871977"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609200"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Python
 
 Usare questa guida di avvio rapido per informazioni su come inviare richieste di ricerca all'API Ricerca immagini Bing. Questa applicazione Python invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di Python per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Python per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 1071f3dabf7148381edecedce495f645c52e748d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378552"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610254"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Usare questo argomento di avvio rapido per iniziare ad analizzare la lingua con l'API REST Analisi del testo e Python. Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre le frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities).

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a490550bf6652186c80268d4a99bff931897fcd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251886"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344187"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -140,9 +140,6 @@ Creare macchine virtuali in zone diverse (area 1, 2 e 3) per l'area che può fun
     - *myNetworkSecurityGroup* come nome del gruppo di sicurezza di rete (firewall).
 5. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
 6. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
-  
-   ![Creare una macchina virtuale](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Creare una seconda macchina virtuale denominata *VM2* nella zona 2 e una terza macchina virtuale nella zona 3, con *myVnet* come rete virtuale, *myBackendSubnet* come subnet e **myNetworkSecurityGroup* come gruppo di sicurezza di rete, seguendo i passaggi da 1 a 6.
 
 ### <a name="install-iis-on-vms"></a>Installare IIS in macchine virtuali
