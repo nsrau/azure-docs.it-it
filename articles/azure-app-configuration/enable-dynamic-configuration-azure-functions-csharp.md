@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0cd86aa647655f92f4ae1b5de50f506e9aad0f4e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74187295"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558150"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Esercitazione: Usare la configurazione dinamica in un'app di Funzioni di Azure
 
@@ -67,7 +67,7 @@ In questa esercitazione verranno illustrate le procedure per:
     }
     ```
 
-3. Aggiornare il metodo `Run` e segnalare di aggiornare la configurazione usando il metodo `Refresh` all'inizio della chiamata di Funzioni. Questa operazione non verrà eseguita se non viene raggiunta la finestra temporale di scadenza della cache. Rimuovere l'operatore `await` se si preferisce che la configurazione venga aggiornata senza blocchi.
+3. Aggiornare il metodo `Run` e segnalare di aggiornare la configurazione usando il metodo `TryRefreshAsync` all'inizio della chiamata di Funzioni. Questa operazione non verrà eseguita se non viene raggiunta la finestra temporale di scadenza della cache. Rimuovere l'operatore `await` se si preferisce che la configurazione venga aggiornata senza blocchi.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -75,7 +75,7 @@ In questa esercitazione verranno illustrate le procedure per:
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
