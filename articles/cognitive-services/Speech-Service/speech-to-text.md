@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650595"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678068"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -25,7 +25,7 @@ Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come ric
 
 Per impostazione predefinita, il servizio di sintesi vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, di lingua e di pronuncia personalizzati. La personalizzazione è utile per risolvere il rumore di ambiente o il vocabolario specifico del settore.
 
-Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vocale consente inoltre la funzionalità di [valutazione della pronuncia](rest-speech-to-text.md#pronunciation-assessment-parameters) per valutare la pronuncia vocale e fornire commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Con la valutazione della pronuncia, gli Learner del linguaggio possono esercitarsi, ottenere commenti e suggerimenti istantanei e migliorare la loro pronuncia in modo che possano comunicare e presentare in tutta sicurezza. Gli educatori possono usare la funzionalità per valutare la pronuncia di più speaker in tempo reale. La funzionalità supporta attualmente la lingua inglese (Stati Uniti) e mette in correlazione le valutazioni di riconoscimento vocale eseguite dagli esperti.
+Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vocale consente inoltre la funzionalità di [valutazione della pronuncia](rest-speech-to-text.md#pronunciation-assessment-parameters) per valutare la pronuncia vocale e fornire commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Con la valutazione della pronuncia, gli Learner del linguaggio possono esercitarsi, ottenere commenti e suggerimenti istantanei e migliorare la loro pronuncia in modo che possano comunicare e presentare in tutta sicurezza. Gli educatori possono usare la funzionalità per valutare la pronuncia di più speaker in tempo reale. La funzionalità supporta attualmente la lingua inglese (Stati Uniti) e mette in correlazione le valutazioni dei dialoghi eseguite dagli esperti.
 
 > [!NOTE]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.

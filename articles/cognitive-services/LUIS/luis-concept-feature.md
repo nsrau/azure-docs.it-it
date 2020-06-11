@@ -2,29 +2,70 @@
 title: Funzionalità-LUIS
 description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742705"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677592"
 ---
 # <a name="machine-learning-ml-features"></a>Funzionalità di Machine Learning (ML)
 
-In Machine Learning, una **funzionalità**   è un tratto o un attributo distintivo dei dati osservati dal sistema.
+In Machine Learning, una **funzionalità**   è un tratto o un attributo distintivo dei dati osservati e appreso dal sistema.
 
 Le funzionalità di Machine Learning offrono a LUIS importanti indicazioni per la posizione in cui cercare gli elementi che distinguono un concetto. Sono suggerimenti che LUIS può usare, ma non regole rigide.  Questi hint vengono usati insieme alle etichette per trovare i dati.
 
- LUIS supporta entrambi gli elenchi di frasi e l'uso di altre entità come funzionalità:
+## <a name="what-is-a-feature"></a>Che cos'è una funzionalità
+
+Una funzionalità è una caratteristica distintiva, che può essere descritta come funzione: f (x) = y. La funzionalità viene usata per individuare il punto in cui osservare, nell'espressione di esempio, il tratto di distinzione. Quando si crea lo schema, cosa si conosce per l'espressione di esempio che indica il tratto? La risposta è la migliore guida alla creazione di funzionalità.
+
+## <a name="types-of-features"></a>Tipi di funzionalità
+
+ LUIS supporta sia gli elenchi di frasi che i modelli come funzionalità:
 * Funzionalità elenco frasi
 * Modello (finalità o entità) come funzionalità
 
 Le funzionalità devono essere considerate una parte necessaria della progettazione dello schema.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Come trovare le funzionalità nelle espressioni di esempio
+
+Poiché LUIS è un'applicazione basata sul linguaggio, le funzionalità saranno basate su testo. Scegliere il testo che indica il tratto che si vuole distinguere. Per LUIS, l'unità più piccola basata su testo è il token. Per la lingua inglese, un token è un intervallo contiguo, senza spazi o punteggiatura, di lettere e numeri. Uno spazio non è un token.
+
+Poiché gli spazi e la punteggiatura non sono token, concentrarsi sugli indizi del testo che è possibile usare come funzionalità. Ricordarsi di includere varianti di Word, ad esempio:
+* forme plurali
+* verbo teso
+* abbreviazione
+* ortografia e ortografia
+
+Il testo, come tratto distinto, deve:
+* Trovare la corrispondenza con una parola o una frase esatta: è consigliabile aggiungere un'entità di espressione regolare o un'entità di elenco come funzionalità all'entità o alla finalità
+* Trovare la corrispondenza con un concetto noto, ad esempio date, ore o nomi di persone, usare un'entità predefinita come funzionalità per l'entità o finalità
+* Informazioni sui nuovi esempi nel tempo: usare un elenco di frasi di alcuni esempi del concetto come funzionalità per l'entità o finalità
+
+## <a name="combine-features"></a>Combinare le funzionalità
+
+Poiché sono disponibili diverse opzioni per la descrizione di un tratto, è possibile usare più di una funzionalità che consente di descrivere tale tratto o concetto. Un abbinamento comune prevede l'uso di una funzionalità elenco di frasi e di uno dei tipi di entità usati comunemente come funzionalità: entità precompilata, entità di espressioni regolari o entità elenco.
+
+### <a name="ticket-booking-entity-example"></a>Esempio di entità prenotazione ticket
+
+Come primo esempio, si consideri un'app per la prenotazione di un volo con finalità di prenotazione dei voli e un'entità di prenotazione dei biglietti.
+
+L'entità prenotazione ticket è un'entità appresa dal computer per la destinazione del volo. Per estrarre il percorso, usare due funzionalità:
+* Elenco di parole rilevanti, ad esempio `plane` , `flight` , `reservation` ,`ticket`
+* Entità predefinita `geographyV2` come funzionalità per l'entità
+
+### <a name="pizza-entity-example"></a>Esempio di entità pizza
+
+Per un altro esempio, si consideri un'app per l'ordine di una pizza con una finalità create Pizza Order e un'entità pizza.
+
+L'entità pizza è un'entità di Machine Learn per i dettagli della pizza. Per estrarre i dettagli, usare due funzionalità:
+* Elenco di parole rilevanti, ad esempio `cheese` , `crust` , `pepperoni` ,`pineapple`
+* Entità predefinita `number` come funzionalità per l'entità
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>Elenco di frasi per un particolare concetto
 
-Un elenco di frasi è un elenco di parole o frasi che incapsula un particolare concetto.
+Un elenco di frasi è un elenco di parole o frasi che incapsula un particolare concetto e viene applicato come corrispondenza senza distinzione tra maiuscole e minuscole a livello di token.
 
 Quando si aggiunge un elenco di frasi, è possibile impostare la funzionalità come:
 * **[Globale](#global-features)**. Una funzionalità globale si applica all'intera app.
@@ -55,6 +96,18 @@ Se si desidera estrarre le condizioni mediche:
 * Creare prima di tutto espressioni di esempio ed etichettare i termini medici all'interno di tali enunciazioni.
 * Creare quindi un elenco di frasi con esempi dei termini all'interno del dominio dell'oggetto. Questo elenco di frasi deve includere il termine effettivo etichettato e altri termini che descrivono lo stesso concetto.
 * Aggiungere l'elenco di frasi all'entità o alla sottoentità che estrae il concetto usato nell'elenco di frasi. Lo scenario più comune è un componente (figlio) di un'entità di machine learning. Se l'elenco di frasi deve essere applicato a tutti gli Intent o alle entità, contrassegnare l'elenco di frasi come elenco di frasi globali. Il `enabledForAllModels` flag controlla questo ambito del modello nell'API.
+
+### <a name="token-matches-for-a-phrase-list"></a>Corrispondenze del token per un elenco di frasi
+
+Un elenco di frasi si applica a livello di token, indipendentemente dalla distinzione tra maiuscole e minuscole. Il grafico seguente mostra in che modo un elenco di frasi contenente la parola `Ann` viene applicato alle varianti degli stessi caratteri nell'ordine specificato.
+
+
+| Variazione del token`Ann` | Corrispondenza elenco frasi quando viene trovato il token |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Sì: il token è`Ann`                  |
+| Ann                    | Sì: il token è`Ann`                  |
+| Anne                     | Nessun token è`Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -137,7 +190,7 @@ Continuando con l'esempio di indirizzo di spedizione, si supponga che la societ�
 
 |Nome canonico|Sinonimi|
 |--|--|
-|Stati Uniti|U.S.<br>U. S. A<br>US<br>USA<br>0|
+|Stati Uniti|U.S.<br>U. S. A<br>Stati Uniti<br>USA<br>0|
 
 L'applicazione client, ad esempio un bot di chat, può porre una domanda di seguito, in modo che il cliente possa capire che la selezione del paese/area geografica è limitata e _obbligatoria_.
 

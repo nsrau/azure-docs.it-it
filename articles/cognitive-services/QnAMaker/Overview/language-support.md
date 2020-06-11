@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c1b98a72af3442b596a9fdde66d254e3e5c2c19
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220556"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678614"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
 
@@ -69,7 +69,7 @@ L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker.
 |Polacco|
 |Portoghese|
 |Punjabi|
-|Rumeno|
+|Romeno|
 |Russo|
 |Serbo (alfabeto cirillico)|
 |Serbo (alfabeto latino)|

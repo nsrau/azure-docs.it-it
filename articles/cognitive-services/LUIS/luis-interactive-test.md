@@ -1,14 +1,14 @@
 ---
 title: Testare l'app nel portale di LUIS
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344153"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677738"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
@@ -65,9 +65,25 @@ Dal Pannello ispezione è possibile aggiungere l'espressione di test a uno scopo
 
 ## <a name="disable-required-features"></a>Disabilitare le funzionalità richieste
 
-Selezionare questa opzione per visualizzare l'elemento di stima se la funzionalità dell'entità non è necessaria.
+Questo elemento consente di determinare se l'app sottoposta a training sta stimando correttamente le entità in base alle funzionalità richieste. L'impostazione predefinita prevede l'applicazione della funzionalità come richiesto durante la stima. Selezionare questa opzione per visualizzare l'elemento di stima se la funzionalità della sottoentità non è necessaria.
 
-Questo elemento consente di determinare se l'app sottoposta a training sta stimando correttamente le entità in base alle funzionalità richieste. L'app sottoposta a training potrebbe stimare erroneamente un'entità appresa dal computer basata su un'etichetta non corretta di espressioni di esempio o la funzionalità richiesta non corrisponde al testo.
+### <a name="when-to-disable-required-features"></a>Quando disabilitare le funzionalità necessarie
+
+L'app sottoposta a training può prevedere una stima errata di un'entità appresa dal computer in base a uno dei seguenti:
+* Etichetta di espressioni di esempio non corretta.
+* La funzionalità richiesta non corrisponde al testo.
+
+Un esempio è un'entità appresa dal computer con una sottoentità del nome di una persona.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Screenshot dello schema di entità di LUIS Portal Machine-learned con la funzionalità richiesta":::
+
+Un enunciato di esempio per questa entità appresa dal computer è: `Assign Bob Jones to work on the new security feature` .
+
+L'estrazione dovrebbe essere `security feature` come descrizione del ticket e `Bob Jones` come ingegnere, due sottoentità dell' `Assign ticket` entità.
+
+Per consentire la corretta stima della sottoentità, aggiungere la funzionalità predefinita Entity [PersonName](luis-reference-prebuilt-person.md) AA a `engineer` . Se si rende necessaria la funzionalità, significa che la sottoentità verrà estratta solo se per il testo è prevista l'entità precompilata PersonName. Ciò significa che qualsiasi nome nel testo che non esegue la stima con PersonName SubEntità non verrà restituito come sottoentità con etichetta, `engineer` .
+
+Quando si usa il riquadro di test interattivo e si visualizza un'entità subenti, con una funzionalità obbligatoria, non esegue la stima, attiva/Rimuovi questa impostazione per verificare se la sottoentità verrebbe stimata senza che la funzionalità fosse richiesta. È possibile che la sottoentità possa essere stimata correttamente senza la funzionalità necessaria a causa dell'etichettatura corretta di espressioni di esempio.
 
 ## <a name="view-sentiment-results"></a>Visualizzare i risultati del sentiment
 

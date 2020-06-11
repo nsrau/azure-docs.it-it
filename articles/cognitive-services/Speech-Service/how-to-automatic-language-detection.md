@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a9fac89f529cfefbb8a8d82135838bb96e2689db
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658460"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669818"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per il riconoscimento vocale
 
@@ -29,7 +29,7 @@ In questo articolo si apprenderà come usare `AutoDetectSourceLanguageConfig` pe
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Rilevamento automatico della lingua con l'SDK di riconoscimento vocale
 
-Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di due lingue per rilevamento. Tenere presente questa limitazione quando si costruisce l' `AudoDetectSourceLanguageConfig` oggetto. Negli esempi seguenti verrà creato un oggetto, che `AutoDetectSourceLanguageConfig` verrà quindi usato per costruire un oggetto `SpeechRecognizer` .
+Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di quattro lingue per rilevamento. Tenere presente questa limitazione quando si costruisce l' `AudoDetectSourceLanguageConfig` oggetto. Negli esempi seguenti verrà creato un oggetto, che `AutoDetectSourceLanguageConfig` verrà quindi usato per costruire un oggetto `SpeechRecognizer` .
 
 > [!TIP]
 > È anche possibile specificare un modello personalizzato da usare quando si esegue il riconoscimento vocale in un testo. Per altre informazioni, vedere [usare un modello personalizzato per il rilevamento automatico della lingua](#use-a-custom-model-for-automatic-language-detection).

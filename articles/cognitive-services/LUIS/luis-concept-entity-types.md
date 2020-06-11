@@ -2,13 +2,13 @@
 title: Tipi di entità-LUIS
 description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682178"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676489"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
 
@@ -41,7 +41,9 @@ Sebbene siano necessari gli [Intent](luis-concept-intent.md) , le entità sono f
 
 Quando l'applicazione si sviluppa e viene individuata una nuova esigenza di dati, è possibile aggiungere le entità appropriate al modello LUIS in un secondo momento.
 
-## <a name="entity-compared-to-intent"></a>Entità e finalità
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>L'entità rappresenta l'estrazione dei dati
 
 L'entità rappresenta un concetto di dati _all'interno dell'espressione_. Una finalità classifica l' _intera espressione_.
 
@@ -53,6 +55,10 @@ Si considerino le quattro espressioni seguenti:
 |Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Il modello non dispone di una funzionalità obbligatoria da estrarre `something` in questo contesto e non è stato dichiarato alcun destinatario.|
 |Invia Bob a presente|sendSomething|`Bob`, `present`|Il modello estrae `Bob` aggiungendo una funzionalità obbligatoria dell'entità predefinita `personName` . Per estrarre è stata usata un'entità Machine Learning `present` .|
 |Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|I due elementi importanti dei dati, `Bob` e `box of chocolates` , sono stati estratti dalle entità di machine learning.|
+
+## <a name="label-entities-in-all-intents"></a>Etichettare entità in tutti gli Intent
+
+Le entità estraggono i dati indipendentemente dalla finalità prevista. Assicurarsi di contrassegnare _tutte le_ espressioni di esempio in tutti gli Intent. Il `None` preventivo mancato contrassegno dell'entità causa confusione anche se sono state apportate più espressioni di training per gli altri scopi.
 
 ## <a name="design-entities-for-decomposition"></a>Progetta entità per la scomposizione
 
