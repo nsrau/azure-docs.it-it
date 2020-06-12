@@ -1,6 +1,6 @@
 ---
-title: Scaricare e installare l'app Microsoft Authenticator-Azure AD
-description: Scaricare e installare l'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
+title: Scaricare e installare l'app Microsoft Authenticator - Azure AD
+description: Scaricare e installare l'app Microsoft Authenticator per verificare l'identità durante l'uso della verifica a due fattori.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,16 +8,16 @@ ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063901"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741364"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Scaricare e installare l'app Microsoft Authenticator
 
@@ -51,19 +51,19 @@ Installare la versione più recente dell'app Microsoft Authenticator, in base al
 - **Apple iOS.** Nel dispositivo Apple iOS passare all'App Store per [scaricare e installare l'app Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se non si è attualmente nel dispositivo mobile, è comunque possibile ottenere l'app Microsoft Authenticator inviando a se stessi un collegamento di download dalla [pagina Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>Se al momento non si sta usando il dispositivo mobile, è comunque possibile ottenere l'app Microsoft Authenticator mediante l'invio di un collegamento per il download dalla [pagina di Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver scaricato e installato l'app, è necessario aggiungere i diversi account. Per altre informazioni, vedi:
+Dopo aver scaricato e installato l'app, è necessario aggiungere i diversi account. Per altre informazioni, vedere:
 
-- **App Authenticator.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
+- **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
 - **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 

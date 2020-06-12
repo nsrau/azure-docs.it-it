@@ -1,15 +1,15 @@
 ---
-title: Creare relazioni tra attività per eseguire attività-Azure Batch
+title: Creare relazioni tra attività per eseguire attività
 description: Creare attività che dipendono dal completamento di altre attività per l'elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116486"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726384"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 
@@ -68,7 +68,7 @@ In Azure Batch è possibile usare tre scenari di relazioni tra attività di base
 |:---:| --- | --- |
 |  [Uno-a-uno](#one-to-one) |L'*attivitàB* dipende dall'*attivitàA* <p/> L'*attivitàB* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* |![Diagramma: relazione uno-a-uno tra attività][1] |
 |  [Uno-a-molti](#one-to-many) |L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*. <p/> L'*attivitàC* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* e dell'*attivitàB* |![Diagramma: relazione uno-a-molti tra attività][2] |
-|  [Intervallo di ID attività](#task-id-range) |L'*attivitàD* dipende da un intervallo di attività <p/> L'*attivitàD* sarà pianificata per l'esecuzione solo dopo il completamento corretto delle attività con ID compresi tra *1* e *10* |![Diagramma: relazione tra intervalli di ID attività][3] |
+|  [Intervallo di ID attività](#task-id-range) |L'*attivitàD* dipende da un intervallo di attività <p/> L'*attivitàD* sarà pianificata per l'esecuzione solo dopo il completamento corretto delle attività con ID compresi tra *1* e *10* |![Diagramma: dipendenza tra intervalli di ID attività][3] |
 
 > [!TIP]
 > È possibile creare relazioni **molti-a-molti**, ad esempio relazioni in cui le attività C, D, E e F dipendono dalle attività A e B. Questo tipo di relazione risulta utile, ad esempio, negli scenari di pre-elaborazione parallelizzata, in cui le attività downstream dipendono dall'output di più attività upstream.
@@ -142,7 +142,7 @@ Per impostazione predefinita, un'attività o un set di attività dipendenti veng
 
 Si supponga, ad esempio, un'attività dipendente in attesa di dati dal completamento dell'attività upstream. Se l'attività upstream non riesce, l'attività dipendente potrebbe comunque essere eseguita usando dati meno recenti. In questo caso, un'azione di dipendenza può specificare che l'attività dipendente è idonea per l'esecuzione nonostante l'errore dell'attività padre.
 
-Un'azione di dipendenza è basata su una condizione di uscita per l'attività padre. È possibile specificare un'azione di dipendenza per una qualsiasi delle condizioni di uscita seguenti. Per .NET, vedere la classe [ExitConditions][net_exitconditions] per altre informazioni.
+Un'azione di dipendenza è basata su una condizione di uscita per l'attività padre. È possibile specificare un'azione di dipendenza per una qualsiasi delle condizioni di uscita seguenti. Per .NET, vedere la classe [ExitConditions][net_exitconditions] per altre informazioni:
 
 - Quando si verifica un errore di pre-elaborazione.
 - Quando si verifica un errore di caricamento dei file. Se l'attività si chiude con un codice di uscita specificato tramite **exitCodes** o **exitCodeRanges** e quindi si verifica un errore di caricamento dei file, l'azione specificata dal codice di uscita ha la precedenza.
@@ -228,4 +228,4 @@ Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione di attiv
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagramma: relazione uno-a-uno"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"
-[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: dipendenza intervallo ID attività"
+[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: relazione tra intervalli di ID attività"

@@ -6,7 +6,7 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare il gateway applicazione - Portale
@@ -30,6 +30,10 @@
       href: tutorial-url-redirect-cli.md
     - name: Scalabilità automatica e ridondanza della zona
       href: tutorial-autoscale-ps.md
+    - name: Componente aggiuntivo del controller in ingresso per il servizio Azure Kubernetes (Greenfield)
+      href: tutorial-ingress-controller-add-on-new.md
+    - name: Componente aggiuntivo del controller in ingresso per il servizio Azure Kubernetes (Brownfield)
+      href: tutorial-ingress-controller-add-on-existing.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -136,10 +140,12 @@
               href: application-gateway-configure-ssl-policy-powershell.md
     - name: In ingresso per il servizio Azure Kubernetes
       items:
-        - name: Configurare con un gateway applicazione esistente
+        - name: In ingresso per il servizio Azure Kubernetes tramite Helm (Brownfield)
           href: ingress-controller-install-existing.md
-        - name: Configurare con un nuovo gateway applicazione
+        - name: In ingresso per il servizio Azure Kubernetes tramite Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Disabilitare e riabilitare il componente aggiuntivo del controller in ingresso per il servizio Azure Kubernetes
+          href: ingress-controller-disable-addon.md
         - name: Abilitare l'affinità basata su cookie
           href: ingress-controller-cookie-affinity.md
         - name: Abilitare il supporto per più spazi dei nomi
@@ -150,7 +156,7 @@
           href: ingress-controller-add-health-probes.md
         - name: Usare il gateway applicazione per esporre il servizio Azure Kubernetes tramite HTTP/HTTPS
           href: ingress-controller-expose-service-over-http-https.md
-        - name: Aggiornare il controller di ingresso con Helm
+        - name: Aggiornare il controller in ingresso con Helm
           href: ingress-controller-update-ingress-controller.md
         - name: Usare LetsEncrypt.org con il gateway applicazione
           href: ingress-controller-letsencrypt-certificate-application-gateway.md

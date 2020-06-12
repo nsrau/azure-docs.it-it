@@ -8,116 +8,116 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5a0f7517d2649ceac45e68c2e7a5d574a7c25d1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254443"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848042"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
-Analisi di flusso di Azure può avere come destinazione [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, abilitando l'archiviazione dei dati e le query a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
+Analisi di flusso di Azure può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
 
-Se non si ha familiarità con Azure Cosmos DB, vedere la [documentazione Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) per iniziare. 
+Se non si ha familiarità con Azure Cosmos DB, vedere la [documentazione di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) per iniziare. 
 
 > [!Note]
-> A questo punto, analisi di flusso supporta la connessione a Azure Cosmos DB solo tramite l' *API SQL*.
-> Altre API di Azure Cosmos DB non sono ancora supportate. Se si esegue il punto di analisi di flusso per Azure Cosmos DB account creati con altre API, i dati potrebbero non essere archiviati correttamente. 
+> Ad oggi, Analisi di flusso supporta la connessione ad Azure Cosmos DB solo tramite l'*API SQL*.
+> Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente. 
 
 ## <a name="basics-of-azure-cosmos-db-as-an-output-target"></a>Nozioni di base di Azure Cosmos DB come destinazione di output
-L'output Azure Cosmos DB in analisi di flusso consente la scrittura dei risultati di elaborazione del flusso come output JSON nei contenitori di Azure Cosmos DB. 
+L'output di Azure Cosmos DB in Analisi di flusso consente la scrittura dei risultati di elaborazione del flusso come output JSON nei contenitori di Azure Cosmos DB. 
 
-Analisi di flusso non crea contenitori nel database. Al contrario, è necessario crearli in primo piano. È quindi possibile controllare i costi di fatturazione dei contenitori Azure Cosmos DB. Puoi anche ottimizzare le prestazioni, la coerenza e la capacità dei tuoi contenitori direttamente usando le [api Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Analisi di flusso non crea contenitori nel database. Al contrario, richiede che l'utente li crei anticipatamente. È quindi possibile controllare i costi di fatturazione dei contenitori di Azure Cosmos DB. È anche possibile ottimizzare le prestazioni, la coerenza e la capacità dei contenitori direttamente usando l'[API di Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
 > È necessario aggiungere 0.0.0.0 all'elenco di indirizzi IP consentiti dal firewall di Azure Cosmos DB.
 
 Le sezioni seguenti illustrano in dettaglio alcune opzioni del contenitore per Azure Cosmos DB.
 
-## <a name="tuning-consistency-availability-and-latency"></a>Coerenza, disponibilità e latenza di ottimizzazione
-Per soddisfare i requisiti dell'applicazione, Azure Cosmos DB consente di ottimizzare il database e i contenitori e di effettuare compromessi tra coerenza, disponibilità, latenza e velocità effettiva. 
+## <a name="tuning-consistency-availability-and-latency"></a>Ottimizzare coerenza, disponibilità e latenza
+In base ai requisiti dell'applicazione, Azure Cosmos DB consente di ottimizzare il database e i contenitori e di bilanciare coerenza, disponibilità, latenza e velocità effettiva. 
 
-A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. È possibile migliorare la velocità effettiva scalando le unità richiesta (UR) nel contenitore. 
+A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. È possibile migliorare la velocità effettiva aumentando le unità richiesta (UR) nel contenitore. 
 
-Per impostazione predefinita, Azure Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nel contenitore. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura in Azure Cosmos DB. 
+Per impostazione predefinita, Azure Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nel contenitore. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di Azure Cosmos DB. 
 
-Per altre informazioni, vedere l'articolo [modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md) .
+Per altre informazioni, rivedere l'articolo [Modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Upsert di Analisi di flusso
-L'integrazione di analisi di flusso con Azure Cosmos DB consente di inserire o aggiornare i record nel contenitore in base a una determinata colonna **ID documento** . Viene anche chiamato *Upsert*.
+L'integrazione di Analisi di flusso di Azure con Azure Cosmos DB consente di inserire o aggiornare i record nel contenitore in base a una determinata colonna **ID documento**. Il valore restituito viene definito anche *upsert*.
 
-Analisi di flusso usa un approccio Upsert ottimistico. Gli aggiornamenti si verificano solo quando un inserimento ha esito negativo con un conflitto ID documento. 
+Analisi di flusso usa un approccio upsert ottimistico. Gli aggiornamenti si verificano solo quando un inserimento ha esito negativo con un conflitto a livello di ID documento. 
 
-Con il livello di compatibilità 1,0, analisi di flusso esegue questo aggiornamento come operazione di PATCH, in modo da consentire aggiornamenti parziali al documento. Analisi di flusso aggiunge nuove proprietà o sostituisce in modo incrementale una proprietà esistente. Tuttavia, le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano la sovrascrittura dell'intera matrice. Ovvero non viene eseguito il merge della matrice. 
+Con il livello di compatibilità 1.0, Analisi di flusso esegue questo aggiornamento come operazione PATCH, in modo da consentire aggiornamenti parziali al documento. Analisi di flusso aggiunge nuove proprietà o sostituisce in modo incrementale una proprietà esistente. Le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano, tuttavia, la sovrascrittura dell'intera matrice, ovvero, non viene eseguito il merge della matrice. 
 
-Con 1,2, il comportamento di Upsert viene modificato per inserire o sostituire il documento. La sezione successiva sul livello di compatibilità 1,2 descrive ulteriormente questo comportamento.
+Con 1.2, il comportamento di upsert viene modificato per inserire o sostituire il documento. La sezione successiva sul livello di compatibilità 1.2 descrive ulteriormente questo comportamento.
 
-Se il documento JSON in arrivo ha un campo ID esistente, tale campo viene usato automaticamente come colonna **ID documento** in Azure Cosmos DB. Tutte le scritture successive vengono gestite come tali, causando una delle situazioni seguenti:
+Se il documento JSON in ingresso dispone di un campo ID esistente, il campo viene usato automaticamente come colonna di **ID documento** in Azure Cosmos DB. Tutte le scritture successive vengono gestite come tali, causando una delle situazioni seguenti:
 
-- Gli ID univoci portano a INSERT.
-- ID duplicati e **ID documento** impostati su **ID** portano a Upsert.
-- ID duplicati e **ID documento** non impostati generano un errore, dopo il primo documento.
+- Gli ID univoci generano operazioni di inserimento.
+- ID duplicati e **ID documento** impostati su **ID** generano operazioni di upsert.
+- ID duplicati e **ID documento** non impostati generano un errore dopo il primo documento.
 
-Se si desidera salvare *tutti* i documenti, inclusi quelli che hanno un ID duplicato, rinominare il campo ID nella query (usando la parola chiave **As** ). Consentire Azure Cosmos DB creare il campo ID o sostituire l'ID con il valore di un'altra colonna (usando la parola chiave **As** o l'impostazione **ID documento** ).
+Se si desidera salvare *tutti* i documenti, inclusi quelli che hanno un ID duplicato, rinominare il campo ID nella query (usando la parola chiave **AS**). Consentire ad Azure Cosmos DB di creare il campo ID o sostituire l'ID con il valore di un'altra colonna (usando la parola chiave **AS** o usando l'impostazione**ID documento**).
 
 ## <a name="data-partitioning-in-azure-cosmos-db"></a>Partizionamento dei dati in Azure Cosmos DB
-Azure Cosmos DB ridimensiona automaticamente le partizioni in base al carico di lavoro. È quindi consigliabile usare contenitori [illimitati](../cosmos-db/partition-data.md) come approccio per il partizionamento dei dati. Quando analisi di flusso scrive in contenitori illimitati, usa il numero di writer paralleli del passaggio della query precedente o lo schema di partizionamento dell'input.
+Con Azure Cosmos DB le partizioni vengono scalate automaticamente in base al carico di lavoro. Sono quindi consigliabili contenitori [illimitati ](../cosmos-db/partition-data.md) come approccio per il partizionamento dei dati. Durante la scrittura in contenitori illimitati, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.
 
 > [!NOTE]
-> Analisi di flusso di Azure supporta solo contenitori illimitati con chiavi di partizione al primo livello. Ad esempio, `/region` è supportata. Le chiavi di partizione annidate, `/region/name`ad esempio, non sono supportate. 
+> Analisi di flusso di Azure supporta solo un numero illimitato di contenitori con chiavi di partizione di primo livello. Ad esempio, `/region` è supportata. Le chiavi di partizione annidate (ad esempio `/region/name`) non sono supportate. 
 
-A seconda della scelta della chiave di partizione, è possibile che venga visualizzato il _messaggio di avviso_seguente:
+A seconda della chiave di partizione scelta, è possibile che venga visualizzato questo _avviso_:
 
 `CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
 È importante scegliere una proprietà della chiave di partizione con un numero di valori distinti e che consente di distribuire il carico di lavoro in modo uniforme tra questi valori. Come artefatto naturale del partizionamento, le richieste che coinvolgono la stessa chiave di partizione sono limitate dalla velocità effettiva massima di una singola partizione. 
 
-La dimensione di archiviazione per i documenti che appartengono alla stessa chiave di partizione è limitata a 10 GB. Una chiave di partizione ideale viene visualizzata spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
+Le dimensioni di archiviazione per i documenti che appartengono alla stessa chiave di partizione sono limitate a 20 GB. Una chiave di partizione ideale appare spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
 
-Una chiave di partizione è anche il limite per le transazioni in stored procedure e trigger per Azure Cosmos DB. È necessario scegliere la chiave di partizione in modo che i documenti che si verificano insieme nelle transazioni condividano lo stesso valore della chiave di partizione. Per informazioni dettagliate sulla scelta di una chiave di partizione, in Azure Cosmos DB viene visualizzato il [partizionamento](../cosmos-db/partitioning-overview.md) degli articoli.
+Una chiave di partizione è anche il limite per le transazioni in stored procedure e trigger per Azure Cosmos DB. È necessario scegliere la chiave di partizione in modo che i documenti che si verificano insieme nelle transazioni condividano lo stesso valore della chiave di partizione. L'articolo [Partizionamento in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) fornisce altri dettagli sulla scelta di una chiave di partizione.
 
-Per i contenitori Azure Cosmos DB fissi, l'analisi di flusso non consente di aumentare o ridurre le prestazioni dopo che sono state completate. Hanno un limite superiore di 10 GB e 10.000 UR/sec di velocità effettiva. Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore illimitato (ad esempio, uno con almeno 1.000 UR/s e una chiave di partizione), usare l' [utilità di migrazione dati](../cosmos-db/import-data.md) o la [libreria di feed delle modifiche](../cosmos-db/change-feed.md).
+Per i contenitori di Azure Cosmos DB fissi, Analisi di flusso di Azure non consente alcuna possibilità di ridimensionamento quando sono al completo. Tali contenitori hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR al secondo. Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore illimitato, ad esempio con una velocità effettiva di almeno 1000 UR al secondo e una chiave di partizione, usare lo [strumento di migrazione dati](../cosmos-db/import-data.md) o la [libreria di feed di modifiche](../cosmos-db/change-feed.md).
 
-La possibilità di scrivere in più contenitori fissi è deprecata. Non è consigliabile per la scalabilità orizzontale del processo di analisi di flusso.
+La possibilità di scrivere in più contenitori fissi è in fase di deprecazione. Non è consigliabile per la scalabilità orizzontale del processo di Analisi di flusso.
 
-## <a name="improved-throughput-with-compatibility-level-12"></a>Velocità effettiva migliorata con il livello di compatibilità 1,2
-Con il livello di compatibilità 1,2, analisi di flusso supporta l'integrazione nativa per la scrittura bulk in Azure Cosmos DB. Questa integrazione consente di scrivere in modo efficace per Azure Cosmos DB massimizzando la velocità effettiva e gestendo in modo efficiente le richieste di limitazione. 
+## <a name="improved-throughput-with-compatibility-level-12"></a>Velocità effettiva migliorata con il livello di compatibilità 1.2
+Con il livello di compatibilità 1.2, Analisi di flusso supporta l'integrazione nativa per la scrittura bulk in Azure Cosmos DB. Questa integrazione consente di scrivere in modo efficace in Azure Cosmos DB massimizzando la velocità effettiva e gestendo in modo efficiente la limitazione delle richieste. 
 
-Il meccanismo di scrittura migliorato è disponibile con un nuovo livello di compatibilità a causa della differenza nel comportamento del Upsert. Con i livelli precedenti a 1,2, il comportamento di Upsert consiste nell'inserimento o nell'Unione del documento. Con 1,2, il comportamento di Upsert viene modificato per inserire o sostituire il documento.
+Il meccanismo di scrittura migliorato è disponibile con un nuovo livello di compatibilità a causa della differenza nel comportamento di upsert. Con i livelli precedenti a 1.2, il comportamento di upsert consiste nell'inserimento o nell'unione del documento. Con 1.2, il comportamento di upsert viene modificato per inserire o sostituire il documento.
 
-Con i livelli precedenti a 1,2, analisi di flusso usa una stored procedure personalizzata per eseguire la Upsert bulk dei documenti per ogni chiave di partizione in Azure Cosmos DB. Un batch viene scritto come transazione. Anche quando un singolo record raggiunge un errore temporaneo (limitazione), è necessario ritentare l'intero batch. Questo rende gli scenari con una limitazione ancora ragionevole relativamente lenta.
+Con i livelli precedenti a 1.2, Analisi di flusso usa una stored procedure personalizzata per eseguire l'upsert bulk dei documenti per ogni chiave di partizione in Azure Cosmos DB. Un batch viene scritto come transazione. Anche quando un singolo record raggiunge un errore temporaneo (limitazione), è necessario ritentare l'intero batch. Questo rende gli scenari con una limitazione ancora ragionevole relativamente lenti.
 
-L'esempio seguente mostra due processi di analisi di flusso identici che leggono dallo stesso input di hub eventi di Azure. Entrambi i processi di analisi di flusso sono [completamente partizionati](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) con una query passthrough e scrivono in contenitori di Azure Cosmos DB identici. Le metriche a sinistra dipendono dal processo configurato con il livello di compatibilità 1,0. Le metriche a destra sono configurate con 1,2. La chiave di partizione di un contenitore Azure Cosmos DB è un GUID univoco che deriva dall'evento di input.
+L'esempio seguente mostra due processi di Analisi di flusso identici che leggono dallo stesso input di Hub eventi di Azure. Entrambi i processi di Analisi di flusso sono [completamente partizionati](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) con una query pass-through e scrivono in contenitori di Azure Cosmos DB identici. Le metriche a sinistra provengono dal processo configurato con il livello di compatibilità 1.0. Le metriche a destra sono configurate con 1.2. Una chiave di partizione di un contenitore Azure Cosmos DB è un GUID univoco che proviene dall'evento di input.
 
-![Confronto tra le metriche di analisi di flusso](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
+![Confronto tra le metriche di Analisi di flusso](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
-La frequenza degli eventi in ingresso negli hub eventi è due volte superiore a quella dei contenitori Azure Cosmos DB (20.000 UR) sono configurati per l'esecuzione, quindi la limitazione è prevista in Azure Cosmos DB. Tuttavia, il processo con 1,2 sta scrivendo in modo coerente a una velocità effettiva superiore (eventi di output al minuto) e con una media inferiore del tempo di utilizzo. Nel proprio ambiente, questa differenza dipenderà da altri fattori. Questi fattori includono la scelta del formato dell'evento, la dimensione degli eventi/messaggi di input, le chiavi di partizione e la query.
+La frequenza degli eventi in ingresso in Hub eventi è due volte superiore rispetto alla configurazione di esecuzione dei contenitori di Azure Cosmos DB (20.000 UR), perciò in Azure Cosmos DB è prevista la limitazione delle richieste. Tuttavia, il processo con 1.2 sta scrivendo in modo coerente a una velocità effettiva superiore (eventi di output al minuto) e con una media inferiore di % di utilizzo unità di streaming. Nel proprio ambiente, questa differenza dipenderà da altri fattori. Questi fattori includono la scelta del formato dell'evento, la dimensione degli eventi/messaggi di input, le chiavi di partizione e la query.
 
-![Confronto Azure Cosmos DB metrica](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
+![Confronto di metriche di Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-Con 1,2, l'analisi di flusso è più intelligente nell'utilizzo del 100% della velocità effettiva disponibile in Azure Cosmos DB con pochissimi invii di richieste di limitazione o limitazione della frequenza. Ciò offre un'esperienza migliore per gli altri carichi di lavoro, ad esempio le query in esecuzione nel contenitore allo stesso tempo. Per informazioni sull'aumento delle dimensioni di analisi di flusso con Azure Cosmos DB come sink per 1.000 a 10.000 messaggi al secondo, provare [questo progetto di esempio di Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
+Con 1.2, aumenta l'intelligenza di Analisi di flusso nell'utilizzo del 100% della velocità effettiva disponibile in Azure Cosmos DB con pochissimi invii di limitazione delle richieste o limitazione della frequenza. Ciò fornisce un'esperienza migliore per gli altri carichi di lavoro, ad esempio le query in esecuzione nel contenitore contemporaneamente. Per informazioni sull'aumento delle dimensioni di Analisi di flusso con Azure Cosmos DB come sink da 1.000 fino a 10.000 messaggi al secondo, provare [questo progetto di esempio di Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-La velocità effettiva dell'output Azure Cosmos DB è identica a 1,0 e 1,1. Si *consiglia vivamente* di usare il livello di compatibilità 1,2 in analisi di flusso con Azure Cosmos DB.
+La velocità effettiva dell'output Azure Cosmos DB è identica a 1.0 e 1.1. È *consigliabile* usare il livello di compatibilità 1.2 in Analisi di flusso con Azure Cosmos DB.
 
-## <a name="azure-cosmos-db-settings-for-json-output"></a>Impostazioni Azure Cosmos DB per l'output JSON
+## <a name="azure-cosmos-db-settings-for-json-output"></a>Impostazioni di Cosmos DB per l'output JSON
 
-L'uso di Azure Cosmos DB come output in analisi di flusso genera la richiesta seguente per le informazioni.
+L'uso di Cosmos DB come output in Analisi di flusso genera la seguente richiesta di informazioni.
 
 ![Campi di informazioni per un flusso di output Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
 |Campo           | Descrizione|
 |-------------   | -------------|
-|Alias di output    | Alias che fa riferimento a questo output nella query di analisi di flusso.|
+|Alias di output    | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure.|
 |Subscription    | Sottoscrizione di Azure.|
-|ID account      | Nome o URI endpoint dell'account Azure Cosmos DB.|
+|Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
 |Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
 |Database        | Nome del database Azure Cosmos DB.|
-|Nome contenitore | Nome del contenitore, ad esempio `MyContainer`. È necessario che `MyContainer` esista un contenitore denominato.  |
-|Document ID     | Facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lo si lascia vuoto, verranno inseriti tutti gli eventi, senza alcuna opzione di aggiornamento.|
+|Nome contenitore | Il nome del contenitore, ad esempio `MyContainer`. Deve esistere un contenitore denominato `MyContainer`.  |
+|Document ID     | Facoltativa. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.|
 
-Dopo aver configurato l'output del Azure Cosmos DB, è possibile utilizzarlo nella query come destinazione di un' [istruzione into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Quando si usa un output Azure Cosmos DB in questo modo, è [necessario impostare in modo esplicito una chiave di partizione](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 
+Dopo aver configurato l'output di Azure Cosmos DB, è possibile usarlo nella query come destinazione di un'[istruzione INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Quando si usa un output di Azure Cosmos DB in questo modo, [una chiave di partizione deve essere impostata in modo esplicito](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 
 
-Il record di output deve contenere una colonna con distinzione tra maiuscole e minuscole denominata dopo la chiave di partizione in Azure Cosmos DB. Per ottenere una maggiore parallelizzazione, l'istruzione potrebbe richiedere una [clausola PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) che utilizza la stessa colonna.
+Il record di output deve contenere una colonna con distinzione tra maiuscole e minuscole denominata in base alla chiave di partizione in Azure Cosmos DB. Per ottenere una maggiore parallelizzazione, è possibile che l'istruzione richieda una [clausola PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) che usa la stessa colonna.
 
 Ecco una query di esempio:
 
@@ -129,9 +129,9 @@ Ecco una query di esempio:
 
 ## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
 
-Se si verifica un errore temporaneo, la mancata disponibilità del servizio o la limitazione quando l'analisi di flusso invia eventi a Azure Cosmos DB, l'analisi di flusso ritenta a tempo indefinito per completare correttamente l'operazione. Ma non tenta di eseguire nuovi tentativi per gli errori seguenti:
+Se si verifica un errore temporaneo, la indisponibilità del servizio o la limitazione delle richieste quando Analisi di flusso invia eventi ad Azure Cosmos DB, Analisi di flusso ritenta a tempo indefinito di completare correttamente l'operazione. Non tenta invece di eseguire nuovi tentativi per gli errori seguenti:
 
-- Non autorizzato (codice errore HTTP 401)
+- Unauthorized (codice errore HTTP 401)
 - NotFound (codice errore HTTP 404)
 - Forbidden (codice errore HTTP 403)
-- Richiesta non valida (codice errore HTTP 400)
+- BadRequest (codice errore HTTP 400)

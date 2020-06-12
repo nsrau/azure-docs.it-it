@@ -1,163 +1,88 @@
 ---
-title: Informazioni su come eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in Automazione di Azure
-description: Informazioni su come eseguire l'onboarding in una macchina virtuale di Azure delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario, che fanno parte di Automazione di Azure
+title: Abilitazione di Gestione aggiornamenti di Automazione di Azure da un account di Automazione
+description: Questo articolo illustra come abilitare Gestione aggiornamenti da un account di Automazione.
 services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457655"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743997"
 ---
-# <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
+# <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
-Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md), dall'account di Automazione o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni dall'account di Automazione.
+Questo articolo descrive come usare il proprio account di Automazione per abilitare la funzionalità [Gestione aggiornamenti](automation-update-management.md) per le macchine virtuali dell'ambiente. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Gestione aggiornamenti. 
+
+> [!NOTE]
+> Quando si abilita Gestione aggiornamenti, sono supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](how-to/region-mappings.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Account di Automazione](automation-offering-get-started.md) per gestire i computer.
+* Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com.
 
-## <a name="enable-solutions"></a>Abilitare soluzioni
+## <a name="enable-update-management"></a>Abilitare la gestione degli aggiornamenti
 
-Passare all'account di automazione e selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**.
+1. Nell'account di Automazione selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+2. Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare Gestione aggiornamenti. L'installazione richiede fino a 15 minuti.
 
-![Eseguire l'onboarding della soluzione Inventario](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
+    ![Abilitare la gestione degli aggiornamenti](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-> [!NOTE]
-> Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
->
-> Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
+## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Controllo della configurazione dell'ambito
 
-La soluzione di rilevamento delle modifiche e di inventario offre la possibilità di [tenere traccia delle modifiche](automation-vm-change-tracking.md) e dei dati di [inventario](automation-vm-inventory.md) nelle macchine virtuali. In questo passaggio si abilita la soluzione su una macchina virtuale.
+Gestione aggiornamenti usa una configurazione dell'ambito all'interno dell'area di lavoro per individuare i computer nei quali abilitare la funzionalità. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della funzionalità a computer specifici. Per altre informazioni vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
 
-Al termine della notifica di onboarding della soluzione rilevamento modifiche e inventario, selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
+## <a name="enable-azure-vms"></a>Abilitare le macchine virtuali di Azure
 
-La soluzione Gestione aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali ibride e Azure. È possibile valutare lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti necessari ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente.
+1. Nell'account di Automazione selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-Nella pagina Abilita soluzione l'area di lavoro Log Analytics selezionata è la stessa usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione Gestione aggiornamenti. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+2. Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più macchine virtuali dall'elenco. Le macchine virtuali che non possono essere abilitate sono visualizzate in grigio e non sono selezionabili. Le macchine virtuali possono trovarsi in qualsiasi area, indipendentemente dalla posizione dell'account di Automazione. 
 
-![Eseguire l'onboarding della soluzione per gli aggiornamenti](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
+3. Fare clic su **Abilita** per aggiungere le macchine virtuali selezionate alla ricerca salvata del gruppo di computer per la funzionalità.
 
-## <a name="scope-configuration"></a>Configurazione dell'ambito
+    ![Abilitare le macchine virtuali di Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
-Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di automazione in **risorse correlate**selezionare **area di lavoro**. Quindi nell'area di lavoro in **origini dati dell'area di lavoro**selezionare **configurazioni ambito**.
+## <a name="enable-non-azure-vms"></a>Abilitazione di macchine virtuali non di Azure
 
-Se l'area di lavoro selezionata non include ancora le soluzioni Gestione aggiornamenti o Rilevamento modifiche, vengono create le configurazioni di ambito seguenti:
+I computer non in Azure devono essere aggiunti manualmente. 
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+1. Nell'account di Automazione selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-* **MicrosoftDefaultScopeConfig-Updates**
+2. Fare clic su **Aggiungi computer non di Azure**. Questa azione apre una nuova finestra del browser con [istruzioni per installare e configurare l'agente di Log Analytics per Windows](../azure-monitor/platform/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare le operazioni di Gestione aggiornamenti. In caso di abilitazione di un computer attualmente gestito da Operations Manager, non è richiesto un nuovo agente e le informazioni sull'area di lavoro vengono inserite nell'agente esistente.
 
-Se l'area di lavoro selezionata contiene già la soluzione, questa non viene ridistribuita e la configurazione dell'ambito non viene aggiunta.
+## <a name="enable-machines-in-the-workspace"></a>Abilitazione dei computer nell'area di lavoro
 
-## <a name="saved-searches"></a>Ricerche salvate
+I computer installati manualmente o che inviano già report all'area di lavoro devono essere aggiunti a Automazione di Azure per abilitare Gestione aggiornamenti. 
 
-Quando un computer viene aggiunto alle soluzioni Gestione aggiornamenti o Rilevamento modifiche e Inventario, viene aggiunto a una delle due ricerche salvate nell'area di lavoro. Queste ricerche salvate sono query che contengono i computer di destinazione per le soluzioni.
+1. Nell'account di Automazione selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-Passare all'area di lavoro Log Analytics e selezionare **ricerche salvate** in **generale**. Le due ricerche salvate usate da queste soluzioni sono indicate nella tabella seguente:
+2. Selezionare **Gestisci computer**. Il pulsante **Gestisci computer** può essere disabilitato se in precedenza si è scelta l'opzione **Abilita in tutti i computer disponibili e futuri**
 
-|Name     |Category  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
-|MicrosoftDefaultComputerGroup     | Aggiornamenti        | Updates__MicrosoftDefaultComputerGroup         |
+    ![Ricerche salvate](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
-Selezionare una ricerca salvata per visualizzare la query usata per popolare il gruppo. L'immagine seguente mostra la query e i relativi risultati:
+4. Per abilitare Gestione aggiornamenti per tutti i computer disponibili selezionare **Abilita in tutti i computer disponibili** nella pagina Gestisci computer. Con questa azione viene disabilitato il controllo per aggiungere computer singolarmente. Questa attività aggiunge tutti i nomi dei computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer. Se l'opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato.
 
-![Ricerche salvate](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
+5. Per abilitare la soluzione per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione elimina le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro e avvia la funzione per tutti i computer Azure e non Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente poiché non è più presente alcuna configurazione dell'ambito.
 
-## <a name="onboard-azure-vms"></a>Caricare le macchine virtuali di Azure
+6. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
 
-Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
-
-Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più VM dall'elenco. Le macchine virtuali che non possono essere abilitate sono non disponibili e non selezionabili. Le macchine virtuali di Azure possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di automazione. Nella pagina **Abilita Gestione aggiornamenti** fare clic su **Abilita**. Le macchine virtuali selezionate vengono aggiunte alla ricerca salvata del gruppo di computer per la soluzione.
-
-![Abilitare le macchine virtuali di Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
-
-## <a name="onboard-a-non-azure-machine"></a>Eseguire l'onboarding di un computer non di Azure
-
-I computer non in Azure devono essere aggiunti manualmente. Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
-
-Fare clic su **Aggiungi computer non di Azure**. Questa azione apre una nuova finestra del browser con [le istruzioni per installare e configurare l'agente di log Analytics per Windows](../azure-monitor/platform/log-analytics-agent.md) in modo che il computer possa iniziare a creare report per la soluzione. Se si sta caricando un computer attualmente gestito da System Center Operations Manager, non è necessario un nuovo agente e le informazioni sull'area di lavoro vengono immesse nell'agente esistente.
-
-## <a name="onboard-machines-in-the-workspace"></a>Eseguire l'onboarding di computer nell'area di lavoro
-
-I computer installati manualmente o i computer che inviano già report all'area di lavoro devono essere aggiunti ad Automazione di Azure per la soluzione da abilitare. Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
-
-Selezionare **Gestisci computer**. Verrà visualizzata la pagina **Gestisci computer**. Questa pagina consente di abilitare la soluzione in un set selezionato di computer, in tutti i computer disponibili oppure di abilitare la soluzione per tutti i computer correnti e per tutti i computer futuri. Il pulsante **Gestisci computer** può essere disabilitato se si è scelto in precedenza l'opzione **Abilita in tutti i computer disponibili e futuri**.
-
-![Ricerche salvate](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="all-available-machines"></a>Tutti i computer disponibili
-
-Per abilitare la soluzione per tutti i computer disponibili, selezionare **Abilita in tutti i computer disponibili**. Con questa azione viene disabilitato il controllo per aggiungere computer singolarmente. Questa attività aggiunge tutti i nomi dei computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer. Se l'opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato.
-
-### <a name="all-available-and-future-machines"></a>Tutti i computer disponibili e futuri
-
-Per abilitare la soluzione per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione consente di eliminare le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro. La soluzione verrà abilitata per tutti i computer di Azure e non di Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente poiché non è più presente alcuna configurazione dell'ambito.
-
-È possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo le ricerche salvate iniziali. Per altre informazioni, vedere [ricerche salvate](#saved-searches).
-
-### <a name="selected-machines"></a>Computer selezionati
-
-Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer che si desidera aggiungere alla soluzione. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la soluzione.
-
-## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
-
-Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
-
-* [Gestione degli aggiornamenti](automation-update-management.md)
-* [Rilevamento delle modifiche](automation-change-tracking.md)
-* [Avviare/arrestare VM durante gli orari di minore attività](automation-solution-vm-management.md)
-
-Se si decide di non voler più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure.  Prima di continuare, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
-
-Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguenti per scollegare l'account di automazione.
-
-> [!NOTE]
-> È possibile che alcune soluzioni, tra cui versioni precedenti della soluzione di monitoraggio di Azure SQL, abbiano creato asset di automazione e che debbano essere rimosse prima di scollegare l'area di lavoro.
-
-1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione contrassegnata **Risorse correlate** a sinistra.
-
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
-
-   ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
-
-   Verrà richiesto di confermare l'operazione.
-
-3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
-
-Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
-
-* Pianificazioni degli aggiornamenti: ciascuna di esse avrà nomi corrispondenti alle distribuzioni di aggiornamenti create.
-
-* Gruppi di lavoro ibridi creati per la soluzione. ognuno verrà denominato in modo analogo a machine1. contoso. com_9ceb8108-26C9-4051-B6B3-227600d715c8).
-
-Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di minore attività, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
-
-* Avviare e arrestare le pianificazioni di runbook delle VM
-* Avviare e arrestare i runbook delle VM
-* variables
-
-In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Per rimuovere una macchina virtuale per Gestione aggiornamenti:
-
-* Nell'area di lavoro Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
-* Rimuovere l'[agente di Log Analytics per Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'[agente di Log Analytics per Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+7. Per abilitare la funzionalità per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer da abilitare per la funzionalità. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare con le esercitazioni sulle soluzioni per informazioni su come usarle.
-
-* [Esercitazione - Gestire gli aggiornamenti per la VM](automation-tutorial-update-management.md)
-
-* [Esercitazione - Identificare il software in una VM](automation-tutorial-installed-software.md)
-
-* [Esercitazione - Risolvere i problemi delle modifiche di una VM](automation-tutorial-troubleshoot-changes.md)
+* Per usare Gestione aggiornamenti per le macchine virtuali, vedere [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](automation-tutorial-update-management.md).
+* Per le configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
+* Se l'area di lavoro Log Analytics non è più necessaria, vedere le istruzioni riportate in [Scollegare l'area di lavoro dall'account di Automazione per Gestione aggiornamenti](automation-unlink-workspace-update-management.md).
+* Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).
+* Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi relativi a Gestione aggiornamenti](troubleshoot/update-management.md).
+* Per risolvere i problemi relativi all'agente di Windows Update, vedere [Risolvere i problemi relativi all'agente di Windows Update](troubleshoot/update-agent-issues.md).
+* Per risolvere i problemi relativi all'agente di aggiornamento di Linux, vedere[Risolvere i problemi relativi all'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).

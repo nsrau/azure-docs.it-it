@@ -14,11 +14,11 @@
           href: use-gitops-connected-cluster.md
         - name: Usare GitOps con Helm
           href: use-gitops-with-helm.md
-        - name: Usare Criteri di Azure
+        - name: Applicare GitOps con Criteri di Azure
           href: use-azure-policy.md
         - name: Monitoraggio di Azure per contenitori
           href: deploy-azure-monitor-for-containers.md
-        - name: Installare il componente aggiuntivo Criteri di Azure
+        - name: Criteri di controllo dell'ammissione con Criteri di Azure
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Distribuire carichi di lavoro IoT
           href: deploy-azure-iot-edge-workloads.md

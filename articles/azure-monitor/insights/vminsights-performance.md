@@ -5,24 +5,30 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: a50ba39777e6a9d3d609e584c0c7d872f2a65f35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/31/2020
+ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283719"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684388"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali
 
-Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. I grafici mostrano l'utilizzo delle risorse in un periodo di tempo per consentire di identificare colli di bottiglia e anomalie o passare a una prospettiva che elenchi ogni macchina per visualizzare l'utilizzo delle risorse in base alla metrica selezionata. Sebbene esistano numerosi elementi da considerare quando si gestiscono le prestazioni, Monitoraggio di Azure per le macchine virtuali monitora gli indicatori di prestazioni chiave del sistema operativo correlati al processore, alla memoria, alla scheda di rete e all'utilizzo del disco. Prestazioni si integra alla funzionalità di monitoraggio dell'integrità e consente di esporre i problemi che indicano un possibile errore dei componenti di sistema, agevolare l'ottimizzazione per aumentare l'efficienza o supportare la pianificazione della capacità.  
+Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. I grafici mostrano l'utilizzo delle risorse in un periodo di tempo per consentire di identificare colli di bottiglia e anomalie o passare a una prospettiva che elenchi ogni macchina per visualizzare l'utilizzo delle risorse in base alla metrica selezionata. Sebbene esistano numerosi elementi da considerare riguardo alle prestazioni, Monitoraggio di Azure per le macchine virtuali monitora gli indicatori di prestazioni chiave del sistema operativo correlati a processore, memoria, schede di rete e utilizzi del disco. Prestazioni si integra alla funzionalità di monitoraggio dell'integrità e consente di esporre i problemi che indicano un possibile errore dei componenti di sistema, agevolare l'ottimizzazione per aumentare l'efficienza o supportare la pianificazione della capacità.  
+
+## <a name="limitations"></a>Limitazioni
+Di seguito sono riportate alcune limitazioni nella raccolta delle prestazioni con Monitoraggio di Azure per le macchine virtuali.
+
+- **Memoria disponibile** non è disponibile per le macchine virtuali che eseguono Red Hat Linux (RHEL) 6. Questa metrica viene calcolata da **MemAvailable** introdotto nella [versione kernel 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Le metriche sono disponibili solo per i dischi dati nelle macchine virtuali Linux che usano la famiglia di file system EXT (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Prospettiva di più macchine virtuali da Monitoraggio di Azure
 
-Da monitoraggio di Azure, la funzionalità prestazioni fornisce una visualizzazione di tutte le macchine virtuali monitorate distribuite tra gruppi di lavoro nelle sottoscrizioni o nell'ambiente in uso. Per accedere da Monitoraggio di Azure, eseguire la procedura seguente. 
+Da Monitoraggio di Azure la funzionalità Prestazioni offre una vista di tutte le macchine virtuali monitorate distribuite tra più gruppi di lavoro nelle sottoscrizioni o nell'ambiente in uso. Per accedere da Monitoraggio di Azure, eseguire la procedura seguente. 
 
-1. Nella portale di Azure selezionare **monitoraggio**. 
-2. Scegliere **macchine virtuali** nella sezione **soluzioni** .
+1. Nel portale di Azure selezionare **Monitoraggio**. 
+2. Scegliere **Macchine virtuali**  nella sezione **Soluzioni**.
 3. Selezionare la scheda **Prestazioni**.
 
 ![Visualizzazione elenco Primi N in Prestazioni di Informazioni dettagliate macchina virtuale](media/vminsights-performance/vminsights-performance-aggview-01.png)
@@ -37,15 +43,15 @@ I cinque grafici dell'utilizzo della capacità visualizzati nella pagina sono:
 * Memoria disponibile: mostra i primi cinque computer con il valore medio più basso di quantità di memoria disponibile 
 * % spazio su disco logico utilizzato: mostra i primi cinque computer con il valore medio più alto di percentuale di spazio su disco in tutti i volumi del disco 
 * Frequenza byte inviati: mostra i primi cinque computer con la media più alta di byte inviati 
-* Frequenza ricezione byte: Mostra i primi cinque computer con la media massima di byte ricevuti 
+* Frequenza byte ricevuti: mostra i primi cinque computer con la media più alta di byte ricevuti 
 
-Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei cinque grafici, il grafico selezionato viene aggiunto all'ultimo dashboard di Azure visualizzato per ultimo.  Dal dashboard è possibile ridimensionare e riposizionare il grafico. Selezionando il grafico dal dashboard si reindirizza l'utente a Monitoraggio di Azure per le macchine virtuali e si caricano l'ambito e la visualizzazione corretti.  
+Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei cinque grafici, il grafico selezionato viene aggiunto all'ultimo dashboard di Azure visualizzato.  Dal dashboard è possibile ridimensionare e riposizionare il grafico. Se si seleziona il grafico dal dashboard, l'utente verrà reindirizzato a Monitoraggio di Azure per le macchine virtuali e verranno caricati l'ambito e la visualizzazione corretti.  
 
-Facendo clic sull'icona che si trova a sinistra dell'icona Aggiungi in uno dei cinque grafici viene aperta la visualizzazione **elenco superiore N** .  Qui si vede l'utilizzo delle risorse per tale metrica delle prestazioni per singola macchina virtuale in una visualizzazione elenco e quale macchina ha la tendenza più alta.  
+Se si fa clic sull'icona che si trova a sinistra dell'icona Aggiunta su uno dei cinque grafici, verrà aperta la visualizzazione **Elenco primi N**.  Qui si vede l'utilizzo delle risorse per tale metrica delle prestazioni per singola macchina virtuale in una visualizzazione elenco e quale macchina ha la tendenza più alta.  
 
 ![Visualizzazione Elenco primi N per una metrica delle prestazioni selezionata](media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
-Quando si fa clic sulla macchina virtuale, il riquadro **Proprietà** viene espanso a destra per visualizzare le proprietà dell'elemento selezionato, ad esempio le informazioni di sistema segnalate dal sistema operativo, le proprietà della VM di Azure e così via. Quando si fa clic su una delle opzioni disponibili nella sezione **collegamenti rapidi** viene reindirizzata la funzionalità direttamente dalla macchina virtuale selezionata.  
+Quando si fa clic sulla macchina virtuale, il riquadro **Proprietà** si espande a destra per visualizzare le proprietà dell'elemento selezionato, ad esempio le informazioni di sistema segnalate dal sistema operativo, le proprietà della macchina virtuale di Azure e così via. Facendo clic su una delle opzioni nella sezione **Collegamenti rapidi** si viene direttamente reindirizzati a tale funzionalità dalla macchina virtuale selezionata.  
 
 ![Riquadro Proprietà macchina virtuale](./media/vminsights-performance/vminsights-properties-pane-01.png)
 
@@ -56,14 +62,14 @@ Passare alla scheda **Grafici aggregati** per visualizzare le metriche delle pre
 Vengono forniti i grafici di utilizzo della capacità seguenti:
 
 * % utilizzo CPU: per impostazione predefinita mostra la media e il 95° percentile 
-* Memoria disponibile: valori predefiniti che mostrano la media, il quinto e il 10 ° percentile 
+* Memoria disponibile: per impostazione predefinita mostra la media e il 5° e 10° percentile 
 * % spazio su disco logico utilizzato: per impostazione predefinita mostra la media e il 95° percentile 
 * Frequenza byte inviati: per impostazione predefinita mostra il numero medio di byte inviati 
 * Frequenza byte ricevuti: per impostazione predefinita mostra il numero medio di byte ricevuti
 
 È anche possibile modificare la granularità dei grafici entro l'intervallo di tempo selezionando **Media**, **Min**, **Max**, **50°**, **90°** e **95°** nel selettore del percentile.
 
-Per visualizzare l'utilizzo delle risorse da parte di una singola macchina virtuale in una visualizzazione elenco e vedere quale computer sta eseguendo la tendenza con l'utilizzo più elevato, selezionare la scheda **Top N list** .  La pagina **Top N list** Mostra i primi 20 computer ordinati in base al 95 ° percentile per la percentuale di *utilizzo della CPU*metrica.  È possibile vedere più macchine selezionando **Carica altro**; i risultati si espandono per mostrare le prime 500 macchine. 
+Per visualizzare l'utilizzo delle risorse per singole macchine virtuali e vedere quale macchina ha la tendenza di utilizzo più alta, selezionare la scheda **Elenco primi N**.  La pagina **Elenco primi N** mostra le prime 20 macchine ordinate a partire dalla più utilizzata per il 95° percentile per la metrica *% utilizzo CPU*.  È possibile vedere più macchine selezionando **Carica altro**; i risultati si espandono per mostrare le prime 500 macchine. 
 
 >[!NOTE]
 >L'elenco non può visualizzare più di 500 macchine alla volta.  
@@ -82,7 +88,7 @@ Selezionando una macchina virtuale dall'elenco si apre il riquadro **Proprietà*
 Per accedere direttamente da una macchina virtuale, seguire questa procedura.
 
 1. Nel portale di Azure selezionare **Macchine virtuali**. 
-2. Dall'elenco scegliere una macchina virtuale e nella sezione **monitoraggio** scegliere **informazioni dettagliate**.  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate**.  
 3. Selezionare la scheda **Prestazioni**. 
 
 Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche una tabella che mostra capacità, utilizzo e media totale di ogni disco logico individuato per ogni misura.  
@@ -90,7 +96,7 @@ Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche
 Vengono forniti i grafici di utilizzo della capacità seguenti:
 
 * % utilizzo CPU: per impostazione predefinita mostra la media e il 95° percentile 
-* Memoria disponibile: valori predefiniti che mostrano la media, il quinto e il 10 ° percentile 
+* Memoria disponibile: per impostazione predefinita mostra la media e il 5° e 10° percentile 
 * % spazio su disco logico utilizzato: per impostazione predefinita mostra la media e il 95° percentile 
 * Operazioni di I/O al secondo disco logico: per impostazione predefinita mostra la media e il 95° percentile
 * MB/sec disco logico: per impostazione predefinita mostra la media e il 95° percentile
@@ -98,7 +104,7 @@ Vengono forniti i grafici di utilizzo della capacità seguenti:
 * Frequenza byte inviati: per impostazione predefinita mostra il numero medio di byte inviati 
 * Frequenza byte ricevuti: per impostazione predefinita mostra il numero medio di byte ricevuti
 
-Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei grafici, il grafico selezionato viene aggiunto all'ultimo dashboard di Azure visualizzato. Dal dashboard è possibile ridimensionare e riposizionare il grafico. Se si seleziona il grafico dal dashboard, viene reindirizzato a Monitoraggio di Azure per le macchine virtuali e viene caricata la visualizzazione Dettagli prestazioni per la macchina virtuale.  
+Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei grafici, il grafico selezionato verrà aggiunto all'ultimo dashboard di Azure visualizzato. Dal dashboard è possibile ridimensionare e riposizionare il grafico. Se si seleziona il grafico dal dashboard, si verrà reindirizzati a Monitoraggio di Azure per le macchine virtuali e verrà caricata la visualizzazione Dettagli prestazioni per la macchina virtuale.  
 
 ![Vista di Prestazioni di Informazioni dettagliate macchina virtuale direttamente dalla macchina virtuale](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
@@ -106,22 +112,22 @@ Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei grafici
 
 Per accedere direttamente da un set di scalabilità di macchine virtuali di Azure, seguire questa procedura.
 
-1. Nella portale di Azure selezionare set di **scalabilità di macchine virtuali**.
-2. Dall'elenco scegliere una macchina virtuale e nella sezione **monitoraggio** scegliere **Insights** per visualizzare la scheda **prestazioni** .
+1. Nel portale di Azure selezionare **Set di scalabilità di macchine virtuali**.
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate** per visualizzare la scheda **Prestazioni**.
 
-Questa pagina carica la vista prestazioni di monitoraggio di Azure, con ambito nel set di scalabilità selezionato. Ciò consente di visualizzare le prime N istanze nel set di scalabilità nel set di metriche monitorate, visualizzare le prestazioni aggregate nel set di scalabilità e visualizzare le tendenze per le metriche selezionate tra le singole istanze N il set di scalabilità. Selezionando un'istanza dalla visualizzazione elenco è possibile caricare la mappa o spostarsi in una visualizzazione dettagliata delle prestazioni per tale istanza.
+Questa pagina carica la vista prestazioni di Monitoraggio di Azure, con ambito nel set di scalabilità selezionato. Ciò consente di visualizzare le prime N istanze nel set di scalabilità nel set di metriche monitorate, le prestazioni di aggregazione nel set di scalabilità e le tendenze per le metriche selezionate nelle singole istanze N nel set di scalabilità. Selezionando un'istanza nella visualizzazione elenco è possibile caricarne la mappa o spostarsi in una visualizzazione dettagliata delle prestazioni per tale istanza.
 
-Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei grafici, il grafico selezionato viene aggiunto all'ultimo dashboard di Azure visualizzato. Dal dashboard è possibile ridimensionare e riposizionare il grafico. Se si seleziona il grafico dal dashboard, viene reindirizzato a Monitoraggio di Azure per le macchine virtuali e viene caricata la visualizzazione Dettagli prestazioni per la macchina virtuale.  
+Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei grafici, il grafico selezionato verrà aggiunto all'ultimo dashboard di Azure visualizzato. Dal dashboard è possibile ridimensionare e riposizionare il grafico. Se si seleziona il grafico dal dashboard, si verrà reindirizzati a Monitoraggio di Azure per le macchine virtuali e verrà caricata la visualizzazione Dettagli prestazioni per la macchina virtuale.  
 
-![Prestazioni di VM Insights direttamente dalla visualizzazione del set di scalabilità di macchine virtuali](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+![Visualizzare le prestazioni dettagliate sulla macchina virtuale direttamente da un set di scalabilità di macchine virtuali](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
->È anche possibile accedere a una visualizzazione dettagliata delle prestazioni per un'istanza specifica dalla visualizzazione istanze per il set di scalabilità. Passare a **istanze** nella sezione **Impostazioni** , quindi scegliere **informazioni dettagliate**.
+>È anche possibile accedere a una visualizzazione dettagliata delle prestazioni per un'istanza specifica dalla visualizzazione delle istanze per il set di scalabilità. Passare a **Istanze** nella sezione **Impostazioni** e quindi scegliere **Informazioni dettagliate**.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare le [cartelle di lavoro](vminsights-workbooks.md) incluse in monitoraggio di Azure per le macchine virtuali per analizzare ulteriormente le metriche relative a prestazioni e rete.  
+- Informazioni su come usare le [cartelle di lavoro](vminsights-workbooks.md) incluse in Monitoraggio di Azure per le macchine virtuali per analizzare ulteriormente le metriche relative a prestazioni e rete.  
 
-- Per informazioni sulle dipendenze dell'applicazione individuate, vedere [visualizzare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md).
+- Per informazioni sulle dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).

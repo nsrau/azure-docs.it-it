@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -138,6 +138,9 @@
           href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integrazione di Monitoraggio di Azure
       items:
+        - name: Distribuire Monitoraggio di Azure su larga scala
+          displayName: 'monitor, diagnostic settings, dependency agent'
+          href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json

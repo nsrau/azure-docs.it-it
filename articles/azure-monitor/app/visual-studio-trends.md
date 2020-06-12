@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670866"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744126"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
 Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo degli eventi di telemetria importanti dell'app Web, consentendo di identificare rapidamente problemi e anomalie. Collegando l'utente a informazioni di diagnostica più dettagliate, Tendenze consente di migliorare le prestazioni dell'app, ricostruire le cause delle eccezioni e individuare informazioni utili dagli eventi personalizzati.
@@ -48,7 +48,7 @@ Per iniziare, scegliere una di cinque analisi comuni delle tendenze, ognuna dell
 Queste analisi predefinite sono accessibili successivamente dal pulsante **Visualizza tipi comuni di analisi dei dati di telemetria** nell'angolo superiore sinistro della finestra Tendenze.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualizzare le tendenze nell'applicazione
-Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
+Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese/regione di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
 
 Usare i controlli nella parte superiore della finestra per modificare i tipi di dati di telemetria visualizzati. Prima di tutto, scegliere i tipi di dati di telemetria a cui si è interessati.
 
@@ -56,7 +56,7 @@ Usare i controlli nella parte superiore della finestra per modificare i tipi di 
 * **Intervallo di tempo** : qualsiasi intervallo dagli ultimi 30 minuti agli ultimi 3 giorni
 * **Raggruppa per** : tipo di eccezione, ID problema, paese/area geografica e altro ancora
 
-Fare quindi clic su **analizza telemetria** per eseguire la query.
+Fare quindi clic su **Analizza telemetria** per eseguire la query.
 
 Per esplorare le bolle nella visualizzazione:
 
@@ -70,7 +70,7 @@ Per esplorare le bolle nella visualizzazione:
 > 
 
 ## <a name="filter"></a>Filtro
-I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
+I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio Tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare clic di nuovo su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
 
 ![Filtri delle tendenze](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -86,7 +86,7 @@ Per annullare l'applicazione di uno di questi filtri, fare clic sul pulsante **R
 ![Filtri multipli](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Trovare le anomalie
-Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)**. Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
+Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)** . Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
 
 ![I punti colorati indicano anomalie](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

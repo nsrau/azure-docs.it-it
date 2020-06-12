@@ -1,16 +1,15 @@
 ---
 title: Scegliere le dimensioni delle macchine virtuali per i pool
 description: Come scegliere tra le dimensioni delle macchine virtuali disponibili per i nodi di calcolo nei pool di Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115857"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779162"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -18,57 +17,57 @@ Quando si selezionano le dimensioni del nodo per un pool di Azure Batch, è poss
 
 Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macchine virtuali:
 
-* Alcune serie di VM o dimensioni di VM non sono supportate in batch.
+* Alcune famiglie o dimensioni di macchine virtuali non sono supportati in Azure Batch.
 * Alcune dimensioni delle macchine virtuali sono soggette a restrizioni e devono essere abilitate specificamente prima che sia possibile allocarle.
 
-## <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni delle VM supportate
+## <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pool in configurazione di tipo macchina virtuale
 
-I pool di batch nella configurazione della macchina virtuale supportano quasi tutte le dimensioni delle VM ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Per altre informazioni sulle dimensioni e sulle restrizioni supportate, vedere la tabella seguente.
+I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte le dimensioni di VM ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Per altre informazioni sulle dimensioni e sulle restrizioni supportate, vedere la tabella seguente.
 
 | Serie VM  | Dimensioni supportate |
 |------------|---------|
-| Basic A | Tutte le dimensioni *eccetto* Basic_A0 (a0) |
-| Una | Tutte le dimensioni *eccetto* Standard_A0 |
+| Basic A | Tutte le dimensioni *tranne* Basic_A0 (a0) |
+| Una | Tutte le dimensioni *tranne* Standard_A0 |
 | Av2 | Tutte le dimensioni |
-| b | Nessuno |
-| DC | Nessuno |
+| b | nessuno |
+| DC | nessuno |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4, Dasv4 | Nessuno-non ancora disponibile |
-| EV3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 e E64i_v3 |
-| Eav4, Easv4 | Nessuno-non ancora disponibile |
-| F, FS | Tutte le dimensioni |
+| Dav4, Dasv4 | Nessuna - non ancora disponibile |
+| Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 e E64i_v3 |
+| Eav4, Easv4 | Nessuna - non ancora disponibile |
+| F, Fs | Tutte le dimensioni |
 | Fsv2 | Tutte le dimensioni |
-| G, GS | Tutte le dimensioni |
+| G, Gs | Tutte le dimensioni |
 | H | Tutte le dimensioni |
 | HB<sup>1</sup> | Tutte le dimensioni |
 | HBv2<sup>1</sup> | Tutte le dimensioni |
 | HC<sup>1</sup> | Tutte le dimensioni |
 | Ls | Tutte le dimensioni |
-| Lsv2 | Nessuno-non ancora disponibile |
+| Lsv2 | Nessuna - non ancora disponibile |
 | M<sup>1</sup> | Tutte le dimensioni, ad eccezione di M64, M64m, M128, M128m |
-| Mv2 | Nessuno-non ancora disponibile |
+| Mv2 | Nessuna - non ancora disponibile |
 | NC | Tutte le dimensioni |
 | NCv2<sup>1</sup> | Tutte le dimensioni |
 | NCv3<sup>1</sup> | Tutte le dimensioni |
 | ND<sup>1</sup> | Tutte le dimensioni |
-| NDv2<sup>1</sup> | Nessuno-non ancora disponibile |
+| NDv2<sup>1</sup> | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |
 | NVv3<sup>1</sup> | Tutte le dimensioni |
-| NVv4 | Nessuno |
-| SAP HANA | Nessuno |
+| NVv4 | nessuno |
+| SAP HANA | nessuno |
 
-<sup>1</sup> le dimensioni di queste VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali è completamente supportata per gli account batch.
+<sup>1</sup> queste dimensioni delle macchine virtuali possono essere allocate nei pool di Azure Batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account Batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota) specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali sarà completamente supportata per gli account Batch.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pool in configurazione di tipo servizio cloud
 
-I pool di Batch in configurazione servizio cloud supportano tutte le [dimensioni di VM per i servizi cloud](../cloud-services/cloud-services-sizes-specs.md) **tranne** le seguenti:
+I pool di Azure Batch in configurazione servizio cloud supportano tutte le [dimensioni di VM per i servizi cloud](../cloud-services/cloud-services-sizes-specs.md) **tranne** le seguenti:
 
 | Serie VM  | Dimensioni non supportate |
 |------------|-------------------|
-| Serie A   | Molto piccola       |
+| Serie A   | Extra Small       |
 | Serie Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>Considerazioni sulle dimensioni
@@ -79,13 +78,13 @@ I pool di Batch in configurazione servizio cloud supportano tutte le [dimensioni
 
 * **Livelli di carico per attività diverse**: tutti i nodi in un pool hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
 
-* **Disponibilità dell'area** : è possibile che una o più serie di macchine virtuali non siano disponibili nelle aree in cui si creano gli account batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+* **Disponibilità a livello di area**: è possibile che una famiglia o dimensione di VM non sia disponibile nelle aree in cui si creano gli account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
-* **Quote **: la [quota di core](batch-quota-limit.md#resource-quotas) nell'account Batch può limitare il numero di nodi con le dimensioni specificate che possono essere aggiunti a un pool di Batch. Per richiedere un aumento delle quote, vedere [questo articolo](batch-quota-limit.md#increase-a-quota). 
+* **Quote** : la [quota di core](batch-quota-limit.md#resource-quotas) nell'account Batch può limitare il numero di nodi con le dimensioni specificate che possono essere aggiunti a un pool di Batch. Per richiedere un aumento delle quote, vedere [questo articolo](batch-quota-limit.md#increase-a-quota). 
 
 * **Configurazione del pool**: in generale, quando si crea un pool in configurazione macchina virtuale si hanno più opzioni di dimensioni delle VM rispetto alla configurazione servizio cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+* Informazioni sul [Flusso di lavoro del servizio Azure Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
 * Per informazioni sull'uso di dimensioni delle VM a elevato utilizzo di calcolo, vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](batch-pool-compute-intensive-sizes.md).

@@ -2,13 +2,13 @@
 title: Come gestire l'agente di Monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive la gestione delle attività di manutenzione più comuni con l'agente di Log Analytics con contenitori usato da Monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/12/2020
+ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275321"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652203"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Come gestire l'agente di Monitoraggio di Azure per i contenitori
 
@@ -16,21 +16,21 @@ Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'ag
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Come eseguire l'aggiornamento dell'agente di Monitoraggio di Azure per i contenitori
 
-Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Quando viene rilasciata una nuova versione dell'agente, l'agente viene aggiornato automaticamente nei cluster Kubernetes gestiti ospitati in Azure Kubernetes Service (AKS) e in Azure Red Hat OpenShift. Per un [cluster Kubernetes ibrido](container-insights-hybrid-setup.md) , l'agente non è gestito ed è necessario aggiornare manualmente l'agente.
+Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato automaticamente nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes (AKS) e in Azure Red Hat OpenShift versione 3.x. Per un [cluster Kubernetes ibrido](container-insights-hybrid-setup.md) e per Azure Red Hat OpenShift versione 4. x, l'agente non è gestito ed è necessario aggiornarlo manualmente.
 
-Se l'aggiornamento dell'agente non riesce per un cluster ospitato in AKS, questo articolo descrive anche il processo di aggiornamento manuale dell'agente. Per seguire le versioni rilasciate, consultare gli [annunci relativi alla versione dell'agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+Se l'aggiornamento dell'agente non riesce per un cluster ospitato su servizio Azure Kubernetes o Azure Red Hat OpenShift versione 3. x, questo articolo descrive anche il processo di aggiornamento manuale dell'agente. Per seguire le versioni rilasciate, consultare gli [annunci relativi alla versione dell'agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
-### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>Aggiornare l'agente nel cluster Kubernetes monitorato
+### <a name="upgrade-agent-on-aks-cluster"></a>Aggiornare l'agente nel cluster servizio Azure Kubernetes
 
-Il processo di aggiornamento dell'agente nei cluster, diverso da Azure Red Hat OpenShift, è costituito da due semplici passaggi. Il primo passaggio prevede la disabilitazione del monitoraggio con Monitoraggio di Azure per i contenitori tramite l'interfaccia della riga di comando di Azure. Seguire i passaggi descritti nell'articolo [Disabilitare il monitoraggio](container-insights-optout.md?#azure-cli). Usando l'interfaccia della riga di comando di Azure è possibile rimuovere l'agente dai nodi del cluster senza conseguenze per la soluzione e i dati corrispondenti archiviati nell'area di lavoro. 
+Il processo di aggiornamento dell'agente sui cluster del servizio Azure Kubernetes è costituito da due semplici passaggi. Il primo passaggio prevede la disabilitazione del monitoraggio con Monitoraggio di Azure per i contenitori tramite l'interfaccia della riga di comando di Azure. Seguire i passaggi descritti nell'articolo [Disabilitare il monitoraggio](container-insights-optout.md?#azure-cli). Usando l'interfaccia della riga di comando di Azure è possibile rimuovere l'agente dai nodi del cluster senza conseguenze per la soluzione e i dati corrispondenti archiviati nell'area di lavoro. 
 
 >[!NOTE]
 >Mentre si esegue questa attività di manutenzione, i nodi del cluster non inoltrano i dati raccolti e le viste Prestazioni non mostreranno i dati tra la rimozione dell'agente e l'installazione della nuova versione. 
 >
 
-Per installare la nuova versione dell'agente, seguire i passaggi descritti nell' [Abilitazione del monitoraggio mediante l'interfaccia](container-insights-enable-new-cluster.md#enable-using-azure-cli)della riga di comando di Azure per completare questo processo.  
+Per installare la nuova versione dell'agente, seguire i passaggi descritti nell'articolo [Abilitare tramite l'interfaccia della riga di comando di Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli) per completare questo processo.  
 
-Dopo aver abilitato nuovamente il monitoraggio, potrebbero essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità aggiornate per il cluster. Per verificare che l'aggiornamento dell'agente sia stato completato, eseguire il comando: `kubectl logs omsagent-484hw --namespace=kube-system`
+Dopo aver riabilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità aggiornate per il cluster. Per verificare che l'aggiornamento dell'agente sia stato completato, eseguire il comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
 Lo stato dovrebbe essere simile al seguente, dove il valore per *omi* e *omsagent* deve corrispondere alla versione più recente specificata nella [cronologia delle versioni dell'agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
 
@@ -53,32 +53,51 @@ Lo stato dovrebbe essere simile al seguente, dove il valore per *omi* e *omsagen
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
 
-## <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Aggiornare l'agente nel cluster Kubernetes ibrido
+### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Aggiornare l'agente nel cluster Kubernetes ibrido
 
-Il processo di aggiornamento dell'agente in un cluster Kubernetes ospitato in locale, il motore AKS in Azure e il Azure Stack possono essere completati eseguendo il comando seguente:
+Seguire questa procedura per aggiornare l'agente in un cluster Kubernetes in esecuzione in:
+
+* Cluster Kubernetes autogestiti ospitati in Azure con il motore del servizio Azure Kubernetes.
+* Cluster Kubernetes autogestiti ospitati in Azure Stack o in locale con il motore del servizio Azure Kubernetes.
+* Red Hat OpenShift versione 4.x.
+
+Se l'area di lavoro Log Analytics è in Azure commerciale, eseguire questo comando:
 
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-Se l'area di lavoro Log Analytics è in Azure Cina, eseguire il comando seguente:
+Se l'area di lavoro Log Analytics è in Azure Cina, eseguire questo comando:
 
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
-Se l'area di lavoro Log Analytics si trova nel governo degli Stati Uniti di Azure, eseguire il comando seguente:
+Se l'area di lavoro Log Analytics è in Azure US Gov, eseguire questo comando:
 
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
+### <a name="upgrade-agent-on-azure-red-hat-openshift-v4"></a>Aggiornare l'agente in Azure Red Hat OpenShift v4
+
+Seguire questa procedura per aggiornare l'agente in un cluster Kubernetes in esecuzione in Azure Red Hat OpenShift versione 4.x. 
+
+>[!NOTE]
+>Azure Red Hat OpenShift versione 4.x supporta solo l'esecuzione nel cloud di Azure commerciale.
+>
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Come disabilitare la raccolta di variabili di ambiente in un contenitore
 
-Monitoraggio di Azure per i contenitori raccoglie le variabili di ambiente dai contenitori in esecuzione in un pod e le presenta nel riquadro delle proprietà del contenitore selezionato nella visualizzazione **Contenitori**. È possibile controllare questo comportamento disabilitando la raccolta per un contenitore specifico durante la distribuzione del cluster Kubernetes o dopo aver impostato la variabile di ambiente *AZMON_COLLECT_ENV*. Questa funzionalità è disponibile dalla versione dell'agente ciprod11292018 e successive.  
+Monitoraggio di Azure per i contenitori raccoglie le variabili di ambiente dai contenitori in esecuzione in un pod e le presenta nel riquadro delle proprietà del contenitore selezionato nella visualizzazione **Contenitori**. È possibile controllare questo comportamento disabilitando la raccolta per un contenitore specifico durante la distribuzione del cluster Kubernetes oppure successivamente, impostando la variabile di ambiente *AZMON_COLLECT_ENV*. Questa funzionalità è disponibile dalla versione dell'agente ciprod11292018 e successive.  
 
 Per disabilitare la raccolta di variabili di ambiente in un contenitore nuovo o esistente, impostare la variabile **AZMON_COLLECT_ENV** con il valore **False** nel file di configurazione yaml della distribuzione Kubernetes. 
 
@@ -87,13 +106,13 @@ Per disabilitare la raccolta di variabili di ambiente in un contenitore nuovo o 
   value: "False"  
 ```  
 
-Eseguire il comando seguente per applicare la modifica ai cluster Kubernetes diversi da Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. Per modificare ConfigMap e applicare questa modifica per i cluster OpenShift di Azure Red Hat, eseguire il comando:
+Eseguire questo comando per applicare la modifica ad altri cluster Kubernetes diversi da Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. Per modificare ConfigMap e applicare la modifica ai cluster Azure Red Hat OpenShift, eseguire il comando:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
-Verrà aperto l'editor di testo predefinito. Dopo aver impostato la variabile, salvare il file nell'editor.
+Si apre l'editor di testo predefinito. Dopo l'impostazione della variabile, salvare il file nell'editor.
 
 Per verificare che la modifica della configurazione sia stata eseguita, selezionare un contenitore nella visualizzazione **Contenitori** in Monitoraggio di Azure per i contenitori ed espandere **Variabili di ambiente** nel pannello delle proprietà.  La sezione dovrebbe mostrare solo la variabile creata in precedenza, ovvero **AZMON_COLLECT_ENV = FALSE**. Per tutti gli altri contenitori, la sezione delle variabili di ambiente dovrebbe elencare tutte le variabili di ambiente individuate.
 

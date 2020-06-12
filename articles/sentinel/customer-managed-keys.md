@@ -1,6 +1,6 @@
 ---
-title: Configurare chiavi gestite dal cliente in Sentinel di Azure | Microsoft Docs
-description: Informazioni su come configurare le chiavi gestite dal cliente (CMK) in Sentinel di Azure.
+title: Configurare chiavi gestite dal cliente in Azure Sentinel | Microsoft Docs
+description: Informazioni su come configurare le chiavi gestite dal cliente (CMK, Customer-Managed Key) in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,126 +9,128 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461634"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674184"
 ---
-# <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare la chiave gestita dal cliente di Azure Sentinel
+# <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare una chiave gestita dal cliente in Azure Sentinel
 
 
-Questo articolo fornisce informazioni generali e procedure per configurare una chiave gestita dal cliente (CMK) per Sentinel di Azure. CMK consente la crittografia di tutti i dati salvati o inviati a Sentinel di Azure in tutte le risorse di archiviazione rilevanti con una chiave di Azure Key Vault creata o di proprietà dell'utente.
+Questo articolo fornisce informazioni generali e procedure per la configurazione di una chiave gestita dal cliente per Azure Sentinel. Una chiave gestita dal cliente consente la crittografia di tutti i dati salvati o inviati ad Azure Sentinel in tutte le risorse di archiviazione pertinenti con una chiave di Azure Key Vault creata o di proprietà dell'utente.
 
 > [!NOTE]
-> -   La funzionalità CMK di Azure Sentinel è disponibile solo per i clienti che **non hanno familiarità con l'** accesso a questa funzionalità è controllata dalla registrazione delle funzionalità di Azure.È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.come, dal momento che la capacità è disponibile, le richieste in sospeso verranno approvate.
+> -   La funzionalità CMK di Azure Sentinel viene fornita solo ai **nuovi** clienti e l'accesso a questa funzionalità è controllato dalla registrazione delle funzionalità di Azure. È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.come, quando la capacità è disponibile, le richieste in sospeso verranno approvate.
 > -   La funzionalità CMK di Azure Sentinel è disponibile solo nelle aree Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
-> -   La funzionalità CMK è disponibile solo per i clienti che inviano 1 TB al giorno. Si riceveranno informazioni sui prezzi aggiuntivi quando si applica a Microsoft per eseguire il provisioning di CMK nella sottoscrizione di Azure. Altre informazioni su [log Analytics](../azure-monitor/platform/customer-managed-keys.md#disclaimers) addebito.
+> -   La funzionalità CMK è disponibile solo per i clienti che inviano almeno 1 TB al giorno. Vengono fornite informazioni aggiuntive sui prezzi nel momento in cui si richiede a Microsoft il provisioning di CMK nella sottoscrizione di Azure. Sono disponibili altre informazioni sui [prezzi di Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Funzionamento di CMK 
 
-La soluzione sentinella di Azure usa alcune risorse di archiviazione per la raccolta e le funzionalità dei log, tra cui Log Analytics e altre risorse di archiviazione. Come parte della configurazione CMK di Sentinel di Azure, sarà necessario configurare anche le impostazioni di CMK nelle risorse di archiviazione correlate. Verranno crittografati anche i dati salvati nelle risorse di archiviazione diverse da Log Analytics.
+La soluzione di Azure Sentinel usa alcune risorse di archiviazione per la raccolta e le funzionalità dei log, tra cui Log Analytics. Nell'ambito della configurazione della soluzione CMK di Azure Sentinel è necessario configurare anche le impostazioni di CMK nelle risorse di archiviazione correlate. Vengono crittografati anche i dati salvati nelle risorse di archiviazione diverse da Log Analytics.
+
+Sono disponibili altre informazioni su [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
 
 > [!NOTE]
-> Se si Abilita CMK in Azure Sentinel, qualsiasi funzionalità di anteprima pubblica che non supporta CMK non verrà abilitata.
+> Se si abilita CMK in Azure Sentinel, le funzionalità in anteprima pubblica che non supportano CMK non vengono abilitate.
 
-## <a name="enable-cmk"></a>Abilita CMK 
+## <a name="enable-cmk"></a>Abilitare CMK 
 
-Per eseguire il provisioning di CMK, seguire questa procedura: 
+Per effettuare il provisioning di CMK, seguire questa procedura: 
 
-1.  Creare una Azure Key Vault e la chiave di archiviazione.
+1.  Creare un'istanza di Azure Key Vault e una chiave di archiviazione.
 
 2.  Abilitare CMK nell'area di lavoro Log Analytics.
 
-3.  Registrarsi per Cosmos DB.
+3.  Registrarsi a Cosmos DB.
 
 4.  Aggiungere un criterio di accesso all'istanza di Azure Key Vault.
 
-5.  Abilitare CMK in Sentinel di Azure.
+5.  Abilitare CMK in Azure Sentinel.
 
-6.  Abilitare Sentinel di Azure.
+6.  Abilitare Azure Sentinel.
 
-### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSAGGIO 1: creare un Azure Key Vault e archiviare la chiave
+### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSAGGIO 1: creare un'istanza di Azure Key Vault e una chiave di archiviazione
 
-1.  [Creare Azure Key Vault risorsa](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910), quindi generare o importare una chiave da usare per la crittografia dei dati.
+1.  [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910) e generare o importare una chiave da usare per la crittografia dei dati.
     > [!NOTE]
-    >  Azure Key Vault deve essere configurato come reversibile per proteggere la chiave e l'accesso.
+    >  L'istanza di Azure Key Vault deve essere configurata come recuperabile per proteggere la chiave e l'accesso.
 
-1.  [Attiva opzioni di ripristino:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Attivare le opzioni di ripristino:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Assicurarsi che l' [eliminazione](../key-vault/general/overview-soft-delete.md) temporanea sia attivata.
+    -   Accertarsi che l'opzione [Eliminazione temporanea](../key-vault/general/overview-soft-delete.md) sia attivata.
 
-    -   Attivare la [protezione di ripulitura](../key-vault/general/overview-soft-delete.md#purge-protection) per evitare l'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea.
+    -   Attivare [Protezione dall'eliminazione](../key-vault/general/overview-soft-delete.md#purge-protection) per protegge dall'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>PASSAGGIO 2: abilitare CMK nell'area di lavoro Log Analytics
 
-Seguire le istruzioni in [monitoraggio di Azure configurazione della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md) per creare un'area di lavoro CMK che verrà usata come area di lavoro di Azure Sentinel nei passaggi seguenti.
+Per creare un'area di lavoro CMK da usare come area di lavoro di Azure Sentinel nei passaggi seguenti, seguire le istruzioni riportate nell'articolo relativo alla [configurazione di una chiave gestita dal cliente in Monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md).
 
-### <a name="step-3-register-for-cosmos-db"></a>PASSAGGIO 3: registrare Cosmos DB
+### <a name="step-3-register-for-cosmos-db"></a>PASSAGGIO 3: registrarsi a Cosmos DB
 
-Azure Sentinel funziona con Cosmos DB come risorsa di archiviazione aggiuntiva. Assicurarsi di registrarsi per Cosmos DB.
+Azure Sentinel è compatibile con Cosmos DB come risorsa di archiviazione aggiuntiva. Accertarsi di effettuare la registrazione a Cosmos DB.
 
-Seguire le istruzioni Cosmos DB per [registrare il](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) provider di risorse Azure Cosmos DB per la sottoscrizione di Azure.
+Seguire le istruzioni di Cosmos DB per [registrare il provider di risorse Azure Cosmos DB](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) per la sottoscrizione di Azure.
 
-### <a name="step-4-add-an-access-policy-to-your-azure-key-vault-instance"></a>PASSAGGIO 4: aggiungere un criterio di accesso all'istanza di Azure Key Vault
+### <a name="step-4-add-an-access-policy-to-your-azure-key-vault-instance"></a>PASSAGGIO 4: Aggiungere un criterio di accesso all'istanza di Azure Key Vault
 
-Assicurarsi di aggiungere l'accesso da Cosmos DB all'istanza di Azure Key Vault. Seguire le istruzioni Cosmos DB per [aggiungere un criterio di accesso all'istanza di Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance) con Azure Cosmos DB entità.
+Assicurarsi di aggiungere l'accesso da Cosmos DB all'istanza di Azure Key Vault. Seguire le istruzioni di Cosmos DB per [aggiungere un criterio di accesso all'istanza di Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance) con l'entità di sicurezza Azure Cosmos DB.
 
-### <a name="step-5-enable-cmk-in-azure-sentinel"></a>PASSAGGIO 5: abilitare CMK in Sentinel di Azure
+### <a name="step-5-enable-cmk-in-azure-sentinel"></a>PASSAGGIO 5: abilitare CMK in Azure Sentinel
 
-La funzionalità CMK di Sentinel di Azure viene fornita ai nuovi clienti solo dopo aver ricevuto l'accesso direttamente dal gruppo di prodotti Azure. Usare i contatti Microsoft per ricevere l'approvazione dal team di Sentinel di Azure per abilitare CMK nella soluzione.
+La funzionalità CMK di Azure Sentinel viene fornita ai nuovi clienti solo dopo aver ricevuto l'accesso direttamente dal gruppo di prodotti Azure. Usare i contatti Microsoft per ricevere l'approvazione dal team di Azure Sentinel per abilitare CMK nella soluzione.
 
-Dopo aver ottenuto l'approvazione, verrà richiesto di fornire le informazioni seguenti per abilitare la funzionalità CMK.
+Dopo aver ottenuto l'approvazione, viene richiesto di fornire le informazioni seguenti per abilitare la funzionalità CMK.
 
--  ID area di lavoro in cui si vuole abilitare CMK
+-  ID area di lavoro in cui abilitare CMK
 
--  Key Vault URL: copiare la chiave "identificatore chiave" fino all'ultima barra:  
+-  URL dell'insieme di credenziali delle chiavi: Copiare l'identificatore chiave della chiave, fino all'ultima barra:  
     
 
-    ![identificatore di chiave](./media/customer-managed-keys/key-identifier.png)
+    ![Identificatore chiave](./media/customer-managed-keys/key-identifier.png)
 
-    Il team di Sentinel di Azure Abilita la funzionalità CMK di Azure Sentinel per l'area di lavoro specificata.
+    Il team di Azure Sentinel abilita la funzionalità CMK di Azure Sentinel per l'area di lavoro specificata.
 
--  Verifica del team del prodotto Sentinel di Azure approvato per l'uso di questa funzionalità. Questa operazione deve essere eseguita prima di procedere.
+-  Approvazione da parte del team del prodotto Azure Sentinel all'uso di questa funzionalità. Questa operazione è necessaria per poter procedere.
 
-### <a name="step-6-enable-azure-sentinel"></a>PASSAGGIO 6: abilitare la sentinella di Azure
-
-
-Passare alla portale di Azure e abilitare la sentinella di Azure nell'area di lavoro in cui si configura CMK. Per altre informazioni, vedere [onboarding di Sentinel di Azure](quickstart-onboard.md).
-
-## <a name="key-encryption-key-revocation-or-deletion"></a>Revoca o eliminazione della chiave di crittografia della chiave
+### <a name="step-6-enable-azure-sentinel"></a>PASSAGGIO 6: abilitare Azure Sentinel
 
 
-Nel caso in cui un utente revoca la chiave di crittografia della chiave, eliminando o rimuovendo l'accesso per Sentinel di Azure, entro un'ora, Azure Sentinel rispetterà la modifica e si comporterà come se i dati non fossero più disponibili. A questo punto, verranno impedite tutte le operazioni eseguite che usano risorse di archiviazione persistenti, ad esempio l'inserimento di dati, modifiche della configurazione persistenti e la creazione di eventi imprevisti. I dati archiviati in precedenza non verranno eliminati, ma rimarranno inaccessibili. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati in base a tali criteri.
+Passare alla portale di Azure e abilitare Azure Sentinel nell'area di lavoro in cui si configura CMK. Per altre informazioni, vedere l'articolo relativo all'[onboarding di Azure Sentinel](quickstart-onboard.md).
 
-L'unica operazione possibile dopo la revoca o l'eliminazione della chiave di crittografia è l'eliminazione dell'account.
-
-Se l'accesso viene ripristinato dopo la revoca, Azure Sentinel ripristinerà l'accesso ai dati entro un'ora.
-
-Per altre informazioni sul funzionamento di questo in monitoraggio di Azure, vedere la pagina relativa alla [revoca CMK di monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation).
-
-## <a name="key-encryption-key-rotation"></a>Rotazione della chiave di crittografia della chiave
+## <a name="key-encryption-key-revocation-or-deletion"></a>Revoca o eliminazione delle chiavi di crittografia della chiave
 
 
-Sentinel di Azure e Log Analytics supportano la rotazione delle chiavi. Quando un utente esegue la rotazione delle chiavi in Key Vault, Azure Sentinel supporta la nuova chiave entro un'ora.
+Nel caso in cui un utente revochi la chiave di crittografia della chiave, eliminando o rimuovendo l'accesso per Azure Sentinel, entro un'ora, Azure Sentinel rispetta la modifica e si comporta come se i dati non fossero più disponibili. A questo punto, verranno impedite eventuali operazioni eseguite che usano risorse di archiviazione persistenti, ad esempio l'inserimento dati, le modifiche persistenti alla configurazione e la creazione di eventi imprevisti. I dati precedentemente archiviati non vengono eliminati, ma rimangono inaccessibili. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati in base a tali criteri.
 
-In Key Vault, è possibile eseguire la rotazione della chiave creando una nuova versione della chiave:
+L'unica operazione possibile quando la chiave di crittografia è stata revocata o eliminata è l'eliminazione dell'account.
 
-![rotazione delle chiavi](./media/customer-managed-keys/key-rotation.png)
+Se l'accesso viene ripristinato dopo la revoca, Azure Sentinel ripristina l'accesso ai dati entro un'ora.
 
-È possibile disabilitare la versione precedente della chiave dopo 24 ore oppure, dopo che i log di controllo Azure Key Vault non visualizzano più alcuna attività che utilizza la versione precedente.
+Per altre informazioni sul funzionamento di questo metodo in Monitoraggio di Azure, vedere [Revoca della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation) in Monitoraggio di Azure.
 
-Se si usa la stessa chiave in Sentinel di Azure e in Log Analytics, è necessario eseguire la rotazione delle chiavi è necessario aggiornare in modo esplicito la risorsa cluster in Log Analytics con la nuova versione della chiave di Azure Key Vault. Per altre informazioni, vedere la pagina relativa alla [rotazione CMK di monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation).
+## <a name="key-encryption-key-rotation"></a>Rotazione delle chiavi di crittografia della chiave
+
+
+Azure Sentinel e Log Analytics supportano la rotazione delle chiavi. Quando un utente esegue la rotazione delle chiavi in Key Vault, Azure Sentinel supporta la nuova chiave entro un'ora.
+
+In Key Vault è possibile eseguire la rotazione delle chiavi creando una nuova versione della chiave:
+
+![Rotazione delle chiavi](./media/customer-managed-keys/key-rotation.png)
+
+È possibile disabilitare la versione precedente della chiave dopo 24 ore oppure dopo che i log di controllo di Azure Key Vault smettono di visualizzare le attività che usano la versione precedente.
+
+Se si usa la stessa chiave in Azure Sentinel e in Log Analytics, è necessario eseguire la rotazione delle chiavi e aggiornare in modo esplicito la risorsa cluster in Log Analytics con la nuova versione della chiave di Azure Key Vault. Per altre informazioni, vedere [Rotazione della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation) in Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento si è appreso come configurare una chiave gestita dal cliente in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo documento si è appreso come configurare una chiave gestita dal cliente in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 

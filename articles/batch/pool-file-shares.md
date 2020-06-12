@@ -1,14 +1,14 @@
 ---
-title: Condivisione file di Azure per pool di Azure Batch
+title: Condivisione file di Azure per i pool di Azure Batch
 description: Come montare una condivisione di File di Azure dai nodi di calcolo in un pool Linux o Windows in Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115449"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780277"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
 
@@ -39,10 +39,10 @@ In Batch è necessario montare la condivisione a ogni esecuzione di un'attività
 
 Ad esempio, includere un comando `net use` per montare la condivisione file come parte della riga di comando di ogni attività. Per montare la condivisione file, sono necessarie le credenziali seguenti:
 
-* **Nome utente**: Azure\\\<StorageAccountName\>, ad esempio, Azure\\*mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = =>, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome utente**: AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, ad esempio, *XXXXXXXXXXXXXXXXXXXXX==*
 
-Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:*:
+Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -106,7 +106,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Montare una condivisione in un pool di Linux
 
-Le condivisioni file di Azure possono essere montate nelle distribuzioni di Linux tramite il [client kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). L'esempio seguente illustra come montare una condivisione file in un pool di nodi di calcolo Ubuntu 16.04 LTS. Se si usa una distribuzione di Linux diversa, i passaggi generali sono simili, ma è necessario usare la gestione pacchetti appropriata per la distribuzione. Per informazioni dettagliate ed esempi aggiuntivi, vedere [Usare File di Azure con Linux](../storage/files/storage-how-to-use-files-linux.md).
+Le condivisioni di File di Azure possono essere montate nelle distribuzioni di Linux tramite il [client kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). L'esempio seguente illustra come montare una condivisione file in un pool di nodi di calcolo Ubuntu 16.04 LTS. Se si usa una distribuzione di Linux diversa, i passaggi generali sono simili, ma è necessario usare la gestione pacchetti appropriata per la distribuzione. Per informazioni dettagliate ed esempi aggiuntivi, vedere [Usare File di Azure con Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 Prima di tutto, con un'identità utente amministratore, installare il pacchetto `cifs-utils` e creare il punto di montaggio (ad esempio, */mnt/MyAzureFileShare*) nel file system locale. Una cartella per un punto di montaggio può essere creata in qualsiasi posizione nel file system, ma normalmente viene creata sotto la cartella `/mnt`. Assicurarsi di non creare un punto di montaggio direttamente in `/mnt` (in Ubuntu) o `/mnt/resource` (in altre distribuzioni).
 
@@ -116,8 +116,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Eseguire quindi il comando `mount` per montare la condivisione file, specificando queste credenziali:
 
-* **Nome utente**: \<StorageAccountName\>, ad esempio *mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = =>, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome utente**: \<storageaccountname\>, ad esempio *mystorageaccountname*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, ad esempio, *XXXXXXXXXXXXXXXXXXXXX==*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* in */mnt/MyAzureFileShare*: 
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre opzioni per leggere e scrivere i dati in Batch, vedere la [panoramica delle funzionalità di Batch](batch-api-basics.md) e [Rendere persistente l'output di processi e attività](batch-task-output.md).
-
+* Per altre opzioni per leggere e scrivere i dati in Batch, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
 * Per distribuire file system per carichi di lavoro di Batch vedere anche il toolkit [Batch Shipyard](https://github.com/Azure/batch-shipyard), che include [Shipyard Recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes).

@@ -4,7 +4,7 @@
   items:
     - name: Introduzione ad Azure Cosmos DB
       href: introduction.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare le risorse di Cosmos DB
@@ -588,7 +588,7 @@
               href: cassandra-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: cassandra-support.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -664,7 +664,7 @@
           items:
             - name: Che cos'è l'API MongoDB in Cosmos DB?
               href: mongodb-introduction.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -763,7 +763,7 @@
               href: graph-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: gremlin-support.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Console Gremlin
               href: create-graph-gremlin-console.md
@@ -826,7 +826,7 @@
           items:
             - name: Che cos'è l'API Tabella in Cosmos DB?
               href: table-introduction.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-table-dotnet.md
@@ -977,41 +977,40 @@
           href: how-to-manage-indexing-policy.md
         - name: Definire chiavi univoche
           href: how-to-define-unique-keys.md
-    - name: Procedure consigliate
+    - name: Prestazioni e risoluzione dei problemi
       items:
-        - name: Suggerimenti per incrementare le prestazioni
+        - name: Query
           items:
             - name: Ottenere le metriche di esecuzione delle query
-              displayName: 'query profile, profile'
               href: profile-sql-api-query.md
             - name: Ottimizzare le prestazioni delle query
               href: sql-api-query-metrics.md
-            - name: Suggerimenti sulle prestazioni per .NET SDK
+            - name: Risoluzione dei problemi di prestazioni delle query
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: Suggerimenti sulle prestazioni per .NET SDK v3
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: Suggerimenti sulle prestazioni per .NET SDK v2
               href: performance-tips.md
+            - name: Risolvere i problemi di .NET SDK
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
             - name: Suggerimenti sulle prestazioni per Java SDK v4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Suggerimenti sulle prestazioni per Java SDK meno recenti
-              items:
-                - name: Async Java SDK v2
-                  href: performance-tips-async-java.md
-                - name: Sync Java SDK v2
-                  href: performance-tips-java.md
-            - name: Test delle prestazioni - App di esempio
-              href: performance-testing.md
-        - name: Operazioni di lettura e scrittura convenienti
-          href: key-value-store-cost.md
-    - name: Risolvere problemi
-      items:
-        - name: Risoluzione dei problemi di prestazioni delle query
-          href: troubleshoot-query-performance.md
-        - name: Risolvere i problemi di Java SDK v4
-          href: troubleshoot-java-sdk-v4-sql.md
-        - name: Risolvere i problemi di Java SDK meno recenti
-          items:
+            - name: Risolvere i problemi di Java SDK v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Async Java SDK v2
+              href: performance-tips-async-java.md
+            - name: Sync Java SDK v2
+              href: performance-tips-java.md
             - name: Async Java SDK v2
               href: troubleshoot-java-async-sdk.md
-        - name: Risolvere i problemi di .NET SDK
-          href: troubleshoot-dot-net-sdk.md
+        - name: Test delle prestazioni - App di esempio
+          href: performance-testing.md
+        - name: Operazioni di lettura e scrittura convenienti
+          href: key-value-store-cost.md
     - name: Eseguire la migrazione a SDK più recenti
       items:
         - name: Eseguire la migrazione a Java V4 SDK
@@ -1194,28 +1193,30 @@
           href: how-to-migrate-from-bulk-executor-library.md
         - name: BulkExecutor - Libreria Java
           href: bulk-executor-java.md
-- name: Informazioni di riferimento
+- name: Riferimenti per gli SDK dell'API SQL
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: Libreria di feed di modifiche .NET
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: Libreria dell'executor bulk .NET
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Libreria dell'executor bulk Java
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Java SDK v4 per Core
-      href: sql-api-sdk-java-v4.md
-    - name: Java SDK per Core di versioni precedenti
+    - name: SDK .NET
       items:
+        - name: .NET SDK v3
+          href: sql-api-sdk-dotnet-standard.md
+        - name: .NET SDK v2
+          href: sql-api-sdk-dotnet.md
+        - name: .NET Core SDK v2
+          href: sql-api-sdk-dotnet-core.md
+        - name: Libreria di feed di modifiche .NET v2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: Libreria di esecuzione bulk .NET v2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: SDK Java
+      items:
+        - name: Java SDK v4
+          href: sql-api-sdk-java-v4.md
         - name: Async Java SDK v2
           href: sql-api-sdk-async-java.md
         - name: Sync Java SDK v2
           href: sql-api-sdk-java.md
+        - name: Libreria di esecuzione bulk Java v2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

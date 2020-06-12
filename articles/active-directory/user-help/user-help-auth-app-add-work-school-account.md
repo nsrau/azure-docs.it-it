@@ -1,24 +1,24 @@
 ---
-title: Aggiungere un account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator-Azure AD
-description: Aggiungere l'account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
+title: Aggiungere un account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator - Azure AD
+description: Aggiungere l'account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator per verificare l'identità durante l'uso della verifica a due fattori.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cc14a53f7ead7f0a496728d477d7d30857a0fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063918"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741547"
 ---
-# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Aggiungere l'account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Aggiungere un account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator
 
 Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'account aziendale o dell'istituto di istruzione in modo da usare l'app Microsoft Authenticator come uno dei metodi di verifica.
 
@@ -30,7 +30,7 @@ Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'acco
 1. Nel computer in uso andare alla pagina [Verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
-    >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altre informazioni sulle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).
+    >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altri dettagli sulle informazioni di sicurezza, vedere [Panoramica (anteprima) delle informazioni di sicurezza](user-help-security-info-overview.md).
 
 2. Selezionare la casella accanto ad **App Authenticator** e quindi selezionare **Configura**.
 
@@ -41,7 +41,7 @@ Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'acco
 3. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Account aziendale o dell'istituto di istruzione**.
 
     >[!Note]
-    >Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per informazioni su come aggiungere manualmente il codice, vedere [aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
+    >Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per altre informazioni su come aggiungere manualmente un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 4. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla schermata **Configura l'app per dispositivi mobili** del computer e quindi scegliere **Fine**.
 
