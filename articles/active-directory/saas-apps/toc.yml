@@ -19,13 +19,13 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: Una
+    - name: A
       items:
-        - name: abintegro
+        - name: Abintegro
           href: abintegro-tutorial.md
         - name: Absorb LMS
           href: absorblms-tutorial.md
-        - name: Contenuto
+        - name: Abstract
           href: abstract-tutorial.md
         - name: Academy Attendance
           href: academy-attendance-tutorial.md
@@ -165,7 +165,7 @@
           href: awardspring-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
-    - name: b
+    - name: B
       items:
         - name: BambooHR
           href: bamboo-hr-tutorial.md
@@ -431,7 +431,7 @@
           href: deskradar-tutorial.md
         - name: DigiCert
           href: digicert-tutorial.md
-        - name: Connessione diretta
+        - name: Direct
           href: direct-tutorial.md
         - name: Discovery Benefits SSO
           href: discovery-benefits-sso-tutorial.md
@@ -653,7 +653,7 @@
           href: gr8-people-tutorial.md
         - name: Gra-Pe
           href: grape-tutorial.md
-        - name: greenhouse
+        - name: Greenhouse
           href: greenhouse-tutorial.md
         - name: Greenlight Compliant Access Management
           href: greenlight-compliant-access-management-tutorial.md
@@ -1457,6 +1457,8 @@
           href: smartfile-tutorial.md
         - name: Smart Global Governance
           href: smart-global-governance-tutorial.md
+        - name: SmartKargo
+          href: smartkargo-tutorial.md
         - name: SmartLPA
           href: smartlpa-tutorial.md
         - name: SmartRecruiters
