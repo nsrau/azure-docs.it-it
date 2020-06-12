@@ -2,19 +2,19 @@
 title: Distribuire SQL Edge di Azure (anteprima) usando il portale di Azure
 description: Informazioni su come distribuire SQL Edge di Azure (anteprima) usando il portale di Azure
 keywords: distribuire SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681259"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233250"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Distribuire SQL Edge di Azure (anteprima) 
 
