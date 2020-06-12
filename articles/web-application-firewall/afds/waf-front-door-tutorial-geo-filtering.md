@@ -1,6 +1,6 @@
 ---
-title: Configurare i criteri di web application firewall di filtro geografico per il servizio front door di Azure
-description: Questa esercitazione Mostra come creare un criterio di filtro geografico e associare i criteri all'host front-end della porta anteriore esistente
+title: Configurare un criterio web application firewall di filtro geografico per il servizio Frontdoor di Azure
+description: Questa esercitazione mostra come creare un criterio di filtro geografico semplice e associarlo all'host front-end esistente del servizio Frontdoor
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135871"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747757"
 ---
-# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurare un criterio WAF per il filtro geografico per la porta anteriore
+# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurare un criterio web application firewall di filtro geografico per Frontdoor
 
 Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi/aree tranne gli Stati Uniti.
 
@@ -48,11 +48,11 @@ Install-Module -Name Az.FrontDoor
 
 ### <a name="create-a-front-door-profile"></a>Creare un profilo Frontdoor
 
-Creare un profilo di porta anteriore seguendo le istruzioni descritte nella [Guida introduttiva: creare un profilo di sportello anteriore](../../frontdoor/quickstart-create-front-door.md).
+Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo Frontdoor](../../frontdoor/quickstart-create-front-door.md).
 
 ## <a name="define-geo-filtering-match-condition"></a>Definire la condizione di corrispondenza del filtro geografico
 
-Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) con parametri. I codici paese a due lettere per la mappatura dei paesi sono disponibili in informazioni [sul filtro geografico in un dominio per il front-end di Azure](waf-front-door-geo-filtering.md).
+Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) con parametri. I codici di paese/regione a due lettere per il mapping paese/regione sono disponibili in [Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzResourceGroup`. Creare quindi un oggetto criterio `geoPolicy` contenente `nonUSBlockRule` usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo Frontdoor. È necessario specificare un nome univoco per il criterio geografico. 
 
-Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroupFD1* , supponendo che sia stato creato il profilo di porta anteriore usando le istruzioni fornite nell'articolo [introduttivo: creare una porta anteriore](../../frontdoor/quickstart-create-front-door.md) . Nell'esempio seguente sostituire il nome del criterio *geoPolicyAllowUSOnly* con un nome univoco del criterio.
+L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un profilo Frontdoor](../../frontdoor/quickstart-create-front-door.md). Nell'esempio seguente sostituire il nome del criterio *geoPolicyAllowUSOnly* con un nome univoco del criterio.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `

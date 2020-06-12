@@ -5,12 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282094"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834595"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
 
@@ -26,9 +26,9 @@ Altre informazioni su:
 - [Supporto tecnico Premier Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> I cluster in esecuzione in un cluster di livello di affidabilità bronze o a nodo singolo consentiranno di eseguire solo i carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione su un cluster con affidabilità bronze o a nodo singolo, il team di supporto di Microsoft fornirà assistenza per attenuare il problema, ma non eseguirà un'analisi della causa radice. Per altri dettagli, vedere [le caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
+> I cluster in esecuzione in un cluster di livello di affidabilità Bronze o a nodo singolo consentiranno di eseguire solo i carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione su un cluster con affidabilità Bronze o a nodo singolo, il team di supporto di Microsoft fornirà assistenza per attenuare il problema, ma non eseguirà un'analisi della causa radice. Per informazioni dettagliate, fare riferimento a [Caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster).
 >
-> Per ulteriori informazioni sugli elementi necessari per un cluster pronto per la produzione, vedere l' [elenco di controllo della conformità alla produzione](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Per altre informazioni su ciò che è necessario per un cluster pronto per la produzione, consultare l'[elenco di controllo per l'idoneità per la produzione](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -55,7 +55,7 @@ Il [tag Service Fabric su StackOverflow][stackoverflow] e il [forum di Service F
 
 ### <a name="azure-feedback-forum"></a>Forum di commenti e suggerimenti su Azure
 
-Il [forum di commenti e suggerimenti su Azure per Service Fabric][uservoice-forum] è il modo migliore per inoltrare i propri suggerimenti su funzionalità di rilievo del prodotto, dal momento che le richieste più diffuse vengono prese in considerazione nella pianificazione a medio-lungo termine di Microsoft. Gli utenti sono incoraggiati a cercare sostegno per i suggerimenti presentati all'interno della community.
+Il [forum di commenti e suggerimenti di Azure per Service Fabric][uservoice-forum] è il modo migliore per inoltrare i suggerimenti su funzionalità di rilievo del prodotto, dal momento che le richieste più diffuse vengono prese in considerazione nella pianificazione a medio-lungo termine di Microsoft. Gli utenti sono incoraggiati a cercare sostegno per i suggerimenti presentati all'interno della community.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione
 
@@ -67,7 +67,7 @@ Non esiste alcuna opzione di supporto a pagamento per queste versioni di antepri
 [Versioni di Service Fabric supportate](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

@@ -1,5 +1,5 @@
 ---
-title: Scalabilità verticale di set di scalabilità di macchine virtuali di Azure
+title: Ridimensionare verticalmente i set di scalabilità di macchine virtuali di Azure
 description: Come eseguire la scalabilità verticale di una macchina virtuale in risposta agli avvisi di monitoraggio tramite Automazione di Azure
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120998"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827267"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
 
@@ -37,7 +37,7 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 4. Aggiungere un avviso al set di scalabilità di macchine virtuali con una notifica di webhook.
 
 > [!NOTE]
-> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, le dimensioni della macchina virtuale vincolata non sono supportate. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
+> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, l'aumento o la diminuzione delle dimensioni della macchina virtuale vincolata non sono supportate. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 > 
 > | coppie di ridimensionamento di dimensioni delle macchine virtuali |  |
 > | --- | --- |
@@ -118,7 +118,7 @@ Dopo aver importato i runbook, aggiungere un webhook al runbook in modo che poss
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Aggiungere un avviso al set di scalabilità di macchine virtuali
 
-Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md) (Metriche comuni per il ridimensionamento automatico di Monitoraggio di Azure).
+Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,10 +153,10 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 
-* [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../azure-monitor/platform/cli-samples.md)
+* [Esempi di PowerShell in Monitoraggio di Azure](../azure-monitor/samples/powershell-samples.md)
+* [Esempi dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../azure-monitor/samples/cli-samples.md)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.
 

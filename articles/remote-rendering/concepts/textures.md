@@ -5,45 +5,45 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681662"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759133"
 ---
 # <a name="textures"></a>Trame
 
-Le trame sono una [risorsa condivisa](../concepts/lifetime.md)non modificabile. È possibile caricare trame dall' [archiviazione BLOB](../how-tos/conversion/blob-storage.md) e applicarle direttamente ai modelli, come illustrato in [esercitazione: modifica dell'ambiente e dei materiali](../tutorials/unity/changing-environment-and-materials.md). In genere, tuttavia, le trame faranno parte di un [modello convertito](../how-tos/conversion/model-conversion.md), dove vi fanno riferimento i [materiali](materials.md).
+Le trame sono una [risorsa condivisa](../concepts/lifetime.md) non modificabile. È possibile caricare trame da una [risorsa di archiviazione BLOB](../how-tos/conversion/blob-storage.md) e applicarle direttamente ai modelli, come illustrato nell'esercitazione [: Modificare l'ambiente e i materiali](../tutorials/unity/changing-environment-and-materials.md). In genere, tuttavia, le trame faranno parte di un [modello convertito](../how-tos/conversion/model-conversion.md), in cui si fa riferimento ad esse con i [materiali](materials.md).
 
 ## <a name="texture-types"></a>Tipi di trama
 
 Tipi di trama diversi hanno casi d'uso diversi:
 
-* le **trame 2D** vengono utilizzate principalmente nei [materiali](materials.md).
-* **CubeMaps** può essere usato per [Sky](../overview/features/sky.md).
+* Le **trame 2D** vengono usate principalmente nei [materiali](materials.md).
+* Le **mappe cubi** possono essere usate per il [cielo](../overview/features/sky.md).
 
 ## <a name="supported-texture-formats"></a>Formati di trama supportati
 
-Tutte le trame fornite a ARR devono essere in [formato DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferibilmente con mipmap e la compressione della trama. Se si desidera automatizzare il processo di conversione, vedere [lo strumento da riga di comando TexConv](../resources/tools/tex-conv.md) .
+Tutte le trame fornite ad ARR devono essere in formato [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferibilmente con mipmap e la compressione della trama. Se si vuole automatizzare il processo di conversione, vedere lo [strumento da riga di comando TexConv](../resources/tools/tex-conv.md).
 
 ## <a name="loading-textures"></a>Caricamento delle trame
 
-Quando si carica una trama, è necessario specificare il tipo previsto. Se il tipo non corrisponde, il caricamento della trama ha esito negativo.
+Quando si carica una trama, è necessario specificarne il tipo previsto. Se il tipo non corrisponde, il caricamento della trama non riesce.
 Il caricamento di una trama con lo stesso URI due volte restituirà lo stesso oggetto trama, perché si tratta di una [risorsa condivisa](../concepts/lifetime.md).
 
-Analogamente al caricamento dei modelli, sono disponibili due varianti di indirizzamento di un asset di trama nell'archivio BLOB di origine:
+Analogamente al caricamento dei modelli, sono disponibili due varianti di indirizzamento di una risorsa trama nella risorsa di archiviazione BLOB di origine:
 
-* L'asset di trama può essere risolto tramite il relativo URI di firma di accesso condiviso. La funzione di caricamento `LoadTextureFromSASAsync` pertinente `LoadTextureFromSASParams`è con il parametro. Usare questa variante anche durante il caricamento [di trame predefinite](../overview/features/sky.md#built-in-environment-maps).
-* La trama può essere risolta direttamente da parametri di archiviazione BLOB, nel caso in [cui l'archivio BLOB sia collegato all'account](../how-tos/create-an-account.md#link-storage-accounts). La funzione di caricamento pertinente in `LoadTextureAsync` questo caso `LoadTextureParams`è con il parametro.
+* La risorsa trama può essere inviata tramite il relativo URI SAS. La funzione di caricamento pertinente è `LoadTextureFromSASAsync` con parametro `LoadTextureFromSASParams`. È consigliabile usare questa variante anche quando si caricano [trame predefinite](../overview/features/sky.md#built-in-environment-maps).
+* La trama può essere inviata direttamente tramite parametri della risorsa di archiviazione BLOB, nel caso in cui la [risorsa di archiviazione BLOB sia collegata all'account](../how-tos/create-an-account.md#link-storage-accounts). La funzione di caricamento pertinente in questo caso è `LoadTextureAsync` con parametro `LoadTextureParams`.
 
-Il codice di esempio seguente illustra come caricare una trama tramite il relativo URI di firma di accesso condiviso (o trama incorporata). si noti che solo la funzione di caricamento/parametro è diversa per l'altro caso:
+Il codice di esempio seguente illustra come caricare una trama tramite il relativo URI SAS (o trama predefinita). Si noti che solo la funzione/parametro di caricamento è diversa per l'altro caso:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -60,12 +60,34 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-A seconda del tipo di trama da usare, è possibile che siano presenti restrizioni per il tipo di trama e il contenuto. La mappa di rugosità di un [materiale PBR](../overview/features/pbr-materials.md) , ad esempio, deve essere in scala di grigi.
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
+
+A seconda del tipo di trama da usare, è possibile che siano presenti restrizioni per il tipo di trama e il contenuto. La mappa di rugosità di un [materiale PBR](../overview/features/pbr-materials.md), ad esempio, deve essere in scala di grigi.
 
 > [!CAUTION]
-> Tutte le funzioni *asincrone* in arr restituiscono oggetti operazione asincrona. È necessario archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, il Garbage Collector C# potrebbe eliminare l'operazione in anticipo e non può mai finire. Nel codice di esempio precedente alla variabile membro ' _textureLoad ' viene usato per mantenere un riferimento fino a quando non arriva l'evento *completato* .
+> Tutte le funzioni *asincrone* in ARR restituiscono oggetti di operazioni asincrone. È necessario quindi archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, è possibile che il Garbage Collector C# elimini l'operazione in anticipo, che quindi non verrà mai completata. Nel codice di esempio precedente la variabile membro '_textureLoad ' viene usata per mantenere un riferimento fino a quando non viene *completato* l'evento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Materiali](materials.md)
-* [Sky](../overview/features/sky.md)
+* [Cielo](../overview/features/sky.md)

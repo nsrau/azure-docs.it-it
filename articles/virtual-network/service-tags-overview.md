@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Informazioni sui tag del servizio. I tag del servizio consentono di ridurre la complessità della creazione delle regole di sicurezza.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: jispar
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660594"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263198"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureDataExplorerManagement** | Gestione Esplora dati di Azure. | In ingresso | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | In uscita | No | Sì |
 | **AzureDevSpaces** | Azure Dev Spaces. | In uscita | No | No |
-| **AzureEventGrid** | Griglia di eventi di Azure. <br/><br/>*Nota:* questo tag è relativo agli endpoint di Griglia di eventi di Azure negli Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2 e Stati Uniti centrali. | Entrambe | No | No |
+| **AzureEventGrid** | Griglia di eventi di Azure. | Entrambe | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Frontdoor di Azure | Entrambe | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | In uscita | No | No |
 | **AzureIoTHub** | Hub IoT di Azure. | In uscita | No | No |
@@ -80,7 +80,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureTrafficManager** | Indirizzi IP di probe di Gestione traffico di Azure.<br/><br/>Per altre informazioni sugli indirizzi IP di probe di Gestione traffico, vedere [Domande frequenti su Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | In ingresso | No | Sì |  
 | **BatchNodeManagement** | Traffico di gestione per le distribuzioni dedicate in Azure Batch. | Entrambe | No | Sì |
 | **CognitiveServicesManagement** | Intervalli di indirizzi per il traffico per Servizi cognitivi di Azure. | Entrambe | No | No |
-| **DataFactory**  | Data factory di Azure | Entrambe | No | No |
+| **DataFactory**  | Azure Data Factory | Entrambe | No | No |
 | **DataFactoryManagement** | Traffico di gestione per Azure Data Factory. | In uscita | No | No |
 | **Dynamics365ForMarketingEmail** | Intervalli di indirizzi per il servizio di posta elettronica di marketing di Dynamics 365. | In uscita | Sì | No |
 | **ElasticAFD** | Servizio Frontdoor di Azure elastico. | Entrambe | No | No |
@@ -137,7 +137,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
 - [Azure US Gov](https://www.microsoft.com/download/details.aspx?id=57063)  
-- [Azure Cina](https://www.microsoft.com/download/details.aspx?id=57062) 
+- [Azure per la Cina](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Germania](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 > [!NOTE]

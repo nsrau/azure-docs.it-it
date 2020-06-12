@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Project Online da app per la logica di Azure
+title: Connettersi a Project Online da App per la logica di Azure
 description: Automatizzare i flussi di lavoro per il monitoraggio, la creazione e la gestione di progetti, attività e risorse di Project Online con App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789325"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834867"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gestire progetti, attività e risorse di Project Online con App per la logica di Azure
 
@@ -31,7 +31,7 @@ Project Online consente di pianificare, classificare in ordine di priorità e ge
 
 * Project Online, disponibile tramite un account [Office 365](https://www.office.com/). 
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere ai dati di Project Online. Per iniziare con un trigger di Project Online, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare le azioni di Project Online, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -60,9 +60,9 @@ Project Online consente di pianificare, classificare in ordine di priorità e ge
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/projectonline/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per domande, visitare la [pagina Microsoft delle domande e risposte per le App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

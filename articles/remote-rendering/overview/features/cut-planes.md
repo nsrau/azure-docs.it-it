@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759082"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021365"
 ---
 # <a name="cut-planes"></a>Tagliare i piani
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 Le proprietà seguenti sono esposte in un componente del piano di taglio:
 
-* **Abilitato:** È possibile disattivare temporaneamente i piani di taglio disabilitando il componente. I piani di taglio disabilitati non comportano un sovraccarico di rendering e non vengono conteggiati rispetto al limite globale dei piani di taglio.
+* `Enabled`: È possibile disattivare temporaneamente i piani di taglio disabilitando il componente. I piani di taglio disabilitati non comportano un sovraccarico di rendering e non vengono conteggiati rispetto al limite globale dei piani di taglio.
 
-* **Normale:** Specifica quale direzione (+ X,-X, + Y,-Y, + Z,-Z) viene usata come piano normale. Questa direzione è relativa all'orientamento dell'entità proprietario. Spostare e ruotare l'entità proprietario per il posizionamento esatto.
+* `Normal`: Specifica quale direzione (+ X,-X, + Y,-Y, + Z,-Z) viene usata come piano normale. Questa direzione è relativa all'orientamento dell'entità proprietario. Spostare e ruotare l'entità proprietario per il posizionamento esatto.
 
-* **FadeColor** e **FadeLength:**
+* `FadeColor` e `FadeLength`:
 
   Se il valore alfa di *FadeColor* è diverso da zero, i pixel vicini al piano di taglio si dissolveranno verso la parte RGB di FadeColor. La potenza del canale alfa determina se la dissolvenza sarà totale verso il colore di dissolvenza o solo parziale. *FadeLength* definisce la distanza a cui avverrà la dissolvenza.
 

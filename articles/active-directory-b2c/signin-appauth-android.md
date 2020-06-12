@@ -1,22 +1,22 @@
 ---
 title: Acquisire un token in un'applicazione Android
 titleSuffix: Azure AD B2C
-description: Come creare un'app Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti.
+description: Come creare un'app per Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l'autenticazione degli utenti.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183781"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638381"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Accedere mediante un'applicazione Android in Azure Active Directory B2C
 
@@ -35,11 +35,11 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app.
+Registrare quindi un'applicazione nel tenant di Azure AD B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.
+Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 Registrare anche l'URI di reindirizzamento personalizzato per l'uso in un passaggio successivo. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
@@ -72,10 +72,10 @@ L'esempio è una versione modificata di quello fornito da [AppAuth](https://open
 * ID tenant (ad esempio contoso.onmicrosoft.com)
 * Nome del flusso utente (ad esempio B2C\_1\_SignUpIn)
 
-Se si sceglie di individuare automaticamente gli URI degli endpoint di autorizzazione e di token, è necessario recuperare le informazioni dall'URI di individuazione. L'URI di individuazione può essere generato mediante la sostituzione dell'ID\_tenant e del nome\_criterio nell'URL seguente:
+Se si sceglie di individuare automaticamente gli URI degli endpoint di autorizzazione e di token, è necessario recuperare le informazioni dall'URI di individuazione. L'URI di individuazione può essere generato mediante la sostituzione di `<tenant-id>` e di `<policy-name>` nell'URL seguente:
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 È quindi possibile acquisire gli URI degli endpoint di autorizzazione e di token e creare un oggetto AuthorizationServiceConfiguration eseguendo le operazioni seguenti:
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Anziché usare l'individuazione per ottenere gli URI degli endpoint di autorizzazione e di token, è possibile anche specificarli in modo esplicito mediante la sostituzione dell'ID\_tenant e del nome\_criterio negli URL seguenti:
+Anziché usare l'individuazione per ottenere gli URI degli endpoint di autorizzazione e di token, è possibile anche specificarli in modo esplicito mediante la sostituzione di `<tenant-id>` e `<policy-name>` negli URL seguenti:
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 Eseguire il codice seguente per creare l'oggetto AuthorizationServiceConfiguration:
@@ -120,7 +120,7 @@ AuthorizationServiceConfiguration config =
 
 Dopo la configurazione o il recupero di una configurazione del servizio di autorizzazione, è possibile costruire una richiesta di autorizzazione. Per creare la richiesta sono necessarie le informazioni seguenti:
 
-* ID client (ID applicazione) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
+* ID client (ID APPLICAZIONE) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
 * URI di reindirizzamento personalizzato registrato in precedenza. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Entrambi gli elementi sono stati salvati durante la [registrazione dell'app](#create-an-application).

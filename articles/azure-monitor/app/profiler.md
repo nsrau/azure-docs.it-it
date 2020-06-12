@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121198"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778567"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -43,7 +43,7 @@ Application Insights Profiler è preinstallato come parte del runtime di Servizi
 È possibile abilitare Application Insights Profiler creando impostazioni dell'app per Servizio app di Azure. Queste impostazioni dell'app vengono create automaticamente nella pagina specificando le opzioni illustrate in precedenza. È tuttavia possibile automatizzare la creazione di queste impostazioni usando un modello o altri metodi. Queste impostazioni funzioneranno anche se la risorsa di Application Insights si trova in una sottoscrizione diversa dal Servizio app di Azure.
 Ecco le impostazioni necessarie per abilitare Profiler:
 
-|Impostazione app    | Valore    |
+|Impostazione app    | valore    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -63,9 +63,9 @@ Se si vuole abilitare Profiler per altri cloud, è possibile usare le impostazio
 
 ## <a name="disable-profiler"></a>Disabilitare Profiler
 
-Per arrestare o riavviare Profiler per una singola istanza dell'app, in **Processi Web** accedere alla risorsa dell'app. Per eliminare Profiler, passare a **Estensioni**.
+Per arrestare o riavviare Profiler per un'istanza dell'app singola, in **Processi Web** arrestare il processo Web denominato ApplicationInsightsProfiler3. Anche se il Profiler è disabilitato usando l'opzione nella pagina Application Insights come descritto in precedenza, il processo del Profiler continuerà l'esecuzione. Il profiler verificherà se è abilitato. Se è disabilitato, verrà sospeso per un certo periodo di tempo prima di effettuare un nuovo controllo. Se disabilitato, non esegue alcuna profilatura. Se si disabilita questo processo Web, il processo del profiler non viene eseguito, neanche per verificare se è abilitato.
 
-![Disabilitare Profiler per un processo Web][disable-profiler-webjob]
+  ![Disabilitare Profiler per un processo Web][disable-profiler-webjob]
 
 È consigliabile abilitare Profiler su tutte le app per individuare il prima possibile eventuali problemi di prestazioni.
 

@@ -7,7 +7,7 @@
           href: compare-with-b2c.md
         - name: Informazioni sull'accesso utente guest B2B
           href: what-is-b2b.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Aggiungere utenti guest nel portale
           href: b2b-quickstart-add-guest-users-portal.md
@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: Flussi utente di iscrizione self-service (anteprima)
           href: self-service-sign-up-overview.md
+        - name: Connettori API di iscrizione self-service (anteprima)
+          href: api-connectors-overview.md
         - name: Gestione entitlement di Azure AD
           href: self-service-portal.md
         - name: Limitazioni correnti
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Personalizzare la lingua del flusso utente
               href: user-flow-customize-language.md
+            - name: Aggiungere un connettore API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Aggiungere un sistema di approvazione personalizzato
+              href: self-service-sign-up-add-approvals.md
         - name: Gestire gli account guest
           items:
             - name: Aggiungere un utente B2B a un ruolo

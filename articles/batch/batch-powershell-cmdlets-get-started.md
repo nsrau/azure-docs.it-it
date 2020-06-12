@@ -1,15 +1,15 @@
 ---
 title: Introduzione a PowerShell
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995323"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779619"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
@@ -114,7 +114,7 @@ Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext 
 
 ### <a name="create-a-batch-pool"></a>Creare un pool di Batch
 
-Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#pool). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
+Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Nodi e pool](nodes-and-pools.md#configurations). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
 
 Quando si esegue **New-AzBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il frammento di codice seguente, ad esempio, crea un pool di Batch con nodi di calcolo di dimensioni Standard_A1 nella configurazione della macchina virtuale. L'immagine viene creata con Ubuntu Server 18.04-LTS. In questo caso, il parametro **VirtualMachineConfiguration** specifica la variabile *$configuration* come oggetto PSVirtualMachineConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
@@ -160,7 +160,7 @@ In alternativa a un filtro OData, è possibile usare il parametro **Id** . Per e
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
-Il parametro **ID** supporta solo la ricerca con ID completo; non caratteri jolly o filtri di tipo OData.
+Il parametro **Id** supporta solo la ricerca di ID completi, senza caratteri jolly o filtri di tipo OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Usare il parametro MaxCount
 
@@ -237,7 +237,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 
 Quando si crea un pool è possibile specificare uno o più pacchetti dell'applicazione da distribuire. Quando si specifica un pacchetto al momento della creazione del pool, il pacchetto viene distribuito in ogni nodo quando questo viene aggiunto al pool. I pacchetti vengono distribuiti anche quando un nodo viene riavviato o ne viene ricreata l'immagine.
 
-Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Prima di tutto, creare un oggetto **PSApplicationPackageReference** e configurarlo con l'ID applicazione e la versione del pacchetto che si vuole distribuire nei nodi di calcolo del pool:
+Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Creare prima un oggetto **PSApplicationPackageReference** e configurarlo con l'ID applicazione e la versione del pacchetto da distribuire nei nodi di calcolo del pool:
 
 ```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -247,9 +247,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Creare ora il pool e specificare l'oggetto di riferimento pacchetto come argomento per l'opzione `ApplicationPackageReferences`:
+A questo punto, creare la configurazione e il pool. In questo esempio viene usato il parametro **CloudServiceConfiguration** con un oggetto di tipo `PSCloudServiceConfiguration` inizializzato in `$configuration`, che imposta **OSFamily** su `6` per "Windows Server 2019" e **OSVersion** su `*`. Specificare l'oggetto di riferimento pacchetto come argomento per l'opzione `ApplicationPackageReferences`:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Twilio da app per la logica di Azure
+title: Connettersi a Twilio da App per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per la gestione dei messaggi SMS, MMS e IP globali tramite il proprio account Twilio usando App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789104"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829648"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gestire i messaggi in Twilio con App per la logica di Azure
 
@@ -33,7 +33,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
   * Un numero di telefono Twilio verificato in grado di ricevere SMS
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Twilio. Per usare un'azione di Twilio, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -50,12 +50,12 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
        -oppure-
 
      * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
-     Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+     Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca immettere "twilio" come filtro. 
        Nell'elenco delle azioni selezionare l'azione desiderata.
 
-1. Fornire i dettagli necessari per la connessione e quindi scegliere **Crea**:
+1. Specificare i dettagli necessari per la connessione e quindi scegliere **Crea**:
 
    * Nome da usare per la connessione
    * ID dell'account Twilio 
@@ -67,9 +67,9 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/twilio/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per domande, visitare la [pagina Microsoft delle domande e risposte per le App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

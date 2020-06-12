@@ -1,0 +1,126 @@
+---
+title: Uso di Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB
+description: Informazioni su come usare Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB.
+author: plzm
+ms.author: paelaz
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 05/20/2020
+ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747368"
+---
+# <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso di Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB
+
+[Criteri di Azure](../governance/policy/overview.md) consente di imporre standard di governance aziendale, valutare la conformità delle risorse e implementare correzioni automatiche. Casi d'uso comuni includono sicurezza, gestione dei costi e coerenza della configurazione.
+
+Criteri di Azure fornisce definizioni di criteri predefinite. Si possono creare definizioni di criteri personalizzate per scenari che non sono previsti dalle definizioni di criteri predefinite. Per informazioni dettagliate vedere la [documentazione di Criteri di Azure](../governance/policy/overview.md).
+
+## <a name="assign-a-built-in-policy-definition"></a>Assegnare una definizione di criteri predefinita
+
+Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Le _assegnazioni_ dei criteri vengono create a partire dalle _definizioni_. È possibile usare le definizioni di criteri predefinite o personalizzate per le risorse Azure Cosmos DB. Le assegnazioni di criteri hanno come ambito un gruppo di gestione di Azure, una sottoscrizione di Azure o un gruppo di risorse e vengono applicate alle risorse nell'ambito selezionato. È possibile escludere risorse specifiche dall'ambito.
+
+È possibile creare assegnazioni di criteri usando il [portale di Azure](../governance/policy/assign-policy-portal.md), [Azure PowerShell](../governance/policy/assign-policy-powershell.md), l'[interfaccia della riga di comando di Azure](../governance/policy/assign-policy-azurecli.md) o il [modello di Resource Manager di Azure](../governance/policy/assign-policy-template.md).
+
+Per creare un'assegnazione di criteri da una definizione di criteri predefinita per Azure Cosmos DB, attenersi alla procedura descritta nell'articolo [Creare un'assegnazione di criteri con il portale di Azure](../governance/policy/assign-policy-portal.md).
+
+Nel passaggio per selezionare una definizione dei criteri, immettere `Cosmos DB` nel campo di ricerca per filtrare l'elenco di definizioni di criteri predefinite disponibili. Selezionare una delle definizioni di criteri predefinite disponibili, quindi scegliere **Seleziona** per continuare a creare l'assegnazione dei criteri.
+
+> [!TIP]
+> È anche possibile usare i nomi delle definizioni dei criteri predefinite indicate nel riquadro **Definizioni disponibili** per creare le assegnazioni dei criteri con Azure PowerShell, l'interfaccia della riga di comando di Azure o i modelli di Resource Manager.
+
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Ricerca delle definizioni di criteri predefinite per Azure Cosmos DB":::
+
+## <a name="create-a-custom-policy-definition"></a>Creare una definizione di criteri personalizzata
+
+Per scenari specifici non previsti dai criteri predefiniti, è possibile creare una [definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md). In seguito è possibile creare un'_assegnazione_ di criteri dalla_definizione_ di criteri personalizzata.
+
+### <a name="property-types-and-property-aliases-in-policy-rules"></a>Tipi e alias di proprietà nelle regole dei criteri
+
+Usare la [procedura di definizione di criteri personalizzati](../governance/policy/tutorials/create-custom-policy-definition.md) per identificare le proprietà delle risorse e gli alias delle proprietà richiesti per creare regole di criteri.
+
+Per identificare gli alias delle proprietà specifiche di Azure Cosmos DB usare lo spazio dei nomi `Microsoft.DocumentDB` con uno dei metodi illustrati nell'articolo con la procedura per la definizione di criteri personalizzata.
+
+#### <a name="use-the-azure-cli"></a>Usando l'interfaccia della riga di comando di Azure:
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Get Azure Policy aliases for namespace Microsoft.DocumentDB
+az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+```
+
+#### <a name="use-azure-powershell"></a>Usando Azure PowerShell:
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Use Get-AzPolicyAlias to list aliases for Microsoft.DocumentDB namespace
+(Get-AzPolicyAlias -NamespaceMatch 'Microsoft.DocumentDB').Aliases
+```
+
+Questi comandi restituiscono l'elenco dei nomi di alias di proprietà per le proprietà di Azure Cosmos DB. Di seguito è riportato un estratto dell'output:
+
+```json
+[
+  "Microsoft.DocumentDB/databaseAccounts/sku.name",
+  "Microsoft.DocumentDB/databaseAccounts/virtualNetworkRules[*]",
+  "Microsoft.DocumentDB/databaseAccounts/virtualNetworkRules[*].id",
+  "Microsoft.DocumentDB/databaseAccounts/isVirtualNetworkFilterEnabled",
+  "Microsoft.DocumentDB/databaseAccounts/consistencyPolicy.defaultConsistencyLevel",
+  "Microsoft.DocumentDB/databaseAccounts/enableAutomaticFailover",
+  "Microsoft.DocumentDB/databaseAccounts/Locations",
+  "Microsoft.DocumentDB/databaseAccounts/Locations[*]",
+  "Microsoft.DocumentDB/databaseAccounts/Locations[*].locationName",
+  "..."
+]
+```
+
+È possibile usare uno qualsiasi di questi nomi di alias di proprietà nelle [regole di definizione di criteri personalizzati](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
+
+La seguente è una definizione di criteri di esempio che verifica se le velocità effettiva di un database SQL Azure Cosmos DB è superiore alla velocità massima consentita di 400 UR al secondo. Le definizioni di criteri personalizzate includono due regole: una per verificare il tipo specifico di alias di proprietà e una seconda per la proprietà specifica del tipo. Entrambe le regole usano i nomi degli alias.
+
+```json
+"policyRule": {
+  "if": {
+    "allOf": [
+      {
+      "field": "type",
+      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+      },
+      {
+      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
+      "greater": 400
+      }
+    ]
+  }
+}
+```
+
+Le definizioni di criteri personalizzate possono essere usate per creare assegnazioni di criteri esattamente come le definizioni di criteri predefinite.
+
+## <a name="policy-compliance"></a>Conformità ai criteri
+
+Una volta create le assegnazioni di criteri, Criteri di Azure esamina le risorse nell'ambito dell'assegnazione. Viene valutata la _conformità_ di ciascuna risorsa con i criteri. L'_azione_ specificata nel criterio viene quindi applicata alle risorse non conformi.
+
+È possibile esaminare i risultati di conformità e i dettagli delle correzioni nel [portale di Azure](../governance/policy/how-to/get-compliance-data.md#portal) o tramite l'[interfaccia della riga di comando di Azure](../governance/policy/how-to/get-compliance-data.md#command-line) o i [log di Monitoraggio di Azure](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
+
+Lo screenshot seguente mostra due esempi di assegnazioni di criteri. Un'assegnazione si basa su una definizione di criteri predefinita e verifica che le risorse di Azure Cosmos DB vengano distribuite solo nelle aree consentite di Azure. L'altra assegnazione si basa su una definizione di criteri personalizzata. Questa assegnazione verifica che la velocità effettiva nelle risorse di Azure Cosmos DB non superi un limite massimo specificato.
+
+Una volta distribuite le assegnazioni di criteri, il dashboard di conformità mostra i risultati della valutazione. Questa operazione può richiedere fino a 30 minuti dopo la distribuzione di un'assegnazione di criteri.
+
+Lo screenshot mostra i risultati seguenti della valutazione di conformità:
+
+- Zero di un account Azure Cosmos DB nell'ambito specificato è conforme con l'assegnazione di criteri per verificare che le risorse siano state distribuite nelle aree consentite.
+- Uno di due database o risorse di raccolta di Azure Cosmos DB nell'ambito specificato è conforme all'assegnazione di criteri per verificare una velocità effettiva superiore al limite massimo specificato.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="Cercare definizioni di criteri predefinite per Azure Cosmos DB":::
+
+Per correggere le risorse non conformi, vedere l'articolo [Correzione con Criteri di Azure](../governance/policy/how-to/remediate-resources.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Esaminare le definizioni di criteri personalizzate di esempio per Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- [Creare un'assegnazione di criteri nel portale di Azure](../governance/policy/assign-policy-portal.md)
+- [Esaminare le definizioni di Criteri di Azure predefinite per Azure Cosmos DB](./policy-samples.md)

@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743997"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204940"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
@@ -36,10 +36,6 @@ Accedere ad Azure all'indirizzo https://portal.azure.com.
 2. Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare Gestione aggiornamenti. L'installazione richiede fino a 15 minuti.
 
     ![Abilitare la gestione degli aggiornamenti](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
-
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Controllo della configurazione dell'ambito
-
-Gestione aggiornamenti usa una configurazione dell'ambito all'interno dell'area di lavoro per individuare i computer nei quali abilitare la funzionalità. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della funzionalità a computer specifici. Per altre informazioni vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
 
 ## <a name="enable-azure-vms"></a>Abilitare le macchine virtuali di Azure
 
@@ -73,16 +69,13 @@ I computer installati manualmente o che inviano già report all'area di lavoro d
 
 5. Per abilitare la soluzione per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione elimina le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro e avvia la funzione per tutti i computer Azure e non Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente poiché non è più presente alcuna configurazione dell'ambito.
 
-6. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
+6. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](automation-scope-configurations-update-management.md).
 
 7. Per abilitare la funzionalità per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer da abilitare per la funzionalità. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare Gestione aggiornamenti per le macchine virtuali, vedere [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](automation-tutorial-update-management.md).
-* Per le configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
-* Se l'area di lavoro Log Analytics non è più necessaria, vedere le istruzioni riportate in [Scollegare l'area di lavoro dall'account di Automazione per Gestione aggiornamenti](automation-unlink-workspace-update-management.md).
-* Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).
 * Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi relativi a Gestione aggiornamenti](troubleshoot/update-management.md).
 * Per risolvere i problemi relativi all'agente di Windows Update, vedere [Risolvere i problemi relativi all'agente di Windows Update](troubleshoot/update-agent-issues.md).
-* Per risolvere i problemi relativi all'agente di aggiornamento di Linux, vedere[Risolvere i problemi relativi all'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).
+* Per risolvere problemi relativi all'agente di aggiornamento Linux, vedere [Risolvere i problemi dell'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).
