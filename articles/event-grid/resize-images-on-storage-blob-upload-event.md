@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652685"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560528"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -75,14 +75,19 @@ Per Funzioni di Azure è necessario un account di archiviazione generale. Oltre 
     ```azurecli-interactive
     resourceGroupName="myResourceGroup"
     ```
-2. Impostare una variabile per il nome del nuovo account di archiviazione richiesto da Funzioni di Azure.
+2. Impostare una variabile contenente la località per le risorse da creare. 
+
+    ```azurecli-interactive
+    location="eastus"
+    ```    
+3. Impostare una variabile per il nome del nuovo account di archiviazione richiesto da Funzioni di Azure.
     ```azurecli-interactive
     functionstorage="<name of the storage account to be used by the function>"
     ```
-3. Creare l'account di archiviazione per la funzione di Azure.
+4. Creare l'account di archiviazione per la funzione di Azure.
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location southeastasia \
+    az storage account create --name $functionstorage --location $location \
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -101,7 +106,7 @@ Nel comando seguente specificare il proprio nome di app per le funzioni univoco.
 
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
-      --resource-group $resourceGroupName --consumption-plan-location southeastasia \
+      --resource-group $resourceGroupName --consumption-plan-location $location \
       --functions-version 2
     ```
 
@@ -114,7 +119,6 @@ La funzione necessita di credenziali per l'account di archiviazione BLOB, che ve
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -126,8 +130,6 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
-
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -211,6 +213,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente. |
     | **Gruppo di risorse** | myResourceGroup | Selezionare **Usa esistente** e scegliere il gruppo di risorse usato in questa esercitazione. |
     | **Risorsa** | Account di archiviazione BLOB | Selezionare l'account di archiviazione BLOB creato. |
+    | **Nome dell'argomento del sistema** | imagestoragesystopic | Consente di specificare un nome per l'argomento di sistema. Per informazioni sugli argomenti di sistema, vedere [Panoramica degli argomenti di sistema](system-topics.md). |    
     | **Tipi di evento** | Blob created (BLOB creato) | Deselezionare tutti i tipi diversi da **Blob created** (BLOB creato). Solo i tipi di evento `Microsoft.Storage.BlobCreated` vengono passati alla funzione. |
     | **Tipo di endpoint** | generato automaticamente | Predefinito come **Funzione di Azure**. |
     | **Endpoint** | generato automaticamente | Nome della funzione. In questo caso, è **Anteprima**. |

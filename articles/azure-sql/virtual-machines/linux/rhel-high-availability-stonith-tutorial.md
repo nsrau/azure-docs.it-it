@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
-ms.openlocfilehash: 445ab97e2e980cdcafe333fa05a340c0e5fef24b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024637"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343796"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84024637"
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> - Creare un nuovo gruppo di risorse, un set di disponibilità e le macchine virtuali Linux di Azure
+> - Creare un nuovo gruppo di risorse, un set di disponibilità e le macchine virtuali Linux
 > - Abilitare la disponibilità elevata
 > - Creare un cluster Pacemaker
 > - Configurare un agente di isolamento mediante la creazione di un dispositivo STONITH
@@ -531,13 +531,13 @@ Dovrebbe venire visualizzato l'output seguente.
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>Configurare il gruppo di disponibilità Always On di SQL Server
+## <a name="configure-an-availability-group"></a>Configurare un gruppo di disponibilità
 
-Per configurare un gruppo di disponibilità Always On di SQL Server per le macchine virtuali, seguire questa procedura. Per altre informazioni, vedere [Configurare un gruppo di disponibilità Always On di SQL Server per la disponibilità elevata in Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
+Per configurare un gruppo di disponibilità Always On di SQL Server per le macchine virtuali, seguire questa procedura. Per altre informazioni, vedere [Configurare gruppi di disponibilità Always On di SQL Server per la disponibilità elevata in Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Abilitare la funzionalità Gruppi di disponibilità Always On e riavviare mssql-server
+### <a name="enable-always-on-availability-groups-and-restart-mssql-server"></a>Abilitare la funzionalità Gruppi di disponibilità Always On e riavviare mssql-server
 
-Abilitare i gruppi di disponibilità AlwaysOn in ogni nodo che ospita un'istanza di SQL Server. Riavviare quindi mssql-server. Eseguire lo script riportato di seguito:
+Abilitare i gruppi di disponibilità Always On in ogni nodo che ospita un'istanza di SQL Server. Riavviare quindi mssql-server. Eseguire lo script riportato di seguito:
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -566,19 +566,19 @@ L'autenticazione di Active Directory per l'endpoint del gruppo di disponibilità
 1. Connettersi alla replica primaria usando SSMS o SQL CMD. I comandi seguenti creeranno un certificato in `/var/opt/mssql/data/dbm_certificate.cer` e una chiave privata in `var/opt/mssql/data/dbm_certificate.pvk` nella replica primaria di SQL Server:
 
     - Sostituire `<Private_Key_Password>` con la propria password.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 Per uscire dalla sessione SQL CMD eseguire il comando `exit` e tornare alla sessione SSH.
  
@@ -631,7 +631,7 @@ Per uscire dalla sessione SQL CMD eseguire il comando `exit` e tornare alla sess
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Creare endpoint di mirroring del database in tutte le repliche
 
-Eseguire lo script seguente in tutte le istanze di SQL usando SQL CMD o SSMS:
+Eseguire lo script seguente in tutte le istanze di SQL Server usando SQL CMD o SSMS:
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -647,7 +647,7 @@ ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 GO
 ```
 
-### <a name="create-the-availability-group"></a>Creare il gruppo di disponibilità.
+### <a name="create-the-availability-group"></a>Creare il gruppo di disponibilità
 
 Connettersi all'istanza di SQL Server che ospita la replica primaria usando SQL CMD o SSMS. Per creare il gruppo di disponibilità, eseguire questo comando:
 
@@ -687,7 +687,7 @@ GO
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Creare un account di accesso di SQL Server per Pacemaker
 
-In tutte le istanze di SQL Server creare un account di accesso SQL per Pacemaker. Il codice Transact-SQL seguente crea un account di accesso.
+In tutte le istanze di SQL Server creare un account di accesso di SQL Server per Pacemaker. Il codice Transact-SQL seguente crea un account di accesso.
 
 - Sostituire `<password>` con una password complessa personale.
 
@@ -985,7 +985,7 @@ Per altre informazioni sul test di un dispositivo di isolamento, vedere l'artico
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per usare un listener del gruppo di disponibilità per i server SQL, sarà necessario creare e configurare un servizio di bilanciamento del carico.
+Per usare un listener del gruppo di disponibilità per le istanze di SQL Server, sarà necessario creare e configurare un servizio di bilanciamento del carico.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Configurare il listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure](rhel-high-availability-listener-tutorial.md)
+> [Esercitazione: Configurare un listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure](rhel-high-availability-listener-tutorial.md)

@@ -8,14 +8,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025066"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343762"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare il listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare un listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
@@ -37,7 +37,7 @@ Questa esercitazione illustra i passaggi per creare un listener del gruppo di di
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Aver completato l'[**Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure**](rhel-high-availability-stonith-tutorial.md)
+Aver completato l'[Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Creare il servizio di bilanciamento del carico nel portale di Azure
 
@@ -117,7 +117,7 @@ Azure crea il probe e lo usa per verificare quale istanza di SQL Server possieda
 
 ### <a name="set-the-load-balancing-rules"></a>Impostare le regole di bilanciamento del carico
 
-Le regole di bilanciamento del carico determinano come il servizio di bilanciamento del carico instrada il traffico alle istanze di SQL Server. Per questo servizio di bilanciamento del carico abilitare Direct Server Return perché solo una per volta delle tre istanze di SQL Server è proprietaria della risorsa listener del gruppo di disponibilità.
+Le regole di bilanciamento del carico consentono di configurare il modo in cui il servizio di bilanciamento del carico instrada il traffico alle istanze di SQL Server. Per questo servizio di bilanciamento del carico abilitare Direct Server Return perché solo una per volta delle tre istanze di SQL Server è proprietaria della risorsa listener del gruppo di disponibilità.
 
 1. Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Regole di bilanciamento del carico**. 
 
@@ -220,7 +220,7 @@ A questo punto il gruppo di risorse dispone di un servizio di bilanciamento del 
 
 ## <a name="test-the-listener-and-a-failover"></a>Testare il listener e un failover
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testare l'accesso a SQL Server usando il listener del gruppo di disponibilità
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Testare l'accesso a SQL Server usando il listener del gruppo di disponibilità
 
 1. Usare SQLCMD per accedere al nodo primario di SQL Server usando il nome del listener del gruppo di disponibilità:
 
@@ -238,7 +238,7 @@ A questo punto il gruppo di risorse dispone di un servizio di bilanciamento del 
 
     L'output mostrerà il nodo primario corrente. Corrisponderà a `VM1` se non è mai stato testato un failover.
 
-    Uscire dalla sessione di SQL digitando il comando `exit`.
+    Uscire dalla sessione di SQL Server digitando il comando `exit`.
 
 ### <a name="test-a-failover"></a>Testare un failover
 
@@ -280,7 +280,7 @@ A questo punto il gruppo di risorse dispone di un servizio di bilanciamento del 
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Verificare il server a cui si è connessi. Eseguire questo comando in SQLCMD:
 
@@ -295,4 +295,4 @@ A questo punto il gruppo di risorse dispone di un servizio di bilanciamento del 
 Per altre informazioni sui servizi di bilanciamento del carico in Azure, vedere:
 
 > [!div class="nextstepaction"]
-> [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità nelle macchine virtuali di SQL Server](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità in SQL Server in macchine virtuali di Azure](../windows/availability-group-load-balancer-portal-configure.md)

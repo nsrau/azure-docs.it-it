@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196527"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628371"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura (anteprima) per la classificazione delle immagini multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ Ora che si ha l'accesso ai dati da etichettare, creare il progetto di etichettat
     1. Selezionare il cerchio accanto al nome del set di dati nell'elenco, ad esempio **images-for-tutorial**.
 
 1. Selezionare **Avanti** per continuare a creare il progetto.
+
+### <a name="incremental-refresh"></a>Aggiornamento incrementale
+
+Se si prevede di aggiungere nuove immagini al set di dati, l'aggiornamento incrementale troverà queste nuove immagini e le aggiungerà al progetto.  Quando si abilita questa funzionalità, il progetto verificherà periodicamente la presenza di nuove immagini.  Poiché in questa esercitazione non verranno aggiunte nuove immagini all'archivio dati, lasciare deselezionata questa funzionalità.
+
+Selezionare **Avanti** per continuare.
 
 ### <a name="label-classes"></a>Classi di etichette
 
