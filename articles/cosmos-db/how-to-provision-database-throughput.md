@@ -1,21 +1,21 @@
 ---
 title: Effettuare il provisioning della velocità effettiva per il database in Azure Cosmos DB
-description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB usando portale di Azure, CLI, PowerShell e vari altri SDK.
+description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB usando il portale di Azure, l'interfaccia della riga di comando, PowerShell e altri SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869861"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655316"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva in un database in Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva standard (manuale) per un database in Azure Cosmos DB
 
-Questo articolo illustra come effettuare il provisioning della velocità effettiva in un database in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva per un singolo [contenitore](how-to-provision-container-throughput.md)o per un database e condividere la velocità effettiva tra i contenitori al suo interno. Per informazioni sull'uso della velocità effettiva a livello di contenitore e a livello di database, vedere l'articolo [casi d'uso per la velocità effettiva del provisioning nei contenitori e nei database](set-throughput.md) . È possibile effettuare il provisioning della velocità effettiva a livello di database usando il portale di Azure o gli SDK di Azure Cosmos DB.
+Questo articolo illustra come effettuare il provisioning della velocità effettiva standard (manuale) in un database in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva per un singolo [contenitore](how-to-provision-container-throughput.md) oppure per un database e condividere la velocità effettiva tra i contenitori al suo interno. Per informazioni su quando usare la velocità effettiva a livello di contenitore e a livello di database, vedere l'articolo sui [casi d'uso per il provisioning della velocità effettiva in contenitori e database](set-throughput.md). È possibile effettuare il provisioning della velocità effettiva a livello di database usando il portale di Azure o gli SDK di Azure Cosmos DB.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Effettuare il provisioning della velocità effettiva usando il portale di Azure
 
@@ -34,12 +34,12 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
 
     ![Screenshot della finestra di dialogo Nuovo database](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Provisioning della velocità effettiva con l'interfaccia della riga
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Effettuare il provisioning della velocità effettiva usando l'interfaccia della riga di comando di Azure o PowerShell
 
-Per creare un database con velocità effettiva condivisa, vedere.
+Per creare un database con velocità effettiva condivisa, vedere
 
-* [Creare un database usando l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Creare un database con PowerShell](manage-with-powershell.md#create-db-ru)
+* [Creare un database con l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Creare un database usando PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>Effettuare il provisioning della velocità effettiva usando .NET SDK
 
@@ -71,7 +71,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 
-Un comando simile può essere eseguito tramite un driver conforme a CQL.
+Comandi simili possono essere eseguiti tramite qualsiasi driver conforme a CQL.
 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
@@ -84,5 +84,6 @@ Vedere gli articoli seguenti per altre informazioni sulla velocità effettiva so
 
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Effettuare il provisioning della velocità effettiva per contenitori e database](set-throughput.md)
-* [Come effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md)
-* [Unità richiesta e velocità effettiva in Azure Cosmos DB](request-units.md)
+* [Effettuare il provisioning della velocità effettiva standard (manuale) per un contenitore](how-to-provision-container-throughput.md)
+* [Come effettuare il provisioning della velocità effettiva con scalabilità automatica per un contenitore](how-to-provision-autoscale-throughput.md)
+* [Velocità effettiva e unità richiesta in Azure Cosmos DB](request-units.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422372"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774350"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni di riferimento per le situazioni in cui si
 
 ## <a name="solution"></a>Soluzione
 
-La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile abilitare il componente Windows Firewall per Microsoft. Il modo in cui vengono configurate le regole del firewall dipende dal livello di accesso alla macchina virtuale richiesta.
+La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. Microsoft consiglia di tenere il componente Windows Firewall abilitato. La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario.
 
 ### <a name="online-solutions"></a>Soluzioni online 
 
@@ -49,7 +49,7 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
 >   Tuttavia, appena il criterio viene applicato di nuovo, si verrà disconnessi dalla sessione remota. La correzione definitiva per questo problema consiste nel modificare il criterio applicato a questo computer.
@@ -90,9 +90,9 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
 
 Seguire questa procedura per usare il [Registro di sistema remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Nella macchina virtuale per la risoluzione dei problemi, avviare l'editor del registro di sistema, quindi passare a **file** > **Connetti registro di rete**.
+1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema e quindi passare a **File** > **Connetti a Registro di sistema in rete**.
 
-2.  Aprire il ramo \System del *computer di destinazione*e specificare i valori seguenti:
+2.  Aprire il ramo *COMPUTER DI DESTINAZIONE*\SYSTEM e specificare i valori seguenti:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione utilizzando il registro di sistema remoto, è necessario utilizzare la console del servizio remoto.
+3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione tramite il Registro di sistema remoto, è necessario usare la console Servizi.
 
-4.  Aprire un'istanza di **Services. msc**.
+4.  Aprire un'istanza di **Services.msc**.
 
-5.  Fare clic su **Servizi (computer locale)**.
+5.  Fare clic su **Servizi (computer locale)** .
 
 6.  Selezionare **Connetti a un altro computer**.
 
-7.  Immettere l' **indirizzo IP privato (DIP)** della macchina virtuale con problemi.
+7.  Immettere l'**indirizzo IP privato** della macchina virtuale interessata dal problema.
 
 8.  Riavviare il criterio firewall locale.
 
@@ -116,7 +116,7 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 ### <a name="offline-solutions"></a>Soluzioni offline 
 
-In una situazione in cui non è possibile accedere alla macchina virtuale con uno di questi metodi, l'uso dell'estensione dello script personalizzata avrà esito negativo e sarà necessario passare in modalità OFFLINE lavorando direttamente sul disco di sistema. A tale scopo, seguire questa procedura:
+In una situazione in cui non è possibile accedere alla macchina virtuale con uno di questi metodi, l'uso dell'estensione dello script personalizzata avrà esito negativo e sarà necessario passare in modalità OFFLINE lavorando direttamente sul disco di sistema. A tale scopo, seguire questi passaggi:
 
 1.  [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).
 

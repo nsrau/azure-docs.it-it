@@ -1,6 +1,6 @@
 ---
-title: Sicurezza fisica dei Data Center di Azure-Microsoft Azure | Microsoft Docs
-description: Questo articolo descrive le funzionalità di Microsoft per la protezione dei Data Center di Azure, tra cui l'infrastruttura fisica, la sicurezza e le offerte di conformità.
+title: Sicurezza fisica dei data center di Azure - Microsoft Azure | Microsoft Docs
+description: L'articolo descrive le azioni intraprese da MIcrosoft per proteggere i Data Center di Azure, tra cui le offerte di conformità, sicurezza e infrastruttura fisica.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68726735"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774055"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)
-Questo articolo descrive il funzionamento di Microsoft per proteggere l'infrastruttura di Azure.
+L'articolo descrive le operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure.
 
-## <a name="datacenter-infrastructure"></a>Infrastruttura Datacenter
+## <a name="datacenter-infrastructure"></a>Infrastruttura dei data center
 Azure è costituito da un'[infrastruttura del Data Center distribuita a livello globale](https://azure.microsoft.com/global-infrastructure/), che supporta migliaia di servizi online e che si estende su più di 100 strutture altamente protette in tutto il mondo.
 
-L'infrastruttura è progettata per avvicinare le applicazioni agli utenti in tutto il mondo, mantenendo la residenza dei dati e fornendo ai clienti opzioni complete per la conformità e la resilienza. Azure ha 52 aree in tutto il mondo ed è disponibile in 140 paesi/aree geografiche.
+L'infrastruttura è progettata per avvicinare le applicazioni agli utenti in tutto il mondo, mantenendo la residenza dei dati e fornendo ai clienti opzioni complete per la conformità e la resilienza. Azure ha 58 regioni in tutto il mondo ed è disponibile in 140 paesi/regioni.
 
 Un'area è un set di Data Center interconnessi tramite una rete di grandi dimensioni e resiliente. La rete comprende la distribuzione del contenuto, il bilanciamento del carico, la ridondanza e la crittografia per impostazione predefinita. Con un numero di aree globali superiore rispetto a qualsiasi altro provider di servizi cloud, Azure offre la flessibilità necessaria per distribuire le applicazioni dove necessario.
 
@@ -71,7 +71,7 @@ Microsoft usa le procedure consigliate migliori e una soluzione di pulizia che s
 Al termine del ciclo di vita di un sistema, il personale operativo Microsoft segue rigorosi processi di gestione dei dati e di eliminazione dell'hardware per garantire che nessun componente hardware in cui possano essere contenuti dati dei clienti sia reso disponibile a parti non fidate. Viene usato un approccio di eliminazione sicura per i dischi rigidi che lo supportano. Per i dischi rigidi che non possono essere cancellati, viene usato un processo di distruzione che li distrugge e rende impossibile il recupero delle informazioni. Il processo di distruzione può essere disintegrato, suddiviso, polverizzato o bruciato. Viene determinato il metodo di smaltimento in base al tipo di asset. Viene comunque conservata la documentazione relativa alla distruzione. Tutti i servizi di Azure usano servizi approvati per l'archiviazione dei contenuti multimediali e la gestione dello smaltimento.
 
 ## <a name="compliance"></a>Conformità
-L'infrastruttura di Azure è progettata e gestita per soddisfare un'ampia gamma di standard di conformità internazionali e specifici del settore, come ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Sono inoltre conformi standard specifici per paesi o aree geografiche, tra cui Australia IRAP, G-Cloud UK e Singapore MTC. Controlli rigorosi di terzi, come quelli eseguiti dal British Standards Institute, verificano la conformità di Azure con le rigide normative di sicurezza definite da questi standard.
+L'infrastruttura di Azure è progettata e gestita per soddisfare un'ampia gamma di standard di conformità internazionali e specifici del settore, come ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Anche gli standard specifici del paese o della regione vengono soddisfatti, tra cui IRAP dell'Australia, G-Cloud del Regno Unito e MTCS di Singapore. Controlli rigorosi di terzi, come quelli eseguiti dal British Standards Institute, verificano la conformità di Azure con le rigide normative di sicurezza definite da questi standard.
 
 Vedere le [Offerte di conformità](https://www.microsoft.com/trustcenter/compliance/complianceofferings) per un elenco completo degli standard di conformità rispettati da Azure.
 
@@ -79,11 +79,11 @@ Vedere le [Offerte di conformità](https://www.microsoft.com/trustcenter/complia
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
+- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
 - [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
+- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

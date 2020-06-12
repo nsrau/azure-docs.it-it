@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594940"
+ms.locfileid: "83655232"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
 
@@ -29,13 +29,13 @@ Quando si configurano i nomi di dominio, i record "A" vengono usati per eseguire
 
 Per un'applicazione sono disponibili diversi tipi di configurazioni DNS.
 
-| Se si vuole                            | Operazione da eseguire                                                |
+| Se si vuole                            | Risultato                                                |
 | ----------------------------------------- | --------------------------------------------------- |
-| Supportare `www.example.com`                 | [Eseguire il mapping di un record CNAME](#map-a-cname-record)           |
-| Supportare `example.com`                     | [Configurare un dominio radice](#configure-a-root-domain) |
+| Supporto di `www.example.com`                 | [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
+| Supporto di `example.com`                     | [Configurare un dominio radice](#configure-a-root-domain) |
 | Fare in modo che tutti i sottodomini puntino a `www.example.com` | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain)                   |
 
-## <a name="map-a-cname-record"></a>Eseguire il mapping di un record CNAME
+## <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
 Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare un record CNAME per eseguire il mapping di `www.example.com` al dominio generato automaticamente fornito da App Web statiche di Azure.
 
@@ -63,11 +63,11 @@ Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare u
 
 4. Creare un nuovo **record CNAME** con i valori seguenti...
 
-    | Impostazione             | Valore                     |
+    | Impostazione             | valore                     |
     | ------------------- | ------------------------- |
-    | Tipo                | CNAME                     |
+    | Type                | CNAME                     |
     | Host                | www                       |
-    | Valore               | Incollare dagli Appunti |
+    | valore               | Incollare dagli Appunti |
     | TTL (se applicabile) | Lasciare il valore predefinito    |
 
 5. Salvare le modifiche apportate al provider DNS.
@@ -80,7 +80,7 @@ Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare u
 
 1. Fare clic sul pulsante **Convalida**.
 
-Ora che il dominio personalizzato è configurato, il provider DNS potrebbe impiegare diverse ore per propagare le modifiche in tutto il mondo. Per controllare lo stato della propagazione, accedere a [dnspropagation.net](https://dnspropagation.net). Immettere il dominio personalizzato del dominio, incluso la `www`, selezionare CNAME nell'elenco a discesa e selezionare **Avvia**.
+Ora che il dominio personalizzato è configurato, il provider DNS potrebbe impiegare diverse ore per propagare le modifiche in tutto il mondo. Per controllare lo stato della propagazione, accedere a [dnspropagation.net](https://dnspropagation.net). Immettere il dominio personalizzato, incluso la `www`, selezionare CNAME nell'elenco a discesa e selezionare **Avvia**.
 
 Se le modifiche DNS sono state popolate, il sito Web restituisce l'URL generato automaticamente dell'app Web statica, ad esempio _random-name-123456789c.azurestaticapps.net_.
 
@@ -92,7 +92,7 @@ Anche se il supporto del dominio radice non è disponibile nella versione di ant
 
 ## <a name="map-a-wildcard-domain"></a>Esecuzione del mapping di un dominio con caratteri jolly
 
-A volte si preferisce che tutto il traffico inviato a un sottodominio venga reindirizzato a un altro dominio. Un esempio comune è dato dal mapping di tutto il traffico del sottodominio a `www.example.com`. In questo modo, anche se un utente digita `ww.example.com` invece di `www.example.com`, la richiesta viene inviata a `www.example.com`.
+A volte si preferisce che tutto il traffico inviato a un sottodominio venga reindirizzato a un altro dominio. Un esempio comune è dato dal mapping di tutto il traffico del sottodominio a `www.example.com`. In questo modo, anche se un utente digita `w.example.com` invece di `www.example.com`, la richiesta viene inviata a `www.example.com`.
 
 ### <a name="configure-dns-provider"></a>Configurare il provider DNS
 
@@ -108,11 +108,11 @@ A volte si preferisce che tutto il traffico inviato a un sottodominio venga rein
 
 4. Creare un nuovo record **CNAME** con i valori seguenti, sostituendo `www.example.com` con il nome di dominio personalizzato.
 
-    | Impostazione | Valore                  |
+    | Impostazione | valore                  |
     | ------- | ---------------------- |
-    | Tipo    | CNAME                  |
+    | Type    | CNAME                  |
     | Host    | \*                     |
-    | Valore   | www.example.com        |
+    | valore   | www.example.com        |
     | TTL     | Lasciare il valore predefinito |
 
 5. Salvare le modifiche apportate al provider DNS.

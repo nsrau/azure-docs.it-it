@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594960"
+ms.locfileid: "83655259"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 Per impedire alla piattaforma di fornire queste informazioni in caso di richieste future a singole app, inviare una richiesta all'URL seguente:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Cartella di sistema
@@ -154,6 +154,11 @@ Se si sceglie di supportare più di un provider, è necessario esporre un colleg
 }
 ```
 
+### <a name="post-login-redirect"></a>Reindirizzamento dopo l'accesso
+
+Se si desidera che un utente torni a una pagina specifica dopo l'accesso, specificare un URL nel parametro della stringa di query `post_login_redirect_uri`.
+
+
 ## <a name="logout"></a>Logout
 
 La route `/.auth/logout` disconnette gli utenti dal sito Web. È possibile aggiungere un collegamento all'esplorazione del sito per consentire all'utente di disconnettersi come illustrato nell'esempio seguente.
@@ -170,6 +175,10 @@ La route `/.auth/logout` disconnette gli utenti dal sito Web. È possibile aggiu
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Reindirizzamento dopo la disconnessione
+
+Se si desidera che un utente torni a una pagina specifica dopo la disconnessione, specificare un URL nel parametro della stringa di query `post_logout_redirect_uri`.
 
 ## <a name="block-an-authorization-provider"></a>Bloccare un provider di autorizzazione
 
