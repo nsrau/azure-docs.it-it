@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478948"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834731"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
@@ -24,7 +24,7 @@ Durante il failover di una macchina virtuale in Azure è possibile che l'utente 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questo può verificarsi a causa di uno dei motivi seguenti:
 
-* Non è disponibile una quota sufficiente per creare la macchina virtuale: è possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
+* Non è disponibile una quota sufficiente per creare la macchina virtuale: È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
 
 * Si sta tentando di effettuare il failover delle macchine virtuali delle famiglie di dimensioni diverse nello stesso set di disponibilità. Assicurarsi di aver scelto la stessa famiglia di dimensioni per tutte le macchine virtuali nello stesso set di disponibilità. È possibile modificare le dimensioni passando alle impostazioni Calcolo e rete della macchina virtuale e ritentando il failover.
 
@@ -76,10 +76,10 @@ Per modificare manualmente il tipo di avvio dei driver per il **sistema operativ
 
 Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **Connetti** risulta disabilitato e non si è connessi ad Azure tramite una connessione di Ciclo di lavorazione espresso o VPN da sito a sito, allora:
 
-1. Passare a > **rete** **macchine virtuali**, fare clic sul nome dell'interfaccia di rete richiesta.  ![interfaccia di rete](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Andare a **Macchina virtuale** > **Rete** e fare clic sul nome dell'interfaccia di rete richiesta.  ![interfaccia di rete](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Passare a **Configurazioni IP** e quindi fare clic sul campo del nome della configurazione IP richiesta. ![Configurazioni IP](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Per abilitare l'indirizzo IP pubblico, fare clic su **Abilita**. ![Abilita IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Fare clic su **Configura le impostazioni** > necessarie**Crea nuovo**. ![Crea nuovo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Fare clic su **Configurare le impostazioni necessarie** > **Crea nuovo**. ![Crea nuovo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Immettere il nome dell'indirizzo pubblico, scegliere le opzioni predefinite per **SKU** e **assegnazione** e quindi fare clic su **OK**.
 6. Per salvare le modifiche apportate, fare clic su **Salva**.
 7. Chiudere i pannelli e passare alla sezione **Panoramica** della macchina virtuale per connettersi o stabilire la connessione RDP.
@@ -110,11 +110,11 @@ Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **
 
 Se è possibile connettersi al computer tramite RDP ma non è possibile aprire la console seriale, attenersi alla procedura seguente:
 
-* Se il sistema operativo del computer è Red Hat o Oracle Linux 7. */8.0, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo il comando.
+* Se il sistema operativo del computer è Red Hat o Oracle Linux 7.*/8.0, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo l'esecuzione del comando.
 
         grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
-* Se il sistema operativo del computer è CentOS 7. *, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo il comando.
+* Se il sistema operativo del computer è CentOS 7.*, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo l'esecuzione del comando.
 
         grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
@@ -122,27 +122,27 @@ Se è possibile connettersi al computer tramite RDP ma non è possibile aprire l
 
 Quando si esegue l'avvio di una macchina virtuale Windows dopo il failover e si riceve un messaggio di arresto imprevisto nella macchina virtuale ripristinata, significa che non è stato acquisito uno stato di arresto della macchina virtuale nel punto di ripristino usato per il failover. Questo accade quando si effettua il ripristino ad un punto in cui la macchina virtuale non è stata completamente arrestata.
 
-In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. Se il failover è pianificato, assicurarsi che la macchina virtuale venga arrestata correttamente prima del failover e fornisca tempo sufficiente per l'invio in Azure di dati di replica in sospeso. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
+In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. In caso di failover pianificato, assicurarsi che la macchina virtuale sia stata arrestata correttamente prima del failover e lasciare un intervallo di tempo sufficiente per consentire l'invio dei dati di replica in sospeso ad Azure. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
 
 ## <a name="unable-to-select-the-datastore"></a>Non è possibile selezionare l'archivio dati
 
-Questo problema è indicato quando non è possibile visualizzare l'archivio dati nel portale di Azure quando si tenta di riproteggere la macchina virtuale che ha riscontrato un failover. Questo è dovuto al fatto che la destinazione master non viene riconosciuta come macchina virtuale in vCenter aggiunti al Azure Site Recovery.
+Questo problema viene segnalato quando non è possibile visualizzare l'archivio dati nel portale di Azure durante il tentativo di riproteggere la macchina virtuale in cui si è verificato un failover. Questo inconveniente è dovuto al fatto che la destinazione master non viene riconosciuta come macchina virtuale nei server vCenter aggiunti ad Azure Site Recovery.
 
-Per ulteriori informazioni sulla riprotezione di una macchina virtuale, vedere la [pagina relativa alla riprotezione e il failback dei computer in un sito locale dopo il failover in Azure](vmware-azure-reprotect.md).
+Per altre informazioni sulla riprotezione di una macchina virtuale, vedere [Riproteggere ed eseguire il failback di computer in un sito locale dopo il failover in Azure](vmware-azure-reprotect.md).
 
 Per risolvere il problema:
 
-Creare manualmente la destinazione master nel vCenter che gestisce il computer di origine. L'archivio dati sarà disponibile dopo le successive operazioni di individuazione e aggiornamento dell'infrastruttura di vCenter.
+Creare manualmente la destinazione master nel server vCenter che gestisce il computer di origine. L'archivio dati sarà disponibile dopo le successive operazioni di individuazione e aggiornamento dell'infrastruttura di vCenter.
 
 > [!Note]
 > 
 > Per completare le operazioni di individuazione e aggiornamento dell'infrastruttura possono essere necessari fino a 30 minuti. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>La registrazione della destinazione master Linux con CS ha esito negativo con errore TLS 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>La registrazione della destinazione master Linux con CS restituisce un errore TLS 35 
 
-Il Azure Site Recovery la registrazione di destinazione master con il server di configurazione non riesce a causa dell'abilitazione del proxy autenticato nella destinazione master. 
+La registrazione della destinazione master di Azure Site Recovery con il server di configurazione non riesce a causa dell'abilitazione del proxy autenticato nella destinazione master. 
  
-Questo errore è indicato dalle stringhe seguenti nel registro di installazione: 
+Questo errore è indicato dalle stringhe seguenti nel log di installazione: 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
@@ -150,21 +150,21 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 Per risolvere il problema:
  
-1. Nella VM del server di configurazione aprire un prompt dei comandi e verificare le impostazioni del proxy usando i comandi seguenti:
+1. Nella macchina virtuale del server di configurazione aprire un prompt dei comandi e verificare le impostazioni del proxy usando i comandi seguenti:
 
-    cat/etc/environment Echo $http _proxy Echo $https _proxy 
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
 
-2. Se l'output dei comandi precedenti mostra che sono definite le impostazioni http_proxy o https_proxy, usare uno dei metodi seguenti per sbloccare le comunicazioni di destinazione master con il server di configurazione:
+2. Se l'output dei comandi precedenti mostra che le impostazioni di http_proxy o https_proxy sono definite, usare uno dei metodi seguenti per sbloccare le comunicazioni della destinazione master con il server di configurazione:
    
    - Scaricare lo [strumento PsExec](https://aka.ms/PsExec).
-   - Utilizzare lo strumento per accedere al contesto utente del sistema e determinare se l'indirizzo proxy è configurato. 
-   - Se il proxy è configurato, aprire IE in un contesto utente di sistema utilizzando lo strumento PsExec.
+   - Usare lo strumento per accedere al contesto utente del sistema e determinare se è configurato l'indirizzo del proxy. 
+   - Se il proxy è configurato, aprire Internet Explorer in un contesto utente di sistema con lo strumento PsExec.
   
-     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
    - Per assicurarsi che il server di destinazione master sia in grado di comunicare con il server di configurazione:
   
-     - Modificare le impostazioni del proxy in Internet Explorer per ignorare l'indirizzo IP del server di destinazione master tramite il proxy.   
+     - Modificare le impostazioni del proxy in Internet Explorer in modo da ignorare l'indirizzo IP del server di destinazione master attraverso il proxy.   
      Oppure
      - Disabilitare il proxy nel server di destinazione master. 
 
@@ -173,4 +173,4 @@ Per risolvere il problema:
 - Risoluzione problemi [di connessione RDP a una macchina virtuale Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Risoluzione problemi [di connessione SSH a una macchina virtuale Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Se l'utente richiede ancora assistenza, registrare la query nel [forum di Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) o lasciare un commento alla fine di questo documento. È disponibile una community attiva in grado di offrire supporto.
+Per ottenere ulteriore assistenza, pubblicare una query nella [pagina delle domande di Domande e risposte Microsoft relativa a Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) oppure lasciare un commento alla fine di questo documento. È disponibile una community attiva in grado di offrire supporto.

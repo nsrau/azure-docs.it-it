@@ -1,5 +1,5 @@
 ---
-title: Configurare Multi-Factor Authentication di Azure-Azure Active Directory
+title: Configurare Azure Multi-Factor Authentication - Azure Active Directory
 description: Questo articolo illustra come configurare le impostazioni di Azure Multi-Factor Authentication nel portale di Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116289"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770908"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
 Questo articolo offre informazioni utili per gestire le impostazioni di Azure Multi-Factor Authentication nel portale di Azure. L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication. Non tutte le funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
 
-È possibile accedere alle impostazioni correlate ad Azure multi-factor authentication dalla portale di Azure passando a **Azure Active Directory**multi-factor authentication  >  **Security**  >  **MFA**.
+Per accedere alle impostazioni relative ad Azure Multi-Factor Authentication dal portale di Azure, passare ad **Azure Active Directory** > **Sicurezza** > **MFA**.
 
 ![Portale di Azure - Impostazioni di Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,12 +33,12 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 | Funzionalità | Descrizione |
 | ------- | ----------- |
 | Blocco dell'account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
-| [Blocca/Sblocca utenti](#block-and-unblock-users) | Utilizzato per impedire a utenti specifici di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
-| [Avviso di illecito](#fraud-alert) | Configurare le impostazioni relative alla capacità degli utenti di segnalare richieste di verifica fraudolente |
-| [Notifiche](#notifications) | Abilita le notifiche degli eventi dal server MFA. |
-| [Token OATH](concept-authentication-methods.md#oath-hardware-tokens) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
+| [Blocca/Sblocca utenti](#block-and-unblock-users) | Funzionalità usata per impedire a utenti specifici di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
+| [Avviso di illecito](#fraud-alert) | Consente di configurare le impostazioni relative alla capacità degli utenti di segnalare richieste di verifica illecite. |
+| [Notifications](#notifications) | Abilita le notifiche degli eventi dal server MFA. |
+| [Token OATH](concept-authentication-methods.md#oath-tokens) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
 | [Impostazioni telefonata](#phone-call-settings) | Permette di configurare le impostazioni correlate a chiamate telefoniche e messaggi di saluto per gli ambienti cloud e locali. |
-| Provider | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
+| Providers | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
 
 ## <a name="manage-mfa-server"></a>Gestisci il server MFA
 
@@ -62,15 +62,15 @@ Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utent
 ### <a name="block-a-user"></a>Bloccare un utente
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory**sicurezza autenticazione a più fattori  >  **Security**  >  **MFA**  >  **Blocca/Sblocca utenti**.
+2. Passare ad **Azure Active Directory** > **Sicurezza** > **MFA** > **Blocca/Sblocca utenti**.
 3. Selezionare **Aggiungi** per bloccare un utente.
-4. Selezionare il **Gruppo di replica**. Immettere il nome utente per l'utente bloccato come **nome utente \@ Domain.com**. Immettere un commento nel campo**Motivo**.
+4. Selezionare il **Gruppo di replica**. Immettere il nome utente dell'utente bloccato nel formato **nomeutente\@dominio.com**. Immettere un commento nel campo**Motivo**.
 5. Selezionare **Aggiungi** per completare il blocco dell'utente.
 
 ### <a name="unblock-a-user"></a>Sbloccare un utente
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory**sicurezza autenticazione a più fattori  >  **Security**  >  **MFA**  >  **Blocca/Sblocca utenti**.
+2. Passare ad **Azure Active Directory** > **Sicurezza** > **MFA** > **Blocca/Sblocca utenti**.
 3. Selezionare **Sblocca** nella colonna **Azione** accanto all'utente che si desidera sbloccare.
 4. Immettere un commento nel campo **Motivo dello sblocco**.
 5. Selezionare **Sblocca** per completare lo sblocco dell'utente.
@@ -82,14 +82,14 @@ Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti poss
 ### <a name="turn-on-fraud-alerts"></a>Attivare gli avvisi di illecito
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory**  >  **Security**  >  **MFA**  >  **avviso di illecito**per l'autenticazione a più fattori.
+2. Passare ad **Azure Active Directory** > **Sicurezza** > **MFA** > **Avviso di illecito**.
 3. Impostare l'impostazione **Consenti agli utenti di inviare avvisi di illeciti** su **Attivo**.
 4. Selezionare **Salva**.
 
 ### <a name="configuration-options"></a>Opzioni di configurazione
 
 * **Blocca utente se viene segnalato un illecito**: se un utente segnala un illecito, il suo account viene bloccato per 90 giorni o finché l'amministratore non lo sblocca. Un amministratore può verificare gli accessi usando il report sugli accessi ed eseguire le azioni necessarie per prevenire illeciti nel futuro. Un amministratore può quindi [sbloccare](#unblock-a-user) l'account dell'utente.
-* **Codice per la segnalazione di illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una chiamata telefonica per eseguire la verifica in due passaggi, in genere premono **#** per confermare l'accesso. Per segnalare l'illecito, l'utente immette un codice prima di premere **#** . Il codice predefinito è **0**, ma è possibile personalizzarlo.
+* **Codice per la segnalazione di illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una chiamata telefonica per eseguire la verifica in due passaggi, in genere premono **#** per confermare l'accesso. Per segnalare un illecito, l'utente immette un codice prima di premere **#** . Il codice predefinito è **0**, ma è possibile personalizzarlo.
 
    >[!NOTE]
    >I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere **0#** per inviare un avviso di illecito. Se si vuole usare un codice diverso da **0**, registrare e caricare messaggi vocali personalizzati con istruzioni adeguate per l'utente.
@@ -98,13 +98,13 @@ Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti poss
 ### <a name="view-fraud-reports"></a>Visualizzare le segnalazioni di illeciti
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory**  >  **Sign-ins**  >  **i dettagli di autenticazione**degli accessi. Il report di illecito fa ora parte del report degli accessi Azure AD standard e verrà visualizzato nel **"dettaglio dei risultati"** , perché l'autenticazione a più fattori è stata negata. codice illecito immesso.
+2. Selezionare **Azure Active Directory** > **Accessi** > **Dettagli di autenticazione**. La segnalazione di illeciti è ora inclusa nel report di Accessi di Azure AD standard e verrà visualizzata in **"Dettagli del risultato"** come codice illecito immesso con accesso a Multi-Factor Authentication negato.
  
 ## <a name="notifications"></a>Notifiche
 
-Configurare gli indirizzi di posta elettronica per gli utenti che riceveranno messaggi di posta elettronica di avviso di illecito in **Azure Active Directory**  >  **sicurezza**  >  **multi-factor authentication**  >  **notifiche**.
+Configurare qui gli indirizzi e-mail degli utenti che riceveranno messaggi di posta elettronica con avvisi di illecito in **Azure Active Directory** > **Sicurezza** > **Multi-Factor Authentication** > **Notifiche**.
 
-![Esempio di messaggio di posta elettronica di avviso di illecito](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+![Esempio di messaggio di posta elettronica contenente un avviso di illecito](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Impostazioni telefonata
 
@@ -115,7 +115,7 @@ Configurare gli indirizzi di posta elettronica per gli utenti che riceveranno me
 >[!NOTE]
 >Quando vengono effettuate chiamate MFA tramite la rete telefonica pubblica, queste vengono a volte indirizzate su un gestore che non supporta l'ID chiamante. Per questo motivo, l'ID chiamante non è garantito, anche se il sistema di autenticazione a più fattori lo invia sempre.
 
-Nel Stati Uniti, se l'ID chiamante dell'autenticazione a più fattori non è stato configurato, le chiamate vocali da Microsoft provengono dai numeri seguenti: + 1 (866) 539 4191, + 1 (855) 330 8653 e + 1 (877) 668 6536. Se si usano i filtri di posta indesiderata, assicurarsi di escludere questi numeri.
+Negli Stati Uniti, se non è stato configurato l'ID chiamante MFA, le chiamate vocali da Microsoft provengono dai numeri seguenti: +1 (866) 539 4191, +1 (855) 330 8653, e +1 (877) 668 6536. Se si usano filtri per la posta indesiderata, escludere questi numeri.
 
 ### <a name="custom-voice-messages"></a>Messaggi vocali personalizzati
 
@@ -124,7 +124,7 @@ Nel Stati Uniti, se l'ID chiamante dell'autenticazione a più fattori non è sta
 Prima di iniziare, tenere presente le seguenti restrizioni:
 
 * I formati di file supportati sono WAV e MP3.
-* Il limite delle dimensioni del file è 1 MB.
+* La dimensione massima dei file è 1 MB.
 * I messaggi di autenticazione devono avere una durata inferiore a 20 secondi. Se i messaggi durano più di 20 secondi, è possibile che la verifica abbia esito negativo. L'utente potrebbe non rispondere prima della fine del messaggio e la verifica potrebbe scadere.
 
 ### <a name="custom-message-language-behavior"></a>Comportamento per la lingua del messaggio personalizzato
@@ -145,37 +145,37 @@ Ad esempio, se è presente un solo messaggio personalizzato, con la lingua tedes
 ### <a name="set-up-a-custom-message"></a>Configurare un messaggio personalizzato
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-1. Passare a **Azure Active Directory**impostazioni di autenticazione a più fattori di  >  **sicurezza**  >  **MFA**  >  **Phone call settings**.
+1. Passare a **Azure Active Directory** > **Sicurezza** > **MFA** > **Impostazioni telefonata**.
 1. Selezionare **Aggiungi messaggio di saluto**.
 1. Scegliere il tipo di messaggio introduttivo.
 1. Scegliere la lingua.
 1. Selezionare un file audio MP3 o WAV da caricare.
 1. Selezionare **Aggiungi**.
 
-### <a name="custom-voice-message-defaults"></a>Impostazioni predefinite del messaggio vocale personalizzato
+### <a name="custom-voice-message-defaults"></a>Valori predefiniti dei messaggi vocali personalizzati
 
 Script di esempio per la creazione di messaggi personalizzati.
 
 | Nome messaggio | Script |
 | --- | --- |
-| Autenticazione riuscita | La verifica dell'accesso è stata completata. Goodbye. |
-| Richiesta di estensione | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per continuare. |
-| Conferma illecito | È stato inviato un avviso di illecito. Per sbloccare l'account, contattare il help desk IT dell'azienda. |
-| Messaggio introduttivo illecito (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. Se la verifica non è stata avviata, è possibile che qualcuno stia tentando di accedere all'account. Premere zero libbre per inviare un avviso di illecito. Questo invierà una notifica al team IT dell'azienda e bloccherà ulteriori tentativi di verifica. |
-| È stato inviato un avviso di illecito. | Per sbloccare l'account, contattare il help desk IT dell'azienda. |
-| Attivazione | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
-| Tentativo di autenticazione negato | Verifica negata. |
-| Nuovo tentativo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
-| Messaggio introduttivo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
-| Messaggio introduttivo (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. |
-| Messaggio introduttivo illecito (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft.  Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. Se la verifica non è stata avviata, è possibile che qualcuno stia tentando di accedere all'account. Premere zero libbre per inviare un avviso di illecito. Questo invierà una notifica al team IT dell'azienda e bloccherà ulteriori tentativi di verifica. |
-| Nuovo tentativo (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. |
-| Richiesta di estensione dopo le cifre | Se si è già in questa estensione, premere il tasto cancelletto per continuare. |
-| Autenticazione negata | Non è possibile eseguire l'accesso in questo momento. Riprovare più tardi. |
-| Messaggio introduttivo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
-| Tentativo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
-| Messaggio introduttivo di attivazione (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. |
-| Richiesta di estensione prima delle cifre | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Trasferire la chiamata all'estensione... |
+| Autenticazione riuscita | Verifica dell'accesso completata. Arrivederci. |
+| Richiesta interno | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per continuare. |
+| Conferma illecito | È stato inviato un avviso di illecito. Per sbloccare l'account, contattare l'help desk IT della società. |
+| Messaggio introduttivo illecito (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. Se non si è avviato personalmente la procedura di verifica, è possibile che qualcuno stia tentando di accedere all'account. Premere 0 seguito da cancelletto per inviare un avviso di illecito, in modo da informare il team IT della società e bloccare ulteriori tentativi di verifica. |
+| Segnalato illecito - È stato inviato un avviso di illecito. | Per sbloccare l'account, contattare l'help desk IT della società. |
+| Activation | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. |
+| Autenticazione negata - Nuovo tentativo | Verifica non consentita. |
+| Nuovo tentativo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. |
+| Messaggio introduttivo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. |
+| Messaggio introduttivo (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Immettere il PIN seguito da cancelletto per completare la verifica. |
+| Messaggio introduttivo illecito (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft.  Immettere il PIN seguito da cancelletto per completare la verifica. Se non si è avviato personalmente la procedura di verifica, è possibile che qualcuno stia tentando di accedere all'account. Premere 0 seguito da cancelletto per inviare un avviso di illecito, in modo da informare il team IT della società e bloccare ulteriori tentativi di verifica. |
+| Nuovo tentativo (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Immettere il PIN seguito da cancelletto per completare la verifica. |
+| Richiesta interno dopo i numeri | Se si risponde già a questo interno, premere cancelletto per continuare. |
+| Autenticazione negata | Al momento non è possibile effettuare l'accesso. Riprovare più tardi. |
+| Messaggio introduttivo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. |
+| Nuovo tentativo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. |
+| Messaggio introduttivo di attivazione (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Immettere il PIN seguito da cancelletto per completare la verifica. |
+| Richiesta interno prima dei numeri | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Trasferire la chiamata all'interno... |
 
 ## <a name="one-time-bypass"></a>Bypass monouso
 
@@ -184,16 +184,16 @@ La funzionalità _bypass monouso_ consente a un utente di eseguire l'autenticazi
 ### <a name="create-a-one-time-bypass"></a>Creare un bypass monouso
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory**sicurezza dell'autenticazione a più fattori per il bypass monouso  >  **Security**  >  **MFA**  >  **One-time bypass**.
+2. Passare a **Azure Active Directory** > **Sicurezza** > **MFA** > **Bypass monouso**.
 3. Selezionare **Aggiungi**.
 4. Se necessario, selezionare il gruppo di replica per il bypass.
-5. Immettere il nome utente ** \@ Domain.com**. Immettere il numero di secondi che indica la durata del bypass. Immettere il motivo del bypass.
+5. Immettere il nome utente come **nomeutente\@dominio.com**. Immettere il numero di secondi che indica la durata del bypass. Immettere il motivo del bypass.
 6. Selezionare **Aggiungi**. Il limite di tempo diventa immediatamente effettivo. L'utente deve accedere prima della scadenza del bypass monouso.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualizzare il report del bypass monouso
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare a **Azure Active Directory**sicurezza dell'autenticazione a più fattori per il bypass monouso  >  **Security**  >  **MFA**  >  **One-time bypass**.
+2. Passare a **Azure Active Directory** > **Sicurezza** > **MFA** > **Bypass monouso**.
 
 ## <a name="caching-rules"></a>Regole di memorizzazione nella cache
 
@@ -205,7 +205,7 @@ La funzionalità _bypass monouso_ consente a un utente di eseguire l'autenticazi
 ### <a name="set-up-caching"></a>Configurare la memorizzazione nella cache
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory**  >  **Security**  >  **MFA**  >  **regole di memorizzazione nella cache**dell'autenticazione a più fattori di sicurezza.
+2. Passare a **Azure Active Directory** > **Sicurezza** > **MFA** > **Regole di memorizzazione nella cache**.
 3. Selezionare **Aggiungi**.
 4. Selezionare il **tipo di cache** nell'elenco a discesa. Immettere il numero massimo di **secondi cache**.
 5. Se necessario, selezionare un tipo di autenticazione e specificare un'applicazione.
@@ -213,7 +213,7 @@ La funzionalità _bypass monouso_ consente a un utente di eseguire l'autenticazi
 
 ## <a name="mfa-service-settings"></a>Impostazioni del servizio MFA
 
-Le impostazioni per password delle app, IP attendibili, opzioni di verifica e memorizzazione dell'autenticazione a più fattori per Azure Multi-Factor Authentication sono disponibili nelle impostazioni del servizio. È possibile accedere alle impostazioni del servizio dal portale di Azure passando a **Azure Active Directory**sicurezza dell'autenticazione a più fattori per la configurazione dell'autenticazione a più fattori  >  **Security**  >  **MFA**  >  **Getting started**  >  **Configure**  >  **basata sul cloud**.
+Le impostazioni per password delle app, IP attendibili, opzioni di verifica e memorizzazione dell'autenticazione a più fattori per Azure Multi-Factor Authentication sono disponibili nelle impostazioni del servizio. Per accedere alle impostazioni del servizio, è possibile usare il portale di Azure passando a **Azure Active Directory** > **Sicurezza** > **MFA** > **Attività iniziali** > **Configura** > **Altre impostazioni di MFA basate sul cloud**.
 
 ![Impostazioni del servizio Azure Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
@@ -226,7 +226,7 @@ Alcune applicazioni, come Office 2010 o versioni precedenti e Apple Mail precede
 L'autenticazione moderna è supportata per i client di Microsoft Office 2013 e versioni successive. I client di Office 2013, tra cui Outlook, supportano i protocolli di autenticazione moderni e possono essere abilitati per la verifica in due passaggi. Dopo averlo abilitato, il client non richiede le password dell'app.
 
 >[!NOTE]
->Le password dell'app non funzionano con i criteri di autenticazione a più fattori basati sull'accesso condizionale e l'autenticazione moderna.
+>Le password delle app non funzionano con i criteri di autenticazione a più fattori basati su accesso condizionale e l'autenticazione moderna.
 
 ### <a name="considerations-about-app-passwords"></a>Considerazioni sulle password dell'app
 
@@ -278,8 +278,8 @@ Azure AD supporta la federazione o il Single Sign-On (SSO) con Active Directory 
 Per impostazione predefinita, gli utenti non possono creare password dell'app. La funzionalità password dell'app deve essere abilitata. Per consentire agli utenti di creare password dell'app, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **utenti**.
-3. Selezionare **multi-factor authentication**.
+2. A sinistra selezionare **Azure Active Directory** > **Utenti**.
+3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio** selezionare l'opzione **Consenti agli utenti di creare password dell'app per accedere alle app non basate su browser**.
 
@@ -294,13 +294,13 @@ Gli utenti possono creare password delle app anche dopo la registrazione. Per al
 La funzionalità _Indirizzi IP attendibili_ di Azure Multi-Factor Authentication viene usata dagli amministratori di un tenant gestito o federato. La funzionalità consente di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet aziendale. Questa funzionalità è disponibile nella versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> Gli indirizzi IP attendibili a più fattori e i percorsi con accesso condizionale vengono usati solo con indirizzi IPV4.
+> Gli IP attendibili MFA e le località denominate di accesso condizionale funzionano solo con indirizzi IPV4.
 
 Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per garantire l'autenticazione a più fattori ad applicazioni locali, si prega di notare che gli indirizzi IP originali sembreranno sempre il server dei criteri di rete attraverso cui passa il tentativo di autenticazione.
 
 | Tipo di tenant di Azure AD | Opzioni della funzionalità Indirizzi IP attendibili |
 |:--- |:--- |
-| Gestiti |**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili.|
+| Gestito |**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. È possibile configurare un massimo di 50 intervalli IP attendibili.|
 | Federato |**All Federated Users** (Tutti gli utenti federati): tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la verifica in due passaggi. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. |
 
 Il bypass degli indirizzi IP attendibili funziona solo dall'interno della rete Intranet aziendale. Se si seleziona l'opzione **All Federated Users** (Tutti gli utenti federati) solo tutti gli utenti federati e un utente accede dall'esterno della rete Intranet aziendale, tale utente deve eseguire l'autenticazione con la verifica in due passaggi. Il processo è lo stesso anche se l'utente presenta un'attestazione AD FS. 
@@ -315,30 +315,30 @@ Se la funzionalità Indirizzi IP attendibili è abilitata, per i flussi del brow
 
 Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia disabilitata, per i flussi del browser è necessaria la verifica in due passaggi. Le password dell'app sono necessarie per applicazioni rich client meno recenti.
 
-### <a name="enable-named-locations-by-using-conditional-access"></a>Abilitare le località denominate tramite l'accesso condizionale
+### <a name="enable-named-locations-by-using-conditional-access"></a>Abilitare le località denominate con l'accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **sicurezza**  >  **accesso condizionale**  >  **percorsi denominati**.
+2. Sul lato sinistro selezionare **Azure Active Directory** > **Sicurezza** > **Accesso condizionale** > **Località denominate**.
 3. Selezionare **Nuova località**.
 4. Immettere un nome per la località.
-5. Selezionare **Contrassegna come percorso attendibile**.
+5. Selezionare **Contrassegna come posizione attendibile**.
 6. Immettere l'intervallo di indirizzi IP nella notazione CIDR, ad esempio **192.168.1.1/24**.
 7. Selezionare **Create** (Crea).
 
-### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità indirizzi IP attendibili tramite l'accesso condizionale
+### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità Indirizzi IP attendibili con l'accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **sicurezza**  >   **accesso condizionale**  >  **percorsi denominati**.
-3. Selezionare **configura indirizzi IP attendibili**a più fattori.
+2. Sul lato sinistro selezionare **Azure Active Directory** > **Sicurezza** >  **Accesso condizionale** > **Località denominate**.
+3. Selezionare **Configura indirizzi IP attendibili MFA**.
 4. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
 
-   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Per le richieste da un intervallo specifico di IP pubblici**: per scegliere questa opzione immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
+   * **Per le richieste da un intervallo specifico di IP pubblici**: per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
-      * Per un singolo indirizzo IP, usare la notazione, ad esempio **xxx.xxx.xxx.xxx/32**.
+      * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
       * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
 
 5. Selezionare **Salva**.
@@ -346,18 +346,18 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Abilitare la funzionalità Indirizzi IP attendibili tramite le impostazioni del servizio
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **utenti**.
-3. Selezionare **multi-factor authentication**.
+2. A sinistra selezionare **Azure Active Directory** > **Utenti**.
+3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una o entrambe le opzioni seguenti:
 
-   * **For requests from federated users on my intranet** (Per le richieste provenienti da utenti federati nella Intranet): per scegliere questa opzione selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **For requests from a specified range of IP address subnets** (Per le richieste provenienti da un intervallo specifico di subnet di indirizzi IP): per scegliere questa opzione immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
+   * **For requests from a specified range of IP address subnets** (Per le richieste provenienti da un intervallo specificato di subnet di indirizzi IP): per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
-      * Per un singolo indirizzo IP, usare la notazione, ad esempio **xxx.xxx.xxx.xxx/32**.
+      * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
       * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
 
 6. Selezionare **Salva**.
@@ -371,15 +371,15 @@ Quando gli utenti registrano i propri account per Azure Multi-Factor Authenticat
 | Metodo | Descrizione |
 |:--- |:--- |
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
-| SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. All'utente viene richiesto di immettere il codice di verifica nell'interfaccia di accesso. Questo processo è denominato SMS unidirezionale. L'SMS bidirezionale significa che l'utente deve disporre il testo in un codice specifico. L'SMS bidirezionale è deprecato e non è supportato a partire dal 14 novembre 2018. Gli amministratori devono abilitare un altro metodo per gli utenti che in precedenza usavano SMS bidirezionali.|
-| Notifica tramite app per dispositivi mobili |Invia una notifica push al telefono o al dispositivo registrato. L'utente visualizza la notifica e seleziona **Verifica** per completare la verifica. L'app Microsoft Authenticator è disponibile per [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Codice di verifica dall'app per dispositivi mobili o dal token hardware |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni 30 secondi. L'utente immette il codice di verifica nell'interfaccia di accesso. L'app Microsoft Authenticator è disponibile per [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. All'utente viene richiesto di immettere il codice di verifica nell'interfaccia di accesso. Questo processo è denominato SMS unidirezionale. L'SMS bidirezionale significa che l'utente deve disporre il testo in un codice specifico. L'SMS bidirezionale è deprecato e non è supportato a partire dal 14 novembre 2018. Gli amministratori devono abilitare un altro metodo per gli utenti che in precedenza usavano l'SMS bidirezionale.|
+| Notifica tramite app per dispositivi mobili |Invia una notifica push al telefono o al dispositivo registrato. L'utente visualizza la notifica e seleziona **Verifica** per completare la verifica. L'app Microsoft Authenticator è disponibile per [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Codice di verifica dall'app per dispositivi mobili o dal token hardware |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni 30 secondi. L'utente immette il codice di verifica nell'interfaccia di accesso. L'app Microsoft Authenticator è disponibile per [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Abilitare e disabilitare i metodi di verifica
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **utenti**.
-3. Selezionare **multi-factor authentication**.
+2. A sinistra selezionare **Azure Active Directory** > **Utenti**.
+3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio**, in **Opzioni di verifica** selezionare o deselezionare i metodi da mettere a disposizione per gli utenti.
 6. Fare clic su **Salva**.
@@ -391,7 +391,7 @@ Altre informazioni sull'uso dei metodi di autenticazione sono disponibili nell'a
 La funzionalità di _memorizzazione di Multi-Factor Authentication_ per dispositivi e browser considerati attendibili dall'utente è una funzionalità gratuita per tutti gli utenti di Multi-Factor Authentication. Gli utenti possono ignorare le verifiche successive per un numero specificato di giorni, dopo aver effettuato correttamente l'accesso in un dispositivo tramite Multi-Factor Authentication. Questa funzionalità permette di migliorare l'usabilità, riducendo al minimo il numero di volte in cui un utente deve eseguire la verifica in due passaggi nello stesso dispositivo.
 
 >[!IMPORTANT]
->Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se un account aziendale viene compromesso o un dispositivo attendibile viene smarrito o rubato, è necessario [revocare le sessioni](howto-mfa-userdevicesettings.md)di autenticazione a più fattori.
+>Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se un account aziendale viene compromesso o un dispositivo attendibile viene smarrito o rubato, è necessario [revocare le sessioni MFA](howto-mfa-userdevicesettings.md).
 >
 >L'azione di ripristino revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È possibile anche istruire gli utenti a ripristinare Multi-Factor Authentication sui propri dispositivi con le istruzioni disponibili in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) (Gestire le impostazioni per la verifica in due passaggi).
 
@@ -408,14 +408,14 @@ La funzionalità riduce il numero di autenticazioni per le app Web, che in gener
 >
 >Se si seleziona **Mantieni l'accesso** in AD FS e si contrassegna il dispositivo come attendibile per Multi-Factor Authentication, l'utente non esegue automaticamente la verifica quando terminano i giorni per la **memorizzazione di Multi-Factor Authentication**. Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione originale e la data di Multi-Factor Authentication invece di eseguire di nuovo la verifica in due passaggi. **Questa reazione attiva un ciclo di verifica tra Azure AD e AD FS.**
 >
->La funzionalità **ricorda multi-factor authentication** non è compatibile con gli utenti B2B e non sarà visibile agli utenti B2B durante l'accesso ai tenant invitati.
+>La funzionalità **Memorizza Multi-Factor Authentication** non è compatibile con gli utenti B2B e non sarà visibile per questi utenti durante l'accesso ai tenant invitati.
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory**  >  **utenti**.
-3. Selezionare **multi-factor authentication**.
+2. A sinistra selezionare **Azure Active Directory** > **Utenti**.
+3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio**, in **manage remember multi-factor authentication** (Gestisci memorizzazione di Multi-Factor Authentication) selezionare l'opzione **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
 6. Impostare il numero di giorni per cui consentire ai dispositivi attendibili di ignorare la verifica in due passaggi. Il valore predefinito è 14 giorni.

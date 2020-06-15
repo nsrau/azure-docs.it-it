@@ -4,12 +4,12 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: sstein
-ms.openlocfilehash: f11fbaccd38e8d6fed956c5cf476ed5a3732a68d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 1462f0dbeb45edeed964c24585b1fbc948f74233
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67180224"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013244"
 ---
 ## <a name="additional-resources"></a>Risorse aggiuntive
-Se non si usano gli strumenti di database elastici, vedere la [Guida introduttiva](../articles/sql-database/sql-database-elastic-scale-get-started.md).  Se ci sono domande, è possibile visitare il [forum sul database SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Se non si usano gli strumenti di database elastici, vedere la [Guida introduttiva](../articles/azure-sql/database/elastic-scale-get-started.md).  In caso di domande, è possibile visitare la [pagina delle domande di Domande e risposte Microsoft per database SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).

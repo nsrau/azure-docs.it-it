@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591965"
+ms.locfileid: "83644879"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionare automaticamente i pool di Apache Spark in Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Le metriche elencate in precedenza vengono controllate ogni 30 secondi. La funzi
 
 Quando vengono rilevate le condizioni seguenti, la funzionalità di scalabilità automatica invia una richiesta di aumento o riduzione delle dimensioni:
 
-|Aumento|Riduzione|
+|Aumentare|Riduzione|
 |---|---|
 |Il totale CPU in sospeso è maggiore del totale CPU disponibile per più di 1 minuto.|Il totale CPU in sospeso è minore del totale CPU disponibile per più di 2 minuti.|
 |Il totale memoria in sospeso è maggiore del totale memoria disponibile per più di 1 minuto.|Il totale memoria in sospeso è minore del totale memoria disponibile per più di 2 minuti.|
@@ -74,4 +74,4 @@ I processi in esecuzione continueranno a essere eseguiti e verranno completati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Avvio rapido per creare un nuovo pool di Spark: [Creare un pool di Spark](..\quickstart-create-apache-spark-pool.md)
+Avvio rapido per creare un nuovo pool di Spark: [Creare un pool di Spark](../quickstart-create-apache-spark-pool-portal.md)

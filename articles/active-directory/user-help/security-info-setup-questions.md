@@ -1,6 +1,6 @@
 ---
-title: 'Configurare domande di sicurezza come metodo di verifica: Azure AD'
-description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare la propria identità usando le domande di sicurezza predefinite come metodo di verifica.
+title: Configurare le domande di sicurezza come metodo di verifica - Azure AD
+description: Come configurare la pagina Informazione di sicurezza (anteprima) per usare le domande di sicurezza predefinite come metodo di verifica dell'identità.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,24 +8,24 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: d4714a78ed03a9b861f3a266cfd0d7bca456b3c4
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 0c55f15d12ddc51573f59f56c742a8cac525af0b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628351"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744441"
 ---
-# <a name="set-up-security-questions-as-your-verification-method"></a>Configurare domande di sicurezza come metodo di verifica
+# <a name="set-up-security-questions-as-your-verification-method"></a>Configurare le domande di sicurezza come metodo di verifica
 
 È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se non viene visualizzata l'opzione domande di sicurezza, è possibile che l'organizzazione non consenta di usare questa opzione per il metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriori informazioni.
+>Se non viene visualizzata un'opzione per le domande di sicurezza, è possibile che l'organizzazione non consenta di usarla come metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo oppure contattare l'help desk dell'organizzazione per ricevere assistenza.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
@@ -92,13 +92,13 @@ Per non usare più le domande di sicurezza come metodo di gestione delle informa
 
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
-- **App Authenticator.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
+- **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
 - **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 

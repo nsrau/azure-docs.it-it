@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417981"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832787"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,13 +29,13 @@ Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 name | Nome dell'attività nella pipeline | sì
 description | Testo che descrive l'attività | no
-type | Deve essere impostato su **Sevariable** | sì
-value | Valore letterale stringa o valore dell'oggetto espressione a cui verrà assegnata la variabile | sì
-variableName | Nome della variabile che verrà impostata da questa attività | sì
+type | Il valore deve essere impostato su **SetVariable** | sì
+Valore | Valore letterale stringa o valore di oggetto espressione a cui è assegnata la variabile specificata | sì
+variableName | Nome della variabile impostata da questa attività | sì
 
 ## <a name="incrementing-a-variable"></a>Incremento di una variabile
 
-Uno scenario comune che riguarda le variabili in Azure Data Factory consiste nell'utilizzo di una variabile come iteratore all'interno di un'attività until o foreach. In un'attività Imposta variabile non è possibile fare riferimento alla variabile impostata nel `value` campo. Per aggirare questa limitazione, impostare una variabile temporanea e quindi creare una seconda attività Imposta variabile. La seconda attività della variabile set imposta il valore dell'iteratore sulla variabile temporanea. 
+Uno scenario comune che riguarda le variabili in Azure Data Factory consiste nell'utilizzo di una variabile come iteratore all'interno di un'attività until o foreach. In un'attività di impostazione della variabile non è possibile fare riferimento alla variabile da impostare nel campo `value`. Per ovviare a questa limitazione, impostare una variabile temporanea e quindi creare una seconda attività di impostazione della variabile. La seconda attività di impostazione della variabile determina il valore dell'iteratore sulla variabile temporanea. 
 
 Di seguito è riportato un esempio di questo modello:
 
@@ -99,4 +99,4 @@ Di seguito è riportato un esempio di questo modello:
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su un'attività del flusso di controllo correlato supportata da Data Factory: 
 
-- [Aggiungere un'attività variabile](control-flow-append-variable-activity.md)
+- [Attività di accodamento a variabile](control-flow-append-variable-activity.md)

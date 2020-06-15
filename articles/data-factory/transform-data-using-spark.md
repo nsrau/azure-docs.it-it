@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività Spark
+title: Trasformare i dati con Attività Spark
 description: Informazioni su come trasformare dati tramite l'esecuzione di programmi Spark da una pipeline di Azure Data Factory con l'attività Spark.
 services: data-factory
 ms.service: data-factory
@@ -9,13 +9,13 @@ author: nabhishek
 ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 05/31/2018
-ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/08/2020
+ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418848"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849213"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -65,14 +65,14 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 | description           | Testo che descrive l'attività.  | No       |
 | type                  | Per l'attività Spark il tipo corrisponde a HDInsightSpark. | Sì      |
 | linkedServiceName     | Nome del servizio collegato di HDInsight Spark in cui viene eseguito il programma Spark. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| SparkJobLinkedService | Il servizio collegato di archiviazione di Azure che contiene il file di processo, le dipendenze e i log di Spark.  Se non si specifica un valore per questa proprietà, viene usato lo spazio di archiviazione associato al cluster HDInsight. Il valore di questa proprietà può essere solo un servizio collegato di Archiviazione di Azure. | No       |
+| SparkJobLinkedService | Il servizio collegato di archiviazione di Azure che contiene il file di processo, le dipendenze e i log di Spark. Qui sono supportati solo i servizi collegati **[Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Se non si specifica un valore per questa proprietà, viene usato lo spazio di archiviazione associato al cluster HDInsight. Il valore di questa proprietà può essere solo un servizio collegato di Archiviazione di Azure. | No       |
 | rootPath              | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. Per informazioni dettagliate sulla struttura della cartella, fare riferimento alla prossima sezione, relativa alla struttura delle cartelle. | Sì      |
 | entryFilePath         | Percorso relativo alla cartella radice del pacchetto/codice Spark. Il file di ingresso deve essere un file Python o un file JAR. | Sì      |
 | className             | Classe principale Java/Spark dell'applicazione      | No       |
 | argomenti             | Elenco di argomenti della riga di comando del programma Spark. | No       |
 | proxyUser             | Account utente da rappresentare per eseguire il programma Spark | No       |
-| sparkConfig           | Specificare i valori delle proprietà di configurazione di Spark elencati nell'argomento: [Configurazione di SparK: proprietà dell'applicazione](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No       |
-| getDebugInfo          | Specifica quando i file di log di Spark vengono copiati nell'archiviazione di Azure usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No       |
+| sparkConfig           | Specificare i valori delle proprietà di configurazione di Spark elencati nell'argomento [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configurazione di Spark: proprietà dell'applicazione). | No       |
+| getDebugInfo          | Specifica quando i file di log di Spark vengono copiati nell'archiviazione di Azure usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None, Always e Failure. Valore predefinito: No. | No       |
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 I processi Spark sono più estendibili dei processi Pig/Hive. Per i processi Spark è possibile offrire più dipendenze, ad esempio pacchetti jar (posizionati in CLASSPATH di java), file python (posizionati in PYTHONPATH) e qualsiasi altro file.
@@ -119,5 +119,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

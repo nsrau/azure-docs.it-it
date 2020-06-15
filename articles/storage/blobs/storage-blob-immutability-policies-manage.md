@@ -1,6 +1,6 @@
 ---
-title: Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB-archiviazione di Azure
-description: Informazioni su come usare il supporto WORM (Write Once, Read Many) per l'archiviazione BLOB (oggetto) per archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato.
+title: Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB - Archiviazione di Azure
+description: Come archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato con WORM (Write Once, Read Many) per l'archiviazione di oggetti BLOB.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 539154135c35e034c889294d911fb53b3d45daa4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970107"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771010"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB
 
-L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare oggetti dati cruciali per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato. Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. L'archiviazione non modificabile è disponibile per gli account di archiviazione BLOB e V2 per utilizzo generico in tutte le aree di Azure.
+L'archiviazione non modificabile per BLOB di Azure consente agli utenti di archiviare oggetti dati critici per l'azienda nello stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per tutta la durata dell'intervallo di conservazione, i BLOB possono essere creati e letti, ma non modificati o eliminati. L'archiviazione non modificabile è disponibile negli account di archiviazione BLOB in tutte le aree di Azure e per utilizzo generico v2.
 
-Questo articolo illustra come impostare e gestire i criteri di immutabilità e le concessioni legali per i dati nell'archivio BLOB usando l'interfaccia della riga di comando di portale di Azure, PowerShell o Azure. Per altre informazioni sull'archiviazione non modificabile, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md).
+Questo articolo illustra come impostare e gestire i criteri di immutabilità e i blocchi a fini giudiziari per i dati nell'archivio BLOB usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni sull'archiviazione non modificabile, vedere [Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md).
 
-## <a name="set-retention-policies-and-legal-holds"></a>Impostare i criteri di conservazione e le esenzioni legali
+## <a name="set-retention-policies-and-legal-holds"></a>Impostare i criteri di conservazione e i blocchi a fini giudiziari
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile. Il contenitore deve trovarsi in un account di archiviazione BLOB o V2 per utilizzo generico.
+1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile. Il contenitore deve essere in un account di archiviazione per utilizzo generico v2 o BLOB.
 
-2. Selezionare **Criteri di accesso** nelle impostazioni del contenitore. Selezionare quindi **Aggiungi criterio** nell' **Archivio BLOB non modificabile**.
+2. Selezionare **Criteri di accesso** nelle impostazioni del contenitore. Fare quindi clic su **Aggiungi criteri** in **Archivio BLOB non modificabile**.
 
     ![Impostazioni del contenitore nel portale](media/storage-blob-immutability-policies-manage/portal-image-1.png)
 
@@ -35,21 +35,21 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
     ![Opzione "Conservazione basata su tempo" selezionata in "Tipo di criteri"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
 
-4. Immettere l'intervallo di conservazione in giorni (i valori accettabili sono compresi tra 1 e 146000 giorni).
+4. Immettere l'intervallo di conservazione in giorni (i valori accettabili sono compresi tra 1 e 146000).
 
     ![Casella "Aggiorna periodo di conservazione a"](media/storage-blob-immutability-policies-manage/portal-image-5-retention-interval.png)
 
-    Lo stato iniziale del criterio è sbloccato, che consente di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Il blocco del criterio è essenziale per la conformità a normative come SEC 17a-4.
+    Lo stato iniziale dei criteri è sbloccato e consente di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Il blocco dei criteri è essenziale per la conformità a normative come SEC 17a-4.
 
-5. Bloccare i criteri. Fare clic con il pulsante destro del mouse sui puntini di sospensione (**...**) e il menu seguente viene visualizzato con azioni aggiuntive:
+5. Bloccare i criteri. Fare clic con il pulsante destro del mouse sui puntini di sospensione ( **...** ). Verrà visualizzato il menu seguente con azioni aggiuntive:
 
     ![Comando per il blocco dei criteri nel menu](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 
-6. Selezionare **blocca criterio** e confermare il blocco. Il criterio è ora bloccato e non può essere eliminato. saranno consentite solo le estensioni dell'intervallo di conservazione. Le eliminazioni BLOB e le sostituzioni non sono consentite. 
+6. Selezionare **Bloccare i criteri** e confermare il blocco. I criteri bloccati non possono essere eliminati e sono consentite solo estensioni dell'intervallo di conservazione. Le eliminazioni di BLOB e le sostituzioni non sono consentite. 
 
-    ![Confermare "blocca criterio" nel menu](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
+    ![Confermare "Bloccare i criteri" nel menu](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
 
-7. Per abilitare le esenzioni legali, selezionare **Aggiungi criterio**. Scegliere **Blocco a fini giudiziari** dal menu a discesa.
+7. Per abilitare i blocchi a fini giudiziari, selezionare **Aggiungi criteri**. Scegliere **Blocco a fini giudiziari** dal menu a discesa.
 
     !["Blocco a fini giudiziari" nel menu sotto "Tipo di criteri"](media/storage-blob-immutability-policies-manage/portal-image-legal-hold-selection-7.png)
 
@@ -57,7 +57,7 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
     ![Casella "Nome tag" sotto il tipo di criteri](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Per cancellare una tenuta legale, rimuovere il tag dell'identificatore di esenzione legale applicato.
+9. Per cancellare un blocco a fini giudiziari rimuovere il tag identificatore del blocco a fini giudiziari applicato.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -67,15 +67,15 @@ La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage containe
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Il modulo AZ. Storage supporta l'archiviazione non modificabile.  Per abilitare la funzionalità, seguire questa procedura:
+Il modulo Az.Storage supporta l'archiviazione non modificabile.  Per abilitare la funzionalità, seguire questa procedura:
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Rimuovere eventuali installazioni precedenti di Azure PowerShell.
 3. Installare Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e cancellare i diritti legali, creare e bloccare un criterio di conservazione basato sul tempo (anche noto come criterio di immutabilità) ed estendere l'intervallo di conservazione.
+Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e rimuovere i blocchi a fini giudiziari, creare e bloccare i criteri di conservazione basati sul tempo (noti anche come criteri di immutabilità) ed estendere l'intervallo di conservazione.
 
-Prima di tutto, creare un account di archiviazione di Azure:
+Prima di tutto, creare un account di Archiviazione di Azure:
 
 ```powershell
 $resourceGroup = "<Enter your resource group>"
@@ -91,7 +91,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Crea o aggiorna i criteri di immutabilità basati sul tempo:
+Creare o aggiornare i criteri di immutabilità pianificati:
 
 ```powershell
-# Create a time-based immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Blocca i criteri di immutabilità (aggiungere `-Force` per chiudere il prompt):
+Bloccare i criteri di immutabilità (aggiungere `-Force` per ignorare il prompt):
 
 ```powershell
 # Lock immutability policies
@@ -154,7 +154,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 ```
 
-Rimuovere i criteri di immutabilità `-Force` sbloccati (aggiungere per chiudere il prompt):
+Rimuovere un criterio di immutabilità sbloccato (aggiungere `-Force` per ignorare il prompt):
 
 ```powershell
 # Remove an unlocked immutability policy
@@ -166,11 +166,11 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ---
 
-## <a name="enabling-allow-protected-append-blobs-writes"></a>Abilitazione di scritture di BLOB Accodamento protetto
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Abilitazione di scritture di BLOB Accodamento protette
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-![Consenti scritture di Accodamento aggiuntive](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+![Consentire scritture di Accodamento aggiuntive](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -179,7 +179,7 @@ La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage containe
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Create an immutablity policy with appends allowed
+# Create an immutability policy with appends allowed
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```

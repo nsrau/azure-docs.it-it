@@ -1,35 +1,35 @@
 ---
-title: Usare sys_schema-database di Azure per MySQL
-description: Informazioni su come usare sys_schema per individuare i problemi di prestazioni e gestire il database in database di Azure per MySQL.
+title: Usare sys_schema - Database di Azure per MySQL
+description: Come usare sys_schema per trovare problemi di prestazioni e per la manutenzione del database in Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d2ed06041e8ee0e2993289cdde5fe92f7664b476
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411098"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829516"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 
-Il performance_schema MySQL, disponibile per la prima volta in MySQL 5,5, fornisce la strumentazione per molte risorse server essenziali, ad esempio l'allocazione di memoria, i programmi archiviati, il blocco dei metadati e così via. Tuttavia, il performance_schema contiene più di 80 tabelle e il recupero delle informazioni necessarie spesso richiede l'Unione di tabelle all'interno del performance_schema, nonché le tabelle dal information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
+Il database performance_schema di MySQL, introdotto per la prima volta in MySQL 5.5, rende disponibile la strumentazione per molte risorse del server cruciali, come l'allocazione della memoria, i programmi archiviati, il blocco dei metadati e così via. Il database performance_schema, tuttavia, contiene più di 80 tabelle e ottenere le informazioni necessarie spesso richiede la creazione di join tra le tabelle all'interno di performance_schema, così come con le tabelle di information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
 
 ![viste di sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
 Il database sys_schema include 52 viste, ognuna con uno dei prefissi seguenti:
 
-- Host_summary o IO: latenze correlate alle operazioni di I/O.
+- Host_summary o IO: latenze correlate a I/O.
 - InnoDB: stato e blocchi del buffer InnoDB.
-- Memory: utilizzo della memoria da parte di host e utenti.
+- Memoria: utilizzo della memoria da parte di host e utenti.
 - Schema: informazioni correlate allo schema, come incremento automatico, indici e così via.
 - Statement: informazioni sulle istruzioni SQL; può trattarsi di istruzioni che causano una scansione di tabella completa o una durata prolungata delle query.
-- User: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
+- Utente: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
 - Wait: eventi di attesa raggruppati in base a host o utente.
 
-Verranno ora esaminati alcuni modelli di utilizzo comuni della sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **ottimizzazione delle prestazioni** e **manutenzione del database**.
+Vengono di seguito presentati alcuni modelli di uso comune di sys_schema. I modelli di utilizzo sono raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione del database**.
 
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 
@@ -55,14 +55,14 @@ Per risolvere i problemi di prestazioni del database, potrebbe essere utile iden
 
 ![riepilogo in base alle istruzioni](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-In questo esempio, Database di Azure per MySQL ha dedicato 53 minuti allo scaricamento del log di query slog 44579 volte. È molto tempo e molti IOs. È possibile ridurre questa attività disabilitando il log query lente o riducendo la frequenza di registrazione nel log query lente nel portale di Azure.
+In questo esempio, Database di Azure per MySQL ha dedicato 53 minuti allo scaricamento del log di query slog 44579 volte. Si tratta di molto tempo e di molte operazioni di I/O. È possibile ridurre questa attività disabilitando il log query lente o riducendo la frequenza di registrazione nel log query lente nel portale di Azure.
 
 ## <a name="database-maintenance"></a>Manutenzione del database
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 [!IMPORTANT]
-> L'esecuzione di query su questa vista può compromettere le prestazioni. Si consiglia di eseguire questa risoluzione dei problemi durante gli orari di minore attività.
+> L'esecuzione di query su questa vista può compromettere le prestazioni. Si consiglia di eseguire questa risoluzione dei problemi durante gli orari di ufficio di minore attività.
 
 Il pool di buffer InnoDB risiede in memoria e rappresenta il principale meccanismo di cache tra il sistema di gestione di database e l'archiviazione. Le dimensioni del pool di buffer InnoDB sono associate al livello di prestazioni e non possono essere modificate, se non scegliendo uno SKU di prodotto diverso. Come nel caso della memoria nel sistema operativo, viene effettuato lo swapping delle pagine meno recenti per fare spazio a dati più nuovi. Per scoprire quali tabelle utilizzano la maggior parte della memoria del pool di buffer InnoDB, è possibile eseguire una query sulla vista *sys.innodb_buffer_stats_by_table*.
 
@@ -83,4 +83,4 @@ Gli indici sono strumenti validi per migliorare le prestazioni di lettura, ma co
 In sintesi, il database sys_schema è un valido strumento sia per l'ottimizzazione delle prestazioni che per la manutenzione del database. Assicurarsi di sfruttare i vantaggi di questa funzionalità in Database di Azure per MySQL. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per trovare risposte dai colleghi alle domande più pressanti o per pubblicare una nuova domanda o risposta, visitare il [forum MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Per trovare risposte dai colleghi alle domande più difficili o per pubblicare una nuova domanda o risposta, visitare la [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
