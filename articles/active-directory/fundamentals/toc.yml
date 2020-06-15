@@ -13,7 +13,7 @@
       href: whats-new-microsoft-365-government.md
     - name: Archivio delle novità di Azure AD
       href: whats-new-archive.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Accedere al portale e creare un tenant
@@ -86,6 +86,8 @@
           href: add-custom-domain.md
         - name: Aggiungere il marchio aziendale
           href: customize-branding.md
+        - name: Configurare 'Rimanere connessi?'
+          href: keep-me-signed-in.md
         - name: Associare una sottoscrizione di Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Aggiungere le informazioni sulla privacy

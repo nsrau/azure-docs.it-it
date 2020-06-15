@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Desktop virtuale Windows
       href: overview.md
+    - name: Novità
+      href: whats-new.md
     - name: Documentazione sulla versione Autunno 2019
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Esercitazioni
@@ -82,6 +84,8 @@
       href: teams-on-wvd.md
     - name: Configurare Azure Multi-Factor Authentication
       href: set-up-mfa.md
+    - name: Configurare gli aggiornamenti automatici
+      href: configure-automatic-updates.md
     - name: Installare i language pack
       href: language-packs.md
 - name: Concetti

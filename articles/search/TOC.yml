@@ -6,7 +6,7 @@
       href: search-what-is-azure-search.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Portale
@@ -222,12 +222,12 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: Esempio - Riconoscimento modulo di Azure
               href: cognitive-search-custom-skill-form.md
+            - name: Esempio - Azure Machine Learning
+              href: cognitive-search-tutorial-aml-custom-skill.md
             - name: Esempio - Contenitori
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Suggerimenti per la progettazione
           href: cognitive-search-concept-troubleshooting.md
-        - name: Collegamenti per la documentazione
-          href: cognitive-search-resources-documentation.md
         - name: Knowledge store
           items:
             - name: Creare con REST e Postman
@@ -464,6 +464,8 @@
               href: cognitive-search-skill-text-translation.md
         - name: Competenze personalizzate
           items:
+            - name: Azure Machine Learning (AML)
+              href: cognitive-search-aml-skill.md
             - name: API Web personalizzata
               href: cognitive-search-custom-skill-web-api.md
         - name: Competenze deprecate
@@ -481,6 +483,8 @@
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Conformità e certificazioni
       href: 'https://aka.ms/azurecompliance'
+    - name: Collegamenti alla documentazione (Knowledge Mining)
+      href: cognitive-search-resources-documentation.md
     - name: Siti di demo
       items:
         - name: Demo sui file finanziari

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle identità gestite per le risorse di Azure
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Usare un'identità gestita per una macchina virtuale per accedere ad Azure Resource Manager
       items:
@@ -54,6 +54,10 @@
       href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Istanze di Azure Container
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+- name: Concetti
+  items:
+    - name: Identità gestite e macchine virtuali di Azure
+      href: how-managed-identities-work-vm.md
 - name: Guide pratiche
   items:
     - name: Configurare le identità gestite nelle macchine virtuali

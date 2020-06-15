@@ -35,6 +35,8 @@
           href: temporal-tables.md
         - name: Aumentare/Ridurre le prestazioni
           href: database/scale-resources.md
+        - name: Scalabilità in lettura
+          href: database/read-scale-out.md
         - name: Sicurezza
           items:
             - name: Panoramica
@@ -282,8 +284,6 @@
           href: database/connectivity-architecture.md
         - name: Impostazioni della connettività
           href: database/connectivity-settings.md
-        - name: Scalabilità in lettura
-          href: database/read-scale-out.md
         - name: Differenze con T-SQL
           href: database/transact-sql-tsql-differences-sql-server.md
         - name: Automazione di Azure

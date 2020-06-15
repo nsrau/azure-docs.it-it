@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201347"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509373"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
 
@@ -88,13 +88,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![image](common/edit-attribute.png)
 
-1. Oltre a quelli elencati in precedenza, l'applicazione Sage Intacct prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+1. Oltre a quelli elencati in precedenza, l'applicazione Sage Intacct prevede il passaggio di qualche altro attributo nella risposta SAML. Nella finestra di dialogo **Attributi utente e attestazioni** seguire questa procedura per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | Nome  |  Attributo di origine|
+    | Nome attributo  |  Attributo di origine|
     | ---------------| --------------- |
     | Nome dell'azienda | **ID società di Sage Intacct** |
     | name | Il valore deve corrispondere a quello di **User ID** (ID utente) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | Il valore deve corrispondere a quello di **Federated SSO User ID** (ID utente SSO federato) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -104,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     d. Per Origine selezionare **Attributo**.
 
-    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+    e. Nell'elenco **Attributo di origine** digitare o selezionare il valore dell'attributo indicato per la riga.
 
     f. Fare clic su **OK**.
 
@@ -158,7 +157,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sulla scheda **Security** (Sicurezza) e quindi su **Edit** (Modifica).
 
-    ![Sicurezza](./media/intacct-tutorial/ic790038.png "Security")
+    ![Sicurezza](./media/intacct-tutorial/ic790038.png "Sicurezza")
 
 1. Nella sezione **Single sign on (SSO)** seguire questa procedura:
 
@@ -186,13 +185,13 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
 1. Fare clic sulla scheda **Company** (Azienda) e quindi su **Users** (Utenti).
 
-    ![Users](./media/intacct-tutorial/ic790041.png "Utenti")
+    ![Utenti](./media/intacct-tutorial/ic790041.png "Utenti")
 
 1. Fare clic sulla scheda **Add** (Aggiungi).
 
-    ![Add](./media/intacct-tutorial/ic790042.png "Add")
+    ![Aggiungere](./media/intacct-tutorial/ic790042.png "Add")
 
-1. Nella sezione **User Information** (Informazioni utente) seguire questa procedura:
+1. Nella sezione **Informazioni utente** seguire questa procedura:
 
     ![User Information](./media/intacct-tutorial/ic790043.png "Informazioni utente")
 

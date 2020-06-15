@@ -10,9 +10,9 @@
     - name: Creare Cloud Foundry in Azure
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Distribuire un'app Cloud Foundry in Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: Cloud Foundry in Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: Distribuire il nozzle di OMS per Cloud Foundry
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Integrare Cloud Foundry con Azure

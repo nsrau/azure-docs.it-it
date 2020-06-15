@@ -1,76 +1,76 @@
 ---
-title: Strategie di autenticazione del servizio di misurazione del Marketplace | Azure Marketplace
-description: Strategie di autenticazione del servizio di misurazione supportate in Azure Marketplace.
+title: Strategie di autenticazione del servizio di analisi del Marketplace | Azure Marketplace
+description: Strategie di autenticazione del servizio di analisi supportate in Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 31b9d4d57e38adcd079082a4f32770c4cbc8fbb3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.date: 05/13/2020
+ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736201"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642307"
 ---
-# <a name="marketplace-metering-service-authentication-strategies"></a>Strategie di autenticazione del servizio di misurazione del Marketplace
+# <a name="marketplace-metering-service-authentication-strategies"></a>Strategie di autenticazione del servizio di analisi del Marketplace
 
-Il servizio di misurazione del Marketplace supporta due strategie di autenticazione:
+Il servizio di analisi del Marketplace supporta due strategie di autenticazione:
 
-* [Token di sicurezza Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
+* [Token di sicurezza di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
 * [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
 
-Si spiegheranno quando e come usare le diverse strategie di autenticazione per inviare in modo sicuro contatori personalizzati usando il servizio di misurazione del Marketplace.
+Verrà spiegato quando e come usare le diverse strategie di autenticazione per inviare in modo sicuro contatori personalizzati usando il servizio di analisi del Marketplace.
 
-## <a name="using-the-azure-ad-security-token"></a>Uso del token di sicurezza Azure AD
+## <a name="using-the-azure-ad-security-token"></a>Utilizzo del token di sicurezza Azure AD
 
-I tipi di offerta applicabili sono applicazioni SaaS e Azure con tipo di piano di applicazioni gestite.  
+I tipi di offerta applicabili sono applicazioni SaaS e Azure con tipo di piano dell'applicazione gestita.  
 
 Inviare contatori personalizzati usando un ID applicazione fisso predefinito per l'autenticazione.
 
 Per le offerte SaaS, Azure AD è l'unica opzione disponibile.
 
-Per le applicazioni Azure con piano di applicazione gestito, è consigliabile usare questa strategia nei casi seguenti:
+Per le applicazioni Azure con piano dell'applicazione gestita è consigliabile usare questa strategia nei casi seguenti:
 
-* Si dispone già di un meccanismo per comunicare con i servizi back-end e si desidera estendere questo meccanismo per creare contatori personalizzati da un servizio centrale.
-* La logica di contatori personalizzati è complessa.  Eseguire questa logica in una posizione centrale, anziché le risorse dell'applicazione gestita.
+* Si dispone già di un meccanismo per comunicare con i servizi back-end e si desidera estendere questo meccanismo per generare contatori personalizzati da un servizio centrale.
+* La logica dei contatori personalizzati è complessa.  Eseguire questa logica in una posizione centrale, invece delle risorse dell'applicazione gestita.
 
-Dopo aver registrato l'applicazione, è possibile richiedere a livello di codice un token di sicurezza Azure AD. Il server di pubblicazione deve usare questo token ed effettuare una richiesta per risolverlo.
+Dopo aver registrato l'applicazione, è possibile richiedere a livello di codice un token di sicurezza di Azure AD. Si presuppone che il server di pubblicazione usi questo token ed esegua una richiesta per risolverlo.
 
-Per ulteriori informazioni su questi token, vedere [Azure Active Directory token di accesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Per altre informazioni su questi token, vedere [Token di accesso di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Ottenere un token basato sull'app Azure AD
 
 #### <a name="http-method"></a>Metodo HTTP
 
-**Inserisci**
+**POST**
 
-#### <a name="request-url"></a>*URL richiesta*
+#### <a name="request-url"></a>*Request URL (URL richiesta)*
 
 **`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`**
 
 #### <a name="uri-parameter"></a>*Parametro URI*
 
-|  **Nome parametro** |  **Richiesto**  |  **Descrizione**          |
+|  **Nome parametro** |  **Obbligatorio**  |  **Descrizione**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `tenantId`         |   True         | ID tenant dell'applicazione Azure AD registrata.   |
 | | | |
 
 #### <a name="request-header"></a>*Intestazione della richiesta*
 
-|  **Nome dell'intestazione**    |  **Richiesto**  |  **Descrizione**          |
+|  **Nome dell'intestazione**    |  **Obbligatorio**  |  **Descrizione**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Content-Type`     |   True         | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
 | | | |
 
 #### <a name="request-body"></a>*Corpo della richiesta*
 
-|  **Nome proprietà**  |  **Richiesto**  |  **Descrizione**          |
+|  **Nome proprietà**  |  **Obbligatorio**  |  **Descrizione**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Grant_type`       |   True         | Tipo di concessione. Il valore predefinito è `client_credentials`. |
 |  `Client_id`        |   True         | Identificatore del client/app associato all'app di Azure AD.|
-|  `client_secret`    |   True         | Password associata all'app Azure AD.  |
+|  `client_secret`    |   True         | La password associata all'app di Azure AD.  |
 |  `Resource`         |   True         | Risorsa di destinazione per cui è richiesto il token. Il valore predefinito è `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
 | | | |
 
@@ -78,7 +78,7 @@ Per ulteriori informazioni su questi token, vedere [Azure Active Directory token
 
 |  **Nome**    |  **Tipo**  |  **Descrizione**          |
 |  ------------------ |--------------- | ----------------------  |
-|  `200 OK`     |   `TokenResponse`    | La richiesta è riuscita.  |
+|  `200 OK`     |   `TokenResponse`    | La richiesta ha avuto esito positivo.  |
 | | | |
 
 #### <a name="tokenresponse"></a>*TokenResponse*
@@ -97,28 +97,28 @@ Token di risposta di esempio:
   }
 ```
 
-## <a name="using-the-azure-managed-identities-token"></a>Uso del token di identità gestito di Azure
+## <a name="using-the-azure-managed-identities-token"></a>Uso del token delle identità gestite di Azure
 
-Il tipo di offerta applicabile è applicazioni Azure con tipo di piano di applicazione gestito.
+Il tipo di offerta applicabile è applicazioni Azure con tipo di piano dell'applicazione gestita.
 
-L'uso di questo approccio consente all'identità delle risorse distribuite di eseguire l'autenticazione per l'invio di eventi di utilizzo di contatori personalizzati.  È possibile incorporare il codice che genera l'utilizzo entro i limiti della distribuzione.
+L'uso di questo approccio consente all'identità delle risorse distribuite di eseguire l'autenticazione per l'invio di eventi di utilizzo dei contatori personalizzati.  È possibile incorporare il codice che genera i dati sull'utilizzo entro i limiti della distribuzione.
 
 >[!Note]
 >Il server di pubblicazione deve assicurarsi che le risorse che emettono l'utilizzo siano bloccate, quindi non verranno manomesse.
 
 L'applicazione gestita può contenere diversi tipi di risorse, dalle macchine virtuali alle funzioni di Azure.  Per altre informazioni su come eseguire l'autenticazione usando identità gestite per diversi servizi, vedere [come usare le identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
 
-Ad esempio, attenersi alla procedura seguente per eseguire l'autenticazione tramite una macchina virtuale Windows,
+Ad esempio, seguire questa procedura per eseguire l'autenticazione usando una macchina virtuale Windows,
 
 1. Verificare che l'identità gestita sia configurata utilizzando uno dei metodi seguenti:
-    * [Interfaccia utente di portale di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+    * [Interfaccia utente del portale di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
     * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
     * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
     * [Modello di Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
     * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
     * [Azure SDK](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
-1. Ottenere un token di accesso per l'ID dell'applicazione del servizio`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`di controllo del Marketplace () usando l'identità di sistema, RDP per la macchina virtuale, aprire la console di PowerShell ed eseguire il comando seguente.
+1. Ottenere un token di accesso per l'ID dell'applicazione del servizio di analisi del Marketplace (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) usando l'identità di sistema, eseguire RDP nella macchina virtuale, aprire la console PowerShell ed eseguire il comando seguente
 
     ```powershell
     # curl is an alias to Web-Invoke PowerShell command
@@ -129,7 +129,7 @@ Ad esempio, attenersi alla procedura seguente per eseguire l'autenticazione tram
     $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
     ```
 
-1. Ottenere l'ID app gestita dalla proprietà' ManagedBy ' dei gruppi di risorse correnti
+1. Ottenere l'ID dell'app gestita dalla proprietà "ManagedBy" dei gruppi di risorse correnti
 
     ```powershell
     # Get subscription and resource group
@@ -141,7 +141,7 @@ Ad esempio, attenersi alla procedura seguente per eseguire l'autenticazione tram
     $managedappId = $resourceGroupInfo.managedBy 
     ```
 
-1. Il servizio di misurazione del Marketplace richiede l'utilizzo di `resourceID`un, `resourceUsageId` e se un'applicazione gestita.
+1. Il servizio di analisi del Marketplace richiede di generare report sull'utilizzo su un `resourceID` e `resourceUsageId` se si tratta di un'applicazione gestita.
 
     ```powershell
     # Get resourceUsageId from the managed app
@@ -151,8 +151,8 @@ Ad esempio, attenersi alla procedura seguente per eseguire l'autenticazione tram
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Usare l' [API del servizio di misurazione del Marketplace](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) per emettere l'utilizzo.
+1. Usare l'[API del servizio di analisi Marketplace](./marketplace-metering-service-apis.md) per generare dati sull'utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un'offerta per un'applicazione di Azure](./create-new-azure-apps-offer.md)
+* [Creare un'offerta di applicazione Azure](./create-new-azure-apps-offer.md)

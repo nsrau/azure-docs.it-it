@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Change Process Management | Microsoft Docs"
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Change Process Management"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Change Process Management.
 services: active-directory
 documentationCenter: na
@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad145593d6811860fe367f5473b54de2a057d71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1f803fda1d1709e60db078f7b729d7588aa725fd
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984013"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456828"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Change Process Management
 
 Questa esercitazione descrive come integrare Change Process Management con Azure Active Directory (Azure AD). Integrando Change Process Management con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a Change Process Management.
+* Usare Azure AD per controllare chi può accedere a Change Process Management.
 * Abilitare gli utenti per l'accesso automatico a Change Process Management con gli account Azure AD personali.
-* Gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
@@ -39,36 +39,37 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Change Process Management abilitata per l'accesso Single Sign-On (SSO).
 
-## <a name="scenario-description"></a>Descrizione dello scenario
+## <a name="tutorial-description"></a>Descrizione dell'esercitazione
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Change Process Management supporta l'accesso SSO avviato da **IDP**
-* Dopo aver configurato Change Process Management, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Change Process Management supporta l'accesso SSO avviato da IDP.
 
-## <a name="adding-change-process-management-from-the-gallery"></a>Aggiunta di Change Process Management dalla raccolta
+Dopo aver configurato Change Process Management, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+## <a name="add-change-process-management-from-the-gallery"></a>Aggiungere Change Process Management dalla raccolta
 
 Per configurare l'integrazione di Change Process Management in Azure AD, è necessario aggiungere Change Process Management dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Nel riquadro sinistro selezionare **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Per aggiungere un'applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Change Process Management** nella casella di ricerca.
 1. Selezionare **Change Process Management** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-change-process-management"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Change Process Management
+## <a name="configure-and-test-azure-ad-sso-for-change-process-management"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Change Process Management
 
-Configurare e testare l'accesso SSO di Azure AD con Change Process Management usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Change Process Management.
+Verrà configurato e testato l'accesso SSO di Azure AD con Change Process Management usando un utente di test di nome B.Simon. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente corrispondente in Change Process Management.
 
 Per configurare e testare l'accesso SSO di Azure AD con Change Process Management, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Change Process Management](#configure-change-process-management-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Change Process Management](#create-change-process-management-test-user)** : per avere una controparte di B.Simon in Change Process Management collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare la funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD.
+    1. **[Concedere l'accesso all'utente di test](#grant-access-to-the-test-user)** per consentire all'utente di usare l'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Change Process Management](#configure-change-process-management-sso)** sul lato applicazione.
+    1. **[Creare l'utente di test di Change Process Management](#create-a-change-process-management-test-user)** come controparte della rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso SSO](#test-sso)** per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -76,24 +77,24 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Change Process Management** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante a forma di matita relativo a **Configurazione SAML di base** per modificare le impostazioni:
 
-   ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Pulsante a forma di matita per Configurazione SAML di base](common/edit-urls.png)
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** immettere i valori per i campi seguenti:
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** seguire questa procedura:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<hostname>:8443/`
+    a. Nella casella **Identificatore** immettere un URL nel formato seguente: `https://<hostname>:8443/`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<hostname>:8443/changepilot/saml/sso`
+    b. Nella casella **URL di risposta** immettere un URL nel formato seguente: `https://<hostname>:8443/changepilot/saml/sso`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Change Process Management](mailto:support@realtech-us.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > I valori di **Identificatore** e **URL di risposta** non sono quelli effettivi da usare. Per ottenere i valori effettivi, contattare il [team di supporto di Change Process Management](mailto:support@realtech-us.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** per **Certificato (Base64)** per scaricare il certificato e salvarlo nel computer:
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-1. Nella sezione **Configura Change Process Management** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura Change Process Management** copiare l'URL o gli URL appropriati in base alle esigenze:
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -101,49 +102,48 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**. Selezionare **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
-1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere `B.Simon`.  
-   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+1. In **Proprietà utente** completare questa procedura:
+   1. Nella casella **Nome** immettere **B.Simon**.  
+   1. Nella casella **Nome utente** immettere \<username>@\<companydomain>.\<extension>. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Selezionare **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="grant-access-to-the-test-user"></a>Concedere l'accesso all'utente di test
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Change Process Management.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendo a tale utente l'accesso a Change Process Management.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Change Process Management**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
 
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+   ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
+    ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ## <a name="configure-change-process-management-sso"></a>Configurare l'accesso Single Sign-On di Change Process Management
 
-Per configurare l'accesso Single Sign-On sul lato **Change Process Management**, è necessario inviare il **certificato (Base64)** scaricato e gli URL copiati, appropriati dal portale di Azure, al [team di supporto di Change Process Management](mailto:support@realtech-us.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato Change Process Management, è necessario inviare il certificato Base64 scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Change Process Management](mailto:support@realtech-us.com), che configurerà la connessione SSO SAML in modo che sia corretta su entrambi i lati.
 
-### <a name="create-change-process-management-test-user"></a>Creare l'utente di test di Change Process Management
-
-In questa sezione viene creato un utente di nome Britta Simon in Change Process Management. Collaborare con il [team di supporto di Change Process Management](mailto:support@realtech-us.com) per aggiungere gli utenti alla piattaforma Change Process Management. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+### <a name="create-a-change-process-management-test-user"></a>Creare l'utente di test di Change Process Management
+ Collaborare con il [team di supporto di Change Process Management](mailto:support@realtech-us.com) per aggiungere un utente di nome B.Simon a Change Process Management. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso SSO di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Change Process Management nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Change Process Management per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Change Process Management nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Change Process Management per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

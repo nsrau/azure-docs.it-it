@@ -4,83 +4,138 @@
   items:
     - name: Che cos'è il Servizio Migrazione del database di Azure?
       href: dms-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
+  expanded: true
   items:
     - name: Creare un servizio - Portale
       href: quickstart-create-data-migration-service-portal.md
     - name: Creare un servizio in modalità ibrida - Portale
       href: quickstart-create-data-migration-service-hybrid-portal.md
-- name: Esercitazioni
+- name: Concetti
   items:
-    - name: Eseguire la migrazione offline di SQL Server al database SQL di Azure (database singolo)
-      href: tutorial-sql-server-to-azure-sql.md
-    - name: Eseguire la migrazione online di SQL Server al database SQL di Azure (database singolo)
-      href: tutorial-sql-server-azure-sql-online.md
-    - name: Eseguire la migrazione offline di SQL Server a Istanza gestita di database SQL di Azure
-      href: tutorial-sql-server-to-managed-instance.md
-    - name: Eseguire la migrazione online di SQL Server a Istanza gestita di database SQL di Azure
-      href: tutorial-sql-server-managed-instance-online.md
-    - name: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o a Istanza gestita di database SQL di Azure
-      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-    - name: Eseguire la migrazione online di MySQL al database di Azure per MySQL
-      href: tutorial-mysql-azure-mysql-online.md
-    - name: Eseguire la migrazione online di RDS MySQL al database di Azure per MySQL
-      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: Eseguire la migrazione online di PostgreSQL al database di Azure per PostgreSQL tramite il portale
-      href: tutorial-postgresql-azure-postgresql-online-portal.md
-    - name: Eseguire la migrazione online di PostgreSQL al database di Azure per PostgreSQL tramite l'interfaccia della riga di comando
-      href: tutorial-postgresql-azure-postgresql-online.md
-    - name: Eseguire la migrazione online di RDS PostgreSQL al database di Azure per PostgreSQL
-      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-    - name: Eseguire la migrazione offline di MongoDB all'API Mongo di Azure Cosmos DB
-      href: tutorial-mongodb-cosmos-db.md
-    - name: Eseguire la migrazione online di MongoDB all'API Mongo di Azure Cosmos DB
-      href: tutorial-mongodb-cosmos-db-online.md
-    - name: Eseguire la migrazione online di Oracle al database di Azure per PostgreSQL - Server singolo
-      href: tutorial-oracle-azure-postgresql-online.md
-- name: Guide pratiche
-  items:
-    - name: Usare PowerShell per eseguire la migrazione di SQL Server al database SQL di Azure (database singolo)
-      href: howto-sql-server-to-azure-sql-powershell.md
-    - name: Usare PowerShell per eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure
-      href: howto-sql-server-to-azure-sql-mi-powershell.md
-    - name: Monitorare l'attività di migrazione
-      href: how-to-monitor-migration-activity.md
-    - name: Ridistribuire pacchetti SSIS al database SQL di Azure (database singolo)
-      href: how-to-migrate-ssis-packages.md
-    - name: Ridistribuire pacchetti SSIS a un'istanza gestita di database SQL di Azure
-      href: how-to-migrate-ssis-packages-managed-instance.md
-- name: Risorse
-  expanded: true
-  items:
+    - name: Prerequisiti
+      href: pre-reqs.md
     - name: Stato dello scenario di migrazione del database
       href: resource-scenario-status.md
-    - name: Panoramica dei prerequisiti
-      href: pre-reqs.md
-    - name: Topologie di rete per migrazioni a Istanza gestita di database SQL di Azure
-      href: resource-network-topologies.md
-    - name: Ruoli personalizzati per migrazioni online da SQL Server a Istanza gestita di database SQL di Azure
-      href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Migrazione a Istanza gestita di SQL
+      items:
+        - name: Topologie di rete
+          href: resource-network-topologies.md
+        - name: Ruoli personalizzati
+          href: resource-custom-roles-sql-db-managed-instance.md
+- name: Esercitazioni
+  expanded: true
+  items:
+    - name: Eseguire la migrazione di SQL Server
+      items:
+        - name: al database SQL di Azure (offline)
+          href: tutorial-sql-server-to-azure-sql.md
+        - name: al database SQL di Azure (online)
+          href: tutorial-sql-server-azure-sql-online.md
+        - name: a Istanza gestita di SQL di Azure (offline)
+          href: tutorial-sql-server-to-managed-instance.md
+        - name: a Istanza gestita di SQL di Azure (online)
+          href: tutorial-sql-server-managed-instance-online.md
+    - name: Eseguire la migrazione di RDS SQL Server
+      items:
+        - name: al database SQL di Azure o a Istanza gestita di SQL
+          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+    - name: Eseguire la migrazione di MySQL
+      items:
+        - name: a Database di Azure per MySQL
+          href: tutorial-mysql-azure-mysql-online.md
+    - name: Eseguire la migrazione di RDS MySQL
+      items:
+        - name: a Database di Azure per MySQL
+          href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+    - name: Eseguire la migrazione di PostgreSQL
+      items:
+        - name: a Database di Azure per PostgreSQL (portale)
+          href: tutorial-postgresql-azure-postgresql-online-portal.md
+        - name: a Database di Azure per PostgreSQL (interfaccia della riga di comando di Azure)
+          href: tutorial-postgresql-azure-postgresql-online.md
+    - name: Eseguire la migrazione di RDS PostgreSQL
+      items:
+        - name: a Database di Azure per PostgreSQL
+          href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+    - name: Eseguire la migrazione di MongoDB
+      items:
+        - name: all'API Mongo di Azure Cosmos DB (offline)
+          href: tutorial-mongodb-cosmos-db.md
+        - name: all'API Mongo di Azure Cosmos DB (online)
+          href: tutorial-mongodb-cosmos-db-online.md
+    - name: Eseguire la migrazione di Oracle
+      items:
+        - name: al database di Azure per PostgreSQL - Server singolo (online)
+          href: tutorial-oracle-azure-postgresql-online.md
+- name: Guide pratiche
+  items:
+    - name: Monitorare l'attività di migrazione
+      href: how-to-monitor-migration-activity.md
+    - name: Usare PowerShell per eseguire la migrazione
+      items:
+        - name: Da SQL Server al database SQL
+          href: howto-sql-server-to-azure-sql-powershell.md
+        - name: Da SQL Server a Istanza gestita di SQL
+          href: howto-sql-server-to-azure-sql-mi-powershell.md
+    - name: Ridistribuire il pacchetto SSIS in
+      items:
+        - name: database SQL di Azure
+          href: how-to-migrate-ssis-packages.md
+        - name: Istanza gestita di SQL di Azure
+          href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: faq.md
+    - name: Commenti e suggerimenti
+      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
+    - name: Prezzi
+      href: 'https://aka.ms/dms-pricing'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=database-migration'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Strumenti e indicazioni
+      items:
+        - name: Servizi e strumenti disponibili per gli scenari di migrazione dei dati
+          href: dms-tools-matrix.md
+        - name: Guida alla migrazione di database di Azure
+          href: 'https://aka.ms/datamigration'
+        - name: Data Migration Assistant
+          href: 'https://aka.ms/dma'
+        - name: SQL Server Migration Assistant
+          href: 'https://aka.ms/ssma'
+        - name: Database Experimentation Assistant
+          href: 'https://aka.ms/dea-docs'
+        - name: Toolkit per la migrazione dell'accesso ai dati
+          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: Risoluzione dei problemi e problemi noti
       items:
-        - name: Risolvere i problemi di connettività del database di origine
-          href: known-issues-troubleshooting-dms-source-connectivity.md
-        - name: Risolvere i problemi e gli errori comuni
-          href: known-issues-troubleshooting-dms.md
-        - name: Problemi noti - Migrazione online al database SQL di Azure (database singolo)
-          href: known-issues-azure-sql-online.md
-        - name: Problemi noti - Migrazione online all'istanza gestita di database SQL di Azure
-          href: known-issues-azure-sql-db-managed-instance-online.md
-        - name: Problemi noti - Migrazione online al database di Azure per MySQL
-          href: known-issues-azure-mysql-online.md
-        - name: Problemi noti - Migrazione online da PostgreSQL al database di Azure per PostgreSQL
-          href: known-issues-azure-postgresql-online.md
-        - name: Problemi noti - Migrazione online da Oracle al database di Azure per PostgreSQL - Server singolo
-          href: known-issues-oracle-azure-postgresql-online.md
-        - name: Problemi noti - Migrazione da MongoDB all'API di Azure Cosmos DB per MongoDB
-          href: known-issues-mongo-cosmos-db.md
-        - name: Problemi noti - Utilizzo della modalità ibrida
-          href: known-issues-dms-hybrid-mode.md
+        - name: Risolvere problemi
+          items:
+            - name: Errori comuni
+              href: known-issues-troubleshooting-dms.md
+            - name: Connettività del database di origine
+              href: known-issues-troubleshooting-dms-source-connectivity.md
+        - name: Problemi noti
+          items:
+            - name: Uso della modalità ibrida
+              href: known-issues-dms-hybrid-mode.md
+        - name: Problemi di migrazione noti
+          items:
+            - name: al database SQL
+              href: known-issues-azure-sql-online.md
+            - name: Istanza gestita di SQL
+              href: known-issues-azure-sql-db-managed-instance-online.md
+            - name: a Database di Azure per MySQL
+              href: known-issues-azure-mysql-online.md
+            - name: da PostgreSQL al database di Azure per PostgreSQL
+              href: known-issues-azure-postgresql-online.md
+            - name: da Oracle a Database di Azure per PostgreSQL
+              href: known-issues-oracle-azure-postgresql-online.md
+            - name: da MongoDB all'API di Azure Cosmos DB per MongoDB
+              href: known-issues-mongo-cosmos-db.md
     - name: Video
       items:
         - name: Usare la Guida alla migrazione del database
@@ -99,27 +154,3 @@
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
         - name: Eseguire la migrazione di MongoDB ad Azure Cosmos DB
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
-    - name: Strumenti e indicazioni
-      items:
-        - name: Servizi e strumenti disponibili per gli scenari di migrazione dei dati
-          href: dms-tools-matrix.md
-        - name: Guida alla migrazione di database di Azure
-          href: 'https://aka.ms/datamigration'
-        - name: Data Migration Assistant
-          href: 'https://aka.ms/dma'
-        - name: SQL Server Migration Assistant
-          href: 'https://aka.ms/ssma'
-        - name: Database Experimentation Assistant
-          href: 'https://aka.ms/dea-docs'
-        - name: Toolkit per la migrazione dell'accesso ai dati
-          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
-    - name: Domande frequenti
-      href: faq.md
-    - name: Feedback di UserVoice
-      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
-    - name: Prezzi
-      href: 'https://aka.ms/dms-pricing'
-    - name: Aggiornamenti del servizio
-      href: 'https://azure.microsoft.com/updates/?product=database-migration'
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'

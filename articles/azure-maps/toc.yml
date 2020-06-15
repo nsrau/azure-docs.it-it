@@ -59,6 +59,8 @@
           href: drawing-conversion-error-codes.md
     - name: Copertura
       items:
+        - name: Copertura
+          href: geographic-coverage.md
         - name: Copertura per la geocodifica
           href: geocoding-coverage.md
         - name: Copertura per il traffico

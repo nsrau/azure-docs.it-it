@@ -62,12 +62,14 @@
           href: ./samples/pattern-deploy-resources.md
     - name: Servizi predefiniti di conformità alle normative
       items:
-        - name: Benchmark di sicurezza di Azure
+        - name: Azure Security Benchmark
           href: ./samples/azure-security-benchmark.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
           href: ./samples/cis-azure-1-1-0.md
         - name: NIST SP 800-53 R4
           href: ./samples/nist-sp-800-53-r4.md
+        - name: NIST SP 800-171 R2
+          href: ./samples/nist-sp-800-171-r2.md
 - name: Concetti
   items:
     - name: Struttura delle definizioni

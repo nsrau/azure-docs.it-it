@@ -5,7 +5,7 @@
     - name: Informazioni su Azure Blueprint
       displayName: 'templates, policy, definition, assignment, rbac'
       href: ./overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un progetto - Portale
@@ -37,16 +37,8 @@
       displayName: 'list, examples'
       href: ./samples/index.md
     - name: Benchmark di sicurezza di Azure
-      items:
-        - name: Panoramica
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/index.md
-        - name: Mapping dei controlli
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/control-mapping.md
-        - name: Procedura per la distribuzione
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/deploy.md
+      displayName: 'standards, azure, benchmark'
+      href: ./samples/azure-security-benchmark.md
     - name: Australian Government ISM PROTECTED
       items:
         - name: Mapping dei controlli
@@ -64,16 +56,8 @@
           displayName: 'standards, canada, federal, pbmm'
           href: ./samples/canada-federal-pbmm/deploy.md
     - name: CIS Microsoft Azure Foundations Benchmark
-      items:
-        - name: Panoramica
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/index.md
-        - name: Mapping di raccomandazioni
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/control-mapping.md
-        - name: Procedura per la distribuzione
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/deploy.md
+      displayName: 'standards, cis'
+      href: ./samples/cis-azure-1-1-0.md
     - name: DoD Impact Level 4
       items:
         - name: Panoramica
@@ -173,17 +157,9 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, Media'
           href: ./samples/media/deploy.md
-    - name: NIST SP 800-53 Rev 4
-      items:
-        - name: Panoramica
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/index.md
-        - name: Mapping dei controlli
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
-        - name: Procedura per la distribuzione
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/deploy.md
+    - name: NIST SP 800-53 R4
+      displayName: 'standards, nist, 800-53, rev 4'
+      href: ./samples/nist-sp-800-53-r4.md
     - name: PCI-DSS v3.2.1
       items:
         - name: Panoramica

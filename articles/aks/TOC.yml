@@ -256,12 +256,10 @@
           href: limit-egress-traffic.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:
-            - name: Integrare Azure AD (anteprima)
+            - name: Azure Active Directory gestito dal servizio Azure Kubernetes (anteprima)
               href: managed-aad.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: azure-ad-integration-cli.md
-            - name: Usare il portale di Azure
-              href: azure-ad-integration.md
         - name: Usare il controllo degli accessi in base al ruolo di Kubernetes con l'integrazione di Azure AD
           href: azure-ad-rbac.md
           maintainContext: true

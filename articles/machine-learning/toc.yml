@@ -93,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concetti
   items:
+    - name: Confronto tra edizioni Enterprise e Basic
+      href: concept-editions.md
     - name: Pianificare e gestire i costi
       href: concept-plan-manage-cost.md
     - name: Finestra di progettazione (ML con trascinamento della selezione)
@@ -122,7 +124,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Data
+    - name: Dati
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -365,6 +367,8 @@
             - name: Funzioni di Azure
               displayName: functions app
               href: how-to-deploy-functions.md
+            - name: Ricerca cognitiva di Azure
+              href: how-to-deploy-model-cognitive-search.md
             - name: Dispositivi Azure IoT Edge
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Inferenza di FPGA
