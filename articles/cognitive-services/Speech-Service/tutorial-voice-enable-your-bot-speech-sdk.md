@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457100"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753190"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -265,7 +265,7 @@ Nella pagina di registrazione dei canali di Azure bot è presente un'opzione **t
 
 1. Individuare e aprire la risorsa **EchoBotTutorial-BotRegistration-# # # #** nel [portale di Azure](https://portal.azure.com)
 1. Dallo spostamento **gestione bot** selezionare **Impostazioni**. Copiare il valore in **ID app Microsoft**
-1. Aprire la soluzione Visual Studio EchoBot. In Esplora soluzioni individuare e fare doppio clic su **appSettings. JSON.**
+1. Aprire la soluzione Visual Studio EchoBot. In Esplora soluzioni individuare e fare doppio clic su **appsettings.json**
 1. Sostituire la stringa vuota accanto a **MicrosoftAppId** nel file JSON con il valore ID copiato
 1. Tornare alla portale di Azure, in **bot Management** Navigation, selezionare **Settings**e fare clic su on **(Manage)** accanto a **Microsoft App ID**
 1. Fare clic su **nuovo segreto client**. Aggiungere una descrizione (ad esempio "web chat") e fare clic su **Aggiungi**. Copia il nuovo segreto
@@ -323,13 +323,16 @@ Se viene ricevuto un messaggio di errore nella finestra principale dell'app, usa
 
 | Errore | Come si deve procedere? |
 |-------|----------------------|
-|Errore AuthenticationFailure: l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione (401). Verificare la chiave di sottoscrizione corretta (o il token di autorizzazione) e il nome dell'area| Nella pagina delle impostazioni dell'app verificare di aver immesso correttamente la chiave di sottoscrizione vocale e la relativa area.<br>Verificare che la chiave vocale e l'area della chiave siano state immesse correttamente. |
-|Errore ConnectionFailure: la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: non è stato possibile connettersi al bot prima di inviare un messaggio | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
-|Errore ConnectionFailure: la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: il codice di stato della risposta non indica la riuscita: 500 (InternalServerError)| Il bot ha specificato una voce neurale nel campo dell'attività di output [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) , ma l'area di Azure associata alla chiave di sottoscrizione vocale non supporta le voci neurali. Vedere [le voci standard e neurali](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Errore ConnectionFailure: la connessione è stata chiusa dall'host remoto. Codice di errore: 1000. Dettagli errore: è stato superato il numero massimo di inattività della connessione socket Web (> 300000 MS)| Si tratta di un errore previsto quando una connessione al canale viene lasciata aperta e inattiva per più di cinque minuti. |
+|Errore (AuthenticationFailure): l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione (401). Verificare la chiave di sottoscrizione corretta (o il token di autorizzazione) e il nome dell'area| Nella pagina delle impostazioni dell'app verificare di aver immesso correttamente la chiave di sottoscrizione vocale e la relativa area.<br>Verificare che la chiave vocale e l'area della chiave siano state immesse correttamente. |
+|Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: non è stato possibile connettersi al bot prima di inviare un messaggio | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
+|Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1002. Dettagli errore: il server ha restituito il codice di stato ' 503' quando era previsto il codice di stato ' 101' | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
+|Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: il codice di stato della risposta non indica la riuscita: 500 (InternalServerError)| Il bot ha specificato una voce neurale nel campo dell'attività di output [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) , ma l'area di Azure associata alla chiave di sottoscrizione vocale non supporta le voci neurali. Vedere [le voci standard e neurali](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Se il problema non viene risolto nella tabella, vedere [Assistente vocale: domande frequenti](faq-voice-assistants.md).
+Se il problema non viene risolto nella tabella, vedere [Assistente vocale: domande frequenti](faq-voice-assistants.md). Se non si riesce ancora a risolvere il problema dopo aver seguito tutti i passaggi di questa esercitazione, immettere un nuovo problema nella pagina di [GitHub per Voice Assistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
+#### <a name="a-note-on-connection-time-out"></a>Nota sul timeout della connessione
+
+Se si è connessi a un bot e non si è verificata alcuna attività negli ultimi 5 minuti, il servizio chiude automaticamente la connessione WebSocket con il client e con il bot. Questo si verifica per motivi strutturali. Nella barra inferiore verrà visualizzato un messaggio: *"timeout della connessione attiva ma pronto per la riconnessione su richiesta"*. Non è necessario premere il pulsante "Riconnetti". è sufficiente premere il pulsante del microfono e iniziare a parlare, digitare un SMS o pronunciare la parola chiave (se ne è abilitata una). La connessione verrà ristabilita automaticamente.  
 ### <a name="view-bot-activities"></a>Visualizza attività bot
 
 Ogni bot invia e riceve messaggi di **attività** . Nella finestra **log attività** del client Windows Voice Assistant verranno visualizzati i log con timestamp con ogni attività ricevuta dal client dal bot. È anche possibile visualizzare le attività inviate dal client al bot usando il [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) metodo. Quando si seleziona un elemento di log, vengono visualizzati i dettagli dell'attività associata come JSON.
@@ -467,7 +470,7 @@ Se non si intende continuare a usare echo-bot distribuito in questa esercitazion
 > [!div class="nextstepaction"]
 > [Creare un'app client personalizzata con l'SDK di riconoscimento vocale](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * Distribuzione in un' [area di Azure nelle vicinanze](https://azure.microsoft.com/global-infrastructure/locations/) per visualizzare il miglioramento del tempo di risposta del bot
 * Distribuzione in un' [area di Azure che supporta le voci TTS neurali di qualità elevata](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)

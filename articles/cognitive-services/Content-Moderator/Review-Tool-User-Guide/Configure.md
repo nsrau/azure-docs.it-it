@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220127"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689844"
 ---
 # <a name="configure-the-review-tool"></a>Configurare lo strumento di revisione
 
@@ -25,7 +25,7 @@ Lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) in
 
 ## <a name="manage-team-and-subteams"></a>Gestisci team e sottoteam
 
-La scheda **Team** consente di gestire i&mdash;gruppi di utenti del team e dei sottoteam che possono ricevere notifiche quando vengono avviate determinate [recensioni umane](../review-api.md#reviews) . È possibile avere un solo team (creato quando si esegue l'iscrizione con lo strumento di revisione), ma è possibile creare più sottoteam. L'amministratore del team può invitare i membri, impostare le relative autorizzazioni e assegnarli a diversi sottoteam.
+La scheda **Team** consente di gestire i &mdash; gruppi di utenti del team e dei sottoteam che possono ricevere notifiche quando vengono avviate determinate [recensioni umane](../review-api.md#reviews) . È possibile avere un solo team (creato quando si esegue l'iscrizione con lo strumento di revisione), ma è possibile creare più sottoteam. L'amministratore del team può invitare i membri, impostare le relative autorizzazioni e assegnarli a diversi sottoteam.
 
 ![Esaminare le impostazioni del team degli strumenti](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Se si è membri di più sottoteam, è possibile passare da un sottoteam all'altr
 
 ## <a name="tags"></a>Tag
 
-La **scheda Tag** consente di definire tag di moderazione personalizzati, oltre ai&mdash;**due tag di** moderazione predefiniti (**a** **) e a** (**r**). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
+La scheda **tag** consente di definire tag di moderazione personalizzati, oltre ai due tag di moderazione predefiniti &mdash; **isadult** (**a**) e a **isracy** (**r**). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
 
 ![Visualizzazione dei tag, incluse le caselle di controllo "visibile"](images/tags-4-disable.png)
 
@@ -97,7 +97,7 @@ Lo [strumento di revisione](./human-in-the-loop.md) include i connettori seguent
 - Emozioni
 - Viso
 - Servizio cloud PhotoDNA
-- Text Analytics
+- Analisi del testo
 
 ### <a name="add-a-connector"></a>Aggiungere un connettore
 

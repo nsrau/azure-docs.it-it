@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
 ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219610"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704710"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ az account list-locations \
 
 Dopo aver creato la località di Azure, creare un nuovo gruppo di risorse nell'interfaccia della riga di comando di Azure usando il comando [AZ Group create](/cli/azure/group#az-group-create) .
 
-Nell'esempio seguente sostituire la località `westus2` di Azure con una delle località di Azure disponibili per la sottoscrizione.
+Nell'esempio seguente sostituire la località di Azure `westus2` con una delle località di Azure disponibili per la sottoscrizione.
 
 ```azurecli-interactive
 az group create \
@@ -76,7 +76,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="multi-service"></a>Multi-servizio
 
-| Servizio                    | Tipo                      |
+| Service                    | Tipo                      |
 |----------------------------|---------------------------|
 | Più servizi. Per ulteriori informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
 
@@ -86,7 +86,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="vision"></a>Visione
 
-| Servizio                    | Tipo                      |
+| Service                    | Tipo                      |
 |----------------------------|---------------------------|
 | Visione artificiale            | `ComputerVision`          |
 | Visione personalizzata-stima | `CustomVision.Prediction` |
@@ -97,7 +97,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="search"></a>Ricerca
 
-| Servizio            | Tipo                  |
+| Service            | Tipo                  |
 |--------------------|-----------------------|
 | Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
 | Ricerca personalizzata Bing | `Bing.CustomSearch`   |
@@ -105,16 +105,16 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Sintesi vocale
+### <a name="speech"></a>Voce
 
-| Servizio            | Tipo                 |
+| Service            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
 ### <a name="language"></a>Linguaggio
 
-| Servizio            | Tipo                |
+| Service            | Tipo                |
 |--------------------|---------------------|
 | Informazioni sui moduli | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +124,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="decision"></a>Decisione
 
-| Servizio           | Tipo               |
+| Service           | Tipo               |
 |-------------------|--------------------|
 | Rilevamento anomalie  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -140,7 +140,7 @@ az cognitiveservices account list-kinds
 
 Per creare e sottoscrivere una nuova risorsa di servizi cognitivi, usare il comando [AZ cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Questo comando aggiunge una nuova risorsa fatturabile al gruppo di risorse creato in precedenza. Quando si crea la nuova risorsa, è necessario conoscerne il "tipo" di servizio che si vuole usare, oltre al piano tariffario (o SKU) e a una località di Azure:
 
-È possibile creare una risorsa F0 (gratuita) per il rilevatore `anomaly-detector-resource` di anomalie, denominato con il comando seguente.
+È possibile creare una risorsa F0 (gratuita) per il rilevatore di anomalie, denominato `anomaly-detector-resource` con il comando seguente.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -188,7 +188,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si vuole eseguire la pulizia e la rimozione di una risorsa di servizi cognitivi, è possibile eliminarla o il gruppo di risorse. Eliminando il gruppo di risorse, vengono eliminate anche tutte le altre risorse contenute nel gruppo.
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220633"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693091"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Supporto per le lingue dei contenuti della Knowledge Base per QnA Maker
 
@@ -25,7 +25,7 @@ La lingua determina la pertinenza dei risultati QnA Maker fornisce in risposta a
 
 ## <a name="one-language-for-all-knowledge-bases-in-resource"></a>Una lingua per tutte le Knowledge base nella risorsa
 
-QnA Maker consente di selezionare la lingua per il servizio QnA, durante la creazione della prima Knowledge base. Per tutte le Knowledge base in una risorsa QnA Maker, tutte devono trovarsi nella stessa lingua. Questa lingua non può essere modificata.
+QnA Maker consente di selezionare la lingua per il servizio QnA durante la creazione della prima Knowledge Base. Tutte le Knowledge Base in una risorsa QnA Maker devono trovarsi nella stessa lingua. Questa lingua non può essere modificata.
 
 La creazione di Knowledge base in linguaggi diversi in una risorsa influisce negativamente sulla pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 

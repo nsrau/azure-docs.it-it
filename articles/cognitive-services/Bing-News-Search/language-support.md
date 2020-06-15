@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220193"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710559"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -31,7 +31,7 @@ Per l'endpoint `/news/search`, la tabella seguente elenca i valori dei codici di
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Austria|Tedesco|de-AT|
@@ -80,7 +80,7 @@ Per l'endpoint `/news`, la tabella seguente elenca i valori dei codici di mercat
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Germania|Tedesco|de-DE|
@@ -103,7 +103,7 @@ Per l'endpoint `/news/trendingtopics`, la tabella seguente elenca i valori dei c
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
@@ -122,7 +122,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 
 I seguenti sono i codici di paese/area che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
 
-|Paese/area geografica|Codice paese|  
+|Paese/Area geografica|Codice paese|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Australia|AU|  

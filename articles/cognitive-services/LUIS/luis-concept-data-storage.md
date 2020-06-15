@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220017"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691714"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
 LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
@@ -28,7 +28,7 @@ Gli utenti hanno il controllo completo sull'[esportazione](luis-how-to-start-new
 
 Le espressioni possono essere archiviate in due posizioni diverse. 
 
-* Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString `log=false`della richiesta dell'endpoint determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
+* Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString della richiesta dell'endpoint `log=false` determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
 * Quando si **esaminano le espressioni dell'endpoint**e si aggiunge un enunciato a un preventivo, l'espressione non viene più archiviata come parte delle espressioni di endpoint da rivedere. Viene aggiunto agli Intent dell'app. 
 
 <a name="utterances-in-an-intent"></a>

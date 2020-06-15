@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220215"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710168"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -27,7 +27,7 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si `microsoft.com`specifica, Bing restituisce anche i `support.microsoft.com` risultati `technet.microsoft.com`da o. |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
 | Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio, usare `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Quando si crea l'istanza di ricerca personalizzata, è possibile specificare le 
 
 Se si conoscono le sezioni da includere nell'istanza, aggiungerle all'elenco **Active** (Elementi attivi) dell'istanza. 
 
-Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. Per eseguire questa operazione: 
+Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. A tale scopo, effettuare l'operazione seguente: 
 
 1. selezionare "Bing" nell'elenco a discesa nel riquadro di anteprima e inserire una query di ricerca
 
