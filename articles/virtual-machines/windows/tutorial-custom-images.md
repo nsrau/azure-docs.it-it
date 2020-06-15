@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare immagini di macchina virtuale personalizzate con Azure PowerShell'
+title: 'Esercitazione: Creare immagini di VM personalizzate con Azure PowerShell'
 description: Questa esercitazione illustra come usare Azure PowerShell per creare un'immagine personalizzata della macchina virtuale Windows archiviata in un'istanza di Raccolta immagini condivise di Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791579"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636394"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Esercitazione: Creare immagini di macchina virtuale Windows con Azure PowerShell
 
 È possibile usare le immagini per eseguire il bootstrap delle distribuzioni e garantire la coerenza tra più macchine virtuali. In questa esercitazione viene creata un'immagine specializzata di una macchina virtuale di Azure con PowerShell e archiviarla in un'istanza di Raccolta immagini condivise. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una Raccolta immagini condivise
 > * Creare una definizione dell'immagine
 > * Creare una versione di immagine
 > * Creare una macchina virtuale da un'immagine 
@@ -91,7 +91,7 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio l'immagine della raccolta è denominata *myGalleryImage* e viene creata per un'immagine specializzata. 
 
@@ -115,7 +115,7 @@ Per creare una versione di immagine da una macchina virtuale, usare [New-AzGalle
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti orientali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, è necessario includere l'area *source* come destinazione per la replica.
+In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei data center degli *Stati Uniti orientali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, è necessario includere l'area *source* come destinazione per la replica.
 
 Per creare una versione di immagine dalla macchina virtuale, usare `$vm.Id.ToString()` per `-Source`.
 
@@ -140,7 +140,7 @@ La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale 
 
-Ora che si dispone di un'immagine specializzata, è possibile usarla per creare una o più macchine virtuali nuove usando il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Per usare l'immagine, eseguire ``Set-AzVMSourceImage` and set the `-Id` specificando l'ID definizione dell'immagine (in questo caso $galleryImage.Id) in modo da usare sempre l'ultima versione dell'immagine. 
+Ora che si dispone di un'immagine specializzata, è possibile usarla per creare una o più macchine virtuali nuove usando il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Per usare l'immagine, eseguire `Set-AzVMSourceImage` e impostare `-Id` sull'ID definizione dell'immagine (in questo caso $galleryImage.Id) in modo da usare sempre l'ultima versione dell'immagine. 
 
 Sostituire i nomi delle risorse di questo esempio secondo necessità. 
 
@@ -214,7 +214,7 @@ Azure offre anche un servizio, basato su Packer, ovvero [Image Builder per macch
 In questa esercitazione è stata creata un'immagine di macchina virtuale specializzata. Si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una Raccolta immagini condivise
 > * Creare una definizione dell'immagine
 > * Creare una versione di immagine
 > * Creare una macchina virtuale da un'immagine 

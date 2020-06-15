@@ -2,14 +2,14 @@
 title: Valutare le macchine virtuali VMware con Valutazione server di Azure Migrate
 description: Questo articolo descrive come valutare le macchine virtuali VMware locali per la migrazione ad Azure tramite Valutazione server di Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535367"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331883"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Valutare le VM VMware con Valutazione server
 
@@ -85,18 +85,26 @@ Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azur
 Prima di distribuire il file OVA, verificarne la sicurezza:
 
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
-1. Eseguire il comando seguente per generare l'hash per il file OVA:
+2. Eseguire il comando seguente per generare l'hash per il file OVA:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-Per la versione 2.19.07.30 l'hash generato deve corrispondere a questi valori:
+3. Verificare le versioni più recenti dell'appliance e i valori hash:
 
-**Algoritmo** | **Valore hash**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - Per il cloud pubblico di Azure:
+    
+        **Algoritmo** | **Scaricare** | **SHA256**
+        --- | --- | ---
+        VMware (10,9 GB) | [Versione più recente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - Per Azure per enti pubblici:
+    
+        **Algoritmo** | **Scaricare** | **SHA256**
+        --- | --- | ---
+        VMware (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>Creare l'appliance VM
 

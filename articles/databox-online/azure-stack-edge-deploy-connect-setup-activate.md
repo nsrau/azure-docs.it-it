@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7c8a35b2699035b3ce4f96a94ca970da2cf343c4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564429"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608435"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Esercitazione: Connettere, configurare e attivare Azure Stack Edge 
 
@@ -25,6 +25,7 @@ Per completare il processo di configurazione e attivazione sono necessari circa 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Connettersi a un dispositivo fisico
 > * Configurare e attivare il dispositivo fisico
 
@@ -35,7 +36,7 @@ Prima di configurare il dispositivo Azure Stack Edge, assicurarsi di:
 * Aver installato il dispositivo fisico come descritto in [Installare Azure Stack Edge](azure-stack-edge-deploy-install.md).
 * Disporre della chiave di attivazione dal servizio Azure Stack Edge creato per gestire il dispositivo Azure Stack Edge. Per altre informazioni, vedere [Preparare la distribuzione di Azure Stack Edge](azure-stack-edge-deploy-prep.md).
 
-## <a name="connect-to-the-local-web-ui-setup"></a>Connettersi all'installazione dell'interfaccia utente Web locale 
+## <a name="connect-to-the-local-web-ui-setup"></a>Connettersi all'installazione dell'interfaccia utente Web locale
 
 1. Configurare la scheda Ethernet nel computer per connettersi al dispositivo Azure Stack Edge con l'indirizzo IP statico 192.168.100.5 e la subnet 255.255.255.0.
 
@@ -43,11 +44,10 @@ Prima di configurare il dispositivo Azure Stack Edge, assicurarsi di:
 
     ![Backplane del dispositivo cablato](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-
 3. Aprire una finestra del browser e accedere all'interfaccia utente Web locale del dispositivo all'indirizzo `https://192.168.100.10`.  
-    È possibile che questa operazione richieda alcuni minuti dopo averla abilitata nel dispositivo. 
+    È possibile che questa operazione richieda alcuni minuti dopo averla abilitata nel dispositivo.
 
-    Viene visualizzato un messaggio di errore o di avviso in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. 
+    Viene visualizzato un messaggio di errore o di avviso in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web.
    
     ![Messaggio di errore del certificato di sicurezza del sito Web](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
@@ -96,12 +96,12 @@ Il dashboard visualizza le diverse impostazioni necessarie per configurare e reg
    
    a. Nella casella **URL proxy Web** immettere l'URL in questo formato: `http://host-IP address or FQDN:Port number`. Gli URL HTTPS non sono supportati.
 
-   b. In **Autenticazione** selezionare **Nessuna** o **NTLM**.
+   b. In **Autenticazione** selezionare **Nessuna** o **NTLM**. Se si abilita il calcolo e si usa il modulo IoT Edge sul dispositivo Azure Stack Edge, è consigliabile impostare l'autenticazione del proxy Web su **Nessuna**. L'**autenticazione integrata di Windows** non è supportata.
 
    c. Se si usa l'autenticazione, immettere un nome utente e una password.
 
    d. Per convalidare e applicare le impostazioni del proxy Web configurate, selezionare **Applica impostazioni**.
-   
+
    > [!NOTE]
    > I file PAC (proxy-auto config) non sono supportati. Un file PAC definisce il modo in cui i Web browser e altri agenti utente possono scegliere automaticamente il server proxy appropriato (metodo di accesso) per recuperare un determinato URL.
    > I proxy che tentano di intercettare e leggere tutto il traffico (quindi firmare nuovamente tutti gli elementi con la propria certificazione) non sono compatibili perché il certificato del proxy non è attendibile.

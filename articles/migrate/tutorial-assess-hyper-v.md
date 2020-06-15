@@ -2,14 +2,14 @@
 title: Valutare la migrazione delle VM Hyper-V ad Azure con Azure Migrate | Microsoft Docs
 description: Questo articolo descrive come valutare le macchine virtuali Hyper-V locali per la migrazione ad Azure tramite Valutazione server di Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535452"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331764"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -96,12 +96,20 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Per la versione 2.19.07.30 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
+3.  Verificare le versioni più recenti dell'appliance e i valori SHA:
 
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - Per il cloud pubblico di Azure:
+
+        **Scenario** | **Scaricare** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8,93 MB) | [Versione più recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - Per Azure per enti pubblici:
+
+        **Scenario*** | **Scaricare** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>Creare l'appliance VM
 

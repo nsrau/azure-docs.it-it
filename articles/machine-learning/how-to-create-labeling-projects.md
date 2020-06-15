@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171557"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629610"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -40,7 +40,6 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-
 * I dati da etichettare, inclusi in file locali o nell'archiviazione BLOB di Azure.
 * I set di etichette da applicare.
 * Le istruzioni per l'etichettatura.
@@ -67,6 +66,8 @@ Selezionare **Avanti** quando si è pronti per procedere.
 
 Se è già stato creato un set di dati contenente i dati da usare, è possibile selezionarlo nell'elenco a discesa **Seleziona un set di dati esistente**. In alternativa, selezionare **Crea un set di dati** per usare un archivio dati di Azure esistente o caricare i file locali.
 
+> [!NOTE]
+> Un progetto non può contenere più di 500.000 immagini.  Se il set di dati ne contiene di più, verranno caricate solo le prime 500.000 immagini.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creare un set di dati da un archivio dati di Azure
 
@@ -85,8 +86,6 @@ Per creare un set di dati da dati già archiviati nell'archiviazione BLOB di Azu
 1. Selezionare **Avanti**.
 1. Confermare i dettagli. Selezionare **Indietro** per modificare le impostazioni oppure **Crea** per creare il set di dati.
 
-> [!NOTE]
-> I dati scelti vengono caricati nel progetto.  L'aggiunta di altri dati all'archivio dati non verrà visualizzata in questo progetto dopo la creazione del progetto.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Creare un set di dati dai dati caricati
 
@@ -102,6 +101,19 @@ Per caricare direttamente i dati:
 1. Confermare i dettagli. Selezionare **Indietro** per modificare le impostazioni oppure **Crea** per creare il set di dati.
 
 I dati vengono caricati nell'archivio BLOB predefinito ("workspaceblobstore") dell'area di lavoro di Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurare l'aggiornamento incrementale
+
+Se si prevede di aggiungere nuove immagini al set di dati, usare l'aggiornamento incrementale per aggiungere queste nuove immagini al progetto.   Quando l'**aggiornamento incrementale** è abilitato, il set di dati viene controllato periodicamente per verificare la presenza di nuove immagini da aggiungere a un progetto, in base alla velocità di completamento dell'etichettatura.   Il controllo della presenza di nuovi dati viene interrotto quando il progetto raggiunge il limite massimo di 500.000 immagini.
+
+Per aggiungere altre immagini al progetto, usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per eseguire il caricamento nella cartella appropriata dell'archivio BLOB. 
+
+Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati.
+
+Deselezionare questa casella di controllo se non si vuole che le nuove immagini visualizzate nell'archivio dati vengano aggiunte al progetto.
+
+Il timestamp dell'ultimo aggiornamento è disponibile nella sezione **Aggiornamento incrementale** della scheda **Dettagli** del progetto.
+
 
 ## <a name="specify-label-classes"></a>Specificare le classi di etichetta
 

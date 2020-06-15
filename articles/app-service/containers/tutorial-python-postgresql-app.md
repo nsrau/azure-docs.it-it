@@ -9,12 +9,13 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+- tracking-python
+ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609783"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559291"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Python (Django) con PostgreSQL nel Servizio app di Azure
 
@@ -111,7 +112,7 @@ In questa sezione verranno creati un database e un server di Database di Azure p
 az extension add --name db-up
 ```
 
-Creare il database Postgres in Azure con il comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), come illustrato nell'esempio seguente. Sostituire *\<postgresql-name>* con un nome *univoco* (l'endpoint server è *https://\<postgresql-name>.postgres.database.azure.com*). Per *\<admin-username>* and *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres.
+Creare il database Postgres in Azure con il comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), come illustrato nell'esempio seguente. Sostituire *\<postgresql-name>* con un nome *univoco* (l'endpoint server è *https://\<postgresql-name>.postgres.database.azure.com*). Per *\<admin-username>* e *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -195,7 +196,7 @@ Il codice di esempio è ora distribuito, ma l'app non si connette ancora al data
 
 Quando si esegue l'app localmente, è possibile impostare le variabili di ambiente nella sessione del terminale. Nel Servizio app questa operazione viene eseguita con *app settings* usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-Eseguire il comando seguente per specificare i dettagli della connessione di database come impostazioni dell'app. Sostituire *\<app-name>* , *\<app-resource-group>* e *\<postgresql-name>* con i valori dell'ambiente corrente. Tenere presente che le credenziali utente `root` e `Pollsdb1` sono state create automaticamente da `az postgres up`.
+Eseguire il comando seguente per specificare i dettagli della connessione di database come impostazioni dell'app. Sostituire *\<app-name>* , *\<app-resource-group>* e *\<postgresql-name>* con valori personalizzati. Tenere presente che le credenziali utente `root` e `Pollsdb1` sono state create automaticamente da `az postgres up`.
 
 ```azurecli
 az webapp config appsettings set --name <app-name> --resource-group <app-resource-group> --settings DJANGO_ENV="production" DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="root@<postgresql-name>" DBPASS="Pollsdb1" DBNAME="pollsdb"

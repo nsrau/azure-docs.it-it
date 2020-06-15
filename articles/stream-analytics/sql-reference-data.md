@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651944"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021688"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure
 
@@ -40,7 +40,7 @@ Seguire questa procedura per aggiungere il database SQL di Azure come origine di
 
    ![Configurazione del riferimento del database SQL](./media/sql-reference-data/sql-input-config.png)
 
-3. Testare la query snapshot nell'editor di query SQL. Per altre informazioni, vedere [Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati](../sql-database/sql-database-connect-query-portal.md)
+3. Testare la query snapshot nell'editor di query SQL. Per altre informazioni, vedere [Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Specificare l'account di archiviazione nella configurazione del processo
 
@@ -69,7 +69,7 @@ Seguire questa procedura per aggiungere il database SQL di Azure come origine di
 
 ### <a name="create-a-sql-database-table"></a>Creare una tabella del database SQL
 
-Usare SQL Server Management Studio per creare una tabella in cui archiviare i dati di riferimento. Per informazioni dettagliate, vedere [Progettare il primo database SQL di Azure con SSMS](../sql-database/sql-database-design-first-database.md).
+Usare SQL Server Management Studio per creare una tabella in cui archiviare i dati di riferimento. Per informazioni dettagliate, vedere [Progettare il primo database SQL di Azure con SSMS](../azure-sql/database/design-first-database-tutorial.md).
 
 La tabella di esempio usata nell'esempio seguente è stata creata dall'istruzione seguente:
 
@@ -129,7 +129,7 @@ Prima di distribuire il processo in Azure, è possibile testare la logica di que
 
 ## <a name="delta-query"></a>Query delta
 
-Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel database SQL di Azure](../sql-database/sql-database-temporal-tables.md).
+Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel database SQL di Azure](../azure-sql/temporal-tables.md).
 
 1. Creare una tabella temporale nel database SQL di Azure.
    

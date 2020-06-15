@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181563"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338925"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -56,13 +56,26 @@ Questa guida usa la libreria seguente:
 
 * Le istruzioni riportate in questa guida sono basate su un server Web compilato in Node.js. È consigliabile usare [Visual Studio Code](https://code.visualstudio.com/download) come IDE (Integrated Development Environment).
 
+* Un Web browser moderno. Per questo esempio JavaScript si usano le convenzioni [ES6](http://www.ecma-international.org/ecma-262/6.0/), di conseguenza, **Internet Explorer** **non** è supportato.
+
 ## <a name="create-your-project"></a>Creare il progetto
 
 Assicurarsi che [Node.js](https://nodejs.org/en/download/) sia installato e quindi creare una cartella in cui ospitare l'applicazione. Qui viene implementato un semplice server Web [Express](https://expressjs.com/) per gestire il file `index.html`.
 
-1. Per prima cosa, usando il terminale integrato di Visual Studio Code, individuare la cartella del progetto e quindi installare Express con NPM.
+1. Usando un terminale, ad esempio il terminale integrato di Visual Studio Code, individuare la cartella del progetto e quindi digitare:
 
-1. Successivamente, creare un file js denominato `server.js`, quindi aggiungere il codice seguente:
+   ```console
+   npm init
+   ```
+
+2. Installare quindi le dipendenze richieste:
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. A questo punto, creare un file con estensione js denominato `index.js` e quindi aggiungere il codice seguente:
 
    ```JavaScript
    const express = require('express');
@@ -269,12 +282,12 @@ Prima di procedere con l'autenticazione, registrare l'applicazione in **Azure Ac
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Impostare l'URL di reindirizzamento per Node.js
 >
-> Per Node.js, è possibile impostare la porta del server Web nel file *server.js*. Questa esercitazione usa la porta 3000, ma è possibile usarne un'altra qualsiasi disponibile.
+> Per Node.js, è possibile impostare la porta del server Web nel file *index.js*. Questa esercitazione usa la porta 3000, ma è possibile usarne un'altra qualsiasi disponibile.
 >
 > Per configurare un URL di reindirizzamento nelle informazioni di registrazione dell'applicazione, tornare al riquadro **Registrazione dell'applicazione** ed eseguire una delle operazioni seguenti:
 >
 > - Impostare *`http://localhost:3000/`* come **URL di reindirizzamento**.
-> - Se si usa una porta TCP personalizzata, usare *`http://localhost:<port>/`* (dove *\<porta>* è il numero della porta TCP personalizzata).
+> - Se si usa una porta TCP personalizzata, usare *`http://localhost:<port>/`* (dove *\<port>* è il numero della porta TCP personalizzata).
 >   1. Copiare il valore del campo **URL**.
 >   1. Tornare al riquadro **Registrazione dell'applicazione** e incollare il valore copiato come **URL di reindirizzamento**.
 >
@@ -308,9 +321,9 @@ Creare un nuovo file js denominato `authConfig.js`, che conterrà i parametri di
 ```
 
  Dove:
- - *\<Enter_the_Application_Id_Here>* è il valore di **ID applicazione (client)** dell'applicazione registrata.
+ - *\<Enter_the_Application_Id_Here>* è l'**ID applicazione (client)** per l'applicazione registrata.
  - *\<Enter_the_Cloud_Instance_Id_Here>* è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale è sufficiente immettere *https://login.microsoftonline.com* . Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - Il valore *\<Enter_the_Tenant_info_here>* deve essere impostato su una delle opzioni seguenti:
+ - *\<Enter_the_Tenant_info_here>* è impostato su una delle opzioni seguenti:
    - Se l'applicazione supporta *Account solo in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, *contoso.microsoft.com*).
    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**.
    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**.
@@ -496,7 +509,5 @@ L'API Microsoft Graph richiede l'ambito *user.read* per leggere il profilo dell'
 
 > [!NOTE]
 > Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
-
-Se un'API back-end non richiede alcun ambito (scelta non consigliata), è possibile usare *clientId* come ambito nelle chiamate per acquisire i token.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
