@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Batch
       href: batch-technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire un processo Batch - Interfaccia della riga di comando
@@ -97,6 +97,8 @@
           href: budget.md
         - name: Usare endpoint privati con account Batch
           href: private-connectivity.md
+        - name: Configurare le chiavi gestite dal cliente
+          href: batch-customer-managed-key.md
     - name: Eseguire l'autenticazione con Azure AD
       items:
         - name: Azure AD con il servizio Batch

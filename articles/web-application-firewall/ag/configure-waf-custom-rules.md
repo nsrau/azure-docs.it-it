@@ -1,31 +1,31 @@
 ---
-title: Configurare le regole personalizzate V2 usando PowerShell
+title: Configurare regole personalizzate v2 tramite PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Informazioni su come configurare le regole personalizzate di WAF V2 usando Azure PowerShell. È possibile creare regole personalizzate valutate per ogni richiesta che passa attraverso il firewall.
+description: Informazioni su come configurare regole personalizzate di Web Application Firewall (WAF) v2 tramite Azure PowerShell. È possibile creare regole personalizzate valutate per ogni richiesta che passa attraverso il firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471636"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758963"
 ---
-# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurare Web Application Firewall V2 nel gateway applicazione con una regola personalizzata usando Azure PowerShell
+# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurare Web Application Firewall v2 nel gateway applicazione con una regola personalizzata tramite Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Le regole personalizzate consentono di creare regole personalizzate valutate per ogni richiesta che passa attraverso il Web Application Firewall (WAF) v2. Queste regole hanno una priorità più elevata rispetto alle altre dei set di regole gestiti. Le regole personalizzate hanno un'azione (per consentire o bloccare), una condizione di corrispondenza e un operatore per consentire la personalizzazione completa.
+Le regole personalizzate consentono di creare le regole desiderate con cui valutare ogni richiesta che passa attraverso Web Application Firewall (WAF) v2. Queste regole hanno una priorità più elevata rispetto alle altre dei set di regole gestiti. Le regole personalizzate hanno un'azione (autorizzazione o blocco), una condizione di corrispondenza e un operatore che ne consentono la personalizzazione completa.
 
-Questo articolo crea un gateway applicazione WAF V2 che usa una regola personalizzata. La regola personalizzata blocca il traffico se l'intestazione della richiesta contiene l'*evilbot* User-Agent.
+Questo articolo crea un firewall WAF v2 del gateway applicazione che usa una regola personalizzata. La regola personalizzata blocca il traffico se l'intestazione della richiesta contiene l'*evilbot* User-Agent.
 
-Per visualizzare altri esempi di regole personalizzate, vedere [creare e usare regole Web Application Firewall personalizzate](create-custom-waf-rules.md)
+Per altri esempi di regole personalizzate, vedere [Creare e usare regole di Web Application Firewall personalizzate](create-custom-waf-rules.md)
 
-Se si vuole eseguire il Azure PowerShell in questo articolo in un unico script continuo che è possibile copiare, incollare ed eseguire, vedere [esempi di PowerShell per applicazione Azure gateway](powershell-samples.md).
+Se si vuole eseguire il codice Azure PowerShell in questo articolo in uno script continuo che sia possibile copiare, incollare ed eseguire, vedere [Esempi di Azure PowerShell per il gateway applicazione di Azure](powershell-samples.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -67,7 +67,7 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-vip"></a>Creare un indirizzo VIP pubblico statico
+### <a name="create-a-static-public-vip"></a>Creare un VIP pubblico statico
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
@@ -89,7 +89,7 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Creare un listener, un'impostazione http, una regola e una scalabilità automatica
+### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Creare un listener, un'impostazione HTTP, una regola e una scalabilità automatica
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -106,7 +106,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ```
 
-### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>Creare due regole personalizzate e applicarle ai criteri di WAF
+### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>Creare due regole personalizzate e applicarle ai criteri WAF
 
 ```azurepowershell
 # Create WAF config
@@ -136,6 +136,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## <a name="update-your-waf"></a>Aggiornare WAF
+
+Dopo aver creato WAF, è possibile aggiornarlo usando una procedura simile a quella del codice seguente:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

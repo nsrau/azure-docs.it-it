@@ -1,7 +1,7 @@
 ---
 title: Risolvere gli errori di distribuzione comuni
 titleSuffix: Azure Load Balancer
-description: Viene descritto come risolvere gli errori comuni quando si distribuiscono i bilanciamento del carico di Azure
+description: Viene descritto come risolvere gli errori che si verificano più frequentemente quando si distribuiscono i servizi di bilanciamento del carico di Azure
 services: load-balancer
 documentationcenter: na
 tags: top-support-issue
@@ -10,34 +10,35 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 26b4232832589827a09774eb0106c25e5c446eb1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791086"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658634"
 ---
-# <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Risolvere gli errori comuni di distribuzione di Azure con Azure Load Balancer
+# <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Risolvere errori comuni durante la distribuzione di Azure con Azure Load Balancer
 
-Questo articolo descrive alcuni errori di distribuzione di Azure Load Balancer comuni e fornisce informazioni per risolvere gli errori. Se si stanno cercando informazioni su un codice di errore e tali informazioni non sono disponibili in questo articolo, è possibile segnalarle. Nella parte inferiore della pagina è possibile lasciare il feedback. Il feedback viene registrato con i problemi di GitHub.
+Questo argomento descrive alcuni errori comuni che possono verificarsi durante la distribuzione di Azure Load Balancer e fornisce indicazioni su come risolverli. Se si cercano informazioni su un codice di errore non riportato in questo articolo, è possibile segnalarlo lasciando un feedback nella parte inferiore della pagina. Il feedback viene registrato insieme ai problemi di GitHub.
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice errore | Dettagli e mitigazione |
+| Codice di errore | Dettagli e mitigazione |
 | ------- | ---------- |
-|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Lo SKU IP pubblico e lo SKU Load Balancer devono corrispondere. Verificare che Azure Load Balancer e gli SKU IP pubblici corrispondano. Lo SKU standard è consigliato per i carichi di lavoro di produzione. Altre informazioni sulle [differenze negli SKU](./skus.md)  |
-|DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Per impostazione predefinita, i set di scalabilità di macchine virtuali vengono impostati sui bilanciamenti del carico Basic quando lo SKU non è specificato o viene distribuito senza IP Ridistribuire il set di scalabilità di macchine virtuali con indirizzi IP pubblici standard nelle singole istanze per assicurarsi che Load Balancer Standard sia selezionato o semplicemente selezionare una LB standard quando si distribuisce un set di scalabilità di macchine virtuali dal portale di Azure. |
-|MaxAvailabilitySetsInLoadBalancerReached | Il pool back-end di un Load Balancer può contenere un massimo di 150 set di disponibilità. Se non sono stati definiti in modo esplicito set di disponibilità per le macchine virtuali nel pool back-end, ogni singola macchina virtuale entra nel proprio set di disponibilità. Quindi, la distribuzione di macchine virtuali autonome 150 comporterebbe la disponibilità di 150 set di disponibilità, raggiungendo così il limite. È possibile distribuire un set di disponibilità e aggiungervi altre macchine virtuali come soluzione alternativa. |
-|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Non è possibile avere più di una regola per un determinato tipo di servizio di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e il protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare la regola per modificare la creazione della regola duplicata. |
-|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Non è possibile avere più di una regola per un determinato tipo di servizio di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e il protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare i parametri della regola per modificare la creazione della regola duplicata. |
-|AnotherInternalLoadBalancerExists| Nel back-end della Load Balancer è possibile avere solo un Load Balancer di tipo Internal Reference lo stesso set di macchine virtuali o interfacce di rete. Aggiornare la distribuzione per assicurarsi di creare solo un Load Balancer dello stesso tipo. |
-|CannotUseInactiveHealthProbe| Non è possibile avere un probe non usato da nessuna regola configurata per l'integrità del set di scalabilità di macchine virtuali. Verificare che il probe configurato venga usato attivamente. |
-|VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Non è possibile avere più bilanciamenti del carico dello stesso tipo (interno, pubblico). È possibile avere un massimo di un Load Balancer interno e uno pubblico. |
-|VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | La Load Balancer di base non è supportata per i set di scalabilità di macchine virtuali con più host o per i set di scalabilità di macchine virtuali. In alternativa, usare Load Balancer Standard. |
-|ResourceDeploymentFailure| Se il servizio di bilanciamento del carico si trova in uno stato di errore, attenersi alla procedura seguente per ripristinare lo stato di errore:<ol><li>Passare a https://resources.azure.come accedere con le credenziali portale di Azure.</li><li>Selezionare **lettura/scrittura**.</li><li>A sinistra espandere **sottoscrizioni**, quindi espandere la sottoscrizione con il Load Balancer da aggiornare.</li><li>Espandere **ResourceGroups**, quindi espandere il gruppo di risorse con il Load Balancer da aggiornare.</li><li>Selezionare **Microsoft. Network** > **LoadBalancers**, quindi selezionare la Load Balancer da aggiornare, **LoadBalancer_1**.</li><li>Nella pagina di visualizzazione per **LoadBalancer_1**selezionare **Get** > **Edit (modifica**).</li><li>Aggiornare il valore di **ProvisioningState** da **failed** a **succeeded**.</li><li>Selezionare **PUT**.</li></ol>|
+|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Lo SKU dell'indirizzo IP pubblico e lo SKU di Load Balancer devono corrispondere. Verificare che lo SKU di Load Balancer e quello dell'indirizzo IP pubblico corrispondano. Il tipo di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione. Altre informazioni sulle [differenze negli SKU](./skus.md)  |
+|DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Per impostazione predefinita, i set di scalabilità di macchine virtuali vengono impostati sui servizi di bilanciamento del carico Basic quando lo SKU non è specificato o viene distribuito senza IP pubblici standard. Ridistribuire il set di scalabilità di macchine virtuali con indirizzi IP pubblici standard nelle singole istanze per assicurarsi che venga selezionato Load Balancer Standard o selezionare semplicemente Load Balancer Standard quando si distribuisce un set di scalabilità di macchine virtuali dal portale di Azure. |
+|MaxAvailabilitySetsInLoadBalancerReached | Il pool back-end di un servizio di bilanciamento del carico può contenere un massimo di 150 set di disponibilità. Se nel pool back-end non sono definiti set di disponibilità in modo esplicito per le VM, ogni singola VM viene inserita nel proprio set di disponibilità. La distribuzione di 150 macchine virtuali autonome comporterebbe quindi 150 set di disponibilità, raggiungendo così il limite. Come soluzione alternativa, è possibile distribuire un set di disponibilità e aggiungervi altre macchine virtuali. |
+|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Non può esistere più di una regola per un determinato tipo di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e lo stesso protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare la regola per modificare la creazione della regola duplicata. |
+|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Non può esistere più di una regola per un determinato tipo di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e lo stesso protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare i parametri della regola per modificare la creazione della regola duplicata. |
+|AnotherInternalLoadBalancerExists| Può esistere un solo servizio di bilanciamento del carico di tipo interno che fa riferimento allo stesso set di VM/interfacce di rete nel back-end del servizio di bilanciamento del carico. Aggiornare la distribuzione per assicurarsi di creare un solo bilanciamento del carico dello stesso tipo. |
+|CannotUseInactiveHealthProbe| Non può esistere un probe che non venga usato da nessuna regola configurata per l'integrità del set di scalabilità di macchine virtuali. Assicurarsi che il probe configurato venga usato attivamente. |
+|VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Non possono esistere più servizi di bilanciamento del carico dello stesso tipo (interno, pubblico). Si può avere un massimo di un bilanciamento del carico interno e uno pubblico. |
+|VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Load Balancer Basic non è supportato per i set di scalabilità di macchine virtuali con più gruppi di selezione host o i set di scalabilità di macchine virtuali in diverse zone di disponibilità. Usare Load Balancer Standard. |
+|MarketplacePurchaseEligibilityFailed | Passare all'account amministrativo corretto per abilitare gli acquisti in una sottoscrizione con contratto Enterprise. Per altre informazioni, leggere [qui](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
+|ResourceDeploymentFailure| Se il servizio di bilanciamento del carico è in stato di errore, seguire questa procedura per ripristinarlo:<ol><li>Passare a https://resources.azure.com e accedere con le credenziali del portale di Azure.</li><li>Selezionare **Lettura/Scrittura**.</li><li>A sinistra espandere **Sottoscrizioni** e quindi espandere la sottoscrizione con il servizio di bilanciamento del carico da aggiornare.</li><li>Espandere **Gruppi di risorse** e quindi espandere il gruppo di risorse con il servizio di bilanciamento del carico da aggiornare.</li><li>Selezionare **Microsoft.Network** > **LoadBalancers** e quindi selezionare il servizio di bilanciamento del carico da aggiornare, **LoadBalancer_1**.</li><li>Nella pagina di **LoadBalancer_1** selezionare **GET** > **Modifica**.</li><li>Aggiornare il valore di **ProvisioningState** da **Non riuscito** a **Riuscito**.</li><li>Selezionare **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare la tabella di [confronto SKU](./skus.md) Azure Load Balancer
+* Vedere la [tabella di confronto tra gli SKU](./skus.md) di Azure Load Balancer
 * Informazioni sui [limiti di Azure Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)

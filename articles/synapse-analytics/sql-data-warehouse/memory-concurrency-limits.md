@@ -1,6 +1,6 @@
 ---
-title: Limiti di memoria e concorrenza
-description: Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Azure sinapsi Analytics.
+title: Limiti di concorrenza e memoria
+description: Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632673"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636400"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di memoria e concorrenza per Azure sinapsi Analytics
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di concorrenza e memoria per Azure Synapse Analytics
 
-Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Azure sinapsi Analytics.  
+Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Impostazioni di capacità di Data Warehouse
 
@@ -49,13 +49,13 @@ I livelli di servizio sono compresi tra DW100c e DW30000c.
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-Il livello di servizio massimo è DW30000c, che include 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
+Il livello di servizio massimo è DW30000c, che ha 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
 
-## <a name="concurrency-maximums-for-workload-groups"></a>Valori massimi di concorrenza per i gruppi del carico di lavoro
+## <a name="concurrency-maximums-for-workload-groups"></a>Valori massimi di concorrenza per i gruppi di carico di lavoro
 
-Con l'introduzione dei [gruppi del carico di lavoro](sql-data-warehouse-workload-isolation.md), il concetto di slot di concorrenza non viene più applicato.  Le risorse per ogni richiesta vengono allocate in base a una percentuale e specificate nella definizione del gruppo di carico di lavoro.  Tuttavia, anche con la rimozione degli slot di concorrenza, sono necessarie quantità minime di risorse per le query in base al livello di servizio.  La tabella seguente definisce la quantità minima di risorse necessarie per query tra i livelli di servizio e la concorrenza associata che è possibile ottenere.
+Con l'introduzione dei [gruppi di carico di lavoro](sql-data-warehouse-workload-isolation.md), il concetto di slot di concorrenza non viene più applicato.  Le risorse per richiesta vengono allocate su base percentuale e specificate nella definizione del gruppo di carico di lavoro.  Anche con la rimozione degli slot di concorrenza, tuttavia, sono necessarie quantità minime di risorse per query in base al livello di servizio.  La tabella seguente definisce la quantità minima di risorse necessarie per query tra i livelli di servizio e la concorrenza associata che è possibile ottenere.
 
-|Livello di servizio|Numero massimo di query simultanee|Supporto minimo per REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Livello di servizio|Numero massimo di query simultanee|Percentuale minima supportata per REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12,5%|
@@ -77,7 +77,7 @@ Con l'introduzione dei [gruppi del carico di lavoro](sql-data-warehouse-workload
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valori massimi di concorrenza per le classi di risorse
 
-Per assicurarsi che ogni query disponga di risorse sufficienti per un'esecuzione efficiente, SQL Analytics in Azure sinapsi tiene traccia dell'utilizzo delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base agli slot di importanza e concorrenza. Le query attendono la coda fino a quando non sono disponibili slot di concorrenza sufficienti. Gli slot di [importanza](sql-data-warehouse-workload-importance.md) e di concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+Perché ogni query abbia risorse sufficienti per operare in modo efficace, Synapse SQL tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base agli slot di importanza e concorrenza. Le query attendono nella coda finché non sono disponibili slot di concorrenza sufficienti. Gli slot di [importanza](sql-data-warehouse-workload-importance.md) e concorrenza determinano la classificazione in ordine di priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
 **Classi di risorse statiche**
 
@@ -104,7 +104,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 
 **Classi di risorse dinamiche**
 
-La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md). Le classi di risorse dinamiche usano un'allocazione percentuale di memoria 3-10-22-70 per le classi di risorse XLarge di piccole e medie dimensioni in tutti i livelli di servizio.
+La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md). Le classi di risorse dinamiche usano un'allocazione di percentuale di memoria 3-10-22-70 per le classi di risorse small-medium-large-xlarge per tutti i livelli di servizio.
 
 | Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -125,7 +125,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Quando non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione della query, le query vengono accodate ed eseguite in base alla priorità.  Se è presente un'importanza equivalente, le query vengono eseguite in base al principio First-in, First-out.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate.
+Se non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione delle query, queste vengono accodate ed eseguite in base all'importanza.  In caso di importanza equivalente, le query vengono eseguite in base al principio First-In, First-Out.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

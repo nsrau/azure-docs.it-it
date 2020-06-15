@@ -1,86 +1,86 @@
 ---
 title: Panoramica del backup offline
-description: Informazioni sui componenti del backup offline. Includono il backup offline basato sul backup Azure Data Box e offline basato sul servizio importazione/esportazione di Azure.
+description: Informazioni sui componenti del backup offline. Includono il backup offline basato su Azure Data Box e sul servizio Importazione/Esportazione di Azure.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160922"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744646"
 ---
 # <a name="overview-of-offline-backup"></a>Panoramica del backup offline
 
 Questo articolo fornisce una panoramica del backup offline.
 
-I backup completi iniziali in Azure trasferiscono in genere grandi quantità di dati online e richiedono una maggiore larghezza di banda di rete rispetto ai backup successivi che trasferiscono solo le modifiche incrementali. Gli uffici remoti o i Data Center in determinate aree geografiche non hanno sempre una larghezza di banda di rete sufficiente. Per questo motivo, questi backup iniziali importano alcuni giorni. Durante questo periodo, i backup usano continuamente la stessa rete di cui è stato effettuato il provisioning per le applicazioni in esecuzione nel Data Center locale.
+I backup completi iniziali in Azure comportano in genere il trasferimento di grandi quantità di dati online e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferite solo le modifiche incrementali. Gli uffici o i data center remoti in determinate aree geografiche non dispongono sempre di una larghezza di banda di rete sufficiente. Per questo motivo, il completamento di questi backup iniziali richiede alcuni giorni. Durante questo periodo, i backup usano continuamente la stessa rete di cui è stato effettuato il provisioning per le applicazioni in esecuzione nel data center locale.
 
-Backup di Azure supporta il backup offline, che trasferisce i dati di backup iniziali offline, senza usare la larghezza di banda di rete. Fornisce un meccanismo per copiare i dati di backup su dispositivi di archiviazione fisici. I dispositivi vengono quindi spediti a un Data Center di Azure vicino e caricati in un insieme di credenziali di servizi di ripristino. Questo processo garantisce un trasferimento affidabile dei dati di backup senza utilizzare una larghezza di banda di rete.
+Backup di Azure supporta il backup offline, che trasferisce i dati dei backup iniziali offline, senza usare la larghezza di banda di rete. Esso fornisce un meccanismo per copiare i dati di backup su dispositivi di archiviazione fisica. I dispositivi vengono quindi spediti a un data center di Azure vicino e caricati in un insieme di credenziali di Servizi di ripristino. Questo processo garantisce un trasferimento solido dei dati di backup senza usare alcuna larghezza di banda di rete.
 
 ## <a name="offline-backup-options"></a>Opzioni di backup offline
 
-Il backup offline è disponibile in due modalità in base alla proprietà dei dispositivi di archiviazione:
+Il backup offline è disponibile in due modalità, in base alla proprietà dei dispositivi di archiviazione:
 
 - Backup offline basato su Azure Data Box (anteprima)
-- Backup offline basato sul servizio importazione/esportazione di Azure
+- Backup offline basato sul servizio Importazione/Esportazione di Azure
 
 ## <a name="offline-backup-based-on-azure-data-box-preview"></a>Backup offline basato su Azure Data Box (anteprima)
 
-Questa modalità è attualmente supportata con l'agente di Servizi di ripristino di Microsoft Azure (MARS), in anteprima. Questa opzione sfrutta i vantaggi offerti da [Azure Data Box](https://azure.microsoft.com/services/databox/) per fornire appliance di trasferimento Microsoft, sicure e resistenti alle manomissioni con connettori USB al proprio Data Center o a un ufficio remoto. I dati di backup vengono scritti direttamente su questi dispositivi. Questa opzione consente di risparmiare il lavoro richiesto per ottenere i dischi e i connettori compatibili con Azure o per eseguire il provisioning dell'archiviazione temporanea come percorso di gestione temporanea. Microsoft gestisce inoltre la logistica per il trasferimento end-to-end, che è possibile tenere traccia del portale di Azure.
+Questa modalità è attualmente supportata con l'agente di Servizi di ripristino di Microsoft Azure (MARS), in anteprima. Questa opzione sfrutta i vantaggi offerti da [Azure Data Box](https://azure.microsoft.com/services/databox/) per offrire appliance di trasferimento proprietarie di Microsoft sicure e resistenti alle manomissioni con connettori USB al proprio data center o ad un ufficio remoto. I dati di backup vengono scritti direttamente su questi dispositivi. Questa opzione evita di dover ottenere dischi e connettori compatibili con Azure o eseguire il provisioning dell'archiviazione temporanea come percorso di staging. Microsoft gestisce anche la logistica per il trasferimento end-to-end, di cui è possibile tenere traccia tramite il portale di Azure.
 
 Di seguito è illustrata un'architettura che descrive lo spostamento dei dati di backup con questa opzione.
 
-![Architettura Data Box di backup di Azure](./media/offline-backup-overview/azure-backup-databox-architecture.png)
+![Architettura Data Box di Backup di Azure](./media/offline-backup-overview/azure-backup-databox-architecture.png)
 
-Ecco un riepilogo dell'architettura:
+Di seguito è riportato un riepilogo dell'architettura:
 
 1. Backup di Azure copia direttamente i dati di backup in questi dispositivi preconfigurati.
-2. È quindi possibile rispedire questi dispositivi a un Data Center di Azure.
+2. È quindi possibile rispedire questi dispositivi a un data center di Azure.
 3. Azure Data Box copia i dati in un account di archiviazione di proprietà del cliente.
-4. Backup di Azure copia automaticamente i dati di backup dall'account di archiviazione all'insieme di credenziali dei servizi di ripristino designato. I backup online incrementali sono pianificati.
+4. Backup di Azure copia automaticamente i dati di backup dall'account di archiviazione all'insieme di credenziali di Servizi di ripristino designato. I backup incrementali online sono pianificati.
 
-Per usare il backup offline basato su Azure Data Box, vedere [backup offline con Azure Data Box](offline-backup-azure-data-box.md).
+Per usare il backup offline basato su Azure Data Box, vedere [Backup offline con Azure Data Box](offline-backup-azure-data-box.md).
 
-## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Backup offline basato sul servizio importazione/esportazione di Azure
+## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Backup offline basato sul servizio Importazione/Esportazione di Azure
 
-Questa opzione è supportata da Backup di Microsoft Azure Server (MAB), da System Center Data Protection Manager (DPM) DPM-A e dall'agente MARS. Usa il [servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). È possibile trasferire i dati di backup iniziali in Azure usando dischi e connettori compatibili con Azure. Per questo approccio è necessario effettuare il provisioning dell'archiviazione temporanea nota come percorso di gestione temporanea e utilizzare le utilità predefinite per formattare e copiare i dati di backup nei dischi di proprietà del cliente.
+Questa opzione è supportata da Server di Backup di Microsoft Azure (MABS), da System Center Data Protection Manager (DPM) DPM-A e dall'agente MARS. Essa si avvale del [servizio Importazione/Esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). È possibile trasferire i dati di backup iniziali in Azure usando dischi e connettori compatibili con Azure. Per questo approccio è necessario effettuare il provisioning dell'archiviazione temporanea nota come percorso di staging e usare le utilità predefinite per formattare e copiare i dati di backup su dischi di proprietà del cliente.
 
 Di seguito è illustrata un'architettura che descrive lo spostamento dei dati di backup con questa opzione.
 
-![Architettura del servizio importazione/esportazione di backup di Azure](./media/offline-backup-overview/azure-backup-import-export.png)
+![Architettura del servizio Importazione/Esportazione di backup di Azure](./media/offline-backup-overview/azure-backup-import-export.png)
 
-Ecco un riepilogo dell'architettura:
+Di seguito è riportato un riepilogo dell'architettura:
 
-1. Anziché inviare i dati di backup in rete, backup di Azure scrive i dati di backup in un percorso di gestione temporanea.
-2. I dati nel percorso di gestione temporanea vengono scritti in uno o più dischi SATA usando un'utilità personalizzata.
-3. Come parte del lavoro preparatorio, l'utilità crea un processo di importazione di Azure. Le unità SATA vengono spedite al Data Center di Azure più vicino e fanno riferimento al processo di importazione per connettere le attività.
+1. Anziché inviare i dati di backup in rete, Backup di Azure li scrive in un percorso di staging.
+2. I dati nel percorso di staging vengono scritti in uno o più dischi SATA usando un'utilità personalizzata.
+3. Nel quadro delle operazioni preparatorie, l'utilità crea un processo di Importazione di Azure. Le unità SATA vengono inviate al data center di Azure più vicino, con riferimento al processo di importazione per connettere le attività.
 4. Nel data center di Azure i dati sui dischi vengono copiati in un account di archiviazione di Azure.
-5. Backup di Azure copia i dati di backup dall'account di archiviazione nell'insieme di credenziali di servizi di ripristino. I backup incrementali sono pianificati.
+5. Backup di Azure copia i dati di backup dall'account di archiviazione nell'insieme di credenziali di Servizi di ripristino. I backup incrementali online sono pianificati.
 
-Per usare il backup offline basato sul servizio importazione/esportazione di Azure con l'agente MARS, vedere [flusso di lavoro di backup offline in backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Per usare il backup offline basato sul servizio Importazione/Esportazione di Azure con l'agente MARS, vedere [Backup offline basato sul servizio Importazione/Esportazione di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Per usare lo stesso insieme a MAB o DPM-A, vedere [flusso di lavoro di backup offline per DPM e server di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Per usare lo stesso backup assieme a MABS o DPM-A, vedere [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
 
-## <a name="offline-backup-support-summary"></a>Riepilogo del supporto del backup offline
+## <a name="offline-backup-support-summary"></a>Riepilogo del supporto per il backup offline
 
 Nella tabella seguente vengono confrontate le due opzioni disponibili, in modo da poter effettuare le scelte appropriate in base allo scenario.
 
-| **Considerazioni**                                            | **Backup offline basato su Azure Data Box**                     | **Backup offline basato sul servizio importazione/esportazione di Azure**                |
+| **Considerazioni**                                            | **Backup offline basato su Azure Data Box**                     | **Backup offline basato sul servizio Importazione/Esportazione di Azure**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Modelli di distribuzione di backup di Azure                              | Agente MARS (anteprima)                                              | Agente MARS, MAB, DPM-A                                           |
-| Numero massimo di dati di backup per server (MARS) o per gruppo protezione dati (MAB, DPM-A) | [Disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) -7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) -80 TB       | 80 TB (fino a 10 dischi da 8 TB ciascuno)                          |
-| Sicurezza (dati, dispositivo e servizio)                           | [Dati](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) -AES a 256 bit crittografati <br> Interfaccia basata sui [dispositivi](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) , proprietaria e basata su credenziali per la copia dei dati <br> Funzionalità di sicurezza di Azure protette dal [servizio](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) | Dati-crittografia BitLocker                                 |
-| Provisioning temporaneo del percorso di gestione temporanea                     | Facoltativo                                                | Maggiore o uguale alle dimensioni stimate dei dati di backup        |
-| Aree supportate                                           | [Aree del disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Aree Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Aree del servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Spedizioni tra paesi                                     | Non supportato  <br>    L'indirizzo di origine e il Data Center di Azure di destinazione devono trovarsi nello stesso paese * | Supportato                                                    |
-| Trasferimento logistico (recapito, trasporto, ritiro)           | Completamente gestito da Microsoft                                     | Gestita dal cliente                                            |
-| Prezzi                                                      | [Prezzi di Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Prezzi del disco Azure Data Box](https://azure.microsoft.com/pricing/details/databox/disk/) | [Prezzi del servizio importazione/esportazione di Azure](https://azure.microsoft.com/pricing/details/storage-import-export/) |
+| Modelli di distribuzione di Backup di Azure                              | Agente MARS (anteprima)                                              | Agente MARS, MABS, DPM-A                                           |
+| Numero massimo di dati di backup per server (MARS) o per gruppo protezione dati (MABS, DPM-A) | [Disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview): 7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview): 80 TB       | 80 TB (fino a 10 dischi da 8 TB ciascuno)                          |
+| Sicurezza (dati, dispositivo e servizio)                           | [Dati](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection): crittografia AES a 256 bit <br> [Dispositivo](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection): interfaccia proprietaria, resistente e basata su credenziali per la copia dei dati <br> [Servizio](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection): protetto dalle funzioni di sicurezza di Azure | Dati: crittografati con BitLocker                                 |
+| Provisioning temporaneo del percorso di staging                     | Facoltativo                                                | Maggiore o uguale alle dimensioni stimate dei dati di backup        |
+| Aree supportate                                           | [Aree del disco di Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Aree di Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Aree del servizio di Importazione/Esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Spedizioni tra Paesi                                     | Non supportate  <br>    L'indirizzo di origine e il data center di Azure di destinazione devono trovarsi nello stesso Paese/nellòa stessa area* | Supportato                                                    |
+| Trasferimento logistico (consegna, trasporto, ritiro)           | Interamente gestito da Microsoft                                     | Gestita dal cliente                                            |
+| Prezzi                                                      | [Prezzi di Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Prezzi dei dischi di Azure Data Box](https://azure.microsoft.com/pricing/details/databox/disk/) | [Prezzi del servizio di Importazione/Esportazione di Azure](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-* Se il paese non dispone di un Data Center di Azure, è necessario spedire i dischi a un Data Center di Azure in un altro paese.
+*Se il Paese/l'area geografica non dispone di un data center di Azure, è necessario spedire i dischi a un data center di Azure in un altro Paese/un'altra area geografica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Backup offline di backup di Azure tramite Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-- [Flusso di lavoro di backup offline in backup di Azure](backup-azure-backup-import-export.md)
+- [Backup offline di Backup di Azure tramite Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+- [Flusso di lavoro del backup offline in Backup di Azure](backup-azure-backup-import-export.md)
 - [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](backup-azure-backup-server-import-export-.md)

@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78383794"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837931"
 ---
-## <a name="what-is-the-time-required-for-migration"></a>Qual è il tempo necessario per la migrazione?
+## <a name="what-is-the-time-required-for-migration"></a>Qual è il tempo necessario per una migrazione?
 
-La pianificazione e l'esecuzione della migrazione variano notevolmente a seconda della complessità dell'architettura e possono richiedere un paio di mesi.  
+La pianificazione e l'esecuzione di una migrazione dipendono notevolmente dalla complessità dell'architettura e possono richiedere circa due mesi.  
 
-## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual è la definizione di un nuovo cliente in macchine virtuali IaaS (classico)?
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual è la definizione di nuovo cliente per macchine virtuali IaaS (classiche)?
 
-I clienti che non hanno macchine virtuali IaaS (classico) nelle sottoscrizioni del mese di febbraio 2020 (un mese prima dell'avvio della deprecazione) vengono considerati nuovi clienti. 
+I clienti che non avevano macchine virtuali IaaS (classiche) nelle proprie sottoscrizioni nel mese di febbraio 2020 (un mese prima dell'avvio della deprecazione) vengono considerati nuovi clienti. 
 
-## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Qual è la definizione di un cliente esistente in macchine virtuali IaaS (classico)?
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Qual è la definizione di cliente esistente per macchine virtuali IaaS (classiche)?
 
-Il cliente che aveva attivato o arrestato, ma ha allocato le VM IaaS (classico) nelle proprie sottoscrizioni nel mese di febbraio 2020, viene considerato un cliente esistente. Solo questi clienti ricevono fino al 1 ° marzo 2023 per eseguire la migrazione delle macchine virtuali da Azure Service Manager Azure Resource Manager. 
+I clienti che avevano macchine virtuali IaaS (classiche) attive o arrestate ma allocate nelle proprie sottoscrizioni nel mese di febbraio 2020 vengono considerati clienti esistenti. Solo questi clienti hanno tempo fino al 1° marzo 2023 per eseguire la migrazione delle macchine virtuali da Azure Service Manager ad Azure Resource Manager. 
 
-## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Perché viene visualizzato un errore che indica "NewClassicVMCreationNotAllowedForSubscription"?
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Perché viene visualizzato l'errore "NewClassicVMCreationNotAllowedForSubscription"?
 
-Come parte del processo di ritiro, la macchina virtuale IaaS (classica) non è più disponibile per i nuovi clienti. Sono stati identificati come nuovi clienti e pertanto l'operazione non è stata autorizzata. Si consiglia vivamente di usare [macchine virtuali di Azure con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se non è possibile usare le macchine virtuali di Azure con ARM, contattare il supporto per l'elenco elementi consentiti della sottoscrizione.
+Nell'ambito del processo di ritiro, le macchine virtuali IaaS (classiche) non sono più disponibili per i nuovi clienti. L'utente è stato identificato come nuovo cliente e quindi l'operazione non è stata autorizzata. È consigliabile usare [macchine virtuali di Azure con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se non è possibile usare macchine virtuali di Azure con ARM, contattare il supporto per l'inserimento della sottoscrizione nell'elenco elementi consentiti.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Il piano di migrazione influisce sui servizi o sulle applicazioni esistenti in esecuzione nelle macchine virtuali di Azure? 
 
-Non fino al 1 ° marzo 2023 per le macchine virtuali IaaS (classico). Le macchine virtuali IaaS (classiche) sono servizi completamente supportati in disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure. Il 1 ° marzo 2023 queste VM verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate & deallocate. Non vi sarà alcun effetto sulle altre risorse classiche come servizi cloud (versione classica), account di archiviazione (classico) e così via.   
+Non fino al 1° marzo 2023 per le macchine virtuali IaaS (classiche). Le macchine virtuali IaaS (classiche) sono servizi completamente supportati con disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure. Il 1° marzo 2023 queste macchine virtuali verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate e deallocate. Le altre risorse classiche come Servizi cloud (versione classica), Account di archiviazione (versione classica) e così via non verranno interessate.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Che cosa accade alle macchine virtuali se non è prevista la migrazione a breve? 
 
-Il 1 ° marzo 2023, le VM IaaS (classico) verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate & deallocate. Per evitare un impatto aziendale, si consiglia vivamente di iniziare a pianificare la migrazione oggi e completarla prima del 1 ° marzo 2023. Non sono state deprecate le API classiche, i servizi cloud e il modello di risorse esistenti. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. Si consiglia di iniziare a pianificare la migrazione di queste risorse in Azure Resource Manager. 
+Il 1° marzo 2023 le macchine virtuali IaaS (classiche) verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate e deallocate. Per evitare l'impatto sull'azienda, è consigliabile iniziare a pianificare la migrazione da subito e completarla prima del 1° marzo 2023. Le API, Servizi cloud e il modello di risorse classici non verranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È consigliabile iniziare a pianificare la migrazione di queste risorse in Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Qual è l'impatto di questo piano di migrazione per gli strumenti esistenti? 
 
@@ -92,7 +92,7 @@ Si consiglia di interrompere la migrazione e quindi inviare una richiesta di sup
 
 ## <a name="how-do-i-report-an-issue"></a>Come si segnala un problema? 
 
-Ogni utente è invitato a pubblicare problemi e domande sulla migrazione nel [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)con la parola chiave ClassicIaaSMigration. Si consiglia di pubblicare tutte le eventuali domande in questo forum. Se si dispone di un contratto di supporto, è possibile anche registrare un ticket di supporto.
+Ogni utente è invitato a pubblicare problemi e domande sulla migrazione nella [pagina delle domande di Domande e risposte Microsoft per le VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html) con la parola chiave ClassicIaaSMigration. Si consiglia di pubblicare tutte le eventuali domande in questo forum. Se si dispone di un contratto di supporto, è possibile anche registrare un ticket di supporto.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Che cosa succede se non si vogliono usare i nomi scelti dalla piattaforma per le risorse durante la migrazione? 
 
@@ -102,6 +102,6 @@ Tutti i nomi di risorse specificati in modo esplicito nel modello di distribuzio
 
 Non è possibile eseguire automaticamente la migrazione dei circuiti ExpressRoute che usano collegamenti di autorizzazione tra sottoscrizioni senza tempi di inattività. Sono disponibili indicazioni su come eseguire la questa migrazione seguendo una procedura manuale. Per la procedura e altre informazioni, vedere [Eseguire la migrazione di circuiti ExpressRoute e delle reti virtuali associate dalla distribuzione classica al modello di distribuzione Resource Manager](../articles/expressroute/expressroute-migration-classic-resource-manager.md).
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Ho ricevuto il messaggio *"la macchina virtuale riporta lo stato complessivo dell'agente come non pronto. Di conseguenza, non è possibile eseguire la migrazione della macchina virtuale. Verificare che l'agente di macchine virtuali stia segnalando lo stato generale dell'agente come pronto "* o *" la macchina virtuale contiene l'estensione il cui stato non viene segnalato dalla macchina virtuale. Di conseguenza, non è possibile eseguire la migrazione di questa VM. "*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Il messaggio indica che la *"VM segnala uno stato complessivo dell'agente come Non pronto. Di conseguenza, non è possibile eseguire la migrazione della VM. Il messaggio invita a controllare che l'agente VM segnali lo stato Pronto*. In un altro messaggio si legge che *la VM contiene un'estensione di cui non segnala lo stato. Per questo motivo, non è possibile eseguire la migrazione della macchina virtuale".*
 
 Questo messaggio viene ricevuto quando la VM non dispone di connettività in uscita a Internet. L'agente VM usa la connettività in uscita per raggiungere l'account di archiviazione di Azure in modo da aggiornare lo stato dell'agente ogni 5 minuti.

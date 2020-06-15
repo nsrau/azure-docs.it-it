@@ -1,6 +1,6 @@
 ---
 title: Configurare regole e azioni in Azure IoT Central | Microsoft Docs
-description: Questo articolo illustra come un generatore, come configurare le regole e le azioni basate sulla telemetria nell'applicazione IoT Central di Azure.
+description: Questo articolo di procedure illustra come gli autori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: vavilla
 ms.author: vavilla
 ms.date: 11/27/2019
@@ -8,52 +8,49 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871951"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659347"
 ---
 # <a name="configure-rules"></a>Configurare le regole
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
-Le regole in IoT Central fungeranno da strumento di risposta personalizzabile che attiva gli eventi monitorati attivamente dai dispositivi connessi. Nelle sezioni seguenti viene descritto il modo in cui vengono valutate le regole.
+Le regole in IoT Central fungono da strumento di risposta personalizzabile che attiva gli eventi monitorati attivamente dai dispositivi connessi. Le sezioni seguenti descrivono come vengono valutate le regole.
 
 ## <a name="select-target-devices"></a>Selezionare i dispositivi di destinazione
 
-Usare la sezione dispositivi di destinazione per selezionare il tipo di dispositivi a cui verrà applicata questa regola. I filtri consentono di perfezionare ulteriormente i dispositivi da includere. I filtri usano le proprietà nel modello di dispositivo per filtrare il set di dispositivi. I filtri non attivano un'azione. Nello screenshot seguente i dispositivi di destinazione sono di tipo modello di dispositivo **frigorifero**. Il filtro indica che la regola deve includere solo i **frigoriferi** in cui la proprietà **stato prodotto** è uguale a **Washington**.
+Usare la sezione Dispositivi di destinazione per selezionare il tipo di dispositivo a cui verrà applicata questa regola. I filtri consentono di limitare ulteriormente i dispositivi da includere. I filtri usano le proprietà nel modello di dispositivo per filtrare il set di dispositivi. I filtri in sé non attivano un'azione. Nello screenshot seguente i dispositivi di destinazione sono del tipo di modello di dispositivo **Refrigerator** (Frigorifero). Il filtro indica che la regola deve includere solo i **frigoriferi** la cui proprietà **Manufactured State** (Stato di produzione) è uguale a **Washington**.
 
 ![Condizioni](media/howto-configure-rules/filters.png)
 
 ## <a name="use-multiple-conditions"></a>Usare più condizioni
 
-Condizioni in base alle quali vengono attivate le regole. Attualmente, quando si aggiungono più condizioni a una regola, le condizioni sono logiche e combinate. In altre parole, è necessario che tutte le condizioni siano soddisfatte perché la regola valuti come true.  
+Le condizioni sono i fattori in base ai quali vengono attivate le regole. Attualmente, quando si aggiungono più condizioni a una regola, le varie condizioni sono unite in modo logico tramite l'operatore AND. In altre parole, tutte le condizioni devono essere soddisfatte affinché la regola restituisca true.  
 
-Nello screenshot seguente, le condizioni verificano quando la temperatura è maggiore di 70&deg; F e l'umidità è minore di 10. Quando entrambe le istruzioni sono true, la regola restituisce true e attiva un'azione.
+Nello screenshot seguente le condizioni verificano quando la temperatura è superiore a 70 &deg;F e l'umidità è minore di 10. Quando entrambe le condizioni sono vere, la regola restituisce true e attiva un'azione.
 
 ![Condizioni](media/howto-configure-rules/conditions.png)
 
-### <a name="use-a-cloud-property-in-a-value-field"></a>Usare una proprietà cloud in un campo valore
+### <a name="use-a-cloud-property-in-a-value-field"></a>Usare una proprietà cloud in un campo Valore
 
-È possibile fare riferimento a una proprietà cloud dal modello di dispositivo nel campo del **valore** per una condizione. Il valore della proprietà cloud e della telemetria deve avere tipi simili. Ad esempio, se **temperature** è un valore Double, solo le proprietà cloud di tipo Double Show As Options nell'elenco a discesa **value** .
+È possibile fare riferimento a una proprietà cloud dal modello di dispositivo nel campo **Valore** di una condizione. Il valore della proprietà cloud e quello dei dati di telemetria devono essere di tipi simili. Se, ad esempio, **Temperatura** è un valore Double, nell'elenco a discesa **Valore** vengono visualizzate come opzioni solo le proprietà cloud di tipo Double.
 
-Se si sceglie un valore di telemetria del tipo di evento, l'elenco a discesa **valore** include l'opzione **any**. L'opzione **any** indica che la regola viene attivata quando l'applicazione riceve un evento di quel tipo, indipendentemente dal payload.
+Se si sceglie un valore di telemetria di tipo evento, l'elenco a discesa **Valore** include l'opzione **Qualsiasi**. L'opzione **Qualsiasi** indica che la regola viene attivata quando l'applicazione riceve un evento di quel tipo, indipendentemente dal payload.
 
-## <a name="use-aggregate-windowing"></a>Usa finestra di aggregazione
+## <a name="use-aggregate-windowing"></a>Usare gli intervalli di tempo di aggregazione
 
-Le regole valutano le finestre temporali aggregate come finestre a cascata. Nella schermata seguente l'intervallo di tempo è di cinque minuti. Ogni cinque minuti la regola valuta gli ultimi cinque minuti di dati. I dati vengono valutati solo una volta nella finestra a cui corrisponde.
+Le regole valutano gli intervalli di tempo di aggregazione come finestre a cascata. Nello screenshot seguente l'intervallo di tempo è di cinque minuti. Ogni cinque minuti la regola valuta gli ultimi cinque minuti di dati. I dati vengono valutati solo una volta nell'intervallo di tempo a cui corrispondono.
 
 ![Finestre a cascata](media/howto-configure-rules/tumbling-window.png)
 
-## <a name="use-rules-with-iot-edge-modules"></a>Usare le regole con moduli IoT Edge
+## <a name="use-rules-with-iot-edge-modules"></a>Usare le regole con i moduli IoT Edge
 
-Una restrizione si applica alle regole applicate ai moduli IoT Edge. Le regole sui dati di telemetria di moduli diversi non vengono valutate come regole valide. Come esempio, seguire questa procedura. La prima condizione della regola è la telemetria della temperatura del modulo A. La seconda condizione della regola si trova in una telemetria dell'umidità sul modulo B. Poiché le due condizioni sono da moduli diversi, si tratta di un set di condizioni non valido. La regola non è valida e genererà un errore durante il tentativo di salvare la regola.
+Le regole applicate ai moduli IoT Edge sono soggette a una restrizione. Le regole sui dati di telemetria di moduli diversi non vengono valutate come regole valide. Ad esempio, si supponga che la prima condizione della regola siano i dati di telemetria della temperatura del modulo A e che la seconda condizione siano i dati di telemetria dell'umidità nel modulo B. Poiché le due condizioni provengono da moduli diversi, questo set di condizioni non è valido. La regola non è valida e genera un errore quando si prova a salvarla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come configurare una regola nell'applicazione IoT Central di Azure, è possibile:
-
-> [!div class="nextstepaction"]
-> [Analizza i dati in tempo reale](howto-create-analytics.md)
+Ora che si è appreso come configurare una regola nell'applicazione Azure IoT Central, è possibile apprendere come [configurare le regole avanzate](howto-configure-rules-advanced.md) usando Power Automate o App per la logica di Azure.

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595390"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685167"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Creare un processo di analisi di flusso in SQL Edge di Azure (anteprima) 
 
@@ -22,6 +22,9 @@ Questo articolo illustra come creare un processo di Streaming T-SQL in SQL Edge 
 
 1. Creare gli oggetti di input e output del flusso esterno
 2. Definire la query del processo di streaming nell'ambito della creazione del processo di streaming.
+
+> [!NOTE]
+> Per abilitare la funzionalità di streaming T-SQL in SQL Edge di Azure, abilitare TF 11515 come opzione di avvio oppure usare il comando [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Per altre informazioni su come abilitare i flag di traccia usando il file mssql.conf, vedere [Configurazione tramite il file mssql.conf](configure.md#configure-using-mssqlconf-file). Questo requisito verrà rimosso negli aggiornamenti futuri di SQL Edge di Azure (anteprima).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Configurare un oggetto di input e output del flusso esterno
 

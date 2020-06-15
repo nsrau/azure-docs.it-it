@@ -1,35 +1,35 @@
 ---
 title: Uso di JSON in Azure Cosmos DB
-description: Informazioni su come eseguire una query e accedere alle proprietà JSON annidate e usare caratteri speciali in Azure Cosmos DB
+description: Informazioni su come eseguire query e accedere alle proprietà JSON annidate e usare caratteri speciali in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117020"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699134"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Uso di JSON in Azure Cosmos DB
 
-Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come JSON. Il sistema di tipi e le espressioni sono limitati a gestire solo i tipi JSON. Per ulteriori informazioni, vedere la [specifica JSON](https://www.json.org/).
+Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come file JSON. Il sistema di tipi e le espressioni sono quindi limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](https://www.json.org/).
 
 Verranno riepilogati alcuni aspetti importanti dell'uso di JSON:
 
-- Gli oggetti JSON iniziano sempre con una `{` parentesi graffa sinistra e terminano con una `}` parentesi graffa destra
-- È possibile [annidare](#nested-properties) le proprietà JSON tra loro
+- Gli oggetti JSON iniziano sempre con una parentesi graffa sinistra `{` e terminano con una parentesi graffa destra `}`
+- È possibile avere proprietà JSON [annidate](#nested-properties) l'una all'interno dell'altra
 - I valori delle proprietà JSON possono essere matrici
-- I nomi delle proprietà JSON sono maiuscole/minuscole
-- Il nome della proprietà JSON può essere qualsiasi valore stringa (inclusi spazi o caratteri che non sono lettere)
+- I nomi delle proprietà JSON distinguono tra maiuscole e minuscole
+- Il nome di una proprietà JSON può essere qualsiasi valore stringa (inclusi spazi o caratteri diversi da lettere)
 
 ## <a name="nested-properties"></a>Proprietà annidate
 
-È possibile accedere a JSON annidato usando una funzione di accesso punto. È possibile usare le proprietà JSON annidate nelle query nello stesso modo in cui è possibile usare qualsiasi altra proprietà.
+È possibile accedere a proprietà JSON annidate usando una funzione di accesso di tipo punto. È possibile usare proprietà JSON annidate in una query nello stesso modo in cui può essere usata qualsiasi altra proprietà.
 
-Ecco un documento con JSON annidato:
+Di seguito è riportato un documento con proprietà JSON annidate:
 
 ```JSON
 {
@@ -45,9 +45,9 @@ Ecco un documento con JSON annidato:
 }
 ```
 
-In questo caso, le `state` `country` proprietà, e `city` sono tutte annidate all'interno della `address` Proprietà.
+In questo caso, le proprietà `state`, `country` e `city` sono tutte annidate nella proprietà `address`.
 
-Nell'esempio seguente vengono proiettate due proprietà annidate: `f.address.state` e `f.address.city` .
+Nell'esempio seguente vengono proiettate due proprietà annidate: `f.address.state` e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -64,11 +64,11 @@ I risultati sono:
     }]
 ```
 
-## <a name="working-with-arrays"></a>Utilizzo delle matrici
+## <a name="working-with-arrays"></a>Utilizzo con matrici
 
-Oltre alle proprietà annidate, JSON supporta anche le matrici.
+Oltre alle proprietà annidate, il formato JSON supporta anche le matrici.
 
-Ecco un documento di esempio con una matrice:
+Di seguito è riportato un documento di esempio con una matrice:
 
 ```json
 {
@@ -90,7 +90,7 @@ Ecco un documento di esempio con una matrice:
 }
 ```
 
-Quando si utilizzano le matrici, è possibile accedere a un elemento specifico all'interno della matrice facendo riferimento alla relativa posizione:
+Quando si usano le matrici, è possibile accedere a un elemento specifico all'interno di una matrice facendo riferimento alla relativa posizione:
 
 ```sql
 SELECT *
@@ -98,9 +98,9 @@ FROM Families f
 WHERE f.children[0].givenName = "Jesse"
 ```
 
-Nella maggior parte dei casi, tuttavia, si utilizzerà una [sottoquery](sql-query-subquery.md) o un [self-join](sql-query-join.md) quando si utilizzano matrici.
+Nella maggior parte dei casi, tuttavia, quando si usano le matrici si ricorre a una [sottoquery](sql-query-subquery.md) o a un [self-join](sql-query-join.md).
 
-Ecco, ad esempio, un documento che mostra il saldo giornaliero del conto bancario del cliente.
+Di seguito, ad esempio, è riportato un documento che mostra il saldo giornaliero del conto corrente di un cliente.
 
 ```json
 {
@@ -127,7 +127,7 @@ Ecco, ad esempio, un documento che mostra il saldo giornaliero del conto bancari
 }
 ```
 
-Se si desidera eseguire una query che Mostra tutti i clienti che hanno avuto un saldo negativo a un certo punto, è possibile utilizzare [Exists](sql-query-subquery.md#exists-expression) con una sottoquery:
+Se si voleva eseguire una query che mostrasse tutti i clienti che in un dato momento avevano un saldo negativo, era possibile usare [EXISTS](sql-query-subquery.md#exists-expression) con una sottoquery:
 
 ```sql
 SELECT c.id
@@ -141,26 +141,24 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Parole chiave riservate e caratteri speciali in JSON
 
-È possibile accedere alle proprietà usando l'operatore di proprietà tra virgolette `[]` . Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
+È possibile accedere alle proprietà mediante l'operatore della proprietà di delimitazione `[]`. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi risulta utile quando di usano i caratteri di escape per una proprietà che contiene spazi, caratteri speciali o condivide lo stesso nome di una parola chiave SQL o una parola riservata.
 
-Ad esempio, di seguito è riportato un documento con una proprietà denominata `order` e una proprietà `price($)` che contiene caratteri speciali:
+Di seguito, ad esempio, è riportato un documento con una proprietà denominata `order` e una proprietà `price($)` contenente caratteri speciali:
 
 ```json
 {
   "id": "AndersenFamily",
-  "order": [
-     {
+  "order": {
          "orderId": "12345",
          "productId": "A17849",
          "price($)": 59.33
-     }
-  ],
+   },
   "creationDate": 1431620472,
   "isRegistered": true
 }
 ```
 
-Se si eseguono query che includono la `order` proprietà o la proprietà `price($)` , verrà visualizzato un errore di sintassi.
+Se si esegue una query che include la proprietà `order` o `price($)`, verrà visualizzato un errore di sintassi.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -176,7 +174,7 @@ Il risultato è:
 Syntax error, incorrect syntax near 'order'
 `
 
-È necessario riscrivere le stesse query come indicato di seguito:
+La query dovrebbe essere scritta come indicato di seguito:
 
 ```sql
 SELECT * FROM c WHERE c["order"].orderId = "12345"
@@ -208,7 +206,7 @@ I risultati sono:
     }]
 ```
 
-Nell'esempio precedente, la `SELECT` clausola deve creare un oggetto JSON e poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome della variabile dell'argomento implicito `$1` . La query seguente restituisce due variabili di argomento implicite: `$1` e `$2` .
+Nell'esempio precedente, la clausola `SELECT` deve creare un oggetto JSON e, poiché l'esempio non sono incluse chiavi, la clausola usa il nome della variabile di argomento implicita `$1`. La query seguente restituisce due variabili di argomento implicite: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -233,11 +231,11 @@ I risultati sono:
 
 ## <a name="aliasing"></a>Aliasing
 
-È possibile eseguire l'aliasing esplicito dei valori nelle query. Se una query ha due proprietà con lo stesso nome, usare l'aliasing per rinominare una o entrambe le proprietà in modo che siano ambiguità nel risultato previsto.
+È possibile eseguire l'aliasing esplicito dei valori nelle query. Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessario usare l'aliasing per rinominare una o entrambe le proprietà, in modo da evitare ambiguità nel risultato proiettato.
 
 ### <a name="examples"></a>Esempi
 
-La `AS` parola chiave usata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo valore come `NameInfo` :
+La parola chiave `AS` usata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo valore come `NameInfo`:
 
 ```sql
     SELECT
@@ -263,7 +261,7 @@ I risultati sono:
 
 ### <a name="aliasing-with-reserved-keywords-or-special-characters"></a>Aliasing con parole chiave riservate o caratteri speciali
 
-Non è possibile usare l'aliasing per proiettare un valore come nome di proprietà con uno spazio, un carattere speciale o una parola riservata. Se si vuole modificare la proiezione di un valore in, ad esempio, avere un nome di proprietà con uno spazio, è possibile usare un' [espressione JSON](#json-expressions).
+Non è possibile usare l'aliasing per proiettare un valore come nome di proprietà con uno spazio, un carattere speciale o una parola riservata. Se invece si volesse modificare la proiezione di un valore in modo da avere, ad esempio, un nome di proprietà con uno spazio, sarebbe possibile usare un'[espressione JSON](#json-expressions).
 
 Ad esempio:
 
@@ -277,6 +275,6 @@ Ad esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Clausola WHERE](sql-query-where.md)

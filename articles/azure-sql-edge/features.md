@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d33c2bef1cd0f7bfab4ec3c09f16c049881d1cd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0994ac1d28118869f0d5c2844a034623d101ee8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594620"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684379"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funzionalità supportate di SQL Edge di Azure (anteprima) 
 
@@ -34,7 +34,7 @@ SQL Edge di Azure è disponibile con due diverse edizioni o piani software. Ques
 
 ## <a name="operating-system"></a>Sistema operativo
 
-I contenitori SQL Edge di Azure sono attualmente basati su Ubuntu (16.04 e 18.04) e, di conseguenza, sono supportati solo per l'esecuzione in host Docker che eseguono Ubuntu 16.04 e 18.04. SQL Edge di Azure può essere eseguito anche in altri host del sistema operativo, ad esempio altre distribuzioni di Linux o in Windows (tramite Docker CE o Docker EE), tuttavia queste configurazioni non vengono testate in modo esteso da Microsoft.
+I contenitori di SQL Edge di Azure sono attualmente basati su Ubuntu 16.04 e, di conseguenza, sono supportati solo per l'esecuzione in host Docker che eseguono Ubuntu 16.04 (versione consigliata) o 18.04. SQL Edge di Azure può essere eseguito anche in altri host del sistema operativo, ad esempio altre distribuzioni di Linux o in Windows (tramite Docker CE o Docker EE), tuttavia queste configurazioni non vengono testate in modo esteso da Microsoft.
 
 SQL Edge di Azure è attualmente supportato solo per la distribuzione tramite Azure IoT Edge. Per altre informazioni sui sistemi supportati per Azure IoT Edge, vedere [Sistemi supportati da Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support).
 

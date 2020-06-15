@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Salesforce da app per la logica di Azure
+title: Connettersi a Salesforce da App per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio, la creazione e la gestione dei record Salesforce con App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 000f4381ef2a7c0a2099a021b991087725ff2070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 73aeef24fde9fe58b89f1aa7789970e77e985d50
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789291"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834833"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorare, creare e gestire le risorse di Salesforce con App per la logica di Azure
 
@@ -29,7 +29,7 @@ Con App per la logica di Azure e il connettore Salesforce, è possibile creare a
 
 * Un [account Salesforce](https://salesforce.com/).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Salesforce. Per iniziare con un trigger di Salesforce, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Salesforce, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -58,9 +58,9 @@ Con App per la logica di Azure e il connettore Salesforce, è possibile creare a
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/salesforce/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per domande, visitare la [pagina delle domande di Domande e risposte Microsoft per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

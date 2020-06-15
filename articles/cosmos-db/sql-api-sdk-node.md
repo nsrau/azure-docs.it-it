@@ -1,34 +1,35 @@
 ---
-title: "Azure Cosmos DB: API Node. js di SQL, risorse dell'SDK &"
+title: 'Azure Cosmos DB: API Node.js di SQL, SDK e risorse'
 description: Informazioni complete sull'SDK e sull'API Node.js di SQL, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Node.js SDK.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
-ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982889"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650732"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Node.js SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
+> * [Esecuzione bulk - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Risorsa  |Collegamento  |
 |---------|---------|
@@ -39,45 +40,45 @@ ms.locfileid: "80982889"
 | Esempi | [Esempi di codice Node.js](sql-api-nodejs-samples.md)
 | Esercitazione introduttiva | [Introduzione a JavaScript SDK](sql-api-nodejs-get-started.md)
 | Esercitazione sull'app Web | [Creare un'applicazione Web Node.js con Azure Cosmos DB](sql-api-nodejs-application.md)
-| Piattaforma attualmente supportata | [Node. js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK versione 3. x. x<br/>[Node. js V10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK versione 3. x. x<br/>[Node. js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK versione 3. x. x<br/>[Node. js V6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK versione 2. x. x<br/>[Node. js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)-SDK versione 1. x. x<br/> [Node. js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)-SDK versione 1. x. x<br/> [Node. js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)-SDK versione 1. x. x
+| Piattaforma attualmente supportata | [Node.js v12.x](https://nodejs.org/en/blog/release/v12.7.0/) - SDK versione 3.x.x<br/>[Node.js v10.x](https://nodejs.org/en/blog/release/v10.6.0/) - SDK versione 3.x.x<br/>[Node.js v8.x](https://nodejs.org/en/blog/release/v8.16.0/) - SDK versione 3.x.x<br/>[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK versione 2.x.x<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/) - SDK versione 1.x.x<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/) - SDK versione 1.x.x<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) - SDK versione 1.x.x
 
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name=""></a><a name="3.1.0"/>3.1.0</a>
-* Impostare il valore predefinito di ResponseContinuationTokenLimitInKB su 1 KB. Per impostazione predefinita, questa operazione viene limitata a 1 KB per evitare intestazioni lunghe (il limite delle dimensioni dell'intestazione globale è node. js). Un utente può impostare questo campo in modo da consentire intestazioni più lunghe, che possono aiutare il back-end a ottimizzare l'esecuzione delle query.
-* Rimuovere disableSSLVerification. Questa opzione include nuove alternative descritte in [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
+* ResponseContinuationTokenLimitInKB impostato sul valore predefinito 1 KB. Per impostazione predefinita, questo valore viene limitato a 1 KB per evitare intestazioni troppo lunghe (Node.js ha un limite globale di dimensioni dell'intestazione). Un utente può impostare questo campo in modo da consentire intestazioni più lunghe, che possono aiutare il back-end a ottimizzare l'esecuzione delle query.
+* Parametro disableSSLVerification rimosso. Questa opzione include nuove alternative descritte in [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
 ### <a name=""></a><a name="3.0.4"/>3.0.4</a>
-* Consenti a initialHeaders di impostare in modo esplicito l'intestazione della chiave di partizione
-* Usare i file Package. JSON # per impedire la pubblicazione di file estranei
-* Correzione dell'errore di ordinamento della mappa di routing nella versione precedente del nodo + V8
-* Corregge un bug quando l'utente fornisce opzioni di ripetizione dei tentativi parziali
+* Consentire a initialHeaders di impostare in modo esplicito l'intestazione della chiave di partizione
+* Usare package.json#files per impedire la pubblicazione di file estranei
+* Correggere l'errore di ordinamento della mappa di routing nella versione precedente di node+v8
+* È stato corretto il bug che si verificava quando l'utente specificava opzioni di ripetizione dei tentativi parziali
 
 ### <a name=""></a><a name="3.0.3"/>3.0.3</a>
-* Impedisci a Webpack di risolvere i moduli chiamati con require
+* È stato impedito a Webpack di risolvere i moduli chiamati con require
 
 ### <a name=""></a><a name="3.0.2"/>3.0.2</a>
-* Corregge un bug in attesa lungo dove le UR venivano sempre segnalate come 0 per le query di aggregazione
+* È stato risolto un bug sospeso da tempo in cui le unità riservate risultavano sempre 0 per le query di aggregazione
 
 ### <a name=""></a><a name="3.0.0"/>3.0.0</a>
 
-🎉 versione V3 🎉 numerose nuove funzionalità, correzioni di bug e alcune modifiche di rilievo. Obiettivi principali di questa versione:
+🎉 Versione 3! 🎉 Molte nuove funzionalità, correzioni di bug e alcune modifiche di rilievo. Obiettivi principali di questa versione:
 
-* Implementare nuove funzionalità principali
-  * Query DISTINte
+* Implementare nuove funzionalità importanti
+  * Query DISTINCT
   * Query LIMIT/OFFSET
   * Richieste annullabili dall'utente
-* Eseguire l'aggiornamento alla versione più recente dell'API REST Cosmos in cui tutti i contenitori hanno scalabilità illimitata
+* Eseguire l'aggiornamento alla versione più recente dell'API REST Cosmos, in cui tutti i contenitori hanno scalabilità illimitata
 * Semplificare l'uso di Cosmos dal browser
-* Allinea meglio alle nuove linee guida di Azure JS SDK
+* Conformarsi meglio alle nuove linee guida di Azure JS SDK
 
-#### <a name="migration-guide-for-breaking-changes"></a>Guida alla migrazione per le modifiche di rilievo
-##### <a name="improved-client-constructor-options"></a>Miglioramento delle opzioni del costruttore client
+#### <a name="migration-guide-for-breaking-changes"></a>Guida alla migrazione per modifiche di rilievo
+##### <a name="improved-client-constructor-options"></a>Ottimizzazione delle opzioni del costruttore client
 
 Sono state semplificate le opzioni del costruttore:
 
-* la chiave è stata rinominata e spostata nel livello superiore
-* Le proprietà in precedenza in options. auth sono state spostate nel livello superiore
+* masterKey è stata rinominata key e spostata nel primo livello
+* Le proprietà che in precedenza si trovavano in options.auth sono state spostate nel primo livello
 
 ``` js
 // v2
@@ -96,14 +97,14 @@ const client = new CosmosClient({
 ```
 
 ##### <a name="simplified-queryiterator-api"></a>API QueryIterator semplificata
-Nella versione V2 erano disponibili molti modi per eseguire un'iterazione o recuperare i risultati di una query. Si è provato a semplificare l'API V3 e a rimuovere API simili o duplicate:
+Nella versione 2 erano disponibili molti modi diversi per scorrere o recuperare i risultati di una query. Si è provato a semplificare l'API v3 e a rimuovere API simili o duplicate:
 
-* Rimuovere iterator. Next () e Iterator. Current (). Utilizzare fetchNext () per ottenere pagine di risultati.
-* Rimuovere iterator. forEach (). Usare invece gli iteratori asincroni.
-* iterator. executeNext () rinominato in Iterator. fetchNext ()
-* iterator. ToArray () rinominato in Iterator. fetchAll ()
-* Le pagine sono ora oggetti di risposta appropriati anziché oggetti JS semplici
-* const container = client. database (dbId). container (containerId)
+* Sono stati rimossi iterator.next() e iterator.current(). È stato usato fetchNext() per ottenere pagine di risultati.
+* È stato rimosso iterator.forEach(). Vengono usati invece iteratori asincroni.
+* iterator.executeNext() è stato rinominato in iterator.fetchNext()
+* iterator.toArray() è stato rinominato in iterator.fetchAll()
+* Le pagine sono ora oggetti Response appropriati anziché oggetti JS semplici
+* const container = client.database(dbId).container(containerId)
 
 ``` js
 // v2
@@ -120,13 +121,13 @@ for await(const { result: item } in client.databases.readAll().getAsyncIterator(
 ```
 
 ##### <a name="fixed-containers-are-now-partitioned"></a>I contenitori fissi sono ora partizionati
-Il servizio Cosmos supporta ora le chiavi di partizione in tutti i contenitori, inclusi quelli creati in precedenza come contenitori fissi. L'SDK V3 viene aggiornato alla versione più recente dell'API che implementa questa modifica, ma non si interrompe. Se non si specifica una chiave di partizione per le operazioni, per impostazione predefinita viene usata una chiave di sistema che funziona con tutti i contenitori e i documenti esistenti.
+Il servizio Cosmos supporta ora chiavi di partizione in tutti i contenitori, inclusi quelli precedentemente creati come contenitori fissi. L'SDK v3 è stato aggiornato alla versione più recente dell'API che implementa questa modifica senza determinare un'interruzione. Se non si specifica una chiave di partizione per le operazioni, viene automaticamente usata una chiave di sistema compatibile con tutti i contenitori e i documenti esistenti.
 
-##### <a name="upsert-removed-for-stored-procedures"></a>Upsert rimossi per le stored procedure
-In precedenza Upsert era consentito per le raccolte non partizionate, ma con l'aggiornamento della versione dell'API, tutte le raccolte vengono partizionate in modo da essere rimosse completamente.
+##### <a name="upsert-removed-for-stored-procedures"></a>È stato rimosso l'upsert per le stored procedure
+In precedenza, era possibile usare l'upsert per le raccolte non partizionate, ma con l'aggiornamento della versione dell'API, tutte le raccolte sono ora partizionate e, di conseguenza, l'upsert è stato completamente rimosso.
 
-##### <a name="item-reads-will-not-throw-on-404"></a>Le letture di elementi non vengono generate il 404
-const container = client. database (dbId). container (containerId)
+##### <a name="item-reads-will-not-throw-on-404"></a>La lettura di elementi non genera più l'eccezione 404
+const container = client.database(dbId).container(containerId)
 
 ``` js
 // v2
@@ -141,15 +142,15 @@ const { result: item }  = container.items.read(id, undefined)
 if (item === undefined) { console.log('item not found') }
 ```
 
-##### <a name="default-multi-region-write"></a>Scrittura predefinita in più aree
-Per impostazione predefinita, l'SDK scriverà in più aree se la configurazione di Cosmos la supporta. Questo comportamento è stato precedentemente esplicito.
+##### <a name="default-multi-region-write"></a>Scritture in più aree predefinita
+Per impostazione predefinita, l'SDK scriverà ora in più aree, se supportato dalla configurazione di Cosmos. In precedenza, per questo comportamento era necessario il consenso esplicito.
 
 ##### <a name="proper-error-objects"></a>Oggetti errore appropriati
-Le richieste non riuscite ora generano errori o sottoclassi di errore appropriati. In precedenza hanno generato oggetti JS semplici.
+Le richieste non riuscite generano ora errori o sottoclassi di errore appropriati. In precedenza, generavano oggetti JS semplici.
 
 #### <a name="new-features"></a>Nuove funzionalità
 ##### <a name="user-cancelable-requests"></a>Richieste annullabili dall'utente
-Il passaggio a fetch interna consente di usare l'API AbortController del browser per supportare le operazioni annullabili dall'utente. Nel caso di operazioni in cui sono potenzialmente in corso più richieste (ad esempio query tra partizioni), tutte le richieste per l'operazione verranno annullate. Gli utenti del browser moderni avranno già AbortController. Gli utenti node. js dovranno usare una libreria di riempimento
+Con il passaggio al fetch interno, è possibile usare l'API AbortController del browser per supportare le operazioni annullabili dall'utente. Nel caso di un'operazione in cui sono potenzialmente in corso più richieste (ad esempio, query tra più partizioni), tutte le richieste per l'operazione verranno annullate. Gli utenti dei browser moderni hanno già a disposizione AbortController. Gli utenti di Node.js dovranno invece usare una libreria polyfill
 
 ``` js
  const controller = new AbortController()
@@ -157,17 +158,17 @@ Il passaggio a fetch interna consente di usare l'API AbortController del browser
  controller.abort()
 ```
 
-##### <a name="set-throughput-as-part-of-dbcontainer-create-operation"></a>Imposta la velocità effettiva come parte dell'operazione di creazione del contenitore/database
+##### <a name="set-throughput-as-part-of-dbcontainer-create-operation"></a>Impostazione della velocità effettiva inclusa nell'operazione di creazione del database/contenitore
 ``` js
 const { database }  = client.databases.create({ id: 'my-database', throughput: 10000 })
 database.containers.create({ id: 'my-container', throughput: 10000 })
 ```
 
 ##### <a name="azurecosmos-sign"></a>@azure/cosmos-sign
-La generazione del token di intestazione è stata suddivisa in @azure/cosmos-signuna nuova libreria. Chiunque chiami direttamente l'API REST di Cosmos può usarlo per firmare le intestazioni usando lo stesso codice chiamato @azure/cosmosall'interno.
+La generazione del token di intestazione è stata suddivisa in una nuova libreria, @azure/cosmos-sign. Chiunque chiami direttamente l'API REST di Cosmos può usarla per firmare le intestazioni usando lo stesso codice chiamato in @azure/cosmos.
 
-##### <a name="uuid-for-generated-ids"></a>UUID per gli ID generati
-V2 dispone di codice personalizzato per generare ID elemento. È stato passato l'UUID della libreria community ben nota e gestita.
+##### <a name="uuid-for-generated-ids"></a>UUID per ID generati
+Nella versione 2 era disponibile codice personalizzato per la generazione di ID elemento. È stata eseguita la transizione all'UUID della libreria della community, già noto e correttamente gestito.
 
 ##### <a name="connection-strings"></a>Stringhe di connessione
 È ora possibile passare una stringa di connessione copiata dal portale di Azure:
@@ -180,71 +181,71 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Esperienza browser migliorata
-Sebbene sia possibile utilizzare l'SDK v2 nel browser, non è stata un'esperienza ideale. È necessario riempire diverse librerie predefinite di node. js e usare un bundler come Webpack o pacco. L'SDK V3 rende l'esperienza predefinita molto migliore per gli utenti del browser.
+Sebbene fosse possibile usare l'SDK v2 nel browser, non era un'esperienza ottimale. Era infatti necessario eseguire il polyfill di varie librerie predefinite di node.js e usare un bundler come Webpack o Parcel. Con l'SDK V3 l'esperienza d'uso del browser risulta considerevolmente migliorata.
 
-* Sostituisci elementi interni richiesta con recupero (#245)
-* Rimuovi utilizzo del buffer (#330)
-* Rimuovere l'utilizzo incorporato del nodo a favore di pacchetti/API universali (#328)
-* Passa a node-Abort-controller (#294)
+* Sono stati sostituiti alcuni elementi interni request con fetch (n. 245)
+* È stato rimosso l'utilizzo del buffer (n. 330)
+* È stato eliminato l'utilizzo predefinito del nodo a favore di pacchetti/API universali (#328)
+* Si è passati a node-abort-controller (n. 294)
 
 #### <a name="bug-fixes"></a>Correzioni di bug
-* Correzione dell'offerta leggere e ripristinare i test dell'offerta (#224)
-* Correzione di EnableEndpointDiscovery (#207)
-* Correggi le UR mancanti nei risultati impaginati (#360)
-* Espandi tipo di parametro query SQL (#346)
-* Aggiungere la durata (TTL) a ItemDefinition (#341)
-* Correggere le metriche delle query CP (#311)
-* Aggiungere activityId a FeedResponse (#293)
-* Passa _ts tipo da stringa a numero (#252) (#295)
-* Correzione aggregazione addebito richieste (#289)
-* Consenti chiavi di partizione stringa vuote (#277)
-* Aggiungi stringa al tipo di query dei conflitti (#237)
-* Aggiungere uniqueKeyPolicy al contenitore (#234)
+* È stata corretta la lettura di offerte e sono stati ripristinati i test delle offerte (#224)
+* È stato corretto EnableEndpointDiscovery (n. 207)
+* Sono state corrette le unità riservate nei risultati impaginati (n. 360)
+* È stato esteso il tipo di parametro delle query SQL (n. 346)
+* È stata aggiunta la durata TTL a ItemDefinition (n. 341)
+* Sono state corrette le metriche delle query CP (n. 311)
+* È stato aggiunto activityId a FeedResponse (n. 293)
+* Il tipo_ts è stato convertito da stringa a numero (n. 252)(n. 295)
+* È stata corretta l'aggregazione di addebiti delle richieste (n. 289)
+* Sono state consentite chiavi di partizione di stringhe vuote (n. 277)
+* È stata aggiunta una stringa al tipo di query dei conflitti (n. 237)
+* È stato aggiunto uniqueKeyPolicy al contenitore (n. 234)
 
-#### <a name="engineering-systems"></a>Sistemi di progettazione
-Non sempre le modifiche più visibili, ma consentono al team di fornire codice migliore, più velocemente.
+#### <a name="engineering-systems"></a>Sistemi di ingegneria
+Non sempre riguardano le modifiche più visibili, ma consentono al personale di fornire più rapidamente codice migliore.
 
-* Usare rollup per le compilazioni di produzione (#104)
-* Aggiornamento a typescript 3,5 (#327)
-* Converti in riferimenti al progetto di Servizi terminal. Estrai cartella test (#270)
-* Abilitare noUnusedLocals e noUnusedParameters (#275)
-* Azure Pipelines YAML per le compilazioni CI (#298)
+* È stato usato il rollup per le build di produzione (n. 104)
+* È stato eseguito l'aggiornamento a Typescript 3.5 (n. 327)
+* È stata eseguita la conversione a riferimenti di progetti TS. È stata estratta la cartella di test (n. 270)
+* Sono stati abilitati noUnusedLocals e noUnusedParameters (n. 275)
+* File YAML di Azure Pipelines per build CI (n. 298)
 
 ### <a name=""></a><a name="2.1.5"/>2.1.5</a>
-* Non vengono apportate modifiche al codice. Corregge un problema per cui alcuni file aggiuntivi sono stati inclusi nel pacchetto 2.1.4.
+* Nessuna modifica del codice. È stato corretto un problema per cui nel pacchetto 2.1.4 erano stati inclusi alcuni file in eccesso.
 
 ### <a name=""></a><a name="2.1.4"/>2.1.4</a>
-* Correzione del failover a livello di area entro i criteri di ripetizione
-* Correzione della proprietà hasMoreResults di offre
-* Aggiornamenti delle dipendenze di sviluppo
-* Aggiungere PolicheckExclusions. txt
+* È stato corretto il processo di failover a livello di area nell'ambito dei criteri di ripetizione
+* È stata corretta la proprietà ChangeFeed hasMoreResults
+* Sono state aggiornate le dipendenze di sviluppo
+* È stato aggiunto PolicheckExclusions.txt
 
 ### <a name=""></a><a name="2.1.3"/>2.1.3</a>
-* Passa _ts tipo da stringa a numero
-* Correggi i test di indicizzazione predefiniti
-* Backporting uniqueKeyPolicy alla versione V2
-* Correzioni di debug demo e demo
+* Il tipo_ts è stato convertito da stringa a numero
+* Sono stati corretti i test di indicizzazione predefiniti
+* È stato eseguito il backport di uniqueKeyPolicy alla versione 2
+* Sono state apportate correzioni a livello di demo e debug delle demo
 
 ### <a name=""></a><a name="2.1.2"/>2.1.2</a>
-* Correzioni dell'offerta backporting dal ramo V3
-* Correzione di un bug nella firma del tipo executeNext ()
-* Correzioni di errori di digitazione
+* È stato eseguito il backport delle correzioni delle offerte dal ramo V3
+* È stato corretto un bug nella firma di tipo executeNext()
+* Sono stati corretti errori di battitura
 
 ### <a name=""></a><a name="2.1.1"/>2.1.1</a>
-* Ristrutturazione della compilazione. Consente di estrarre la versione dell'SDK in fase di compilazione.
+* È stata eseguita la ristrutturazione della build. È stato consentito il pull della versione dell'SDK in fase di compilazione.
 
 ### <a name=""></a><a name="2.1.0"/>2.1.0</a>
 #### <a name="new-features"></a>Nuove funzionalità
-* Aggiunta del supporto offre (#196)
-* Aggiunto DataType MultiPolygon per l'indicizzazione (#191)
-* Aggiungere la proprietà "Key" al costruttore come alias per il #202
+* È stato aggiunto il supporto per ChangeFeed (#196)
+* È stato aggiunto il datatype MultiPolygon per l'indicizzazione (n. 191)
+* È stata aggiunta la proprietà "key" al costruttore come alias per masterKey (#202)
 
 #### <a name="fixes"></a>Correzioni
-* Correzione di un bug in cui Next () restituisce un valore errato nell'iteratore
+* È stato corretto il bug per cui next() restituiva un valore errato nell'iteratore
 
-#### <a name="engineering-improvements"></a>Miglioramenti della progettazione
-* Aggiungi test di integrazione per l'utilizzo di typescript (#199)
-* Abilitare l'installazione direttamente da GitHub (#194)
+#### <a name="engineering-improvements"></a>Miglioramenti di progettazione
+* È stato aggiunto un test di integrazione per l'utilizzo di typescript (n. 199)
+* È stata abilitata l'installazione diretta da GitHub (n. 194)
 
 ### <a name=""></a><a name="2.0.5"/>2.0.5</a>
 * Aggiunge l'interfaccia per il tipo di agente del nodo. Gli utenti di Typescript non devono più installare @types/node come dipendenza
@@ -295,7 +296,7 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 
 ### <a name=""></a><a name="1.14.0"/>1.14.0</a>
 * Aggiunge il supporto per la coerenza di sessione.
-* Questa versione dell'SDK richiede la versione più recente dell' [emulatore Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
+* Questa versione dell'SDK richiede la versione più recente dell'[emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
 ### <a name=""></a><a name="1.13.0"/>1.13.0</a>
 * Query indivisibili su più partizioni.
@@ -318,7 +319,7 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
-* È stata aggiunta l'opzione per disabilitare la verifica TLS durante l'esecuzione sull'emulatore Azure Cosmos DB.
+* Aggiunta dell'opzione per disabilitare la verifica TLS durante l'esecuzione sull'emulatore Azure Cosmos DB.
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 * Correzione del bug del token di continuazione per la raccolta a partizione singola. Problema GitHub n. 107.
 * Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo. Problema GitHub n. 155.
@@ -328,7 +329,7 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 * Pulizia del codice di minore entità.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* Disabilitazione della verifica TLS quando si usa l'SDK per la destinazione dell'emulatore (hostname = localhost).
+* Disabilitazione della verifica TLS durante l'uso dell'SDK per l'emulatore(nomehost=host).
 * Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>
@@ -336,7 +337,7 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 * Aggiunta del supporto per le query TOP/ORDER BY nelle raccolte partizionate.
 
 ### <a name=""></a><a name="1.9.0"/>1.9.0</a>
-* Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (Le richieste limitate ricevono un'eccezione della frequenza di richieste troppo grande, codice di errore 429). Per impostazione predefinita, Azure Cosmos DB ritenta nove volte per ogni richiesta quando viene rilevato il codice di errore 429, rispettando l'ora di retryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Azure Cosmos DB attende al massimo 30 secondi per ogni richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
+* Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, Cosmos DB esegue nove tentativi per ogni richiesta con codice di errore 429, rispettando l'intervallo di tempo di retryAfter specificato nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Azure Cosmos DB attende al massimo 30 secondi per ogni richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
 * Cosmos DB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il numero di nuovi tentativi di limitazione e il tempo cumulativo di attesa della richiesta tra i tentativi.
 * La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
 
@@ -353,10 +354,10 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 * Correzione del bug RangePartitionResolver.resolveForRead, relativo alla mancata restituzione di collegamenti a causa di un concatenamento non valido dei risultati.
 
 ### <a name=""></a><a name="1.5.5"/>1.5.5</a>
-* Correzione del problema di hashPartitionResolver resolveForRead(): se non veniva specificata una chiave di partizione, veniva generata un'eccezione, anziché l'elenco di tutti i collegamenti registrati.
+* Corretto hashPartitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
 
 ### <a name=""></a><a name="1.5.4"/>1.5.4</a>
-* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Usare un agente dedicato per tutte le richieste di lib.
+* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Uso di un agente dedicato per tutte le richieste della libreria.
 
 ### <a name=""></a><a name="1.5.3"/>1.5.3</a>
 * Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.
@@ -386,7 +387,7 @@ Non sempre le modifiche più visibili, ma consentono al team di fornire codice m
 
 ### <a name=""></a><a name="1.2.0"/>1.2.0</a>
 * Aggiunta del supporto per l'indice GeoSpatial
-* Convalida la proprietà id per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri?,/, #,  &#47;&#47;, o terminare con uno spazio.
+* Convalida della proprietà ID per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri ?, /, #, &#47;&#47; o terminare con uno spazio.
 * Aggiunge la nuova intestazione "stato di trasformazione dell'indice" a ResourceResponse.
 
 ### <a name=""></a><a name="1.1.0"/>1.1.0</a>
@@ -414,7 +415,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni **1. x** di node client SDK per l'API SQL verranno ritirate il **30 agosto 2020**. Questo influisce solo sull'SDK del nodo lato client e non influisce sugli script sul lato server (stored procedure, trigger e funzioni definite dall'utente).
+> Tutte le versioni **1.x** di Node Client SDK per API SQL verranno ritirate il **30 agosto 2020**. Questa operazione riguarda solo Node SDK sul lato client e non gli script sul lato server (stored procedure, trigger e funzioni definite dall'utente).
 > 
 >
 <br/>
@@ -424,7 +425,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | [3.1.0](#3.1.0) |26 luglio 2019 |--- |
 | [3.0.4](#3.0.4) |22 luglio 2019 |--- |
 | [3.0.3](#3.0.3) |17 luglio 2019 |--- |
-| [3.0.2](#3.0.2) |09 luglio 2019 |--- |
+| [3.0.2](#3.0.2) |9 luglio 2019 |--- |
 | [3.0.0](#3.0.0) |28 giugno 2019 |--- |
 | [2.1.5](#2.1.5) |20 marzo 2019 |--- |
 | [2.1.4](#2.1.4) |15 marzo 2019 |--- |

@@ -1,6 +1,6 @@
 ---
 title: Linee guida per la progettazione di tabelle replicate
-description: Suggerimenti per la progettazione di tabelle replicate in sinapsi SQL
+description: Suggerimenti per la progettazione di tabelle replicate nel pool Synapse SQL
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,38 +11,38 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990787"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660031"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Linee guida di progettazione per l'uso di tabelle replicate in SQL Analytics
+# <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Linee guida di progettazione per l'uso di tabelle replicate nel pool Synapse SQL
 
-Questo articolo fornisce consigli per la progettazione di tabelle replicate nello schema di analisi SQL. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
+Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nel pool Synapse SQL. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati in analisi SQL.Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md).
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md).
 
-Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.Ad esempio, considerare queste domande:
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
 - Quali sono le dimensioni della tabella?
 - Quanto spesso viene aggiornata la tabella?
-- Sono presenti tabelle dei fatti e delle dimensioni in un database di analisi SQL?
+- Sono presenti tabelle dei fatti e delle dimensioni in un pool SQL?
 
 ## <a name="what-is-a-replicated-table"></a>Che cos'è una tabella replicata?
 
 Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare tabelle di dimensioni maggiori.
 
-Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. In SQL Analytics la tabella replicata viene copiata completamente in un database di distribuzione in ogni nodo di calcolo.
+Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. Nel pool SQL la tabella replicata viene interamente copiata in un database di distribuzione in ogni nodo di calcolo.
 
 ![Tabella replicata](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabella replicata")  
 
-Le tabelle replicate funzionano correttamente per le tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni vengono in genere unite in join alle tabelle dei fatti distribuite in modo diverso rispetto alla tabella delle dimensioni.  Le dimensioni sono in genere di dimensioni che rendono possibile l'archiviazione e la gestione di più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La natura a modifica lenta dei dati conduce a una minore manutenzione della tabella replicata.
+Le tabelle replicate sono adatte alle tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni vengono in genere unite in join a tabelle dei fatti distribuite in modo diverso rispetto alle tabelle delle dimensioni.  Le dimensioni hanno in genere dimensioni tali da rendere possibile l'archiviazione e la conservazione di più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La rarità delle modifiche dei dati comporta un numero minore di interventi di manutenzione della tabella replicata.
 
 Provare a usare una tabella replicata nei casi seguenti:
 
@@ -51,9 +51,9 @@ Provare a usare una tabella replicata nei casi seguenti:
 
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
-- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione.Le operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata.La ricompilazione causa spesso un rallentamento delle prestazioni.
-- Il database di analisi SQL viene ridimensionato di frequente. Il ridimensionamento di un database di analisi SQL consente di modificare il numero di nodi di calcolo, che comporta la ricompilazione della tabella replicata.
-- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Analytics sposta solo i dati per le colonne richieste.
+- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Le operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
+- Il database del pool SQL viene ridimensionato di frequente. Il ridimensionamento di un database del pool SQL cambia il numero di nodi di calcolo. Questo comporta la ricompilazione della tabella replicata.
+- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, il pool SQL sposta solo i dati per le colonne richieste.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
 
@@ -64,7 +64,7 @@ Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di
 
 Le query che richiedono un uso intensivo della CPU hanno prestazioni migliori quando il lavoro viene distribuito tra tutti i nodi di calcolo. Ad esempio, le query che eseguono calcoli in ogni riga di una tabella hanno prestazioni migliori nelle tabelle distribuite che non nelle tabelle replicate. Poiché una tabella replicata viene completamente archiviata in ogni nodo di calcolo, una query che richiede un uso intensivo di CPU su una tabella replicata viene eseguita sull'intera tabella in ogni nodo di calcolo. Il calcolo aggiuntivo può rallentare le prestazioni delle query.
 
-Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando i dati si trova in una tabella distribuita anziché in una tabella replicata. In questo esempio, i dati possono essere distribuiti con Round Robin.
+Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente se i dati sono in una tabella distribuita anziché in una tabella replicata. In questo esempio i dati possono avere una distribuzione round robin.
 
 ```sql
 
@@ -76,7 +76,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertire le tabelle round robin esistenti in tabelle replicate
 
-Se sono già presenti tabelle Round Robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri descritti in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join.
+Se sono già presenti tabelle round robin che soddisfano i criteri specificati in questo articolo, è consigliabile convertirle in tabelle replicate. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join.
 
 Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
 
@@ -124,12 +124,12 @@ WHERE d.FiscalYear = 2004
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerazioni sulle prestazioni per la modifica di tabelle replicate
 
-SQL Analytics implementa una tabella replicata gestendo una versione master della tabella. Copia la versione master nel primo database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Analytics aggiorna prima di tutto la versione master, quindi ricompila le tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Una tabella replicata in un DW2000c, ad esempio, contiene 5 copie dei dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Analytics usa questo modello per supportare le istruzioni di modifica dei dati più veloci e le operazioni di ridimensionamento flessibili.
+Il pool SQL implementa una tabella replicata mantenendo una versione master della tabella. Copia la versione master nel primo database di distribuzione in ogni nodo di calcolo. Quando viene eseguita una modifica, prima viene aggiornata la versione master e quindi le tabelle in ogni nodo di calcolo vengono ricompilate. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Una tabella replicata su DW2000c, ad esempio, ha 5 copie dei dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. Il pool SQL usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di ridimensionamento flessibili.
 
 Le compilazioni sono necessarie dopo le operazioni seguenti:
 
 - Vengono caricati o modificati dati
-- L'istanza di SQL sinapsi viene ridimensionata a un livello diverso
+- L'istanza di Synapse SQL viene ridimensionata a un livello diverso
 - Viene aggiornata la definizione di tabella
 
 Le ricompilazioni non sono necessarie dopo le operazioni seguenti:
@@ -141,9 +141,9 @@ La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. A
 
 ### <a name="use-indexes-conservatively"></a>Usare gli indici con moderazione
 
-Alle tabelle replicate si applicano le procedure di indicizzazione standard. Analisi SQL ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.
+Alle tabelle replicate si applicano le procedure di indicizzazione standard. Il pool SQL ricompila ogni indice di tabella replicata nell'ambito della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.
 
-### <a name="batch-data-load"></a>Caricamento dati batch
+### <a name="batch-data-load"></a>Caricamento dati in batch
 
 Quando si caricano dati in tabelle replicate, provare a ridurre al minimo le ricompilazioni eseguendo i caricamenti in batch. Eseguire tutti i caricamenti in batch prima di eseguire istruzioni di selezione.
 
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 Per creare una tabella replicata, usare una di queste istruzioni:
 
-- [CREATE TABLE (analisi SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE come SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (pool SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Per una panoramica delle tabelle distribuite, vedere [Tabelle distribuite](sql-data-warehouse-tables-distribute.md).

@@ -1,17 +1,17 @@
 ---
 title: Creare o unire rami paralleli per le azioni nei flussi di lavoro
-description: Informazioni su come creare o unire rami di esecuzione parallela per azioni del flusso di lavoro indipendenti in app per la logica di Azure
+description: Informazioni su come creare o unire rami con esecuzione parallela per azioni di flussi di lavoro indipendenti in App per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f857449d4511b6ae0a5a25bf7aca9e1abc1ae7c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453423"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833694"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Creare o aggiungere rami paralleli per le azioni del flusso di lavoro nelle App per la logica di Azure
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, le azioni nei flussi di lavoro dell'app per la log
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="parallel-branches"></a>
 
@@ -41,7 +41,7 @@ L'app per la logica attende il completamento di tutti i rami prima di continuare
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> aprire l'app per la logica in Progettazione app per la logica.
 
-1. Spostare il puntatore sulla freccia sopra il passaggio in cui si vogliono aggiungere i rami paralleli. Fare clic sul segno **più** (**+**) visualizzato e quindi scegliere **Aggiungi un ramo parallelo**. 
+1. Spostare il puntatore sulla freccia sopra il passaggio in cui si vogliono aggiungere i rami paralleli. Fare clic sul segno **più** ( **+** ) visualizzato e quindi scegliere **Aggiungi un ramo parallelo**. 
 
    ![Aggiungere il ramo parallelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ L'app per la logica attende il completamento di tutti i rami prima di continuare
 
    ![Trovare e selezionare l'azione desiderata](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Ora in ogni ramo parallelo aggiungere i passaggi desiderati. Per aggiungere un'altra azione a un ramo, spostare il puntatore sotto l'azione in cui si vuole aggiungere un'azione sequenziale. Scegliere il **plus** segno più**+**() visualizzato, quindi selezionare **Aggiungi un'azione**.
+1. Ora in ogni ramo parallelo aggiungere i passaggi desiderati. Per aggiungere un'altra azione a un ramo, spostare il puntatore sotto l'azione in cui si vuole aggiungere un'azione sequenziale. Scegliere il segno **più** ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
    ![Aggiungere un'azione sequenziale al ramo parallelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -181,9 +181,9 @@ Se si usa la visualizzazione Codice, è invece possibile definire la struttura d
 }
 ```
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

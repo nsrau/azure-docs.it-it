@@ -1,36 +1,37 @@
 ---
-title: Filtro basato su Intelligence per le minacce del firewall di Azure
+title: Filtro basato sull'intelligence sulle minacce del firewall di Azure
 description: I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74168667"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655081"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtro basato su Intelligence per le minacce del firewall di Azure
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtro basato sull'intelligence sulle minacce del firewall di Azure
 
-I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Power Intelligence per le minacce di Microsoft e viene usato da più servizi, incluso il Centro sicurezza di Azure.
+I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft. La soluzione Microsoft Threat Intelligence, basata su [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence), viene usata da più servizi, tra cui Centro sicurezza di Azure.<br>
+<br>
 
-![Intelligence per le minacce del firewall](media/threat-intel/firewall-threat.png)
+:::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Intelligence sulle minacce del firewall" border="false":::
 
-Se è stato abilitato il filtro basato su Intelligence per le minacce, le regole associate vengono elaborate prima delle regole NAT, delle regole di rete o delle regole dell'applicazione.
+Se è stato abilitato il filtro basato sull'intelligence sulle minacce, le regole associate vengono elaborate prima delle regole NAT, delle regole di rete o delle regole dell'applicazione.
 
-È possibile scegliere di registrare un avviso solo quando viene attivata una regola oppure è possibile scegliere la modalità di avviso e di negazione.
+È possibile scegliere di registrare un avviso solo quando viene attivata una regola oppure scegliere la modalità Avvisa e nega.
 
-Per impostazione predefinita, il filtro basato su Intelligence per le minacce è abilitato in modalità avviso. Non è possibile disattivare questa funzionalità o modificare la modalità finché l'interfaccia del portale non diventa disponibile nella propria area.
+Per impostazione predefinita, il filtro basato sull'intelligence sulle minacce è abilitato in modalità di avviso. Non è possibile disattivare questa funzionalità o cambiare la modalità finché l'interfaccia del portale non diventa disponibile nella propria area.
 
-![Interfaccia del portale di filtro basato su Intelligence per le minacce](media/threat-intel/threat-intel-ui.png)
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interfaccia del portale per il filtro basato sull'intelligence sulle minacce":::
 
 ## <a name="logs"></a>Log
 
-L'Estratto di log seguente mostra una regola attivata:
+L'estratto di log seguente mostra una regola attivata:
 
 ```
 {
@@ -46,12 +47,12 @@ L'Estratto di log seguente mostra una regola attivata:
 
 ## <a name="testing"></a>Test
 
-- **Test in uscita** : gli avvisi del traffico in uscita devono essere un evento raro, perché significa che l'ambiente è stato compromesso. Per testare il funzionamento degli avvisi in uscita, è stato creato un FQDN di test che attiva un avviso. Usare **testmaliciousdomain.eastus.cloudapp.Azure.com** per i test in uscita.
+- **Test in uscita**: gli avvisi del traffico in uscita dovrebbero essere un evento raro, poiché indicano che l'ambiente è stato compromesso. Per testare il funzionamento degli avvisi in uscita, è stato creato un nome di dominio completo di test che attiva un avviso. Usare **testmaliciousdomain.eastus.cloudapp.azure.com** per i test in uscita.
 
-- **Test in ingresso** : è possibile prevedere di visualizzare gli avvisi sul traffico in ingresso se le regole di DNAT sono configurate sul firewall. Questo vale anche se sono consentite solo origini specifiche nella regola DNAT e il traffico viene negato in altro modo. Il firewall di Azure non invia avvisi su tutti gli scanner di porta noti; solo sugli scanner noti per coinvolgere anche attività dannose.
+- **Test in ingresso**: gli avvisi sul traffico in ingresso vengono in genere visualizzati se le regole DNAT sono configurate sul firewall. Questo vale anche se sono consentite solo origini specifiche nella regola DNAT e il traffico viene negato negli altri casi. Il firewall di Azure non invia avvisi su tutti gli scanner di porta noti, ma solo su quelli che sono anche notoriamente coinvolti in attività dannose.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli [esempi di log Analytics del firewall di Azure](log-analytics-samples.md)
-- Informazioni su come [distribuire e configurare un firewall di Azure](tutorial-firewall-deploy-portal.md)
-- Esaminare il [report di intelligence sulla sicurezza Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Vedere [Esempi di Log Analytics per Firewall di Azure](log-analytics-samples.md)
+- Informazioni su come [distribuire e configurare Firewall di Azure](tutorial-firewall-deploy-portal.md)
+- Esaminare il [Microsoft Security Intelligence Report](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

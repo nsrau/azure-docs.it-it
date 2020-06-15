@@ -1,17 +1,17 @@
 ---
-title: Aggiungere istruzioni switch a flussi di lavoro
+title: Aggiungere istruzioni switch ai flussi di lavoro
 description: Come creare istruzioni switch che controllano le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793242"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834527"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -29,7 +29,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 * Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
 
-  1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**.
+  1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**
 
      ![Selezionare "Send an approval email" (Invia un messaggio di posta elettronica di approvazione)](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -42,9 +42,9 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 1. Per questo esempio, aggiungere un'istruzione switch alla fine del flusso di lavoro di esempio. Dopo l'ultimo passaggio, scegliere **Nuovo passaggio**.
 
-   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** (**+**) visualizzato, quindi scegliere **Aggiungi un'azione**.
+   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**.
 
-1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controllo**
+1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controlla**
 
    ![Aggiunta di switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -65,9 +65,9 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
    | N. case | **SelectedOption** | Azione |
    |--------|--------------------|--------|
-   | Case 1 | **Approvazione** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
-   | Case 2 | **Rifiuto** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
-   | Impostazione predefinita | nessuno | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
+   | Case 1 | **Approve** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
+   | Case 2 | **Reject** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
+   | Predefinito | nessuno | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
    |||
 
    ![Istruzione switch completata](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -110,7 +110,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 }
 ```
 
-| Label | Descrizione |
+| Etichetta | Descrizione |
 |-------|-------------|
 | `"Switch"`         | Nome dell'istruzione switch che può essere rinominata per migliorarne la leggibilità |
 | `"type": "Switch"` | Specifica che l'azione è un'istruzione switch |
@@ -119,9 +119,9 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 | `"case"` | Specifica il valore del case, che deve essere un valore costante e univoco usato dall'istruzione switch per effettuare un confronto. Se nessun case corrisponde al risultato dell'espressione switch, vengono eseguite le azioni nella sezione `"default"`. | 
 | | | 
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

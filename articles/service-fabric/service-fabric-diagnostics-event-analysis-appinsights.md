@@ -1,16 +1,16 @@
 ---
-title: Analisi degli eventi di Azure Service Fabric con Application Insights
+title: Analisi di eventi di Azure Service Fabric con Application Insights
 description: Informazioni sulla visualizzazione e l'analisi di eventi con Application Insights per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464764"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701903"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -73,5 +73,5 @@ Facendo clic su **Analisi** si aprirà il portale di Analisi di Application Insi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare gli avvisi in AI](../azure-monitor/app/alerts.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
+* [Configurare gli avvisi in AI](/azure/azure-monitor/platform/alerts-log) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad Application Insights per avvisare l'utente in caso di potenziali problemi di prestazioni

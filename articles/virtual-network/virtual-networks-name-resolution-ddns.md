@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60640379"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650331"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usare DNS dinamico per registrare i nomi host nel proprio server DNS
 
@@ -35,7 +35,7 @@ I client Windows appartenenti a un dominio registrano i relativi indirizzi IP co
 ## <a name="linux-clients"></a>Client Linux
 I client Linux solitamente non si registrano con il server DNS all'avvio, presuppongono che il server DHCP esegua l'operazione. I server DHCP di Azure non hanno le credenziali per registrare i record nel server DNS. È possibile usare uno strumento denominato `nsupdate`, incluso nel pacchetto Bind, per inviare gli aggiornamenti del DDNS. Poiché il protocollo DDNS è standardizzato, è possibile usare `nsupdate` anche quando non si usa il pacchetto Bind sul server DNS.
 
-È possibile usare gli hook messi a disposizione dal client DHCP per creare e gestire il nome host nel server DNS. Durante il ciclo DHCP, il client esegue gli script in */etc/dhcp/dhclient-exit-hooks.d/*. È possibile usare gli hook per registrare il nuovo indirizzo IP usando `nsupdate`. Ad esempio:
+È possibile usare gli hook messi a disposizione dal client DHCP per creare e gestire il nome host nel server DNS. Durante il ciclo DHCP, il client esegue gli script in */etc/dhcp/dhclient-exit-hooks.d/* . È possibile usare gli hook per registrare il nuovo indirizzo IP usando `nsupdate`. Ad esempio:
 
 ```bash
 #!/bin/sh
@@ -61,7 +61,7 @@ then
 fi
 ```
 
-Si può anche usare il comando `nsupdate` per eseguire gli aggiornamenti di DDNS sicuro. Ad esempio, quando si usa un server DNS con Bind, viene [generata](http://linux.yyz.us/nsupdate/)una coppia di chiavi pubblica/privata. Il server DNS è [configurato](http://linux.yyz.us/dns/ddns-server.html) con la parte pubblica della chiave, che consente di verificare la firma della richiesta. Per fornire la coppia di chiavi a `nsupdate`, usare l'opzione `-k` per la richiesta di aggiornamento DDNS da firmare.
+Si può anche usare il comando `nsupdate` per eseguire gli aggiornamenti di DDNS sicuro. Ad esempio, quando si usa un server DNS con Bind, viene generata una coppia di chiavi pubblica/privata (`http://linux.yyz.us/nsupdate/`). Il server DNS è configurato (`http://linux.yyz.us/dns/ddns-server.html`) con la parte pubblica della chiave, che consente di verificare la firma della richiesta. Per fornire la coppia di chiavi a `nsupdate`, usare l'opzione `-k` per la richiesta di aggiornamento DDNS da firmare.
 
 Quando si usa un server DNS Windows, si può usare l'autenticazione Kerberos con il parametro `-g` in `nsupdate`, ma non è disponibile nella versione Windows di `nsupdate`. Per usare Kerberos, caricare le credenziali con `kinit`. Ad esempio, è possibile caricare le credenziali da un [file keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html), quindi `nsupdate -g` preleva le credenziali dalla cache.
 

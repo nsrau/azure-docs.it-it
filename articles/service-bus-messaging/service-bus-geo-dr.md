@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209401"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647838"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -64,14 +64,14 @@ Il processo di configurazione si articola nelle fasi seguenti:
 3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
 
     >[!NOTE] 
-    > Se è stata [eseguita la migrazione dello spazio dei nomi standard del bus di servizio di Azure a Premium di Azure Service Bus](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio, per creare la configurazione del ripristino di emergenza tramite l' **API REST** **/CLI** o REST.
+    > Se [è stata eseguita la migrazione dello spazio dei nomi Standard del bus di servizio di Azure al livello Premium del bus di servizio di Azure](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente (ad esempio la stringa di connessione dello spazio dei nomi Standard del bus di servizio) per creare la configurazione del ripristino di emergenza tramite **PowerShell o l'interfaccia della riga di comando** o l'**API REST**.
     >
     >
-    > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure o il nome DNS stesso diventa un alias dello spazio dei nomi premium del bus di servizio di Azure.
+    > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi Standard del bus di servizio di Azure o il nome DNS stesso diventa un alias dello spazio dei nomi Premium del bus di servizio di Azure.
     >
-    > Le applicazioni client devono usare questo alias, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure, per connettersi allo spazio dei nomi premium in cui è stata configurata l'associazione del ripristino di emergenza.
+    > Le applicazioni client devono utilizzare questo alias (ad esempio la stringa di connessione dello spazio dei nomi Standard del bus di servizio di Azure) per connettersi allo spazio dei nomi Premium in cui è stata configurata l'associazione del ripristino di emergenza.
     >
-    > Se si usa il portale per configurare la configurazione del ripristino di emergenza, il portale astrarre questa avvertenza dall'utente.
+    > Se per configurare il ripristino di emergenza si usa il portale, quest'ultimo visualizzerà questa avvertenza in forma riepilogativa.
 
 
 4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
@@ -145,6 +145,43 @@ Lo SKU Premium del bus di servizio supporta anche le [zone di disponibilità](..
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Il bus di servizio non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
 
 ![3][]
+
+## <a name="private-endpoints"></a>Endpoint privati
+Questa sezione presenta considerazioni aggiuntive sull'uso del ripristino di emergenza geografico con spazi dei nomi che usano endpoint privati. Per informazioni sull'uso di endpoint privati con il bus di servizio in generale, vedere [Integrare il bus di servizio di Azure con Collegamento privato di Azure](private-link-service.md).
+
+### <a name="new-pairings"></a>Nuove associazioni
+Se si tenta di creare un'associazione tra uno spazio dei nomi primario con un endpoint privato e uno spazio dei nomi secondario senza un endpoint privato, l'associazione ha esito negativo. L'associazione avrà esito positivo solo se entrambi gli spazi dei nomi, primario e secondario, hanno endpoint privati. È consigliabile usare le stesse configurazioni per gli spazi dei nomi primario e secondario e per le reti virtuali in cui sono stati creati gli endpoint privati. 
+
+> [!NOTE]
+> Quando si tenta di associare lo spazio dei nomi primario con un endpoint privato e lo spazio dei nomi secondario, il processo di convalida controlla solo se esiste un endpoint privato nello spazio dei nomi secondario. Non controlla se l'endpoint funziona o se funzionerà dopo il failover. È responsabilità dell'utente assicurarsi che lo spazio dei nomi secondario con endpoint privato funzioni come previsto dopo il failover.
+>
+> Per verificare che le configurazioni degli endpoint privati siano uguali, inviare una richiesta [Get queues](/rest/api/servicebus/queues/get) allo spazio dei nomi secondario dall'esterno della rete virtuale e verificare che si riceva un messaggio di errore dal servizio.
+
+### <a name="existing-pairings"></a>Associazioni esistenti
+Se l'associazione tra uno spazio dei nomi primario e uno secondario esiste già, la creazione di endpoint privati nello spazio dei nomi primario ha esito negativo. Per risolvere il problema, creare prima un endpoint privato nello spazio dei nomi secondario e quindi crearne uno per lo spazio dei nomi primario.
+
+> [!NOTE]
+> Mentre l'accesso allo spazio dei nomi secondario è consentito in sola lettura, è possibile eseguire aggiornamenti nelle configurazioni degli endpoint privati. 
+
+### <a name="recommended-configuration"></a>Configurazione consigliata
+Quando si crea una configurazione di ripristino di emergenza per l'applicazione e il bus di servizio, è necessario creare endpoint privati per entrambi gli spazi dei nomi, primario e secondario, del bus di servizio nelle reti virtuali che ospitano entrambe le istanze, primaria e secondaria, dell'applicazione.
+
+Si supponga di avere due reti virtuali, VNET-1 e VNET-2, e gli spazi dei nomi, rispettivamente primario e secondario, ServiceBus-Namespace1-Primary e ServiceBus-Namespace2-Secondary. È necessario eseguire la procedura seguente: 
+
+- In ServiceBus-Namespace1-Primary creare due endpoint privati che usano subnet da VNET-1 e VNET-2
+- In ServiceBus-Namespace2-Secondary creare due endpoint privati che usano le stesse subnet da VNET-1 e VNET-2 
+
+![Endpoint privati e reti virtuali](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+Il vantaggio di questo approccio è che il failover può verificarsi a livello di applicazione indipendentemente dallo spazio dei nomi del bus di servizio. Esaminare gli scenari seguenti: 
+
+**Failover della sola applicazione**: in questo caso, l'applicazione non esiste in VNET-1 ma passa a VNET-2. Poiché entrambi gli endpoint privati sono configurati sia in VNET-1 che VNET-2 per entrambi gli spazi dei nomi primario e secondario, l'applicazione funzionerà. 
+
+**Failover del solo spazio dei nomi del bus di servizio**: anche in questo caso, poiché entrambi gli endpoint privati sono configurati in entrambe le reti virtuali per entrambi gli spazi dei nomi primario e secondario, l'applicazione funzionerà. 
+
+> [!NOTE]
+> Per materiale sussidiario sul ripristino di emergenza geografico di una rete virtuale, vedere [Rete virtuale - Continuità aziendale](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,34 +5,34 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680531"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758844"
 ---
 # <a name="spatial-queries"></a>Query spaziali
 
-Le query spaziali sono operazioni con le quali è possibile richiedere al servizio di rendering remoto quali oggetti si trovano in un'area. Le query spaziali vengono spesso usate per implementare interazioni, ad esempio individuare l'oggetto a cui un utente sta puntando.
+Le query spaziali sono operazioni che consentono di chiedere al servizio di rendering remoto quali oggetti si trovano in un'area. Le query spaziali vengono spesso usate per implementare interazioni, ad esempio capire a quale oggetto stia puntando un utente.
 
-Tutte le query spaziali vengono valutate nel server. Di conseguenza, si tratta di operazioni asincrone e i risultati arrivano con un ritardo che dipende dalla latenza di rete. Poiché ogni query spaziale genera traffico di rete, prestare attenzione a non eseguire troppe operazioni contemporaneamente.
+Tutte le query spaziali vengono valutate nel server. Di conseguenza, si tratta di operazioni asincrone e i risultati giungeranno con un ritardo che dipende dalla latenza di rete. Poiché ogni query spaziale genera traffico di rete, prestare attenzione a non eseguirne troppe contemporaneamente.
 
-## <a name="collision-meshes"></a>Mesh di collisioni
+## <a name="collision-meshes"></a>Mesh di collisione
 
-Le query spaziali sono basate sul motore di [fisica Havok](https://www.havok.com/products/havok-physics) e richiedono la presenza di una mesh di collisione dedicata. Per impostazione predefinita, la [conversione del modello](../../how-tos/conversion/model-conversion.md) genera mesh di collisione. Se non è necessario eseguire query spaziali su un modello complesso, è consigliabile disabilitare la generazione della mesh di collisione nelle [Opzioni di conversione](../../how-tos/conversion/configure-model-conversion.md), in quanto ha un impatto in diversi modi:
+Le query spaziali sono basate sul motore [Havok Physics](https://www.havok.com/products/havok-physics) e richiedono la presenza di una mesh di collisione dedicata. Per impostazione predefinita, la [conversione di modelli](../../how-tos/conversion/model-conversion.md) genera mesh di collisione. Se non è necessario eseguire query spaziali su un modello complesso, è consigliabile disabilitare la generazione di mesh di collisione nelle [opzioni di conversione](../../how-tos/conversion/configure-model-conversion.md), in quanto incide sotto vari punti di vista:
 
-* La [conversione del modello](../../how-tos/conversion/model-conversion.md) può richiedere molto più tempo.
-* Le dimensioni dei file di modello convertite sono notevolmente maggiori e influiscano sulla velocità di download.
-* I tempi di caricamento del runtime sono più lunghi.
-* Il consumo di memoria della CPU di runtime è superiore.
+* La [conversione di modelli](../../how-tos/conversion/model-conversion.md) richiederà molto più tempo.
+* Le dimensioni dei file di modello convertiti sono notevolmente maggiori e questo incide sulla velocità di download.
+* I tempi di caricamento in fase di esecuzione sono più lunghi.
+* Il consumo di memoria della CPU in fase di esecuzione è superiore.
 * Si verifica un lieve sovraccarico delle prestazioni in fase di esecuzione per ogni istanza del modello.
 
-## <a name="ray-casts"></a>Cast Ray
+## <a name="ray-casts"></a>Raycast
 
-Un *cast di raggio* è una query spaziale in cui il runtime controlla quali oggetti sono intersecati da un raggio, iniziando da una posizione specificata e puntando a una determinata direzione. Come ottimizzazione, viene anche fornita una distanza massima del raggio, in modo da non cercare oggetti troppo lontani.
+Un *raycast* è una query spaziale in cui il runtime controlla quali oggetti vengono intersecati da un raggio che parte da una determinata posizione e punta verso una direzione specificata. Come ottimizzazione, viene anche fornita una distanza massima del raggio, in modo da non cercare oggetti troppo lontani.
 
-````c#
+```cs
 async void CastRay(AzureSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
@@ -45,42 +45,74 @@ async void CastRay(AzureSession session)
 
     if (hits.Length > 0)
     {
-        var hitObject = hits[0].HitEntity;
+        var hitObject = hits[0].HitObject;
         var hitPosition = hits[0].HitPosition;
         var hitNormal = hits[0].HitNormal;
 
         // do something with the hit information
     }
 }
-````
+```
 
-Sono disponibili tre modalità di raccolta riscontri:
+```cpp
+void CastRay(ApiHandle<AzureSession> session)
+{
+    // trace a line from the origin into the +z direction, over 10 units of distance.
+    RayCast rayCast;
+    rayCast.StartPos = { 0, 0, 0 };
+    rayCast.EndPos = { 0, 0, 1 };
+    rayCast.MaxHits = 10;
 
-* **Più vicino:** In questa modalità verrà segnalato solo il hit più vicino.
-* **Qualsiasi:** Preferisci questa modalità quando si vuole sapere *se* un raggio raggiunge qualcosa, ma non importa cosa è stato raggiunto esattamente. Questa query può essere notevolmente più economica per la valutazione, ma dispone anche di poche applicazioni.
-* **Tutti:** In questa modalità, tutti i riscontri lungo il raggio vengono segnalati, ordinati in base alla distanza. Non usare questa modalità a meno che non sia effettivamente necessario più del primo hit. Limitare il numero di riscontri segnalati `MaxHits` con l'opzione.
+    // only return the closest hit
+    rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-Per escludere gli oggetti in modo selettivo da considerare per i cast di raggio, è possibile usare il componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) .
+    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
+
+    castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
+    {
+        std::vector<RayCastHit> hits = *async->Result();
+
+        if (hits.size() > 0)
+        {
+            auto hitObject = hits[0].HitObject;
+            auto hitPosition = hits[0].HitPosition;
+            auto hitNormal = hits[0].HitNormal;
+
+            // do something with the hit information
+        }
+    });
+
+}
+```
+
+
+Sono disponibili tre modalità di raccolta delle collisioni (hit):
+
+* **Closest:** in questa modalità verrà segnalata solo la collisione più vicina.
+* **Any:** preferire questa modalità quando si vuole sapere *se* un raggio potrebbe colpire qualcosa, ma non è importante sapere cosa esattamente è stato colpito. La valutazione di questa query può essere notevolmente più economica, ma ha anche poche applicazioni.
+* **All:** in questa modalità vengono segnalate tutte le collisioni lungo il raggio, ordinate in base alla distanza. Non usare questa modalità a meno che non siano realmente necessarie altre collisioni oltre la prima. Limitare il numero di collisioni segnalate con l'opzione `MaxHits`.
+
+Per escludere in modo selettivo gli oggetti da considerare per i raycast è possibile usare il componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md).
 
 <!--
-The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
+The CollisionMask allows the query to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has bit L set.
 It is useful in case you want to ignore objects, for instance when setting an object transparent, and trying to select another object behind it.
 TODO : Add an API to make that possible.
 -->
 
-### <a name="hit-result"></a>Risultato hit
+### <a name="hit-result"></a>Risultati
 
-Il risultato di una query ray cast è una matrice di riscontri. La matrice è vuota, se nessun oggetto è stato raggiunto.
+Il risultato di una query raycast è una matrice di collisioni. Se non è stato colpito alcun oggetto, la matrice è vuota.
 
-Un hit presenta le proprietà seguenti:
+Una collisione ha le proprietà seguenti:
 
-* **HitEntity:** [Entità](../../concepts/entities.md) raggiunta.
-* **Sottopartita:** Quale *submesh* è stato raggiunto in un [MeshComponent](../../concepts/meshes.md). Può essere usato per indicizzare `MeshComponent.UsedMaterials` e cercare il [materiale](../../concepts/materials.md) in quel punto.
-* **HitPosition:** Posizione dello spazio globale in cui il raggio interseca l'oggetto.
-* **HitNormal:** Il normale della superficie di spazio globale della mesh in corrispondenza della posizione dell'intersezione.
-* **DistanceToHit:** Distanza dalla posizione iniziale del raggio al riscontro.
+* **HitEntity:** quale [entità](../../concepts/entities.md) è stata colpita.
+* **SubPartId:** quale *sottomesh* è stata colpita in un [MeshComponent](../../concepts/meshes.md). Si può usare per l'indicizzazione in `MeshComponent.UsedMaterials` e per cercare il [materiale ](../../concepts/materials.md) in quel punto.
+* **HitPosition:** posizione dello spazio globale in cui il raggio ha intersecato l'oggetto.
+* **HitNormal:** normale della superficie di spazio globale della mesh nel punto dell'intersezione.
+* **DistanceToHit:** distanza dalla posizione iniziale del raggio al punto di collisione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Limiti degli oggetti](../../concepts/object-bounds.md)
-* [Override degli Stati gerarchici](override-hierarchical-state.md)
+* [Override dello stato gerarchico](override-hierarchical-state.md)

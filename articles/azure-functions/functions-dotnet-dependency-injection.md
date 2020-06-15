@@ -1,39 +1,39 @@
 ---
-title: Usare l'inserimento delle dipendenze in Funzioni di Azure .NET
-description: Informazioni su come usare l'inserimento di dipendenze per la registrazione e l'uso di servizi nelle funzioni .NET
+title: Usare l'inserimento di dipendenze in Funzioni di Azure .NET
+description: Informazioni su come usare l'inserimento di dipendenze per la registrazione e l'uso di servizi in funzioni .NET
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678447"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739142"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento delle dipendenze in Funzioni di Azure .NET
+# <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
-Funzioni di Azure supporta il modello DI progettazione software per l'inserimento delle dipendenze, una tecnica per ottenere l' [inversione del controllo (IOC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) tra le classi e le relative dipendenze.
+Funzioni di Azure supporta lo schema progettuale di software per l'inserimento di dipendenze, una tecnica per ottenere l'[IoC (Inversion of Control)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) tra le classi e le relative dipendenze.
 
-- L'inserimento di dipendenze in funzioni di Azure si basa sulle funzionalità di inserimento delle dipendenze di .NET Core. È consigliabile acquisire familiarità con l' [inserimento di dipendenze di .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) . Esistono differenze nel modo in cui vengono ignorate le dipendenze e il modo in cui vengono letti i valori di configurazione con funzioni di Azure nel piano a consumo.
+- L'inserimento di dipendenze in Funzioni di Azure si basa sulle funzionalità di inserimento dipendenze .NET Core. È consigliabile acquisire familiarità con l'[inserimento di dipendenze .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Esistono differenze nel modo in cui viene eseguito l'override delle dipendenze e nel modo in cui i valori di configurazione vengono letti con Funzioni di Azure nel piano a consumo.
 
-- Il supporto per l'inserimento delle dipendenze inizia con funzioni di Azure 2. x.
+- Il supporto per l'inserimento di dipendenze inizia a partire da Funzioni di Azure 2.x.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare l'inserimento di dipendenze, è necessario installare i pacchetti NuGet seguenti:
 
-- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft. NET. Sdk. Functions Package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) Version 1.0.28 o versioni successive
+- [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versione pacchetto 1.0.28 o successiva
 
 ## <a name="register-services"></a>Registrare i servizi
 
-Per registrare servizi, creare un metodo per configurare e aggiungere componenti a un' `IFunctionsHostBuilder` istanza di.  L'host di funzioni di Azure crea un' `IFunctionsHostBuilder` istanza di e la passa direttamente al metodo.
+Per registrare i servizi, creare un metodo per configurare e aggiungere componenti a un'istanza di `IFunctionsHostBuilder`.  L'host di Funzioni di Azure crea un'istanza di `IFunctionsHostBuilder` e la passa direttamente al metodo.
 
-Per registrare il metodo, aggiungere l' `FunctionsStartup` attributo dell'assembly che specifica il nome del tipo usato durante l'avvio.
+Per registrare il metodo, aggiungere l'attributo dell'assembly `FunctionsStartup` che specifica il nome del tipo usato durante l'avvio.
 
 ```csharp
 using System;
@@ -64,17 +64,17 @@ namespace MyNamespace
 
 ### <a name="caveats"></a>Precisazioni
 
-Una serie di passaggi di registrazione viene eseguita prima e dopo l'elaborazione della classe Startup da parte del runtime. Tenere pertanto presenti gli elementi seguenti:
+Una serie di passaggi di registrazione viene eseguita prima e dopo l'elaborazione della classe di avvio da parte del runtime. Tenere dunque presenti questi elementi:
 
-- *La classe startup è destinata solo alla configurazione e alla registrazione.* Evitare di usare i servizi registrati all'avvio durante il processo di avvio. Ad esempio, non provare a registrare un messaggio in un logger registrato durante l'avvio. Questo punto del processo di registrazione è troppo presto perché i servizi siano disponibili per l'uso. Dopo l' `Configure` esecuzione del metodo, il runtime di funzioni continua a registrare dipendenze aggiuntive, che possono influire sul funzionamento dei servizi.
+- *La classe di avvio è destinata solo alla configurazione e alla registrazione.* Evitare di usare i servizi registrati all'avvio durante il processo di avvio. Ad esempio, non provare a registrare un messaggio in un logger registrato durante l'avvio. A questo punto del processo di registrazione è troppo presto perché i servizi siano disponibili per l'uso. Dopo l'esecuzione del metodo `Configure`, il runtime Funzioni continua a registrare dipendenze aggiuntive, che possono influire sul funzionamento dei servizi.
 
-- *Il contenitore di inserimento delle dipendenze include solo tipi registrati in modo esplicito*. Gli unici servizi disponibili come tipi iniettabili sono quelli che vengono impostati nel `Configure` metodo. Di conseguenza, i tipi specifici di funzioni come `BindingContext` e `ExecutionContext` non sono disponibili durante l'installazione o come tipi iniettabili.
+- *Il contenitore di inserimento delle dipendenze include solo tipi registrati in modo esplicito*. Gli unici servizi disponibili come tipi inseribili sono quelli che vengono impostati nel metodo `Configure`. Di conseguenza, i tipi specifici per Funzioni come `BindingContext` e `ExecutionContext` non sono disponibili durante l'installazione o come tipi inseribili.
 
-## <a name="use-injected-dependencies"></a>Usa dipendenze inserite
+## <a name="use-injected-dependencies"></a>Usare dipendenze inserite
 
 L'inserimento del costruttore viene usato per rendere disponibili le dipendenze in una funzione. L'uso dell'inserimento del costruttore richiede che non si usino classi statiche.
 
-Nell'esempio seguente viene illustrato come `IMyService` inserire `HttpClient` le dipendenze e in una funzione attivata tramite http. Questo esempio usa il pacchetto [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
+Nell'esempio seguente viene illustrata la modalità di inserimento delle dipendenze `IMyService` e `HttpClient` in una funzione attivata tramite HTTP. Questo esempio usa il pacchetto [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
 
 ```csharp
 using System;
@@ -115,27 +115,27 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>Durate dei servizi
+## <a name="service-lifetimes"></a>Durate del servizio
 
-Le app di funzioni di Azure forniscono le stesse durate dei servizi dell' [inserimento delle dipendenze ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Per un'app per le funzioni, le diverse durate del servizio si comportano nel modo seguente:
+Le app di Funzioni di Azure offrono la stessa durata del servizio dell'[inserimento di dipendenze ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Per un'app per le funzioni, le diverse durate del servizio si comportano nel modo seguente:
 
-- **Temporaneo**: i servizi temporanei vengono creati a ogni richiesta del servizio.
-- Con **ambito**: la durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per quel servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
-- **Singleton**: la durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di funzioni su tale istanza. I servizi di durata singleton sono consigliati per le connessioni e i `SqlConnection` client `HttpClient` , ad esempio le istanze di o.
+- **Temporanea**: I servizi temporanei vengono creati a ogni richiesta del servizio.
+- **Con ambito**: La durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per un dato servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
+- **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di una funzione su tale istanza. I servizi con durata singleton sono consigliati per connessioni e client, ad esempio per le istanze `SqlConnection` o `HttpClient`.
 
 Visualizzare o scaricare un [esempio di diverse durate dei servizi](https://aka.ms/functions/di-sample) su GitHub.
 
 ## <a name="logging-services"></a>Servizi di registrazione
 
-Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come `ILoggerProvider` istanza di. Application Insights viene aggiunto automaticamente da funzioni di Azure.
+Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come istanza di `ILoggerProvider`. Application Insights viene aggiunto automaticamente da Funzioni di Azure.
 
 > [!WARNING]
-> - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione dei servizi in conflitto con i servizi forniti dall'ambiente.
-> - Non registrare il proprio `TelemetryConfiguration` o `TelemetryClient` se si usa la funzionalità di Application Insights incorporata. Se è necessario configurare un'istanza personalizzata `TelemetryClient` , crearne una tramite il inserito `TelemetryConfiguration` come illustrato in [monitorare funzioni di Azure](./functions-monitoring.md#version-2x-and-later-2).
+> - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione di servizi in conflitto con i servizi forniti dall'ambiente.
+> - Non registrare il proprio `TelemetryConfiguration` o `TelemetryClient` se si usa la funzionalità di Application Insights incorporata. Se è necessario configurare un'istanza di `TelemetryClient` personalizzata, crearne una tramite la `TelemetryConfiguration` inserita, come illustrato in [Monitorare Funzioni di Azure](./functions-monitoring.md#version-2x-and-later-2).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
-L'host inserisce `ILogger<T>` i servizi `ILoggerFactory` e nei costruttori.  Per impostazione predefinita, tuttavia, questi nuovi filtri di registrazione verranno filtrati all'esterno dei log di funzione.  Sarà necessario modificare il `host.json` file per acconsentire esplicitamente ad altri filtri e categorie.  Nell'esempio seguente viene illustrata `ILogger<HttpTrigger>` l'aggiunta di un oggetto con log che verranno esposti dall'host.
+L'host inserirà i servizi `ILogger<T>` e `ILoggerFactory` in costruttori.  Per impostazione predefinita, tuttavia, questi nuovi filtri di registrazione verranno filtrati all'esterno dei log di funzione.  Sarà necessario modificare il file `host.json` per acconsentire esplicitamente ad altri filtri e categorie.  Nell'esempio seguente viene illustrata l'aggiunta di un `ILogger<HttpTrigger>` con log che verranno esposti dall'host
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +160,7 @@ namespace MyNamespace
 }
 ```
 
-E un `host.json` file che aggiunge il filtro del log.
+e di un file `host.json` che aggiunge il filtro del log.
 
 ```json
 {
@@ -185,22 +185,22 @@ L'host funzione registra molti servizi. I servizi seguenti possono essere consid
 
 |Tipo di servizio|Durata|Descrizione|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configurazione Runtime|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsabile per fornire l'ID dell'istanza host|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configurazione del runtime|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsabile della fornitura dell'ID dell'istanza host|
 
-Se sono presenti altri servizi su cui si vuole creare una dipendenza, [creare un problema e proporrli in GitHub](https://github.com/azure/azure-functions-host).
+Se sono presenti altri servizi su cui si vuole creare una dipendenza, [creare un argomento e proporlo in GitHub](https://github.com/azure/azure-functions-host).
 
 ### <a name="overriding-host-services"></a>Override dei servizi host
 
-La sostituzione dei servizi forniti dall'host non è attualmente supportata.  Se sono presenti servizi di cui si vuole eseguire l'override, [creare un problema e proporrli in GitHub](https://github.com/azure/azure-functions-host).
+L'override dei servizi forniti dall'host non è attualmente supportato.  Se sono presenti servizi di cui si vuole eseguire l'override, [creare un argomento e proporlo in GitHub](https://github.com/azure/azure-functions-host).
 
-## <a name="working-with-options-and-settings"></a>Utilizzo di opzioni e impostazioni
+## <a name="working-with-options-and-settings"></a>Usare opzioni e impostazioni
 
-I valori definiti nelle [impostazioni dell'app](./functions-how-to-use-azure-function-app-settings.md#settings) sono disponibili `IConfiguration` in un'istanza di, che consente di leggere i valori delle impostazioni dell'app nella classe Startup.
+I valori definiti nelle [impostazioni app](./functions-how-to-use-azure-function-app-settings.md#settings) sono disponibili in un'istanza di `IConfiguration`, che consente di leggere i valori delle impostazioni dell'app nella classe di avvio.
 
-È possibile estrarre valori dall' `IConfiguration` istanza di in un tipo personalizzato. La copia dei valori delle impostazioni dell'app in un tipo personalizzato consente di testare facilmente i servizi rendendo questi valori inseribili. Le impostazioni lette nell'istanza di configurazione devono essere semplici coppie chiave/valore.
+È possibile estrarre i valori dall'istanza di `IConfiguration` in un tipo personalizzato. Copiare i valori delle impostazioni dell'app su un tipo personalizzato facilita il test dei servizi, permettendo l'inserimento di questi valori. Le impostazioni lette nell'istanza di configurazione devono essere semplici coppie chiave/valore.
 
-Si consideri la classe seguente che include una proprietà denominata coerente con un'impostazione dell'app:
+Si consideri la classe seguente, che include una proprietà denominata in modo coerente con un'impostazione dell'app:
 
 ```csharp
 public class MyOptions
@@ -209,7 +209,7 @@ public class MyOptions
 }
 ```
 
-E un `local.settings.json` file che potrebbe strutturare l'impostazione personalizzata come indicato di seguito:
+E un file `local.settings.json`, in grado di strutturare l'impostazione personalizzata come indicato di seguito:
 ```json
 {
   "IsEncrypted": false,
@@ -219,7 +219,7 @@ E un `local.settings.json` file che potrebbe strutturare l'impostazione personal
 }
 ```
 
-Dall'interno del `Startup.Configure` metodo, è possibile estrarre i valori dall' `IConfiguration` istanza di nel tipo personalizzato usando il codice seguente:
+Dall'interno del metodo `Startup.Configure`, è possibile estrarre i valori dall'istanza `IConfiguration` nel tipo personalizzato usando il codice seguente:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -229,9 +229,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-La `Bind` chiamata di copia i valori che hanno nomi di proprietà corrispondenti dalla configurazione all'istanza personalizzata. L'istanza options è ora disponibile nel contenitore IoC per inserire in una funzione.
+La chiamata di `Bind` copia i valori che hanno nomi di proprietà corrispondenti dalla configurazione all'istanza personalizzata. L'istanza Options è ora disponibile nel contenitore IoC per essere inserita in una funzione.
 
-L'oggetto Options viene inserito nella funzione come un'istanza dell'interfaccia generica `IOptions` . Utilizzare la `Value` proprietà per accedere ai valori presenti nella configurazione.
+L'oggetto Options viene inserito nella funzione come istanza dell'interfaccia `IOptions` generica. Usare la proprietà `Value` per accedere ai valori presenti nella configurazione.
 
 ```csharp
 using System;
@@ -248,14 +248,14 @@ public class HttpTrigger
 }
 ```
 
-Per ulteriori informazioni sull'utilizzo delle opzioni, vedere il [modello di opzioni in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
+Per informazioni dettagliate sull'uso delle opzioni, fare riferimento al [modello di opzioni in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 > [!WARNING]
-> Evitare di provare a leggere i valori da file come *local. Settings. JSON* o *appSettings. { Environment}. JSON* nel piano a consumo. I valori letti da questi file correlati alle connessioni trigger non sono disponibili perché l'app viene ridimensionata perché l'infrastruttura host non ha accesso alle informazioni di configurazione.
+> Evitare di provare a leggere i valori da file come *local.settings.json* o *appsettings.{environment}.json* nel piano a consumo. I valori letti da questi file correlati alle connessioni trigger non sono disponibili mentre l'app viene ridimensionata perché l'infrastruttura host non ha accesso alle informazioni di configurazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere le seguenti risorse:
 
-- [Come monitorare l'app per le funzioni](functions-monitoring.md)
+- [Procedura di monitoraggio dell'app per le funzioni](functions-monitoring.md)
 - [Procedure consigliate per le funzioni](functions-best-practices.md)

@@ -1,45 +1,45 @@
 ---
 title: Rendering a lato singolo
-description: Descrive le impostazioni di rendering a lato singolo e i casi di utilizzo
+description: Descrive le impostazioni di rendering a lato singolo e i casi d'uso
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759099"
 ---
 # <a name="single-sided-rendering"></a>Rendering a lato singolo
 
-Per migliorare le prestazioni, la maggior parte dei renderer utilizza l' [abbattimento del back-face](https://en.wikipedia.org/wiki/Back-face_culling) . Tuttavia, quando i mesh sono tagliati aperti con [piani tagliati](cut-planes.md), gli utenti spesso osserveranno il lato posteriore dei triangoli. Se questi triangoli vengono ricavati, il risultato non risulta convincente.
+Per migliorare le prestazioni, la maggior parte dei renderer usa il [back-face culling](https://en.wikipedia.org/wiki/Back-face_culling), ossia l'eliminazione delle facce posteriori. Tuttavia, quando le mesh vengono aperte con [piani di taglio](cut-planes.md), gli utenti spesso osservano il lato posteriore dei triangoli. Se questi triangoli non vengono raffigurati, il risultato non è convincente.
 
-Per evitare in modo affidabile questo problema, è necessario eseguire il rendering di triangoli *bilaterali*. Poiché il mancato utilizzo dell'abbreviazione del back-face ha implicazioni sulle prestazioni, per impostazione predefinita il rendering remoto di Azure passa solo al rendering a doppio lato per le maglie che si intersecano con un piano di taglio.
+Per evitare in modo affidabile questo problema, è necessario eseguire il rendering di *entrambi i lati* dei triangoli. Poiché non usare il back-face culling ha implicazioni sulle prestazioni, per impostazione predefinita Rendering remoto di Azure passa al rendering di entrambi i lati solo per le mesh che intersecano un piano di taglio.
 
 L'impostazione di *rendering a lato singolo* consente di personalizzare questo comportamento.
 
 > [!CAUTION]
-> L'impostazione di rendering a lato singolo è una funzionalità sperimentale. Potrebbe essere rimossa in futuro. Non modificare l'impostazione predefinita, a meno che non risolvono effettivamente un problema critico nell'applicazione.
+> L'impostazione di rendering a lato singolo è una funzionalità sperimentale. Potrebbe essere rimossa in futuro. Non modificare l'impostazione predefinita, a meno che non risolva un problema critico nell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'impostazione di rendering a lato singolo ha un effetto solo per le mesh [convertite](../../how-tos/conversion/configure-model-conversion.md) con l' `opaqueMaterialDefaultSidedness` opzione impostata su `SingleSided`. Per impostazione predefinita, questa opzione è `DoubleSided`impostata su.
+L'impostazione di rendering a lato singolo ha un effetto solo per le mesh che sono state [convertite](../../how-tos/conversion/configure-model-conversion.md) con l'opzione `opaqueMaterialDefaultSidedness` impostata su `SingleSided`. Per impostazione predefinita, questa opzione è impostata su `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Impostazione del rendering a lato singolo
+## <a name="single-sided-rendering-setting"></a>Impostazione di rendering a lato singolo
 
-Sono disponibili tre modalità diverse:
+Esistono tre modalità diverse:
 
-**Normale:** In questa modalità viene sempre eseguito il rendering delle mesh quando vengono convertite. Ciò significa che le mesh convertite `opaqueMaterialDefaultSidedness` con `SingleSided` impostato su verranno sempre visualizzate con l'abbreviazione di back-face abilitata, anche quando si intersecano un piano di taglio.
+**Normal:** in questa modalità, le mesh vengono sempre rappresentate così come sono state convertite. In altre parole, il rendering delle mesh convertite con `opaqueMaterialDefaultSidedness` impostato su `SingleSided` viene sempre eseguito con il back-face culling abilitato, anche se intersecano un piano di taglio.
 
-**DynamicDoubleSiding:** In questa modalità, quando un piano tagliato interseca una mesh, viene automaticamente impostato il rendering a doppio lato. Questa modalità è la modalità predefinita.
+**DynamicDoubleSiding:** in questa modalità, quando un piano di taglio interseca una mesh viene automaticamente impostato il rendering di entrambi i lati. Questa è la modalità predefinita.
 
-**AlwaysDoubleSided:** Forza il rendering di tutte le geometrie a lato singolo in qualsiasi momento. Questa modalità viene esposta per lo più in modo che sia possibile confrontare facilmente l'effetto sulle prestazioni tra il rendering a lato singolo e quello a doppio lato.
+**AlwaysDoubleSided:** forza il rendering di entrambi i lati di tutte le geometrie a lato singolo in qualsiasi momento. Questa modalità è per lo più esposta in modo che sia possibile confrontare facilmente l'effetto sulle prestazioni tra il rendering a lato singolo e quello a due lati.
 
 La modifica delle impostazioni di rendering a lato singolo può essere eseguita come indicato di seguito:
 
-``` cs
+```cs
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -52,7 +52,20 @@ void ChangeSingleSidedRendering(AzureSession session)
 }
 ```
 
+```cpp
+void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+
+    // Single-sided geometry is rendered as is
+    settings->Mode(SingleSidedMode::Normal);
+
+    // Single-sided geometry is always rendered double-sided
+    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
+}
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Tagliare i piani](cut-planes.md)
-* [Configurazione della conversione del modello](../../how-tos/conversion/configure-model-conversion.md)
+* [Piani di taglio](cut-planes.md)
+* [Configurare la conversione di modelli](../../how-tos/conversion/configure-model-conversion.md)
