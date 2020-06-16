@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220468"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782535"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
@@ -38,7 +38,7 @@ Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **ri
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specificate dall' **identificatore di area** (ad esempio, `SpeechConfig.FromSubscription`come parametro per). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
+Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specificate dall' **identificatore di area** (ad esempio, come parametro per `SpeechConfig.FromSubscription` ). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
 
 ### <a name="intent-recognition"></a>Riconoscimento finalità
 
@@ -74,6 +74,10 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 | Europa occidentale    | `westeurope`         |
 | Europa settentrionale   | `northeurope`        |
 | Asia sud-orientale | `southeastasia`      |
+
+### <a name="speaker-recognition"></a>Riconoscimento del parlante
+
+Riconoscimento del parlante è attualmente disponibile solo nell' `westus` area.
 
 ## <a name="rest-apis"></a>API REST
 

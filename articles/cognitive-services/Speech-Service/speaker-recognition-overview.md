@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635170"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780886"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Che cos'è il servizio Riconoscimento del parlante di Azure?
 
@@ -55,6 +55,20 @@ I dati di registrazione del relatore vengono archiviati in un sistema protetto, 
 È possibile controllare per quanto tempo devono essere conservati i dati. È possibile creare, aggiornare ed eliminare i dati di registrazione per i singoli speaker tramite chiamate API. Quando la sottoscrizione viene eliminata, verranno eliminati anche tutti i dati di registrazione dei parlanti associati. 
 
 Come per tutte le risorse di servizi cognitivi, gli sviluppatori che usano il servizio Riconoscimento del parlante devono essere a conoscenza dei criteri Microsoft sui dati dei clienti. È necessario assicurarsi di avere ricevuto le autorizzazioni appropriate dagli utenti per Riconoscimento del parlante. Per ulteriori informazioni, vedere la [pagina Servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)   nel centro protezione Microsoft. 
+
+## <a name="common-questions-and-solutions"></a>Domande e soluzioni comuni
+
+| Domanda | Soluzione |
+|---------|----------|
+| Quali scenari è Riconoscimento del parlante possibile usare? | Call Center verifica del cliente, archiviazione del paziente basata sulla voce, trascrizione della riunione, personalizzazione dei dispositivi multiutente|
+| Qual è la differenza tra l'identificazione e la verifica? | L'identificazione è il processo che consente di rilevare quale membro di un gruppo di oratori sta parlando. La verifica è l'atto di confermare che un relatore corrisponde a una voce nota o **registrata** .|
+| Qual è la differenza tra la verifica dipendente dal testo e la verifica indipendente dal testo? | Per la verifica dipendente dal testo è necessario un pass-phrase specifico per la registrazione e il riconoscimento. Per la verifica indipendente dal testo è necessario un campione vocale più lungo per la registrazione, ma è possibile pronunciare qualsiasi cosa, incluso durante il riconoscimento.|
+| Quali lingue sono supportate? | Inglese, francese, spagnolo, cinese, tedesco, italiano, giapponese e portoghese |
+| Quali aree di Azure sono supportate? | Riconoscimento del parlante è un servizio di anteprima e attualmente disponibile solo nell'area Stati Uniti occidentali.|
+| Quali formati audio sono supportati? | Mono a 16 bit, WAV con codifica PCM 16kHz |
+| Le risposte **Accept** e **Reject** non sono accurate, come si ottimizza la soglia? | Poiché la soglia ottimale varia in base agli scenari, l'API decide se "accettare" o "rifiutare" semplicemente in base a una soglia predefinita di 0,5. Si consiglia agli utenti avanzati di sostituire la decisione predefinita e di ottimizzare il risultato in base al proprio scenario. |
+| È possibile registrare un altoparlante più volte? | Sì, per la verifica dipendente dal testo è possibile registrare un altoparlante per un massimo di 50 volte. Per la verifica indipendente dal testo o l'identificazione del parlante, è possibile eseguire la registrazione con un massimo di 300 secondi di audio. |
+| Quali dati vengono archiviati in Azure? | L'audio di registrazione viene archiviato nel servizio fino a quando non viene [eliminato](speaker-recognition-basics.md#deleting-voice-profile-enrollments)il profilo vocale. Gli esempi di riconoscimento audio non vengono conservati o archiviati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

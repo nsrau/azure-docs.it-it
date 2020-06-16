@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: b76690cfbe0eb4851bdd1e4316235a7a9092c86e
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816234"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781209"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -24,9 +24,9 @@ I contenitori consentono di eseguire alcune delle API del servizio vocale nell'a
 I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per le funzionalità cloud affidabili e la località perimetrale. Sono disponibili quattro contenitori diversi. I due contenitori standard sono **sintesi vocale** e sintesi **vocale**. I due contenitori personalizzati sono da **riconoscimento vocale personalizzato a testo** e **da sintesi vocale personalizzata**. I contenitori di riconoscimento vocale hanno lo stesso [Prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) dei servizi di riconoscimento vocale di Azure basati sul cloud.
 
 > [!IMPORTANT]
-> Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
+> Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
 
-| Funzione | Funzionalità | Più recente |
+| Funzione | Funzionalità | Ultima versione |
 |--|--|--|
 | Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.2.0 |
 | Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.2.0 |
@@ -113,25 +113,25 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Riconoscimento vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Da Riconoscimento vocale personalizzato a testo | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale personalizzata | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
