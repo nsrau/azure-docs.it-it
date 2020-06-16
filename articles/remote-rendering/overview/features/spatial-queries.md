@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758844"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021297"
 ---
 # <a name="spatial-queries"></a>Query spaziali
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Sono disponibili tre modalità di raccolta delle collisioni (hit):
 
-* **Closest:** in questa modalità verrà segnalata solo la collisione più vicina.
-* **Any:** preferire questa modalità quando si vuole sapere *se* un raggio potrebbe colpire qualcosa, ma non è importante sapere cosa esattamente è stato colpito. La valutazione di questa query può essere notevolmente più economica, ma ha anche poche applicazioni.
-* **All:** in questa modalità vengono segnalate tutte le collisioni lungo il raggio, ordinate in base alla distanza. Non usare questa modalità a meno che non siano realmente necessarie altre collisioni oltre la prima. Limitare il numero di collisioni segnalate con l'opzione `MaxHits`.
+* **`Closest`:** in questa modalità verrà segnalata solo la collisione più vicina.
+* **`Any`:** preferire questa modalità quando si vuole sapere *se* un raggio potrebbe colpire qualcosa, ma non è importante sapere cosa esattamente è stato colpito. La valutazione di questa query può essere notevolmente più economica, ma ha anche poche applicazioni.
+* **`All`:** in questa modalità vengono segnalate tutte le collisioni lungo il raggio, ordinate in base alla distanza. Non usare questa modalità a meno che non siano realmente necessarie altre collisioni oltre la prima. Limitare il numero di collisioni segnalate con l'opzione `MaxHits`.
 
 Per escludere in modo selettivo gli oggetti da considerare per i raycast è possibile usare il componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md).
 
@@ -106,11 +106,11 @@ Il risultato di una query raycast è una matrice di collisioni. Se non è stato 
 
 Una collisione ha le proprietà seguenti:
 
-* **HitEntity:** quale [entità](../../concepts/entities.md) è stata colpita.
-* **SubPartId:** quale *sottomesh* è stata colpita in un [MeshComponent](../../concepts/meshes.md). Si può usare per l'indicizzazione in `MeshComponent.UsedMaterials` e per cercare il [materiale ](../../concepts/materials.md) in quel punto.
-* **HitPosition:** posizione dello spazio globale in cui il raggio ha intersecato l'oggetto.
-* **HitNormal:** normale della superficie di spazio globale della mesh nel punto dell'intersezione.
-* **DistanceToHit:** distanza dalla posizione iniziale del raggio al punto di collisione.
+* **`HitEntity`:** quale [entità](../../concepts/entities.md) è stata colpita.
+* **`SubPartId`:** quale *sottomesh* è stata colpita in un [MeshComponent](../../concepts/meshes.md). Si può usare per l'indicizzazione in `MeshComponent.UsedMaterials` e per cercare il [materiale ](../../concepts/materials.md) in quel punto.
+* **`HitPosition`:** posizione dello spazio globale in cui il raggio ha intersecato l'oggetto.
+* **`HitNormal`:** normale della superficie di spazio globale della mesh nel punto dell'intersezione.
+* **`DistanceToHit`:** distanza dalla posizione iniziale del raggio al punto di collisione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

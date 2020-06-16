@@ -2,19 +2,19 @@
 title: Funzionalità supportate di SQL Edge di Azure (anteprima)
 description: Informazioni dettagliate sulle funzionalità supportate da SQL Edge di Azure (anteprima)
 keywords: introduzione a SQL Edge, informazioni su SQL Edge, panoramica di SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f0994ac1d28118869f0d5c2844a034623d101ee8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684379"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233219"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funzionalità supportate di SQL Edge di Azure (anteprima) 
 

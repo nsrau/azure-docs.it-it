@@ -198,8 +198,6 @@
       href: security-center-features-retirement-july2019.md
     - name: Valutazione e consigli per la protezione degli endpoint
       href: security-center-endpoint-protection.md
-    - name: Punteggio di sicurezza (legacy)
-      href: security-center-secure-score.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn
