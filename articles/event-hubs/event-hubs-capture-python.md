@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
-description: 'Guida introduttiva: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
+title: "Avvio rapido: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
+description: 'Avvio rapido: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c726b0d11759d30730046e635c701cf23d130dfc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187297"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561556"
 ---
-# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Guida introduttiva: Procedura dettagliata sull'acquisizione di Hub eventi: Python (azure-eventhub versione 1)
+# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Avvio rapido: Procedura dettagliata sull'acquisizione di Hub eventi: Python (azure-eventhub versione 1)
 
 L'acquisizione è una funzionalità di Hub eventi di Azure. È possibile usare la funzionalità Acquisizione per inviare automaticamente i dati di streaming dell'hub eventi a un determinato account di archiviazione BLOB di Azure. Questa funzionalità semplifica l'esecuzione dell'elaborazione batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'acquisizione di Hub eventi con Python. Per altre informazioni su Acquisizione di Hub eventi, vedere [Acquisire eventi tramite Hub eventi di Azure][Overview of Event Hubs Capture].
 
@@ -80,7 +80,7 @@ Questo script invia 200 eventi all'hub eventi. Gli eventi sono semplici letture 
 
 1. Aprire l'editor preferito di Python, ad esempio [Visual Studio Code][Visual Studio Code].
 2. Creare un nuovo file denominato *sender.py*. 
-3. Incollare il codice seguente in *sender.py*. Sostituire \<namespace>, \<AccessKeyName>, \<primary key value> e \<eventhub> con i propri valori per Hub eventi.
+3. Incollare il codice seguente in *sender.py*. Sostituire \<namespace>, \<AccessKeyName>, \<primary key value> e \<eventhub> di Hub eventi con i propri valori.
    
    ```python
    import uuid
@@ -108,7 +108,7 @@ Questo script invia 200 eventi all'hub eventi. Gli eventi sono semplici letture 
 Questo script legge i file acquisiti e crea un file per ognuno dei dispositivi in modo da scrivere i dati solo per quel dispositivo.
 
 1. Nell'editor di Python creare un nuovo file denominato *capturereader.py*. 
-2. Incollare il codice seguente in *capturereader.py*. Sostituire \<storageaccount>, \<storage account access key> e \<storagecontainer> con i valori salvati.
+2. Incollare il codice seguente in *capturereader.py*. Sostituire \<storageaccount>, \<storage account access key> e \<storagecontainer> con i propri valori salvati.
    
    ```python
    import os

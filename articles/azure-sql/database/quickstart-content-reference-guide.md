@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sul contenuto delle guide di avvio rapido per il database singolo
-description: Informazioni di riferimento per il contenuto di tutte le guide di avvio rapido che consentono di iniziare rapidamente a usare i database singoli nel database SQL di Azure
+description: Informazioni di riferimento per il contenuto di tutte le guide di avvio rapido che consentono di iniziare rapidamente a usare i database singoli nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: c4a699a6b531feee98f9c6f83ba19cfef9d27620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3265b1f8234e1f2a2f19fb488d5c311e501c770e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052904"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338295"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introduzione ai database singoli in Database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Un [database singolo](../index.yml) è un database PaaS distribuito come servizio (DbaaS) completamente gestito, ideale da usare come motore di archiviazione per le moderne applicazioni native del cloud. In questa sezione verrà illustrato come configurare e creare rapidamente un database singolo nel database SQL di Azure.
+Un [database singolo](../index.yml) è un database distribuito come servizio (DbaaS) per piattaforme distribuite come servizio (PaaS) completamente gestito, ideale da usare come motore di archiviazione per le moderne applicazioni native del cloud. In questa sezione verrà illustrato come configurare e creare rapidamente un database singolo nel database SQL di Azure.
 
 ## <a name="quickstart-overview"></a>Panoramica della guida introduttiva
 
@@ -48,8 +48,8 @@ Queste guide introduttive consentono di creare o importare rapidamente il databa
 I seguenti moduli gratuiti di Microsoft Learn riguardano Database SQL di Azure.
 
 - [Effettuare il provisioning di un database nel database SQL per archiviare i dati dell'applicazione](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Proteggere il database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Proteggere un database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -58,4 +58,4 @@ I seguenti moduli gratuiti di Microsoft Learn riguardano Database SQL di Azure.
 - Per altre procedure avanzate, vedere [Come usare un database singolo nel database SQL di Azure](how-to-content-reference-guide.md).
 - Trovare altri script di esempio scritti in [PowerShell](powershell-script-content-guide.md) e nell'[interfaccia della riga di comando di Azure](az-cli-script-samples-content-guide.md).
 - Trovare altre informazioni sull'[API Gestione](single-database-manage.md) che è possibile usare per configurare i database.
-- [Identificare lo SKU di database SQL di Azure o di istanza gestita di SQL più adatto per il database locale](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificare lo SKU corretto del database SQL di Azure o dell'istanza gestita di SQL di Azure per il database locale](/sql/dma/dma-sku-recommend-sql-db/).

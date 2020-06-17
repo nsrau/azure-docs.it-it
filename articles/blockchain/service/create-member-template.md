@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310360"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456530"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un membro del servizio Azure Blockchain usando un modello di Azure Resource Manager
 
@@ -61,6 +61,12 @@ Risorse di Azure definite nel modello:
 1. Selezionare **Acquista** per distribuire il modello.
 
   In questo caso per distribuire il modello si usa il portale di Azure. È anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e un'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
+
+È possibile usare il portale di Azure per visualizzare i dettagli del membro del servizio Azure Blockchain distribuito. Nel portale passare al gruppo di risorse contenente il membro del servizio Azure Blockchain. Selezionare il membro della blockchain creato.
+
+![Dettagli della panoramica dei membri di Azure Blockchain distribuiti nel portale di Azure](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

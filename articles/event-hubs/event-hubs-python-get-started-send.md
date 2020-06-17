@@ -9,14 +9,15 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162600"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558958"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Guida introduttiva: Inviare e ricevere eventi con Hub eventi tramite Python (azure-eventhub versione 1)
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Avvio rapido: Inviare e ricevere eventi con Hub eventi tramite Python (azure-eventhub versione 1)
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con il pacchetto Python **azure-eventhub versione 1**. 
 
 > [!WARNING]
@@ -47,7 +48,7 @@ Per creare un'applicazione Python che invia eventi a un hub eventi:
 
 1. Aprire l'editor di Python preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/)
 2. Creare un nuovo file denominato *send.py*. Questo script invia 100 eventi all'hub eventi.
-3. Incollare il codice seguente in *send.py*, sostituendo \<namespace>,\<eventhub>, \<AccessKeyName> e \<primary key value> di Hub eventi con i propri valori: 
+3. Incollare il codice seguente in *send.py*, sostituendo \<namespace>, \<eventhub>, \<AccessKeyName> e \<primary key value> di Hub eventi con i propri valori: 
    
    ```python
    import sys
@@ -110,7 +111,7 @@ Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 Per creare un'applicazione Python che riceve eventi da un hub eventi:
 
 1. Nell'editor di Python creare un file denominato *recv.py*.
-2. Incollare il codice seguente in *recv.py*, sostituendo \<namespace>,\<eventhub>, \<AccessKeyName> e \<primary key value> di Hub eventi con i propri valori: 
+2. Incollare il codice seguente in *recv.py*, sostituendo \<namespace>, \<eventhub>, \<AccessKeyName> e \<primary key value> di Hub eventi con i propri valori: 
    
    ```python
    import os

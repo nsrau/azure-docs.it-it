@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare una VM: portale'
@@ -47,7 +47,7 @@
       href: tutorial-azure-security.md
     - name: 14 - Installare uno stack SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 15 - Proteggere il server Web con SSL
+    - name: '15: Proteggere il server Web con SSL'
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:
@@ -493,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
+            - name: Usare Azure PowerShell
+              href: image-builder-powershell.md
             - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
             - name: Aggiornare un'immagine esistente

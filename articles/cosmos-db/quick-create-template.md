@@ -6,16 +6,16 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605456"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324038"
 ---
-# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Guida introduttiva: Creare un database Azure Cosmos DB e un contenitore usando un modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore usando un modello di Azure Resource Manager
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Resource Manager per creare un database Azure Cosmos DB e un contenitore al suo interno. Sarà quindi possibile archiviare dati in questo contenitore.
 
@@ -35,9 +35,9 @@ Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 Nel modello sono definite tre risorse di Azure:
 
@@ -53,7 +53,7 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un account, un database e un contenitore Azure Cosmos DB.
 
-   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Selezionare o immettere i valori seguenti.
 
@@ -68,6 +68,9 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
     * **Località**: immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
     * **Area primaria**: area di replica primaria per l'account Azure Cosmos DB.
     * **Area secondaria**: area di replica secondaria per l'account Azure Cosmos DB.
+    * **Livello di coerenza predefinito**: livello di coerenza predefinito dell'account Azure Cosmos.
+    * **Prefisso di decadimento massimo**: numero massimo di richieste non aggiornate. Obbligatorio per BoundedStaleness.
+    * **Intervallo massimo in secondi**: Tempo di ritardo massimo. Obbligatorio per BoundedStaleness.
     * **Nome database**: nome del database Azure Cosmos DB.
     * **Nome contenitore**: nome del contenitore Azure Cosmos DB.
     * **Velocità effettiva**:  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
@@ -106,7 +109,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
-Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'account Azure Cosmos DB e le risorse correlate. Per eliminare il gruppo di risorse mediante l'interfaccia della riga di comando di Azure oppure Azure PowerShell:
+Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'account Azure Cosmos DB e le risorse correlate. Per eliminare il gruppo di risorse con l'interfaccia della riga di comando di Azure oppure con Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

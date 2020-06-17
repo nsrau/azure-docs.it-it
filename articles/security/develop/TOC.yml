@@ -1,20 +1,6 @@
 - name: Documentazione sullo sviluppo sicuro
   href: index.yml
-- name: App di esempio
-  expanded: true
-  items:
-    - name: Introduzione allo sviluppo sicuro
-      items:
-        - name: App Web in un contenitore Linux
-          href: secure-web-app.md
-        - name: App Web con Azure Active Directory
-          href: secure-aad-app.md
-    - name: Soluzioni conformi al settore
-      items:
-        - name: Payment Card Industry
-          href: secure-pci-web-app.md
 - name: Concetti
-  expanded: true
   items:
     - name: Procedure consigliate
       items:
@@ -26,8 +12,8 @@
           href: secure-develop.md
         - name: Distribuire app sicure
           href: secure-deploy.md
-- name: Risorse
   expanded: true
+- name: Risorse
   items:
     - name: Analisi del codice di sicurezza Microsoft
       items:
@@ -95,3 +81,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: Gestione delle sessioni
               href: threat-modeling-tool-session-management.md
+  expanded: true

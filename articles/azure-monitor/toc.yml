@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -946,14 +946,14 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Abilitare per un cluster del servizio Azure Kubernetes esistente
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Abilitare per il cluster abilitato per Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Abilitare per l'ambiente ibrido
               href: insights/container-insights-hybrid-setup.md
             - name: Abilitare per Azure Red Hat OpenShift v3
               href: insights/container-insights-azure-redhat-setup.md
             - name: Abilitare per Azure Red Hat OpenShift v4
               href: insights/container-insights-azure-redhat4-setup.md
-            - name: Abilitare per il cluster abilitato per Arc
-              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Mapping delle aree
               href: insights/container-insights-region-mapping.md
         - name: Monitorare le prestazioni

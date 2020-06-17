@@ -2,45 +2,45 @@
   href: module-reference.md
 - name: Input e output dei dati
   items:
-    - name: Import Data
+    - name: Importare dati
       href: import-data.md
-    - name: Enter Data Manually
+    - name: Immettere i dati manualmente
       href: enter-data-manually.md
-    - name: Export Data
+    - name: Esportare dati
       href: export-data.md
 - name: Trasformazione dei dati
   items:
-    - name: Add Columns
+    - name: Aggiungere colonne
       href: add-columns.md
-    - name: Add Rows
+    - name: Aggiungere righe
       href: add-rows.md
-    - name: Apply Math Operation
+    - name: Applicare operazioni matematiche
       href: apply-math-operation.md
-    - name: Apply SQL Transformation
+    - name: Applicare la trasformazione SQL
       href: apply-sql-transformation.md
-    - name: Clean Missing Data
+    - name: Pulire i dati mancanti
       href: clean-missing-data.md
-    - name: Clip Values
+    - name: Ritagliare valori
       href: clip-values.md
-    - name: Convert to CSV
+    - name: Eseguire la conversione in CSV
       href: convert-to-csv.md
-    - name: Convert to Dataset
+    - name: Eseguire la conversione in set di dati
       href: convert-to-dataset.md
-    - name: Convert to Indicator Values
+    - name: Eseguire la conversione in valori di indicatori
       href: convert-to-indicator-values.md
-    - name: Clean Missing Data
+    - name: Pulire i dati mancanti
       href: clean-missing-data.md
-    - name: Edit Metadata
+    - name: Modificare i metadati
       href: edit-metadata.md
-    - name: Group Data into Bins
+    - name: Raggruppare i dati in contenitori
       href: group-data-into-bins.md
-    - name: Join Data
+    - name: Unire dati
       href: join-data.md
-    - name: Normalize Data
+    - name: Normalizzare i dati
       href: normalize-data.md
-    - name: Partition and Sample
+    - name: Creare partizioni ed eseguire campionamenti
       href: partition-and-sample.md
-    - name: Remove Duplicate Rows
+    - name: Rimuovere righe duplicate
       href: remove-duplicate-rows.md
     - name: SMOTE
       href: smote.md
@@ -48,7 +48,7 @@
       href: select-columns-transform.md
     - name: Select Columns in Dataset
       href: select-columns-in-dataset.md
-    - name: Split Data
+    - name: Dividere dati
       href: split-data.md
 - name: Selezione delle funzionalità
   items:
@@ -58,53 +58,53 @@
       href: permutation-feature-importance.md
 - name: Funzioni statistiche
   items:
-    - name: Summarize Data
+    - name: Riepilogare i dati
       href: summarize-data.md
 - name: Algoritmi di apprendimento automatico
   items:
     - name: Regressione
       items:
-        - name: Boosted Decision Tree Regression
+        - name: Regressione albero delle decisioni incrementato
           href: boosted-decision-tree-regression.md
-        - name: Decision Forest Regression
+        - name: Regressione foresta delle decisioni
           href: decision-forest-regression.md
         - name: Linear Regression
           href: linear-regression.md
-        - name: Neural Network Regression
+        - name: Regressione rete neurale
           href: neural-network-regression.md
     - name: Clustering
       items:
-        - name: K-Means Clustering
+        - name: Clustering K-means
           href: k-means-clustering.md
     - name: Classificazione
       items:
-        - name: Multiclass Boosted Decision Tree
+        - name: Albero delle decisioni incrementato a più classi
           href: multiclass-boosted-decision-tree.md
-        - name: Multiclass Decision Forest
+        - name: Foresta delle decisioni multiclasse
           href: multiclass-decision-forest.md
-        - name: Multiclass Logistic Regression
+        - name: Regressione logistica multiclasse
           href: multiclass-logistic-regression.md
-        - name: Multiclass Neural Network
+        - name: Rete neurale multiclasse
           href: multiclass-neural-network.md
         - name: One vs. All Multiclass
           href: one-vs-all-multiclass.md
-        - name: Two-Class Averaged Perceptron
+        - name: Percettrone medio a due classi
           href: two-class-averaged-perceptron.md
         - name: Two-Class Boosted Decision Tree
           href: two-class-boosted-decision-tree.md
-        - name: Two-Class Decision Forest
+        - name: Foresta delle decisioni a due classi
           href: two-class-decision-forest.md
-        - name: Two-Class Logistic Regression
+        - name: Regressione logistica a due classi
           href: two-class-logistic-regression.md
-        - name: Two-Class Neural Network
+        - name: Rete neurale a due classi
           href: two-class-neural-network.md
         - name: Two-Class Support Vector Machine
           href: two-class-support-vector-machine.md
 - name: Training dei modelli
   items:
-    - name: Train Clustering Model
+    - name: Eseguire il training del modello di clustering
       href: train-clustering-model.md
-    - name: Train Model
+    - name: Eseguire il training del modello
       href: train-model.md
     - name: Train Pytorch Model
       href: train-pytorch-model.md
@@ -112,23 +112,23 @@
       href: tune-model-hyperparameters.md
 - name: Valutazione e assegnazione di punteggi al modello
   items:
-    - name: Apply Transformation
+    - name: Applicare la trasformazione
       href: apply-transformation.md
     - name: Assign Data to Clusters
       href: assign-data-to-clusters.md
     - name: Cross Validate Model
       href: cross-validate-model.md
-    - name: Evaluate Model
+    - name: Valutare il modello
       href: evaluate-model.md
     - name: Score Image Model
       href: score-image-model.md
-    - name: Score Model
+    - name: Assegnare il punteggio al modello
       href: score-model.md
 - name: Linguaggio di programmazione di Python
   items:
-    - name: Create Python Model
+    - name: Creare il modello Python
       href: create-python-model.md
-    - name: Execute Python Script
+    - name: Eseguire lo script Python
       href: execute-python-script.md
 - name: Linguaggio R
   items:
@@ -155,12 +155,12 @@
     - name: Init Image Transformation
       href: init-image-transformation.md
     - name: Split Image Directory
-      href: split-to-image-directory.md
+      href: split-image-directory.md
     - name: DenseNet
       href: densenet.md
     - name: ResNet
       href: resnet.md
-- name: Raccomandazione
+- name: Recommendation
   items:
     - name: Evaluate Recommender
       href: evaluate-recommender.md
@@ -172,15 +172,15 @@
       href: train-svd-recommender.md
     - name: Train Wide and Deep Recommender
       href: train-wide-and-deep-recommender.md
-- name: Rilevamento anomalie
+- name: Anomaly Detection
   items:
-    - name: PCA-Based Anomaly Detection
+    - name: Rilevamento anomalie basato su PCA
       href: pca-based-anomaly-detection.md
-    - name: Train Anomaly Detection Model
+    - name: Eseguire il training del modello di rilevamento anomalie
       href: train-anomaly-detection-model.md
 - name: Servizio Web
   items:
-    - name: Web Service Input/Output
+    - name: Input/output del servizio Web
       href: web-service-input-output.md
 - name: Errori e risoluzione dei problemi dei moduli
   href: designer-error-codes.md

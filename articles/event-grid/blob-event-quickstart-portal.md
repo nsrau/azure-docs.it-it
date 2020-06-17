@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310494"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457049"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Avvio rapido: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure
 
@@ -92,12 +92,9 @@ Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui s
    ![Selezionare il webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Nella pagina **Crea sottoscrizione di eventi** seguire questa procedura: 
     1. Specificare un **nome** per la sottoscrizione di eventi.
-    2. Immettere un **nome** per l'**argomento di sistema**. 
+    2. Immettere un **nome** per l'**argomento di sistema**. Per informazioni sugli argomenti di sistema, vedere [Panoramica degli argomenti di sistema](system-topics.md).
 
        ![Immettere nomi per la sottoscrizione eventi e l'argomento di sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Quando in precedenza è stata creata una sottoscrizione per un evento generato da origini di Azure, il servizio Griglia di eventi ha creato automaticamente un argomento di sistema con un nome generato in modo casuale. Ora è possibile specificare un nome per l'argomento di sistema usando questa casella di testo. È possibile usare questa risorsa di tipo argomento di sistema per individuare metriche e log di diagnostica.
     2. Selezionare **Webhook** per **Tipo di endpoint**. 
 
        ![Selezionare il tipo di endpoint webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

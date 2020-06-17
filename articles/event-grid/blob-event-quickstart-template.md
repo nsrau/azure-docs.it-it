@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605534"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424132"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Azure Resource Manager
 
@@ -50,7 +50,8 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 Nel modello sono definite due risorse di Azure:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crea un account di archiviazione di Azure.
-* [ **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): crea una sottoscrizione di Griglia di eventi di Azure per l'account di archiviazione.
+* [**Microsoft.EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crea un argomento di sistema con il nome specificato per l'account di archiviazione. 
+* [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): crea una sottoscrizione di Griglia di eventi di Azure per l'argomento di sistema.
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 

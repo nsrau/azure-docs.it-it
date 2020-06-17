@@ -1,3 +1,5 @@
+- name: Dimensioni delle macchine virtuali
+  href: vm-sizes.md
 - name: Mapping del materiale per i formati di modello
   href: material-mapping.md
 - name: Regioni
