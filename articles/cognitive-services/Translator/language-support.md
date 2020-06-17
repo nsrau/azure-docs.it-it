@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718445"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888310"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -186,7 +186,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Linguaggio    | Codice lingua | Script | A/da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
-|Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+| Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
@@ -198,7 +198,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latino `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|

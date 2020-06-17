@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637467"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902603"
 ---
 > [!NOTE]
 > Per rilevare `PHI` , usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
@@ -33,14 +33,14 @@ Quando si inviano richieste all'endpoint, vengono restituite le categorie di ent
 | Organization | Sport | Organizzazioni correlate allo sport. | `2020-04-01` | Restituito anche con `domain=phi` . |
 | Indirizzo | N/D | Indirizzi di posta elettronica completi.  | `2020-04-01` | Restituito anche con `domain=phi` . |
 | Coordinate GPS EU | N/D | Coordinate GPS per le località all'interno dell'Unione europea.  | `2019-10-01` |  |
-| Posta elettronica | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
+| Email | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
 | URL | N/D | URL per siti Web. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | IP | N/D | Indirizzi IP di rete. | `2019-10-01` | |
 | Datetime | N/D | Date e ore del giorno. | `2019-10-01` |  | 
 | Datetime | Data | Date calendario. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | Quantità | N/D | Numeri e quantità numeriche. | `2019-10-01` |  |
 | Quantità | Age | Età. | `2019-10-01` | | |
-| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, nona revisione.   | `2020-04-01` | |
+| Classificazione internazionale delle malattie (ICD-9-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, nona revisione.   | `2020-04-01` | |
 | Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, decima revisione.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informazioni su Azure

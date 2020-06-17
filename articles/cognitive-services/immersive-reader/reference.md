@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267240"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907381"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento a immersive Reader SDK
 
@@ -48,7 +48,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
 | `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativa. |
 
-### <a name="returns"></a>Valori di codice restituiti
+### <a name="returns"></a>Restituisce
 
 Restituisce un oggetto `Promise<LaunchResponse>` , che viene risolto quando il lettore immersivo viene caricato. Viene `Promise` risolto in un [`LaunchResponse`](#launchresponse) oggetto.
 
@@ -111,7 +111,7 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Contiene la risposta dalla chiamata a `ImmersiveReader.launchAsync` .
+Contiene la risposta dalla chiamata a `ImmersiveReader.launchAsync` . Si noti che è possibile accedere a un riferimento all'oggetto `iframe` che contiene il lettore immersivo tramite `container.firstChild` .
 
 ```typescript
 {
@@ -133,9 +133,9 @@ enum CookiePolicy { Disable, Enable }
 | Tipo MIME | Descrizione |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Scopri di più](#html-support)|
+| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md)
-| Application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Documento di formato Microsoft Word. docx.
+| applicazione/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento di formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Supporto HTML
 
