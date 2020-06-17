@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: 'Creare una VM: portale'
@@ -47,7 +47,7 @@
       href: tutorial-azure-security.md
     - name: 14 - Installare uno stack SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: '15: Proteggere il server Web con SSL'
+    - name: 15 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:
@@ -194,6 +194,8 @@
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Ddv4 e Ddsv4
               href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Dv4 e Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Ottimizzate per il calcolo
           items:
             - name: Panoramica
@@ -213,6 +215,8 @@
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Edv4 e Edsv4
               href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Ev4 e Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie M
               href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Mv2
@@ -277,6 +281,8 @@
         - name: VM Spot
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: Macchine virtuali di Azure senza disco temporaneo
+          href: ../azure-vms-no-temp-disk.md
         - name: Generazioni precedenti
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
@@ -371,7 +377,7 @@
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Codici di errore
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Usare C#'
+        - name: Usare C#
           href: csharp.md
         - name: Usare un disco specializzato
           items:
@@ -379,7 +385,7 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Usare un modello di Azure Resource Manager con C#'
+        - name: Usare un modello di Azure Resource Manager con C#
           href: csharp-template.md
           displayName: Azure Resource Manager
         - name: Creare una VM con Chef
@@ -624,7 +630,7 @@
           href: ../extensions/agent-windows.md
         - name: Attenuazione dell'esecuzione speculativa
           href: mitigate-se.md
-        - name: Servizio metadati dell'istanza di Azure
+        - name: Monitorare i metadati
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
           href: nested-virtualization.md
@@ -663,7 +669,7 @@
             - name: Panoramica degli agenti
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Domande frequenti
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Estensione di Diagnostica di Azure
               items:
                 - name: Panoramica
@@ -736,7 +742,7 @@
             - name: Domande frequenti sulla disponibilità generale
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Domande frequenti
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Abilitare il monitoraggio
               items:
                 - name: Abilitare il monitoraggio - Panoramica

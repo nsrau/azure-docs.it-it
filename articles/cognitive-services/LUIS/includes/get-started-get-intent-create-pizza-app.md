@@ -1,21 +1,21 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 7ab6aa5f830e335a30502207d3a49a528d03f7fd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654301"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418039"
 ---
 1. Selezionare [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) per aprire la pagina di GitHub per il file `pizza-app-for-luis.json`.
 1. Toccare e tenere premuto a lungo o fare clic con il pulsante destro del mouse sul pulsante **Raw** e selezionare **Salva collegamento come** per salvare `pizza-app-for-luis.json` nel computer.
@@ -29,7 +29,7 @@ ms.locfileid: "83654301"
 
 L'app verrà importata.
 
-Se viene visualizzata una finestra di dialogo **Come creare un'app di LUIS efficace**, chiudere la finestra di dialogo.
+Se viene visualizzata una finestra di dialogo **Come creare un'app LUIS efficace**, chiudere la finestra di dialogo.
 
 ## <a name="train-and-publish-the-pizza-app"></a>Eseguire il training dell’app Pizza e pubblicarla
 
@@ -43,7 +43,7 @@ L'app Pizza è ora pronta per essere usata.
 
 ## <a name="record-the-app-id-prediction-key-and-prediction-endpoint-of-your-pizza-app"></a>Registrare l'ID app, la chiave di previsione e l'endpoint di previsione dell'app Pizza
 
-Per usare la nuova app Pizza, sono necessari l'ID app, la chiave di previsione e l'endpoint dell'app Pizza.
+Per usare la nuova app Pizza, sono necessari l'ID app, la chiave di previsione e l'endpoint previsione dell'app Pizza.
 
 Per trovare questi valori:
 

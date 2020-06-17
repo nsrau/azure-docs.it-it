@@ -7,7 +7,7 @@
       href: what-is-luis.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Compilare app di dominio predefinite
       href: luis-get-started-create-app.md
@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: Uso con un bot
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Con Node.js
@@ -125,6 +125,14 @@
         - name: Strategie di progettazione
           href: luis-concept-enterprise.md
           displayName: import
+    - name: Applicazione delle procedure di DevOps con LUIS
+      items:
+        - name: Strategie di controllo del codice sorgente e gestione rami per LUIS
+          href: luis-concept-devops-sourcecontrol.md
+        - name: Test per DevOps
+          href: luis-concept-devops-testing.md
+        - name: Flussi di lavoro CI/CD
+          href: luis-concept-devops-automation.md
 - name: Guide pratiche
   items:
     - name: Avviare una nuova app
@@ -238,11 +246,13 @@
         - name: Limitazioni dei contenitori
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Usare DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Servizi correlati
       items:
         - name: Servizio Azure Bot
           href: 'https://dev.botframework.com/'
-        - name: 'Bot Builder 4.x SDK in C#'
+        - name: Bot Builder 4.x SDK in C#
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA Maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +294,7 @@
               href: luis-reference-response-codes.md
         - name: SDK
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: NuGet - Creazione
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'

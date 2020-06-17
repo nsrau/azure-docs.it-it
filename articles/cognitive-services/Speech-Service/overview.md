@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 464e21caf3105b12f0fbf44dc2aa3674a252d3c6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81401031"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417226"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -28,7 +28,7 @@ Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui 
 
 | Service | Funzionalità | Descrizione | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Riconoscimento vocale](speech-to-text.md) | Riconoscimento vocale in tempo reale | Il riconoscimento vocale trascrive o traduce in tempo reale flussi audio o file locali in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Riconoscimento vocale](speech-to-text.md) | Riconoscimento vocale in tempo reale | Il riconoscimento vocale trascrive o traduce in tempo reale flussi audio o file locali in testo da utilizzare o visualizzare in applicazioni, dispositivi o strumenti. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Riconoscimento vocale in batch](batch-transcription.md) | Il riconoscimento vocale in batch consente la trascrizione asincrona in testo di una quantità elevata di dati audio vocali memorizzati in Archiviazione BLOB di Azure. Oltre a convertire l'audio vocale in testo, il riconoscimento vocale in batch consente anche di eseguire la diarizzazione e l'analisi del sentiment. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
 | | [Conversazione per più dispositivi](multi-device-conversation.md) | Connessione di più dispositivi o client in una conversazione per l'invio di messaggi vocali o di testo, con il supporto semplificato per la trascrizione e la traduzione| Sì | No |
 | | [Trascrizione conversazione](conversation-transcription-service.md) | Abilita il riconoscimento vocale in tempo reale, l'identificazione voce e la diarizzazione. È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti. | Sì | No |
@@ -37,6 +37,7 @@ Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui 
 | | [Creare voci personalizzate](#customize-your-speech-experience) | Creazione di caratteri voce personalizzati univoci per il proprio marchio o prodotto. | No | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traduzione vocale](speech-translation.md) | Traduzione vocale | La traduzione vocale consente di attivare la traduzione vocale end-to-end in tempo reale e in più lingue in applicazioni, strumenti e dispositivi. È possibile usare questo servizio per il riconoscimento vocale e la traduzione vocale. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Assistenti vocali](voice-assistants.md) | Assistenti vocali | Gli assistenti vocali che usano il servizio Voce consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze. Il servizio di assistente vocale offre un'interazione rapida e affidabile tra un dispositivo e l'implementazione di un assistente che usa il canale Direct Line Speech di Bot Framework o il servizio integrato Comandi personalizzati (anteprima) per completare le attività. | [Sì](voice-assistants.md) | No |
+| [Riconoscimento del parlante](speaker-recognition-overview.md) | Identificazione e verifica voce | Il servizio Riconoscimento del parlante fornisce algoritmi che verificano e identificano i parlanti in base alle relative caratteristiche vocali univoche. Il servizio Riconoscimento del parlante consente di rispondere alla domanda "chi parla?" | Sì | [Sì](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]

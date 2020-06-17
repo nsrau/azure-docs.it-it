@@ -8,7 +8,7 @@
       items:
         - name: Informazioni su Registro Container
           href: container-registry-intro.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       expanded: true
       items:
         - name: Creare un registro contenitori - Interfaccia della riga di comando
@@ -140,7 +140,7 @@
           items:
             - name: Log di diagnostica e di controllo
               href: container-registry-diagnostics-audit-logs.md
-            - name: Controllare la conformità con Criteri di Azure (anteprima)
+            - name: Controllare la conformità con Criteri di Azure
               href: container-registry-azure-policy.md
         - name: Risolvere problemi
           expanded: false
@@ -157,7 +157,7 @@
       items:
         - name: Informazioni su Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       expanded: true
       items:
         - name: 'Creare, effettuare il push ed eseguire un''immagine - Interfaccia della riga di comando'

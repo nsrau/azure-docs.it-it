@@ -10,7 +10,7 @@
     - name: Creare un cluster del servizio Azure Kubernetes
       expanded: true
       items:
-        - name: Utilizzare l’interfaccia della riga di comando di Azure
+        - name: Usare l'interfaccia della riga di comando di Azure
           href: kubernetes-walkthrough.md
         - name: Usare Azure PowerShell
           href: kubernetes-walkthrough-powershell.md
@@ -59,7 +59,7 @@
       href: tutorial-kubernetes-scale.md
     - name: '6: Aggiornare l''applicazione'
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Aggiornare il cluster
+    - name: '7: Aggiornare il cluster'
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Esempi
   items:
@@ -163,7 +163,7 @@
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
             - name: Usare il portale di Azure
               href: virtual-nodes-portal.md
@@ -222,6 +222,9 @@
               href: http-application-routing.md
             - name: Usare la rete interna
               href: ingress-internal-ip.md
+            - name: Abilitare il componente aggiuntivo AGIC per un cluster del servizio Azure Kubernetes esistente
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
             - name: Usare TLS con i propri certificati
               href: ingress-own-tls.md
             - name: Usare TLS con Let's Encrypt
@@ -416,7 +419,7 @@
     - name: REST
       href: /rest/api/aks
     - name: PowerShell
-      href: '/powershell/module/az.aks#aks'
+      href: /powershell/module/az.aks#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python

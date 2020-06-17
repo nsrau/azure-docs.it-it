@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Processo generale di distribuzione
       href: deployment-overview.md
-    - name: Partner di sicurezza affidabili
+    - name: Provider del partner di sicurezza
       href: trusted-security-partners.md
     - name: Logica di elaborazione delle regole
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Guide pratiche
   items:
-    - name: Distribuire partner di sicurezza affidabili
+    - name: Distribuire provider del partner di sicurezza
       href: deploy-trusted-security-partner.md
     - name: Eseguire la migrazione a un criterio di Firewall - PowerShell
       href: migrate-to-policy.md

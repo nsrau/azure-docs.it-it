@@ -64,8 +64,10 @@
       href: overview-vnet-service-endpoints.md
 - name: Guide pratiche
   items:
-    - name: Authenticate
+    - name: Autenticazione
       items:
+        - name: Eseguire l'autenticazione a Key Vault
+          href: authentication.md
         - name: Usare un'identità gestita nel servizio app
           href: managed-identity.md
         - name: Usare un criterio di controllo di accesso
@@ -123,7 +125,7 @@
     - name: Parametri e intestazioni comuni
       href: common-parameters-and-headers.md
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/keyvault
     - name: .NET

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448730"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434569"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Informazioni sull'API Ricerca personalizzata Bing
 
@@ -29,7 +29,7 @@ L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca perso
 |[Esperienze di ricerca di immagini personalizzate](get-images-from-instance.md)     | Permettono agli utenti di cercare immagini dai domini e dai siti Web specificati nell'istanza di ricerca personalizzata.        |        
 |[Esperienze di ricerca di video personalizzate](get-videos-from-instance.md)     | Permettono agli utenti di cercare video dai domini e dai siti specificati nell'istanza di ricerca personalizzata.        |    
 |[Condivisione dell'istanza di ricerca personalizzata](share-your-custom-search.md)     | Possibilità di collaborare alla modifica e alla verifica dell'istanza di ricerca condividendola con i membri del team.        | 
-|[Configurare un'interfaccia utente per le applicazioni e i siti Web](hosted-ui.md)     | Possibilità di collaborare alla modifica e alla verifica dell'istanza di ricerca condividendola con i membri del team.        | 
+|[Configurare un'interfaccia utente per le applicazioni e i siti Web](hosted-ui.md)     | Offre un'interfaccia utente ospitata che è possibile integrare facilmente in applicazioni Web e pagine Web come frammento di codice JavaScript.        | 
 ## <a name="workflow"></a>Flusso di lavoro
 
 È possibile creare un'istanza di ricerca personalizzata usando il portale [Ricerca personalizzata Bing](https://customsearch.ai). Il portale permette di creare un'istanza di ricerca personalizzata che specifica i domini, i siti Web e le pagine Web in cui si vuole eseguire la ricerca con Bing, insieme a quelli da escludere per la ricerca. È anche possibile usare il portale per: visualizzare in anteprima l'esperienza di ricerca, modificare le priorità di ricerca fornite dall'API e, facoltativamente, configurare un'interfaccia utente da visualizzare nei siti Web e nelle applicazioni.
