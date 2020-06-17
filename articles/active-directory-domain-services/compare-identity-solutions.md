@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655522"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555135"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Confrontare soluzioni Active Directory Domain Services autogestite, Azure Active Directory e Azure Active Directory Domain Services gestite
 
@@ -31,21 +31,25 @@ Nonostante condividano nome e tecnologia, le tre soluzioni di gestione delle ide
     * Per altre informazioni su Azure AD, vedere [Informazioni su Azure Active Directory][whatis-azuread].
 * **Azure Active Directory Domain Services (Azure AD DS)** : offre servizi di dominio gestiti con un sottoinsieme di funzionalità tradizionali di AD DS completamente compatibili, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
     * Azure AD DS si integra con Azure AD, che a sua volta è in grado di eseguire la sincronizzazione con un ambiente di AD DS locale. Questa funzionalità estende i casi d'uso di gestione centrale delle identità alle applicazioni Web tradizionali eseguite in Azure come parte di una strategia lift-and-shift.
+    * Per altre informazioni sulla sincronizzazione con Azure AD e in locale, vedere [Sincronizzazione di oggetti e credenziali in un dominio gestito][synchronization].
 
 Questo articolo di panoramica mette a confronto il modo in cui queste soluzioni di gestione delle identità possono interagire o essere usate in modo indipendente, a seconda delle esigenze dell'organizzazione.
 
-Per iniziare, [creare un dominio gestito di Azure Active Directory Domain Services usando il portale di Azure][tutorial-create].
+> [!div class="nextstepaction"]
+> [Per iniziare, creare un dominio gestito di Azure Active Directory Domain Services usando il portale di Azure][tutorial-create]
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS e soluzione Active Directory Domain Services autogestita
 
 Se si usano applicazioni e servizi che devono accedere a meccanismi di autenticazione tradizionali come Kerberos o NTLM, è possibile offrire Active Directory Domain Services nel cloud in due modi:
 
-* Dominio *gestito* creato con Azure Active Directory Domain Services. Microsoft crea e gestisce le risorse necessarie.
+* *Dominio gestito* creato con Azure Active Directory Domain Services. Microsoft crea e gestisce le risorse necessarie.
 * Dominio *autogestito* creato e configurato usando risorse tradizionali come le macchine virtuali, il sistema operativo guest Windows Server e Active Directory Domain Services. Si continuerà quindi ad amministrare queste risorse.
 
 Con Azure AD DS, i componenti di base del servizio vengono distribuiti e gestiti da Microsoft in un'esperienza di *dominio gestito*. Non si devono eseguire la distribuzione, la gestione, l'applicazione di patch e la protezione dell'infrastruttura di Active Directory Domain Services per componenti come le VM, il sistema operativo Windows Server o i controller di dominio.
 
-Azure AD DS offre un subset ridotto di funzionalità rispetto a un ambiente Active Directory Domain Services autogestito tradizionale, eliminando così parte della complessità di progettazione e di gestione. Non è ad esempio necessario progettare e gestire foreste, domini, siti e collegamenti di replica di Active Directory. Per le applicazioni e i servizi eseguiti nel cloud che devono accedere a meccanismi di autenticazione tradizionali come Kerberos o NTLM, Azure AD DS offre un'esperienza di dominio gestito con carico amministrativo minimo.
+Azure AD DS offre un subset ridotto di funzionalità rispetto a un ambiente Active Directory Domain Services autogestito tradizionale, eliminando così parte della complessità di progettazione e di gestione. Non è ad esempio necessario progettare e gestire foreste, domini, siti e collegamenti di replica di Active Directory. È comunque possibile [creare trust tra foreste tra Azure Active Directory Domain Services e gli ambienti locali (attualmente disponibile in anteprima)][create-forest-trust].
+
+Per le applicazioni e i servizi eseguiti nel cloud che devono accedere a meccanismi di autenticazione tradizionali come Kerberos o NTLM, Azure AD DS offre un'esperienza di dominio gestito con carico amministrativo minimo. Per altre informazioni, vedere [Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services][administration-concepts].
 
 Quando si distribuisce e si esegue un ambiente Active Directory Domain Services autogestito, è necessario gestire tutti i componenti associati dell'infrastruttura e delle directory. Un ambiente Active Directory Domain Services autogestito comporta un carico di manutenzione aggiuntivo, ma consente di eseguire attività supplementari come estendere lo schema o creare trust tra foreste.
 
@@ -94,7 +98,7 @@ I dispositivi possono essere aggiunti ad Azure AD con o senza una distribuzione 
 
 | **Tipo di dispositivo**                                        | **Piattaforme**             | **Meccanismo**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| Dispositivi personali                                          | Windows 10, iOS, Android, Mac OS | Registrazione in Azure AD    |
+| Dispositivi personali                                          | Windows 10, iOS, Android, macOS | Registrazione in Azure AD    |
 | Dispositivo di proprietà dell'organizzazione non aggiunto a un'istanza locale di AD DS | Windows 10                       | Aggiunta ad Azure AD        |
 | Dispositivo di proprietà dell'organizzazione aggiunto a un'istanza locale di AD DS  | Windows 10                       | Aggiunta a Azure AD ibrido |
 
@@ -115,6 +119,8 @@ Con dispositivi aggiunti ad Azure AD DS, le applicazioni possono usare i protoco
 
 Per iniziare a usare Azure AD DS, [creare un dominio gestito di Azure AD DS con il portale di Azure][tutorial-create].
 
+Per altre informazioni, vedere [Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services][administration-concepts] e [Sincronizzazione di oggetti e credenziali in un dominio gestito][synchronization].
+
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
 [deploy-kcd]: deploy-kcd.md
@@ -124,3 +130,6 @@ Per iniziare a usare Azure AD DS, [creare un dominio gestito di Azure AD DS con 
 [tutorial-create]: tutorial-create-instance.md
 [whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[create-forest-trust]: tutorial-create-forest-trust.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

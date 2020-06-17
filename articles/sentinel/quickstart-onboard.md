@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Caricare dati in Azure Sentinel'
+title: 'Avvio rapido: Caricare dati in Azure Sentinel'
 description: Questa Guida introduttiva illustra come raccogliere dati in Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -9,14 +9,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184334"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488121"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Guida introduttiva: Caricare dati in Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
 Questa Guida introduttiva illustra come caricare dati in Azure Sentinel. 
 
@@ -57,6 +57,9 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
    > - Le aree di lavoro predefinite create in Centro sicurezza di Azure non vengono visualizzate nell'elenco e non è possibile installare Azure Sentinel in tali aree.
    > - Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). I dati generati da Azure Sentinel (ad esempio eventi imprevisti, segnalibri e regole di avviso, che possono contenere dati del cliente originati da tali aree di lavoro), vengono salvati in Europa (per le aree di lavoro che risiedono in Europa), in Australia (per le aree di lavoro che risiedono in Australia) o nell'area Stati Uniti orientali (per le aree di lavoro che risiedono in tutte le altre aree).
 
+   >[!IMPORTANT]
+   > - Una volta abilitata la funzionalità Azure Sentinel in un'area di lavoro, il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni non è supportato. Se è necessario spostare l'area di lavoro, contattare il supporto tecnico per assistenza.
+
 1. Selezionare **Aggiungi Azure Sentinel**.
   
 
@@ -65,7 +68,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 Azure Sentinel crea la connessione ai servizi e alle app collegandosi al servizio e inviando gli eventi e i log ad Azure Sentinel. Per i computer e le macchine virtuali, è possibile installare l'agente di Azure Sentinel che raccoglie i log e li trasmette ad Azure Sentinel. Per i firewall e i proxy, Azure Sentinel usa un server Linux Syslog in cui è installato l'agente e da cui l'agente raccoglie i file di log e li trasmette ad Azure Sentinel. 
  
 1. Fare clic su **Connettori dati**.
-2. È disponibile un riquadro per ogni origine dati che è possibile connettere.<br>
+1. È disponibile un riquadro per ogni origine dati che è possibile connettere.<br>
 Fare clic ad esempio su **Azure Active Directory**. Se si connette questa origine dati, è possibile trasmettere tutti i log da Azure AD ad Azure Sentinel. È possibile selezionare il tipo di log da ottenere, ovvero log di accesso o di controllo. <br>
 In via definitiva, Azure Sentinel offre consigli per le cartelle di lavoro da installare per ogni connettore, in modo da ottenere immediatamente analisi approfondite sui dati. <br> Per altre informazioni, seguire le istruzioni di installazione o [fare riferimento alla guida di connessione pertinente](connect-data-sources.md). Per informazioni sui connettori dei dati, vedere [Connettere i servizi Microsoft](connect-data-sources.md).
 

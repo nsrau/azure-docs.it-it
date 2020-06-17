@@ -1,95 +1,55 @@
 ---
 title: Modellazione ed esplorazione dei dati con Spark - Processo di data science per i team
-description: Illustra le funzionalità di modellazione ed esplorazione dei dati del toolkit MLlib di Spark su Azure.
+description: Illustra le funzionalità di modellazione ed esplorazione dei dati del toolkit MLlib di Spark in HDInsight Spark.
 services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: sample
+ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 208f176ca942fb382ff2ed81d872602f7229b0a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
+ms.openlocfilehash: d3761977d3234e19f0df24aec45451b234a569e8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718634"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84332019"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modellazione ed esplorazione dei dati con Spark
 
-Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei dati e attività di classificazione binaria e modellazione basata sulla regressione su un campione del set di dati relativo alle corse e alle tariffe taxi della città di New York nel 2013.  Illustra i passaggi end-to-end del [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)usando un cluster HDInsight Spark per l'elaborazione e BLOB di Azure per l'archiviazione dei dati e dei modelli. Il processo analizza e visualizza i dati ottenuti da un BLOB di Archiviazione di Azure e li prepara per la compilazione di modelli predittivi. I modelli vengono compilati con il toolkit MLlib di Spark per l'esecuzione di attività di classificazione binaria e modellazione basata sulla regressione.
+Informazioni su come usare HDInsight Spark per eseguire il training dei modelli di Machine Learning per stimare le tariffe dei taxi con Spark MLlib.
 
-* L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
-* L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 
-
-I modelli proposti includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti:
-
-* [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è un modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastico (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate. 
-* [Regressione logistica con L-BFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , o regressione "logit", è un modello di regressione che può essere usato quando la variabile dipendente usata per la classificazione dei dati è categoriale. L'algoritmo L-BFGS è un algoritmo di ottimizzazione quasi-Newton che approssima l'algoritmo di Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando una quantità limitata di memoria del computer ed è ampiamente usato nell'apprendimento automatico.
-* [foreste casuali](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sono insiemi di alberi delle decisioni.  Queste foreste combinano diversi alberi delle decisioni per ridurre il rischio di overfitting. Le foreste casuali vengono usate per la classificazione e la regressione, sono in grado di gestire funzionalità relative alle categorie e possono essere estese all'impostazione di classificazione multiclasse. Non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Le foreste casuali sono tra i modelli di apprendimento automatico più diffusi per la classificazione e la regressione.
-* Gli [alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sono insiemi di alberi delle decisioni. GBT training degli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. GBT viene usato per la regressione e la classificazione e può gestire le funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e sono in grado di acquisire non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
-
-La procedura di modellazione include anche codice che illustra come eseguire il training, la valutazione e il salvataggio di ogni tipo di modello. Per il codice della soluzione e per visualizzare i relativi tracciati è stato usato Python.   
-
-> [!NOTE]
-> Anche se il toolkit Spark MLlib è progettato per funzionare con set di dati di grandi dimensioni, per maggiore praticità viene usato un campione relativamente ridotto, di circa 30 Mb con 170.000 righe, ovvero lo 0,1% circa del set di dati originale della città di New York. L'esercizio qui proposto viene eseguito in modo efficiente in un cluster HDInsight con 2 nodi di lavoro, in circa 10 minuti. Lo stesso codice può essere usato per elaborare set di dati di dimensioni maggiori, con poche modifiche appropriate per il caching dei dati in memoria e la modifica delle dimensioni del cluster.
-> 
-> 
+Questo esempio illustra i diversi passaggi del [processo di Data Science per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Per caricare, esplorare e preparare i dati, viene usato un subset del set di dati relativo alle tariffe e alle corse dei taxi di NYC nel 2013. Usando quindi Spark MLlib, viene eseguito il training dei modelli di classificazione e regressione binari per stimare se verrà lasciata una mancia per la corsa e stimarne l'importo.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per completare questa procedura dettagliata sono necessari un account Azure e un cluster HDInsight Spark 1.6 o 2.0. Per istruzioni su come soddisfare questi requisiti, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Questo argomento contiene inoltre una descrizione dei dati dei taxi di NYC per il 2013 usati qui e istruzioni su come eseguire il codice da un notebook Jupyter nel cluster Spark. 
 
-## <a name="spark-clusters-and-notebooks"></a>Notebook e cluster Spark
+### <a name="spark-clusters-and-notebooks"></a>Notebook e cluster Spark
+
 La procedura di installazione e il codice forniti in questa procedura dettagliata sono per l'uso di un HDInsight Spark 1.6. Ma vengono forniti i notebook di Jupyter per i cluster HDInsight sia Spark 1.6 sia Spark 2.0. +Vengono inoltre forniti una descrizione dei notebook e i relativi collegamenti nel [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) per il repository GitHub che li contiene. Inoltre, il codice in questo esempio e nei notebook collegati è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui. Per praticità, ecco i collegamenti per i notebook di Jupyter per Spark 1.6 (da eseguire nel kernek di pySpark del server Notebook di Jupyter) e Spark 2.0 (da eseguire nel kernel di pySpark3 del server Notebook di Jupyter):
 
-### <a name="spark-16-notebooks"></a>Notebook Spark 1.6
-
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio con diversi algoritmi.
-
-### <a name="spark-20-notebooks"></a>Notebook Spark 2.0
-Le attività di classificazione e regressione implementate con un cluster Spark 2.0 si trovano in notebook diversi e il notebook di classificazione usa un dataset diverso:
-
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0 usando i dati relativi alle corse e alle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Questo notebook può essere un buon punto di partenza per esplorare velocemente il codice fornito per Spark 2.0. Per un notebook più dettagliato che analizza i dati dei taxi di NYC, vedere il notebook successivo di questo elenco. Vedere le note che seguono questo elenco per confrontare i notebook. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati delle corse e delle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati relativi alle partenze puntuali dei voli del 2011 e 2012 di una compagnia area. Il set di dati della compagnia aerea è stato integrato con i dati meteo dell'aeroporto (ad esempio, windspeed, temperature, altitudine e così via) prima della modellazione, quindi queste funzionalità meteorologiche possono essere incluse nel modello.
-
-<!-- -->
-
-> [!NOTE]
-> Il set di dati della compagnia aerea è stato aggiunto ai notebook Spark 2.0 per illustrare al meglio l'uso degli algoritmi di classificazione. Vedere i collegamenti seguenti per informazioni sul set di dati delle partenze puntuali dei voli della compagnia aerea e sul set di dati delle condizioni atmosferiche:
-> 
-> - Dati sulla partenza della linea aerea:[https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
-> 
-> - Dati meteo aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
-
-<!-- -->
-
-<!-- -->
-
-> [!NOTE]
-> L'esecuzione dei notebook Spark 2.0 sui dati dei taxi di NYC e sui ritardi dei voli può impiegare 10 minuti o più (in base alla dimensione del cluster HDI). Il primo notebook dell'elenco precedente illustra molti aspetti dell'esplorazione dei dati, della visualizzazione e dell'addestramento del modello ML in un notebook che richiede meno tempo di esecuzione con dataset di NYC ricampionati, in cui i file dei dati di taxi e tariffe sono stati precedentemente uniti: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Questo notebook termina in un tempo molto più breve (2-3 minuti) e può essere un buon punto di partenza per esplorare rapidamente il codice fornito per Spark 2.0. 
-
-<!-- -->
+- [Notebook Spark 1.6](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/): fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione dei punteggi con algoritmi differenti.
+- [Notebook Spark 2.0](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/): fornisce informazioni su come eseguire attività di regressione e classificazione. I set di dati possono variare, ma passaggi e concetti sono applicabili a set di dati diversi.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-
-<!-- -->
 
 > [!NOTE]
 > Le descrizioni riportate di seguito riguardano l'uso di Spark 1.6. Per le versioni Spark 2.0 usare i notebook le cui descrizioni e collegamenti sono riportati sopra. 
 
-<!-- -->
+## <a name="setup"></a>Configurazione
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
 Spark può eseguire operazioni di lettura e scrittura in BLOB di Archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
 
 Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: "wasb///". "wasb://" fa riferimento ad altri percorsi.
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Impostare percorsi di directory per i percorsi di archiviazione in WASB
+
 L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello:
+
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
@@ -102,6 +62,7 @@ L'esempio di codice seguente specifica il percorso dei dati da leggere e il perc
 
 
 ### <a name="import-libraries"></a>Importare le librerie
+
 Per la configurazione occorre anche importare le librerie necessarie. Impostare il contesto Spark e importare le librerie necessarie usando il codice seguente:
 
     # IMPORT LIBRARIES
@@ -121,6 +82,7 @@ Per la configurazione occorre anche importare le librerie necessarie. Impostare 
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contesto di Spark preimpostato e magic di PySpark
+
 I kernel PySpark forniti con i notebook di Jupyter hanno un contesto preimpostato, quindi non è necessario impostare esplicitamente i contesti Spark o Hive prima di iniziare a usare l'applicazione in fase di sviluppo. Questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
 
 * sc per Spark 
@@ -129,11 +91,12 @@ I kernel PySpark forniti con i notebook di Jupyter hanno un contesto preimpostat
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 * **%%local**: specifica che il codice presente nelle righe successive deve essere eseguito localmente. Deve trattarsi di codice Python valido.
-* **%% SQL-o \<nome variabile>** Esegue una query hive su SqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+* **%%sql -o \<variable name>** : esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
 
-Per altre informazioni sui kernel di Jupyter notebook e sui "Magic" predefiniti, vedere [kernel disponibili per i notebook di Jupyter con cluster HDInsight Spark in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+Per altre informazioni sui kernel per i notebook di Jupyter e i comandi "magic" predefiniti, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="data-ingestion-from-public-blob"></a>Inserimento di dati dal BLOB pubblico
+## <a name="load-the-data"></a>Caricare i dati
+
 Il primo passaggio del processo di analisi scientifica dei dati consiste nel prelevare i dati da analizzare dalle origini in cui si trovano e inserirli nell'ambiente di modellazione ed esplorazione dei dati. In questa procedura dettagliata l'ambiente è Spark. Questa sezione contiene il codice per completare una serie di attività:
 
 * Inserimento del campione di dati da modellare.
@@ -202,18 +165,20 @@ Di seguito è riportato il codice per l'inserimento di dati.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**OUTPUT**
+**OUTPUT:**
 
 Tempo impiegato per eseguire questa cella: 51,72 secondi
 
-## <a name="data-exploration--visualization"></a>Visualizzazione ed esplorazione dei dati
+## <a name="explore-the-data"></a>Esplorare i dati
+
 Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione vengono esaminati i dati relativi ai taxi tramite query SQL e vengono tracciate le variabili di destinazione e le funzionalità potenziali per l'esame visivo. In particolare, viene tracciata la frequenza del numero di passeggeri nelle corse dei taxi, la frequenza dell'importo delle mance e la variazione delle mance in base al tipo e all'importo del pagamento.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Tracciare un istogramma delle frequenze del numero di passeggeri nel campione di corse dei taxi
+
 Questo codice e i frammenti di codice successivi usano un magic SQL per eseguire una query sul campione e un magic local per tracciare i dati.
 
-* **Magic SQL (`%%sql`)**: il kernel HDInsight PySpark supporta l'esecuzione di query HiveQL inline semplici su sqlContext. L'argomento (-o NOME_VARIABILE) salva in modo permanente l'output della query SQL come frame di dati Pandas nel server Jupyter. Questa impostazione rende l'output disponibile in modalità locale.
-* Il ** `%%local` Magic** viene usato per eseguire il codice in locale nel server Jupyter, che è il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro -o. Il parametro -o rende persistente l'output della query SQL a livello locale e quindi il magic %%local attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
+* **Magic SQL (`%%sql`)** : il kernel HDInsight PySpark supporta l'esecuzione di query HiveQL inline semplici su sqlContext. L'argomento (-o NOME_VARIABILE) salva in modo permanente l'output della query SQL come frame di dati Pandas nel server Jupyter. Con questa impostazione l'output risulta disponibile in modalità locale.
+* Il **`%%local`** viene usato per eseguire il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro -o. Il parametro -o rende persistente l'output della query SQL a livello locale e quindi il magic %%local attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
 
 L'output viene visualizzato automaticamente dopo aver eseguito il codice.
 
@@ -232,8 +197,6 @@ Questo codice crea un frame di dati locale dall'output della query ed esegue il 
 
 > [!NOTE]
 > Tale magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un'elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che possa essere contenuto nella memoria locale.
-> 
-> 
 
     #CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
 
@@ -259,13 +222,14 @@ Ecco il codice per eseguire il tracciato delle corse per numero di passeggeri
     fig.set_ylabel('Trip counts')
     plt.show()
 
-**OUTPUT**
+**OUTPUT:**
 
 ![Frequenza delle corse per numero di passeggeri](./media/spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
 È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook. In questo caso è stato scelto un tracciato a barre.
 
 ### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Tracciare un istogramma dell'importo delle mance e della relativa variazione in base al numero di passeggeri e all'importo delle corse.
+
 Usare una query SQL per campionare i dati.
 
     #PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
@@ -281,7 +245,6 @@ Usare una query SQL per campionare i dati.
     AND payment_type in ('CSH', 'CRD') 
     AND tip_amount > 0 
     AND tip_amount < 25
-
 
 Questa cella di codice usa la query SQL per creare tre tracciati.
 
@@ -313,7 +276,7 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
     plt.show()
 
 
-**OUTPUT** 
+**OUTPUT:** 
 
 ![Distribuzione dell'importo delle mance](./media/spark-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -321,17 +284,19 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 ![Importo della mancia per importo della corsa](./media/spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
+## <a name="prepare-the-data"></a>Preparare i dati
+
 Questa sezione descrive le procedure usate per preparare i dati da usare nella modellazione per l'apprendimento automatico, fornisce il relativo codice e illustra come eseguire queste attività:
 
 * Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
 * Indicizzare e codificare funzionalità categoriche
 * Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
-* Creare un sottocampionamento casuale dei dati e suddividerlo in set di training e di testing
+* Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
 * Ridimensionamento di funzionalità
 * Memorizzazione nella cache di oggetti in memoria
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
+
 Questo codice illustra come ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto e come memorizzare nella cache il frame di dati risultante in memoria. Quando si usano ripetutamente RDD (Resilient Distributed Dataset) e frame di dati, la memorizzazione nella cache consente di migliorare i tempi di esecuzione. RDD e frame di dati vengono quindi memorizzati nella cache in varie fasi di questa procedura dettagliata. 
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
@@ -353,14 +318,15 @@ Questo codice illustra come ottenere una nuova funzionalità dalla creazione di 
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
-**OUTPUT** 
+**OUTPUT:**
 
 126050
 
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Indicizzare e codificare funzionalità categoriche per l'inserimento in funzioni di modellazione
+
 Questa sezione illustra come indicizzare o codificare le funzionalità categoriche per l'inserimento nelle funzioni di modellazione. Per poter usare le funzioni di modellazione e previsione di MLlib, è necessario prima indicizzare o codificare le funzionalità con dati di input categorici. A seconda del modello, è necessario indicizzare o codificare tali funzioni in modi diversi:  
 
-* **Modelli basati su albero**: richiedono la codifica delle categorie come valori numerici (ad esempio, una funzionalità con tre categorie può essere codificata con 0, 1, 2). Questo algoritmo viene fornito dalla funzione [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib. che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Anche se viene usata l'indicizzazione con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero affinché trattino questi elementi in modo appropriato come categorie. 
+* **Modelli basati su albero**: richiedono la codifica delle categorie come valori numerici (ad esempio, una funzionalità con tre categorie può essere codificata con 0, 1, 2). Questo algoritmo viene fornito dalla funzione [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib, che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Anche se viene usata l'indicizzazione con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero affinché trattino questi elementi in modo appropriato come categorie. 
 * I **modelli logistici e di regressione lineare** richiedono la codifica one-hot in cui, ad esempio, una funzionalità con tre categorie può essere espansa in tre colonne delle funzionalità, in cui ogni colonna contiene 0 o 1, a seconda della categoria di un'osservazione. Per eseguire la codifica one-hot in MLlib è disponibile la funzione [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder). Questo codificatore esegue il mapping di una colonna di indici etichetta a una colonna di vettori binari, con al massimo un singolo valore unico. Questa codifica permette di applicare a funzionalità categoriche gli algoritmi che prevedono funzionalità con valori numerici, ad esempio la regressione logistica.
 
 Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzionalità categoriche:
@@ -406,14 +372,15 @@ Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzi
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 1,28 secondi.
+Tempo impiegato per eseguire questa cella: 1,28 secondi
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
+
 Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come tipo di dati punto etichettato e codificarli per l'uso per il training e il testing della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o a una risposta.  
 
-Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come tipo di dati [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) e codificarli in modo da poter essere usati per eseguire il training e il test della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato RDD (Resilient Distributed Dataset) costituiti da un'etichetta, o variabile di destinazione/risposta, e da un vettore di funzionalità. Questo formato è richiesto come input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib.
+Questa sezione contiene un codice che illustra come indicizzare dati di testo categorici come dati di tipo [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) e codificarli per l'uso a scopo di training e testing della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato RDD (Resilient Distributed Dataset) costituiti da un'etichetta, o variabile di destinazione/risposta, e da un vettore di funzionalità. Questo formato è richiesto come input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib.
 
 Ecco il codice per indicizzare e codificare le funzionalità di testo per la classificazione binaria.
 
@@ -464,8 +431,9 @@ Ecco il codice per codificare e indicizzare le funzionalità di testo categorich
         return  labPt
 
 
-### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creare un sottocampionamento casuale dei dati e suddividerlo in set di training e di testing
-Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento e come usarlo quando necessario. Quando gli esempi sono di grandi dimensioni, il campionamento può risparmiare tempo significativo durante il training di modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
+
+Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento e come usarlo quando necessario. Nei campioni di grandi dimensioni il campionamento consente di risparmiare molto tempo durante il training dei modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -501,17 +469,16 @@ Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. An
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 0,24 secondo
+Tempo impiegato per eseguire questa cella: 0,24 secondi
 
 ### <a name="feature-scaling"></a>Ridimensionamento di funzionalità
+
 Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. Per ridimensionare le funzionalità alla varianza unitaria, il relativo codice usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) . Viene fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico, come la regressione regolarizzata o le macchine a vettori di supporto (SVM).
 
 > [!NOTE]
 > L'algoritmo LinearRegressionWithSGD è risultato sensibile al ridimensionamento di funzionalità.
-> 
-> 
 
 Ecco il codice per ridimensionare le variabili per l'uso con l'algoritmo SGD lineare regolarizzato.
 
@@ -544,11 +511,12 @@ Ecco il codice per ridimensionare le variabili per l'uso con l'algoritmo SGD lin
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 13,17 secondi.
+Tempo impiegato per eseguire questa cella: 13,17 secondi
 
 ### <a name="cache-objects-in-memory"></a>Memorizzazione nella cache di oggetti in memoria
+
 Il caching degli oggetti del frame di dati di input usati per la classificazione, la regressione e le funzionalità con ridimensionamento permette di ridurre il tempo impiegato per il training e il testing degli algoritmi di Machine Learning.
 
     # RECORD START TIME
@@ -575,11 +543,12 @@ Il caching degli oggetti del frame di dati di input usati per la classificazione
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT** 
+**OUTPUT:** 
 
-Tempo impiegato per eseguire questa cella: 0,15 secondo
+Tempo impiegato per eseguire questa cella: 0,15 secondi
 
-## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Uso di modelli di classificazione binaria per prevedere se viene lasciata o meno una mancia
+## <a name="train-a-binary-classification-model"></a>Eseguire il training di un modello di classificazione binaria
+
 Questa sezione illustra come usare tre modelli per l'attività di classificazione binaria di previsione di una possibile mancia lasciata per una corsa in taxi. I modelli presentati sono:
 
 * Regressione logistica regolarizzata. 
@@ -593,7 +562,8 @@ Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
 3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro
 
 ### <a name="classification-using-logistic-regression"></a>Classificazione tramite regressione logistica
-Il codice in questa sezione illustra come eseguire il training, la valutazione e il salvataggio di un modello di regressione logistica con [l-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) che consente di stimare se un suggerimento viene o meno pagato per una corsa nel set di dati relativo alle corse e alle tariffe dei taxi di NYC.
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) , che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York.
 
 **Eseguire il training del modello di regressione logistica usando la convalida incrociata e lo sweep degli iperparametri**
 
@@ -628,13 +598,13 @@ Il codice in questa sezione illustra come eseguire il training, la valutazione e
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT** 
+**OUTPUT:** 
 
 Coefficienti: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercetta: -0,0111216486893
 
-Tempo impiegato per eseguire questa cella: 14,43 secondi.
+Tempo impiegato per eseguire questa cella: 14,43 secondi
 
 **Valutare il modello di classificazione binaria con le metriche standard**
 
@@ -682,7 +652,7 @@ Tempo impiegato per eseguire questa cella: 14,43 secondi.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**OUTPUT** 
+**OUTPUT:** 
 
 Area in PR = 0,985297691373
 
@@ -696,7 +666,7 @@ Richiamo = 0,984304060189
 
 Punteggio F1 = 0,984304060189
 
-Tempo impiegato per eseguire questa cella: 57,61 secondi.
+Tempo impiegato per eseguire questa cella: 57,61 secondi
 
 **Tracciare la curva ROC.**
 
@@ -735,11 +705,12 @@ Ecco il codice per eseguire stime e tracciare la curva ROC.
     plt.show()
 
 
-**OUTPUT**
+**OUTPUT:**
 
 ![Logistic regression ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 ### <a name="random-forest-classification"></a>Classificazione tramite foresta casuale
+
 Il codice riportato in questa sezione illustra come eseguire il training, la valutazione e il salvataggio di un modello di foresta casuale, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo a corse e tariffe dei taxi della città di New York.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
@@ -785,13 +756,14 @@ Il codice riportato in questa sezione illustra come eseguire il training, la val
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
 Area in ROC = 0,985297691373
 
-Tempo impiegato per eseguire questa cella: 31,09 secondi.
+Tempo impiegato per eseguire questa cella: 31,09 secondi
 
 ### <a name="gradient-boosting-trees-classification"></a>Classificazione tramite alberi con boosting a gradienti
+
 Il codice riportato in questa sezione illustra come eseguire il training, la valutazione e il salvataggio di un modello di alberi con boosting a gradienti, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo a corse e tariffe dei taxi della città di New York.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
@@ -831,13 +803,14 @@ Il codice riportato in questa sezione illustra come eseguire il training, la val
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**OUTPUT:**
 
 Area in ROC = 0,985297691373
 
-Tempo impiegato per eseguire questa cella: 19,76 secondi.
+Tempo impiegato per eseguire questa cella: 19,76 secondi
 
-## <a name="predict-tip-amounts-for-taxi-trips-with-regression-models"></a>Uso di modelli regressivi per prevedere l'importo delle mance per le corse in taxi
+## <a name="train-a-regression-model"></a>Eseguire il training di un modello di regressione
+
 Questa sezione illustra come usare tre modelli per l'attività di regressione relativa alla previsione dell'importo della mancia lasciata per una corsa in taxi in base ad altre funzionalità relative alle mance. I modelli presentati sono:
 
 * Regressione lineare regolarizzata
@@ -851,12 +824,11 @@ Questi modelli sono stati descritti nell'introduzione. Ogni sezione di codice di
 3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro
 
 ### <a name="linear-regression-with-sgd"></a>Regressione lineare con SGD
+
 Il codice riportato in questa sezione illustra come usare le funzionalità con ridimensionamento per il training di una regressione lineare che usa la discesa del gradiente stocastica (SGD) per l'ottimizzazione e come assegnare punteggi, valutare e salvare il modello in BLOB di Archiviazione di Azure (WASB).
 
 > [!TIP]
-> La convergenza di modelli LinearRegressionWithSGD può risultare problematica ed è necessario modificare oppure ottimizzare attentamente i parametri per ottenere un modello valido. Il ridimensionamento delle variabili può essere molto utile per la convergenza. 
-> 
-> 
+> La convergenza di modelli LinearRegressionWithSGD può risultare problematica ed è necessario modificare oppure ottimizzare attentamente i parametri per ottenere un modello valido. Il ridimensionamento delle variabili può essere molto utile per la convergenza.
 
     #PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
@@ -897,19 +869,20 @@ Il codice riportato in questa sezione illustra come usare le funzionalità con r
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
 Coefficienti: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
 
-Intercetta: -0,853872718283
+Intercetta: 0,853872718283
 
 RMSE = 1,24190115863
 
 R-sqr = 0,608017146081
 
-Tempo impiegato per eseguire questa cella: 58,42 secondi.
+Tempo impiegato per eseguire questa cella: 58,42 secondi
 
 ### <a name="random-forest-regression"></a>Regressione tramite foresta casuale
+
 Il codice riportato in questa sezione illustra come eseguire il training, la valutazione e il salvataggio di una regressione tramite foresta casuale, che consente di prevedere l'importo della mancia per i dati relativi alle corse in taxi della città di New York.
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -953,15 +926,16 @@ Il codice riportato in questa sezione illustra come eseguire il training, la val
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
 RMSE = 0,891209218139
 
 R-sqr = 0,759661334921
 
-Tempo impiegato per eseguire questa cella: 49,21 secondi.
+Tempo impiegato per eseguire questa cella: 49,21 secondi
 
 ### <a name="gradient-boosting-trees-regression"></a>Regressione tramite alberi con boosting a gradienti
+
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi di NYC.
 
 **Eseguire il training e valutare**
@@ -1004,15 +978,15 @@ Il codice riportato in questa sezione illustra come eseguire il training, valuta
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**OUTPUT:**
 
 RMSE = 0,908473148639
 
 R-sqr = 0,753835096681
 
-Tempo impiegato per eseguire questa cella: 34,52 secondi.
+Tempo impiegato per eseguire questa cella: 34,52 secondi
 
-**Tracciato**
+**Grafico**
 
 *tmp_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per il tracciamento. Ecco il codice
 
@@ -1040,11 +1014,12 @@ Ecco il codice per tracciare i dati usando il server Jupyter.
     plt.show(ax)
 
 
-**OUTPUT**
+**OUTPUT:**
 
 ![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Pulire gli oggetti dalla memoria
+
 Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 
     # REMOVE ORIGINAL DFs
@@ -1067,8 +1042,8 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
     oneHotTRAINregScaled.unpersist()
     oneHotTESTregScaled.unpersist()
 
+## <a name="save-the-models"></a>Salvare i modelli
 
-## <a name="record-storage-locations-of-the-models-for-consumption-and-scoring"></a>Registrazione dei percorsi di archiviazione dei modelli per l'utilizzo e l'assegnazione di punteggi
 Per l'assegnazione di punteggi e l'utilizzo di un set di dati indipendente descritto nell'argomento [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md), è necessario copiare e incollare questi nomi di file che contengono i modelli salvati, creati qui nel notebook di Jupyter. Di seguito è riportato il codice per stampare i percorsi dei file di modello necessari.
 
     # MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1078,7 +1053,6 @@ Per l'assegnazione di punteggi e l'utilizzo di un set di dati indipendente descr
     print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
     print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
-
 
 **OUTPUT**
 
@@ -1095,9 +1069,9 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
 ## <a name="whats-next"></a>Quali sono le operazioni successive?
+
 Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, è possibile imparare a valutare e assegnare punteggi a questi modelli. Il notebook per la modellazione e l'esplorazione avanzata dei dati approfondisce la convalida incrociata, lo sweep degli iperparametri e la valutazione del modello. 
 
-**Uso dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md).
+**Modellare il consumo:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di Machine Learning compilati con Spark](spark-model-consumption.md).
 
-**Convalida incrociata e sweep di iperparametri**: vedere [esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md) sulla modalità di training dei modelli con la convalida incrociata e lo sweep di iperparametri
-
+**Convalida incrociata e sweep di iperparametri:** Per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri, vedere [Esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md)

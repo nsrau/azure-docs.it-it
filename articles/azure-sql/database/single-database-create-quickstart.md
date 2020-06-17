@@ -1,6 +1,6 @@
 ---
 title: Creare un database singolo
-description: Creare un database SQL di Azure singolo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Eseguire query sul database con l'editor di query nel portale di Azure.
+description: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Eseguire query sul database con l'editor di query nel portale di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,23 +11,22 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 8b4e057fe41bdf76612888e9d4715d7cdee0ce29
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1ae3159365e63159b8ed62c09bc20441ba65d8aa
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053212"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343847"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Avvio rapido: Crea un database SQL di Azure singolo
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In questa guida di avvio rapido si usa il portale di Azure, uno script di PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un database SQL di Azure singolo. È quindi possibile eseguire query sul database con l'**editor di query** nel portale di Azure.
+In questo argomento di avvio rapido si userà il portale di Azure, uno script di Azure PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un database singolo nel database SQL di Azure. È quindi possibile eseguire query sul database con l'**editor di query** nel portale di Azure.
 
 Un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per il database SQL di Azure. È possibile gestire un database singolo all'interno di un [server](logical-servers.md), che risiede in un [gruppo di risorse di Azure ](../../active-directory-b2c/overview.md) in un'area di Azure specificata. In questa guida di avvio rapido vengono creati un nuovo gruppo di risorse e un server per il nuovo database.
 
 È quindi possibile creare un database singolo nel livello di calcolo *con provisioning* o *serverless*. Per un database con provisioning viene preallocata una quantità fissa di risorse di calcolo, tra cui CPU e memoria, e viene usato uno dei due [modelli di acquisto](purchasing-models.md) disponibili. In questo argomento di avvio rapido viene creato un database con provisioning usando il modello di acquisto [basato su vCore](service-tiers-vcore.md), ma è anche possibile scegliere un modello [basato su unità di elaborazione di database](service-tiers-dtu.md).
 
-Il livello di calcolo serverless è disponibile solo nel modello di acquisto basato su vCore e include una gamma di risorse di calcolo ridimensionate automaticamente, tra cui CPU e memoria. Per creare un database singolo nel livello di calcolo serverless, vedere [Creare database serverless](serverless-tier-overview.md#create-new-database-in-serverless-compute-tier).
+Il livello di calcolo serverless è disponibile solo nel modello di acquisto basato su vCore e include una gamma di risorse di calcolo a scalabilità automatica, tra cui CPU e memoria. Per creare un database singolo nel livello di calcolo serverless, vedere [Creare database serverless](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -68,7 +67,7 @@ Mantenere il gruppo di risorse, il server e il database singolo per procedere co
 
 Dopo aver finito di usare queste risorse, è possibile eliminare il gruppo di risorse creato, eliminando in questo modo anche il server e il database singolo al suo interno.
 
-### <a name="portal"></a>[Portale](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[Il portale di Azure](#tab/azure-portal)
 
 Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di Azure:
 
@@ -76,7 +75,7 @@ Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di 
 1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**.
 1. In **Digitare il nome del gruppo di risorse** immettere *myResourceGroup* e quindi selezionare **Elimina**.
 
-### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+### <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il comando dell'interfaccia della riga di comando di Azure seguente usando il nome del gruppo di risorse:
 
@@ -98,5 +97,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 [Connettersi ed eseguire query](connect-query-content-reference-guide.md) sul database con strumenti e linguaggi diversi:
 > [!div class="nextstepaction"]
-> [Connettersi ed eseguire query con SQL Server Management Studio](connect-query-ssms.md)
-> [Connettersi ed eseguire query con Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+> [Connettersi ed eseguire query usando SQL Server Management Studio](connect-query-ssms.md)
+>
+> [Connettersi ed eseguire query usando Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+ 

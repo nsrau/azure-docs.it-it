@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 71b22bf9bf040abcdf513a4f8baa916930c8972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772214"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610118"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge per dispositivi Linux
 
@@ -86,7 +86,7 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Node.js Module** (Modulo Node.js). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **NodeModule**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/nodemodule. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/nodemodule. |
 
    ![Specificare il repository di immagini Docker](./media/tutorial-node-module/repository.png)
 

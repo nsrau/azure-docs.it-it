@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702040"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560864"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -107,7 +107,7 @@ Sono disponibili due opzioni per i file di input che contengono i dati di destin
 **'unstructured_data_path'**
 
 L'elemento unstructured_data_path che stabilisce un percorso dei dati può essere un percorso assoluto o relativo:
-- Il percorso assoluto nel formato '\<prefix >://\<storage_account_path >/\<storage_path >' consente a un utente di leggere direttamente i file.
+- Il percorso assoluto nel formato '\<prefix>://\<storage_account_path>/\<storage_path>' consente a un utente di leggere direttamente i file.
 - Il percorso relativo nel formato '<storage_path>' deve essere usato con il parametro `DATA_SOURCE` e descrive il modello di file all'interno del percorso <storage_account_path> definito in `EXTERNAL DATA SOURCE`. 
 
  Di seguito sono riportati i valori <storage account path> appropriati per collegarsi a una specifica origine dati esterni. 
@@ -130,7 +130,7 @@ Di seguito è riportato un esempio che legge tutti i file *CSV* che iniziano con
 Se si specifica l'elemento unstructured_data_path come cartella, una query di SQL su richiesta recupererà i file da tale cartella. 
 
 > [!NOTE]
-> A differenza di Hadoop e PolyBase, SQL su richiesta non restituisce le sottocartelle. Inoltre, a differenza di Hadoop e PloyBase, SQL su richiesta restituisce i file il cui nome inizia con un carattere di sottolineatura (_) o un punto (.).
+> A differenza di Hadoop e PolyBase, SQL su richiesta non restituisce le sottocartelle. Inoltre, a differenza di Hadoop e PolyBase, SQL su richiesta restituisce i file il cui nome inizia con un carattere di sottolineatura (_) o un punto (.).
 
 Nell'esempio seguente, se unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, una query di SQL su richiesta restituirà le righe di mydata.txt e _hidden.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
 

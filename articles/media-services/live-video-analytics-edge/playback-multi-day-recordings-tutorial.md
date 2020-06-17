@@ -3,12 +3,12 @@ title: Riproduzione di registrazioni di più giorni - Azure
 description: In questa esercitazione si apprenderà come usare le API di Servizi multimediali di Azure per riprodurre una registrazione continua di video di più giorni.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260043"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433651"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Esercitazione: Riproduzione di registrazioni di più giorni  
 
@@ -57,7 +57,7 @@ Nel corso dell'[esercitazione sulla registrazione continua di video](continuous-
 }
 ```
 
-Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella contiene i file necessari per questa esercitazione. Aprire il file appsettings.json e copiarne il contenuto in un nuovo file, appsettings.Developer.json. Apportare le modifiche seguenti al secondo file:
+Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella contiene i file necessari per questa esercitazione. Aprire il file appsettings.json e copiarne il contenuto in un nuovo file appsettings.development.json. Apportare le modifiche seguenti al secondo file:
 
 ```
   "AMS" : {

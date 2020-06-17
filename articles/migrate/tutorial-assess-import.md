@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114565"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342647"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Valutare i server con i dati importati
 
@@ -111,6 +111,7 @@ Nella tabella seguente vengono riepilogati i campi del file da compilare:
 **Memoria** | Sì | RAM totale, in MB, allocata al server.
 **Nome sistema operativo** | Sì | Sistema operativo server. <br/> I nomi dei sistemi operativi che corrispondono o che contengono i nomi in [questo](#supported-operating-system-names) elenco sono riconosciuti dalla valutazione.
 **Versione del sistema operativo** | No | Versione del sistema operativo server.
+**Architettura del sistema operativo** | No | Architettura del sistema operativo server <br/> I valori validi sono: x64, x86, amd64, 32 bit o 64 bit
 **Numero di dischi** | No | Non necessario se sono presenti i dettagli dei singoli dischi.
 **Dimensioni disco 1**  | No | Dimensioni massime del disco, in GB.<br/>È possibile aggiungere dettagli per altri dischi tramite[aggiunta di colonne](#add-multiple-disks) nel modello. È possibile aggiungere fino a otto versioni del disco.
 **Operazioni di lettura disco 1** | No | Operazioni di lettura da disco al secondo.

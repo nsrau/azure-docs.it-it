@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890512"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322822"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -92,7 +92,7 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -110,9 +110,9 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > [!div renderon="docs"]
 >
 > Dove:
-> - *\<Enter_the_Application_Id_Here>* è il valore di **ID applicazione (client)** dell'applicazione registrata.
+> - *\<Enter_the_Application_Id_Here>* è l'**ID applicazione (client)** per l'applicazione registrata.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale è sufficiente immettere *https://login.microsoftonline.com* . Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
-> - Il valore *\<Enter_the_Tenant_info_here>* deve essere impostato su una delle opzioni seguenti:
+> - *\<Enter_the_Tenant_info_here>* è impostato su una delle opzioni seguenti:
 >    - Se l'applicazione supporta *Account solo in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, *contoso.microsoft.com*).
 >    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**.
 >    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**.
@@ -130,8 +130,8 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -144,7 +144,7 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > [!div renderon="docs"]
 >
 > Dove:
-> - *\<Enter_the_Graph_Endpoint_Here >* è l'endpoint in cui verranno eseguire le chiamate API. Per il servizio API Microsoft Graph principale o globale, è sufficiente immettere `https://graph.microsoft.com`. Per altre informazioni, vedere [Distribuzione di un cloud nazionale](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* è l'endpoint a cui verranno eseguite le chiamate API. Per il servizio API Microsoft Graph principale o globale, è sufficiente immettere `https://graph.microsoft.com`. Per altre informazioni, vedere [Distribuzione di un cloud nazionale](https://docs.microsoft.com/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
 

@@ -4,18 +4,18 @@ description: Questa guida introduttiva contiene un esempio di codice Python che 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76769052"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560928"
 ---
-# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Guida introduttiva: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
+# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
 In questa guida di avvio rapido si usa un'istanza di Database di Azure per PostgreSQL con Python in macOS, Ubuntu Linux o Windows. La Guida introduttiva illustra come connettersi al database e usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati. L'articolo presuppone che l'utente abbia familiarità con Python, ma non con Database di Azure per PostgreSQL.
 
@@ -38,7 +38,7 @@ Per installare `psycopg2`, aprire un terminale o un prompt dei comandi ed esegui
 Per la connessione a Database di Azure per PostgreSQL, sono necessari il nome completo del server e le credenziali di accesso. È possibile ottenere queste informazioni nel portale di Azure.
 
 1. Nel [portale di Azure](https://portal.azure.com/), cercare il nome del server di Database di Azure per PostgreSQL e selezionarlo. 
-1. Nella pagina **Panoramica** del server, copiare il valore dei campi **Nome server** (completo) e **Nome utente amministratore**. Il valore del campo **Nome server** (completo) è sempre nella forma *\<mio-nome-server>.postgres.database.azure.com*, mentre il valore del campo **Nome utente amministratore** è sempre nella forma *\<mio-nomeutente-amministratore>@\<mio-nome-server>* . 
+1. Nella pagina **Panoramica** del server, copiare il valore dei campi **Nome server** (completo) e **Nome utente amministratore**. Il valore completo di **Nome server** è sempre nel formato *\<my-server-name>.postgres.database.azure.com* e il valore di **Nome utente amministratore** è sempre nel formato *\<my-admin-username>@\<my-server-name>* . 
    
    È necessaria anche la password dell'amministratore. Se la password è stata dimenticata, è possibile reimpostarla in questa pagina. 
    

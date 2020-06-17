@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un servizio di ricerca nel portale'
+title: Creare un servizio di ricerca nel portale
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sul portale illustra come creare una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
@@ -7,15 +7,15 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77209359"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488223"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
 Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, con le app dei server di rete o con il software in esecuzione in altre piattaforme cloud.
 
@@ -34,8 +34,10 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 ## <a name="find-azure-cognitive-search"></a>Trovare Ricerca cognitiva di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
-3. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure**.
+
+1. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
+
+1. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure**.
 
 ![Creare una risorsa nel portale](./media/search-create-service-portal/find-search3.png "Creare una risorsa nel portale")
 
@@ -75,20 +77,26 @@ Requisiti per i nomi di servizio:
 
 ## <a name="choose-a-location"></a>Scegliere una posizione
 
-Ricerca cognitiva di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. L'elenco delle aree supportate è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/). 
-
-È possibile ridurre al minimo o evitare i costi per la larghezza di banda scegliendo la stessa posizione per più servizi. Se, ad esempio, si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creando il servizio Ricerca cognitiva di Azure nella stessa area è possibile evitare i costi relativi alla larghezza di banda, in quanto non vengono addebitati costi per i dati in uscita quando i servizi si trovano nella stessa area.
-
-Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elenco delle aree supportate è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
 
 > [!Note]
-> L'area India centrale no n è attualmente disponibile per i nuovi servizi. Per i servizi già in India centrale, è possibile aumentare le prestazioni senza alcuna restrizione e il servizio è completamente supportato in tale area. La restrizione in quest'area è temporanea ed è limitata solo ai nuovi servizi. Quando la restrizione non sarà più valida, questa nota verrà rimossa.
+> Le aree India centrale e Emirati Arabi Uniti settentrionali non sono attualmente disponibili per i nuovi servizi. Per i servizi già presenti in tali aree, è possibile aumentare le risorse senza alcuna restrizione e il servizio è completamente supportato. Le restrizioni sono temporanee e limitate solo ai nuovi servizi. Quando le restrizione non saranno più applicabili, questa nota verrà rimossa.
+
+### <a name="requirements"></a>Requisiti
+
+ Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+
+ I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
+
+### <a name="recommendations"></a>Consigli
+
+Se si usano più servizi di Azure, scegliere un'area che ospita anche i dati o il servizio dell'applicazione. In questo modo si riducono al minimo o si evitano gli addebiti per la larghezza di banda dei dati in uscita (non sono previsti addebiti per i dati in uscita se i servizi si trovano nella stessa area).
 
 ## <a name="choose-a-pricing-tier-sku"></a>Scegliere un piano tariffario (SKU)
 
 [Ricerca cognitiva di Azure attualmente è disponibile con vari piani tariffari](https://azure.microsoft.com/pricing/details/search/): Gratuito, Basic o Standard. Ogni piano tariffario prevede una specifica [capacità e limiti](search-limits-quotas-capacity.md). Per indicazioni, vedere [Scegliere uno SKU o un piano tariffario per Ricerca di Azure](search-sku-tier.md) .
 
-Per carichi di lavoro di produzione viene in genere scelto il piano Basic o Standard, ma la maggior parte dei clienti inizia con il servizio gratuito. Le differenze principali tra i livelli sono la velocità e la dimensione della partizione, nonché i limiti per il numero di oggetti che è possibile creare.
+Per carichi di lavoro di produzione viene in genere scelto il piano Basic o Standard, ma la maggior parte dei clienti inizia con il servizio gratuito. Le differenze principali tra i livelli sono la velocità e le dimensioni della partizione, nonché i limiti per il numero di oggetti che è possibile creare.
 
 Tenere presente che non è possibile modificare il piano tariffario dopo aver creato il servizio. Se si vuole passare a un piano tariffario superiore o inferiore, è necessario creare nuovamente il servizio.
 
@@ -142,9 +150,11 @@ La maggior parte dei clienti usa un solo servizio su cui esegue il provisioning 
 
 Sebbene la maggior parte dei clienti usi un solo servizio, la ridondanza del servizio potrebbe essere necessaria se i requisiti operativi includono i seguenti elementi:
 
-* Ripristino di emergenza (interruzione del data center). Ricerca cognitiva di Azure non offre il failover immediato in caso di interruzione. Per consigli e informazioni aggiuntive, vedere [Amministrazione del servizio](search-manage.md).
-* L'analisi della modellazione multi-tenancy ha determinato che i servizi aggiuntivi siano la progettazione ottimale. Per altre informazioni, vedere [Progettazione per multi-tenancy](search-modeling-multitenant-saas-applications.md).
-* Per le applicazioni distribuite globalmente è possibile richiedere un'istanza di Ricerca cognitiva di Azure in più aree per ridurre al minimo la latenza del traffico internazionale dell'applicazione.
++ [Continuità aziendale e ripristino di emergenza](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Ricerca cognitiva di Azure non offre il failover immediato in caso di interruzione.
+
++ Le [architetture multi-tenant](search-modeling-multitenant-saas-applications.md) talvolta richiedono due o più servizi.
+
++ Le applicazioni distribuite a livello globale potrebbero richiedere servizi di ricerca in ogni area geografica per ridurre al minimo la latenza.
 
 > [!NOTE]
 > In Ricerca cognitiva di Azure non è possibile isolare le operazioni di indicizzazione e query, quindi non devono essere creati più servizi per i carichi di lavoro isolati. Per un indice viene sempre eseguita una query sul servizio in cui è stato creato (non è possibile creare un indice in un servizio e copiarlo in un altro).

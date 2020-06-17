@@ -5,14 +5,14 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722559"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457066"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Esercitazione: Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica
 
@@ -47,7 +47,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
    ![Campi per la creazione di un'app per la logica](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Dopo aver creato la risorsa, passare all'app per la logica. A questo scopo, selezionare **Gruppi di risorse** e quindi il gruppo di risorse creato per questa esercitazione. Individuare quindi l'app per la logica nell'elenco di risorse e selezionarla. 
 
@@ -175,19 +175,26 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
 4. Creare la sottoscrizione di eventi con i valori seguenti: 
 
-   * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
+    1. Nella sezione **DETTAGLI SOTTOSCRIZIONE EVENTO** eseguire le attività seguenti:
+        1. Specificare un **nome** per la sottoscrizione di eventi. 
+        2. Selezionare **Schema griglia di eventi** come valore di **Schema evento**. 
+   2. Nella sezione **DETTAGLI ARGOMENTO** eseguire le attività seguenti:
+       1. Verificare che **Tipo di argomento** sia impostato su **Hub IoT**. 
+       2. Verificare che il nome dell'hub IoT sia impostato come valore per il campo **Risorsa di origine**. 
+       3. Immettere un nome per l'**argomento del sistema** che verrà creato automaticamente. Per informazioni sugli argomenti di sistema, vedere [Panoramica degli argomenti di sistema](system-topics.md).
+   3. Nella sezione **TIPI DI EVENTO** eseguire le attività seguenti: 
+        1. In **Filtra per tipi di evento** deselezionare tutte le opzioni ad eccezione di **Il dispositivo è stato creato**.
 
-   * **Tipi di eventi**: in **Filtra per tipi di evento** deselezionare tutte le opzioni ad eccezione di **Il dispositivo è stato creato**.
+           ![Tipi di eventi della sottoscrizione](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. Nella sezione **DETTAGLI ENDPOINT** eseguire le attività seguenti: 
+       1. Selezionare **Webhook** come valore di **Tipo di endpoint**.
+       2. Fare clic su **Seleziona endpoint**, incollare l'URL copiato dall'app per la logica e confermare la selezione.
 
-       ![Tipi di eventi della sottoscrizione](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![URL di Selezione endpoint](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Dettagli endpoint**: come Tipo di endpoint selezionare **Webhook**, fare clic su *Selezione endpoint*, incollare l'URL copiato dall'app per la logica e confermare la selezione.
+         Al termine, verrà visualizzato un riquadro simile all'esempio seguente: 
 
-     ![URL di Selezione endpoint](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   Al termine, verrà visualizzato un riquadro simile all'esempio seguente: 
-
-    ![Modulo sottoscrizione di eventi di esempio](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Modulo sottoscrizione di eventi di esempio](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. È possibile salvare la sottoscrizione di eventi e ricevere notifiche per ogni dispositivo creato nell'hub IoT. Per questa esercitazione, tuttavia, si vogliono usare i campi facoltativi per filtrare dispositivi specifici. Selezionare **Filtri** nella parte superiore del riquadro.
 

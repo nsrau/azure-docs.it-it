@@ -11,15 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 03d598e0c0756cd304248ab19ab28a25836c57ab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052409"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343864"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Avvio rapido: Creare un database singolo nel database SQL di Azure usando il modello di Azure Resource Manager
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 La creazione di un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questo argomento di avvio rapido descrive come creare un database singolo usando il modello di Azure Resource Manager.
 
@@ -29,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-nessuno
+No.
 
 ## <a name="create-a-single-database"></a>Creare un database singolo
 
@@ -73,7 +72,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -112,7 +111,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -131,3 +130,4 @@ az group delete --name $resourceGroupName
 - Per creare un database singolo usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](az-cli-script-samples-content-guide.md).
 - Per creare un database singolo usando Azure PowerShell, vedere [Esempi di Azure PowerShell](powershell-script-content-guide.md).
 - Per informazioni su come creare i modelli di Resource Manager, vedere [Creare il primo modello](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+ 

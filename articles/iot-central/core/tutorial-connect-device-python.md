@@ -7,12 +7,13 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.custom: tracking-python
+ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758178"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607211"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central (Python)
 
@@ -307,8 +308,9 @@ python3 environmental_sensor.py
 
 A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
 
-- Articolo procedurale [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](./howto-connect-devkit.md) per informazioni su come connettere un dispositivo reale a IoT Central.
-- Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.
+* Articolo procedurale [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](./howto-connect-devkit.md) per informazioni su come connettere un dispositivo reale a IoT Central.
+* Vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md) per altre informazioni sul ruolo dei modelli di dispositivo durante l'implementazione del codice del dispositivo.
+* Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.
 
 Se si preferisce continuare il set di esercitazioni di IoT Central e saperne di più sulla creazione di una soluzione di IoT Central, vedere:
 

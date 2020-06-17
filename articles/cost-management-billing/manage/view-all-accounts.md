@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/29/2020
 ms.author: banders
-ms.openlocfilehash: 4dab11afb2ddd910a4d6619d088031279ebf3172
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6f571d323a06b64f79c3f97ae8717be7eb8968d3
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238007"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434566"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Account e ambiti di fatturazione nel portale di Azure
 
@@ -22,9 +22,9 @@ Il portale di Azure supporta i tipi di account di fatturazione seguenti:
 
 - **Programma dei Microsoft Online Services**: l'account di fatturazione per un programma dei Microsoft Online Services viene creato quando ci si iscrive ad Azure tramite il sito Web di Azure, ad esempio, quando ci si iscrive per ricevere un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/), un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un account di [sottoscrittore di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Contratto Enterprise**: quando l'organizzazione firma un contratto [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) per l'uso di Azure, viene creato un apposito account di fatturazione.
+- **Contratto Enterprise**: quando l'organizzazione firma un contratto [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) per l'uso di Azure, viene creato un apposito account di fatturazione. In un contratto Enterprise è possibile avere un massimo di 500 sottoscrizioni.
 
-- **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in determinate aree geografiche che si iscrivono tramite il sito Web di Azure per ricevere un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) possono avere un account di fatturazione per un Contratto del cliente Microsoft. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto del cliente Microsoft](../understand/mca-overview.md).
+- **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in determinate aree geografiche che si iscrivono tramite il sito Web di Azure per ricevere un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) possono avere un account di fatturazione per un Contratto del cliente Microsoft. In un Contratto del cliente Microsoft è possibile avere un massimo di 20 sottoscrizioni. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto del cliente Microsoft](../understand/mca-overview.md).
 
 - **Contratto Microsoft Partner**: un account di fatturazione per un contratto Microsoft Partner viene creato per i partner Cloud Solution Provider (CSP) per consentire loro di gestire i clienti nella nuova esperienza commerciale. I partner devono avere almeno un cliente con un [piano di Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) per gestire il relativo account di fatturazione nel portale di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto Microsoft Partner](../understand/mpa-overview.md).
 
@@ -35,7 +35,7 @@ Un ambito è un nodo all'interno di un account di fatturazione che si usa per vi
 
 ### <a name="microsoft-online-services-program"></a>Programma dei Microsoft Online Services
 
- ![Screenshot che mostra la gerarchia del programma di Microsoft Online Services](./media/view-all-accounts/mosp-hierarchy.png)
+![Screenshot che mostra la gerarchia del programma di Microsoft Online Services](./media/view-all-accounts/mosp-hierarchy.png)
 
 |Scope  |Definizione  |
 |---------|---------|

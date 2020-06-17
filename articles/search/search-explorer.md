@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369678"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488206"
 ---
-# <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Guida introduttiva: Usare Esplora ricerche per eseguire query nel portale
+# <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Avvio rapido: Usare Esplora ricerche per eseguire query nel portale
 
-**Esplora ricerche** è uno strumento di query predefinito che consente di eseguire query su un indice di ricerca in Ricerca cognitiva di Azure. Questo strumento semplifica l'apprendimento della sintassi di query, il test di una query o di un'espressione filtro oppure la conferma dei risultati di un aggiornamento dell'indice verificando la disponibilità di contenuti più recenti.
+**Esplora ricerche** è uno strumento di query predefinito che consente di eseguire query su un indice di ricerca in Ricerca cognitiva di Azure. Questo strumento semplifica l'apprendimento della sintassi di query, il test di una query o di un'espressione filtro oppure la conferma di un aggiornamento dei dati verificando la disponibilità di nuovi contenuti nell'indice.
 
-Questa guida di avvio rapido usa **realestate-us-sample-index** per illustrare come funziona Esplora ricerche. Le richieste vengono formulate usando l'[API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) e le risposte vengono restituite come documenti JSON.
+Questo argomento di avvio rapido prevede l'uso di un indice esistente per illustrare il funzionamento di Esplora ricerche. Le richieste vengono formulate usando l'[API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) e le risposte vengono restituite come documenti JSON.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
+Per eseguire le procedure descritte è necessario:
 
-+ Per questa guida di avvio rapido si userà **realestate-us-sample-index**. Eseguire l'[**Importazione guidata dati**](search-import-data-portal.md) per generare l'indice dall'origine dati degli esempi predefinita.
++ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
+
++ Un'istanza del servizio Ricerca cognitiva di Azure. [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
+
++ Per questo argomento di avvio rapido si userà *realestate-us-sample-index*. Usare la procedura guidata [**Importa dati**](search-import-data-portal.md) per creare l'indice. Nel primo passaggio, quando viene chiesta l'origine dati, scegliere **Esempi** e quindi selezionare l'origine dati **realestate-us-sample**. Accettare tutte le impostazioni predefinite della procedura guidata per creare l'indice.
 
 ## <a name="start-search-explorer"></a>Avviare Esplora ricerche
 

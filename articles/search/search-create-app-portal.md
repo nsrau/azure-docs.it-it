@@ -7,39 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369719"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488172"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Guida introduttiva: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
+# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
 
-Usare la procedura guidata **Crea app di ricerca** del portale per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+Usare la procedura guidata **Crea app di ricerca** del portale di Azure per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire l'aggiornamento alla [versione più recente di Microsoft Edge](https://www.microsoft.com/edge) o usare il browser Chrome di Google per questo argomento di avvio rapido.
+Per eseguire le procedure descritte è necessario:
 
-[Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
++ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
 
-[Creare un indice](search-create-index-portal.md) da usare come base per l'applicazione. 
++ Un'istanza del servizio Ricerca cognitiva di Azure. [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
-Questo argomento di avvio rapido usa i dati e l'indice predefiniti dell'esempio per il mercato immobiliare perché contiene immagini di anteprima (la procedura guidata supporta l'aggiunta di immagini alla pagina dei risultati). Per creare l'indice usato in questo esercizio, eseguire la procedura guidata **Importa dati**, scegliendo l'origine dati *realestate-us-sample*.
++ [Microsoft Edge (ultima versione)](https://www.microsoft.com/edge) o Google Chrome.
 
-![pagina origine dati per i dati di esempio](media/search-create-app-portal/import-data-realestate.png)
++ Un [indice di ricerca](search-create-index-portal.md) da usare come base per l'applicazione generata. 
+
+  Questo argomento di avvio rapido usa i dati e l'indice predefiniti dell'esempio per il mercato immobiliare perché contiene immagini di anteprima (la procedura guidata supporta l'aggiunta di immagini alla pagina dei risultati). Per creare l'indice usato in questo esercizio, eseguire la procedura guidata **Importa dati**, scegliendo l'origine dati *realestate-us-sample*.
+
+  ![pagina origine dati per i dati di esempio](media/search-create-app-portal/import-data-realestate.png)
 
 Quando l'indice è pronto per l'uso, procedere al passaggio successivo.
 
 ## <a name="start-the-wizard"></a>Avviare la procedura guidata
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e [trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account Azure.
 
-1. Nella pagina Panoramica selezionare **Indici** dai collegamenti al centro della pagina. 
+1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica selezionare **Indici** nei collegamenti al centro della pagina. 
 
 1. Scegliere *realestate-us-sample-index* dall'elenco degli indici esistenti.
 
@@ -57,7 +59,7 @@ La procedura guidata fornisce un layout di base per i risultati della ricerca co
 
 1. In Descrizione scegliere un campo che fornisca dettagli che potrebbero aiutare gli utenti a decidere se fare clic su quel particolare documento.
 
-![pagina origine dati per i dati di esempio](media/search-create-app-portal/configure-results.png)
+   ![pagina origine dati per i dati di esempio](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Aggiungere una barra laterale
 

@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053245"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324590"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Avvio rapido: Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -51,11 +51,11 @@ I requisiti di un modello lineare sono semplici:
 > [!TIP]
 > Se è necessario rivedere le informazioni sui modelli lineari, vedere questa esercitazione che descrive il processo di adattamento di un modello tramite rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) (Adattamento di modelli lineari)
 
-Nei passaggi seguenti verranno impostati i dati di training, creato un modello di regressione, eseguito il training del modello usando i dati di training, quindi il modello verrà salvato in una tabella SQL.
+Nei passaggi seguenti si imposteranno i dati di training, si creerà un modello di regressione di cui verrà eseguito il training usando i dati di training e infine si salverà il modello in una tabella SQL.
 
-1. Aprire **SQL Server Management Studio** e connettersi al database SQL.
+1. Aprire **SQL Server Management Studio** e connettersi al database.
 
-   Per assistenza con la connessione, vedere [Avvio rapido: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query](connect-query-ssms.md).
+   Per assistenza con la connessione, vedere [Avvio rapido: Usare SQL Server Management Studio per connettersi a un database nel database SQL di Azure ed eseguire query](connect-query-ssms.md).
 
 1. Creare una tabella **CarSpeed** in cui salvare i dati di training.
 
@@ -139,7 +139,7 @@ Nei passaggi seguenti verranno impostati i dati di training, creato un modello d
 
 In generale, l'output di R dalla stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) è limitato a un singolo frame di dati. Tuttavia, oltre al frame di dati è possibile restituire output di altri tipi, ad esempio valori scalari.
 
-Si supponga ad esempio di voler eseguire il training di un modello ma di voler visualizzare immediatamente la tabella dei coefficienti dal modello. È possibile creare la tabella dei coefficienti come set di risultati principale e restituire il modello con training in una variabile SQL. È possibile riutilizzare immediatamente il modello richiamando la variabile oppure salvarlo in una tabella come illustrato di seguito.
+Si supponga ad esempio di voler eseguire il training di un modello ma di voler visualizzare immediatamente la tabella dei coefficienti dal modello. A questo scopo, è necessario creare la tabella dei coefficienti come set di risultati principale e restituire il modello di cui è stato eseguito il training in una variabile SQL. È possibile riutilizzare immediatamente il modello richiamando la variabile oppure salvarlo in una tabella come illustrato di seguito.
 
 ```sql
 DECLARE @model VARBINARY(max)

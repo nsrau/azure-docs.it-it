@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739499"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323026"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator per Android nel cloud pubblico in Cina
 
@@ -44,7 +44,7 @@ Se un utente in precedenza è riuscito a configurare l'accesso tramite telefono 
 
 ## <a name="multi-factor-authentication-workaround"></a>Soluzione alternativa per l'autenticazione a più fattori
 
-Invece di usare le notifiche push per l'autenticazione a più fattori, gli utenti possono configurare la ricezione di codici di verifica nei loro dispositivi, da usare per verificare la loro identità. Questi codici di verifica sono validi per 30 secondi e, per usarli, gli amministratori devono consentire al tenant di eseguire la verifica tramite codici TOTP (Time-Based One-Time Passwords).
+Invece di usare le notifiche push per l'autenticazione a più fattori, gli utenti possono [configurare l'app Authenticator in modo da ricevere codici di verifica](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) nei propri dispositivi e usare tali codici per la verifica dell'identità. Questi codici di verifica sono validi per 30 secondi e, per usarli, gli amministratori devono consentire al tenant di eseguire la verifica tramite codici TOTP (Time-Based One-Time Passwords).
 
 ## <a name="availability"></a>Disponibilità
 

@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296528"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464811"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerazioni sulla rete per File di Azure 
 È possibile connettersi a una condivisione file di Azure in due modi:
 
 - Accedendo direttamente alla condivisione tramite protocolli SMB o FileREST. Questo modello di accesso viene usato principalmente per eliminare il maggior numero possibile di server locali.
-- Creando una cache della condivisione file di Azure in un server locale con Sincronizzazione file di Azure e accedendo ai dati della condivisione file dal server locale con un protocollo a scelta (SMB, NFS, FTPS e così via) in base al caso d'uso specifico. Questo modello di accesso è utile perché rappresenta la combinazione ideale tra prestazioni locali, scalabilità del cloud e servizi collegabili in modalità serverless, ad esempio Backup di Azure.
+- Creando una cache della condivisione file di Azure in un server locale o in una VM di Azure con Sincronizzazione file di Azure e accedendo ai dati della condivisione file dal server locale con un protocollo a scelta (SMB, NFS, FTPS e così via) in base al caso d'uso specifico. Questo modello di accesso è utile perché rappresenta la combinazione ideale tra prestazioni locali, scalabilità del cloud e servizi collegabili in modalità serverless, ad esempio Backup di Azure.
 
-Questo articolo è incentrato sulla configurazione della rete per i casi d'uso che richiedono l'accesso diretto alla condivisione file di Azure invece che tramite Sincronizzazione file di Azure. Per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Configurazione delle impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
+Questo articolo è incentrato sulla configurazione della rete per i casi d'uso che richiedono l'accesso diretto alla condivisione file di Azure invece che tramite Sincronizzazione file di Azure. Per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Considerazioni sulla rete per Sincronizzazione file di Azure](storage-sync-files-networking-overview.md).
 
 La configurazione di rete per le condivisioni file di Azure viene eseguita nell'account di archiviazione di Azure. Un account di archiviazione è un costrutto di gestione che rappresenta un pool di archiviazione condiviso in cui è possibile distribuire più condivisioni file oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Gli account di archiviazione espongono più impostazioni che consentono di proteggere l'accesso tramite rete alle condivisioni file: endpoint di rete, impostazioni del firewall dell'account di archiviazione e crittografia in transito. 
 

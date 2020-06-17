@@ -7,15 +7,15 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369460"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488767"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
@@ -25,15 +25,17 @@ ms.locfileid: "80369460"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Usare la procedura guidata **Importa dati** e gli strumenti di **Esplora ricerche** del portale per acquisire rapidamente familiarità con i concetti e scrivere query interessanti su un indice in pochi minuti.
+La procedura guidata **Importa dati** è uno strumento del portale di Azure che consente di creare un indice di ricerca in modo da scrivere query interessanti in pochi minuti. 
 
-Se gli strumenti sono troppo vincolanti, è possibile vedere un'[introduzione basata su codice alla programmazione di Ricerca cognitiva di Azure in .NET](search-howto-dotnet-sdk.md) oppure usare [Postman per effettuare chiamate API REST](search-get-started-postman.md). 
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+La procedura guidata include anche pagine per l'arricchimento tramite intelligenza artificiale, per estrarre testo e struttura da file di immagine e testo non strutturato. L'elaborazione del contenuto con intelligenza artificiale include il riconoscimento ottico dei caratteri (OCR), l'estrazione di frasi chiave ed entità e l'analisi delle immagini.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
+Per eseguire le procedure descritte è necessario:
+
++ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
+
++ Un'istanza del servizio Ricerca cognitiva di Azure [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 ### <a name="check-for-space"></a>Verificare lo spazio
 
@@ -51,15 +53,17 @@ Ai fini di questa esercitazione, viene usato un set di dati di esempio predefini
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Passaggio 1: Avviare la procedura guidata Importa dati e creare un'origine dati
 
-1. Nel dashboard del servizio Ricerca cognitiva di Azure fare clic su **Importa dati** sulla barra dei comandi per creare e popolare un indice di ricerca.
+1. Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account Azure.
+
+1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica fare clic su **Importa dati** sulla barra dei comandi per creare e popolare un indice di ricerca.
 
    ![Comando Importa dati](media/search-get-started-portal/import-data-cmd.png)
 
-2. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **hotels-sample**. Questa origine dati è predefinita. Se si crea un'origine dati personalizzata, è necessario specificare un nome, un tipo e le informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
+1. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **hotels-sample**. Questa origine dati è predefinita. Se si crea un'origine dati personalizzata, è necessario specificare un nome, un tipo e le informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
 
    ![Selezionare il set di dati di esempio](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Passare alla pagina successiva.
+1. Passare alla pagina successiva.
 
 ### <a name="step-2---skip-the-enrich-content-page"></a>Passaggio 2: Ignorare la pagina "Enrich content" (Arricchisci contenuto)
 

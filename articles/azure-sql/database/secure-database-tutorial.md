@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267911"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323927"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Esercitazione: Proteggere un database SQL di Azure
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In questa esercitazione si apprenderà come:
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 >
 > - Creare regole del firewall a livello di server e di database
-> - Configurare un amministratore di Azure Active Directory (AD)
+> - Configurare un amministratore di Azure Active Directory (Azure AD)
 > - Gestire l'accesso degli utenti con l'autenticazione SQL, l'autenticazione di Azure AD e le stringhe di connessione sicure
 > - Abilitare funzionalità di sicurezza come la sicurezza dei dati avanzata, il controllo, la maschera dati e la crittografia
 
@@ -42,7 +42,7 @@ Il database SQL di Azure protegge i dati consentendo di:
 Per altre informazioni, vedere gli articoli [Database SQL di Azure - Sicurezza avanzata](/azure/sql-database/sql-database-security-index) e [Panoramica della funzionalità di sicurezza del database SQL di Azure](security-overview.md).
 
 > [!TIP]
-> Il modulo seguente di Microsoft Learn consente di imparare gratuitamente come [proteggere il database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Il modulo seguente di Microsoft Learn consente di imparare gratuitamente come [proteggere il database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
