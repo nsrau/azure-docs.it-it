@@ -1,0 +1,97 @@
+- name: API di Azure per FHIR
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sull'API di Azure per FHIR
+      href: overview.md
+- name: Avvii rapidi
+  expanded: true
+  items:
+    - name: Distribuire l'API di Azure per FHIR - Portale
+      href: fhir-paas-portal-quickstart.md
+    - name: Distribuire l'API di Azure per FHIR - PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - name: Distribuire l'API di Azure per FHIR - Interfaccia della riga di comando
+      href: fhir-paas-cli-quickstart.md
+    - name: Distribuire FHIR Server per Azure - Portale
+      href: fhir-oss-portal-quickstart.md
+    - name: Distribuire FHIR Server per Azure - PowerShell
+      href: fhir-oss-powershell-quickstart.md
+    - name: Distribuire FHIR Server per Azure - Interfaccia della riga di comando
+      href: fhir-oss-cli-quickstart.md
+- name: Esercitazioni
+  expanded: false
+  items:
+    - name: Distribuire l'applicazione JavaScript
+      expanded: false
+      items:
+        - name: 1. Configurazione iniziale e distribuzione FHIR
+          href: tutorial-web-app-fhir-server.md
+        - name: 2. Registrare l'applicazione client pubblica
+          href: tutorial-web-app-public-app-reg.md
+        - name: 3. Testare la configurazione con Postman
+          href: tutorial-web-app-test-postman.md
+        - name: 4. Scrivere l'applicazione Web
+          href: tutorial-web-app-write-web-app.md
+    - name: Accedere all'API FHIR con Postman
+      href: access-fhir-postman-tutorial.md
+    - name: Usare SMART nel proxy FHIR
+      href: use-smart-on-fhir-proxy.md
+- name: Guide pratiche
+  expanded: false
+  items:
+    - name: Registrazione di applicazioni
+      expanded: false
+      items:
+        - name: Panoramica sulla registrazione di applicazioni per l'API di Azure per FHIR
+          href: fhir-app-registration.md
+        - name: Applicazione risorsa
+          href: register-resource-azure-ad-client-app.md
+        - name: Applicazione client riservata
+          href: register-confidential-azure-ad-client-app.md
+        - name: Applicazione client pubblica
+          href: register-public-azure-ad-client-app.md
+        - name: Applicazione client di servizio
+          href: register-service-azure-ad-client-app.md
+    - name: Configurare le impostazioni
+      expanded: false
+      items:
+        - name: Configurare altre impostazioni dell'API di Azure per FHIR
+          href: azure-api-for-fhir-additional-settings.md
+        - name: Configurare Controllo degli accessi in base al ruolo di Azure
+          href: configure-azure-rbac.md
+        - name: Configurare Controllo degli accessi in base al ruolo locale
+          href: configure-local-rbac.md
+        - name: Configurare le impostazioni del database
+          href: configure-database.md
+        - name: Configurare CORS
+          href: configure-cross-origin-resource-sharing.md
+        - name: Configurare l'esportazione
+          href: configure-export-data.md
+    - name: Trovare ID oggetto identità
+      href: find-identity-object-ids.md
+    - name: Abilitare la registrazione diagnostica nell'API di Azure per FHIR®
+      href: enable-diagnostic-logging.md
+    - name: Ottenere un token per l'API di Azure per FHIR - Interfaccia della riga di comando
+      href: get-healthcare-apis-access-token-cli.md
+- name: Concetti
+  expanded: false
+  items:
+    - name: Panoramica di Azure AD e API di Azure per FHIR
+      href: azure-ad-hcapi.md
+    - name: Convalida del token di accesso
+      href: azure-ad-hcapi-token-validation.md
+    - name: Usare intestazioni HTTP personalizzate per aggiungere dati ai log di controllo
+      href: use-custom-headers.md
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: fhir-faq.md
+    - name: Caratteristiche supportate
+      href: fhir-features-supported.md
+    - name: Ecosistema di partner
+      href: partner-ecosystem.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/healthcareapis/healthcareapis

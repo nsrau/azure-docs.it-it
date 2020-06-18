@@ -1,19 +1,19 @@
 ---
 title: Raggruppare ed eseguire azioni per ambito
-description: Creare azioni con ambito eseguite in base allo stato del gruppo in app per la logica di Azure
+description: Creare azioni per ambito eseguite in base allo stato del gruppo nelle App per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74791496"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831586"
 ---
-# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando gli ambiti nelle app per la logica di Azure
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando ambiti nelle App per la logica di Azure
 
 Per eseguire azioni solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, raggruppare tali azioni in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
@@ -33,7 +33,7 @@ Per eseguire l'esempio in questo articolo, sono necessari questi elementi:
 
 * Una chiave di Bing Maps. Per ottenere questa chiave, vedere <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a> (Ottenere una chiave di Bing Maps).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-sample-logic-app"></a>Creare un'app per la logica di esempio
 
@@ -48,9 +48,9 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
 È possibile salvare l'app per la logica in qualsiasi momento, quindi salvare spesso il lavoro.
 
-1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, se non è già stato fatto. Creare un'app per la logica vuota.
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, se questa operazione non è già stata eseguita. Creare un'app per la logica vuota.
 
-1. Aggiungere il trigger **Pianificazione - Ricorrenza** con queste impostazioni: **Intervallo** = "1" e **Frequenza** = "Minuto"
+1. Aggiungere il trigger **Pianificazione - Ricorrenza** con queste impostazioni: **Interval** = "1" and **Frequency** = "Minute"
 
    ![Configurazione del trigger "Pianificazione - Ricorrenza"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -63,8 +63,8 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       | Impostazione | valore | Descrizione |
       | ------- | ----- | ----------- |
-      | **Nome connessione** | BingMapsConnection | Specificare un nome per la connessione. | 
-      | **Chiave API** | <*-Bing-Maps-Key*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
+      | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
+      | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
       ||||  
 
    1. Configurare l'azione **Get route** (Ottieni itinerario), come illustrato nella tabella sotto questa immagine:
@@ -75,20 +75,20 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       | Impostazione | valore | Descrizione |
       | ------- | ----- | ----------- |
-      | **Punto di tragitto 1** | <*iniziare*> | Immettere l'origine dell'itinerario. | 
-      | **Punto di tragitto 2** | <*fine*> | Immettere la destinazione dell'itinerario. | 
-      | **Evitare** | nessuno | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
-      | **Ottimizzare** | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
-      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio usa il valore "Mile" | 
-      | **Travel mode (Modalità di viaggio)** | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
-      | **Transit Date-Time (Data e ora transito)** | nessuno | Si applica solo alla modalità di transito. | 
+      | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
+      | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
+      | **Avoid** (Evita) | nessuno | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
+      | **Optimize** (Ottimizza) | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
+      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio usa il seguente valore: "Miglia" | 
+      | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
+      | **Transit Date-Time** (Data e ora transito) | nessuno | Si applica solo alla modalità di transito. | 
       | **Transit Date-Time Type** (Tipo di data e ora transito) | nessuno | Si applica solo alla modalità di transito. | 
       ||||  
 
 1. [Aggiungere una condizione](../logic-apps/logic-apps-control-flow-conditional-statement.md) per verificare se il tempo di viaggio corrente con il traffico è superiore al tempo specificato. 
    Per questo esempio, seguire questa procedura:
 
-   1. Rinominare la condizione con questa descrizione: **If traffic time is more than specified time** (Se il tempo con il traffico è superiore al tempo specificato).
+   1. Rinominare la condizione con questa descrizione: **Se il tempo con il traffico è superiore al tempo specificato**
 
    1. Nella colonna più a sinistra fare clic all'interno della casella **Scegliere un valore** in modo che venga visualizzato l'elenco di contenuto dinamico. In questo elenco selezionare il campo **Travel Duration Traffic** (Durata viaggio con traffico), espresso in secondi. 
 
@@ -96,7 +96,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Nella casella centrale selezionare l'operatore: **è maggiore di**.
 
-   1. Nella colonna all'estrema destra immettere questo valore di confronto, che è in secondi e equivalente a 10 minuti: **600**
+   1. Nella colonna più a destra immettere questo valore di confronto, espresso in secondi ed equivalente a 10 minuti: **600**
 
       Al termine, la condizione avrà un aspetto simile a quello in questo esempio:
 
@@ -121,7 +121,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Nell'elenco di contenuto dinamico scegliere **Espressione**.
 
-   1. Trovare e selezionare la funzione **div()**. 
+   1. Trovare e selezionare la funzione **div()** . 
       Posizionare il cursore tra le parentesi della funzione.
 
    1. Mentre il cursore è tra le parentesi della funzione, scegliere **Contenuto dinamico** in modo che venga visualizzato l'elenco di contenuto dinamico. 
@@ -130,7 +130,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       ![Selezionare "Travel Duration Traffic" (Durata viaggio con traffico)](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. Dopo che il campo viene risolto in formato JSON, aggiungere una **virgola** (```,```) seguita dal numero ```60``` in modo da convertire il valore nel **traffico di durata del traffico** da secondi a minuti. 
+   1. Dopo che il campo viene risolto nel formato JSON, aggiungere una **virgola** (```,```) seguita dal numero ```60``` per poter convertire il valore di **Traffic Duration Traffic** (Durata viaggio con traffico) da secondi a minuti. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -143,7 +143,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
    1. Al termine dell'operazione, scegliere **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Dopo la risoluzione dell'espressione, aggiungere questo testo con uno spazio principale:``` minutes```
+   1. Dopo la risoluzione dell'espressione, aggiungere il testo seguente con uno spazio iniziale: ``` minutes```
   
        Il campo **Corpo** dovrebbe avere ora un aspetto simile all'esempio seguente:
 
@@ -161,7 +161,7 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
 1. Aggiungere un ambito al percorso del flusso di lavoro da usare. Ad esempio, per aggiungere un ambito tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, seguire questa procedura: 
 
    1. Spostare il puntatore sulla freccia dove si vuole aggiungere l'ambito. 
-   Scegliere il **segno più** (**+**) > **aggiungere un'azione**.
+   Scegliere il **segno più** ( **+** ) > **Aggiungi un'azione**.
 
       ![Aggiungere un ambito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -172,14 +172,14 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
 
 1. Aggiungere ora i passaggi o trascinare i passaggi esistenti che si vuole eseguire nell'ambito. Per questo esempio, trascinare le azioni seguenti nell'ambito:
       
-   * **Ottenere una route**
+   * **Get route** (Ottieni itinerario)
    * **If traffic time is more than specified time** (Se il tempo con il traffico è superiore al tempo specificato), che include entrambi i rami **true** e **false**
 
    L'app per la logica dovrebbe avere ora un aspetto simile all'esempio seguente:
 
    ![Ambito aggiunto](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Sotto l'ambito aggiungere una condizione che controlla lo stato dell'ambito. Rinominare la condizione con questa descrizione: **If scope failed** (Se l'ambito ha avuto esito negativo)
+1. Sotto l'ambito aggiungere una condizione che controlla lo stato dell'ambito. Rinominare la condizione con questa descrizione: **Se l'ambito ha avuto esito negativo**
 
    ![Aggiungere la condizione per controllare lo stato dell'ambito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -386,9 +386,9 @@ Se si usa la visualizzazione Codice, è invece possibile definire una struttura 
 },
 ```
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

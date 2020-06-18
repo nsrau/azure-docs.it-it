@@ -1,15 +1,15 @@
 ---
 title: Quote e limiti del servizio
 description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti e su come richiedere incrementi di quota
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115823"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780011"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -25,7 +25,7 @@ Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe ess
 
 Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure.
 
-Si noti inoltre che le quote non sono valori garantiti. Le quote possono variare in base alle modifiche apportate al servizio batch o a una richiesta dell'utente per modificare un valore di quota.
+Si noti inoltre che le quote non sono valori garantiti. Le quote possono variare in base alle modifiche apportate al servizio Batch o a una richiesta utente per modificare un valore di quota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
@@ -35,14 +35,14 @@ Se è stato creato un account Batch con modalità di allocazione pool impostata 
 
 ## <a name="pool-size-limits"></a>Limiti delle dimensioni del pool
 
-I limiti delle dimensioni del pool vengono impostati dal servizio batch. A differenza [delle quote di risorse](#resource-quotas), questi valori non possono essere modificati. Solo i pool con comunicazione tra nodi e immagini personalizzate presentano limitazioni diverse dalla quota standard.
+I limiti delle dimensioni del pool vengono impostati dal servizio Batch. A differenza delle [quote di risorse](#resource-quotas), questi valori non possono essere modificati. Solo i pool con comunicazione tra nodi e immagini personalizzate presentano limitazioni diverse dalla quota standard.
 
-| **Risorsa** | **Limite massimo** |
+| **Risorsa** | **Limite Massimo** |
 | --- | --- |
 | **Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md)**  ||
 | Modalità di allocazione pool del servizio Batch | 100 |
 | Modalità di allocazione pool di sottoscrizione batch | 80 |
-| **Nodi di calcolo nel [pool creato con una risorsa immagine gestita](batch-custom-images.md)**<sup>1</sup> ||
+| **Nodi di calcolo nel [pool creato con una risorsa immagine gestita](batch-custom-images.md)** <sup>1</sup> ||
 | Nodi dedicati | 2000 |
 | Nodi a priorità bassa | 1000 |
 
@@ -50,18 +50,18 @@ I limiti delle dimensioni del pool vengono impostati dal servizio batch. A diffe
 
 ## <a name="other-limits"></a>Altri limiti
 
-Limiti aggiuntivi impostati dal servizio batch. A differenza [delle quote di risorse](#resource-quotas), questi valori non possono essere modificati.
+Limiti aggiuntivi impostati dal servizio Batch. A differenza delle [quote di risorse](#resource-quotas), questi valori non possono essere modificati.
 
-| **Risorsa** | **Limite massimo** |
+| **Risorsa** | **Limite Massimo** |
 | --- | --- |
 | [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo | 4 x numero di core del nodo |
 | [Applicazioni](batch-application-packages.md) per account Batch | 20 |
 | Pacchetti dell'applicazione per applicazione | 40 |
-| Pacchetti di applicazioni per pool | 10 |
+| Pacchetti dell'applicazione per pool | 10 |
 | Durata massima dell'attività | 180 giorni<sup>1</sup> |
 | [Montaggi](virtual-file-mount.md) per nodo di calcolo | 10 |
 
-<sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 180 giorni. Le attività completate vengono mantenute per sette giorni; i dati per le attività non completate entro la durata massima non sono accessibili.
+<sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 180 giorni. Le attività completate vengono conservate per sette giorni. I dati per le attività non completate entro la durata massima non sono accessibili.
 
 ## <a name="view-batch-quotas"></a>Visualizzare le quote Batch
 
@@ -75,37 +75,37 @@ Visualizzare le quote dell'account Batch nel [portale di Azure][portal].
 
 ## <a name="increase-a-quota"></a>Aumentare una quota
 
-Per richiedere un aumento di quota per la sottoscrizione o l'account Batch usando il [portale di Azure][portal], seguire questa procedura. Il tipo di aumento delle quote dipende dalla modalità di allocazione del pool dell'account Batch. Per richiedere un aumento della quota, è necessario includere la serie di VM per cui si vuole aumentare la quota. Quando viene applicato l'aumento della quota, questo viene applicato a tutte le serie di macchine virtuali.
+Per richiedere un aumento di quota per la sottoscrizione o l'account Batch usando il [portale di Azure][portal], seguire questa procedura. Il tipo di aumento delle quote dipende dalla modalità di allocazione del pool dell'account Batch. Per richiedere un aumento di quota, è necessario includere la serie di VM per cui si vuole aumentare la quota. L'aumento di quota viene applicato a tutte le serie di macchine virtuali.
 
-### <a name="increase-cores-quota-in-batch"></a>Aumentare la quota di core in batch 
+### <a name="increase-cores-quota-in-batch"></a>Aumentare la quota di core in Batch 
 
-1. Selezionare il riquadro **Guida e supporto** nel dashboard del portale o il punto interrogativo (**?**) nell'angolo superiore destro del portale.
-1. Selezionare **nuova richiesta** > di supporto**nozioni di base**.
+1. Selezionare il riquadro **Guida e supporto** nel dashboard del portale o il punto interrogativo ( **?** ) nell'angolo superiore destro del portale.
+1. Selezionare **Nuova richiesta di supporto** > **Informazioni di base**.
 1. In **Nozioni di base**:
    
-    a. **Issue Type** > **Limiti di servizio e sottoscrizione del tipo di problema (quote)**
+    a. **Tipo di problema** > **Limiti del servizio e della sottoscrizione (quote)**
    
     b. Selezionare la propria sottoscrizione.
    
-    c. **Quota type** > **Batch** tipo di quota
+    c. **Tipo di quota** > **Batch**
       
     Selezionare **Avanti**.
     
 1. In **Dettagli**:
       
-    a. In specificare i **Dettagli**specificare il percorso, il tipo di quota e l'account batch.
+    a. In **Specifica dettagli** specificare la posizione, il tipo di quota e l'account Batch.
     
-    ![Aumento quota batch][quota_increase]
+    ![Aumento di quota Batch][quota_increase]
 
     I tipi di quota includono:
 
-    * **Per account batch**  
-        Valori specifici di un singolo account batch, inclusi i core dedicati e con priorità bassa, nonché il numero di processi e pool.
+    * **Per account Batch**  
+        Valori specifici di un singolo account Batch, inclusi i core dedicati e per priorità bassa, nonché il numero di processi e pool.
         
     * **Per area**  
-        Valori che si applicano a tutti gli account batch in un'area e che includono il numero di account batch per area per sottoscrizione.
+        Valori che si applicano a tutti gli account Batch in un'area e che includono il numero di account Batch per area per sottoscrizione.
 
-    La quota con priorità bassa è un singolo valore in tutte le serie di macchine virtuali. Se sono necessari SKU vincolati, è necessario selezionare **core a bassa priorità** e includere le famiglie di macchine virtuali da richiedere.
+    La quota per priorità bassa è un singolo valore in tutte le serie di macchine virtuali. Se sono necessari SKU vincolati, selezionare **ore per priorità bassa** e includere le famiglie di macchine virtuali da richiedere.
 
     b. Selezionare una **Gravità** in base all'[impatto sull'attività aziendale][support_sev].
 
@@ -119,7 +119,7 @@ Per richiedere un aumento di quota per la sottoscrizione o l'account Batch usand
    
     Selezionare **Crea** per inviare la richiesta di supporto.
 
-Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto tecnico di Azure. Le richieste di quota possono essere completate entro pochi minuti o fino a due giorni lavorativi.
+Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto tecnico di Azure. Le richieste di quota possono essere completate entro pochi minuti o un massimo di due giorni lavorativi.
 
 ## <a name="related-quotas-for-vm-pools"></a>Quote correlate per i pool di macchine virtuali
 
@@ -127,15 +127,15 @@ I pool di Batch nella configurazione di macchine virtuali distribuita in una ret
 
 * Un [gruppo di sicurezza di rete](../virtual-network/security-overview.md#network-security-groups)
 * Un [indirizzo IP pubblico](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* Un servizio di [bilanciamento del carico](../load-balancer/load-balancer-overview.md)
+* Un [bilanciamento del carico](../load-balancer/load-balancer-overview.md)
 
 Queste risorse vengono allocate nella sottoscrizione che contiene la rete virtuale fornita durante la creazione del pool di Batch. Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Se sono previste distribuzioni di pool di grandi dimensioni in una rete virtuale, controllare le quote della sottoscrizione per queste risorse. Se necessario, richiedere un aumento selezionando **Guida e supporto** nel portale di Azure.
 
 
-## <a name="related-topics"></a>Argomenti correlati
-* [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md)
-* [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md)
-* [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md).
+* Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+* Informazioni su [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

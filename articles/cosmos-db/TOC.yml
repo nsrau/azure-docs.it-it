@@ -4,7 +4,7 @@
   items:
     - name: Introduzione ad Azure Cosmos DB
       href: introduction.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare le risorse di Cosmos DB
@@ -588,7 +588,7 @@
               href: cassandra-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: cassandra-support.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -664,7 +664,7 @@
           items:
             - name: Che cos'è l'API MongoDB in Cosmos DB?
               href: mongodb-introduction.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -763,7 +763,7 @@
               href: graph-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: gremlin-support.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Console Gremlin
               href: create-graph-gremlin-console.md
@@ -826,7 +826,7 @@
           items:
             - name: Che cos'è l'API Tabella in Cosmos DB?
               href: table-introduction.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-table-dotnet.md
@@ -863,7 +863,7 @@
               href: table-storage-how-to-use-c-plus.md
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
-            - name: 'F#'
+            - name: F#
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
         - name: Concetti
@@ -1055,7 +1055,7 @@
           href: import-github-notebooks.md
         - name: Usare comandi di notebook Python predefiniti
           href: use-python-notebook-features-and-commands.md
-        - name: 'Usare comandi di notebook C# predefiniti'
+        - name: Usare comandi di notebook C# predefiniti
           href: use-csharp-notebook-features-and-commands.md
     - name: Programmazione lato server
       items:
@@ -1155,6 +1155,8 @@
           href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Analisi di flusso di Azure
           href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Esplora dati di Azure
+          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
         - name: Hub eventi di Azure e Archiviazione di Azure
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Usare Spring Boot Starter

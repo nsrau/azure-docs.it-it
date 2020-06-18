@@ -5,24 +5,27 @@
     - name: Che cos'è Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire la prima query - Portale di Azure
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Eseguire la prima query - Interfaccia della riga di comando di Azure
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Eseguire la prima query - PowerShell
+      href: ./first-query-azurecli.md
+    - name: Eseguire la prima query - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Eseguire la prima query - Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: Eseguire la prima query - Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: Distribuire una query condivisa - Modello di Resource Manager
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Esercitazioni
   items:
     - name: Creare e condividere una query nel portale di Azure

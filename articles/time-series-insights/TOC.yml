@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Time Series Insights
       href: time-series-insights-update-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Azure Time Series Insights disponibile a livello generale
@@ -41,9 +41,9 @@
           items:
             - name: Autenticare e autorizzare
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Eseguire query sui dati con C#'
+            - name: Eseguire query sui dati con C#
               href: time-series-insights-query-data-csharp.md
-            - name: 'Gestire i dati di riferimento in C#'
+            - name: Gestire i dati di riferimento in C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Condividere una visualizzazione personalizzata
               href: time-series-insights-parameterized-urls.md
@@ -65,7 +65,7 @@
           items:
             - name: Autenticare e autorizzare
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Eseguire query sui dati con C#'
+            - name: Eseguire query sui dati con C#
               href: time-series-insights-update-query-data-csharp.md
             - name: Integrazione con Power BI
               href: concepts-power-bi.md
@@ -111,6 +111,12 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Connettersi a Power BI
           href: how-to-connect-power-bi.md
+- name: Modifiche di rilievo
+  items:
+    - name: Anteprima di Time Series Insights
+      items:
+        - name: Aggiunta del supporto per il tipo di dati Long
+          href: time-series-insights-long-data-type.md
 - name: Informazioni di riferimento
   items:
     - name: Time Series Insights

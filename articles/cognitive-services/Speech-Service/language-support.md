@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730323"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783096"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -312,6 +312,27 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Vietnamita              | `vi`          |
 | Gallese                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## <a name="speaker-recognition"></a>Riconoscimento del parlante
+
+Vedere la tabella seguente per le lingue supportate per le diverse API di Riconoscimento del parlante. Per altre informazioni su Riconoscimento del parlante, vedere la [panoramica](speaker-recognition-overview.md).
+
+| Impostazioni locali | Linguaggio | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
+|----|----|----|----|----|
+| it-IT | Inglese (Stati Uniti) | sì | sì | sì |
+|zh-CN  |Cinese (mandarino, semplificato)|    n/d|    sì|    sì|
+|de-DE  |Tedesco (Germania)   |n/d    |sì    |sì|
+|en-GB  |Inglese (Regno Unito)   |n/d    |sì    |sì|
+|fr-FR  |Francese (Francia)    |n/d    |sì    |sì|
+|en-AU  |Inglese (Australia)    |n/d    |sì    |sì|
+|en-CA  |Inglese (Canada)   |n/d|   sì|    sì|
+|fr-CA  |Francese (Canada)    |n/d    |sì|   sì|
+|it-IT  |Italiano|   n/d |sì|   sì|
+|es-ES| Spagnolo (Spagna) |n/d    |sì|   sì|
+|es-MX  |Spagnolo (Messico)   |n/d|   sì|    sì|
+|ja-JP| Giapponese    |n/d    |sì    |sì|
+|pt-BR| Portoghese (Brasile)|    n/d|    sì|    sì|
+|ko-KR| Coreano  |n/d    |sì|   sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

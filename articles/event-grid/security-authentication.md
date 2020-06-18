@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588259"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774302"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticazione dell'accesso alle risorse di Griglia di eventi di Azure
 Questo articolo fornisce informazioni sugli scenari seguenti:  
 
 - Autenticare client che pubblicano eventi negli argomenti di Griglia di eventi di Azure usando la firma di accesso condiviso o la chiave. 
-- Proteggere l'endpoint webhook usando Azure Active Directory (Azure AD) per autenticare Griglia di eventi per il **recapito** di eventi all'endpoint.
+- Proteggere l'endpoint del webhook usato per ricevere eventi da Griglia di eventi usando Azure Active Directory (Azure AD) o un segreto condiviso.
 
 ## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autenticare i client di pubblicazione con la firma di accesso condiviso o la chiave
 Gli argomenti personalizzati usano la firma di accesso condiviso (SAS) o l'autenticazione della chiave. È consigliabile la firma di accesso condiviso, ma l'autenticazione della chiave fornisce una programmazione semplice ed è compatibile con molte entità di pubblicazione di webhook esistenti.
@@ -89,12 +89,12 @@ Tutti gli eventi o i dati scritti sul disco dal servizio Griglia di eventi vengo
 Le sezioni seguenti descrivono come autenticare il recapito di eventi agli endpoint webhook. È necessario usare un meccanismo di handshake di convalida indipendentemente dal metodo usato. Per informazioni dettagliate, vedere [Recapito eventi webhook](webhook-event-delivery.md). 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Uso di Azure Active Directory (Azure AD)
-È possibile proteggere l'endpoint webhook usando Azure Active Directory (Azure AD) per autenticare e autorizzare Griglia di eventi al recapito di eventi agli endpoint. È necessario creare un'applicazione Azure AD, creare un ruolo e un principio di servizio nell'applicazione che autorizza Griglia di eventi e configurare la sottoscrizione dell'evento per usare l'applicazione Azure AD. [Informazioni su come configurare Azure Active Directory con Griglia di eventi](secure-webhook-delivery.md).
+È possibile proteggere l'endpoint del webhook usato per ricevere eventi da Griglia di eventi usando Azure AD. È necessario creare un'applicazione Azure AD, creare un ruolo e un'entità servizio nell'applicazione che autorizza Griglia di eventi e configurare la sottoscrizione dell'evento per usare l'applicazione Azure AD. Informazioni su come [configurare Azure Active Directory con Griglia di eventi](secure-webhook-delivery.md).
 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Uso del segreto client come parametro di query
-È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL del webhook durante la creazione di una sottoscrizione di eventi. Impostare uno di questi parametri di query in modo che sia un segreto client, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token) o un segreto condiviso, che il webhook può usare per riconoscere che l'evento proviene da Griglia di eventi con autorizzazioni valide. Griglia di eventi includerà questi parametri di query in ogni recapito di eventi al webhook. Se il segreto client viene aggiornato, è necessario aggiornare anche la sottoscrizione dell'evento. Per evitare errori di recapito durante questa rotazione del segreto, fare in modo che il webhook accetti sia i segreti vecchi che quelli nuovi per una durata limitata. 
+È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL di destinazione del webhook indicato come parte della creazione di una sottoscrizione di eventi. Impostare uno dei parametri di query in modo che sia un segreto client, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token) o un segreto condiviso. Il servizio Griglia di eventi includerà tutti questi parametri di query in ogni richiesta di recapito di eventi al webhook. Il servizio webhook può recuperare e convalidare il segreto. Se il segreto client viene aggiornato, è necessario aggiornare anche la sottoscrizione dell'evento. Per evitare errori di recapito durante questa rotazione del segreto, fare in modo che il webhook accetti sia i segreti vecchi che quelli nuovi per un periodo limitato prima di aggiornare la sottoscrizione con il nuovo segreto. 
 
-Poiché i parametri di query potrebbero contenere segreti client, vengono gestiti con maggiore attenzione. Vengono archiviati come crittografati e non sono accessibili agli operatori del servizio. Non vengono registrati in log/tracce del servizio. Quando si modifica la sottoscrizione dell'evento, i parametri di query non sono visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) di Azure.
+Poiché i parametri di query potrebbero contenere segreti client, vengono gestiti con maggiore attenzione. Vengono archiviati come crittografati e non sono accessibili agli operatori del servizio. Non vengono registrati in log/tracce del servizio. Quando si recuperano le proprietà della sottoscrizione di eventi, i parametri delle query di destinazione non vengono restituiti per impostazione predefinita. Ad esempio, il parametro [--include-full-endpoint-URL](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) deve essere usato nell'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) di Azure.
 
 Per altre informazioni su come recapitare gli eventi ai webhook, vedere [Recapito eventi webhook](webhook-event-delivery.md).
 

@@ -1,34 +1,34 @@
 ---
-title: Disponibilità elevata di Azure Kubernetes Service (AKS) con contratto di servizio con tempo di esecuzione
-description: Informazioni sull'offerta facoltativa del contratto di servizio per la disponibilità elevata per il server API del servizio Azure Kubernetes (AKS).
+title: Usare il servizio Azure Kubernetes con il contratto di servizio relativo al tempo di attività
+description: Informazioni sull'offerta opzionale del contratto di servizio relativo al tempo di attività per il server API del servizio Azure Kubernetes.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 1c340f85a107cac437e1241025d8c9bc6991b965
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 05/19/2020
+ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125724"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683210"
 ---
-# <a name="azure-kubernetes-service-aks-uptime-sla"></a>CONTRATTO di servizio relativo al tempo di servizio di Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
-Il contratto di servizio per il tempo di esecuzione è una funzionalità facoltativa che consente di ottenere un contratto di servizio con copertura finanziaria per un cluster Il contratto di servizio del tempo di esecuzione garantisce il 99,95% di disponibilità dell'endpoint server dell'API Kubernetes per i cluster che usano la [zona di disponibilità][availability-zones] e il 99,9% di disponibilità per i cluster che non usano le zone di disponibilità. AKS usa le repliche dei nodi master nei domini di aggiornamento e di errore per garantire che siano soddisfatti i requisiti del contratto di servizio.
+Il contratto di servizio relativo al tempo di attività è una funzionalità facoltativa che consente di ottenere un contratto di servizio con copertura finanziaria più elevata per un cluster. Il contratto di servizio relativo al tempo di attività garantisce il 99,95% di disponibilità dell'endpoint del server dell'API Kubernetes per i cluster che usano [zone di disponibilità][availability-zones] e il 99,9% della disponibilità per i cluster che non usano zone di disponibilità. Il servizio Azure Kubernetes usa le repliche dei nodi master nei domini di aggiornamento e di errore per garantire che siano soddisfatti i requisiti del contratto di servizio.
 
-I clienti che necessitano di contratti di servizio per motivi di conformità o per estendere i contratti di servizio ai clienti devono attivare questa funzionalità. I clienti con carichi di lavoro critici che necessitano di una maggiore disponibilità con un'opzione di contratto di servizio traggono vantaggio dall'abilitazione di questa funzionalità. Abilitare la funzionalità con zone di disponibilità per ottenere una maggiore disponibilità del server dell'API Kubernetes.  
+I clienti che necessitano di un contratto di servizio per soddisfare i requisiti di conformità o richiedere l'estensione di un contratto di servizio agli utenti finali devono abilitare questa funzionalità. Anche i clienti con carichi di lavoro critici che trarranno vantaggio da un contratto di servizio relativo al tempo di attività possono usufruire di questa opzione. L'uso di un contratto di servizio relativo al tempo di attività con zone di disponibilità consente una disponibilità più elevata per il tempo di attività del server dell'API Kubernetes.  
 
-I clienti possono creare cluster gratuiti senza limiti con un obiettivo del livello di servizio (SLO) del 99,5%.
+I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo del livello di servizio pari al 99,5% e optare per il tempo di attività relativo all'obiettivo del livello di servizio o al contratto di servizio in base alle esigenze.
 
 > [!Important]
-> Per i cluster con blocco in uscita, vedere [limitare il traffico in uscita](limit-egress-traffic.md) per aprire le porte appropriate per il contratto di servizio con tempo di esecuzione.
+> Per i cluster con blocco in uscita, vedere la pagina relativa a come [limitare il traffico in uscita](limit-egress-traffic.md) per aprire le porte appropriate.
 
-## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di contratto
+## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 
-Il contratto di servizio del tempo di esecuzione è una funzionalità a pagamento e abilitata per cluster. Il prezzo del contratto di servizio relativo al tempo di esecuzione è determinato dal numero di cluster e non dalle dimensioni dei cluster. Per ulteriori informazioni, è possibile visualizzare [i dettagli sui prezzi dei contratti di contratto di tempo](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
+Il contratto di servizio relativo al tempo di attività è una funzionalità a pagamento abilitata per cluster. Il prezzo del contratto di servizio relativo al tempo di attività è determinato dal numero di cluster discreti e non dalle dimensioni dei singoli cluster. Per altre informazioni, consultare i [dettagli sui prezzi del contratto di servizio relativo al tempo di attività](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-## <a name="region-availability"></a>Disponibilità area
+## <a name="region-availability"></a>Disponibilità a livello di area
 
-Il contratto di esecuzione del tempo di esecuzione è disponibile nelle aree geografiche seguenti:
+Il contratto di servizio relativo al tempo di attività è disponibile nelle seguenti aree:
 
 * Australia orientale
 * Canada centrale
@@ -40,11 +40,11 @@ Il contratto di esecuzione del tempo di esecuzione è disponibile nelle aree geo
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* L'interfaccia della riga di comando di Azure versione 2.7.0 o successiva
+* Interfaccia della riga di comando di Azure, versione 2.7.0 o successiva
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Creazione di un cluster con contratto di servizio con tempo di esecuzione
+## <a name="creating-a-cluster-with-uptime-sla"></a>Creazione di un cluster con il contratto di servizio relativo al tempo di attività
 
-Per creare un nuovo cluster con il contratto di servizio con il tempo di esecuzione, usare l'interfaccia della riga di comando di Azure.
+Per creare un nuovo cluster con il contratto di servizio relativo al tempo di attività, usare l'interfaccia della riga di comando di Azure.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -56,7 +56,7 @@ Usare il comando [az aks create][az-aks-create] per creare un cluster del serviz
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
-Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio con tempo di esecuzione.
+Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio relativo al tempo di attività.
 
 ```output
   },
@@ -64,19 +64,18 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
     "name": "Basic",
     "tier": "Paid"
   },
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters",
-  "windowsProfile": null
 ```
 
 ## <a name="limitations"></a>Limitazioni
 
-* Attualmente non è possibile aggiungere il contratto di servizio relativo al tempo di esecuzione ai cluster esistenti.
-* Attualmente, non è possibile rimuovere il contratto di servizio per il tempo di esecuzione da un cluster AKS.  
+* Attualmente non è consentita la conversione come cluster esistente per abilitare il contratto di servizio relativo al tempo di attività.
+* Attualmente non è possibile rimuovere il contratto di servizio relativo al tempo di attività da un cluster del servizio Azure Kubernetes dopo la creazione con abilitazione.  
+* I cluster privati non sono attualmente supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare [zone di disponibilità][availability-zones] per aumentare la disponibilità elevata con i carichi di lavoro del cluster AKS.
+Usare [zone di disponibilità][availability-zones] per aumentare la disponibilità elevata con i carichi di lavoro del cluster del servizio Azure Kubernetes.
+Configurare il cluster per [limitare il traffico in uscita](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

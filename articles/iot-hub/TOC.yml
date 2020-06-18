@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è l'hub IoT di Azure?
       href: about-iot-hub.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Inviare dati di telemetria
@@ -379,6 +379,8 @@
       items:
         - name: Disconnessione del dispositivo
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Risolvere i problemi relativi al routing dei messaggi
+          href: troubleshoot-message-routing.md
         - name: Risoluzione dei problemi
           items:
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
@@ -416,7 +418,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/iot
     - name: Azure PowerShell
-      href: '/powershell/module/az.iothub#iot'
+      href: /powershell/module/az.iothub#iot
     - name: .NET (dispositivo)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (servizio)
@@ -474,12 +476,12 @@
     - name: Azure IoT SDK
       items:
         - name: IoT SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Esempi di Azure IoT
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'

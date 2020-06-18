@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -217,7 +217,7 @@
           href: sap-hana-db-restore.md
         - name: Gestione
           href: sap-hana-db-manage.md
-    - name: Server di Backup di Azure (MABS)
+    - name: Server di backup di Azure (MABS)
       items:
         - name: Matrici di protezione
           items:
@@ -422,7 +422,7 @@
     - name: Pagina delle domande di Domande e risposte Microsoft
       href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
     - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+      href: azure-backup-pricing.md
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=backup'
     - name: Video

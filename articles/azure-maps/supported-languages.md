@@ -1,6 +1,6 @@
 ---
-title: Supporto per la localizzazione | Mappe Microsoft Azure
-description: In questo articolo verranno illustrate le lingue supportate per i servizi in Microsoft Azure maps.
+title: Supporto della localizzazione | Mappe di Microsoft Azure
+description: Questo articolo illustra le lingue supportate per i servizi in Mappe di Microsoft Azure.
 author: philmea
 ms.author: philmea
 ms.date: 11/20/2019
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334078"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746013"
 ---
-# <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione nelle mappe di Azure
+# <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione in Mappe di Azure
 
-Azure Maps supporta diversi linguaggi e visualizzazioni in base al paese/area geografica. Questo articolo fornisce le lingue e le visualizzazioni supportate per la guida dell'implementazione di Azure maps.
+Mappe di Azure supporta diverse lingue e viste in base al paese/area geografica. Questo articolo illustra le lingue e le viste supportate per aiutare nell'implementazione di Mappe di Azure.
 
 
 ## <a name="azure-maps-supported-languages"></a>Lingue supportate in Mappe di Azure
 
-Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
+I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
-| ID         | Name                   |  Mappe | Cerca | Routing | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
+| ID         | Nome                   |  Mappe | Ricerca | Routing. | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabo                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
 | bn-BD      | Bengalese (Bangladesh)    |       |       |         |     ✓    |                   |                |
-| bn-IN      | Bengali (India)         |       |       |         |     ✓    |                   |                |
-| BS-BA      | Bosniaco                 |       |       |         |     ✓    |                   |                |
+| bn-IN      | Bangla (India)         |       |       |         |     ✓    |                   |                |
+| bs-BA      | Bosniaco                 |       |       |         |     ✓    |                   |                |
 | eu-ES      | Basco                 |       |    ✓   |         |         |                   |                |
 | bg-BG      | Bulgaro              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
 | ca-ES      | Catalano                |       |    ✓   |         |    ✓      |                   |                |
@@ -48,7 +48,7 @@ Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nel
 | en-GB      | Inglese (Gran Bretagna) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | it-IT      | Inglese (Stati Uniti)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estone               |       |    ✓   |         |      ✓    |         ✓         |                |
-| fil-ph     | Filippino               |       |       |         |     ✓    |                   |                |
+| fil-PH     | Filippino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finlandese                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-FR      | Francese                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-CA      | Francese (Canada)      |       |    ✓   |         |     ✓     |                   |                |
@@ -81,8 +81,8 @@ Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nel
 | pa-IN      | Punjabi                 |       |       |         |     ✓    |                   |                |
 | ro-RO      | Rumeno               |       |    ✓    |         |     ✓    |         ✓         |                |
 | ru-RU      | Russo                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| sr-Cyrl-RS | Serbo (alfabeto cirillico)     |       |   SR-RS  |         |    SR-RS     |                   |                |
-| sr-Latn-RS | Serbo (alfabeto latino)        |       |       |         |     Sr-Latn    |                   |                |
+| sr-Cyrl-RS | Serbo (alfabeto cirillico)     |       |   sr-RS  |         |    sr-RS     |                   |                |
+| sr-Latn-RS | Serbo (alfabeto latino)        |       |       |         |     sr-latn    |                   |                |
 | sk-SK      | Slovacco             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | sl-SL      | Sloveno              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Spagnolo                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -98,69 +98,69 @@ Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nel
 | vi-VN      | Vietnamita             |       |    ✓   |         |      ✓    |                  |                |
 
 
-## <a name="azure-maps-supported-views"></a>Viste supportate di Azure Maps
+## <a name="azure-maps-supported-views"></a>Visualizzazioni supportate in Mappe di Azure
 
 > [!Note]
-> Il 1 ° agosto 2019, Azure Maps è stato rilasciato nei paesi/aree geografiche seguenti:
+> Il 1° agosto 2019, Mappe di Azure è stato rilasciato nei paesi/aree geografiche seguenti:
 >  * Argentina
 >  * India
 >  * Marocco
 >  * Pakistan
 >
-> Dopo il 1 ° agosto 2019, il parametro **View** definirà il contenuto della mappa restituito per le nuove aree/Paesi elencati sopra. Il parametro di **visualizzazione** mappe di Azure, noto anche come "parametro dell'area utente", è un codice paese a due lettere ISO-3166 che mostra le mappe corrette per quel paese/area geografica specificando il set di contenuto geopoliticomente contestato che viene restituito tramite i servizi Maps di Azure, inclusi i bordi e le etichette visualizzati sulla mappa. 
+> Dopo il 1° agosto 2019, il parametro **View** definirà il contenuto delle mappe restituite per la nuova area geografica/il nuovo paese elencato in precedenza. Il parametro **View** di Mappe di Azure (anche noto come "parametro dell’area geografica dell’utente") è un codice paese ISO-3166 a due lettere che mostrerà le mappe corrette per il paese/l’area geografica specificando quale set di contenuti geopoliticamente contestati verrà restituito tramite i servizio di Mappe di Azure, compresi i confini e le etichette visualizzati sulla mappa. 
 
-Assicurarsi di impostare il parametro di **visualizzazione** come richiesto per le API REST e gli SDK, usati dai servizi.
+Assicurarsi di impostare il parametro **View** come richiesto per le API REST e gli SDK, che vengono usati dai servizi.
 >  
 >
 >  **API REST:**
 >  
->  Assicurarsi di aver configurato il parametro di visualizzazione come richiesto. Il parametro View specifica il set di contenuto geopoliticomente contestato che viene restituito tramite i servizi di Azure maps. 
+>  Assicurarsi di aver configurato il parametro View come richiesto. Il parametro View specifica il set di contenuto geopoliticamente contestato che viene restituito tramite i servizi di Mappe di Azure. 
 >
->  Servizi REST di Azure Maps interessati:
+>  Servizi REST di Mappe di Azure interessati:
 >    
->    * Ottenere il riquadro Mappa
->    * Ottieni immagine mappa 
->    * Ottenere la ricerca fuzzy
->    * Ottenere il PDI di ricerca
->    * Ottenere la categoria del PDI di ricerca
->    * Ottenere la ricerca nelle vicinanze
->    * Ottenere l'indirizzo di ricerca
->    * Ottenere l'indirizzo di ricerca strutturato
+>    * Get Map Tile
+>    * Get Map Image 
+>    * Get Search Fuzzy
+>    * Get Search POI
+>    * Get Search POI Category
+>    * Get Search Nearby
+>    * Get Search Address
+>    * Get Search Address Structured
 >    * Get Search Address Reverse
->    * Ottenere l'indirizzo di ricerca inverso tra le strade
+>    * Get Search Address Reverse Cross Street
 >    * Post Search Inside Geometry
->    * Anteprima del batch di indirizzi post-ricerca
->    * Post-ricerca-anteprima batch inversa dell'indirizzo
->    * Post-ricerca lungo la route
->    * Post Search fuzzy batch Preview
+>    * Post Search Address Batch Preview
+>    * Post Search Address Reverse Batch Preview
+>    * Post Search Along Route
+>    * Post Search Fuzzy Batch Preview
 >
 >    
->  **SDK**
+>  **SDK:**
 >
->  Assicurarsi di aver configurato il parametro di **visualizzazione** come richiesto e di avere la versione più recente di Web SDK e Android SDK. SDK interessati:
+>  Assicurarsi di aver configurato il parametro **View** come richiesto e di disporre della versione più recente di Web SDK e Android SDK. SDK interessati:
 >
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-Per impostazione predefinita, il parametro di visualizzazione è impostato su **unificato**, anche se non è stato definito nella richiesta. Determinare la posizione degli utenti. Quindi, impostare il parametro **View** correttamente per tale percorso. In alternativa, è possibile impostare ' View = auto ', che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** in Maps di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite le mappe di Azure.
+Per impostazione predefinita, il parametro View è impostato su **Unified**, anche se non è stato definito nella richiesta. Determinare la posizione degli utenti. Quindi, impostare il parametro **View** correttamente per tale posizione. In alternativa, è possibile impostare "View = auto", che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** parametro in Mappe di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese/area geografica in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite Mappe di Azure.
 
 
-Nella tabella seguente vengono fornite le visualizzazioni supportate.
+La tabella seguente contiene una matrice che indica le visualizzazioni supportate.
 
-| Visualizza         | Descrizione                            |  Mappe | Cerca | controllo mappa JS |
+| Visualizzazione         | Descrizione                            |  Mappe | Ricerca | Controllo mappa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirati Arabi Uniti (visualizzazione araba)    |   ✓   |        |     ✓          |
-| AR           | Argentina (vista Argentina)           |   ✓   |    ✓   |     ✓          |
+| AR           | Argentina (visualizzazione argentina)           |   ✓   |    ✓   |     ✓          |
 | BH           | Bahrain (visualizzazione araba)                 |   ✓   |        |     ✓          |
-| IN           | India (vista indiana)                    |   ✓   |   ✓     |     ✓          |
+| IN           | India (visualizzazione indiana)                    |   ✓   |   ✓     |     ✓          |
 | IQ           | Iraq (visualizzazione araba)                    |   ✓   |        |     ✓          |
 | JO           | Giordania (visualizzazione araba)                  |   ✓   |        |     ✓          |
 | KW           | Kuwait (visualizzazione araba)                  |   ✓   |        |     ✓          |
 | LB           | Libano (visualizzazione araba)                 |   ✓   |        |     ✓          |
 | MA           | Marocco (visualizzazione marocchina)                |   ✓   |   ✓     |     ✓          |
 | OM           | Oman (visualizzazione araba)                    |   ✓   |        |     ✓          |
-| PK           | Pakistan (vista pakistana)              |   ✓   |    ✓    |     ✓          |
-| PS           | Autorità palestinese (visualizzazione araba)    |   ✓   |        |     ✓          |
+| PK           | Pakistan (visualizzazione pakistana)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autorità Palestinese (visualizzazione araba)    |   ✓   |        |     ✓          |
 | QA           | Qatar (visualizzazione araba)                   |   ✓   |        |     ✓          |
 | SA           | Arabia Saudita (visualizzazione araba)            |   ✓   |        |     ✓          |
 | SY           | Siria (visualizzazione araba)                   |   ✓   |        |     ✓          |

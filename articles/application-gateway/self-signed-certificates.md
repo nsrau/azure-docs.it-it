@@ -1,47 +1,47 @@
 ---
 title: Generare un certificato autofirmato con una CA radice personalizzata
 titleSuffix: Azure Application Gateway
-description: Informazioni su come generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
+description: Informazioni su come generare un certificato autofirmato di gateway applicazione Azure gateway con una CA radice personalizzata
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311933"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745491"
 ---
-# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
+# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato di gateway applicazione Azure con una CA radice personalizzata
 
-Lo SKU del gateway applicazione V2 introduce l'uso di certificati radice attendibili per consentire i server back-end. In questo modo vengono rimossi i certificati di autenticazione necessari nello SKU V1. Il *certificato radice* è un X. 509 con codifica base 64 (. CER) formattare il certificato radice dal server di certificati back-end. Identifica l'autorità di certificazione radice (CA) che ha emesso il certificato del server e il certificato del server viene quindi usato per la comunicazione TLS/SSL.
+Lo SKU del gateway applicazione v2 introduce l'uso di certificati radice trusted per consentire l'uso di server back-end. In questo modo vengono rimossi i certificati di autenticazione necessari nello SKU v1. Il *certificato radice* è un certificato radice con codifica base 64 X.509(.CER) del server di certificati back-end. Identifica l'autorità di certificazione radice (CA) che ha emesso il certificato del server che viene usato per la comunicazione TLS/SSL.
 
-Il gateway applicazione considera attendibile il certificato del sito Web per impostazione predefinita se è firmato da un'autorità di certificazione nota (ad esempio, GoDaddy o DigiCert). In tal caso, non è necessario caricare in modo esplicito il certificato radice. Per altre informazioni, vedere [Panoramica della terminazione TLS e della TLS end-to-end con il gateway applicazione](ssl-overview.md). Tuttavia, se si dispone di un ambiente di sviluppo/test e non si desidera acquistare un certificato firmato da un'autorità di certificazione, è possibile creare una CA personalizzata e creare un certificato autofirmato. 
+Il gateway applicazione considera attendibile il certificato del sito Web per impostazione predefinita se è firmato da un'autorità di certificazione nota (ad esempio GoDaddy o DigiCert). In tal caso, non è necessario caricare in modo esplicito il certificato radice. Per altre informazioni, vedere [Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione](ssl-overview.md). Se tuttavia si dispone di un ambiente di sviluppo/test e non si desidera acquistare un certificato firmato da un'autorità di certificazione verificata, è possibile crearne una personalizzata e creare un certificato autofirmato. 
 
 > [!NOTE]
-> I certificati autofirmati non sono attendibili per impostazione predefinita e possono essere difficili da gestire. Inoltre, possono utilizzare pacchetti di crittografia e hash obsoleti che potrebbero non essere sicuri. Per una maggiore sicurezza, acquistare un certificato firmato da un'autorità di certificazione nota.
+> I certificati autofirmati non sono attendibili per impostazione predefinita e possono essere difficili da gestire. Possono anche usare pacchetti hash e di crittografia obsoleti che potrebbero non essere sicuri. Per una maggiore sicurezza, acquistare un certificato firmato da un'autorità di certificazione nota.
 
 In questo articolo verrà spiegato come:
 
 - Creare un'autorità di certificazione personalizzata
-- Creare un certificato autofirmato firmato dalla CA personalizzata
+- Creare un certificato autofirmato con firma della CA personalizzata
 - Caricare un certificato radice autofirmato in un gateway applicazione per autenticare il server back-end
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **[Openssl](https://www.openssl.org/) in un computer che esegue Windows o Linux** 
+- **[OpenSSL](https://www.openssl.org/) in un computer che esegue Windows o Linux** 
 
-   Sebbene siano disponibili altri strumenti per la gestione dei certificati, in questa esercitazione viene usato OpenSSL. È possibile trovare OpenSSL in bundle con molte distribuzioni di Linux, ad esempio Ubuntu.
+   Sebbene siano disponibili altri strumenti per la gestione dei certificati, in questa esercitazione viene usato OpenSSL. È possibile trovare OpenSSL in aggregazione con molte distribuzioni di Linux, ad esempio Ubuntu.
 - **Un server Web**
 
-   Ad esempio, Apache, IIS o NGINX per testare i certificati.
+   Esempio: Apache, IIS o NGINX per testare i certificati.
 
-- **SKU del gateway applicazione V2**
+- **SKU v2 del gateway applicazione**
    
-  Se non si dispone di un gateway applicazione esistente, vedere [Guida introduttiva: indirizzare il traffico Web con applicazione Azure portale di Azure gateway](quick-create-portal.md).
+  Se non si dispone di un gateway applicazione esistente, vedere [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
 
 ## <a name="create-a-root-ca-certificate"></a>Creare un certificato CA radice
 
@@ -49,31 +49,31 @@ Creare il certificato CA radice usando OpenSSL.
 
 ### <a name="create-the-root-key"></a>Creare la chiave radice
 
-1. Accedere al computer in cui è installato OpenSSL ed eseguire il comando seguente. Viene creata una chiave protetta da password.
+1. Accedere al computer in cui è installato OpenSSL ed eseguire questo comando. Viene creata una chiave protetta da password.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. Al prompt dei comandi digitare una password complessa. Ad esempio, almeno nove caratteri, usando lettere maiuscole, lettere minuscole, numeri e simboli.
+1. Quando richiesto, digitare una password complessa, costituita ad esempio da almeno nove caratteri, tra cui lettere maiuscole, lettere minuscole, numeri e simboli.
 
-### <a name="create-a-root-certificate-and-self-sign-it"></a>Creare un certificato radice e firmarlo autonomamente
+### <a name="create-a-root-certificate-and-self-sign-it"></a>Creare un certificato radice e firmarlo in modo autonomo
 
-1. Usare i comandi seguenti per generare il certificato CSR e il certificato.
+1. Usare i comandi seguenti per generare il file con estensione csr e il certificato.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
 
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
-   I comandi precedenti creano il certificato radice. Che verrà usato per firmare il certificato del server.
+   I comandi precedenti consentono di creare il certificato radice che verrà usato per firmare il certificato del server.
 
-1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per l'autorità di certificazione personalizzata, ad esempio paese, stato, organizzazione, OU e il nome di dominio completo (si tratta del dominio dell'emittente).
+1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per l'autorità di certificazione personalizzata, ad esempio paese/area geografica, stato, organizzazione, unità organizzativa e nome di dominio completo (dominio dell'emittente).
 
-   ![Crea certificato radice](media/self-signed-certificates/root-cert.png)
+   ![creare il certificato radice](media/self-signed-certificates/root-cert.png)
 
-## <a name="create-a-server-certificate"></a>Creazione di un certificato server
+## <a name="create-a-server-certificate"></a>Creare un certificato del server
 
-Successivamente, verrà creato un certificato server usando OpenSSL.
+Successivamente, viene creato un certificato del server tramite OpenSSL.
 
 ### <a name="create-the-certificates-key"></a>Creare la chiave del certificato
 
@@ -83,34 +83,34 @@ Usare il comando seguente per generare la chiave per il certificato del server.
    openssl ecparam -out fabrikam.key -name prime256v1 -genkey
    ```
 
-### <a name="create-the-csr-certificate-signing-request"></a>Creare la richiesta di firma del certificato (CSR)
+### <a name="create-the-csr-certificate-signing-request"></a>Creare il file con estensione csr (richiesta di firma del certificato)
 
-CSR è una chiave pubblica assegnata a una CA quando viene richiesto un certificato. La CA rilascia il certificato per questa richiesta specifica.
+Tale file è una chiave pubblica assegnata a una CA quando viene richiesto un certificato. La CA emette il certificato per questa richiesta specifica.
 
 > [!NOTE]
-> Il CN (nome comune) per il certificato server deve essere diverso dal dominio dell'emittente. Ad esempio, in questo caso, il CN per l'emittente è `www.contoso.com` e il CN del certificato del server è `www.fabrikam.com`.
+> Il nome comune per il certificato del server deve essere diverso dal dominio dell'emittente. In questo caso, ad esempio, il nome comune per l'emittente è `www.contoso.com`, mentre quello del certificato del server è `www.fabrikam.com`.
 
 
-1. Usare il comando seguente per generare il CSR:
+1. Usare il comando seguente per generare il file con estensione csr:
 
    ```
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per la CA personalizzata: paese, stato, organizzazione, unità organizzativa e nome di dominio completo. Questo è il dominio del sito Web e deve essere diverso dall'emittente.
+1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per la CA personalizzata, ovvero paese/area geografica, stato, organizzazione, unità organizzativa e nome di dominio completo. Quest'ultimo è il dominio del sito Web e deve essere diverso dall'emittente.
 
-   ![Certificato server](media/self-signed-certificates/server-cert.png)
+   ![Certificato del server](media/self-signed-certificates/server-cert.png)
 
-### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generare il certificato con CSR e la chiave e firmarla con la chiave radice della CA
+### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generare il certificato con file csr e la chiave e firmarlo con la chiave radice della CA
 
-1. Usare il comando seguente per creare il certificato:
+1. Eseguire questo comando per creare il certificato:
 
    ```
    openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
-### <a name="verify-the-newly-created-certificate"></a>Verificare il certificato appena creato
+### <a name="verify-the-newly-created-certificate"></a>Verificare il certificato creato:
 
-1. Usare il comando seguente per stampare l'output del file CRT e verificarne il contenuto:
+1. Usare il comando seguente per stampare l'output del file con estensione crt e verificarne il contenuto:
 
    ```
    openssl x509 -in fabrikam.crt -text -noout
@@ -120,24 +120,24 @@ CSR è una chiave pubblica assegnata a una CA quando viene richiesto un certific
 
 1. Verificare i file nella directory e assicurarsi che siano presenti i file seguenti:
 
-   - contoso. CRT
-   - contoso. Key
-   - Fabrikam. CRT
-   - Fabrikam. Key
+   - contoso.crt
+   - contoso.key
+   - fabrikam.crt
+   - fabrikam.key
 
 ## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configurare il certificato nelle impostazioni TLS del server Web
 
-Nel server Web configurare TLS usando i file Fabrikam. CRT e fabrikam. Key. Se il server Web non può eseguire due file, è possibile combinarli in un singolo file con estensione PEM o PFX usando i comandi OpenSSL.
+Nel server Web configurare TLS usando i file fabrikam.crt e fabrikam.key. Se il server Web non può accettare due file, è possibile combinarli in un singolo file con estensione pem o pfx usando i comandi OpenSSL.
 
 ### <a name="iis"></a>IIS
 
-Per istruzioni su come importare e caricare il certificato come certificato server in IIS, vedere [procedura: installare i certificati importati in un server Web in Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
+Per istruzioni su come importare e caricare il certificato come certificato del server in IIS, vedere [Procedura: Installare certificati importati in un server Web in Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Per istruzioni sull'associazione TLS, vedere [come configurare SSL in IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Per istruzioni sull'associazione TLS, vedere [Come configurare SSL in IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
-La configurazione seguente è un [host virtuale di esempio configurato per SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) in Apache:
+La configurazione seguente è un esempio di [host virtuale configurato per SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) in Apache:
 
 ```
 <VirtualHost www.fabrikam:443>
@@ -151,18 +151,18 @@ La configurazione seguente è un [host virtuale di esempio configurato per SSL](
 
 ### <a name="nginx"></a>NGINX
 
-La configurazione seguente è un esempio di [blocco del server nginx](https://nginx.org/docs/http/configuring_https_servers.html) con configurazione TLS:
+La configurazione seguente è un esempio di [blocco del server NGINX](https://nginx.org/docs/http/configuring_https_servers.html) con la configurazione TLS:
 
 ![NGINX con TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Accedere al server per verificare la configurazione
 
-1. Aggiungere il certificato radice all'archivio radice attendibile del computer. Quando si accede al sito Web, assicurarsi che l'intera catena di certificati venga visualizzata nel browser.
+1. Aggiungere il certificato radice all'archivio radice attendibile del computer. Quando si accede al sito Web, verificare che l'intera catena di certificati venga visualizzata nel browser.
 
    ![Certificati radice trusted](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > Si presuppone che il DNS sia stato configurato in modo da puntare il nome del server Web (in questo esempio, www.fabrikam.com) all'indirizzo IP del server Web. In caso contrario, è possibile modificare il [file hosts](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) per risolvere il nome.
+   > Si presuppone che il DNS sia stato configurato in modo da puntare al nome del server Web (in questo esempio, www.fabrikam.com) all'indirizzo IP del server Web. In caso contrario, è possibile modificare il [file hosts](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) per risolvere il nome.
 1. Passare al sito Web e fare clic sull'icona a forma di lucchetto nella casella dell'indirizzo del browser per verificare il sito e le informazioni sul certificato.
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verificare la configurazione con OpenSSL
@@ -177,11 +177,11 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 ## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Caricare il certificato radice nelle impostazioni HTTP del gateway applicazione
 
-Per caricare il certificato nel gateway applicazione, è necessario esportare il certificato. CRT in un formato con estensione cer con codifica base-64. Poiché. CRT contiene già la chiave pubblica nel formato con codifica base 64, è sufficiente rinominare l'estensione di file da. CRT a. cer. 
+Per caricare il certificato nel gateway applicazione, è necessario esportare il certificato con estensione crt in un formato con estensione cer con codifica base 64. Poiché il file con estensione crt contiene già la chiave pubblica nel formato con codifica base 64, è sufficiente rinominare l'estensione del file da crt a cer. 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per caricare il certificato radice attendibile dal portale, selezionare le **impostazioni http** e scegliere il protocollo **https** .
+Per caricare il certificato radice trusted dal portale, selezionare **Impostazioni HTTP** e scegliere il protocollo **HTTPS**.
 
 ![Aggiungere un certificato tramite il portale](media/self-signed-certificates/portal-cert.png)
 
@@ -190,7 +190,7 @@ Per caricare il certificato radice attendibile dal portale, selezionare le **imp
 In alternativa, è possibile usare l'interfaccia della riga di comando di Azure o Azure PowerShell per caricare il certificato radice. Il codice seguente è un esempio di Azure PowerShell.
 
 > [!NOTE]
-> Nell'esempio seguente viene aggiunto un certificato radice attendibile al gateway applicazione, viene creata una nuova impostazione HTTP e viene aggiunta una nuova regola, supponendo che il pool back-end e il listener esistano già.
+> Nell'esempio seguente viene aggiunto un certificato radice trusted al gateway applicazione, viene creata una nuova impostazione HTTP e viene aggiunta una nuova regola, supponendo che il pool back-end e il listener esistano già.
 
 ```azurepowershell
 ## Add the trusted root certificate to the Application Gateway
@@ -265,12 +265,12 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="verify-the-application-gateway-backend-health"></a>Verificare l'integrità back-end del gateway applicazione
 
-1. Fare clic sulla visualizzazione **integrità back-end** del gateway applicazione per verificare se il probe è integro.
-1. Si noterà che lo stato è **integro** per il probe HTTPS.
+1. Fare clic sulla vista **Integrità back-end** dell'applicazione gateway per verificare se il probe è integro.
+1. Per il probe HTTPS lo stato è **Integro**.
 
 ![Probe HTTPS](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su SSL\TLS nel gateway applicazione, vedere [Panoramica della terminazione TLS e del TLS end-to-end con il gateway applicazione](ssl-overview.md).
+Per altre informazioni su SSL\TLS nel gateway applicazione, vedere [Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione](ssl-overview.md).
 

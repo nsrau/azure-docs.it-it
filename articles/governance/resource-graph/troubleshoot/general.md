@@ -1,38 +1,57 @@
 ---
 title: Risoluzione dei problemi comuni
-description: Informazioni su come risolvere i problemi relativi ai vari SDK durante l'esecuzione di query sulle risorse di Azure con il grafico delle risorse di Azure.
-ms.date: 10/18/2019
+description: Informazioni su come risolvere i problemi relativi ai vari SDK durante l'esecuzione di query sulle risorse di Azure con Azure Resource Graph.
+ms.date: 05/20/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74303900"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683227"
 ---
-# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere gli errori usando il grafico delle risorse di Azure
+# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere errori con Azure Resource Graph
 
 È possibile che si verifichino errori durante l'esecuzione di query sulle risorse di Azure con Azure Resource Graph. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
 ## <a name="finding-error-details"></a>Ricerca dei dettagli di errore
 
-La maggior parte degli errori è il risultato di un problema durante l'esecuzione di una query con Azure Resource Graph. Quando una query ha esito negativo, l'SDK fornisce informazioni dettagliate sulla query non riuscita. Queste informazioni indicano il problema in modo che sia possibile risolverlo e una query successiva avrà esito positivo.
+La maggior parte degli errori è il risultato di un problema durante l'esecuzione di una query con Azure Resource Graph. Quando una query ha esito negativo, l'SDK fornisce informazioni dettagliate sulla query non riuscita. Le informazioni indicano il problema in modo da poterlo risolvere e garantire la riuscita di una query successiva.
 
 ## <a name="general-errors"></a>Errori generali
+
+### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Scenario: Richieste limitate
+
+#### <a name="issue"></a>Problema
+
+I clienti che eseguono query di risorse grandi o frequenti hanno richieste limitate.
+
+#### <a name="cause"></a>Causa
+
+Azure Resource Graph alloca un numero di quota per ogni utente in base a un intervallo di tempo. Ad esempio, un utente può inviare al massimo 15 query all'interno di ogni intervallo di 5 secondi senza limitazioni. Il valore della quota è determinato da molti fattori ed è soggetto a modifiche. Per altre informazioni, vedere [Limitazione in Azure Resource Graph](../overview.md#throttling).
+
+#### <a name="resolution"></a>Risoluzione
+
+Esistono diversi metodi per gestire le richieste limitate:
+
+- [Raggruppamento di query](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Distribuzione di query](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Query in parallelo](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Paginazione](../concepts/guidance-for-throttled-requests.md#pagination)
 
 ### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scenario: troppe sottoscrizioni
 
 #### <a name="issue"></a>Problema
 
-I clienti che hanno accesso a più di 1000 sottoscrizioni, incluse le sottoscrizioni tra tenant con [Azure Lighthouse](../../../lighthouse/overview.md), non possono recuperare i dati in tutte le sottoscrizioni in una singola chiamata al grafico delle risorse di Azure.
+I clienti che hanno accesso a più di 1000 sottoscrizioni, incluse le sottoscrizioni tra tenant con [Azure Lighthouse](../../../lighthouse/overview.md), non possono recuperare dati in tutte le sottoscrizioni con una singola chiamata ad Azure Resource Graph.
 
 #### <a name="cause"></a>Causa
 
-L'interfaccia della riga di comando di Azure e PowerShell inviano solo le prime 1000 sottoscrizioni di Azure Resource Graph. L'API REST di Azure Resource Graph accetta un numero massimo di sottoscrizioni su cui eseguire la query.
+L'interfaccia della riga di comando di Azure e PowerShell trasferiscono solo le prime 1000 sottoscrizioni ad Azure Resource Graph. L'API REST di Azure Resource Graph accetta un numero massimo di sottoscrizioni su cui eseguire la query.
 
 #### <a name="resolution"></a>Risoluzione
 
-Il numero di richieste batch per la query con un subset di sottoscrizioni rimane al di sotto del limite di 1000 sottoscrizioni. La soluzione USA il parametro **Subscription** in PowerShell.
+Il numero di richieste batch per la query con un subset di sottoscrizioni rimane al di sotto del limite di 1000 sottoscrizioni. La soluzione consiste nell'usare il parametro **Subscription** in PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -57,19 +76,19 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Scenario: intestazione REST del tipo di contenuto non supportata
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Scenario: intestazione REST Content-Type non supportata
 
 #### <a name="issue"></a>Problema
 
-I clienti che eseguono query sull'API REST di Azure Resource Graph ottengono una risposta _500_ (errore interno del server) restituita.
+I clienti che eseguono query sull'API REST di Azure Resource Graph ottengono una risposta _500_ (errore interno del server).
 
 #### <a name="cause"></a>Causa
 
-L'API REST di Azure Resource Graph supporta solo `Content-Type` una di **Application/JSON**. Per impostazione predefinita, alcuni strumenti REST o gli agenti sono di **testo/normale**, che non sono supportati dall'API REST.
+L'API REST di Azure Resource Graph supporta solo un tipo `Content-Type` **application/json**. Per impostazione predefinita, alcuni strumenti o agenti REST sono impostati su **text/plain**, opzione non supportata dall'API REST.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che lo strumento o l'agente che si sta usando per eseguire query in Azure Resource Graph disponga `Content-Type` dell'intestazione API REST configurata per **Application/JSON**.
+Verificare che nello strumento o nell'agente usato per eseguire query su Azure Resource Graph l'intestazione API REST `Content-Type` sia configurata per **application/json**.
 
 ### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scenario: nessuna autorizzazione di lettura per tutte le sottoscrizioni nell'elenco
 
@@ -79,16 +98,16 @@ I clienti che passano esplicitamente un elenco di sottoscrizioni con una query d
 
 #### <a name="cause"></a>Causa
 
-Se il cliente non dispone dell'autorizzazione di lettura per tutte le sottoscrizioni fornite, la richiesta viene negata a causa della mancanza di diritti di protezione appropriati.
+Se il cliente non dispone dell'autorizzazione di lettura per tutte le sottoscrizioni fornite, la richiesta viene negata a causa della mancanza di diritti di sicurezza appropriati.
 
 #### <a name="resolution"></a>Risoluzione
 
-Includere almeno una sottoscrizione nell'elenco di sottoscrizioni per cui il cliente che esegue la query dispone almeno dell'accesso in lettura a. Per altre informazioni, vedere [autorizzazioni in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
+Includere almeno una sottoscrizione nell'elenco di sottoscrizioni per cui il cliente che esegue la query disponga almeno dell'accesso in lettura. Per altre informazioni, vedere [Autorizzazioni in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
-- Connetti con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+- Ottenere risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/).
+- Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

@@ -6,7 +6,7 @@
       href: v2-overview.md
     - name: Evoluzione di Microsoft Identity Platform
       href: about-microsoft-identity-platform.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare un tenant
@@ -305,7 +305,7 @@
         - name: iOS e macOS
           items:
             - name: Integrazione con Azure AD B2C
-              href: 'config-authority.md#b2c'
+              href: config-authority.md#b2c
             - name: Eseguire la migrazione a MSAL.iOS/macOS
               href: migrate-objc-adal-msal.md
             - name: Modalità dispositivo condiviso per dispositivi iOS
@@ -376,6 +376,11 @@
               displayName: 'shared device mode, firstline worker, frontline worker, flw'
             - name: Gestire le modifiche ai cookie SameSite nel browser Chrome
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
+            - name: Ambiti per un'API Web che accetta i token v1.0
+              href: msal-v1-app-scopes.md
+            - name: Eseguire la migrazione da ADAL a MSAL
+              href: msal-migration.md
+              displayName: migration
     - name: Protocolli di autenticazione
       displayName: Auth protocol
       items:

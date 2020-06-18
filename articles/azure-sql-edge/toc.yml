@@ -6,7 +6,9 @@
       href: overview.md
     - name: Edizioni e funzionalità supportate
       href: features.md
-- name: Avvi rapidi
+    - name: Note sulla versione
+      href: release-notes.md
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Distribuire SQL Edge

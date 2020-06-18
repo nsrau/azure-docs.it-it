@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
-  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
+  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/28/2020
-  ms.locfileid: "84142130"
+  ms.lasthandoff: 06/16/2020
+  ms.locfileid: "84808938"
 landingContent:
 - title: Informazioni su Rendering remoto di Azure
   linkLists:
@@ -52,15 +52,17 @@ landingContent:
       url: quickstarts/deploy-to-hololens.md
     - text: Distribuire un esempio di Unity sul desktop
       url: quickstarts/deploy-to-desktop.md
+    - text: Distribuire un esempio di C++ nativo in HoloLens
+      url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
     - text: Convertire un modello per il rendering
       url: quickstarts/convert-model.md
 - title: Informazioni su come creare un'app personalizzata
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: Configurazione di un progetto da zero'
+    - text: 'Unity: configurazione di un progetto da zero'
       url: tutorials/unity/project-setup.md
-    - text: 'Unity: Uso di entità remote'
+    - text: 'Unity: uso di entità remote'
       url: tutorials/unity/working-with-remote-entities.md
     - text: 'Unity: Cambiare ambiente e materiali'
       url: tutorials/unity/changing-environment-and-materials.md

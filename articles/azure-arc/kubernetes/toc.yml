@@ -4,6 +4,10 @@
   items:
     - name: Informazioni su Kubernetes con abilitazione di Azure Arc
       href: overview.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      href: ./policy-samples.md
 - name: Guide pratiche
   items:
     - name: Operazioni del cluster

@@ -1,14 +1,14 @@
 ---
-title: Errori di modello non validi
-description: Viene descritto come risolvere gli errori del modello non validi durante la distribuzione di Azure Resource Manager modelli.
+title: Errori di modello non valido
+description: Viene illustrato come risolvere gli errori di modello non valido durante la distribuzione di modelli di Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154058"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832522"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -130,7 +130,7 @@ Ricontrollare i valori consentiti nel modello e specificarne uno durante la dist
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Soluzione 4: troppi gruppi di risorse di destinazione
 
-Se si specificano più di cinque gruppi di risorse di destinazione in un'unica distribuzione, viene visualizzato questo errore. Prendere in considerazione il consolidamento del numero di gruppi di risorse nella distribuzione o la distribuzione di alcuni dei modelli come distribuzioni separate. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
+Questo errore può essere visualizzato nelle distribuzioni precedenti perché esisteva il limite di cinque gruppi di risorse di destinazione in una singola distribuzione. Nel maggio 2020 il limite è stato aumentato a 800 gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
