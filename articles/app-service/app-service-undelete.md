@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779221"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167792"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Ripristinare un'app del Servizio app eliminata con PowerShell
 
@@ -66,7 +66,7 @@ Gli input per il comando sono:
 - **Name**: Nome dell’app, che deve essere globalmente univoco.
 - **TargetAppServicePlanName**: Piano di servizio app collegato all'app
 
-Per impostazione predefinita `Restore-AzDeletedWebApp` ripristina sia la configurazione dell'app che il contenuto. Se si desidera ripristinare solo il contenuto, usare il flag `-RestoreContentOnly` con questo cmdlet.
+Per impostazione predefinita `Restore-AzDeletedWebApp` ripristina sia la configurazione dell'app che qualsiasi contenuto. Se si desidera ripristinare solo il contenuto, usare il flag `-RestoreContentOnly` con questo cmdlet.
 
 > [!NOTE]
 > Se l'app era in hosting ed è stata successivamente eliminata da un ambiente del servizio app, può essere ripristinata solo se l’ambiente del servizio app corrispondente esiste ancora.

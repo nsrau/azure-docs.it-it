@@ -1,26 +1,26 @@
 ---
 title: Indirizzi di gestione
-description: Trovare gli indirizzi di gestione usati per controllare un ambiente del servizio app. Configurati in una tabella di route per evitare problemi di routing asimmetrico.
+description: Trovare gli indirizzi di gestione usati per controllare un Ambiente del servizio app. Configurati in una tabella di route per evitare problemi di routing asimmetrico.
 author: ccompy
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 05/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 8fc77c05878af9278906e061f67479ddafa6a47c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: 34daf74ddf5e9c93a05d27bad5f9ac55d767d5e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118023"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195114"
 ---
 # <a name="app-service-environment-management-addresses"></a>Indirizzi di gestione dell'Ambiente del servizio app
 
-Il ambiente del servizio app (ASE) è una distribuzione a tenant singolo del servizio app Azure eseguito nella rete virtuale di Azure (VNet).  Mentre l'ambiente del servizio app viene eseguito nella VNet, è necessario che sia ancora accessibile da diversi indirizzi IP dedicati utilizzati dal servizio app Azure per gestire il servizio.  Nel caso di un ambiente del servizio app, il traffico di gestione attraversa la rete controllata dall'utente. Se questo traffico è bloccato o indirizzato in modo errato l'ambiente ASE verrà sospeso. Per informazioni dettagliate sulle dipendenze di rete dell'ambiente del servizio app, vedere [considerazioni sulla rete e ambiente del servizio app][networking]. Per informazioni generali sull'ambiente ASE, è possibile iniziare con [Introduzione agli ambienti del servizio app][intro].
+L'Ambiente del servizio app (ASE) è una distribuzione a tenant singolo del servizio app di Azure eseguita nella rete virtuale di Azure (VNet).  Sebbene l'ambiente ASE sia eseguito nella VNet, deve comunque essere accessibile da diversi indirizzi IP dedicati utilizzati dal servizio app Azure per gestire il servizio.  Nel caso di un ambiente ASE, il traffico di gestione attraversa la rete controllata dall'utente. Se questo traffico è bloccato o indirizzato in modo errato l'ambiente ASE verrà sospeso. Per informazioni dettagliate sulle dipendenze di rete dell'ambiente ASE, leggere [Considerazioni sulla rete e ambiente del servizio app][networking]. Per informazioni generali sull'ambiente ASE, è possibile iniziare con [Introduzione agli ambienti del servizio app][intro].
 
-Tutti gli ambienti del servizio app hanno un indirizzo VIP pubblico a cui arriva il traffico di gestione. Il traffico di gestione in ingresso da questi indirizzi proviene dalle porte 454 e 455 sull'indirizzo VIP pubblico dell'ambiente ASE. Questo documento elenca gli indirizzi origine del servizio app per il traffico di gestione all'ambiente ASE. Questi indirizzi si trovano anche nel tag del servizio IP denominato AppServiceManagement.
+Tutti gli ambienti del servizio app hanno un indirizzo VIP pubblico a cui arriva il traffico di gestione. Il traffico di gestione in ingresso da questi indirizzi proviene dalle porte 454 e 455 sull'indirizzo VIP pubblico dell'ambiente ASE. Questo documento elenca gli indirizzi origine del servizio app per il traffico di gestione all'ambiente ASE. Questi indirizzi si trovano anche nel tag di servizio IP denominato AppServiceManagement.
 
-Gli indirizzi indicati di seguito possono essere configurati in una tabella di route per evitare problemi di routing asimmetrica con il traffico di gestione. Le route agiscono sul traffico a livello di IP e non sono consapevoli della direzione del traffico o che il traffico fa parte di un messaggio di risposta TCP. Se l'indirizzo di risposta per una richiesta TCP è diverso dall'indirizzo a cui è stato inviato, si è verificato un problema di routing asimmetrico. Per evitare problemi di routing asimmetrica con il traffico di gestione dell'ambiente del servizio app, è necessario assicurarsi che le risposte vengano restituite dallo stesso indirizzo a cui sono state inviate. Per informazioni dettagliate su come configurare l'ambiente ASE per operare in un ambiente in cui il traffico in uscita viene inviato in locale, leggere [Configurare l'ambiente del servizio app con il tunneling forzato][forcedtunnel].
+Gli indirizzi indicati di seguito possono essere configurati in una tabella di route per evitare problemi di routing asimmetrico dovuti al traffico di gestione. Le route agiscono sul traffico a livello di IP senza tenere in conto la direzione del traffico o il fatto che quest'ultimo faccia parte di un messaggio di risposta TCP. Se l'indirizzo di risposta per una richiesta TCP è diverso dall'indirizzo a cui è stata inviata, si è verificato un problema di routing asimmetrico. Per evitare problemi di routing asimmetrico dovuti al traffico di gestione dell'ambiente ASE, è necessario assicurarsi che le risposte siano spedite dallo stesso indirizzo a cui erano state inviate. Per informazioni dettagliate su come configurare l'ambiente ASE per operare in un ambiente in cui il traffico in uscita viene inviato in locale, leggere [Configurare l'ambiente del servizio app con il tunneling forzato][forcedtunnel].
 
 ## <a name="list-of-management-addresses"></a>Elenco di indirizzi di gestione ##
 
@@ -31,7 +31,7 @@ Gli indirizzi indicati di seguito possono essere configurati in una tabella di r
 
 ## <a name="configuring-a-network-security-group"></a>Configurazione di un gruppo di sicurezza di rete
 
-Con i gruppi di sicurezza di rete non è necessario preoccuparsi dei singoli indirizzi o mantenere la propria configurazione. È disponibile un tag di servizio IP denominato AppServiceManagement che viene mantenuto aggiornato con tutti gli indirizzi. Per usare questo tag del servizio IP in NSG, passare al portale, aprire l'interfaccia utente dei gruppi di sicurezza di rete e selezionare regole di sicurezza in ingresso. Se si dispone di una regola preesistente per il traffico di gestione in ingresso, modificarla. Se il gruppo di sicurezza di rete non è stato creato con l'ambiente del servizio app o se è completamente nuovo, selezionare **Aggiungi**. Nell'elenco a discesa Origine selezionare **Service Tag** (Tag di servizio).  Sotto il tag del servizio di origine selezionare **AppServiceManagement**. Impostare gli intervalli di porte di origine su \*, la destinazione su **Qualsiasi**, gli intervalli di porte di destinazione su **454-455**, il protocollo su **TCP** e l'azione su **Consenti **. Se si sta effettuando la regola, è necessario impostare la priorità. 
+Con i gruppi di sicurezza di rete non è necessario preoccuparsi di singoli indirizzi o mantenere la propria configurazione. È presente un tag di servizio IP denominato AppServiceManagement che viene mantenuto aggiornato con tutti gli indirizzi. Per usare questo tag di servizio IP nel gruppo di sicurezza di rete, passare al portale, aprire l'interfaccia utente Gruppi di sicurezza di rete e selezionare Regole di sicurezza in ingresso. Se si dispone di una regola preesistente per il traffico di gestione in ingresso, modificarla. Se il gruppo di sicurezza di rete non è stato creato con l'ambiente del servizio app o se è completamente nuovo, selezionare **Aggiungi**. Nell'elenco a discesa Origine selezionare **Service Tag** (Tag di servizio).  Nel tag del servizio di origine selezionare **AppServiceManagement**. Impostare gli intervalli di porte di origine su \*, la destinazione su **Qualsiasi**, gli intervalli di porte di destinazione su **454-455**, il protocollo su **TCP** e l'azione su **Consenti** . Se si sta creando la regola, è necessario impostare la priorità. 
 
 ![creazione di un gruppo di sicurezza di rete con il tag di servizio][1]
 
