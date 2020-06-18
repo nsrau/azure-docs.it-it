@@ -5,43 +5,43 @@ description: Informazioni su come eseguire il training di un modello e configura
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019
-ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: Ignite2019, designer
+ms.openlocfilehash: 5079953994b74378a54a316c288c77d13c3af782
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79477222"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653670"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Questo articolo illustra come usare la finestra di progettazione per creare una pipeline di stima batch. La stima in batch consente di assegnare in modo continuo un punteggio di set di caratteri di grandi dimensioni su richiesta usando un servizio Web che può essere attivato da qualsiasi libreria HTTP.
+In questo articolo viene descritto come usare la finestra di progettazione per creare una pipeline di stima in batch. La stima in batch consente di assegnare in modo continuo un punteggio a set di dati di grandi dimensioni su richiesta usando un servizio Web che può essere attivato da qualsiasi libreria HTTP.
 
-In questa procedura viene illustrato come eseguire le attività seguenti:
+In questa guida pratica si apprenderà come eseguire queste attività:
 
 > [!div class="checklist"]
 > * Creare e pubblicare una pipeline di inferenza batch
-> * Utilizzare un endpoint della pipeline
+> * Utilizzo di un endpoint della pipeline
 > * Gestire le versioni degli endpoint
 
-Per informazioni su come configurare i servizi di assegnazione dei punteggi in batch usando l'SDK, vedere le [procedure](how-to-run-batch-predictions.md)associate.
+Per informazioni su come configurare i servizi di assegnazione del punteggio batch con l'SDK, vedere la [guida pratica](how-to-run-batch-predictions.md) associata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questa procedura si presuppone che sia già presente una pipeline di training. Per un'introduzione guidata alla finestra di progettazione, completare la [prima parte dell'esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md). 
+In questa guida pratica si presuppone che sia già presente una pipeline di training. Per un'introduzione guidata alla finestra di progettazione, eseguire la [prima parte dell'esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md). 
 
 ## <a name="create-a-batch-inference-pipeline"></a>Creare una pipeline di inferenza batch
 
 La pipeline di training deve essere eseguita almeno una volta per poter creare una pipeline di inferenza.
 
-1. Passare alla scheda **finestra di progettazione** nell'area di lavoro.
+1. Passare alla scheda **Finestra di progettazione** nell'area di lavoro.
 
-1. Selezionare la pipeline di training che esegue il training del modello che si desidera utilizzare per la stima.
+1. Selezionare la pipeline di training che esegue il training del modello che si desidera usare per la stima.
 
 1. **Inviare** la pipeline.
 
@@ -49,9 +49,9 @@ La pipeline di training deve essere eseguita almeno una volta per poter creare u
 
 Ora che la pipeline di training è stata eseguita, è possibile creare una pipeline di inferenza batch.
 
-1. Accanto a **Invia**selezionare la nuova pipeline a discesa **Crea inferenza**.
+1. Accanto a **Submit** (Invia), selezionare il nuovo elenco a discesa **Create inference pipeline** (Crea pipeline inferenza).
 
-1. Selezionare **pipeline inferenza batch**.
+1. Selezionare **Batch inference pipeline** (Pipeline inferenza batch).
 
     ![Creare una pipeline di inferenza batch](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
     
@@ -59,27 +59,27 @@ Il risultato è una pipeline di inferenza batch predefinita
 
 ### <a name="add-a-pipeline-parameter"></a>Aggiungere un parametro della pipeline
 
-Per creare stime sui nuovi dati, è possibile connettere manualmente un set di dati diverso in questa visualizzazione bozza della pipeline o creare un parametro per il set di dati. I parametri consentono di modificare il comportamento del processo di inferenza del batch in fase di esecuzione.
+Per creare stime sui nuovi dati, è possibile connettere manualmente un set di dati diverso nella visualizzazione bozza della pipeline o creare un parametro per il set di dati. I parametri consentono di modificare il comportamento del processo di inferenza batch durante il runtime.
 
-In questa sezione viene creato un parametro del set di dati per specificare un set di dati diverso per eseguire stime.
+In questa sezione viene creato un parametro del set di dati per specificare un set di dati diverso per cui eseguire stime.
 
 1. Selezionare il modulo del set di dati.
 
-1. Verrà visualizzato un riquadro a destra dell'area di disegno. Nella parte inferiore del riquadro selezionare **Imposta come parametro della pipeline**.
+1. Viene visualizzato un riquadro a destra dell'area di disegno. Nella parte inferiore del riquadro selezionare **Set as pipeline parameter** (Imposta come parametro pipeline).
    
-    Immettere un nome per il parametro oppure accettare il valore predefinito.
+    Immettere un nome per il parametro o accettare il valore predefinito.
 
 ## <a name="publish-your-batch-inferencing-pipeline"></a>Pubblicare la pipeline di inferenza batch
 
-A questo punto si è pronti per distribuire la pipeline di inferenza. Questa operazione consente di distribuire la pipeline e di renderla disponibile per l'uso da parte di altri utenti.
+A questo punto è possibile distribuire la pipeline di inferenza. La pipeline verrà distribuita e resa disponibile per l'uso da parte di altri utenti.
 
 1. Fare clic sul pulsante **Pubblica**.
 
-1. Nella finestra di dialogo visualizzata espandere l'elenco a discesa per **PipelineEndpoint**e selezionare **nuovo PipelineEndpoint**.
+1. Nella finestra di dialogo visualizzata espandere l'elenco a discesa di **PipelineEndpoint** e selezionare **New PipelineEndpoint** (Nuovo PipelineEndpoint).
 
-1. Specificare un nome di endpoint e una descrizione facoltativa.
+1. Specificare un nome e una descrizione facoltativa per l'endpoint.
 
-    Nella parte inferiore della finestra di dialogo è possibile visualizzare il parametro configurato con un valore predefinito dell'ID set di dati utilizzato durante il training.
+    Nella parte inferiore della finestra di dialogo è possibile visualizzare il parametro configurato con un valore predefinito dell'ID set di dati usato durante il training.
 
 1. Selezionare **Pubblica**.
 
@@ -88,61 +88,61 @@ A questo punto si è pronti per distribuire la pipeline di inferenza. Questa ope
 
 ## <a name="consume-an-endpoint"></a>Utilizzare un endpoint
 
-A questo punto è disponibile una pipeline pubblicata con un parametro del set di dati. La pipeline utilizzerà il modello sottoposto a training creato nella pipeline di training per assegnare un punteggio al set di dati fornito come parametro.
+A questo punto è disponibile una pipeline pubblicata con un parametro del set di dati. La pipeline userà il modello di cui è stato eseguito il training creato nella pipeline di training per assegnare un punteggio al set di dati specificato come parametro.
 
 ### <a name="submit-a-pipeline-run"></a>Avviare un'esecuzione della pipeline 
 
-In questa sezione si configurerà un'esecuzione manuale della pipeline e si modificherà il parametro della pipeline per assegnare un punteggio ai nuovi dati. 
+In questa sezione verrà configurata un'esecuzione manuale della pipeline e verrà modificato il parametro della pipeline per assegnare un punteggio ai nuovi dati. 
 
-1. Al termine della distribuzione, passare alla sezione **endpoint** .
+1. Al termine della distribuzione, passare alla sezione **Endpoints** (Endpoint).
 
-1. Selezionare **endpoint della pipeline**.
+1. Selezionare **Pipeline endpoints** (Endpoint pipeline).
 
 1. Selezionare il nome dell'endpoint creato.
 
 ![Collegamento dell'endpoint](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
 
-1. Selezionare **pipeline pubblicate**.
+1. Selezionare **Published pipelines** (Pipeline pubblicate).
 
-    Questa schermata Mostra tutte le pipeline pubblicate pubblicate in questo endpoint.
+    Questa schermata mostra tutte le pipeline pubblicate nell'endpoint.
 
 1. Selezionare la pipeline pubblicata.
 
-    La pagina dei dettagli della pipeline Mostra una cronologia di esecuzione dettagliata e informazioni sulla stringa di connessione per la pipeline. 
+    La pagina dei dettagli della pipeline mostra una cronologia delle esecuzioni dettagliata e le informazioni della stringa di connessione per la pipeline. 
     
-1. Selezionare **Submit (Invia** ) per creare un'esecuzione manuale della pipeline.
+1. Selezionare **Submit** (Invia) per creare un'esecuzione manuale della pipeline.
 
     ![Dettagli della pipeline](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
-1. Modificare il parametro in modo da utilizzare un set di dati diverso.
+1. Modificare il parametro per usare un set di dati diverso.
     
-1. Selezionare **Submit (Invia** ) per eseguire la pipeline.
+1. Selezionare **Submit** (Invia) per eseguire la pipeline.
 
 ### <a name="use-the-rest-endpoint"></a>Usare l'endpoint REST
 
-È possibile trovare informazioni su come utilizzare gli endpoint della pipeline e la pipeline pubblicata nella sezione **endpoint** .
+Per informazioni su come utilizzare gli endpoint della pipeline e la pipeline pubblicata, vedere la sezione **Endpoints** (Endpoint).
 
 È possibile trovare l'endpoint REST di un endpoint della pipeline nel pannello di panoramica dell'esecuzione. Chiamando l'endpoint, si utilizza la pipeline pubblicata predefinita.
 
-È inoltre possibile utilizzare una pipeline pubblicata nella pagina **pipeline pubblicate** . Selezionare una pipeline pubblicata e trovare l'endpoint REST. 
+È anche possibile utilizzare una pipeline pubblicata nella pagina **Published pipelines** (Pipeline pubblicate). Selezionare una pipeline pubblicata e trovare l'endpoint REST. 
 
 ![Dettagli dell'endpoint REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
 
-Per eseguire una chiamata REST, è necessaria un'intestazione di autenticazione del tipo di porta OAuth 2,0. Vedere la [sezione dell'esercitazione](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) seguente per informazioni più dettagliate sulla configurazione dell'autenticazione per l'area di lavoro e l'esecuzione di una chiamata REST con parametri.
+Per eseguire una chiamata REST è necessaria un'intestazione di autenticazione di tipo bearer token OAuth 2.0. Vedere la [sezione dell'esercitazione](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) seguente per informazioni più dettagliate sulla configurazione dell'autenticazione per l'area di lavoro e l'esecuzione di una chiamata REST con parametri.
 
 ## <a name="versioning-endpoints"></a>Controllo delle versioni degli endpoint
 
-La finestra di progettazione assegna una versione a ogni pipeline successiva pubblicata in un endpoint. È possibile specificare la versione della pipeline che si vuole eseguire come parametro nella chiamata REST. Se non si specifica un numero di versione, la pipeline predefinita verrà utilizzata dalla finestra di progettazione.
+La finestra di progettazione assegna una versione a ogni pipeline successiva pubblicata in un endpoint. È possibile specificare la versione della pipeline che si vuole eseguire come parametro nella chiamata REST. Se non si specifica un numero di versione, la finestra di progettazione userà la pipeline predefinita.
 
-Quando si pubblica una pipeline, è possibile scegliere di impostarla come nuova pipeline predefinita per tale endpoint.
+Quando si pubblica una pipeline, è possibile scegliere di impostarla come nuova pipeline predefinita per l'endpoint.
 
-![Imposta pipeline predefinita](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+![Impostare la pipeline predefinita](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
 
-È anche possibile impostare una nuova pipeline predefinita nella scheda **pipeline pubblicate** dell'endpoint.
+È anche possibile impostare una nuova pipeline predefinita nella scheda **Published pipelines** (Pipeline pubblicate) dell'endpoint.
 
-![Imposta pipeline predefinita](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Impostare la pipeline predefinita](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire l' [esercitazione](tutorial-designer-automobile-price-train-score.md) di progettazione per eseguire il training e distribuire un modello di regressione.
+Seguire l'[esercitazione](tutorial-designer-automobile-price-train-score.md) relativa alla finestra di progettazione per eseguire il training e la distribuzione di un modello di regressione.
 ''

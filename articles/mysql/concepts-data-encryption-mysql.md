@@ -1,130 +1,135 @@
 ---
-title: Crittografia dei dati con chiave gestita dal cliente-database di Azure per MySQL
-description: La crittografia dei dati del database di Azure per MySQL con una chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati.
+title: Crittografia dei dati con una chiave gestita dal cliente - Database di Azure per MySQL
+description: La crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente consente di attuare uno scenario Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente anche alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299125"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849731"
 ---
-# <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di database di Azure per MySQL con una chiave gestita dal cliente
+# <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
 > [!NOTE]
-> A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare AskAzureDBforMySQL@service.microsoft.com.
+> Al momento, per usare questa funzionalità è necessario richiedere l'accesso. A tale scopo, contattare AskAzureDBforMySQL@service.microsoft.com.
 
-La crittografia dei dati con chiavi gestite dal cliente per database di Azure per MySQL ti permette di usare la tua chiave (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
+La crittografia dei dati con chiavi gestite dal cliente per Database di Azure per MySQL consente di usare Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente anche alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in pieno controllo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
-La crittografia dei dati con chiavi gestite dal cliente per database di Azure per MySQL è impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (KEK), viene usata per crittografare la chiave di crittografia dei dati usata dal servizio. KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) gestita dal cliente e gestita dal cliente. La chiave di crittografia della chiave (KEK) e la chiave di crittografia dei dati sono descritte in modo più dettagliato più avanti in questo articolo.
+La crittografia dei dati con chiavi gestite dal cliente per il servizio Database di Azure per MySQL viene impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (chiave KEK), viene usata per crittografare la chiave di crittografia dei dati (chiave DEK) usata dal servizio. La chiave KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) di proprietà del cliente e gestita dal cliente. Le chiavi KEK e DEK vengono descritte in maggior dettaglio più avanti in questo articolo.
 
-Key Vault è un sistema di gestione delle chiavi esterne basato sul cloud. È a disponibilità elevata e fornisce un'archiviazione sicura e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia e decrittografia a entità autorizzate. Key Vault possibile generare la chiave, importarla o [trasferirla da un dispositivo HSM locale](../key-vault/key-Vault-hsm-protected-keys.md).
+Key Vault è un sistema esterno di gestione delle chiavi basato sul cloud. Offre disponibilità elevata e fornisce una risorsa di archiviazione scalabile e sicura per le chiavi di crittografia RSA, supportata facoltativamente da moduli di protezione hardware (HSM) con convalida di tipo FIPS 140-2 Livello 2. Non consente l'accesso diretto a una chiave archiviata, ma offre servizi di crittografia e decrittografia per le entità autorizzate. Key Vault può generare la chiave, importarla o fare in modo che venga [trasferita da un dispositivo HSM locale](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per MySQL supporta i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria".
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL supporta i piani tariffari per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="benefits"></a>Vantaggi
 
-La crittografia dei dati per database di Azure per MySQL offre i vantaggi seguenti:
+La crittografia dei dati per Database di Azure per MySQL offre i vantaggi seguenti:
 
-* L'accesso ai dati è completamente controllato dalla possibilità di rimuovere la chiave e rendere inaccessibile il database 
-* Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per l'allineamento con i criteri aziendali
+* Accesso ai dati completamente controllato dall'utente, grazie alla possibilità di rimuovere la chiave e rendere inaccessibile il database 
+* Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per soddisfare i criteri aziendali
 * Gestione centralizzata e organizzazione delle chiavi in Azure Key Vault
-* Possibilità di implementare la separazione dei compiti tra i responsabili della sicurezza e gli amministratori di database e di amministratore di sistema
+* Possibilità di implementare la separazione dei compiti tra i responsabili della sicurezza, gli amministratori di database e gli amministratore di sistema
 
 
 ## <a name="terminology-and-description"></a>Terminologia e descrizione
 
-**Chiave di crittografia dei dati**: chiave AES256 simmetrica utilizzata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando si sostituisce una chiave di crittografia con una nuova chiave, solo i dati nel blocco associato devono essere crittografati nuovamente con la nuova chiave.
+**Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, è necessario ripetere la crittografia con la nuova chiave solo per i dati nel blocco associato.
 
-Chiave di **crittografia della chiave (KEK)**: chiave di crittografia usata per crittografare chiavi DEK. Un KEK che non lascia mai Key Vault consente la crittografia e il controllo del chiavi DEK. L'entità che ha accesso alla chiave KEK potrebbe essere diversa da quella che richiede la chiave di crittografia. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
+**Chiave KEK (Key Encryption Key)** : una chiave di crittografia usata per crittografare le chiavi DEK. Una chiave KEK che non lascia mai Key Vault consente la crittografia e il controllo delle chiavi DEK. L'entità che ha accesso alla chiave KEK può essere diversa da quella che richiede la chiave DEK. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
 
-Il chiavi DEK, crittografato con KEKs, viene archiviato separatamente. Solo un'entità con accesso a KEK può decrittografare questi chiavi DEK. Per altre informazioni, vedere [sicurezza in crittografia](../security/fundamentals/encryption-atrest.md)dati inattivi.
+Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. Solo un'entità con accesso alla chiave KEK può decrittografare queste chiavi DEK. Per altre informazioni, vedere [Sicurezza della crittografia di dati inattivi](../security/fundamentals/encryption-atrest.md).
 
-## <a name="how-data-encryption-with-a-customer-managed-key-works"></a>Funzionamento della crittografia dei dati con una chiave gestita dal cliente
+## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Funzionamento della crittografia dei dati con una chiave gestita dal cliente
 
-![Diagramma che mostra una panoramica di Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
+![Diagramma che mostra una panoramica dello scenario Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
 
-Affinché un server MySQL utilizzi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave di crittografia, un amministratore di Key Vault concede al server i seguenti diritti di accesso:
+Affinché un server MySQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
-* **Get**: per il recupero della parte pubblica e delle proprietà della chiave nell'insieme di credenziali delle chiavi.
-* **wrapKey**: per poter crittografare la chiave di crittografia.
-* **unwrapKey**: per poter decrittografare la chiave di crittografia.
+* **get**: per recuperare la parte pubblica e le proprietà della chiave nell'insieme di credenziali delle chiavi.
+* **wrapKey**: per poter crittografare la chiave DEK.
+* **unwrapKey**: per poter decrittografare la chiave DEK.
 
-L'amministratore dell'insieme di credenziali delle chiavi può anche [abilitare la registrazione degli eventi di controllo Key Vault](../azure-monitor/insights/azure-key-vault.md), in modo che possano essere controllati in un secondo momento.
+L'amministratore dell'insieme di credenziali delle chiavi può anche [abilitare la registrazione degli eventi di controllo di Key Vault](../azure-monitor/insights/azure-key-vault.md), in modo che possano essere controllati in un secondo momento.
 
-Quando il server è configurato per l'uso della chiave gestita dal cliente archiviata nell'insieme di credenziali delle chiavi, il server invia la chiave di crittografia all'insieme di credenziali delle chiavi per le crittografie. Key Vault restituisce la chiave di crittografia crittografata, archiviata nel database utente. Analogamente, quando necessario, il server invia la chiave di crittografia protetta all'insieme di credenziali delle chiavi per la decrittografia. I revisori possono usare monitoraggio di Azure per esaminare i registri eventi di controllo Key Vault, se la registrazione è abilitata.
+Se il server è configurato per l'uso della chiave gestita dal cliente archiviata nell'insieme di credenziali delle chiavi, il server invia la chiave DEK all'insieme di credenziali delle chiavi per la crittografia. Key Vault restituisce la chiave DEK crittografata, che viene archiviata nel database utente. Analogamente, se necessario, il server invia la chiave DEK protetta all'insieme di credenziali delle chiavi per la decrittografia. I revisori possono usare Monitoraggio di Azure per esaminare i log degli eventi di controllo di Key Vault, se la registrazione è abilitata.
 
-## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Requisiti per la configurazione della crittografia dei dati per database di Azure per MySQL
+## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Requisiti per la configurazione della crittografia dei dati per Database di Azure per MySQL
 
-Di seguito sono riportati i requisiti per la configurazione di Key Vault:
+Di seguito sono illustrati i requisiti per la configurazione di Key Vault:
 
-* Key Vault e database di Azure per MySQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Non sono supportate le interazioni tra Key Vault e server tra tenant. Per lo stato di trasferimento delle risorse è quindi necessario riconfigurare la crittografia dei dati.
-* È necessario abilitare la funzionalità di eliminazione temporanea nell'insieme di credenziali delle chiavi, in modo da evitare la perdita di dati in caso di eliminazione accidentale di chiavi (o Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano ripristinate o eliminate nel frattempo dall'utente. Le azioni di ripristino e ripulitura hanno le proprie autorizzazioni associate in un criterio di accesso Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
-* Concedere l'accesso al database di Azure per MySQL all'insieme di credenziali delle chiavi con le autorizzazioni Get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure, l'identità univoca viene creata automaticamente quando la crittografia dei dati è abilitata in MySQL. Per istruzioni dettagliate, vedere [configurare la crittografia dei dati per MySQL](howto-data-encryption-portal.md) quando si usa il portale di Azure.
+* Key Vault e Database di Azure per MySQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Lo spostamento successivo di risorse richiede la riconfigurazione della crittografia dei dati.
+* Abilitare la funzionalità di eliminazione temporanea nell'insieme di credenziali delle chiavi per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o di Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che nel frattempo non vengano recuperate o rimosse definitivamente dall'utente. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
+* Concedere a Database di Azure per MySQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure l'identità univoca viene creata automaticamente quando la crittografia dei dati è abilitata in MySQL. Per istruzioni dettagliate nel caso in cui si usi il portale di Azure, vedere [Configurare la crittografia dei dati per MySQL](howto-data-encryption-portal.md).
 
-* Quando si usa un firewall con Key Vault, è necessario abilitare l'opzione **Consenti ai servizi Microsoft attendibili di ignorare il firewall**.
+Di seguito sono illustrati i requisiti per la configurazione della chiave gestita dal cliente:
 
-Di seguito sono riportati i requisiti per la configurazione della chiave gestita dal cliente:
+* La chiave gestita dal cliente da usare per la crittografia della chiave DEK può essere solo di tipo RSA 2048 e asimmetrica.
+* La data di attivazione della chiave (se impostata) deve essere una data/ora nel passato. La data di scadenza (se impostata) deve essere una data/ora nel futuro.
+* La chiave deve avere lo stato *Abilitato*.
+* Se si importa una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati (`.pfx`, `.byok` o `.backup`).
 
-* La chiave gestita dal cliente da utilizzare per la crittografia della chiave di crittografia può essere solo asimmetrica, RSA 2028.
-* La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
-* La chiave deve essere nello stato *abilitato* .
-* Se si sta importando una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di`.pfx`file `.byok`supportati `.backup`(,,).
+## <a name="recommendations"></a>Consigli
 
-## <a name="recommendations"></a>Indicazioni
+Se si usa la crittografia dei dati con una chiave gestita dal cliente, ecco le raccomandazioni per la configurazione di Key Vault:
 
-Quando si usa la crittografia dei dati usando una chiave gestita dal cliente, di seguito sono riportati i consigli per la configurazione di Key Vault:
+* Impostare un blocco della risorsa in Key Vault per controllare chi può eliminare questa risorsa critica e impedire l'eliminazione accidentale o non autorizzata.
+* Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia. Key Vault include log che possono essere facilmente inseriti in altri strumenti di informazioni di sicurezza e gestione degli eventi (SIEM, Security Information and Event Management). Log Analytics di Monitoraggio di Azure è un esempio di servizio già integrato.
+* Assicurarsi che Key Vault e Database di Azure per MySQL si trovino nella stessa area, per garantire un accesso più rapido per le operazioni di wrapping e annullamento del wrapping della chiave DEK.
+* Bloccare Azure KeyVault per limitarne l'accesso solo **all'endpoint privato e alle reti selezionate** e consentire solo ai servizi *Microsoft attendibili* di proteggere le risorse.
 
-* Impostare un blocco di risorsa su Key Vault per controllare gli utenti che possono eliminare questa risorsa critica e impedire l'eliminazione accidentale o non autorizzata.
-* Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia. Key Vault fornisce log facili da inserire in altri strumenti di gestione degli eventi e delle informazioni di sicurezza. Il Log Analytics di monitoraggio di Azure è un esempio di servizio già integrato.
+    ![Servizio attendibile con Azure Key Vault](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
 
-* Assicurarsi che Key Vault e database di Azure per MySQL si trovino nella stessa area, per garantire un accesso più rapido alle operazioni di wrapping e unwrap di decrittografia.
+Ecco le raccomandazioni per la configurazione di una chiave gestita dal cliente:
 
-Ecco alcuni suggerimenti per la configurazione di una chiave gestita dal cliente:
+* Conservare una copia della chiave gestita dal cliente in un luogo sicuro o inserirla nel servizio di deposito.
 
-* Conserva una copia della chiave gestita dal cliente in un luogo sicuro o la assegna al servizio escrow.
+* Se Key Vault genera la chiave, crearne un backup prima di usarla per la prima volta. Il backup può essere ripristinato solo in Key Vault. Per altre informazioni sul comando di backup, vedere [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-* Se Key Vault genera la chiave, creare un backup della chiave prima di usare la chiave per la prima volta. Il backup può essere ripristinato solo Key Vault. Per ulteriori informazioni sul comando backup, vedere [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
+## <a name="inaccessible-customer-managed-key-condition"></a>Condizione inaccessibile della chiave gestita dal cliente
 
-## <a name="inaccessible-customer-managed-key-condition"></a>Condizione della chiave gestita dal cliente non accessibile
+Quando si configura la crittografia dei dati con una chiave gestita dal cliente in Key Vault, è necessario l'accesso continuo a questa chiave affinché il server resti online. Se perde l'accesso alla chiave gestita dal cliente in Key Vault, il server inizia a negare tutte le connessioni entro 10 minuti. Il server genera un messaggio di errore corrispondente e cambia il proprio stato in *Inaccessibile*. Ecco alcuni motivi per cui il server può raggiungere questo stato:
 
-Quando si configura la crittografia dei dati con una chiave gestita dal cliente in Key Vault, è necessario l'accesso continuo a questa chiave affinché il server resti online. Se il server perde l'accesso alla chiave gestita dal cliente in Key Vault, il server inizia a negare tutte le connessioni entro 10 minuti. Il server genera un messaggio di errore corrispondente e lo stato del server diventa *inaccessibile*. L'unica azione consentita su un database in questo stato è eliminarla.
+* Se si crea un server di ripristino temporizzato per Database di Azure per MySQL con la crittografia dei dati abilitata, il nuovo server creato avrà lo stato *Inaccessibile*. È possibile correggere questo problema tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Se si crea una replica in lettura per Database di Azure per MySQL con la crittografia dei dati abilitata, il server di replica avrà lo stato *Inaccessibile*. È possibile correggere questo problema tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Se si elimina l'istanza di KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se si elimina la chiave da KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se la chiave archiviata in Azure KeyVault scade, diventa non valida e Database di Azure per MySQL passa allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revoca accidentale dell'accesso alla chiave da Key Vault
 
-Potrebbe verificarsi che un utente con diritti di accesso sufficienti a Key Vault Disabilita accidentalmente l'accesso al server alla chiave da:
+È possibile che un utente con diritti di accesso sufficienti per Key Vault disabiliti accidentalmente l'accesso del server alla chiave eseguendo le operazioni seguenti:
 
-* Revoca delle autorizzazioni Get, wrapKey e unwrapKey dell'insieme di credenziali delle chiavi dal server.
+* Revoca delle autorizzazioni get, wrapKey e unwrapKey dell'insieme di credenziali delle chiavi dal server.
 * Eliminazione della chiave.
 * Eliminazione dell'insieme di credenziali delle chiavi.
-* Modifica delle regole del firewall del Key Vault.
-
+* Modifica delle regole del firewall dell'insieme di credenziali delle chiavi.
 * Eliminazione dell'identità gestita del server in Azure AD.
 
 ## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Monitorare la chiave gestita dal cliente in Key Vault
 
-Per monitorare lo stato del database e per abilitare gli avvisi per la perdita dell'accesso trasparente alla protezione della crittografia dei dati, configurare le funzionalità di Azure seguenti:
+Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'accesso alla protezione di Transparent Data Encryption, configurare le funzionalità di Azure seguenti:
 
-* [Integrità risorse di Azure](../service-health/resource-health-overview.md): un database inaccessibile che ha perso l'accesso alla chiave cliente viene visualizzato come "inaccessibile" dopo che è stata negata la prima connessione al database.
-* [Log attività](../service-health/alerts-activity-log-service-notifications.md): quando l'accesso alla chiave del cliente nel Key Vault gestito dal cliente ha esito negativo, le voci vengono aggiunte al log attività. È possibile ripristinare l'accesso appena possibile, se si creano avvisi per questi eventi.
+* [Integrità risorse di Azure](../service-health/resource-health-overview.md): un database inaccessibile che ha perso l'accesso alla chiave del cliente viene indicato come "Inaccessibile" dopo che viene negata la prima connessione al database.
+* [Log attività](../service-health/alerts-activity-log-service-notifications.md): quando l'accesso alla chiave del cliente nell'istanza di Key Vault gestita dal cliente non riesce, nel log attività vengono aggiunte voci. Se si creano avvisi per questi eventi, è possibile ripristinare l'accesso tempestivamente.
 
-* [Gruppi di azione](../azure-monitor/platform/action-groups.md): definire questi per inviare notifiche e avvisi in base alle proprie preferenze.
+* [Gruppi di azioni](../azure-monitor/platform/action-groups.md): definire questi gruppi per l'invio di notifiche e avvisi in base alle preferenze.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Eseguire il ripristino e la replica con una chiave gestita del cliente in Key Vault
 
-Dopo che il database di Azure per MySQL è stato crittografato con una chiave gestita del cliente archiviata in Key Vault, viene crittografata anche qualsiasi copia appena creata del server. Questa nuova copia può essere eseguita tramite un'operazione di ripristino locale o geografica oppure tramite le repliche di lettura. Tuttavia, la copia può essere modificata in modo da riflettere la chiave gestita di un nuovo cliente per la crittografia. Quando la chiave gestita dal cliente viene modificata, i backup precedenti del server iniziano a usare la chiave più recente.
+Una volta eseguita la crittografia di Database di Azure per MySQL con una chiave gestita dal cliente archiviata in Key Vault, viene crittografata anche qualsiasi nuova copia creata del server. Questa nuova copia può essere creata tramite un'operazione di ripristino locale o geografico oppure tramite repliche in lettura. Tuttavia, la copia può essere modificata in modo da riflettere una nuova chiave gestita dal cliente per la crittografia. Quando la chiave gestita dal cliente cambia, i backup precedenti del server iniziano a usare la chiave più recente.
 
-Per evitare problemi durante la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica, è importante attenersi alla procedura seguente nei server master e di ripristino/replica:
+Per evitare problemi con la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica in lettura, è importante seguire questa procedura nei server master e di replica o ripristinato:
 
-* Avviare il processo di creazione della replica di ripristino o di lettura dal database master di Azure per MySQL.
-* Mantieni il server appena creato (ripristinato/replica) in uno stato inaccessibile, perché per l'identità univoca non sono state ancora concesse le autorizzazioni per Key Vault.
-* Nel server ripristinato/replica, rivalidare la chiave gestita dal cliente nelle impostazioni di crittografia dei dati. In questo modo si garantisce che al server appena creato vengano assegnate le autorizzazioni di wrapping e unwrap alla chiave archiviata in Key Vault.
+* Avviare il processo di ripristino o di creazione della replica in lettura dall'istanza master di Database di Azure per MySQL.
+* Mantenere il server appena creato (ripristinato/di replica) in uno stato inaccessibile, perché la relativa identità univoca non ha ancora ricevuto le autorizzazioni per Key Vault.
+* Nel server ripristinato o di replica ripetere la convalida della chiave gestita dal cliente nelle impostazioni di crittografia dei dati per assicurarsi che il server appena creato disponga di autorizzazioni di wrapping e annullamento del wrapping per la chiave archiviata in Key Vault.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [configurare la crittografia dei dati con una chiave gestita dal cliente per il database di Azure per MySQL usando il portale di Azure](howto-data-encryption-portal.md).
+Leggere le informazioni su come [configurare la crittografia dei dati con una chiave gestita dal cliente per Database di Azure per MySQL usando il portale di Azure](howto-data-encryption-portal.md).

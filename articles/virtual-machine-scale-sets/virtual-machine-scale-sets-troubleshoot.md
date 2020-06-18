@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di scalabilità automatica con i set di scalabilità
+title: Risolvere i problemi di scalabilità automatica con set di scalabilità di macchine virtuali
 description: Informazioni sulla risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali. Comprendere i problemi tipici rilevati e come risolverli.
 author: avirishuv
 ms.author: avverma
@@ -9,15 +9,15 @@ ms.subservice: autoscale
 ms.date: 11/16/2017
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 624f9bf512a28657808d9e2838149601c0bd2f99
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125146"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837230"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali
-**Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate  funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.
+**Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate  funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 Alcuni aspetti da considerare:
@@ -73,7 +73,7 @@ Alcuni aspetti da considerare:
     Se i dati non sono presenti, il problema riguarda l'estensione della diagnostica in esecuzione nelle macchine virtuali. Se i dati sono presenti, il problema può riguardare le regole di scalabilità oppure il servizio Insights. Verificare lo [Stato di Azure](https://azure.microsoft.com/status/).
     
     Dopo aver seguito questa procedura, qualora ci siano ancora problemi di scalabilità automatica è possibile provare le risorse seguenti: 
-    * Leggere i forum in [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Leggere i forum sulla [pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html) o sull'[overflow dello stack](https://stackoverflow.com/questions/tagged/azure) 
     * Registrare una chiamata del supporto. Sarà necessario, condividere il modello e la visualizzazione dei dati sulle prestazioni.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

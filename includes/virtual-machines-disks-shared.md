@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: File di inclusione
 description: File di inclusione
 services: virtual-machines
 author: roygara
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008542"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868099"
 ---
-Azure Shared Disks (anteprima) è una nuova funzionalità di Azure Managed disks che consente di aggiungere simultaneamente un disco gestito a più macchine virtuali (VM). Il fissaggio di un disco gestito a più macchine virtuali consente di distribuire le applicazioni in cluster nuove o migrate in Azure.
+I dischi condivisi di Azure (anteprima) sono una nuova funzionalità di Azure Managed Disks che consente di collegare un disco gestito a più macchine virtuali contemporaneamente. Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
-Le macchine virtuali nel cluster possono leggere o scrivere sul disco collegato in base alla prenotazione scelta dall'applicazione in cluster usando le [prenotazioni permanenti SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). La richiesta pull SCSI è uno standard di settore sfruttato da applicazioni in esecuzione su SAN (Storage Area Network) in locale. L'abilitazione della richiesta pull SCSI in un disco gestito consente di eseguire la migrazione di queste applicazioni in Azure così come sono.
+Le macchine virtuali nel cluster possono leggere o scrivere sul disco collegato in base alla prenotazione scelta dall'applicazione in cluster usando le [prenotazioni permanenti SCSI](https://www.t10.org/members/w_spc3.htm). Una prenotazione permanente SCSI è uno standard del settore usato dalle applicazioni in esecuzione in una rete di archiviazione (SAN) locale. L'abilitazione delle prenotazioni permanenti SCSI in un disco gestito consente di eseguire la migrazione di queste applicazioni in Azure così come sono.
 
-La condivisione di dischi gestiti offre un'archiviazione a blocchi condivisa a cui è possibile accedere da più macchine virtuali, che vengono esposte come numeri di unità logica (lun). I LUN vengono quindi presentati a un iniziatore (macchina virtuale) da una destinazione (disco). Questi LUN hanno un aspetto simile all'archiviazione diretta (DAS) o a un'unità locale per la macchina virtuale.
+La condivisione di dischi gestiti offre un'archiviazione a blocchi condivisa a cui è possibile accedere da più macchine virtuali, che vengono esposte come numeri di unità logica (LUN). I LUN vengono quindi presentati a un iniziatore (macchina virtuale) da una destinazione (disco). Questi LUN hanno un aspetto simile all'archiviazione collegata direttamente (DAS) o a un'unità locale per la macchina virtuale.
 
-I dischi gestiti condivisi non offrono in modo nativo un file system completamente gestito a cui è possibile accedere tramite SMB/NFS. È necessario usare un gestore di cluster, ad esempio Windows Server failover cluster (WSFC) o pacemaker, che gestisce la comunicazione tra i nodi del cluster e il blocco di scrittura.
+I dischi gestiti condivisi non offrono in modo nativo un file system completamente gestito accessibile tramite SMB/NFS. È necessario usare uno strumento di gestione cluster, come Windows Server Failover Cluster (WSFC) o Pacemaker, che gestisce la comunicazione del nodo del cluster oltre al blocco della scrittura.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -37,100 +37,98 @@ I dischi gestiti condivisi non offrono in modo nativo un file system completamen
 
 ### <a name="windows"></a>Windows
 
-La maggior parte del clustering basato su Windows si basa su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC Abilita le opzioni CSV e non basate su CSV a seconda della versione di Windows Server in uso. Per informazioni dettagliate, vedere [creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+La maggior parte del clustering basato su Windows è compilato su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC abilita le opzioni basate e non su CSV a seconda della versione di Windows Server in uso. Per i dettagli, fare riferimento a [Creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
-Alcune applicazioni diffuse in esecuzione su WSFC includono:
+Tra le applicazioni più comuni in esecuzione su WSFC ci sono:
 
 - Istanze del cluster di failover di SQL Server (FCI)
 - File server di scalabilità orizzontale (SoFS)
 - File server per uso generale (carico di lavoro IW)
-- Disco del profilo utente di Desktop remoto server (RDS UPD)
-- ASC/SCS SAP
+- Disco del profilo utente di server desktop remoto (RDS UPD)
+- SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-I cluster Linux possono sfruttare i gestori di cluster come [pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni filesystem in cluster comuni includono [OCFS2](https://oss.oracle.com/projects/ocfs2/) e [GFS2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). È possibile modificare prenotazioni e registrazioni utilizzando utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
+I cluster Linux possono sfruttare gli strumenti di gestione cluster, ad esempio [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni file system in cluster comuni includono [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). È possibile modificare prenotazioni e registrazioni tramite utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
+
+#### <a name="ubuntu"></a>Ubuntu
+
+Per informazioni su come configurare la disponibilità elevata di Ubuntu con Corosync e Pacemaker nei dischi condivisi di Azure, vedere [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
 
 ## <a name="persistent-reservation-flow"></a>Flusso di prenotazione permanente
 
-Il diagramma seguente illustra un'applicazione di database in cluster a 2 nodi di esempio che sfrutta la richiesta pull SCSI per abilitare il failover da un nodo all'altro.
+Il diagramma seguente illustra un esempio di applicazione di database in cluster a 2 nodi che usa la prenotazione permanente SCSI per abilitare il failover da un nodo all'altro.
 
 ![Cluster a due nodi. Un'applicazione in esecuzione nel cluster gestisce l'accesso al disco](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 Il flusso è il seguente:
 
-1. L'applicazione in cluster in esecuzione sia in Azure VM1 che in VM2 registra la finalità di lettura o scrittura sul disco.
-1. L'istanza dell'applicazione in VM1 accetta quindi la prenotazione esclusiva per scrivere sul disco.
-1. Questa prenotazione viene applicata sul disco di Azure e il database ora può scrivere esclusivamente sul disco. Eventuali scritture dall'istanza dell'applicazione in VM2 non riusciranno.
-1. Se l'istanza dell'applicazione in VM1 diventa inattiva, l'istanza in VM2 può ora avviare un failover del database ed eseguire il commit del disco.
-1. Questa prenotazione viene ora applicata sul disco di Azure e il disco non accetterà più le Scritture da VM1. Accetterà solo le Scritture da VM2.
+1. L'applicazione in cluster in esecuzione sia nella macchina virtuale Azure VM1 che in VM2 registra il proprio intento di lettura o scrittura sul disco.
+1. L'istanza dell'applicazione in VM1 effettua quindi la prenotazione esclusiva per scrivere sul disco.
+1. Questa prenotazione viene applicata sul disco di Azure e il database può ora scrivere in modo esclusivo sul disco. Eventuali scritture dall'istanza dell'applicazione in VM2 non avranno esito positivo.
+1. Se l'istanza dell'applicazione in VM1 diventa inattiva, l'istanza in VM2 può avviare un failover del database e subentrare sul disco.
+1. Questa prenotazione viene ora applicata sul disco di Azure e il disco non accetterà più scritture da VM1, ma solo da VM2.
 1. L'applicazione in cluster può completare il failover del database e gestire le richieste da VM2.
 
-Il diagramma seguente illustra un altro carico di lavoro cluster comune costituito da più nodi che leggono dati dal disco per l'esecuzione di processi paralleli, ad esempio il training di modelli di machine learning.
+Il diagramma seguente illustra un altro carico di lavoro in cluster comune costituito da più nodi che leggono dati dal disco per l'esecuzione di processi paralleli, ad esempio il training di modelli di Machine Learning.
 
-![Cluster di macchine virtuali a quattro nodi, ogni nodo registra la finalità di scrittura, l'applicazione richiede una prenotazione esclusiva per gestire correttamente i risultati della scrittura](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Cluster di macchine virtuali a quattro nodi, in cui ogni nodo registra l'intento di scrittura e l'applicazione effettua una prenotazione esclusiva per gestire correttamente i risultati della scrittura](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 Il flusso è il seguente:
 
-1. L'applicazione in cluster in esecuzione su tutte le macchine virtuali registra la finalità di lettura o scrittura sul disco.
-1. L'istanza dell'applicazione in VM1 accetta una prenotazione esclusiva per scrivere sul disco durante l'apertura delle letture sul disco da altre macchine virtuali.
-1. Questa prenotazione viene applicata nel disco di Azure.
-1. Tutti i nodi del cluster possono ora leggere dal disco. Solo un nodo scrive i risultati sul disco, per conto di tutti i nodi del cluster.
+1. L'applicazione in cluster in esecuzione in tutte le macchine virtuali registra l'intento di lettura o scrittura sul disco.
+1. L'istanza dell'applicazione in VM1 effettua una prenotazione esclusiva per scrivere sul disco aprendo le letture sul disco da altre macchine virtuali.
+1. Questa prenotazione viene applicata sul disco di Azure.
+1. Tutti i nodi del cluster possono ora leggere dal disco. Solo un nodo riscrive i risultati sul disco, per conto di tutti i nodi del cluster.
 
-### <a name="ultra-disks-reservation-flow"></a>Flusso di prenotazione di dischi ultra
+### <a name="ultra-disks-reservation-flow"></a>Flusso di prenotazione di dischi Ultra
 
-I dischi Ultra offrono una limitazione aggiuntiva, per un totale di due limitazioni. Per questo motivo, il flusso di prenotazione del disco Ultra può funzionare come descritto nella sezione precedente oppure può limitare e distribuire le prestazioni in modo più granulare.
+I dischi Ultra offrono un'ulteriore limitazione, per un totale di due limitazioni. Per questo motivo, il flusso di prenotazione di dischi Ultra può operare come descritto nella sezione precedente oppure può imporre una limitazione e distribuire le prestazioni in modo più granulare.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che illustra l'accesso di sola lettura o di lettura/scrittura per il titolare della prenotazione, l'utente registrato e altri.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Limitazioni delle prestazioni del disco Ultra
+## <a name="ultra-disk-performance-throttles"></a>Limitazioni delle prestazioni dei dischi Ultra
 
-I dischi Ultra offrono la funzionalità univoca che consente di impostare le prestazioni esponendo attributi modificabili e consentendo di modificarli. Per impostazione predefinita, sono disponibili solo due attributi modificabili, ma i dischi Ultra condivisi hanno due attributi aggiuntivi.
+I dischi Ultra offrono la funzionalità esclusiva di consentire l'impostazione delle prestazioni esponendo attributi modificabili e consentendo di modificarli. Per impostazione predefinita, ci sono solo due attributi modificabili, ma i dischi Ultra condivisi hanno due attributi aggiuntivi.
 
 
 |Attributo  |Descrizione  |
 |---------|---------|
-|DiskIOPSReadWrite     |Numero totale di operazioni di i/o al secondo consentite in tutte le VM montaggio del disco condiviso con accesso in scrittura.         |
-|DiskMBpsReadWrite     |Velocità effettiva totale (MB/s) consentita per tutte le macchine virtuali che montano il disco condiviso con accesso in scrittura.         |
-|DiskIOPSReadOnly*     |Numero totale di operazioni di i/o al secondo consentite in tutte le VM montaggio del disco condiviso come ReadOnly.         |
-|DiskMBpsReadOnly*     |Velocità effettiva totale (MB/s) consentita per tutte le macchine virtuali che montano il disco condiviso come ReadOnly.         |
+|DiskIOPSReadWrite     |Numero totale di operazioni di I/O al secondo consentite in tutte le macchine virtuali che hanno montato il disco condiviso con accesso in scrittura.         |
+|DiskMBpsReadWrite     |Velocità effettiva totale (MB/s) consentita in tutte le macchine virtuali che hanno montato il disco condiviso con accesso in scrittura.         |
+|DiskIOPSReadOnly*     |Numero totale di operazioni di I/O al secondo consentite in tutte le macchine virtuali che hanno montato il disco condiviso come di sola lettura.         |
+|DiskMBpsReadOnly*     |Velocità effettiva totale (MB/s) consentita in tutte le macchine virtuali che hanno montato il disco condiviso come di sola lettura.         |
 
-\*Si applica solo a dischi Ultra condivisi
+\* Si applica solo a dischi Ultra condivisi
 
 Le formule seguenti illustrano come è possibile impostare gli attributi delle prestazioni, dal momento che sono modificabili dall'utente:
 
 - DiskIOPSReadWrite/DiskIOPSReadOnly: 
-    - Limiti di IOPS di 300 IOPS/GiB, fino a un massimo di 160K IOPS per disco
-    - Almeno 100 IOPS
+    - Limiti di operazioni di I/O al secondo pari a 300 IOPS/GiB, fino a un massimo di 160.000 IOPS per disco
+    - Minimo 100 IOPS
     - DiskIOPSReadWrite + DiskIOPSReadOnly è almeno 2 IOPS/GiB
-- DiskMBpsRead Write/DiskMBpsReadOnly:
-    - Il limite di velocità effettiva di un singolo disco è 256 KiB/s per ogni IOPS con provisioning, fino a un massimo di 2000 MBps per disco
-    - La velocità effettiva minima garantita per ogni disco è 4KiB/s per ogni IOPS di cui è stato effettuato il provisioning, con una linea di base complessiva minima di 1 MBps
+- DiskMBpsRead    Write/DiskMBpsReadOnly:
+    - Il limite di velocità effettiva di un singolo disco è di 256 KiB/s per ogni operazione di I/O al secondo di cui è stato effettuato il provisioning, fino a un massimo di 2000 MBps per disco
+    - La velocità effettiva minima garantita per disco è 4KiB/s per ogni operazione di I/O al secondo di cui è stato effettuato il provisioning, con una baseline complessiva minima di 1 MBps
 
 ### <a name="examples"></a>Esempi
 
-Gli esempi seguenti illustrano alcuni scenari che mostrano come la limitazione può funzionare con i dischi Ultra condivisi, in particolare.
+Gli esempi seguenti illustrano alcuni scenari che mostrano come funziona la limitazione in particolare con i dischi Ultra condivisi.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster a due nodi con volumi condivisi cluster
+#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster a due nodi che usa volumi condivisi del cluster
 
-Di seguito è riportato un esempio di WSFC a 2 nodi tramite volumi condivisi cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la suddivisione della limitazione ReadWrite tra le due macchine virtuali e la limitazione di sola lettura non in uso.
+Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che usa volumi condivisi del cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la divisione della limitazione ReadWrite tra le due macchine virtuali e il mancato utilizzo della limitazione ReadOnly.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Esempio di ultra nodo a due nodi CSV":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Esempio di disco Ultra a due nodi che usa volumi condivisi del cluster":::
 
-:::image-end:::
+#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster a due nodi senza volumi condivisi del cluster
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster a due nodi senza volumi condivisi cluster
+Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che non usa volumi condivisi del cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Di conseguenza, la limitazione ReadWrite viene usata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly viene usata solo dalla macchina virtuale secondaria.
 
-Di seguito è riportato un esempio di WSFC a 2 nodi che non usa volumi condivisi cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. In questo modo la limitazione ReadWrite viene utilizzata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly viene utilizzata solo dal database secondario.
-
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Due nodi CSV senza esempio di disco rigido CSV":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Esempio di disco Ultra a due nodi che non usa volumi condivisi del cluster":::
 
 #### <a name="four-node-linux-cluster"></a>Cluster Linux a quattro nodi
 
-Di seguito è riportato un esempio di un cluster Linux a 4 nodi con un solo Writer e tre lettori con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. In questo modo, la limitazione ReadWrite viene utilizzata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly è divisa dalle VM secondarie.
+Di seguito è riportato un esempio di cluster Linux a 4 nodi con una sola macchina virtuale con accesso in scrittura e tre macchine virtuali con accesso in lettura con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Di conseguenza, la limitazione ReadWrite viene usata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly è divisa tra le macchine virtuali secondarie.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Esempio di limitazione ultra a quattro nodi":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Esempio di limitazione di disco Ultra a quattro nodi":::

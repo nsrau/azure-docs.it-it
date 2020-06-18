@@ -1,5 +1,5 @@
 ---
-title: Fornire funzionalità di autenticazione a più fattori di Azure con NPS-Azure Active Directory
+title: Fornire funzionalità Azure MFA con NPS - Azure Active Directory
 description: Aggiungere le funzionalità di verifica in due passaggi basate sul cloud all'infrastruttura di autenticazione esistente
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199544"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871229"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Quando si usa l'estensione dei criteri di rete per di Azure MFA, il flusso di au
 1. Il **Server NAS/VPN** riceve le richieste dei client VPN e le converte in richieste RADIUS per il Server dei criteri di rete. 
 2. Il **Server dei criteri di rete** si connette ad Active Directory per eseguire l'autenticazione principale per le richieste RADIUS e, al completamento dell'operazione, passa la richiesta alle estensioni installate.  
 3. L'**estensione di Server dei criteri di rete** attiva una richiesta di autenticazione secondaria per Azure MFA. Dopo che l'estensione riceve la risposta e se la richiesta di verifica MFA ha esito positivo, la richiesta di autenticazione viene completata, fornendo al server di Server dei criteri di rete i token di sicurezza che includono un'attestazione MFA, emessa dal servizio token di sicurezza di Azure.  
-4. **Azure** multi-factor authentication comunica con Azure Active Directory per recuperare i dettagli dell'utente ed esegue l'autenticazione secondaria usando un metodo di verifica configurato per l'utente.
+4. **Azure MFA** comunica con Azure Active Directory per recuperare i dettagli dell'utente ed esegue l'autenticazione secondaria grazie al metodo di verifica configurato per l'utente.
 
 Il diagramma seguente illustra questo flusso di richiesta di autenticazione ad alto livello: 
 
@@ -69,7 +69,7 @@ Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene insta
 
 Gli utenti che usano l'estensione di Server dei criteri di rete devono essere sincronizzati con Azure Active Directory tramite Azure AD Connect ed essere registrati a MFA.
 
-Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore. Cercare e selezionare la **Azure Active Directory**, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
+Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore. Cercare e selezionare **Azure Active Directory**, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
 
 ![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
@@ -77,15 +77,15 @@ Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le cr
 
 Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
 
-- https: \/ /adnotifications.WindowsAzure.com
+- https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
-- https: \/ /Credentials.Azure.com
+- https:\//credentials.azure.com
 
-Inoltre, è necessaria la connettività agli URL seguenti per completare l' [installazione dell'adapter mediante lo script di PowerShell fornito](#run-the-powershell-script)
+Inoltre, è necessaria la connettività agli URL seguenti per completare la [configurazione della scheda usando lo script di PowerShell fornito](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- https: \/ /provisioningapi.microsoftonline.com
-- https: \/ /aadcdn.msauth.NET
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -111,23 +111,23 @@ La procedura per configurare i criteri di autenticazione RADIUS può variare a s
 Questo passaggio potrebbe essere già completato nel tenant, tuttavia è consigliabile verificare che Azure AD Connect abbia sincronizzato i database di recente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Selezionare **Azure Active Directory**  >  **Azure ad Connect**
+2. Selezionare **Azure Active Directory** > **Azure AD Connect**
 3. Verificare che lo stato della sincronizzazione sia **Abilitata** e che l'ultima sincronizzazione sia stata eseguita da meno di un'ora.
 
-Se si desidera avviare un nuovo ciclo di sincronizzazione, usare istruzioni presenti in [Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Se è necessario avviare un nuovo ciclo di sincronizzazione, usare le istruzioni riportate in [Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Determinare i metodi di autenticazione che è possibile usare
 
 Sono due i fattori che determinano i metodi di autenticazione disponibili con una distribuzione dell'estensione di Server dei criteri di rete:
 
 1. L'algoritmo di crittografia della password usato tra il client RADIUS (VPN, server Netscaler o altri) e i Server dei criteri di rete.
-   - **PAP** supporta tutti i metodi di autenticazione dell'autenticazione a più fattori di Azure nel cloud: telefonata, SMS unidirezionale, notifica dell'app per dispositivi mobili, token hardware del giuramento e codice di verifica dell'app per dispositivi mobili.
-   - **CHAPv2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili.
+   - **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili, token hardware OATH e codice di verifica dell'app per dispositivi mobili.
+   - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili.
 
       > [!NOTE]
       > Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
       >
-      > Inoltre, se il client VPN UX supporta il campo di input e sono stati configurati i criteri di accesso alla rete, l'autenticazione potrebbe avere esito positivo, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete verrà applicato né al dispositivo di accesso alla rete, ad esempio al server RRAS né al client VPN. Di conseguenza, il client VPN potrebbe avere un accesso maggiore di quello desiderato o meno a nessun accesso.
+      > Inoltre, se l'esperienza utente client VPN supporta il campo di input e sono stati configurati i criteri di accesso alla rete, l'autenticazione potrebbe avere esito positivo. Tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete verrà applicato né al dispositivo di accesso alla rete, ad esempio al server RRAS, né al client VPN. Di conseguenza, il client VPN potrebbe avere un accesso maggiore di quello desiderato oppure accesso limitato o nessun accesso.
       >
 
 2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.
@@ -142,15 +142,15 @@ Seguire questa procedura per avviare un account di test:
 
 1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova.
 2. Seguire le richieste per configurare un metodo di verifica.
-3. [Creare un criterio di accesso condizionale](howto-mfa-getstarted.md#create-conditional-access-policy) per richiedere l'autenticazione a più fattori per l'account di test.
+3. [Creare criteri di accesso condizionale](howto-mfa-getstarted.md#create-conditional-access-policy) per richiedere l'autenticazione a più fattori per l'account di test.
 
 > [!IMPORTANT]
 >
-> Assicurarsi che gli utenti abbiano eseguito correttamente la registrazione per Azure Multi-Factor Authentication. Se gli utenti sono stati registrati in precedenza solo per la reimpostazione della password self-service (SSPR), *StrongAuthenticationMethods* è abilitato per il proprio account. Azure Multi-Factor Authentication viene applicato quando viene configurato *StrongAuthenticationMethods* , anche se l'utente è registrato solo per sspr.
+> Assicurarsi che gli utenti abbiano eseguito correttamente la registrazione per Azure Multi-Factor Authentication. Se gli utenti sono stati registrati in precedenza solo per la reimpostazione della password self-service (SSPR), *StrongAuthenticationMethods* viene abilitato per i loro account. L'autenticazione Azure Multi-Factor Authentication viene applicata quando si configura *StrongAuthenticationMethods*, anche se l'utente è registrato solo per la reimpostazione della password self-service.
 >
-> È possibile abilitare la registrazione di sicurezza combinata per configurare SSPR e Azure Multi-Factor Authentication nello stesso momento. Per altre informazioni, vedere [abilitare la registrazione delle informazioni di sicurezza combinate in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+> È possibile abilitare la registrazione delle informazioni di sicurezza combinate per configurare contemporaneamente la reimpostazione della password self-service e Azure Multi-Factor Authentication. Per altre informazioni, vedere [Abilitare la registrazione delle informazioni di sicurezza combinate in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
 >
-> È anche possibile [imporre agli utenti di registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options) se in precedenza sono stati abilitati solo sspr.
+> È anche possibile [imporre agli utenti di registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options) se in precedenza erano abilitati solo per la reimpostazione della password self-service.
 
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
@@ -159,13 +159,13 @@ Seguire questa procedura per avviare un account di test:
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Scaricare e installare l'estensione di Server dei criteri di rete per Azure MFA
 
-1. [Scaricare l'estensione NPS](https://aka.ms/npsmfa) dall'area download Microsoft.
+1. [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download di Microsoft.
 2. Copiare il file binario nel Server dei criteri di rete da configurare.
-3. Eseguire *Setup. exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
+3. Eseguire *setup.exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
 
-#### <a name="upgrade-the-nps-extension"></a>Aggiornare l'estensione NPS
+#### <a name="upgrade-the-nps-extension"></a>Aggiornare l'estensione di Server dei criteri di rete
 
-Quando si aggiorna un'installazione di estensione NPS esistente, per evitare il riavvio del server sottostante completare i passaggi seguenti:
+Quando si aggiorna un'installazione dell'estensione di Server dei criteri di rete esistente, per evitare il riavvio del server sottostante completare questa procedura:
 
 1. Disinstallare la versione esistente
 1. Eseguire il nuovo programma di installazione
@@ -198,35 +198,38 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
 
-Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è necessario eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione NPS.
+Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è consigliabile eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione di Server dei criteri di rete.
 
 > [!NOTE]
 > Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
 
-### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure per enti pubblici passaggi aggiuntivi
+### <a name="microsoft-azure-government-additional-steps"></a>Passaggi aggiuntivi per Microsoft Azure per enti pubblici
 
-Per i clienti che usano il cloud di Azure per enti pubblici, è necessario eseguire i passaggi di configurazione aggiuntivi seguenti in ogni server NPS:
+Per i clienti che usano il cloud di Azure per enti pubblici, è necessario eseguire i passaggi di configurazione aggiuntivi seguenti in ogni Server dei criteri di rete.
 
-1. Aprire l' **Editor del registro di sistema** nel server NPS.
-1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Impostare i valori chiave seguenti:
+> [!IMPORTANT]
+> Configurare queste impostazioni del Registro di sistema solo se si è un cliente di Azure per enti pubblici.
+
+1. Se si è un cliente di Azure per enti pubblici, aprire l'**editor del Registro di sistema** nel Server dei criteri di rete.
+1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Impostare i valori delle chiavi seguenti:
 
     | Chiave del Registro di sistema       | valore |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
 
-1. Ripetere i due passaggi precedenti per impostare i valori della chiave del registro di sistema per ogni server NPS.
-1. Riavviare il servizio NPS per ogni server NPS.
+1. Ripetere i due passaggi precedenti per impostare i valori della chiave del Registro di sistema per ogni Server dei criteri di rete.
+1. Riavviare il servizio Server dei criteri di rete per ogni Server dei criteri di rete.
 
-    Per un effetto minimo, portare ogni server NPS fuori dalla rotazione del bilanciamento del carico di base una alla volta e attendere lo svuotamento di tutte le connessioni.
+    Per limitare l'impatto, escludere ogni Server dei criteri di rete dalla rotazione del bilanciamento del carico uno alla volta e attendere lo svuotamento di tutte le connessioni.
 
 ### <a name="certificate-rollover"></a>Rollover dei certificati
 
-Con la versione 1.0.1.32 dell'estensione NPS, è ora supportata la lettura di più certificati. Questa funzionalità consente di semplificare gli aggiornamenti del certificato in sequenza prima della scadenza. Se l'organizzazione esegue una versione precedente dell'estensione NPS, è necessario eseguire l'aggiornamento alla versione 1.0.1.32 o successiva.
+Con la versione 1.0.1.32 dell'estensione Server dei criteri di rete è ora supportata la lettura di più certificati. Questa funzionalità consente di semplificare la distribuzione degli aggiornamenti dei certificati prima della scadenza. Se l'organizzazione esegue una versione precedente dell'estensione Server dei criteri di rete, è necessario eseguire l'aggiornamento alla versione 1.0.1.32 o successiva.
 
-I certificati creati dallo `AzureMfaNpsExtnConfigSetup.ps1` script sono validi per 2 anni. Le organizzazioni IT dovrebbero monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati del computer locale in personale e vengono rilasciati all'ID tenant fornito allo script.
+I certificati creati dallo script `AzureMfaNpsExtnConfigSetup.ps1` sono validi per 2 anni. Le organizzazioni IT dovrebbero monitorare i certificati per la scadenza. I certificati per l'estensione Server dei criteri di rete vengono inseriti nella sezione personale dell'archivio certificati del computer locale e vengono rilasciati all'ID tenant fornito allo script.
 
-Quando un certificato si avvicina alla data di scadenza, è necessario creare un nuovo certificato per sostituirlo.  Questo processo viene eseguito eseguendo di `AzureMfaNpsExtnConfigSetup.ps1` nuovo e mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni server NPS nell'ambiente in uso.
+Quando un certificato si avvicina alla data di scadenza, è necessario creare un nuovo certificato per sostituirlo.  Questo processo viene eseguito eseguendo di nuovo `AzureMfaNpsExtnConfigSetup.ps1` e mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni Server dei criteri di rete nell'ambiente in uso.
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
@@ -235,7 +238,7 @@ In questa sezione sono disponibili considerazioni e suggerimenti sulla progettaz
 ### <a name="configuration-limitations"></a>Limitazioni di configurazione
 
 - L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno ripetere il processo di registrazione per popolare i dettagli di Azure MFA nel cloud.  
-- L'estensione NPS usa l'UPN dell'istanza locale di Active Directory per identificare l'utente in Azure multi-factor authentication per l'esecuzione dell'autenticazione secondaria. L'estensione può essere configurata in modo da usare un identificatore diverso, ad esempio un ID di accesso alternativo o un campo di Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere l'articolo [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
+- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere l'articolo [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Non tutti i protocolli di crittografia supportano tutti i metodi di verifica.
    - **PAP** supporta la chiamata telefonica, gli SMS unidirezionali, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
    - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili
@@ -248,7 +251,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Valore | Impostazione predefinita |
+| Chiave | valore | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
@@ -258,11 +261,11 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="nps-extension-health-check-script"></a>Script di controllo integrità estensione NPS
+### <a name="nps-extension-health-check-script"></a>Script di controllo integrità dell'estensione Server dei criteri di rete
 
-Lo script seguente è disponibile per eseguire i passaggi di base del controllo integrità durante la risoluzione dei problemi relativi all'estensione NPS.
+Lo script seguente è disponibile per eseguire i passaggi di base del controllo integrità durante la risoluzione dei problemi relativi all'estensione Server dei criteri di rete.
 
-[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -270,7 +273,7 @@ Lo script seguente è disponibile per eseguire i passaggi di base del controllo 
 
 Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha come nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
 
-Anche i certificati autofirmati generati dallo script *AzureMfaNpsExtnConfigSetup. ps1* hanno una durata di validità di due anni. Quando si verifica che il certificato sia installato, è necessario verificare anche che il certificato non sia scaduto.
+Anche i certificati autofirmati generati dallo script *AzureMfaNpsExtnConfigSetup.ps1* hanno una durata di validità di due anni. Quando si verifica che il certificato sia installato, è necessario verificare anche che il certificato non sia scaduto.
 
 ---
 
@@ -294,7 +297,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
-Dopo aver eseguito questo comando, passare all'unità C, individuare il file e fare doppio clic su di esso. Passare ai dettagli e scorrere verso il basso fino all'"identificazione personale" e confrontare l'identificazione personale del certificato installato nel server con questa. Le identificazioni personali devono corrispondere.
+Dopo aver eseguito questo comando passare all'unità C, individuare il file e fare doppio clic su di esso. Passare ai dettagli e scorrere verso il basso fino all'"identificazione personale" e confrontare l'identificazione personale del certificato installato nel server con questa. Le identificazioni personali devono corrispondere.
 
 I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, possono essere usati per filtrare i risultati errati se il comando restituisce più di un certificato.
 
@@ -302,7 +305,7 @@ I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, po
 
 ### <a name="why-cannot-i-sign-in"></a>Perché non è possibile accedere?
 
-Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Per ulteriore assistenza, contattare il personale IT dell'organizzazione.
+Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Contattare il personale IT dell'organizzazione per ricevere assistenza.
 
 ---
 
@@ -331,9 +334,9 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Perché l'autenticazione non funziona, nonostante sia presente un certificato valido?
 
-Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è necessario eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione NPS.
+Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è consigliabile eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione di Server dei criteri di rete.
 
-Per verificare se si dispone di un certificato valido, controllare l'archivio certificati dell'account computer locale utilizzando MMC e verificare che il certificato non abbia superato la data di scadenza. Per generare un certificato appena valido, eseguire di nuovo i passaggi descritti nella sezione "[eseguire lo script di PowerShell](#run-the-powershell-script)".
+Per verificare se è disponibile un certificato valido, controllare l'archivio certificati dell'account computer locale usando MMC e verificare che il certificato non abbia superato la data di scadenza. Per generare un nuovo certificato valido, rieseguire i passaggi descritti nella sezione "[Eseguire lo script di PowerShell](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
@@ -341,11 +344,11 @@ Per verificare se si dispone di un certificato valido, controllare l'archivio ce
 
 ### <a name="additional-troubleshooting"></a>Risoluzione dei problemi aggiuntiva
 
-Ulteriori indicazioni sulla risoluzione dei problemi e le possibili soluzioni sono disponibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure multi-factor authentication](howto-mfa-nps-extension-errors.md).
+Altre indicazioni per la risoluzione dei problemi e le possibili soluzioni sono disponibili nell'articolo [Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica e configurazione del server dei criteri di rete in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Panoramica e configurazione di Server dei criteri di rete in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
 

@@ -1,16 +1,16 @@
 ---
-title: Proteggere un cluster in Windows usando i certificati
+title: Proteggere un cluster in Windows con certificati
 description: Proteggere le comunicazioni all'interno del cluster autonomo o locale di Azure Service Fabric nonché tra i client e il cluster.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561999"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653633"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -248,12 +248,24 @@ Se si usano archivi dell'autorità di certificazione, non deve essere eseguito a
 ## <a name="acquire-the-x509-certificates"></a>Acquisire i certificati X.509
 Per proteggere la comunicazione nel cluster, è prima necessario ottenere i certificati X.509 per i nodi del cluster. Per limitare inoltre la connessione al cluster a computer o utenti autorizzati, è necessario ottenere e installare i certificati per i computer client.
 
-Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](https://msdn.microsoft.com/library/aa702761.aspx).
+Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+Perché il certificato funzioni correttamente è necessario che disponga di alcune proprietà:
+
+* il provider del certificato deve essere **Microsoft Enhanced RSA e AES Cryptographic Provider**
+
+* Quando si crea una chiave RSA, assicurarsi che sia a **2048 bit**.
+
+* Il valore dell'estensione Utilizzo chiavi è **Firma digitale, Crittografia chiave (a0)**
+
+* L'estensione Utilizzo chiavi avanzato include valori di **Autenticazione server** (OID: 1.3.6.1.5.5.7.3.1) e **Autenticazione client** (OID: 1.3.6.1.5.5.7.3.2)
 
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 
-## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: creare un certificato autofirmato
-Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (Cercare il valore CN = ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
+Per altre domande, consultare [domande frequenti sui certificati](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+
+## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: Creare un certificato autofirmato
+Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (individuare il valore CN=ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
 
 Esportare ora il certificato in un file con estensione pfx con una password protetta. Ottenere per prima cosa l'identificazione personale del certificato. 
 1. Dal menu **Start** eseguire **Gestisci i certificati computer**. 
@@ -292,7 +304,7 @@ Dopo aver ottenuto i certificati, è possibile installarli nei nodi del cluster.
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Impostare ora il controllo di accesso per questo certificato in modo che possa essere usato dal processo di Service Fabric, eseguito con l'account Servizio di rete, con lo script seguente. Fornire l'identificazione personale del certificato e del **servizio di rete** per l'account del servizio. È possibile verificare che gli ACL del certificato siano corretti aprendo il certificato in **avviare** > **gestione dei certificati del computer** e esaminando tutte le **attività** > **Gestisci chiavi private**.
+3. Impostare ora il controllo di accesso per questo certificato in modo che possa essere usato dal processo di Service Fabric, eseguito con l'account Servizio di rete, con lo script seguente. Specificare l'identificazione personale del certificato e **NETWORK SERVICE** come account del servizio. È possibile controllare che gli ACL per il certificato siano corretti aprendo il certificato in **Start** > **Gestisci i certificati computer** ed esaminando **Tutte le attività** > **Gestisci chiavi private**.
    
     ```powershell
     param
@@ -355,7 +367,7 @@ Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaric
 ```
 
 > [!NOTE]
-> La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare autonomamente i problemi di sicurezza, esaminare il gruppo di Visualizzatore eventi >  **registri applicazioni e servizi****Microsoft-Service Fabric**.
+> La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare automaticamente i problemi di sicurezza, consultare il gruppo di Visualizzatore eventi **Registri applicazioni e servizi** > **Microsoft Service Fabric**.
 > 
 > 
 

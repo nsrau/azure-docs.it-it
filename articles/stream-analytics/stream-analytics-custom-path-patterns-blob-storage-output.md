@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426373"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747627"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -25,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere NVARCHAR(MAX).
 
 ### <a name="example"></a>Esempio
 
@@ -77,10 +77,10 @@ I token di identificatore del formato seguenti possono essere usati da soli o in
 |{datetime:MM}|Mese da 01 a 12|01|
 |{datetime:M}|Mese da 1 a 12|1|
 |{datetime:dd}|Giorno da 01 a 31|02|
-|{datetime:d}|Giorno da 1 a 12|2|
+|{datetime:d}|Giorno da 1 a 31|2|
 |{datetime:HH}|Ora in formato 24 ore, da 00 a 23|10|
-|{datetime:mm}|Minuti da 00 a 24|06|
-|{datetime:m}|Minuti da 0 a 24|6|
+|{datetime:mm}|Minuti da 00 a 60|06|
+|{datetime:m}|Minuti da 0 a 60|6|
 |{datetime:ss}|Secondi da 00 a 60|08|
 
 Se si preferisce non usare modelli di data/ora personalizzati, è possibile aggiungere il token {date} e/o {time} al prefisso del percorso per generare un elenco a discesa con i formati di data/ora predefiniti.

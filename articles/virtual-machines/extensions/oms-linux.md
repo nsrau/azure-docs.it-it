@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250556"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654403"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Log Analytics per Linux
 
 ## <a name="overview"></a>Panoramica
 
-Log di monitoraggio di Azure offre funzionalità di monitoraggio, avviso e correzione degli avvisi in risorse cloud e locali. L'estensione della macchina virtuale Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Log Analytics per Linux.
+I log di Monitoraggio di Azure offrono funzionalità di monitoraggio, avviso e correzione tramite avvisi per risorse cloud e locali. L'estensione macchina virtuale di Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Log Analytics per Linux.
 
 >[!NOTE]
 >Nel quadro della transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, l'Agente OMS per Windows o Linux verrà indicato come agente di Log Analytics per Windows e agente di Log Analytics per Linux.
@@ -36,13 +36,14 @@ Log di monitoraggio di Azure offre funzionalità di monitoraggio, avviso e corre
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Per informazioni dettagliate sulle distribuzioni Linux supportate, vedere l'articolo [Panoramica dell'agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
+Per informazioni sulle distribuzioni Linux supportate, vedere l'articolo [Panoramica dell'agente di Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
 La tabella seguente contiene informazioni sull'associazione tra la versione delle estensioni di macchina virtuale di Log Analytics e del bundle dell'agente di Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
 
 | Versione delle estensioni di macchina virtuale di Log Analytics per Linux | Versione bundle agenti Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.13.9 | 1.13.3-3 |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -86,7 +87,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
@@ -103,7 +104,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio |
+| Nome | Valore/Esempio |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -115,9 +116,9 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono ideali quando si distribuiscono una o più macchine virtuali che richiedono la configurazione post-distribuzione, ad esempio l'onboarding nei log di monitoraggio di Azure. Un modello di Gestione risorse di esempio che include l'estensione della macchina virtuale Log Analytics Agent è reperibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore al momento della distribuzione di una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio l'onboarding nei log di Monitoraggio di Azure. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale dell'agente di Log Analytics è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/templates/child-resource-name-type.md). 
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio). 
 
 L'esempio seguente presuppone che l'estensione macchina virtuale sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
@@ -171,7 +172,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale agente di Log Analytics in una macchina virtuale esistente. Sostituire il valore *myWorkspaceKey* seguente con la chiave dell'area di lavoro e il valore *MYWORKSPACEID* con l'ID dell'area di lavoro. Questi valori sono disponibili nell'area di lavoro Log Analytics della portale di Azure in *Impostazioni avanzate*. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale agente di Log Analytics in una macchina virtuale esistente. Sostituire il valore *myWorkspaceKey* indicato di seguito con la chiave della propria area di lavoro e il valore *myWorkspaceId* con l'ID dell'area di lavoro. È possibile reperire questi valori nell'area di lavoro Log Analytics del portale di Azure in *Impostazioni avanzate*. 
 
 ```azurecli
 az vm extension set \
@@ -210,10 +211,10 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 | 19 | Errore di installazione del pacchetto OMI | 
 | 20 | Errore di installazione del pacchetto SCX |
 | 51 | Questa estensione non è supportata sul sistema operativo della macchina virtuale | |
-| 55 | Non è possibile connettersi al servizio di monitoraggio di Azure o ai pacchetti richiesti mancanti o la gestione pacchetti dpkg è bloccata| Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Inoltre, verificare la correttezza dell'ID dell'area di lavoro e verificare che le utilità curl e tar siano installate. |
+| 55 | Non è possibile connettersi al servizio Monitoraggio di Azure, i pacchetti necessari risultano mancanti o la gestione pacchetti dpkg è bloccata| Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Inoltre, verificare la correttezza dell'ID dell'area di lavoro e verificare che le utilità curl e tar siano installate. |
 
 Altre informazioni sulla risoluzione dei problemi sono disponibili nella [Guida alla risoluzione dei problemi relativi all'agente di Log Analytics per Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

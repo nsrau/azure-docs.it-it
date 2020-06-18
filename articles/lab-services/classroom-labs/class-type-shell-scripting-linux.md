@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbe0a0b7f22df20c8ce3d734738132b5056a36e4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589500"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697087"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurare un lab per insegnare la creazione di script per la shell in Linux
-Questo articolo illustra come configurare un lab per insegnare a creare script per la shell in Linux. La creazione di script è una parte utile dell'amministrazione del sistema che consente agli amministratori di evitare attività ripetitive. In questo scenario di esempio, la classe illustra gli script bash tradizionali e gli script avanzati. Gli script avanzati sono script che combinano i comandi bash e Ruby. Questo approccio consente a Ruby di passare dati e comandi bash per interagire con la shell. 
+Questo articolo illustra come configurare un lab per insegnare a creare script per la shell in Linux. Lo scripting è una parte utile dell'amministrazione del sistema che consente agli amministratori di evitare attività ripetitive. In questo scenario di esempio, la classe illustra gli script bash tradizionali e gli script avanzati. Gli script avanzati sono script che combinano i comandi bash e Ruby. Questo approccio consente a Ruby di passare dati e comandi bash per interagire con la shell. 
 
 Gli studenti che frequentano queste classi di scripting lavorano su una macchina virtuale Linux per apprendere le nozioni di base di Linux e acquisire familiarità con gli script della shell bash. La macchina virtuale Linux viene fornita con accesso tramite Desktop remoto abilitato e con gli editor di testo [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) installati.
 
@@ -39,12 +39,11 @@ Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nu
 | Impostazioni del lab | Valore/istruzioni | 
 | ------------ | ------------------ |
 | Dimensioni della macchina virtuale | Piccolo  |
-| Immagine della macchina virtuale | Ubuntu Server 18.04 LTS |
-| Abilita Connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà a docenti e studenti di connettersi alle macchine virtuali usando Desktop remoto (RDP). Per altre informazioni, vedere [Abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Immagine della macchina virtuale | Ubuntu Server 18.04 LTS|
+| Abilita Connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà a docenti e studenti di connettersi alle macchine virtuali usando Desktop remoto (RDP). Per altre informazioni, vedere [Abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
-
-## <a name="install-desktop-and-xrdp"></a>Installare desktop e xrdp
-Per impostazione predefinita, l'immagine di Ubuntu Server 18.04 LTS non include l'installazione del server di Desktop remoto. Per installare i pacchetti necessari nel computer modello per la connessione tramite Remote Desktop Protocol, seguire le istruzioni riportate in [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../../virtual-machines/linux/use-remote-desktop.md).
+## <a name="install-desktop-and-rdp"></a>Installare desktop e RDP
+Per impostazione predefinita, l'immagine di Ubuntu Server 18.04 LTS non include l'installazione del server di desktop remoto RDP. Per installare i pacchetti necessari nel computer modello per la connessione tramite Remote Desktop Protocol (RDP), seguire le istruzioni riportate in [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../../virtual-machines/linux/use-remote-desktop.md).
 
 ## <a name="install-ruby"></a>Installare Ruby
 Ruby è un linguaggio dinamico open source che può essere combinato con script bash. Questa sezione illustra come usare `apt-get` per installare la versione più recente di [Ruby](https://www.ruby-lang.org/).

@@ -1,35 +1,35 @@
 ---
-title: Configurare la terminazione TLS con Key Vault certificati-PowerShell
+title: Configurare la terminazione TLS con certificati di Key Vault - PowerShell
 titleSuffix: Azure Application Gateway
-description: Informazioni su come integrare applicazione Azure gateway con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS.
+description: Informazioni su come integrare il gateway applicazione con Key Vault per i certificati server associati a listener abilitati per HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c638004d209996e52b0e57b467bfa184a77779c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457842"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873467"
 ---
-# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione TLS con Key Vault certificati usando Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configurare la terminazione TLS con certificati di Key Vault con Azure PowerShell
 
-[Azure Key Vault](../key-vault/general/overview.md) è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere i segreti, le chiavi e i certificati TLS/SSL. Applicazione Azure gateway supporta l'integrazione con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione V2.
+[Azure Key Vault](../key-vault/general/overview.md) è un archivio segreto gestito da piattaforma che è possibile usare per proteggere segreti, chiavi e certificati TLS/SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server associati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione v2.
 
-Per altre informazioni, vedere [terminazione TLS con Key Vault Certificates](key-vault-certs.md).
+Per altre informazioni, vedere [Terminazione TLS con certificati di Key Vault](key-vault-certs.md).
 
 Questo articolo illustra come usare uno script di Azure PowerShell per integrare l'insieme di credenziali delle chiavi con il gateway applicazione per i certificati di terminazione TLS/SSL.
 
-Questo articolo richiede Azure PowerShell modulo 1.0.0 o versione successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questo articolo, è anche necessario creare una connessione con Azure eseguendo `Connect-AzAccount`.
+Questo articolo richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi illustrati in questo articolo, è anche necessario creare una connessione con Azure eseguendo `Connect-AzAccount`.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario che sia installato il modulo ManagedServiceIdentity:
+Prima di iniziare, è necessario avere installato il modulo ManagedServiceIdentity:
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -44,9 +44,11 @@ Select-AzSubscription -Subscription <your subscription>
 ```azurepowershell
 $rgname = "KeyVaultTest"
 $location = "East US"
-$kv = "TestKeyVaultAppGw"
+$kv = "<your key vault name>"
 $appgwName = "AppGwKVIntegration"
 ```
+> [!IMPORTANT]
+> Il nome dell'insieme di credenziali delle chiavi deve essere univoco a livello universale.
 
 ### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Creare un gruppo di risorse e un'identità gestita dall'utente
 
@@ -71,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Per il corretto funzionamento della terminazione TLS, è necessario usare il flag-EnableSoftDelete. Se si sta configurando [Key Vault l'eliminazione temporanea tramite il portale](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, il valore predefinito. Il gateway applicazione non supporta ancora un periodo di conservazione diverso. 
+> Per il corretto funzionamento della terminazione TLS, è necessario usare il flag -EnableSoftDelete. Se si sta configurando [l'eliminazione temporanea di Key Vault tramite il portale](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, corrispondenti al valore predefinito. Il gateway applicazione non supporta ancora periodi di conservazione diversi. 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -82,7 +84,7 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>Creare un indirizzo IP virtuale pubblico (VIP) statico
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>Creare un indirizzo IP virtuale pubblico (VIP)
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `

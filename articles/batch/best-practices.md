@@ -1,166 +1,203 @@
 ---
 title: Procedure consigliate
-description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo della soluzione Azure Batch.
-ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
+ms.date: 05/22/2020
+ms.topic: conceptual
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117506"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871365"
 ---
-# <a name="azure-batch-best-practices"></a>Procedure consigliate Azure Batch
+# <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
-In questo articolo viene illustrata una raccolta di procedure consigliate per l'utilizzo del servizio Azure Batch in modo efficace ed efficiente. Queste procedure consigliate sono derivate dalla nostra esperienza con batch e dalle esperienze dei clienti batch. È importante comprendere questo articolo per evitare trappole di progettazione, potenziali problemi di prestazioni e anti-pattern durante lo sviluppo per e l'uso di batch.
-
-In questo articolo si apprenderà:
-
-> [!div class="checklist"]
-> - Quali sono le procedure consigliate
-> - Motivi per cui è consigliabile utilizzare le procedure consigliate
-> - Cosa può accadere se non si seguono le procedure consigliate
-> - Come seguire le procedure consigliate
+Questo articolo contiene una raccolta di procedure consigliate per l'uso efficace ed efficiente del servizio Azure Batch, in base a un'esperienza reale con Batch. Leggere questo articolo per evitare errori di progettazione, potenziali problemi di prestazioni e la creazione di antipattern durante lo sviluppo per e l'uso di Batch.
 
 ## <a name="pools"></a>Pool
 
-I pool di batch sono le risorse di calcolo per l'esecuzione di processi nel servizio batch. Nelle sezioni seguenti vengono fornite indicazioni sulle principali procedure consigliate da seguire quando si utilizzano i pool di batch.
+I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione di processi nel servizio Batch. Le sezioni seguenti includono raccomandazioni per l'uso di pool di Batch.
 
 ### <a name="pool-configuration-and-naming"></a>Configurazione e denominazione del pool
 
-- **Modalità di allocazione pool** Quando si crea un account batch, è possibile scegliere tra due modalità di allocazione pool: **servizio batch** o **sottoscrizione utente**. Per la maggior parte dei casi, è consigliabile usare la modalità predefinita per il servizio batch, in cui i pool vengono allocati in background nelle sottoscrizioni gestite da batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono utilizzati principalmente per consentire un subset di scenari importante, ma di piccole dimensioni. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente**. Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **Prendere in considerazione il processo e l'esecuzione dell'attività durante la determinazione del mapping del processo al pool.**
-    Se sono presenti processi che prevedono principalmente attività di breve durata e i conteggi delle attività totali previste sono ridotti, in modo che il tempo di esecuzione complessivo previsto del processo non sia lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi diminuirà il tempo di esecuzione del processo.
+- **Considerare il tempo di esecuzione di processi e attività per determinare il mapping tra processi e pool.**
+    Se i processi sono costituiti prevalentemente da attività di breve durata e il numero totale previsto di attività è ridotto, per cui il tempo di esecuzione complessivo previsto per il processo non è molto lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi ridurrà il tempo di esecuzione del processo.
 
-- **I pool devono avere più di un nodo di calcolo.**
-    Non è garantito che i singoli nodi siano sempre disponibili. Sebbene non comune, gli errori hardware, gli aggiornamenti del sistema operativo e un host di altri problemi possono causare la offline dei singoli nodi. Se il carico di lavoro batch richiede deterministico, è necessario allocare i pool con più nodi.
+- **I pool dovrebbero avere più di un nodo di calcolo.**
+    Non è garantito che i singoli nodi siano sempre disponibili. Anche se non comuni, gli errori dell'hardware, gli aggiornamenti del sistema operativo e una serie di altri problemi possono portare offline i singoli nodi. Se il carico di lavoro di Batch richiede un avanzamento deterministico e garantito, è consigliabile allocare pool con più nodi.
 
 - **Non riutilizzare i nomi delle risorse.**
-    Le risorse batch (processi, pool e così via) passano spesso nel tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo martedì e quindi creare un altro pool il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato in precedenza. A tale scopo, è possibile usare un GUID (come intero nome della risorsa o come parte di esso) o incorporare l'ora in cui è stata creata la risorsa nel nome della risorsa. Batch supporta [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), che può essere usato per assegnare a una risorsa un nome leggibile anche se l'ID di risorsa effettivo è un elemento che non è facile da usare. L'uso di nomi univoci rende più semplice distinguere la risorsa particolare eseguita in log e metriche. Rimuove anche l'ambiguità se è necessario archiviare un caso di supporto per una risorsa.
+    Le risorse di Batch (processi, pool e così via) non sono in genere fisse nel corso del tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo il martedì e quindi crearne un altro il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato prima. A tale scopo, è possibile usare un GUID (per l'intero nome della risorsa o solo per una parte) o incorporare nel nome l'ora in cui è stata creata la risorsa. Batch supporta [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), che è possibile usare per assegnare a una risorsa un nome facilmente leggibile, anche se l'ID risorsa effettiva può essere più complesso. L'uso di nomi univoci consente di distinguere più facilmente la risorsa specifica a cui fanno riferimento log e metriche. Rimuove anche l'ambiguità se è necessario presentare un caso di supporto per una risorsa.
 
-- **Continuità durante la manutenzione e l'errore del pool.**
-    È preferibile che i processi usino i pool in modo dinamico. Se i processi usano lo stesso pool per tutti gli elementi, è possibile che i processi non vengano eseguiti se si verificano problemi con il pool. Questa operazione è particolarmente importante per i carichi di lavoro dipendenti dal tempo. Per risolvere questo problema, selezionare o creare un pool in modo dinamico quando si pianifica ogni processo oppure è possibile eseguire l'override del nome del pool in modo che sia possibile ignorare un pool non integro.
+- **Continuità durante la manutenzione e gli errori del pool.**
+    È preferibile che i processi usino i pool in modo dinamico. Se i processi usano lo stesso pool per tutte le operazioni, è possibile che non vengano eseguiti se si verificano problemi in tale pool. Questo aspetto è particolarmente importante per i carichi di lavoro dipendenti dal tempo. Per risolvere questo problema, selezionare o creare un pool in modo dinamico quando si pianifica ogni processo oppure ignorare in qualche modo il nome del pool in modo che sia possibile evitare un pool non integro.
 
-- **Continuità aziendale durante la manutenzione e l'errore del pool** Esistono molte possibili cause che possono impedire a un pool di raggiungere le dimensioni richieste, ad esempio errori interni, vincoli di capacità e così via. Per questo motivo, è necessario essere pronti per ridestinare i processi in un pool diverso (possibilmente con una dimensione di macchina virtuale diversa: batch supporta questo tramite [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessario. Evitare di usare un ID pool statico con la previsione che non verrà mai eliminato e mai modificato.
+- **Continuità aziendale durante la manutenzione e gli errori del pool** Le dimensioni di un pool potrebbero non aumentare fino al livello previsto per una serie di possibili cause, ad esempio errori interni, vincoli di capacità e così via. Per questo motivo, è consigliabile essere pronti a ridestinare i processi a un pool diverso (possibilmente con dimensioni di VM diverse, cosa che Batch supporta tramite [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessario. Evitare di usare un ID pool statico con l'aspettativa che non verrà mai eliminato e modificato.
 
 ### <a name="pool-lifetime-and-billing"></a>Durata e fatturazione del pool
 
-La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla configurazione del pool. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo nel pool in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio (scalabilità automatica o pool automatico).
+La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla relativa configurazione. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio (scalabilità automatica o pool automatici).
 
-- **Mantieni i pool aggiornati.**
-    È necessario ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli aggiornamenti più recenti dell'agente del nodo e le correzioni di bug. Il pool non riceverà gli aggiornamenti dell'agente del nodo, a meno che non venga ricreato o ridimensionato in 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log dell'agente node a scopo di debug, come illustrato nella sezione [Nodes (nodi](#nodes) ).
+- **Mantenere i pool aggiornati.**
+    È consigliabile ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli aggiornamenti più recenti degli agenti dei nodi e le correzioni di bug. Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
 
-- **Ricreazione del pool** Con una nota simile, non è consigliabile eliminare e ricreare i pool su base giornaliera. In alternativa, creare un nuovo pool, aggiornare i processi esistenti in modo che puntino al nuovo pool. Una volta che tutte le attività sono state spostate nel nuovo pool, eliminare il pool precedente.
+- **Ricreazione del pool** Analogamente, non è consigliabile eliminare e ricreare i pool su base giornaliera. Creare invece un nuovo pool e aggiornare i processi esistenti in modo che puntino a questo pool. Una volta spostate tutte le attività nel nuovo pool, eliminare quello precedente.
 
-- **Efficienza e fatturazione del pool** Batch non comporta costi aggiuntivi, ma vengono addebitati costi per le risorse di calcolo usate. Viene addebitato ogni nodo di calcolo nel pool, indipendentemente dallo stato in cui si trovano. Sono inclusi tutti gli addebiti necessari per l'esecuzione del nodo, ad esempio i costi di archiviazione e di rete. Per informazioni sulle procedure consigliate, vedere l'articolo [relativo all'analisi dei costi e ai budget per Azure batch](budget.md).
+- **Efficienza e fatturazione del pool** Batch non comporta costi aggiuntivi di per sé, ma vengono addebitati i costi per le risorse di calcolo usate. Si riceve un addebito per ogni nodo di calcolo del pool, indipendentemente dallo stato in cui si trova. Sono inclusi tutti gli addebiti richiesti per l'esecuzione del nodo, ad esempio i costi di archiviazione e di rete. Per altre informazioni sulle procedure consigliate, vedere [Analisi dei costi e budget per Azure Batch](budget.md).
 
-### <a name="pool-allocation-failures"></a>Errori di allocazione pool
+### <a name="pool-allocation-failures"></a>Errori di allocazione del pool
 
-Gli errori di allocazione del pool possono verificarsi in qualsiasi momento durante la prima allocazione o le successive dimensioni. Questo problema può essere dovuto a un esaurimento della capacità temporaneo in un'area o a errori in altri servizi di Azure su cui si basa il batch. La quota di core non è una garanzia, bensì un limite.
+Gli errori di allocazione del pool possono verificarsi in qualsiasi momento durante la prima allocazione o con i successivi ridimensionamenti. Questo problema può essere dovuto a un esaurimento temporaneo della capacità in un'area o a errori di altri servizi di Azure su cui si basa Batch. La quota di core non è una garanzia, ma piuttosto un limite.
 
 ### <a name="unplanned-downtime"></a>Tempo di inattività non pianificato
 
-È possibile che i pool di batch sperimentino eventi di tempo di inattività in Azure. Questo aspetto è importante da tenere presente quando si pianifica e si sviluppa lo scenario o il flusso di lavoro per batch.
+È possibile che i pool di Batch riscontrino eventi di tempi di inattività in Azure. Tenere presente questo aspetto quando si pianifica e si sviluppa uno scenario o un flusso di lavoro per Batch.
 
-In caso di errore di un nodo, batch tenta automaticamente di ripristinare i nodi di calcolo per conto dell'utente. Questo può attivare la ripianificazione di qualsiasi attività in esecuzione nel nodo recuperato. Per ulteriori informazioni sulle attività interrotte, vedere [progettazione per i tentativi](#designing-for-retries-and-re-execution) .
+In caso di errore di un nodo, Batch prova automaticamente a ripristinare i nodi di calcolo per conto dell'utente. Questo tentativo può attivare la ripianificazione di qualsiasi attività in esecuzione nel nodo ripristinato. Per altre informazioni sulle attività interrotte, vedere [Progettazione per la ripetizione di tentativi](#design-for-retries-and-re-execution).
 
-- **Dipendenza dall'area di Azure** Si consiglia di non dipendere da una singola area di Azure se si ha un carico di lavoro di produzione o dipendente dal tempo. Sebbene rare, esistono problemi che possono interessare un'intera area. Se, ad esempio, l'elaborazione deve essere avviata in un momento specifico, provare a eseguire il ridimensionamento del pool nell'area primaria *prima dell'ora di inizio*. Se la scala del pool ha esito negativo, è possibile eseguire il fallback per la scalabilità verticale di un pool in un'area o in aree di backup. I pool tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi con un altro pool. Per altre informazioni, vedere [progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
+
+Nel caso di carichi di lavoro di produzione o dipendenti dal tempo, è consigliabile evitare di dipendere da una singola area di Azure. Anche se rari, esistono problemi che possono influire su un'intera area. Se ad esempio l'elaborazione deve essere avviata a un'ora specifica, è consigliabile aumentare il pool nell'area primaria *con molto anticipo rispetto all'ora di inizio*. Se l'aumento del pool non riesce in quell'area, è possibile eseguirne il fallback in una o più aree di backup. I pool distribuiti tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi in un altro pool. Per altre informazioni, vedere [Progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Processi
 
-Un processo è un contenitore progettato per contenere centinaia, migliaia o persino milioni di attività.
+Un [processo](jobs-and-tasks.md#jobs) è un contenitore progettato per includere centinaia, migliaia o anche milioni di attività. Seguire queste linee guida durante la creazione di processi.
 
-- **Inserire molte attività in un processo** L'utilizzo di un processo per l'esecuzione di una singola attività non è efficiente. Ad esempio, è più efficiente usare un singolo processo contenente 1000 attività invece di creare 100 processi che contengono 10 attività ciascuna. L'esecuzione di processi 1000, ognuno con una singola attività, è l'approccio meno efficiente, più lento e più costoso da intraprendere.
+### <a name="fewer-jobs-more-tasks"></a>Meno processi, più attività
 
-    Non progettare una soluzione batch che richiede migliaia simultaneamente di processi attivi. Non è prevista alcuna quota per le attività, pertanto l'esecuzione di tutte le attività nel minor numero possibile di processi utilizza in modo efficiente le [quote del processo e della pianificazione dei processi](batch-quota-limit.md#resource-quotas).
+L'uso di un processo per eseguire una singola attività è inefficiente. Ad esempio, è più efficiente usare un singolo processo contenente 1000 attività invece di creare 100 processi che ne contengono 10 ognuno. L'esecuzione di 1000 processi, ognuno con una singola attività, è l'approccio meno efficiente, più lento e più costoso da intraprendere.
 
-- **Durata processo** Un processo batch ha una durata indefinita fino a quando non viene eliminato dal sistema. Lo stato di un processo indica se può accettare più attività per la pianificazione o meno. Un processo non passa automaticamente allo stato completato a meno che non venga terminato in modo esplicito. Questa operazione può essere attivata automaticamente tramite la proprietà [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Per questo motivo, assicurarsi di non progettare una soluzione Batch che richiede migliaia di processi attivi simultaneamente. Non è prevista alcuna quota per le attività, quindi l'esecuzione di molte attività nel minor numero possibile di processi comporta un uso efficiente delle [quote di processi e di pianificazioni di processi](batch-quota-limit.md#resource-quotas).
 
-Esiste una quota predefinita [per la pianificazione di processi e](batch-quota-limit.md#resource-quotas)processi. I processi e le pianificazioni dei processi nello stato completato non vengono conteggiati per questa quota.
+### <a name="job-lifetime"></a>Durata dei processi
+
+Un processo di Batch ha una durata indefinita fino a quando non viene eliminato dal sistema. Il relativo stato indica se può accettare o meno la pianificazione di altre attività.
+
+Un processo non passa automaticamente allo stato completato a meno che non venga terminato esplicitamente. Questa operazione può essere attivata automaticamente tramite la proprietà [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+
+Esiste una [quota predefinita per i processi attivi e le pianificazioni di processi](batch-quota-limit.md#resource-quotas). I processi e le pianificazioni di processi nello stato completato non vengono conteggiati ai fini di questa quota.
 
 ## <a name="tasks"></a>Attività
 
-Le attività sono singole unità di lavoro che comprendono un processo. Le attività vengono inviate dall'utente e pianificate da batch nei nodi di calcolo. Quando si creano ed eseguono attività, è necessario tenere presenti diverse considerazioni di progettazione. Le sezioni seguenti illustrano scenari comuni e illustrano come progettare le attività per gestire i problemi ed eseguire in modo efficiente.
+Le [attività](jobs-and-tasks.md#tasks) sono singole unità di lavoro che costituiscono un processo. Le attività vengono inviate dall'utente e pianificate da Batch nei nodi di calcolo. Quando si creano ed eseguono attività, è necessario tenere presenti diverse considerazioni di progettazione. Le sezioni seguenti illustrano scenari comuni e descrivono come progettare le attività per gestire i problemi e garantire prestazioni efficienti.
 
-- **Salvare i dati dell'attività come parte dell'attività.**
-    I nodi di calcolo sono per natura temporanea. Sono disponibili molte funzionalità in batch, ad esempio il pool automatico e la scalabilità automatica, che semplificano la scomparsa dei nodi. Quando i nodi lasciano il pool (a causa di un ridimensionamento o di un'eliminazione del pool), vengono eliminati anche tutti i file in tali nodi. Per questo motivo, è consigliabile che prima del completamento di un'attività venga spostato l'output del nodo su cui è in esecuzione e in un archivio durevole, allo stesso modo se un'attività non riesce, è necessario spostare i log necessari per diagnosticare l'errore in un archivio durevole. Batch ha integrato il supporto di archiviazione di Azure per caricare i dati tramite [OutputFiles](batch-task-output-files.md), oltre a un'ampia gamma di file system condivisi, oppure è possibile eseguire il caricamento manualmente nelle attività.
+### <a name="save-task-data"></a>Salvare i dati delle attività
 
-### <a name="task-lifetime"></a>Durata dell'attività
+I nodi di calcolo sono per loro natura temporanei. Batch include molte funzionalità, come i pool automatici e la scalabilità automatica, per semplificano la rimozione dei nodi. Quando i nodi lasciano il pool (a causa di un ridimensionamento o di un'eliminazione del pool), vengono eliminati anche tutti i file al loro interno. Per questo motivo, l'output di un'attività deve essere spostato dal nodo in cui è in esecuzione in un archivio permanente prima del completamento. Analogamente, se un'attività non riesce, è necessario spostare i log necessari per diagnosticare l'errore in un archivio permanente.
 
-- **Elimina le attività quando sono completate.**
-    Eliminare le attività quando non sono più necessarie o impostare un vincolo di attività [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Se è `retentionTime` impostato un oggetto, batch pulisce automaticamente lo spazio su disco utilizzato dall'attività quando `retentionTime` scade.
+Batch offre il supporto integrato per Archiviazione di Azure per il caricamento dei dati tramite [OutputFiles](batch-task-output-files.md), oltre che per un'ampia gamma di file system condivisi. In alternativa, è possibile eseguire manualmente il caricamento delle attività.
 
-    L'eliminazione delle attività esegue due operazioni. Si assicura che non si disponga di una compilazione di attività nel processo, rendendo l'esecuzione di query o la ricerca dell'attività a cui si è interessati, perché sarà necessario filtrare le attività completate. Consente inoltre di pulire i dati delle attività corrispondenti nel nodo, purché `retentionTime` non sia già stato raggiunto. Ciò garantisce che i nodi non riempiano i dati delle attività e esauriscono lo spazio su disco.
+### <a name="manage-task-lifetime"></a>Gestire la durata delle attività
 
-### <a name="task-submission"></a>Invio di attività
+Eliminare le attività quando non sono più necessarie o impostare un vincolo di attività [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Se `retentionTime` è impostato, Batch pulisce automaticamente lo spazio su disco usato dall'attività alla scadenza di `retentionTime`.
 
-- **Inviare un numero elevato di attività in una raccolta.**
-    Le attività possono essere inviate in base a singole o raccolte. Invia le attività in [raccolte](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) fino a 100 alla volta durante l'invio in blocco delle attività per ridurre il sovraccarico e il tempo di invio.
+Con l'eliminazione delle attività, si realizzano due obiettivi. Ci si assicura di non avere un accumulo di attività nel processo, che può rendere più difficile l'esecuzione di query o l'individuazione di un'attività a cui si è interessati (perché sarà necessario filtrare le attività completate). Vengono inoltre puliti i dati dell'attività corrispondenti nel nodo, purché non sia già stato raggiunto il valore di `retentionTime`. In questo modo si evita che i nodi si riempiano di dati di attività ed esauriscano lo spazio.
 
-### <a name="task-execution"></a>Esecuzione delle attività
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Inviare un numero elevato di attività nella raccolta
 
-- **Scelta delle attività massime per nodo** Batch supporta l'oversubscriptioning delle attività nei nodi (esecuzione di più attività rispetto a quelle di un nodo con Core). È compito dell'utente verificare che le attività siano adatte ai nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si tenta di pianificare otto attività, ognuna delle quali utilizza il 25% di utilizzo della CPU su un nodo `maxTasksPerNode = 8`(in un pool con).
+Le attività possono essere inviate singolarmente o in raccolte. Inviare le attività in [raccolte](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) che ne contengono fino a 100 alla volta durante l'invio in blocco per ridurre il sovraccarico e i tempi della procedura.
 
-### <a name="designing-for-retries-and-re-execution"></a>Progettazione per tentativi e nuova esecuzione
+### <a name="set-max-tasks-per-node-appropriately"></a>Impostare il numero massimo di attività per nodo nel modo appropriato
 
-Le attività possono essere ritentate automaticamente dal batch. Esistono due tipi di tentativi: controllati dall'utente e interni. I tentativi controllati dall'utente vengono specificati dal [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)dell'attività. Quando un programma specificato nell'attività termina con un codice di uscita diverso da zero, l'attività viene ritentata fino al valore di `maxTaskRetryCount`.
+Batch supporta la sovrasottoscrizione di attività nei nodi, ossia l'esecuzione di un numero di attività maggiore del numero di core di un nodo. È responsabilità dell'utente assicurarsi che il numero di attività sia adeguato per i nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si provano a pianificare otto attività, ognuna delle quali utilizza il 25% della CPU in un nodo (in un pool con `maxTasksPerNode = 8`).
 
-Sebbene sia raro, un'attività può essere ritentata internamente a causa di errori nel nodo di calcolo, ad esempio non è in grado di aggiornare lo stato interno o un errore nel nodo mentre l'attività è in esecuzione. L'attività verrà ritentata nello stesso nodo di calcolo, se possibile, fino a un limite interno prima di abbandonare l'attività e rinviare l'attività da ripianificare da batch, potenzialmente in un nodo di calcolo diverso.
+### <a name="design-for-retries-and-re-execution"></a>Progettare per la ripetizione di tentativi e di esecuzioni
 
-- **Creazione di attività durevoli** Le attività devono essere progettate per resistere agli errori e riprovare. Questa operazione è particolarmente importante per le attività a esecuzione prolungata. A tale scopo, assicurarsi che le attività generino lo stesso risultato, anche se vengono eseguite più di una volta. Un modo per ottenere questo risultato consiste nel fare in modo che le attività "cerchino". Un altro modo consiste nel verificare che le attività siano idempotente (le attività avranno lo stesso risultato indipendentemente dal numero di volte in cui vengono eseguite).
+Batch può provare automaticamente a ripetere le attività. Esistono due tipi di tentativi: controllati dall'utente e interni. I tentativi controllati dall'utente sono specificati dal valore di [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) dell'attività. Quando un programma specificato nell'attività termina con un codice di uscita diverso da zero, l'attività viene riprovata fino al valore di `maxTaskRetryCount`.
 
-    Un esempio comune è un'attività per copiare i file in un nodo di calcolo. Un approccio semplice è costituito da un'attività che copia tutti i file specificati ogni volta che viene eseguita, che non è efficiente e non è stata compilata per resistere a un errore. Al contrario, creare un'attività per assicurarsi che i file si trovino nel nodo di calcolo; attività che non ricopia i file già presenti. In questo modo, l'attività riprenderà dal punto in cui è stata interrotta.
+In rari casi, un'attività può essere riprovata internamente a causa di errori del nodo di calcolo, ad esempio se non è possibile aggiornare lo stato interno o si verifica un problema nel nodo durante l'esecuzione dell'attività. L'attività verrà riprovata nello stesso nodo di calcolo, se possibile, fino a un limite interno prima che venga abbandonata e rinviata per la ripianificazione di Batch, possibilmente in un nodo di calcolo diverso.
 
-- **Nodi con priorità bassa** Non vi sono differenze di progettazione durante l'esecuzione delle attività su nodi dedicati o con priorità bassa. Se un'attività viene annullata durante l'esecuzione in un nodo con priorità bassa o viene interrotta a causa di un errore in un nodo dedicato, entrambe le situazioni vengono mitigate progettando l'attività in modo da sopportare un errore.
+Non esistono differenze per le attività eseguite in nodi dedicati o con priorità bassa. Sia che un'attività venga interrotta durante l'esecuzione in un nodo con priorità bassa o a causa di un errore in un nodo dedicato, è possibile mitigare gli effetti di entrambe le situazioni progettando l'attività per la tolleranza degli errori.
 
-- **Tempo di esecuzione dell'attività** Evitare le attività con tempo di esecuzione breve. Le attività che vengono eseguite solo da uno a due secondi non sono ideali. È consigliabile provare a eseguire una quantità significativa di lavoro in una singola attività (almeno 10 secondi, fino a ore o giorni). Se ogni attività è in esecuzione per un minuto (o più), il sovraccarico di pianificazione come frazione del tempo di calcolo complessivo è ridotto.
+### <a name="build-durable-tasks"></a>Creare attività permanenti
+
+Le attività dovrebbero essere progettate per tollerare gli errori e supportare la ripetizione di tentativi. Ciò vale soprattutto per le attività a esecuzione prolungata. A tale scopo, assicurarsi che le attività generino lo stesso risultato singolo, anche se vengono eseguite più di una volta. Per ottenere questo risultato, è possibile creare attività finalizzate a un obiettivo. Un altro modo consiste nel verificare che le attività siano idempotenti (le attività avranno lo stesso risultato indipendentemente dal numero di volte in cui vengono eseguite).
+
+Un esempio comune è un'attività per la copia di file in un nodo di calcolo. Sarebbe possibile ad esempio creare un'attività che copia tutti i file specificati ogni volta che viene eseguita, ma questo approccio, pur essendo semplice, non è efficiente e non prevede la tolleranza degli errori. Creare invece un'attività che assicuri che i file si trovino nel nodo di calcolo, ossia un'attività che non ricopi i file già presenti. In questo modo, l'attività riprenderà dal punto in cui è stata interrotta.
+
+### <a name="avoid-short-execution-time"></a>Evitare tempi di esecuzione brevi
+
+Le attività che vengono eseguite solo per uno a due secondi non sono ideali. È consigliabile provare a completare una notevole quantità di operazioni con una singola attività, in almeno 10 secondi oppure in diverse ore o giorni. Se ogni attività è in esecuzione per almeno un minuto, il sovraccarico della pianificazione è minimo rispetto al tempo di calcolo complessivo.
+
 
 ## <a name="nodes"></a>Nodi
 
-- Le **attività di avvio devono essere idempotente** Analogamente ad altre attività, l'attività di avvio del nodo deve essere idempotente, in quanto verrà rieseguita ogni volta che il nodo viene avviato. Un'attività idempotente è semplicemente una che produce un risultato coerente quando viene eseguita più volte.
+Un [nodo di calcolo](nodes-and-pools.md#nodes) è una macchina virtuale (VM) di Azure o del servizio cloud dedicata all'elaborazione di una parte del carico di lavoro dell'applicazione. Per l'uso dei nodi, seguire queste linee guida.
 
-- **Gestire servizi con esecuzione prolungata tramite l'interfaccia dei servizi del sistema operativo.**
-    A volte è necessario eseguire un altro agente insieme all'agente batch nel nodo, ad esempio, per raccogliere i dati dal nodo e segnalarli. Si consiglia di distribuire questi agenti come servizi del sistema operativo, ad esempio un servizio Windows o un `systemd` servizio Linux.
+### <a name="idempotent-start-tasks"></a>Attività di avvio idempotenti
 
-    Quando si eseguono questi servizi, non è necessario che blocchi di file in tutti i file nelle directory gestite da batch nel nodo, perché in caso contrario batch non sarà in grado di eliminare tali directory a causa dei blocchi di file. Ad esempio, se si installa un servizio Windows in un'attività di avvio, anziché avviare il servizio direttamente dalla directory di lavoro di avvio dell'attività, copiare i file in un'altra posizione (se i file esistono semplicemente ignorando la copia). Installare il servizio da tale percorso. Quando batch esegue nuovamente l'attività di avvio, eliminerà la directory di lavoro dell'attività di avvio e la creerà di nuovo. Questa operazione funziona perché il servizio ha blocchi di file nell'altra directory e non nella directory di lavoro dell'attività di avvio.
+Come per le altre attività, l'[attività di avvio](jobs-and-tasks.md#start-task) dovrà essere idempotente, in quanto verrà rieseguita a ogni avvio del nodo. Un'attività idempotente è semplicemente quella che produce un risultato coerente quando viene eseguita più volte.
 
-- **Evitare di creare giunzioni di directory in Windows** Le giunzioni di directory, talvolta denominate collegamenti reali della directory, sono difficili da gestire durante la pulizia dei processi e delle attività. Usare i collegamenti simbolici (collegamenti flessibili) anziché i collegamenti reali.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gestire i servizi a esecuzione prolungata tramite l'interfaccia dei servizi del sistema operativo
 
-- **Raccogliere i log dell'agente batch se si verifica un problema** Se si nota un problema che interessa il comportamento di un nodo o di attività in esecuzione in un nodo, è consigliabile raccogliere i log dell'agente batch prima di deallocare i nodi in questione. I log dell'agente batch possono essere raccolti usando l'API di caricamento dei log del servizio batch. Questi log possono essere forniti come parte di un ticket di supporto a Microsoft e consentono di risolvere i problemi e la risoluzione dei problemi.
+A volte è necessario eseguire un altro agente insieme all'agente di Batch nel nodo. È ad esempio possibile che vengano raccolti i dati dal nodo per segnalarli. È consigliabile distribuire questi agenti come servizi del sistema operativo, ad esempio un servizio Windows o un servizio `systemd` Linux.
 
-## <a name="security"></a>Sicurezza
+Questi servizi, quando vengono eseguiti, non devono applicare blocchi sui file nelle directory del nodo gestite da Batch, perché altrimenti Batch non sarà in grado di eliminare tali directory a causa dei blocchi sui file. Ad esempio, se si installa un servizio Windows in un'attività di avvio, invece di avviare il servizio direttamente dalla directory di lavoro dell'attività di avvio, copiare i file altrove (oppure se i file esistono già ignorare semplicemente la copia). Installare quindi il servizio da tale posizione. Quando Batch riesegue l'attività di avvio, eliminerà la directory di lavoro dell'attività di avvio e la creerà di nuovo. Questo approccio funziona perché il servizio ha applicato blocchi sui file nell'altra directory, non nella directory di lavoro dell'attività di avvio.
 
-### <a name="security-isolation"></a>Isolamento di sicurezza
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Evitare di creare giunzioni di directory in Windows
 
-Per quanto riguarda l'isolamento, se lo scenario richiede l'isolamento dei processi tra loro, è necessario isolare questi processi in pool separati. Un pool è il limite di isolamento di sicurezza in batch e, per impostazione predefinita, due pool non sono visibili o sono in grado di comunicare tra loro. Evitare di usare account batch distinti come mezzo di isolamento.
+Le giunzioni di directory, talvolta denominate collegamenti reali di directory, sono difficili da gestire durante la pulizia di processi e attività. Usare i collegamenti simbolici (collegamenti temporanei) anziché i collegamenti reali.
 
-## <a name="moving"></a>Movimento
+### <a name="collect-the-batch-agent-logs"></a>Raccogliere i log dell'agente di Batch
 
-### <a name="move-batch-account-across-regions"></a>Spostare l'account batch tra le aree
+Se si nota un problema che interessa il comportamento di un nodo o di attività in esecuzione al suo interno, raccogliere i log dell'agente di Batch prima di deallocare i nodi in questione. I log dell'agente di Batch possono essere raccolti usando l'API Carica log del servizio Batch. Questi log possono essere forniti come parte di un ticket di supporto a Microsoft e facilitano l'individuazione e la risoluzione dei problemi.
 
-Esistono diversi scenari in cui si vuole spostare l'account batch esistente da un'area a un'altra. Ad esempio, è possibile passare a un'altra area nell'ambito della pianificazione del ripristino di emergenza.
+## <a name="isolation-security"></a>Sicurezza dell'isolamento
 
-Non è possibile spostare gli account di Azure Batch da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente dell'account batch.  È quindi possibile organizzare la risorsa in un'altra area esportando l'account batch in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Dopo aver caricato il modello nella nuova area, sarà necessario ricreare i certificati, le pianificazioni dei processi e i pacchetti dell'applicazione. Per eseguire il commit delle modifiche e completare lo spostamento dell'account batch, ricordarsi di eliminare l'account batch originale o il gruppo di risorse.
+Se lo scenario richiede l'isolamento dei processi uno dall'altro, inserirli in pool separati. Un pool rappresenta il limite di isolamento di sicurezza in Batch e, per impostazione predefinita, due pool non sono visibili o sono in grado di comunicare tra loro. Evitare di usare account Batch distinti come mezzo di isolamento.
 
-Per altre informazioni su Gestione risorse e sui modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+## <a name="moving-batch-accounts-across-regions"></a>Spostamento di account Batch tra aree
 
-## <a name="connectivity-to-the-batch-service"></a>Connettività al servizio batch
+In alcuni scenari può risultare utile spostare un account Batch da un'area a un'altra. Ad esempio, è possibile scegliere lo spostamento in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Gruppi di sicurezza di rete (gruppi) e route definite dall'utente (UDR)
+Non è possibile spostare direttamente gli account Azure Batch da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente dell'account Batch. È quindi possibile spostare la risorsa in un'altra area di staging esportando l'account Batch in un modello, modificando i parametri in base all'area di destinazione e quindi distribuendo il modello nella nuova area.
 
-Quando si esegue il provisioning di [pool di batch in una rete virtuale](batch-virtual-network.md), assicurarsi di seguire attentamente le linee guida relative `BatchNodeManagement` all'uso del tag di servizio, delle porte, dei protocolli e della direzione della regola.
-L'uso del tag di servizio è consigliato e non gli indirizzi IP del servizio batch sottostanti, perché possono cambiare nel tempo. L'uso diretto degli indirizzi IP del servizio batch può essere manifesto come instabilità, interruzioni o interruzioni per i pool di batch, perché il servizio batch Aggiorna gli indirizzi IP usati nel tempo. Se attualmente si usano indirizzi IP del servizio batch nelle regole NSG, è consigliabile passare all'uso del tag service.
+Dopo aver caricato il modello nella nuova area, sarà necessario ricreare i certificati, le pianificazioni dei processi e i pacchetti dell'applicazione. Per eseguire il commit delle modifiche e completare lo spostamento dell'account Batch, assicurarsi di eliminare l'account Batch o il gruppo di risorse originale.
 
-Per le route definite dall'utente, assicurarsi di disporre di un processo per aggiornare periodicamente gli indirizzi IP del servizio batch nella tabella di route, in quanto tali modifiche nel tempo. Per informazioni su come ottenere l'elenco degli indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio batch verranno associati al tag `BatchNodeManagement` di servizio (o alla variante regionale corrispondente all'area dell'account batch).
+Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-### <a name="honoring-dns"></a>Rispettare DNS
+## <a name="connectivity"></a>Connettività
 
-Assicurarsi che i sistemi rispettino la durata (TTL) DNS per l'URL del servizio account batch. Inoltre, assicurarsi che i client del servizio batch e altri meccanismi di connettività per il servizio batch non si basino sugli indirizzi IP.
+Considerare le indicazioni seguenti per la connettività delle soluzioni Batch.
 
-Se le richieste ricevono risposte HTTP di livello 5xx ed è presente un'intestazione "Connection: Close" nella risposta, il client del servizio batch deve osservare la raccomandazione chiudendo la connessione esistente, ririsolvendo il DNS per l'URL del servizio account batch e tentando di eseguire le richieste seguenti su una nuova connessione.
+### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Gruppi di sicurezza di rete (NSG) e route definite dall'utente
+
+Quando si effettua il provisioning di [pool di Batch in una rete virtuale](batch-virtual-network.md), assicurarsi di seguire attentamente le linee guida relative all'uso del tag di servizio `BatchNodeManagement`, delle porte, dei protocolli e della direzione della regola.
+L'uso del tag di servizio è altamente consigliato al posto degli indirizzi IP sottostanti del servizio Batch. Il motivo è che gli indirizzi IP possono cambiare nel corso del tempo. L'uso diretto degli indirizzi IP del servizio Batch può generare instabilità, interruzioni o disservizi per i pool di Batch.
+
+Per le route definite dall'utente, assicurarsi di implementare un processo per aggiornare periodicamente gli indirizzi IP del servizio Batch nella tabella di route, perché questi indirizzi cambiano nel corso del tempo. Per informazioni su come ottenere l'elenco degli indirizzi IP del servizio Batch, vedere [Tag del servizio in locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio Batch verranno associati al tag del servizio `BatchNodeManagement` (o alla variante locale corrispondente all'area dell'account Batch).
+
+### <a name="honoring-dns"></a>Rispettare il DNS
+
+Assicurarsi che i sistemi rispettino la durata (TTL) DNS per l'URL del servizio dell'account Batch. Assicurarsi inoltre che i client del servizio Batch e altri meccanismi di connettività con il servizio Batch non si basino su indirizzi IP.
+
+Se le richieste ricevono risposte HTTP di livello 5xx in cui è presente un'intestazione "Connection: close", il client del servizio Batch deve rispettare la raccomandazione chiudendo la connessione esistente, risolvendo di nuovo il DNS per l'URL del servizio dell'account Batch e provando a eseguire le richieste successive su una nuova connessione.
 
 ### <a name="retrying-requests-automatically"></a>Ripetizione automatica delle richieste
 
-Assicurarsi che i client del servizio batch dispongano di criteri di ripetizione appropriati per ripetere automaticamente le richieste, anche durante il normale funzionamento e non esclusivamente durante i periodi di tempo di manutenzione del servizio. Questi criteri di ripetizione devono estendersi a un intervallo di almeno 5 minuti. Le funzionalità di ripetizione automatica dei tentativi sono fornite con vari SDK di batch, ad esempio la [classe RetryPolicyProvider di .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Assicurarsi che per i client del servizio Batch siano implementati criteri appropriati di ripetizione dei tentativi per riprovare automaticamente le richieste, anche durante il normale funzionamento e non esclusivamente durante i periodi di manutenzione del servizio. Questi criteri di ripetizione dei tentativi devono estendersi in un intervallo di almeno 5 minuti. Le funzionalità di ripetizione automatica dei tentativi sono fornite da vari SDK di Batch, ad esempio la [classe .NET RetryPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Dipendenze sottostanti dei nodi di Batch
+
+Quando si progettano le soluzioni Batch, tenere presenti le dipendenze e le restrizioni seguenti.
+
+### <a name="system-created-resources"></a>Risorse create dal sistema
+
+Azure Batch Crea e gestisce una serie di utenti e gruppi nella VM, che non dovranno essere modificati. Ecco quali sono:
+
+#### <a name="windows"></a>Windows
+
+- Un utente denominato **PoolNonAdmin**
+- Un gruppo di utenti denominato **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- Un utente denominato **_azbatch**
+
+### <a name="file-cleanup"></a>Pulizia dei file
+
+Batch prova attivamente a pulire la directory di lavoro in cui vengono eseguite le attività, al termine del periodo di conservazione. La pulizia di tutti i file scritti al di fuori di questa directory è [responsabilità dell'utente](#manage-task-lifetime), per evitare di riempire spazio su disco. 
+
+La pulizia automatizzata per la directory di lavoro verrà bloccata se si esegue un servizio in Windows dalla directory di lavoro startTask, perché la cartella è ancora in uso. Questo comporterà una riduzione delle prestazioni. Per risolvere il problema, specificare per tale servizio una directory diversa non gestita da Batch.

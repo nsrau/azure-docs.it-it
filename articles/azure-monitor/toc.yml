@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -114,6 +114,8 @@
         - name: Tempo di inserimento dati di log
           displayname: latency
           href: platform/data-ingestion-time.md
+        - name: Trasmettere dati in Hub eventi
+          href: platform/stream-monitoring-data-event-hubs.md
     - name: Informazioni dettagliate
       href: insights/insights-overview.md
     - name: Sicurezza dei dati
@@ -299,36 +301,12 @@
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/platform-logs-overview.md
         - name: Log attività
-          items:
-            - name: Visualizzare nel portale di Azure
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-view.md
-            - name: Raccogliere e analizzare
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-collect.md
-            - name: Esportare (legacy)
-              displayname: Activity log
-              href: platform/activity-log-export.md
-        - name: Inviare all'area di lavoro Log Analytics
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-workspace.md
-        - name: Inviare ad Archiviazione di Azure
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-storage.md
-        - name: Inviare dati a Hub eventi
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-stream-event-hubs.md
-        - name: Creare l'impostazione di diagnostica
+          href: platform/activity-log.md
+        - name: Log risorse
+          href: platform/resource-logs.md
+        - name: Impostazioni di diagnostica
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/diagnostic-settings.md
-        - name: Creare l'impostazione di diagnostica con Resource Manager
-          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings-template.md
-        - name: Passare al formato di archiviazione BLOB
-          displayname: Diagnostic settings
-          href: platform/resource-logs-blob-format.md
-        - name: Trasmettere dati in Hub eventi
-          href: platform/stream-monitoring-data-event-hubs.md
     - name: Log Analytics
       items:
         - name: Panoramica delle query su log
@@ -1015,6 +993,8 @@
           href: insights/storage-insights-overview.md
         - name: Gruppi di risorse
           href: insights/resource-group-insights.md
+        - name: Risolvere i problemi relativi ai dati analitici
+          href: insights/troubleshoot-workbooks.md
     - name: Soluzioni
       items:
         - name: Panoramica
@@ -1185,12 +1165,12 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Log della piattaforma
       items:
-        - name: Categorie e tipi di log delle risorse supportati
-          href: platform/resource-logs-categories.md
-        - name: Schemi del log delle risorse
-          href: platform/resource-logs-schema.md
         - name: Schema del log attività
           href: platform/activity-log-schema.md
+        - name: Schemi del log delle risorse
+          href: platform/resource-logs-schema.md
+        - name: Categorie di log delle risorse supportate
+          href: platform/resource-logs-categories.md
     - name: Schemi dell'estensione di diagnostica
       items:
         - name: Estensione di diagnostica Windows
@@ -1277,6 +1257,9 @@
           href: platform/oms-portal-transition.md
         - name: Deprecazione delle metriche del disco
           href: platform/portal-disk-metrics-deprecation.md
+        - name: Passare al formato di archiviazione BLOB
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

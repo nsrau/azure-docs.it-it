@@ -1,23 +1,23 @@
 ---
-title: Domande frequenti sulla API Tabella in Azure Cosmos DB
-description: Risposte alle domande frequenti sulla API Tabella in Azure Cosmos DB
+title: Domande frequenti sull'API Tabella in Azure Cosmos DB
+description: Ottenere risposte alle domande frequenti sull'API Tabella in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 981c6f145f0bf06fbe81234d473b9fbcd2235174
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614486"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836227"
 ---
-# <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Domande frequenti sulla API Tabella in Azure Cosmos DB
+# <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Domande frequenti sull'API Tabella in Azure Cosmos DB
 
-Il Azure Cosmos DB API Tabella è disponibile nella [portale di Azure](https://portal.azure.com) prima di tutto è necessario iscriversi per una sottoscrizione di Azure. Dopo aver effettuato l'iscrizione, è possibile aggiungere un account API Table di Azure Cosmos DB alla sottoscrizione di Azure e quindi aggiungere tabelle all'account. Per informazioni sui linguaggi supportati e sulle guide introduttive associate, vedere [Introduzione all'API Tabelle di Azure Cosmos DB](table-introduction.md).
+L'API Tabella di Azure Cosmos DB è disponibile nel [portale di Azure](https://portal.azure.com). Prima di tutto è necessario iscriversi per una sottoscrizione di Azure. Dopo aver effettuato l'iscrizione, è possibile aggiungere un account API Table di Azure Cosmos DB alla sottoscrizione di Azure e quindi aggiungere tabelle all'account. Per informazioni sui linguaggi supportati e sulle guide introduttive associate, vedere [Introduzione all'API Tabelle di Azure Cosmos DB](table-introduction.md).
 
-## <a name="table-api-in-azure-cosmos-db-vs-azure-table-storage"></a><a id="table-api-vs-table-storage"></a>API Tabella nell'archiviazione tabelle di Azure Azure Cosmos DB rispetto a
+## <a name="table-api-in-azure-cosmos-db-vs-azure-table-storage"></a><a id="table-api-vs-table-storage"></a>API Tabella di Azure Cosmos DB e Archiviazione tabelle di Azure a confronto
 
 ### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>Quali sono le differenze tra il comportamento dell'API Tabelle e quello dell'archiviazione tabelle di Azure?
 
@@ -25,19 +25,19 @@ Esistono alcune differenze a livello di comportamento che gli utenti di archivia
 
 * L'API Tabelle di Azure Cosmos DB usa un modello di capacità riservata per assicurare prestazioni garantite, ma ciò comporta il pagamento della capacità non appena viene creata la tabella, anche se la capacità non viene usata. Archiviazione tabelle di Azure prevede solo il pagamento della capacità effettivamente usata. Questo è il motivo per cui l'API Tabella può offrire un contratto di servizio con 10 ms di lettura e 15 ms di scrittura al 99° percentile, mentre Archiviazione tabelle di Azure offre un contratto di servizio con 10 secondi. Con l'API Tabelle, tuttavia, sono previsti costi anche per le tabelle vuote senza richieste, in modo da assicurare che sia disponibile la capacità per la gestione di eventuali richieste in base al contratto di servizio offerto da Azure Cosmos DB.
 
-* I risultati della query restituiti dal API Tabella non sono ordinati in base all'ordine delle chiavi di partizione/chiavi di riga così come sono nell'archivio tabelle di Azure.
+* I risultati delle query restituiti dall'API Tabella non vengono ordinati in base a chiave di partizione/chiave di riga, come avviene in Archiviazione tabelle di Azure.
 
-* Le chiavi di riga possono contenere solo fino a 255 byte.
+* Le chiavi di riga possono avere una dimensione massima di 255 byte.
 
-* I batch possono avere solo fino a 2 MB.
+* I batch possono avere una dimensione massima di 2 MB.
 
-* CORS attualmente non è supportato.
+* CORS non è attualmente supportato.
 
-* I nomi di tabella nell'archiviazione tabelle di Azure non fanno distinzione tra maiuscole e minuscole, ma sono in Azure Cosmos DB API Tabella.
+* I nomi di tabella in Archiviazione tabelle di Azure non rispettano la distinzione tra maiuscole e minuscole, ma tale distinzione viene rispettata nell'API Tabella di Azure Cosmos DB.
 
 * Alcuni dei formati interni di Azure Cosmos DB per le informazioni di codifica, ad esempio i campi binari, non offrono attualmente l'efficienza auspicabile. Di conseguenza questo può causare limitazioni impreviste per le dimensioni dei dati. Ad esempio, attualmente non è possibile usare l'intero MB di un'entità tabella per archiviare i dati binari, perché la codifica incrementa le dimensioni dei dati.
 
-* Il nome della proprietà dell'entità' ID ' non è attualmente supportato.
+* Il nome della proprietà dell'entità "ID" non è attualmente supportato.
 
 * TableQuery TakeCount non è limitato a 1000.
 
@@ -50,7 +50,7 @@ Esistono alcune differenze a livello di comportamento che gli utenti di archivia
   | GET | `/?restype=service@comp=stats` | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) (Operazione Get Table Service Stats) | Fornisce informazioni sulla velocità con cui i dati vengono replicati tra il server primario e i server secondari. Non è necessario in Cosmos DB perché la replica fa parte delle operazioni di scrittura. |
   | GET, PUT | `/mytable?comp=acl` | [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) (Operazione Get Table ACL) e [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) (Operazione Set Table ACL) | Ottiene e configura i criteri di accesso archiviati usati per gestire le firme di accesso condiviso. Anche se la firma di accesso condiviso è supportata, viene configurata e gestita in modo diverso. |
 
-* Azure Cosmos DB API Tabella supporta solo il formato JSON, non ATOM.
+* L'API Tabella di Azure Cosmos DB supporta solo il formato JSON, non ATOM.
 
 * Nonostante Azure Cosmos DB supporti le firme di accesso condiviso, non supporta alcuni criteri, in particolare i criteri correlati alle operazioni di gestione, ad esempio il diritto di creare nuove tabelle.
 
@@ -89,7 +89,7 @@ Alcune impostazioni vengono gestite nel metodo CreateCloudTableClient e altre tr
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Sono stati introdotti cambiamenti per i clienti che usano gli SDK di archiviazione tabelle di Azure?
 
-Nessuno. Non è stato introdotto alcun cambiamento per i clienti nuovi o esistenti che usano gli SDK di archiviazione tabelle di Azure esistenti.
+No. Non è stato introdotto alcun cambiamento per i clienti nuovi o esistenti che usano gli SDK di archiviazione tabelle di Azure esistenti.
 
 ### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Come si visualizzano i dati di tabella archiviati in Azure Cosmos DB da usare con l'API Tabella?
 
@@ -143,7 +143,7 @@ No. È possibile creare e usare asset di archiviazione tabelle di Azure esistent
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-more-than-one-region-of-azure"></a>Come si aggiunge la replica dei dati nell'API Tabella in più aree di Azure?
 
-Per aggiungere aree adatte all'applicazione, è possibile usare le [impostazioni di replica globali](tutorial-global-distribution-sql-api.md#portal) del portale Azure Cosmos DB. Per sviluppare un'applicazione distribuita a livello globale, è consigliabile anche aggiungere l'applicazione con il valore di PreferredLocation impostato sull'area locale, per garantire una bassa latenza di lettura.
+È possibile usare le [impostazioni di replica globale](tutorial-global-distribution-sql-api.md#portal) del portale di Azure Cosmos DB per aggiungere le aree idonee per l'applicazione. Per sviluppare un'applicazione distribuita a livello globale, è consigliabile anche aggiungere l'applicazione con il valore di PreferredLocation impostato sull'area locale, per garantire una bassa latenza di lettura.
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Come si modifica l'area di scrittura primaria per l'account nell'API Tabelle?
 
@@ -167,7 +167,7 @@ Sì. Per informazioni su come trarre vantaggio dalla natura distribuita di Azure
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Quando è abilitata la distribuzione globale, quanto tempo è necessario per replicare i dati?
 
-Azure Cosmos DB esegue il commit permanente dei dati nell'area locale e ne effettua immediatamente il push in altre aree, nell'arco di millisecondi. Questa replica dipende solo dal tempo di round trip del data center. Per altre informazioni sulla funzionalità di distribuzione globale di Azure Cosmos DB, vedere l'articolo relativo ad [Azure Cosmos DB come servizio di database distribuito a livello globale in Azure](distribute-data-globally.md).
+Azure Cosmos DB esegue il commit permanente dei dati nell'area locale e ne effettua immediatamente il push in altre aree, nell'arco di millisecondi. Questa replica dipende solo dal tempo di round trip del data center. Per altre informazioni sulla funzionalità di distribuzione globale di Azure Cosmos DB, vedere [Informazioni sulla distribuzione globale con Azure Cosmos DB](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>È possibile modificare il livello di coerenza delle richieste di lettura?
 
@@ -185,11 +185,11 @@ Sì, l'API Tabelle sfrutta i vantaggi della piattaforma di Azure Cosmos DB per i
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>L'API Tabelle indicizza tutti gli attributi di un'entità per impostazione predefinita?
 
-Sì. Per impostazione predefinita vengono indicizzati tutti gli attributi di un'entità. Per ulteriori informazioni, vedere [Azure Cosmos DB: criteri di indicizzazione](index-policy.md).
+Sì. Per impostazione predefinita vengono indicizzati tutti gli attributi di un'entità. Per altre informazioni, vedere [Criteri di indicizzazione in Azure Cosmos DB](index-policy.md).
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Questo significa che non è necessario creare più di un indice per soddisfare le query?
 
-Sì. L'API Tabelle di Azure Cosmos DB offre l'indicizzazione automatica di tutti gli attributi senza definizione di schema. Questa automazione consente agli sviluppatori di concentrarsi sull'applicazione anziché sulla creazione e sulla gestione degli indici. Per ulteriori informazioni, vedere [Azure Cosmos DB: criteri di indicizzazione](index-policy.md).
+Sì. L'API Tabelle di Azure Cosmos DB offre l'indicizzazione automatica di tutti gli attributi senza definizione di schema. Questa automazione consente agli sviluppatori di concentrarsi sull'applicazione anziché sulla creazione e sulla gestione degli indici. Per altre informazioni, vedere [Criteri di indicizzazione in Azure Cosmos DB](index-policy.md).
 
 ### <a name="can-i-change-the-indexing-policy"></a>È possibile modificare i criteri di indicizzazione?
 
@@ -238,7 +238,7 @@ L'API Tabelle offre le stesse funzionalità di query dell'archiviazione tabelle 
 È consigliabile modificare TableThroughput quando si verifica una delle condizioni seguenti:
 
 * Si esegue un'operazione di estrazione, trasformazione e caricamento (ETL) di dati o si vuole caricare una grande quantità di dati in breve tempo.
-* È necessaria maggiore velocità effettiva del contenitore o di un set di contenitori nel back-end. Ad esempio, si rileva che la velocità effettiva usata è superiore alla velocità effettiva di cui è stato effettuato il provisioning e viene applicata la limitazione. Per altre informazioni, vedere [impostare la velocità effettiva per i contenitori di Azure Cosmos](set-throughput.md).
+* È necessaria maggiore velocità effettiva del contenitore o di un set di contenitori nel back-end. Ad esempio, si rileva che la velocità effettiva usata è superiore alla velocità effettiva di cui è stato effettuato il provisioning e viene applicata la limitazione. Per altre informazioni, vedere [Impostare la velocità effettiva per i contenitori di Azure Cosmos](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>È possibile aumentare o ridurre la velocità effettiva di una tabella dell'API Tabelle?
 
@@ -250,7 +250,7 @@ Sì. Se non si sostituisce il valore di TableThroughput in app.config e non si u
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>I prezzi per i clienti esistenti del servizio archiviazione tabelle di Azure sono cambiati?
 
-Nessuno. Il prezzo per i clienti esistenti di Archiviazione tabelle di Azure non è cambiato.
+No. Il prezzo per i clienti esistenti di Archiviazione tabelle di Azure non è cambiato.
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Come viene calcolato il prezzo per l'API Tabelle?
 
@@ -293,8 +293,8 @@ Azure Cosmos DB è un sistema basato su contratti di servizio che offre garanzie
 È possibile condividere commenti e suggerimenti in uno dei modi seguenti:
 
 * [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow è ideale per domande relative alla programmazione. Assicurarsi che la domanda sia [pertinente](https://stackoverflow.com/help/on-topic) e [specificare il numero massimo possibile di dettagli, in modo che la domanda sia chiara e sia possibile fornire una risposta](https://stackoverflow.com/help/how-to-ask).
+* [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow è ideale per domande relative alla programmazione. Assicurarsi che la domanda sia [pertinente](https://stackoverflow.com/help/on-topic) e [specificare il numero massimo possibile di dettagli, in modo che la domanda sia chiara e sia possibile fornire una risposta](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

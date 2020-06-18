@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259171"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649228"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -52,7 +52,7 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e si riabilita l'accesso git. I valori denominati forniscono una posizione sicura per gestire i valori stringa costanti, inclusi i segreti, in tutti i criteri e la configurazione dell'API, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni vedere [Come usare i valori denominati nei criteri di Gestione API di Azure](api-management-howto-properties.md).
+> Eventuali segreti non definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia di questo finché non si disabilita e riabilita l'accesso a Git. I valori denominati rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazioni e tutti i criteri per le API. Non è quindi necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni vedere [Come usare i valori denominati nei criteri di Gestione API di Azure](api-management-howto-properties.md).
 >
 >
 
@@ -148,7 +148,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Item | Descrizione |
+| Elemento | Descrizione |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |
@@ -173,8 +173,8 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 > Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
 >
 > * [Utenti](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Abbonamenti](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Valori denominati](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * [Sottoscrizioni](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * Valori denominati
 > * Entità del portale per sviluppatori diverse dagli stili
 >
 

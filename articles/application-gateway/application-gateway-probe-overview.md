@@ -1,18 +1,18 @@
 ---
 title: Panoramica del monitoraggio dell'integrità per il gateway applicazione di Azure
-description: Applicazione Azure gateway esegue il monitoraggio dello stato di tutte le risorse nel pool back-end e rimuove automaticamente tutte le risorse considerate non integre dal pool.
+description: Il gateway applicazione di Azure monitora l'integrità di tutte le risorse nel pool back-end e rimuove automaticamente dal pool le risorse considerate non integre.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335851"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648400"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -20,8 +20,8 @@ Per impostazione predefinita, il gateway applicazione di Azure monitora l'integr
 
 Il gateway applicazione dell'indirizzo IP di origine usato per i probe di integrità dipende dal pool back-end:
  
-- Se il pool back-end è un endpoint pubblico, l'indirizzo di origine è l'indirizzo IP pubblico front-end del gateway applicazione.
-- Se il pool back-end è un endpoint privato, l'indirizzo IP di origine viene dallo spazio di indirizzi IP privato della subnet del gateway applicazione.
+- Se il pool back-end è un endpoint pubblico, l'indirizzo di origine corrisponde all'indirizzo IP pubblico front-end del gateway applicazione.
+- Se il pool back-end è un endpoint privato, l'indirizzo IP di origine deriva dallo spazio di indirizzi IP privato della subnet del gateway applicazione.
 
 
 ![Esempio di probe del gateway applicazione][1]
@@ -34,18 +34,18 @@ Oltre al monitoraggio del probe di integrità predefinito, è anche possibile pe
 
 Un gateway applicazione configura automaticamente un probe di integrità predefinito quando non si configura nessuna configurazione di probe personalizzato. Il comportamento del monitoraggio prevede l'invio di una richiesta HTTP agli indirizzi IP configurati per il pool back-end. Per i probe predefiniti, se le impostazioni HTTP del back-end vengono configurate per HTTPS, il probe usa HTTPS anche per testare l'integrità dei back-end.
 
-Ad esempio, si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
+Ad esempio: si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
 
-Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server viene nuovamente riavviato.
+Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server riprenderà.
 
 ### <a name="probe-matching"></a>Criteri di corrispondenza dei probe
 
-Per impostazione predefinita, una risposta HTTP (S) con codice di stato compreso tra 200 e 399 viene considerata integra. I probe di integrità personalizzati supportano anche due criteri di corrispondenza. I criteri di corrispondenza possono essere usati per modificare facoltativamente l'interpretazione predefinita di ciò che rende una risposta integro.
+Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. I probe di integrità personalizzati supportano anche due criteri di corrispondenza. Questi criteri possono essere usati per modificare l'interpretazione predefinita di ciò che costituisce una risposta integra.
 
 I criteri di corrispondenza sono i seguenti: 
 
 - **Corrispondenza del codice di stato della risposta HTTP**: il criterio adottato da un probe per accettare il codice di risposta o l'intervallo di codici di risposta HTTP specificato dall'utente. Sono supportati singoli codici di stato della risposta, delimitati da virgole, o un intervallo di codici di stato.
-- **Corrispondenza del corpo della risposta HTTP**: il criterio adottato dal probe in base al quale viene esaminato il corpo della risposta HTTP e viene stabilita una corrispondenza con una stringa specificata dall'utente. La corrispondenza Cerca solo la presenza della stringa specificata dall'utente nel corpo della risposta e non è una corrispondenza di espressione regolare completa.
+- **Corrispondenza del corpo della risposta HTTP**: il criterio adottato dal probe in base al quale viene esaminato il corpo della risposta HTTP e viene stabilita una corrispondenza con una stringa specificata dall'utente. La corrispondenza verifica solo la presenza della stringa specificata dall'utente nel corpo della risposta e non è una corrispondenza completa basata su espressione regolare.
 
 I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
@@ -64,12 +64,12 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 | URL probe |http://127.0.0.1:\<port\>/ |Percorso URL |
 | Interval |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
 | Timeout |30 |Il tempo in secondi che un gateway applicazione trascorre in attesa di una risposta del probe prima di contrassegnare il probe come non integro. Se un probe viene restituito come integro, il back-end corrispondente viene subito contrassegnato anch'esso come tale.|
-| Soglia non integra |3 |Determina il numero di probe da inviare in caso di errore del probe di integrità normale. Questi probe di integrità aggiuntivi vengono inviati in rapida successione per determinare rapidamente l'integrità del back-end e non attendere l'intervallo di probe. Questo Behaivor è solo lo SKU V1. Nel caso dello SKU V2, i probe di integrità attendono l'intervallo. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
+| Soglia non integra |3 |Determina quanti probe inviare in caso di errore del probe di integrità normale. Questi probe di integrità aggiuntivi vengono inviati in rapida successione per determinare velocemente l'integrità del back-end e non attendono l'intervallo di probe. Questo comportamento interessa solo gli SKU versione 1. In caso di SKU versione 2, i probe di integrità attendono l'intervallo. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 > [!NOTE]
 > La porta è la stessa delle impostazioni HTTP del back-end.
 
-Il probe predefinito Cerca solo in http\/:/127.0.0.1\<:\> Port per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati.
+Il probe predefinito esamina solo http:\///127.0.0.1:\<porta\> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati. Per altre informazioni sui probe HTTP, vedere [Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Intervalli probe
 
@@ -101,9 +101,9 @@ La tabella seguente fornisce le definizioni delle proprietà di un probe di inte
 
 ## <a name="nsg-considerations"></a>Considerazioni sui gruppi di sicurezza di rete
 
-È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione **V1 e le** porte TCP 65200-65535 per lo SKU V2 con la subnet di destinazione come tag del servizio **GatewayManager** e di origine. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure.
+È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione v1 e sulle porte TCP 65200-65535 per lo SKU v2 con la subnet di destinazione impostata su **Qualsiasi** e l'origine impostata sul tag di servizio **GatewayManager**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure.
 
-Inoltre, la connettività Internet in uscita non può essere bloccata ed è necessario consentire il traffico in ingresso proveniente dal tag **AzureLoadBalancer** .
+Non è possibile neanche bloccare la connettività Internet in uscita ed è necessario autorizzare il traffico in ingresso proveniente dal tag **AzureLoadBalancer**.
 
 Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 

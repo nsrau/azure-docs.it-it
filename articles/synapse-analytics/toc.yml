@@ -12,7 +12,7 @@
       href: overview-faq.md
     - name: Note sulla versione
       href: release-notes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare un'area di lavoro di Azure Synapse
       href: quickstart-create-workspace.md
@@ -222,7 +222,7 @@
               href: sql/on-demand-workspace-overview.md
             - name: Pool SQL
               href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Architecture
+            - name: Architettura
               href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Panoramica delle funzionalità
               href: sql/overview-features.md
@@ -426,6 +426,8 @@
               href: data-integration/data-integration-data-lake.md
     - name: Trasformazione e analisi dei dati
       items:
+        - name: Analizzare matrici e strutture annidate
+          href: how-to-analyze-complex-schema.md
         - name: Collegamento a Synapse
           items:
             - name: Configurare Collegamento a Synapse

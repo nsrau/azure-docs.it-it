@@ -3,50 +3,50 @@ title: Automatizzare Azure Application Insights con PowerShell | Microsoft Docs
 description: Automatizzare la creazione e la gestione di risorse, avvisi e test di disponibilità in PowerShell usando un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780488"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697915"
 ---
-#  <a name="manage-application-insights-resources-using-powershell"></a>Gestire Application Insights risorse con PowerShell
+#  <a name="manage-application-insights-resources-using-powershell"></a>Gestire risorse Application Insights con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-L'articolo descrive come automatizzare la creazione e l'aggiornamento di risorse di [Application Insights](../../azure-monitor/app/app-insights-overview.md) usando Azure Resource Manager. Questo procedimento potrebbe, ad esempio, essere utilizzato come parte di un processo di compilazione. Insieme alla risorsa di base di Application Insights, è possibile creare [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md), configurare [avvisi](../../azure-monitor/app/alerts.md), impostare lo [schema dei prezzi](pricing.md) e creare altre risorse di Azure.
+L'articolo descrive come automatizzare la creazione e l'aggiornamento di risorse di [Application Insights](../../azure-monitor/app/app-insights-overview.md) usando Azure Resource Manager. Questo procedimento potrebbe, ad esempio, essere utilizzato come parte di un processo di compilazione. Insieme alla risorsa di base di Application Insights, è possibile creare [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md), configurare [avvisi](../../azure-monitor/platform/alerts-log.md), impostare lo [schema dei prezzi](pricing.md) e creare altre risorse di Azure.
 
-La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../../azure-resource-manager/management/manage-resources-powershell.md). La procedura di base è: scaricare le definizioni JSON delle risorse esistenti; parametrizzare determinati valori, ad esempio i nomi; quindi eseguire il modello ogni volta che si vuole creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
+La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../../azure-resource-manager/management/manage-resources-powershell.md). La procedura di base consiste in: scaricare le definizioni JSON delle risorse esistenti; impostare i parametri per determinati valori, come ad esempio nomi; ed eseguire il modello ogni volta che si desidera creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
 
 ## <a name="one-time-setup"></a>Installazione singola
 Se non si è mai usato PowerShell con la sottoscrizione di Azure:
 
-Installare il modulo Azure PowerShell nel computer in cui si desidera eseguire gli script:
+Installare il modulo Azure PowerShell nel computer in cui verranno eseguiti gli script:
 
 1. Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](https://www.microsoft.com/web/downloads/platform.aspx).
-2. Usarlo per installare Microsoft Azure PowerShell.
+2. Usarla per installare Microsoft Azure PowerShell.
 
-Oltre a usare i modelli di Gestione risorse, è disponibile un set completo di [Application Insights cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), che semplificano la configurazione di Application Insights risorse a livello. Le funzionalità abilitate dai cmdlet includono:
+Oltre a usare i modelli di Gestione risorse, è disponibile un set completo di [cmdlet di PowerShell per Application Insights](https://docs.microsoft.com/powershell/module/az.applicationinsights), che semplificano la configurazione a livello di codice delle risorse di Application Insights. Le funzionalità abilitate dai cmdlet includono:
 
-* Creare ed eliminare risorse Application Insights
-* Ottenere gli elenchi di risorse Application Insights e le relative proprietà
-* Creazione e gestione dell'esportazione continua
+* Creare ed eliminare risorse di Application Insights
+* Ottenere gli elenchi di risorse di Application Insights e le relative proprietà
+* Creare e gestire l'esportazione continua
 * Creare e gestire le chiavi delle applicazioni
-* Imposta il limite giornaliero
+* Impostare il limite giornaliero
 * Impostare il piano tariffario
 
-## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Creare risorse di Application Insights usando un cmdlet di PowerShell
+## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Creazione di risorse Application Insights con un cmdlet di PowerShell
 
-Ecco come creare una nuova risorsa Application Insights nel Data Center degli Stati Uniti orientali di Azure con il cmdlet [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) :
+Di seguito viene illustrato come creare una nuova risorsa di Application Insights nel data center degli Stati Uniti orientali di Azure usando il cmdlet [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights):
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
 ```
 
 
-## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>Creare risorse Application Insights usando un modello di Gestione risorse
+## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>Creare risorse di Application Insights tramite il modello di Resource Manager
 
-Di seguito viene illustrato come creare una nuova risorsa Application Insights usando un modello di Gestione risorse.
+Di seguito viene illustrato come creare una nuova risorsa di Application Insights usando un modello di Gestione risorse.
 
 ### <a name="create-the-azure-resource-manager-template"></a>Creare il modello di Azure Resource Manager
 
@@ -186,11 +186,11 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
     }
 ```
 
-### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Usare il modello di Gestione risorse per creare una nuova risorsa Application Insights
+### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Usare il modello di Resource Manager per creare una nuova risorsa di Application Insights
 
-1. In PowerShell accedere ad Azure usando`$Connect-AzAccount`
-2. Impostare il contesto su una sottoscrizione con`Set-AzContext "<subscription ID>"`
-2. Eseguire una nuova distribuzione per creare una nuova risorsa Application Insights:
+1. In PowerShell accedere ad Azure usando `$Connect-AzAccount`
+2. Impostare il contesto su una sottoscrizione con `Set-AzContext "<subscription ID>"`
+2. Eseguire una nuova distribuzione per creare una nuova risorsa di Application Insights:
    
     ```PS
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
@@ -215,7 +215,7 @@ Dopo la creazione di una risorsa applicazione, è necessaria la chiave di strume
 4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
 5. `$details.Properties.InstrumentationKey`
 
-Per visualizzare un elenco di molte altre proprietà della risorsa Application Insights, usare:
+Per visualizzare un elenco di molte altre proprietà della risorsa di Application Insights, usare:
 
 ```PS
 Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
@@ -227,15 +227,15 @@ Ulteriori proprietà sono disponibili tramite i cmdlet:
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-Vedere la [documentazione dettagliata](https://docs.microsoft.com/powershell/module/az.applicationinsights) per i parametri per questi cmdlet.  
+Per i parametri di questi cmdlet, fare riferimento alla [documentazione dettagliata](https://docs.microsoft.com/powershell/module/az.applicationinsights).  
 
 ## <a name="set-the-data-retention"></a>Impostare la conservazione dei dati
 
-Di seguito sono riportati tre metodi per impostare a livello di codice la conservazione dei dati in una risorsa Application Insights.
+Di seguito sono riportati tre metodi per impostare a livello di codice la conservazione dei dati in una risorsa di Application Insights.
 
-### <a name="setting-data-retention-using-a-powershell-commands"></a>Impostazione della conservazione dei dati mediante i comandi di PowerShell
+### <a name="setting-data-retention-using-a-powershell-commands"></a>Impostare la conservazione dei dati usando i comandi di PowerShell
 
-Ecco un semplice set di comandi di PowerShell per impostare la conservazione dei dati per la risorsa Application Insights:
+Ecco un semplice set di comandi di PowerShell per impostare la conservazione dei dati per la risorsa di Application Insights:
 
 ```PS
 $Resource = Get-AzResource -ResourceType Microsoft.Insights/components -ResourceGroupName MyResourceGroupName -ResourceName MyResourceName
@@ -243,9 +243,9 @@ $Resource.Properties.RetentionInDays = 365
 $Resource | Set-AzResource -Force
 ```
 
-### <a name="setting-data-retention-using-rest"></a>Impostazione della conservazione dei dati tramite REST
+### <a name="setting-data-retention-using-rest"></a>Impostare la conservazione dei dati tramite REST
 
-Per ottenere la conservazione dei dati corrente per la risorsa di Application Insights, è possibile usare lo strumento OSS [ARMClient](https://github.com/projectkudu/ARMClient).  Per altre informazioni su ARMClient, vedere gli articoli di [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Di seguito è riportato un `ARMClient`esempio di utilizzo di per ottenere la conservazione corrente:
+Per ottenere la conservazione dei dati corrente per la risorsa di Application Insights, è possibile usare lo strumento OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Per altre informazioni su ARMClient, vedere gli articoli di [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Di seguito è riportato un esempio di uso di `ARMClient`per ottenere la conservazione corrente:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -257,7 +257,7 @@ Per impostare la conservazione, il comando è un PUT simile:
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
 ```
 
-Per impostare la conservazione dei dati su 365 giorni utilizzando il modello precedente, eseguire:
+Per impostare la conservazione dei dati su 365 giorni usando il modello precedente, eseguire:
 
 ```PS
 New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -266,9 +266,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -appName myApp
 ```
 
-### <a name="setting-data-retention-using-a-powershell-script"></a>Impostazione della conservazione dei dati tramite uno script di PowerShell
+### <a name="setting-data-retention-using-a-powershell-script"></a>Impostare la conservazione dei dati usando lo script di PowerShell
 
-Lo script seguente può essere usato anche per modificare la conservazione. Copiare questo script per salvare con `Set-ApplicationInsightsRetention.ps1`nome.
+Lo script seguente può essere usato anche per modificare la conservazione. Copiare questo script per salvarlo come `Set-ApplicationInsightsRetention.ps1`.
 
 ```PS
 Param(
@@ -328,29 +328,29 @@ Set-ApplicationInsightsRetention `
         [-RetentionInDays <Int>]
 ```
 
-## <a name="set-the-daily-cap"></a>Imposta il limite giornaliero
+## <a name="set-the-daily-cap"></a>Impostare il limite giornaliero
 
-Per ottenere le proprietà del limite giornaliero, usare il cmdlet [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) : 
+Per ottenere le proprietà del limite giornaliero, usare il cmdlet [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan): 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Per impostare le proprietà del limite giornaliero, utilizzare lo stesso cmdlet. Ad esempio, per impostare il limite di 300 GB al giorno,
+Per impostare le proprietà del limite giornaliero, usare lo stesso cmdlet. Ad esempio, per impostare il limite di 300 GB al giorno,
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
-È anche possibile usare [ARMClient](https://github.com/projectkudu/ARMClient) per ottenere e impostare parametri limite giornalieri.  Per ottenere i valori correnti, usare:
+È anche possibile usare [ARMClient](https://github.com/projectkudu/ARMClient) per ottenere e impostare parametri del limite giornaliero.  Per ottenere i valori correnti, usare:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-## <a name="set-the-daily-cap-reset-time"></a>Imposta il tempo di reimpostazione del limite giornaliero
+## <a name="set-the-daily-cap-reset-time"></a>Impostare l'ora di reimpostazione del limite di uso giornaliero
 
-Per impostare il tempo di reimpostazione del limite giornaliero, è possibile usare [ARMClient](https://github.com/projectkudu/ARMClient). Di seguito è riportato un `ARMClient`esempio che usa per impostare il tempo di reimpostazione su una nuova ora (in questo esempio 12:00 UTC):
+Per impostare l'ora di reimpostazione del limite di uso giornaliero, è possibile usare [ARMClient](https://github.com/projectkudu/ARMClient). Di seguito è riportato un esempio che usa `ARMClient` per impostare l'ora di reimpostazione su una nuova ora (in questo esempio 12:00 UTC):
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
@@ -359,19 +359,19 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Impostare il piano tariffario 
 
-Per ottenere il piano tariffario corrente, usare il cmdlet [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) :
+Per ottenere il piano tariffario corrente, usare il cmdlet [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan):
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Per impostare il piano tariffario, utilizzare lo stesso cmdlet `-PricingPlan` con il parametro specificato:  
+Per impostare il piano tariffario, usare lo stesso cmdlet con il `-PricingPlan` specificato:  
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
 ```
 
-È anche possibile impostare il piano tariffario su una risorsa di Application Insights esistente usando il modello di Gestione risorse precedente, omettendo la risorsa "Microsoft. Insights/Components" `dependsOn` e il nodo dalla risorsa di fatturazione. Ad esempio, per impostarlo sul piano per GB (denominato in precedenza piano Basic), eseguire:
+È anche possibile impostare il piano tariffario su una risorsa di Application Insights esistente usando il modello di Gestione risorse precedente, omettendo la risorsa "microsoft.insights/components" e il nodo `dependsOn` dalla risorsa di fatturazione. Ad esempio, per impostarlo sul piano Per GB (denominato in precedenza piano Basic), eseguire:
 
 ```PS
         New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -380,14 +380,14 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
                -appName myApp
 ```
 
-Il `priceCode` viene definito come segue:
+`priceCode` viene definito come:
 
 |priceCode|piano|
 |---|---|
 |1|Per GB (in precedenza denominato piano Basic)|
 |2|Per nodo (denominato in precedenza il piano Enterprise)|
 
-Infine, è possibile usare [ARMClient](https://github.com/projectkudu/ARMClient) per ottenere e impostare piani tariffari e parametri limite giornalieri.  Per ottenere i valori correnti, usare:
+Infine, è possibile usare [ARMClient](https://github.com/projectkudu/ARMClient) per ottenere e impostare piani tariffari e i parametri del limite giornaliero.  Per ottenere i valori correnti, usare:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
@@ -400,16 +400,16 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
 ```
 
-Il limite giornaliero verrà impostato su 200 GB/giorno, configurare il tempo di reimpostazione limite giornaliero su 12:00 UTC, inviare messaggi di posta elettronica quando viene raggiunto il limite e il livello di avviso e impostare la soglia di avviso sul 90% del limite.  
+Questo imposterà il limite giornaliero su 200 GB/giorno, configurerà l'ora di ripristino del limite di uso giornaliero su 12:00 UTC, invierà messaggi di posta elettronica quando viene raggiunto il limite e il livello di avviso e imposterà la soglia di avviso sul 90% del limite.  
 
 ## <a name="add-a-metric-alert"></a>Aggiungere un avviso per la metrica
 
-Per automatizzare la creazione di avvisi delle metriche, vedere l'articolo relativo al [modello di avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Per automatizzare la creazione di avvisi delle metriche, vedere l'[articolo relativo al modello di avvisi della metrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Aggiungere un test di disponibilità
 
-Per automatizzare i test di disponibilità, vedere l'articolo relativo al [modello di avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Per automatizzare i test di disponibilità, vedere l'[articolo relativo al modello di avvisi della metrica ](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Aggiungere altre risorse
 
@@ -427,7 +427,7 @@ Per automatizzare la creazione di altre risorse di qualsiasi tipo, creare un ese
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Aprire le `webtests` sezioni `alertrules` e e copiare il codice JSON per i singoli elementi nel modello. (Non copiare dai nodi `webtests` o `alertrules` : accedere agli elementi sotto di essi).
+4. Aprire le sezioni `webtests` e `alertrules` e copiare i JSON per i singoli elementi nel modello. (Non copiare dai nodi `webtests` o `alertrules`: passare agli elementi sotto ad essi.)
    
     Ciascun test web dispone di una regola di avviso associata, perciò è necessario copiarli entrambi.
    
@@ -472,6 +472,6 @@ Altri articoli di automazione:
 * [Creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) : metodo rapido che esclude l'uso di un modello.
 * [Configurare avvisi](powershell-alerts.md)
 * [Creare test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Invia Diagnostica di Azure al Application Insights](powershell-azure-diagnostics.md)
+* [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](powershell-azure-diagnostics.md)
 * [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx) (Distribuire in Azure da GitHub)
 * [Creare annotazioni di rilascio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

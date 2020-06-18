@@ -3,12 +3,12 @@ title: Come disabilitare le funzioni in Funzioni di Azure
 description: Informazioni su come disabilitare e abilitare le funzioni in Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 8922edb7aaa41bcf50dcce5257b6600f1bde224a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115567"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848740"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
@@ -122,7 +122,8 @@ o
 
 Nel secondo esempio la funzione viene disabilitata se è presente un'impostazione dell'app denominata IS_DISABLED che è impostata su `true` o 1.
 
-È possibile modificare il file nel portale di Azure o usare i pulsanti **Abilita** e **Disabilita** nella pagina **Panoramica** della funzione. L'opzione del portale funziona modificando il file *function.json*.
+>[!IMPORTANT]  
+>Il portale ora usa le impostazioni dell'applicazione per disabilitare le funzioni v1.x. Quando l'impostazione di un'applicazione è in conflitto con il file function.json, è possibile che si verifichi un errore. Per evitare errori, è necessario rimuovere la proprietà `disabled` dal file function.json. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

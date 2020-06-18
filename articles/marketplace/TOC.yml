@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Creare un asset tecnico per macchine virtuali di Azure
               items:
+                - name: Certificazione di macchine virtuali - Problemi e soluzioni
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Creare un asset tecnico per macchine virtuali di Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure

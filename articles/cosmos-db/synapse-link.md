@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 714d587cc047887685f7f7c7f4f5a2bbc2310aa2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596390"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674351"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -35,7 +35,7 @@ Rispetto alle soluzioni tradizionali basate su ETL, Collegamento ad Azure Synaps
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Riduzione della complessità senza processi ETL da gestire
 
-Collegamento ad Azure Synapse consente di accedere direttamente all'archivio analitico di Azure Cosmos DB tramite Azure Synapse Analytics senza complessi spostamenti di dati. Tutti gli aggiornamenti apportati ai dati operativi sono visibili nell'archivio analitico quasi in tempo reale senza ETL o feed di modifiche. È possibile eseguire analisi su larga scala nell'archivio analitico, da Synapse Analytics, senza trasformazioni aggiuntive dei dati.
+Collegamento ad Azure Synapse consente di accedere direttamente all'archivio analitico di Azure Cosmos DB tramite Azure Synapse Analytics senza complessi spostamenti di dati. Tutti gli aggiornamenti apportati ai dati operativi sono visibili nell'archivio analitico quasi in tempo reale senza ETL o processi di feed di modifiche. È possibile eseguire analisi su larga scala nell'archivio analitico, da Synapse Analytics, senza trasformazioni aggiuntive dei dati.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Informazioni dettagliate quasi in tempo reale sui dati operativi
 
@@ -99,7 +99,7 @@ Questa integrazione consente gli scenari HTAP seguenti per utenti diversi:
 
 * Un ingegnere dei dati che vuole rendere i dati accessibili ai consumer creando tabelle SQL o Spark su contenitori Azure Cosmos DB senza processi ETL manuali.
 
-Per altre informazioni sul supporto del runtime di Azure Synapse Analytics per Azure Cosmos DB, vedere [Supporto di Azure Synapse Analytics per Cosmos DB]().
+Per altre informazioni sul supporto del runtime di Azure Synapse Analytics per Azure Cosmos DB, vedere [Supporto di Azure Synapse Analytics per Cosmos DB](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md).
 
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>Quando usare Collegamento ad Azure Synapse per Azure Cosmos DB?
 
@@ -124,11 +124,11 @@ L'uso di Collegamento a Synapse non è consigliato se è necessario rispettare i
 
 * L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL serverless è attualmente in fase di anteprima controllata. Per richiedere l'accesso, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL con provisioning non è attualmente disponibile. 
+* L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL con provisioning non è attualmente disponibile.
 
 ## <a name="pricing"></a>Prezzi
 
-Il modello di fatturazione di Collegamento ad Azure Synapse corrisponde ai costi sostenuti con l'uso dell'archivio analitico di Azure Cosmos DB e del runtime di Synapse. Per altre informazioni, vedere gli articoli [Prezzi dell'archivio analitico di Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) e [Prezzi di Azure Synapse Analytics]().
+Il modello di fatturazione di Collegamento ad Azure Synapse include i costi sostenuti con l'uso dell'archivio analitico di Azure Cosmos DB e del runtime di Synapse. Per altre informazioni, vedere gli articoli [Prezzi dell'archivio analitico di Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) e [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -136,9 +136,9 @@ Per altre informazioni, vedere la documentazione seguente:
 
 * [Panoramica dell'archivio analitico di Azure Cosmos DB](analytical-store-introduction.md)
 
-* [Introduzione a Collegamento ad Azure Synapse per Azure Cosmos DB](configure-synapse-link.md) 
+* [Introduzione a Collegamento ad Azure Synapse per Azure Cosmos DB](configure-synapse-link.md)
  
-* [Funzionalità supportate dal runtime di Azure Synapse Analytics]()
+* [Funzionalità supportate dal runtime di Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
 * [Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 

@@ -1,36 +1,36 @@
 ---
-title: Risoluzione dei problemi di connessione al servizio desktop virtuale Windows-Azure
-description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuali Windows.
+title: Risoluzione dei problemi di connessione al servizio Desktop virtuale Windows - Azure
+description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01aff34839cc7385834468a08f30696efe84561f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614772"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743610"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Connessioni al servizio desktop virtuale Windows
+# <a name="windows-virtual-desktop-service-connections"></a>Connessioni al servizio Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali Windows introdotti nell'aggiornamento di Spring 2020, vedere [questo articolo](../troubleshoot-service-connection.md).
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-service-connection.md).
 
-Usare questo articolo per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows.
+Usare questo articolo per risolvere i problemi relativi alle connessioni client di Desktop virtuale Windows.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
-È possibile inviare commenti e suggerimenti e discutere il servizio desktop virtuale di Windows con il team del prodotto e altri membri della community attiva presso la [community di tecnologia desktop virtuale di Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+È possibile inviare commenti e discutere del servizio Desktop virtuale Windows con il team del prodotto e gli altri membri attivi della community nella [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>L'utente si connette ma non viene visualizzato nulla (nessun feed)
 
-Un utente può avviare Desktop remoto client ed è in grado di eseguire l'autenticazione, tuttavia l'utente non visualizza alcuna icona nel feed di individuazione Web.
+Un utente può avviare i client Desktop remoto ed è in grado di eseguire l'autenticazione, tuttavia non visualizza alcuna icona nel feed di individuazione Web.
 
-Verificare che l'utente che ha segnalato i problemi sia stato assegnato ai gruppi di applicazioni utilizzando la riga di comando seguente:
+Verificare che l'utente che segnala i problemi sia stato assegnato ai gruppi di applicazioni usando la riga di comando seguente:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
@@ -38,51 +38,12 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 
 Verificare che l'utente abbia effettuato l'accesso con le credenziali corrette.
 
-Se il client Web viene utilizzato, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Le macchine virtuali con più sessioni Enterprise di Windows 10 non rispondono
-
-Se una macchina virtuale non risponde e non è possibile accedervi tramite RDP, sarà necessario risolverla con la funzionalità di diagnostica controllando lo stato dell'host.
-
-Per controllare lo stato dell'host, eseguire questo cmdlet:
-
-```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
-```
-
-Se lo stato dell'host `NoHeartBeat`è, significa che la macchina virtuale non risponde e l'agente non è in grado di comunicare con il servizio desktop virtuale di Windows.
-
-```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-```
-
-Per correggere lo stato noheartbeat, è possibile eseguire alcune operazioni.
-
-### <a name="update-fslogix"></a>Aggiornare FSLogix
-
-Se il FSLogix non è aggiornato, soprattutto se è la versione 2.9.7205.27375 di frxdrvvt. sys, potrebbe causare un deadlock. Assicurarsi di [aggiornare FSLogix alla versione più recente](https://go.microsoft.com/fwlink/?linkid=2084562).
-
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Disabilitare BgTaskRegistrationMaintenanceTask
-
-Se l'aggiornamento di FSLogix non funziona, il problema potrebbe essere dovuto al esaurimento delle risorse di sistema da parte di un componente BiSrv durante un'attività di manutenzione settimanale. Disabilitare temporaneamente l'attività di manutenzione disabilitando BgTaskRegistrationMaintenanceTask con uno dei due metodi seguenti:
-
-- Passare al menu Start e cercare **utilità di pianificazione**. Passare a **utilità di pianificazione Library** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Cercare un'attività denominata **BgTaskRegistrationMaintenanceTask**. Quando viene individuato, fare clic con il pulsante destro del mouse su di esso e scegliere **Disabilita** dal menu a discesa.
-- Aprire un menu della riga di comando come amministratore ed eseguire il comando seguente:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
+Se viene usato il client Web, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview-2019.md).
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues-2019.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration-2019.md).
-- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell-2019.md).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Per una panoramica sulla risoluzione dei problemi relativi a Desktop virtuale Windows e alle tracce di escalation, consultare [Panoramica della risoluzione dei problemi, feedback e supporto](troubleshoot-set-up-overview-2019.md).
+- Per risolvere i problemi durante la creazione di un tenant e di un pool di host in un ambiente di Desktop virtuale Windows, vedere [Creazione di pool di host e tenant](troubleshoot-set-up-issues-2019.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in Desktop virtuale Windows, consultare [Configurazione di macchine virtuali nell'host sessione](troubleshoot-vm-configuration-2019.md).
+- Per risolvere i problemi relativi all'uso di PowerShell con Desktop virtuale di Windows, consultare [PowerShell con Desktop virtuale Windows](troubleshoot-powershell-2019.md).
+- Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

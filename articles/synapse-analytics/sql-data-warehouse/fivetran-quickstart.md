@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Fivetran e data warehouse'
-description: Introduzione a Fivetran e a un data warehouse di analisi delle sinapsi di Azure.
+description: Introduzione a Fivetran e ai data warehouse di Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,36 +11,36 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659984"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Guida introduttiva: Fivetran con data warehouse 
 
-Questa Guida introduttiva descrive come configurare un nuovo utente Fivetran per lavorare con un'analisi di sinapsi di Azure data warehouse provisioning con un pool SQL. L'articolo presuppone che si disponga di un data warehouse esistente.
+Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran per lavorare con un data warehouse di Azure Synapse Analytics in cui è stato effettuato il provisioning di un pool SQL. L'articolo presuppone che si disponga di un data warehouse esistente.
 
 ## <a name="set-up-a-connection"></a>Configurare una connessione
 
-1. Trovare il nome completo del server e il nome del database da usare per la connessione al data warehouse.
+1. Trovare il nome completo del server e del database da usare per la connessione al data warehouse.
     
-    Per assistenza nella ricerca di queste informazioni, vedere [connettersi al data warehouse](../sql/connect-overview.md).
+    Se occorre assistenza per trovare queste informazioni, vedere [Connettersi al data warehouse](../sql/connect-overview.md).
 
 2. Durante la procedura guidata di installazione, decidere se ci si vuole connettere al database direttamente o tramite un tunnel SSH.
 
    Se si decide di connettersi direttamente al database, sarà necessario creare una regola di firewall per consentire l'accesso. Questo metodo è quello più semplice e sicuro.
 
-   Se si sceglie di connettersi usando un tunnel SSH, Fivetran si connette a un server separato nella rete. Il server fornisce un tunnel SSH al database. È necessario usare questo metodo se il database si trova in una subnet inaccessibile in una rete virtuale.
+   Se si sceglie di connettersi tramite un tunnel SSH, Fivetran si connette a un server separato sulla rete. Il server fornisce un tunnel SSH al database. È necessario usare questo metodo se il database si trova in una subnet inaccessibile in una rete virtuale.
 
-3. Aggiungere l'indirizzo IP **52.0.2.4** al firewall a livello di server per consentire le connessioni in ingresso all'istanza di data warehouse da Fivetran.
+3. Aggiungere l'indirizzo IP **52.0.2.4** nel firewall a livello di server per consentire le connessioni in ingresso all'istanza del data warehouse da Fivetran.
 
    Per altre informazioni, vedere [Creare una regola di firewall a livello di server](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## <a name="set-up-user-credentials"></a>Configurare le credenziali utente
 
-1. Connettersi al data warehouse usando SQL Server Management Studio (SSMS) o lo strumento preferito. Accedere come utente amministratore del server. Quindi, eseguire i comandi SQL seguenti per creare un utente per Fivetran:
+1. Connettersi al data warehouse con SQL Server Management Studio (SSMS) o lo strumento che si preferisce. Accedere come utente amministratore del server. Quindi, eseguire i comandi SQL seguenti per creare un utente per Fivetran:
 
     - Nel database master: 
     
@@ -48,7 +48,7 @@ Questa Guida introduttiva descrive come configurare un nuovo utente Fivetran per
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - Nel database di data warehouse:
+    - Nel database del data warehouse:
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -75,12 +75,12 @@ Questa Guida introduttiva descrive come configurare un nuovo utente Fivetran per
     Per altre informazioni, leggere i materiali riguardanti i [limiti di memoria e concorrenza](memory-concurrency-limits.md) e le [classi di risorse](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="connect-from-fivetran"></a>Connetti da Fivetran
+## <a name="connect-from-fivetran"></a>Connettersi da Fivetran
 
-Per connettersi alla data warehouse dall'account Fivetran, immettere le credenziali usate per accedere al data warehouse: 
+Per connettersi al data warehouse dall'account Fivetran, immettere le credenziali usate per accedere al data warehouse: 
 
 * Host (nome del server).
 * Porta.
 * Database.
-* Utente (il nome utente deve essere **fivetran\@server_name** in cui *server_name* fa parte dell'URI dell'host di Azure: ** _nome server\__. database.Windows.NET**).
+* Utente (il nome utente deve essere **fivetran\@_server_name_** in cui *server_name* fa parte dell'URI host Azure: **_server\_name_.database.windows.net**).
 * Password.

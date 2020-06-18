@@ -1,21 +1,21 @@
 ---
-title: Risolvere i problemi di perdita di dati in cache di Azure per Redis
-description: Informazioni su come risolvere i problemi di perdita dei dati con cache di Azure per Redis, ad esempio la perdita parziale delle chiavi, la scadenza della chiave o la perdita completa di chiavi.
+title: Risolvere i problemi di perdita di dati in Cache Redis di Azure
+description: Informazioni su come risolvere i problemi di perdita di dati in Cache Redis di Azure, ad esempio la perdita parziale di chiavi, la scadenza delle chiavi o la perdita completa di chiavi.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530902"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699232"
 ---
-# <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Risolvere i problemi di perdita di dati in cache di Azure per Redis
+# <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Risolvere i problemi di perdita di dati in Cache Redis di Azure
 
-Questo articolo illustra come diagnosticare le perdite di dati effettive o percepite che potrebbero verificarsi in cache di Azure per Redis.
+Questo articolo illustra come diagnosticare le perdite di dati effettive o percepite che potrebbero verificarsi in Cache Redis di Azure.
 
 > [!NOTE]
 > Diversi passaggi per la risoluzione dei problemi illustrati in questa guida includono istruzioni per eseguire comandi di Redis e monitorare svariate metriche delle prestazioni. Per altre informazioni e istruzioni, vedere gli articoli della sezione [Informazioni aggiuntive](#additional-information) .
@@ -23,22 +23,22 @@ Questo articolo illustra come diagnosticare le perdite di dati effettive o perce
 
 ## <a name="partial-loss-of-keys"></a>Perdita parziale di chiavi
 
-Cache di Azure per Redis non elimina in modo casuale le chiavi dopo che sono state archiviate in memoria. Tuttavia, rimuove le chiavi in risposta ai criteri di scadenza o rimozione e ai comandi espliciti di eliminazione della chiave. Anche le chiavi che sono state scritte nel nodo master in una cache di Azure Premium o standard per l'istanza di redis potrebbero non essere disponibili in una replica immediatamente. I dati vengono replicati dal master alla replica in modo asincrono e non bloccante.
+Cache Redis di Azure non elimina in modo casuale le chiavi una volta archiviate in memoria. Tuttavia, rimuove le chiavi in risposta ai criteri di scadenza o rimozione e ai comandi espliciti di eliminazione della chiave. Inoltre, le chiavi che sono state scritte nel nodo master in un'istanza Premium o Standard di Cache Redis di Azure potrebbero non essere immediatamente disponibili in una replica. I dati vengono replicati dal master alla replica in modo asincrono e non bloccante.
 
-Se si ritiene che le chiavi siano scomparse dalla cache, verificare le possibili cause seguenti:
+Se si ritiene che delle chiavi siano scomparse dalla cache, verificare le possibili cause seguenti:
 
 | Causa | Descrizione |
 |---|---|
-| [Scadenza della chiave](#key-expiration) | Le chiavi vengono rimosse a causa dei timeout impostati su di essi. |
-| [Rimozione della chiave](#key-eviction) | Le chiavi vengono rimosse in condizioni di memoria insufficiente. |
-| [Eliminazione della chiave](#key-deletion) | Le chiavi vengono rimosse dai comandi DELETE espliciti. |
-| [Replica asincrona](#async-replication) | Le chiavi non sono disponibili in una replica a causa di ritardi di replica dei dati. |
+| [Scadenza della chiave](#key-expiration) | Le chiavi vengono rimosse a causa dei timeout impostati. |
+| [Rimozione della chiave](#key-eviction) | Le chiavi vengono rimosse in condizioni di utilizzo elevato della memoria. |
+| [Eliminazione della chiave](#key-deletion) | Le chiavi vengono rimosse con comandi di eliminazione espliciti. |
+| [Replica asincrona](#async-replication) | Le chiavi non sono disponibili in una replica a causa di ritardi nella replica dei dati. |
 
 ### <a name="key-expiration"></a>Scadenza della chiave
 
-Cache di Azure per Redis rimuove automaticamente una chiave se alla chiave viene assegnato un timeout e tale periodo è scaduto. Per ulteriori informazioni sulla scadenza della chiave Redis, vedere la documentazione relativa alla [scadenza](https://redis.io/commands/expire) del comando. I valori di timeout possono essere impostati anche usando i comandi [set](https://redis.io/commands/set), [setex](https://redis.io/commands/setex), [gets](https://redis.io/commands/getset)e other ** \*Store** .
+Cache Redis di Azure rimuove automaticamente una chiave se le è stato assegnato un timeout e il periodo è scaduto. Per altre informazioni sulla scadenza della chiave Redis, vedere la documentazione del comando [EXPIRE](https://redis.io/commands/expire). I valori di timeout possono essere impostati anche usando [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) e altri comandi **\*STORE**.
 
-Per ottenere statistiche sul numero di chiavi scadute, usare il comando [info](https://redis.io/commands/info) . La `Stats` sezione indica il numero totale di chiavi scadute. Nella `Keyspace` sezione vengono fornite ulteriori informazioni sul numero di chiavi con timeout e il valore di timeout medio.
+Per ottenere statistiche sul numero di chiavi scadute, usare il comando [INFO](https://redis.io/commands/info). La sezione `Stats` mostra il numero totale di chiavi scadute. La sezione `Keyspace` fornisce ulteriori informazioni sul numero di chiavi con timeout e il valore di timeout medio.
 
 ```
 # Stats
@@ -50,13 +50,13 @@ expired_keys:46583
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
 
-È anche possibile esaminare le metriche di diagnostica per la cache, per verificare se esiste una correlazione tra il momento in cui la chiave è mancante e un picco nelle chiavi scadute. Per informazioni sull'uso delle notifiche dello spazio dei dati o del **monitoraggio** per eseguire il debug di questi tipi di problemi, vedere l'appendice relativa al [debug dei mancati riscontri di spazio](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) .
+È anche possibile esaminare le metriche di diagnostica per la cache, per verificare se esista una correlazione tra il momento in cui la chiave è scomparsa e un picco di scadenza delle chiavi. Per informazioni sull'uso delle notifiche dello spazio delle chiavi o di **MONITOR** per il debug dei problemi di questo tipo, vedere l'appendice di [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) (Debug dei mancati riscontri nello spazio delle chiavi Redis).
 
 ### <a name="key-eviction"></a>Rimozione della chiave
 
-Cache di Azure per Redis richiede spazio di memoria per archiviare i dati. Elimina le chiavi per liberare memoria disponibile quando necessario. Quando i valori **used_memory** o **Used_memory_rss** nel comando [info](https://redis.io/commands/info) si avvicinano all'impostazione **MaxMemory** configurata, cache di Azure per Redis inizia a rimuovere le chiavi dalla memoria in base ai [criteri della cache](https://redis.io/topics/lru-cache).
+Cache Redis di Azure per Redis richiede spazio di memoria per archiviare i dati. Quando necessario, elimina le chiavi per liberare memoria disponibile. Quando i valori **used_memory** o **used_memory_rss** nel comando [INFO](https://redis.io/commands/info) si avvicinano all'impostazione **maxmemory** configurata, Cache Redis di Azure avvia la rimozione delle chiavi dalla memoria in base ai [criteri della cache](https://redis.io/topics/lru-cache).
 
-È possibile monitorare il numero di chiavi eliminate usando il comando [info](https://redis.io/commands/info) :
+È possibile monitorare il numero di chiavi rimosse usando il comando [INFO](https://redis.io/commands/info):
 
 ```
 # Stats
@@ -64,11 +64,11 @@ Cache di Azure per Redis richiede spazio di memoria per archiviare i dati. Elimi
 evicted_keys:13224
 ```
 
-È anche possibile esaminare le metriche di diagnostica per la cache, per verificare se esiste una correlazione tra il momento in cui la chiave è mancante e un picco nelle chiavi rimosse. Per informazioni sull'uso delle notifiche dello spazio dei dati o del **monitoraggio** per eseguire il debug di questi tipi di problemi, vedere l'appendice relativa al [debug dei mancati riscontri di spazio](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) .
+È anche possibile esaminare le metriche di diagnostica per la cache, per verificare se esista una correlazione tra il momento in cui la chiave è scomparsa e un picco di rimozione delle chiavi. Per informazioni sull'uso delle notifiche dello spazio delle chiavi o di **MONITOR** per il debug dei problemi di questo tipo, vedere l'appendice di [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) (Debug dei mancati riscontri nello spazio delle chiavi Redis).
 
 ### <a name="key-deletion"></a>Eliminazione della chiave
 
-I client Redis possono eseguire il comando [del](https://redis.io/commands/del) o [HDEL](https://redis.io/commands/hdel) per rimuovere in modo esplicito le chiavi dalla cache di Azure per Redis. È possibile tenere traccia del numero di operazioni di eliminazione usando il comando [info](https://redis.io/commands/info) . Se i `Commandstats` comandi **del** o **HDEL** sono stati chiamati, verranno elencati nella sezione.
+I client Redis possono eseguire il comando [DEL](https://redis.io/commands/del) o [HDEL](https://redis.io/commands/hdel) per rimuovere in modo esplicito le chiavi dalla cache di Azure per Redis. Si può tenere traccia del numero di operazioni di eliminazione usando il comando [INFO](https://redis.io/commands/info). Se sono stati chiamati comandi **DEL** o **HDEL**, verranno elencati nella sezione `Commandstats`.
 
 ```
 # Commandstats
@@ -80,21 +80,21 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replica asincrona
 
-Qualsiasi istanza di cache di Azure per Redis nel livello standard o Premium è configurata con un nodo master e almeno una replica. I dati vengono copiati dal database master a una replica in modo asincrono tramite un processo in background. Il sito Web di [Redis.io](https://redis.io/topics/replication) descrive il funzionamento generale della replica dei dati di Redis. Per gli scenari in cui i client scrivono spesso in Redis, è possibile che si verifichi una perdita parziale dei dati perché questa replica è sicuramente immediata. Se, ad esempio, il master diventa inattivo *dopo* che un client scrive una chiave, ma *prima* che il processo in background abbia la possibilità di inviare tale chiave alla replica, la chiave viene persa quando la replica diventa il nuovo master.
+Qualsiasi istanza di Cache Redis di Azure nel livello Standard o Premium è configurata con un nodo master e almeno una replica. I dati vengono copiati dal master a una replica in modo asincrono, con un processo in background. Il sito Web [redis.io](https://redis.io/topics/replication) descrive il funzionamento generale della replica dei dati di Redis. Per gli scenari in cui i client scrivono spesso in Redis, è possibile che si verifichi una perdita parziale dei dati perché non è garantito che la replica sia istantanea. Se, ad esempio, il master diventa inattivo *dopo* che un client ha scritto una chiave su di esso, ma *prima* che il processo in background abbia la possibilità di inviare la chiave alla replica, la chiave va persa quando la replica diventa il nuovo master.
 
-## <a name="major-or-complete-loss-of-keys"></a>Perdita di chiavi principale o completa
+## <a name="major-or-complete-loss-of-keys"></a>Perdita importante o totale delle chiavi
 
 Se la maggior parte o tutte le chiavi sono scomparse dalla cache, verificare le possibili cause seguenti:
 
 | Causa | Descrizione |
 |---|---|
-| [Scaricamento della chiave](#key-flushing) | Le chiavi sono state eliminate manualmente. |
-| [Selezione database non corretta](#incorrect-database-selection) | Cache di Azure per Redis è impostato per l'uso di un database non predefinito. |
-| [Errore dell'istanza Redis](#redis-instance-failure) | Il server Redis non è disponibile. |
+| [Scaricamento delle chiavi](#key-flushing) | Le chiavi sono state eliminate manualmente. |
+| [Selezione del database errato](#incorrect-database-selection) | Cache Redis di Azure per Redis è impostato per l'uso di un database non predefinito. |
+| [Errore dell'istanza di Redis](#redis-instance-failure) | Il server Redis non è disponibile. |
 
-### <a name="key-flushing"></a>Scaricamento della chiave
+### <a name="key-flushing"></a>Scaricamento delle chiavi
 
-I client possono chiamare il comando [FLUSHDB](https://redis.io/commands/flushdb) per rimuovere tutte le chiavi in un *singolo* database o [FLUSHALL](https://redis.io/commands/flushall) per rimuovere tutte le chiavi da *tutti i* database in una cache Redis. Per determinare se le chiavi sono state scaricate, usare il comando [info](https://redis.io/commands/info) . La `Commandstats` sezione indica se è stato chiamato uno dei comandi di **scaricamento** :
+I client possono chiamare il comando [FLUSHDB](https://redis.io/commands/flushdb) per rimuovere tutte le chiavi in un *unico* database o [FLUSHALL](https://redis.io/commands/flushall) per rimuovere tutte le chiavi da *tutti* i database in una cache Redis. Per verificare se le chiavi sono state scaricate, usare il comando [INFO](https://redis.io/commands/info). La sezione `Commandstats` indica se è stato chiamato il comando **FLUSH**:
 
 ```
 # Commandstats
@@ -104,17 +104,17 @@ cmdstat_flushall:calls=2,usec=112,usec_per_call=56.00
 cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 ```
 
-### <a name="incorrect-database-selection"></a>Selezione database non corretta
+### <a name="incorrect-database-selection"></a>Selezione del database errato
 
-Per impostazione predefinita, cache di Azure per Redis usa il database **DB0** . Se si passa a un altro database, ad esempio **DB1**, e si prova a leggere le chiavi, cache di Azure per Redis non le troverà. Ogni database è un'unità separata logicamente e include un set di dati diverso. Usare il comando [Select](https://redis.io/commands/select) per usare altri database disponibili e cercare le chiavi in ognuna di esse.
+Cache Redis di Azure usa per impostazione predefinita il database **db0**. Se si passa a un altro database, ad esempio **db1**, e si prova a leggere le chiavi da esso, Cache Redis di Azure non le troverà. Ogni database è un'unità separata logicamente e include un set di dati diverso. Usare il comando [SELECT](https://redis.io/commands/select) comando per usare altri database disponibili e cercare le chiavi in ognuno di essi.
 
-### <a name="redis-instance-failure"></a>Errore dell'istanza Redis
+### <a name="redis-instance-failure"></a>Errore dell'istanza di Redis
 
-Redis è un archivio dati in memoria. I dati vengono conservati nelle macchine fisiche o virtuali che ospitano la cache Redis. Una cache di Azure per l'istanza di redis nel livello Basic viene eseguita solo su una singola macchina virtuale (VM). Se la macchina virtuale è inattiva, tutti i dati archiviati nella cache andranno perduti. 
+Redis è un archivio dati in memoria. I dati vengono conservati nelle macchine fisiche o virtuali che ospitano la cache Redis. Un'istanza di Cache Redis di Azure per l'istanza di Redis nel livello Basic viene eseguita su un'unica macchina virtuale. Se la macchina virtuale è inattiva, tutti i dati archiviati nella cache vanno persi. 
 
-Le cache nei livelli standard e Premium offrono una resilienza molto maggiore rispetto alla perdita di dati usando due macchine virtuali in una configurazione replicata. Quando il nodo master in una cache di questo tipo ha esito negativo, il nodo di replica acquisisce automaticamente i dati. Queste macchine virtuali si trovano in domini distinti per gli errori e gli aggiornamenti, per ridurre al minimo le possibilità di diventare non disponibili contemporaneamente. Se si verifica un'interruzione del data center principale, tuttavia, è possibile che le macchine virtuali si trovino ancora. I dati andranno persi in questi rari casi.
+Le cache nei livelli Standard e Premium offrono una resilienza molto superiore rispetto alla perdita di dati, usando due macchine virtuali in una configurazione replicata. Quando si verifica un errore nel nodo master di una cache di questo tipo, il nodo di replica assume automaticamente il controllo per inviare i dati. Queste macchine virtuali si trovano in domini distinti per gli errori e gli aggiornamenti, per ridurre al minimo le possibilità che entrambi diventino non disponibili contemporaneamente. Se si verifica un'interruzione grave nel data center, tuttavia, è comunque possibile che le macchine virtuali diventino inattive contemporaneamente. In questi rari casi, i dati andranno persi.
 
-Si consiglia di usare la [persistenza dei dati Redis](https://redis.io/topics/persistence) e la [replica geografica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) per migliorare la protezione dei dati in base a questi errori di infrastruttura.
+Prendere in considerazione l'uso della [persistenza dei dati Redis](https://redis.io/topics/persistence) e la [replica geografica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) per migliorare la protezione dei dati in caso di errori dell'infrastruttura.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

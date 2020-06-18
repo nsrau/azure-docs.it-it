@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443873"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674233"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 
@@ -30,13 +30,13 @@ La [sicurezza operativa di Azure](/azure/security/fundamentals/operational-secur
 
 Un team operativo IT è responsabile della gestione dell'infrastruttura dei data center, delle applicazioni e dei dati, nonché della stabilità e della sicurezza di questi sistemi. Tuttavia, ottenere informazioni di sicurezza in ambienti IT sempre più complessi spesso richiede alle organizzazioni di assemblare i dati da più sistemi di gestione e sicurezza.
 
-[Microsoft Azure log di monitoraggio](/azure/operations-management-suite/operations-management-suite-overview) è una soluzione di gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. OMS si basa sui servizi seguenti in esecuzione in Azure. Azure include più servizi che consentono di gestire e proteggere l'infrastruttura locale e cloud. Ogni servizio offre una funzione di gestione specifica. I servizi possono essere combinati tra loro per ottenere scenari di gestione diversi. 
+I [log di Monitoraggio di Microsoft Azure](/azure/operations-management-suite/operations-management-suite-overview) sono una soluzione di gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. OMS si basa sui servizi seguenti in esecuzione in Azure. Azure include più servizi che consentono di gestire e proteggere l'infrastruttura locale e cloud. Ogni servizio offre una funzione di gestione specifica. I servizi possono essere combinati tra loro per ottenere scenari di gestione diversi. 
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 
 [Monitoraggio di Azure](/azure/azure-monitor/overview) raccoglie i dati delle origini gestite in archivi dati centrali. Questi dati possono essere eventi, dati sulle prestazioni o dati personalizzati specificati attraverso l'API. Dopo che sono stati raccolti, i dati sono disponibili perla generazione di avvisi, l'analisi e l'esportazione.
 
-È possibile consolidare i dati da varie origini e combinare i dati disponibili dai servizi di Azure con l'ambiente locale esistente. I log di monitoraggio di Azure separano chiaramente la raccolta dei dati dall'azione intrapresa sui dati, in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
+È possibile consolidare i dati da varie origini e combinare i dati disponibili dai servizi di Azure con l'ambiente locale esistente. I log di Monitoraggio di Azure separano inoltre chiaramente la raccolta dei dati dall'azione eseguita su di essi, in modo che tutte le azioni siano disponibili per tutte le tipologie di dati.
 
 ### <a name="automation"></a>Automazione
 
@@ -60,7 +60,7 @@ Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](/a
 
 -   Consente la gestione delle entità e degli accessi (IAM) come servizio cloud.
 -   Offre la gestione centrale degli accessi, l'accesso Single Sign-On (SSO) e la creazione di report.
--   Supporta la gestione degli accessi integrata per [migliaia di applicazioni](https://azure.microsoft.com/marketplace/active-directory/) in Azure Marketplace, incluse Salesforce, Google Apps, Box e Concur.
+-   Supporta la gestione degli accessi integrata per [migliaia di applicazioni](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in Azure Marketplace, incluse Salesforce, Google Apps, Box e Concur.
 
 Azure AD include inoltre una suite completa di [funzionalità di gestione delle identità](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), tra cui:
 
@@ -73,11 +73,11 @@ Azure AD include inoltre una suite completa di [funzionalità di gestione delle 
 - [Controllo completo](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitoraggio della sicurezza e invio di avvisi](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.  Ciò consente una riduzione notevole dei costi operativi.
+Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi. Ciò consente una riduzione notevole dei costi operativi.
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il [Centro sicurezza di Azure](/azure/security-center/security-center-intro) consente di prevenire, rilevare e rispondere alle minacce con una maggiore visibilità e controllo della sicurezza delle risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
+[Centro sicurezza di Azure](/azure/security-center/security-center-intro) impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
 
 Centro sicurezza aiuta a [proteggere i dati delle macchine virtuali (VM)](/azure/security-center/security-center-linux-virtual-machine) in Azure offrendo visibilità sulle impostazioni di sicurezza della macchina virtuale e monitoraggio delle minacce. Il Centro sicurezza può monitorare nelle macchine virtuali quanto segue:
 
@@ -94,7 +94,7 @@ Centro sicurezza consente di valutare la configurazione delle risorse per identi
 >[!Note]
 >Per altre informazioni sui ruoli e sulle azioni consentite nel Centro sicurezza, vedere [Autorizzazioni nel Centro sicurezza di Azure](/azure/security-center/security-center-permissions).
 
-Centro sicurezza usa Microsoft Monitoring Agent. Si tratta dello stesso agente usato dal servizio monitoraggio di Azure. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](/azure/log-analytics/log-analytics-manage-access) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
+Centro sicurezza usa Microsoft Monitoring Agent. È lo stesso agente usato dal servizio Monitoraggio di Azure. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](/azure/log-analytics/log-analytics-manage-access) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
@@ -112,7 +112,7 @@ Monitoraggio di Azure include i componenti seguenti:
 
 ### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
-I [log di diagnostica di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) vengono generati da una risorsa e forniscono dati avanzati e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa.
+I [log di diagnostica di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono generati da una risorsa e offrono dati completi e frequenti sul funzionamento della risorsa stessa. Il contenuto di questi log varia in base al tipo di risorsa.
 
 I registri di sistema degli eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali. I log di BLOB, tabelle e code sono categorie di log di diagnostica per gli account di archiviazione.
 
@@ -140,15 +140,15 @@ Network Watcher semplifica il monitoraggio e la diagnostica della rete di Azure.
 
 Di seguito sono elencate le funzionalità attualmente disponibili in Network Watcher.
 
-- [Topologia](/azure/network-watcher/network-watcher-topology-overview): offre una visualizzazione delle varie interconnessioni e delle associazioni tra le risorse di rete in un gruppo di risorse.
-- [Acquisizione pacchetti variabile](/azure/network-watcher/network-watcher-packet-capture-overview): acquisisce i dati dei pacchetti in ingresso e in uscita da una macchina virtuale. Opzioni di filtro avanzate e controlli ottimizzati, ad esempio la possibilità di impostare limitazioni di tempo e dimensioni, offrono versatilità. È possibile memorizzare i dati dei pacchetti in un archivio BLOB o nel disco locale in formato CAP.
+- [Topologia](/azure/network-watcher/network-watcher-topology-overview): offre una visualizzazione delle varie interconnessioni e associazioni tra le risorse di rete in un gruppo di risorse.
+- [Acquisizione pacchetti variabile](/azure/network-watcher/network-watcher-packet-capture-overview): Acquisisce i dati dei pacchetti in ingresso e in uscita da una macchina virtuale. Opzioni di filtro avanzate e controlli ottimizzati, ad esempio la possibilità di impostare limitazioni di tempo e dimensioni, offrono versatilità. È possibile memorizzare i dati dei pacchetti in un archivio BLOB o nel disco locale in formato CAP.
 - [Verifica flusso IP](/azure/network-watcher/network-watcher-ip-flow-verify-overview): controlla se un pacchetto viene accettato o rifiutato in base ai parametri di pacchetto a 5 tuple per le informazioni sul flusso, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo. Se il pacchetto viene rifiutato da un gruppo di sicurezza, vengono restituiti la regola e il gruppo che hanno rifiutato il pacchetto.
-- [Hop successivo](/azure/network-watcher/network-watcher-next-hop-overview): determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, permettendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
-- [Visualizzazione dei gruppi di sicurezza](/azure/network-watcher/network-watcher-security-group-view-overview): ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
+- [Hop successivo](/azure/network-watcher/network-watcher-next-hop-overview): determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, consentendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
+- [Visualizzazione dei gruppi di sicurezza](/azure/network-watcher/network-watcher-security-group-view-overview): Ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
 - [Log del flusso NSG per i gruppi di sicurezza di rete](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): consentono di acquisire log correlati al traffico che è consentito o negato dalle regole di sicurezza nel gruppo. Il flusso viene definito da informazioni a 5 tuple, ovvero l'indirizzo IP di origine, l'indirizzo IP di destinazione, la porta di origine, la porta di destinazione e il protocollo.
-- [Risoluzione dei problemi della connessione e del gateway di rete virtuale](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): consente di risolvere i problemi delle connessioni e dei gateway di rete virtuale.
-- [Limiti delle sottoscrizioni di rete](/azure/network-watcher/network-watcher-monitoring-overview): consente di visualizzare l'uso delle risorse di rete rispetto ai limiti.
-- [Log di diagnostica](/azure/network-watcher/network-watcher-monitoring-overview): consentono di abilitare o disabilitare i log di diagnostica per le risorse di rete in un gruppo di risorse da un unico riquadro.
+- [Risoluzione dei problemi di connessione e del gateway di rete virtuale](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Network Watcher consente di risolvere i problemi delle connessioni e dei gateway di rete virtuale.
+- [Limiti delle sottoscrizioni di rete](/azure/network-watcher/network-watcher-monitoring-overview): Consente di visualizzare l'uso delle risorse di rete rispetto ai limiti.
+- [Log di diagnostica](/azure/network-watcher/network-watcher-monitoring-overview): consente di abilitare o disabilitare da un unico riquadro i log di diagnostica per le risorse di rete in un gruppo di risorse.
 
 Per altre informazioni, vedere [Configure Network Watcher](/azure/network-watcher/network-watcher-create) (Configurare Network Watcher).
 
@@ -181,7 +181,7 @@ Gli esperti di DevOps avanzati adottano alcune delle procedure seguenti. Queste 
 
 - Le tecniche di [Gestione di progetto e di pianificazione agile](https://www.visualstudio.com/learn/what-is-agile/) sono usate per pianificare e isolare il lavoro in sprint, gestire la capacità del team e consentire ai team di adattarsi rapidamente alle mutevoli esigenze aziendali.
 - [Controllo della versione, in genere con Git](https://www.visualstudio.com/learn/what-is-git/), consente ai team che si trovano ovunque nel mondo di condividere l'origine e di integrare con strumenti di sviluppo del software per automatizzare la pipeline di rilascio.
-- L' [integrazione continua](https://www.visualstudio.com/learn/what-is-continuous-integration/) consente l'Unione e il test in corso del codice, il che comporta la ricerca tempestiva dei difetti.  Altri vantaggi includono meno tempo impiegato per contrastare problemi di unione e feedback veloci per i team di sviluppo.
+- L'[Integrazione continua](https://www.visualstudio.com/learn/what-is-continuous-integration/) si occupa dell'unione e dei test continui del codice, il che porta a individuare tempestivamente i difetti.  Altri vantaggi includono meno tempo impiegato per contrastare problemi di unione e feedback veloci per i team di sviluppo.
 - La [distribuzione continua](https://www.visualstudio.com/learn/what-is-continuous-delivery/) di soluzioni software per gli ambienti di produzione e di test aiuta le organizzazioni a correggere rapidamente i bug e a rispondere alle mutevoli esigenze aziendali.
 - Il [monitoraggio](https://www.visualstudio.com/learn/what-is-monitoring/) delle applicazioni in esecuzione, inclusi gli ambienti di produzione per l'integrità dell'applicazione, così come l'uso da parte dell'utente, aiutano le organizzazioni a formulare un'ipotesi e a convalidare o disapprovare rapidamente le strategie.  I dati completi acquisiti e archiviati in vari formati di registrazione.
 - L'[Infrastruttura come Codice (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) è una procedura consigliata che consente l'automazione e la convalida della creazione e dell'eliminazione di reti e macchine virtuali per facilitare la distribuzione sicura e l'applicazione stabile delle piattaforme di hosting.

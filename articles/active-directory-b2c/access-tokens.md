@@ -1,5 +1,5 @@
 ---
-title: Richiedere un token di accesso-Azure Active Directory B2C | Microsoft Docs
+title: Richiedere un token di accesso - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come richiedere un token di accesso da Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,24 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259773"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635437"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Richiedere un token di accesso in Azure Active Directory B2C
 
-Un *token di accesso* contiene attestazioni che è possibile usare in Azure Active Directory B2C (Azure ad B2C) per identificare le autorizzazioni concesse alle API. Quando si chiama un server di risorse, nella richiesta HTTP deve essere presente un token di accesso. Un token di accesso è indicato come **access_token** nelle risposte da Azure ad B2C.
+Un *token di accesso* contiene attestazioni che è possibile usare in Azure Active Directory B2C (Azure AD B2C) per identificare le autorizzazioni concesse alle API. Quando si chiama un server delle risorse, deve essere presente un token di accesso nella richiesta HTTP. Un token di accesso è indicato come **access_token** nelle risposte di Azure AD B2C.
 
-Questo articolo illustra come richiedere un token di accesso per un'applicazione Web e un'API Web. Per ulteriori informazioni sui token in Azure AD B2C, vedere la [Panoramica dei token in Azure Active Directory B2C](tokens-overview.md).
+Questo articolo illustra come richiedere un token di accesso per un'applicazione Web e un'API Web. Per altre informazioni sui token in Azure AD B2C, vedere la [panoramica dei token in Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Le catene di API Web (On-Behalf-Of) non sono supportate da Azure Active Directory B2C.** -Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client che hanno un back-end dell'API Web, che a sua volta chiama un altro servizio. Questo scenario di API Web concatenate può essere supportato tramite la concessione di credenziali del bearer token JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
+> **Le catene di API Web (On-Behalf-Of) non sono supportate da Azure Active Directory B2C.** - Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client che hanno un back-end dell'API Web, che a sua volta chiama un altro servizio. Questo scenario di API Web concatenate può essere supportato tramite la concessione di credenziali del bearer token JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,9 +33,9 @@ Questo articolo illustra come richiedere un token di accesso per un'applicazione
 
 ## <a name="scopes"></a>Ambiti
 
-Gli ambiti consentono di gestire le autorizzazioni per le risorse protette. Quando viene richiesto un token di accesso, l'applicazione client deve specificare le autorizzazioni desiderate nel parametro **scope** della richiesta. Ad esempio, per specificare il **valore** di `read` ambito per l'API con l' **URI ID app** di `https://contoso.onmicrosoft.com/api`, l'ambito sarà. `https://contoso.onmicrosoft.com/api/read`
+Gli ambiti consentono di gestire le autorizzazioni alle risorse protette. Quando si richiede un token di accesso, l'applicazione client deve specificare le autorizzazioni desiderate nel parametro **ambito** della richiesta. Ad esempio, per specificare il **Valore ambito** di `read` per l'API con **URI ID app** impostato su `https://contoso.onmicrosoft.com/api`, l'ambito sarà `https://contoso.onmicrosoft.com/api/read`.
 
-Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Ad esempio, gli utenti dell'API Web possono avere accesso sia in lettura sia in scrittura oppure possono avere solo accesso in lettura. Per acquisire più autorizzazioni nella stessa richiesta, è possibile aggiungere più voci nel parametro singolo **ambito** della richiesta, separate da spazi.
+Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Ad esempio, gli utenti dell'API Web possono avere accesso sia in lettura sia in scrittura oppure possono avere solo accesso in lettura. Per acquisire più autorizzazioni nella stessa richiesta, è possibile aggiungere più voci nell'unico parametro **ambito** della richiesta, separato da spazi.
 
 Nell'esempio seguente vengono illustrati gli ambiti decodificati in un URL:
 
@@ -49,22 +49,22 @@ Nell'esempio seguente vengono illustrati gli ambiti codificati in un URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se si richiedono più ambiti rispetto a quelli concessi per l'applicazione client, la chiamata ha esito positivo se almeno un'autorizzazione viene concessa. L'attestazione **SCP** nel token di accesso risultante viene popolata solo con le autorizzazioni concesse correttamente. Lo standard OpenID Connect specifica diversi valori di ambito speciali. Gli ambiti seguenti rappresentano l'autorizzazione per accedere al profilo dell'utente:
+Se si richiedono più ambiti rispetto a quelli concessi per l'applicazione client, la chiamata ha esito positivo se viene concessa almeno un'autorizzazione. L'attestazione **scp** del token di accesso risultante viene popolata con solo le autorizzazioni concesse. Lo standard OpenID Connect consente di specificare valori speciali diversi per l'ambito. Gli ambiti seguenti rappresentano l'autorizzazione per accedere al profilo dell'utente:
 
-- **OpenID** : richiede un token ID.
-- **offline_access** : richiede un token di aggiornamento usando [flussi del codice di autenticazione](authorization-code-flow.md).
+- **openid** - Richiede un token ID.
+- **offline_access** - Richiede un token di aggiornamento mediante i [flussi del codice di autorizzazione](authorization-code-flow.md).
 
-Se il **response_type** parametro di una `/authorize` richiesta include `token`, il parametro **scope** deve includere almeno un ambito di `openid` risorse diverso da e `offline_access` che verrà concesso. In caso contrario `/authorize` , la richiesta ha esito negativo.
+Se il parametro **response_type** in una richiesta `/authorize` include `token`, il parametro **ambito** deve includere almeno un ambito delle risorse diverso da `openid` e `offline_access` che verrà concesso. In caso contrario, la richiesta `/authorize` ha esito negativo.
 
 ## <a name="request-a-token"></a>Richiedere un token
 
-Per richiedere un token di accesso, è necessario un codice di autorizzazione. Di seguito è riportato un esempio di una richiesta `/authorize` all'endpoint per un codice di autorizzazione. I domini personalizzati non sono supportati per l'uso con i token di accesso. Usare il dominio tenant-name.onmicrosoft.com nell'URL della richiesta.
+Per richiedere un token di accesso è necessario un codice di autorizzazione. Di seguito è riportato un esempio di richiesta di un codice di autorizzazione all'endpoint `/authorize`. I domini personalizzati non sono supportati per l'uso insieme ai token di accesso. Usare il dominio tenant-name.onmicrosoft.com nell'URL della richiesta.
 
 Nell'esempio seguente, sostituire questi valori:
 
 - `<tenant-name>`: il nome del tenant di Azure AD B2C.
 - `<policy-name>`: il nome del flusso utente o dei criteri personalizzati.
-- `<application-ID>`: Identificatore dell'applicazione Web registrato per supportare il flusso utente.
+- `<application-ID>`: l'identificatore applicazione dell'applicazione Web registrata per supportare il flusso utente.
 - `<redirect-uri>`: l'**URI di reindirizzamento** immesso al momento della registrazione dell'applicazione client.
 
 ```HTTP
@@ -82,10 +82,10 @@ La risposta con il codice di autorizzazione dovrebbe essere simile a questo esem
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-Dopo aver ricevuto il codice di autorizzazione, è possibile usarlo per richiedere un token di accesso:
+Dopo aver ricevuto correttamente il codice di autorizzazione, è possibile usarlo per richiedere un token di accesso:
 
 ```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -97,7 +97,7 @@ grant_type=authorization_code
 &client_secret=2hMG2-_:y12n10vwH...
 ```
 
-Dovrebbe essere visualizzata una risposta simile alla seguente:
+Verrà visualizzato un testo simile alla seguente risposta:
 
 ```JSON
 {
@@ -111,7 +111,7 @@ Dovrebbe essere visualizzata una risposta simile alla seguente:
 }
 ```
 
-Quando si https://jwt.ms USA per esaminare il token di accesso restituito, verrà visualizzato un risultato simile all'esempio seguente:
+Quando si usa https://jwt.ms per esaminare il token di accesso restituito, verrà visualizzato un testo simile all'esempio seguente:
 
 ```JSON
 {
@@ -137,4 +137,4 @@ Quando si https://jwt.ms USA per esaminare il token di accesso restituito, verr�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [configurare i token in Azure ad B2C](configure-tokens.md)
+- Informazioni su come [configurare i token in Azure AD B2C](configure-tokens.md)

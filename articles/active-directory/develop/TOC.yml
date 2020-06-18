@@ -476,6 +476,34 @@
           href: /azure/active-directory/app-provisioning/scim-graph-scenarios
         - name: Automatizzare la configurazione con MS Graph
           href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+    - name: Articoli della Guida del portale di Azure
+      items:
+        - name: Impostazioni predefinite per la durata del token per un'applicazione personalizzata
+          href: registration-config-change-token-lifetime-how-to.md
+        - name: Individuare gli endpoint
+          href: registration-config-how-to.md
+        - name: Selezionare le autorizzazioni per un'API specifica
+          href: perms-for-given-api.md
+        - name: Protocolli di autenticazione
+          href: active-directory-authentication-protocols.md
+        - name: Differenze tra le autorizzazioni delegate e dell'applicazione
+          href: delegated-and-app-perms.md
+        - name: Funzionamento del consenso per applicazioni
+          href: consent-framework-links.md
+        - name: Trovare un'API specifica necessaria per un'applicazione personalizzata
+          href: api-find-an-api-how-to.md
+        - name: Riferimento alla registrazione delle app
+          href: active-directory-v2-registration-portal.md
+        - name: Campi di registrazione del portale di Azure per app personalizzate
+          href: registration-config-specific-application-property-how-to.md
+        - name: Configurare una nuova applicazione multi-tenant
+          href: setup-multi-tenant-app.md
+        - name: Aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di Azure AD
+          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+        - name: Integrazione con Azure Active Directory
+          href: active-directory-how-to-integrate.md
+        - name: Configurare l'accesso Single Sign-On per un'applicazione
+          href: registration-config-sso-how-to.md
 - name: Guide pratiche
   items:
     - name: Authentication

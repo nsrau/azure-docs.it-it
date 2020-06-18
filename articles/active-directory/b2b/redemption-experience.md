@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585896"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826095"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -42,9 +42,9 @@ In alternativa al messaggio di posta elettronica di invito, è possibile assegna
 
 > [!IMPORTANT]
 > Il collegamento diretto deve essere specifico del tenant. In altre parole, deve includere un ID tenant o un dominio verificato, in modo che l'utente guest possa essere autenticato nel tenant in cui si trova l'app condivisa. Un URL comune come https://myapps.microsoft.com non funzionerà per un utente guest perché verrà reindirizzato al tenant principale per l'autenticazione. Di seguito sono riportati alcuni esempi di collegamenti diretti con il contesto del tenant:
- > - Pannello di accesso per le app: https://myapps.microsoft.com/?tenantid=&lt; ID tenant&gt; 
- > - Pannello di accesso per le app per un dominio verificato: https://myapps.microsoft.com/&lt; dominio verificato&gt;
- > - Portale di Azure: https://portal.azure.com/&lt; ID tenant&gt;
+ > - Pannello di accesso per le app: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Pannello di accesso per le app per un dominio verificato: `https://myapps.microsoft.com/<;verified domain>`
+ > - Portale di Azure: `https://portal.azure.com/<tenant id>`
  > - App singola: vedere come usare un [collegamento di accesso diretto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 In alcuni casi, è consigliabile usare il messaggio di posta elettronica di invito anziché un collegamento diretto. Se questi casi particolari sono importanti per l'organizzazione, è consigliabile invitare gli utenti usando metodi che inviano il messaggio di posta elettronica di invito:

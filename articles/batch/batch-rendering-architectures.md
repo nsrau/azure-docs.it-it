@@ -1,15 +1,15 @@
 ---
-title: Architetture di riferimento per il rendering di Azure
+title: Architetture di riferimento del rendering di Azure
 description: Architetture per l'uso di Azure Batch e altri servizi di Azure per estendere un farm di rendering locale tramite burst nel cloud
 ms.date: 02/07/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115772"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726520"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architetture di riferimento per il rendering di Azure
 
@@ -21,9 +21,9 @@ Il diagramma seguente illustra uno scenario ibrido che include i servizi di Azur
 
 * **Calcolo**: pool di Azure Batch o set di scalabilità di macchine virtuali.
 
-* **Rete**: locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
+* **Rete** - Locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione**: file di input e output: NFS o CFS usando macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync. In alternativa, è possibile eseguire l'vFXT dei file di input o di output da dispositivi NAS locali usando NFS.
+* **Archiviazione** - File di input e output: NFS o CFS con macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync. In alternativa: Avere vFXT per inserire o trasferire i file da dispositivi NAS locali con NFS.
 
   ![Bursting del cloud: configurazione ibrida con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
@@ -33,9 +33,9 @@ Il diagramma seguente illustra uno scenario ibrido che include i servizi di Azur
 
 * **Calcolo**: pool di Azure Batch o set di scalabilità di macchine virtuali.
 
-* **Rete**: locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
+* **Rete** - Locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione**: file di input e output: archiviazione BLOB, montata per calcolare le risorse tramite Azure Blobfuse.
+* **Archiviazione** - File di input e output: archivio BLOB, montato per calcolare le risorse tramite Azure Blobfuse.
 
   ![Bursting del cloud: configurazione ibrida con Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -45,9 +45,9 @@ Il diagramma seguente illustra uno scenario ibrido completamente connesso per l'
 
 * **Calcolo**: pool di Azure Batch o set di scalabilità di macchine virtuali.
 
-* **Rete**: locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
+* **Rete** - Locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione**: cross-premise: Avere vFXT. Archiviazione facoltativa di file locali tramite Azure Data Box nell'archiviazione BLOB oppure Avere FXT locale per l'accelerazione NAS.
+* **Archiviazione** - Cross-premise: Avere vFXT. Archiviazione facoltativa di file locali tramite Azure Data Box nell'archiviazione BLOB oppure Avere FXT locale per l'accelerazione NAS.
 
   ![Bursting del cloud: configurazione e archiviazione ibride](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 

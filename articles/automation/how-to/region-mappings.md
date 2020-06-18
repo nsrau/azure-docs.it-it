@@ -1,6 +1,6 @@
 ---
-title: Mapping dell'area di lavoro di automazione di Azure e Log Analytics
-description: Questo articolo descrive i mapping consentiti tra un account di automazione e un'area di lavoro Log Analytics.
+title: Aree supportate per l'area di lavoro Log Analytics collegata
+description: Questo articolo descrive i mapping di area supportati tra un account di Automazione e un'area di lavoro Log Analytics.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,27 +9,25 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b00b25dc4eaea5bc8a3f5fbd42389aff501f14a
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901015"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744757"
 ---
-# <a name="workspace-mappings"></a>Mapping dell'area di lavoro
+# <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
-In automazione di Azure è possibile abilitare le soluzioni seguenti: "Gestione aggiornamenti," "Rilevamento modifiche e inventario" e "avviare/arrestare macchine virtuali durante le ore di indisponibilità". Quando si esegue questa operazione, tuttavia, tenere presente che solo alcune aree sono supportate per il collegamento di un'area di lavoro Log Analytics e di un account di automazione nella sottoscrizione. Questo mapping si applica solo all'account di automazione e all'area di lavoro Log Analytics. L'area di lavoro Log Analytics e l'account di automazione devono trovarsi nella stessa sottoscrizione, ma possono trovarsi in diversi gruppi di risorse distribuiti nella stessa area.
-
-Per ulteriori informazioni, vedere [log Analytics area di lavoro e l'account di automazione](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+In Automazione di Azure è possibile abilitare le funzionalità Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività per le macchine virtuali. Sono tuttavia supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione nella sottoscrizione. I mapping di area si applicano solo all'account di Automazione e all'area di lavoro Log Analytics. L'area di lavoro Log Analytics e l'account di Automazione devono trovarsi nella stessa sottoscrizione, ma possono trovarsi in gruppi di risorse diversi distribuiti nella stessa area. Per altre informazioni, vedere [Area di lavoro Log Analytics e account di Automazione](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapping supportati
 
 La tabella seguente mostra i mapping supportati:
 
-|**Area dell'area di lavoro Log Analytics**|**Area di automazione di Azure**|
+|**Area dell'area di lavoro Log Analytics**|**Area di Automazione di Azure**|
 |---|---|
-|**US**||
-|Eastus<sup>1</sup>|EastUS2|
+|**Stati Uniti**||
+|EastUS<sup>1</sup>|EastUS2|
 |Stati Uniti occidentali 2|Stati Uniti occidentali 2|
 |WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |**Canada**||
@@ -45,50 +43,43 @@ La tabella seguente mostra i mapping supportati:
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 
-<sup>1</sup> il mapping di eastus per le aree di lavoro log Analytics agli account di automazione non è un mapping esatto da area a area, ma è il mapping corretto.
+<sup>1</sup> Il mapping di EastUS per le aree di lavoro Log Analytics agli account di Automazione non è un mapping esatto da area a area, ma è il mapping corretto.
 
-<sup>2</sup> a causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono inclusi gli account di automazione e le aree di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.
+<sup>2</sup> A causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono inclusi gli account di Automazione e le aree di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.
 
-## <a name="unlink-a-workspace"></a>Scollega un'area di lavoro
+## <a name="unlink-a-workspace"></a>Scollegare un'area di lavoro
 
-Se si decide che non si vuole più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure. Prima di procedere, è necessario prima rimuovere "Gestione aggiornamenti", "Rilevamento modifiche e inventario" e "avviare/arrestare le macchine virtuali durante le ore di indisponibilità" Se vengono usate. Se non vengono rimossi, non è possibile completare l'operazione di scollegamento. Esaminare l'articolo per ogni soluzione che si sta abilitando per comprendere i passaggi necessari per rimuoverla.
+Se si decide che non si vuole più integrare l'account di Automazione con un'area di lavoro Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure. Prima di procedere, è necessario [rimuovere](move-account.md#remove-features) le funzionalità Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività se sono in uso. Se non vengono rimosse, non è possibile completare l'operazione di scollegamento. 
 
-Dopo averli rimossi, è possibile eseguire la procedura seguente per scollegare l'account di automazione.
+Dopo aver rimosso le funzionalità è possibile seguire questa procedura per scollegare l'account di Automazione.
 
 > [!NOTE]
-> Alcune soluzioni, incluse le versioni precedenti della soluzione di monitoraggio di Azure SQL, potrebbero avere creato asset di automazione e potrebbe essere necessario rimuoverle prima di scollegare l'area di lavoro.
+> È possibile che alcune funzionalità, tra cui versioni precedenti della soluzione di monitoraggio di Azure SQL, abbiano creato asset di Automazione che devono essere rimossi prima di scollegare l'area di lavoro.
 
-1. Dal portale di Azure aprire l'account di automazione. Nella pagina **account di automazione** selezionare **area di lavoro collegata** in **risorse correlate**.
+1. Nel portale di Azure aprire l'account di Automazione. Nella pagina dell'account di Automazione selezionare **Area di lavoro collegata** in **Risorse correlate**.
 
-2. Nella pagina **Scollega area di lavoro** selezionare **Scollega area di lavoro**. Viene visualizzato un messaggio di richiesta per verificare se si vuole continuare.
+2. Nella pagina Scollega area di lavoro fare clic su **Scollega area di lavoro**. Viene visualizzato un messaggio di richiesta per verificare se si vuole continuare.
 
-3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure scollega l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
-4. Se è stata usata l'opzione "Gestione aggiornamenti", è possibile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione.
+4. Se è stato usato Gestione aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari:
 
-    * Pianificazioni degli aggiornamenti: ogni ha un nome che corrisponde a una distribuzione di aggiornamenti creata.
-    * Gruppi di lavoro ibridi creati per la soluzione: ognuno ha un nome simile `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`a.
+    * Pianificazioni degli aggiornamenti: ognuna ha un nome corrispondente alla distribuzione dell'aggiornamento creata.
+    * Gruppi di ruoli di lavoro ibridi creati per la funzionalità: ognuno ha un nome simile a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`.
 
-5. Se è stata usata l'opzione "avvia/arresta macchine virtuali durante le ore di inattività", facoltativamente è possibile rimuovere gli elementi seguenti che non sono necessari dopo la rimozione.
+5. Se è stata usata la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività, facoltativamente è possibile rimuovere gli elementi seguenti che non sono più necessari:
 
     * Avviare e arrestare le pianificazioni di runbook delle VM
     * Avviare e arrestare i runbook delle VM
     * variables
 
-In alternativa, è possibile scollegare l'area di lavoro dall'account di automazione nell'area di lavoro.
+In alternativa, è possibile scollegare l'area di lavoro dall'account di Automazione nell'area di lavoro.
 
-1. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. 
-2. Nella pagina **account di automazione** selezionare **Scollega account**.
+1. Nell'area di lavoro selezionare **Account di Automazione** in **Risorse correlate**. 
+2. Nella pagina Account di Automazione selezionare **Scollega account**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come iniziare a usare "Gestione aggiornamenti" e "Rilevamento modifiche e inventario":
-
-    * Da una [macchina virtuale](../automation-onboard-solutions-from-vm.md).
-    * Dall' [account di automazione](../automation-onboard-solutions-from-automation-account.md).
-    * Quando si [esplorano più computer](../automation-onboard-solutions-from-browse.md).
-    * Da un [Runbook](../automation-onboard-solutions.md).
-
-* Informazioni su come iniziare a usare "avvia/arresta macchine virtuali durante le ore di indisponibilità":
-
-    * [Panoramica di avvio/arresto di macchine virtuali durante le ore](../automation-solution-vm-management.md)di indisponibilità.
+* Vedere informazioni aggiuntive su Gestione aggiornamenti in [Panoramica di Gestione aggiornamenti](../automation-update-management.md).
+* Scoprire di più su Rilevamento modifiche e inventario in [Panoramica di Rilevamento modifiche e inventario](../change-tracking.md).
+* Vedere altre informazioni su Avvio/Arresto di macchine virtuali durante gli orari di minore attività in [Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md).

@@ -323,6 +323,9 @@
         - name: Eseguire il training automatico di un modello previsionale
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Convalida incrociata e suddivisioni di dati (Python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-cross-validation-data-splits.md
         - name: Definizione delle funzionalità in Machine Learning automatizzato (Python)
           displayName: 'automl, feature engineering, feature importance'
           href: how-to-configure-auto-features.md

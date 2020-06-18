@@ -1,34 +1,34 @@
 ---
-title: Criteri autore per le proprietà delle matrici sulle risorse
-description: Informazioni su come usare i parametri di matrice e le espressioni del linguaggio di matrici, valutare l'alias [*] e aggiungere elementi con le regole di definizione dei criteri di Azure.
-ms.date: 11/26/2019
+title: Creare i criteri per le proprietà della matrice nelle risorse
+description: Informazioni su come usare i parametri della matrice e le espressioni del linguaggio della matrice, valutare l'alias [*] e aggiungere elementi con le regole di definizione di Criteri di Azure.
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280664"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684246"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Creare i criteri per le proprietà della matrice nelle risorse di Azure
 
-Azure Resource Manager proprietà sono comunemente definite come stringhe e valori booleani. Quando esiste una relazione uno-a-molti, le proprietà complesse sono invece definite come matrici. In criteri di Azure, le matrici vengono usate in diversi modi:
+Le proprietà di Azure Resource Manager sono comunemente definite come stringhe e valori booleani. Quando esiste una relazione uno-a-molti, le proprietà complesse sono invece definite come matrici. In Criteri di Azure le matrici vengono usate in modi diversi:
 
-- Tipo di un [parametro di definizione](../concepts/definition-structure.md#parameters)per fornire più opzioni
-- Parte di una [regola di criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
-- Parte di una regola di criteri che valuta l' [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) da valutare:
-  - Scenari come **None**, **any**o **All**
-  - Scenari complessi con **conteggio**
-- Nell' [effetto di Accodamento](../concepts/effects.md#append) da sostituire o aggiungere a una matrice esistente
+- Tipo di un [parametro della definizione](../concepts/definition-structure.md#parameters) per offrire più opzioni
+- Parte di una [regola dei criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
+- Parte di una regola dei criteri che valuta l'[alias\[\*\]](../concepts/definition-structure.md#understanding-the--alias) per:
+  - Scenari, ad esempio di tipo **None**, **Any** o **All**
+  - Scenari complessi con l'espressione **count**
+- Nell'[effetto Append](../concepts/effects.md#append) per sostituire o aggiungere a una matrice esistente
 
-Questo articolo descrive ogni uso di criteri di Azure e offre diverse definizioni di esempio.
+Questo articolo descrive tutti gli usi di Criteri di Azure e offre diverse definizioni di esempio.
 
 ## <a name="parameter-arrays"></a>Matrici di parametri
 
 ### <a name="define-a-parameter-array"></a>Definire una matrice di parametri
 
-La definizione di un parametro come matrice consente la flessibilità dei criteri quando è necessario più di un valore.
-Questa definizione di criteri consente qualsiasi percorso singolo per il parametro **allowedLocations** e il valore predefinito è _eastus2_:
+La definizione di un parametro come matrice consente l'uso di criteri flessibili quando è necessario più di un valore.
+La definizione dei criteri consente di usare un'unica località qualsiasi per il parametro **allowedLocations**. Il valore predefinito è _eastus2_:
 
 ```json
 "parameters": {
@@ -44,9 +44,9 @@ Questa definizione di criteri consente qualsiasi percorso singolo per il paramet
 }
 ```
 
-Poiché il **tipo** è _stringa_, è possibile impostare un solo valore quando si assegnano i criteri. Se questo criterio viene assegnato, le risorse nell'ambito sono consentite solo all'interno di una singola area di Azure. La maggior parte delle definizioni di criteri deve consentire un elenco di opzioni approvate, ad esempio consentire _eastus2_, _eastus_e _westus2_.
+Il valore di **type** è _string_, quindi è possibile impostare un solo valore quando si assegnano i criteri. Se si assegnano questi criteri, le risorse nell'ambito sono consentite solo all'interno di un'unica area di Azure. La maggior parte delle definizioni dei criteri deve consentire un elenco di opzioni approvate, ad esempio _eastus2_, _eastus_ e _westus2_.
 
-Per creare la definizione dei criteri per consentire più opzioni, usare il **tipo**di _matrice_ . Lo stesso criterio può essere riscritto nel modo seguente:
+Per creare la definizione dei criteri che consenta più opzioni, usare _array_ per **type**. Gli stessi criteri possono essere riscritti nel modo seguente:
 
 ```json
 "parameters": {
@@ -69,13 +69,13 @@ Per creare la definizione dei criteri per consentire più opzioni, usare il **ti
 ```
 
 > [!NOTE]
-> Una volta salvata una definizione dei criteri, la proprietà **Type** di un parametro non può essere modificata.
+> Dopo aver salvato una definizione dei criteri, la proprietà **type** in un parametro non può essere modificata.
 
-Questa nuova definizione di parametro richiede più di un valore durante l'assegnazione dei criteri. Con la proprietà array **allowedValues** definita, i valori disponibili durante l'assegnazione sono ulteriormente limitati all'elenco predefinito di opzioni. L'utilizzo di **allowedValues** è facoltativo.
+Questa nuova definizione dei parametri accetta più di un valore durante l'assegnazione dei criteri. Dopo aver definito la proprietà della matrice **allowedValues**, i valori disponibili durante l'assegnazione sono esclusivamente quelli disponibili nell'elenco predefinito delle opzioni. L'uso di **allowedValues** è facoltativo.
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passare i valori a una matrice di parametri durante l'assegnazione
 
-Quando si assegnano i criteri tramite la portale di Azure, un parametro di **tipo** _Array_ viene visualizzato come una sola casella di testo. L'hint dice "use; per separare i valori. (ad esempio, Londra; New York) ". Per passare i valori di posizione consentiti di _eastus2_, _eastus_e _westus2_ al parametro, usare la stringa seguente:
+Quando si assegnano i criteri tramite il portale di Azure, un parametro di **type** _array_ viene visualizzato come unica casella di testo, in cui viene visualizzato il suggerimento "Usare il ; per separare i valori. Ad esempio: Londra;New York". Per passare i valori delle località consentite di _eastus2_, _eastus_ e _westus2_ al parametro, usare la stringa seguente:
 
 `eastus2;eastus;westus2`
 
@@ -95,16 +95,16 @@ Il formato del valore del parametro è diverso quando si usa l'interfaccia della
 
 Per usare questa stringa con ogni SDK, usare i comandi seguenti:
 
-- INTERFACCIA della riga di comando di Azure: comando [AZ Policy Assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with Parameter **params**
+- Interfaccia della riga di comando di Azure: comando [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) con il parametro **params**
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
-- API REST: nell'operazione _put_ [create](/rest/api/resources/policyassignments/create) come parte del corpo della richiesta come valore della proprietà **Properties. Parameters**
+- API REST: durante l'operazione di [creazione](/rest/api/resources/policyassignments/create) di tipo _PUT_ come parte del corpo della richiesta, come valore della proprietà **properties.parameters**
 
-## <a name="policy-rules-and-arrays"></a>Regole e matrici di criteri
+## <a name="policy-rules-and-arrays"></a>Regole dei criteri e matrici
 
-### <a name="array-conditions"></a>Condizioni di matrice
+### <a name="array-conditions"></a>Condizioni delle matrici
 
-Le [condizioni](../concepts/definition-structure.md#conditions) della regola dei criteri per le quali è possibile utilizzare un**tipo** _matrice_
-di parametro `in` sono `notIn`limitate a e. Adottare la definizione di criteri seguente con `equals` la condizione come esempio:
+Le [condizioni](../concepts/definition-structure.md#conditions) della regola dei criteri per cui poter usare un parametro di _array_
+**type** sono `in` e `notIn`. Usare la definizione dei criteri seguente con la condizione `equals` come esempio:
 
 ```json
 {
@@ -132,20 +132,20 @@ di parametro `in` sono `notIn`limitate a e. Adottare la definizione di criteri s
 }
 ```
 
-Il tentativo di creare la definizione di criteri tramite il portale di Azure genera un errore, ad esempio il messaggio di errore seguente:
+Il tentativo di creare questa definizione dei criteri tramite il portale di Azure genera un errore, ad esempio il messaggio di errore seguente:
 
-- "Impossibile parametrizzare il criterio ' {GUID}' a causa di errori di convalida. Verificare che i parametri dei criteri siano definiti correttamente. L'eccezione interna ' risultato della valutazione dell'espressione del linguaggio ' [Parameters (' allowedLocations ')]' è di tipo ' array '. il tipo previsto è' String ' .'. "
+- "Non è stato possibile applicare i parametri ai criteri '{GUID}' a causa di errori di convalida. Controllare che i parametri dei criteri siano definiti correttamente. Eccezione interna: "Il risultato della valutazione dell'espressione '[parameters('allowedLocations')]' del linguaggio è di tipo "Array", ma il tipo previsto è "String".
 
-Il **tipo** previsto di condizione `equals` è _String_. Poiché **allowedLocations** è definito come **type** _matrice_di tipi, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con la `in` condizione `notIn` and, il motore dei criteri prevede la **type** _matrice_ di tipi nell'espressione del linguaggio. Per correggere questo messaggio di errore, `equals` modificare in `in` o `notIn`.
+Il valore **type** previsto della condizione `equals` è _string_. Poiché **allowedLocations** è definito come **type** _array_, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con le condizioni `in` e `notIn`, il motore dei criteri prevede la presenza di **type** _array_ nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias ** \[ \* ** collegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, ** \[ \* ** consente di valutare ogni elemento della matrice singolarmente, con logiche e tra di esse. Esistono tre scenari standard in cui questa valutazione per elemento è utile in _None_: nessuno _, nessuno_o _tutti_ gli elementi corrispondono. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
+Gli alias con **\[\*\]** aggiunto al nome indicano che il valore della proprietà **type** è _array_. Anziché valutare il valore dell'intera matrice, **\[\*\]** consente di valutare ogni elemento della matrice singolarmente, usando l'AND logico tra ogni elemento. Sono tre gli scenari standard in cui questa valutazione per elemento è utile: gli elementi _None_, _Any_ o _All_ corrispondono. Per scenari complessi, usare l'espressione [count](../concepts/definition-structure.md#count).
 
-Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
-Questo è un aspetto importante da comprendere nel contesto del modo ** \[ \* ** in cui valuta ogni singolo elemento della matrice.
+Il motore dei criteri attiva il valore **effect** nel blocco **then** solo quando la regola **if** restituisce true.
+Questo aspetto è importante per comprendere in che modo **\[\*\]** valuta ogni singolo elemento della matrice.
 
-La regola dei criteri di esempio per la tabella dello scenario seguente:
+Esempio di regola dei criteri per la tabella dello scenario seguente:
 
 ```json
 "policyRule": {
@@ -164,7 +164,7 @@ La regola dei criteri di esempio per la tabella dello scenario seguente:
 }
 ```
 
-La matrice **ipRules** è la seguente per la tabella dello scenario riportata di seguito:
+La matrice **ipRules** per la tabella dello scenario è la seguente:
 
 ```json
 "ipRules": [
@@ -179,35 +179,35 @@ La matrice **ipRules** è la seguente per la tabella dello scenario riportata di
 ]
 ```
 
-Per ogni condizione di esempio riportata di `<field>` seguito `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`, sostituire con.
+Per ogni condizione di esempio riportata di seguito, sostituire `<field>` con `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
 
-I risultati seguenti sono il risultato della combinazione della condizione e della regola dei criteri di esempio e della matrice dei valori esistenti precedente:
+Di seguito sono riportati i risultati della combinazione della condizione, la regola dei criteri di esempio e la matrice di valori esistenti precedenti:
 
 |Condizione |Risultato | Scenario |Spiegazione |
 |-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |Nessuna corrispondenza |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_ e l'effetto non viene attivato. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Effetto criteri |Nessuna corrispondenza |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_ e l'effetto viene attivato. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effetto criteri |Una o più corrispondenze |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Una o più corrispondenze |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_. L'operatore logico restituisce false (**non** _true_), quindi l'effetto non viene attivato. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Effetto criteri |Non tutte le corrispondenze |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Effetto criteri |Non tutte le corrispondenze |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nothing |Tutte le corrispondenze |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Tutte le corrispondenze |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nessuno |Nessuna corrispondenza |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Effetto dei criteri |Nessuna corrispondenza |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_ e l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effetto dei criteri |Una o più corrispondenze |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nessuno |Una o più corrispondenze |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_. L'operatore logico restituisce false (**non** _true_), quindi l'effetto non viene attivato. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Effetto dei criteri |Corrispondenza non totale |Un elemento della matrice restituisce true (127.0.0.1 == 127.0.0.1) e uno false (127.0.0.1 == 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Effetto dei criteri |Corrispondenza non totale |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nessuno |Corrispondenza totale |Un elemento della matrice restituisce true (127.0.0.1 == 127.0.0.1) e uno false (127.0.0.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nessuno |Corrispondenza totale |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
 
-## <a name="the-append-effect-and-arrays"></a>L'effetto di Accodamento e le matrici
+## <a name="the-append-effect-and-arrays"></a>Effetto Append e matrici
 
-L' [effetto di Accodamento](../concepts/effects.md#append) si comporta in modo diverso a seconda che il **campo details. Field** sia un ** \[ \* ** alias.
+L'[effetto Append](../concepts/effects.md#append) si comporta in modo diverso a seconda che **details.field** sia o meno un alias **\[\*\]** .
 
-- Quando non è ** \[ \* ** un alias, Append sostituisce l'intera matrice con la proprietà **value**
-- Quando un ** \[ \* ** alias, Append aggiunge la proprietà **value** alla matrice esistente o crea la nuova matrice
+- Quando non è un alias **\[\*\]** , l'effetto Append sostituisce l'intera matrice con la proprietà **value**
+- Quando è un alias **\[\*\]** , l'effetto Append aggiunge la proprietà **value** alla matrice esistente o crea la nuova matrice
 
-Per ulteriori informazioni, vedere gli [esempi di Accodamento](../concepts/effects.md#append-examples).
+Per altre informazioni, vedere gli [esempi di Append](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
+- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](remediate-resources.md).
-- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Informazioni su come [correggere le risorse non conformi](remediate-resources.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -1,323 +1,323 @@
 ---
-title: Monitorare i servizi di archiviazione di Azure con monitoraggio di Azure per l'archiviazione | Microsoft Docs
-description: Questo articolo descrive il monitoraggio di Azure per la funzionalità di archiviazione che offre agli amministratori dell'archiviazione una rapida comprensione dei problemi di prestazioni e utilizzo con gli account di archiviazione di Azure.
+title: Monitorare i servizi di Archiviazione di Azure con Monitoraggio di Azure per l'archiviazione | Microsoft Docs
+description: Questo articolo descrive la funzionalità Monitoraggio di Azure per l'archiviazione, che consente agli amministratori dell'archiviazione di comprendere rapidamente i problemi di prestazioni e utilizzo degli account di archiviazione di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/11/2020
-ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199962"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800062"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
-Monitoraggio di Azure per l'archiviazione offre un monitoraggio completo degli account di archiviazione di Azure, fornendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. È possibile osservare la capacità di archiviazione e le prestazioni in due modi, visualizzare direttamente da un account di archiviazione o da una vista di monitoraggio di Azure per visualizzare tutti i gruppi di account di archiviazione. 
+Monitoraggio di Azure per l'archiviazione offre un monitoraggio completo degli account di archiviazione di Azure grazie a una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. È possibile osservare la capacità di archiviazione e le prestazioni in due modi, direttamente da un account di archiviazione oppure da Monitoraggio di Azure, per vedere i diversi gruppi di account di archiviazione. 
 
-Questo articolo consentirà di comprendere l'esperienza di monitoraggio di Azure per l'archiviazione per ottenere informazioni di utilità pratica sull'integrità e sulle prestazioni degli account di archiviazione su larga scala, con una capacità di concentrarsi sugli hotspot e diagnosticare la latenza, la limitazione e i problemi di disponibilità.
+Questo articolo aiuta a comprendere l'esperienza di Monitoraggio di Azure per l'archiviazione per ricavare informazioni di utilità pratica sull'integrità e sulle prestazioni degli account di archiviazione su larga scala, con la capacità di concentrare l'attenzione sulle aree sensibili e diagnosticare i problemi di latenza, limitazione della larghezza di banda della rete e disponibilità.
 
-## <a name="introduction-to-azure-monitor-for-storage"></a>Introduzione a monitoraggio di Azure per l'archiviazione
+## <a name="introduction-to-azure-monitor-for-storage"></a>Introduzione a Monitoraggio di Azure per l'archiviazione
 
-Prima di approfondire l'esperienza, è necessario comprenderne il modo in cui presenta e visualizza le informazioni. Se si seleziona la funzionalità di archiviazione direttamente da un account di archiviazione o da monitoraggio di Azure, monitoraggio di Azure per l'archiviazione offre un'esperienza coerente. 
+Prima di approfondire l'esperienza è necessario comprendere il modo in cui le informazioni vengono presentate e visualizzate. Che si selezioni la funzionalità di archiviazione direttamente da un account di archiviazione o da Monitoraggio di Azure, Monitoraggio di Azure per l'archiviazione offre un'esperienza coerente. 
 
-In combinazione offre:
+In combinazione, offre:
 
-* **Nel punto di vista della scala** , che mostra una visualizzazione snapshot della loro disponibilità in base all'integrità del servizio di archiviazione o all'operazione API, l'utilizzo indica il numero totale di richieste ricevute dal servizio di archiviazione e la latenza che mostra il tempo medio necessario per l'elaborazione delle richieste da parte del servizio di archiviazione o del tipo di operazione API. È anche possibile visualizzare la capacità per BLOB, file, tabelle e code.
+* **Una prospettiva su larga scala**, che mostra una visualizzazione snapshot della disponibilità in base all'integrità del servizio di archiviazione o all'operazione API, dell'utilizzo, con il numero totale di richieste ricevute dal servizio di archiviazione, e della latenza, con il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. È anche possibile visualizzare la capacità per BLOB, file, tabelle e code.
 
-* Eseguire il **drill-down dell'analisi** di un determinato account di archiviazione per facilitare la diagnosi dei problemi o l'analisi dettagliata per disponibilità, prestazioni, errori e capacità di categoria. Selezionando una di queste opzioni viene fornita una visualizzazione dettagliata delle metriche.  
+* **Analisi drill-down** di uno specifico account di archiviazione per facilitare la diagnosi dei problemi o eseguire l'analisi dettagliata per categoria: disponibilità, prestazioni, errori e capacità. Selezionando una di queste opzioni si ottiene una visualizzazione approfondita delle metriche.  
 
-* **Personalizzabile** , in cui è possibile modificare la metrica che si desidera visualizzare, modificare o impostare le soglie che si allineano ai limiti e salvare come cartella di lavoro personalizzata. I grafici nella cartella di lavoro possono essere aggiunti al dashboard di Azure.  
+* **Possibilità di personalizzazione**, per modificare le metriche da visualizzare, modificare o impostare soglie allineate ai propri limiti e salvare come cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono essere aggiunti ai dashboard di Azure.  
 
-Per questa funzionalità non è necessario abilitare o configurare elementi, per impostazione predefinita vengono raccolte le metriche di archiviazione degli account di archiviazione. Se non si ha familiarità con le metriche disponibili in archiviazione di Azure, vedere la descrizione e la definizione nelle metriche di archiviazione di Azure esaminando le [metriche di archiviazione di Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
-
->[!NOTE]
->Non sono previsti addebiti per accedere a questa funzionalità e verranno addebitate solo le funzionalità essenziali di monitoraggio di Azure configurate o abilitate, come descritto nella pagina [Dettagli prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
+Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
->Il monitoraggio di Azure per l'archiviazione non supporta gli [account per utilizzo generico V1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>Non sono previsti addebiti per accedere a questa funzionalità. Verranno addebitate solo le funzionalità essenziali di Monitoraggio di Azure configurate o abilitate, come descritto nella pagina relativa ai [dettagli sui prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
+
+>[!NOTE]
+>Monitoraggio di Azure per l'archiviazione non supporta gli [account per utilizzo generico v1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
 >
 
-## <a name="view-from-azure-monitor"></a>Visualizza da monitoraggio di Azure
+## <a name="view-from-azure-monitor"></a>Visualizzare da Monitoraggio di Azure
 
-Da monitoraggio di Azure è possibile visualizzare i dettagli relativi a transazioni, latenza e capacità da più account di archiviazione nella sottoscrizione e identificare le prestazioni, i problemi di capacità e gli errori.
+Da Monitoraggio di Azure è possibile esaminare i dettagli relativi a transazioni, latenza e capacità di più account di archiviazione nella sottoscrizione e identificare gli errori e i problemi di prestazioni e capacità.
 
 Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione in tutte le sottoscrizioni, seguire questa procedura.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure e nella sezione **Insights** selezionare **account di archiviazione**.
+2. Selezionare **Monitoraggio** nel riquadro a sinistra del portale di Azure e nella sezione **Informazioni dettagliate** selezionare **Account di archiviazione**.
 
-    ![Visualizzazione di più account di archiviazione](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
+    ![Vista di più account di archiviazione](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
 ### <a name="overview-workbook"></a>Cartella di lavoro Panoramica
 
-Nella cartella di lavoro **Panoramica** per la sottoscrizione selezionata la tabella Visualizza le metriche di archiviazione interattiva e lo stato di disponibilità del servizio per un massimo di 10 account di archiviazione raggruppati nella sottoscrizione. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
+Nella cartella di lavoro **Panoramica** per la sottoscrizione selezionata, la tabella mostra metriche di archiviazione interattive e lo stato di disponibilità del servizio per un massimo di 10 account di archiviazione raggruppati nella sottoscrizione. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
 
-* **Sottoscrizioni** sono elencate solo le sottoscrizioni con account di archiviazione.  
+* **Sottoscrizioni**: sono elencate solo le sottoscrizioni con account di archiviazione.  
 
-* **Account di archiviazione** : per impostazione predefinita, sono già selezionati 10 account di archiviazione. Se si selezionano tutti o più account di archiviazione nel selettore di ambito, verranno restituiti fino a 200 account di archiviazione. Se, ad esempio, si dispone di un totale di 573 account di archiviazione tra tre sottoscrizioni selezionate, verranno visualizzati solo gli account 200. 
+* **Account di archiviazione**: per impostazione predefinita, sono preselezionati 10 account di archiviazione. Se si selezionano più account di archiviazione o tutti gli account nel selettore di ambito, verranno restituiti fino a 200 account di archiviazione. Ad esempio, se si ha un totale di 573 account di archiviazione in tre sottoscrizioni selezionate, verranno visualizzati solo 200 account. 
 
-* **Intervallo di tempo** : per impostazione predefinita, Visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
+* **Intervallo di tempo**: per impostazione predefinita, visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
 
-Il riquadro contatore sotto gli elenchi a discesa esegue il rollup del numero totale di account di archiviazione nella sottoscrizione e indica quanti del totale sono selezionati. Per le colonne nella cartella di lavoro è presente una codifica dei colori condizionale o Heatmaps che segnalano gli errori o le metriche delle transazioni. Il colore più profondo ha il valore più alto e un colore più chiaro è basato sui valori più bassi. Per le colonne basate sugli errori, il valore è in rosso e per le colonne basate su metriche, il valore è in blu.
+Il riquadro contatore sotto gli elenchi a discesa riepiloga il numero totale di account di archiviazione nella sottoscrizione e indica quanti ne sono selezionati sul totale. Per le colonne nella cartella di lavoro che riportano metriche di transazioni errori sono previste una codifica con colori condizionale o le mappe termiche. Il colore più profondo presenta il valore più elevato, mentre un colore più chiaro deriva da valori più bassi. Per le colonne basate sugli errori il valore è in rosso, per le colonne basate su metriche il valore è in blu.
 
-Selezionare un valore in colonne **disponibilità**, **latenza E2E**, **latenza server**e **tipo di errore transazione/errori** indirizzare l'utente a un report adattato al tipo specifico di metriche di archiviazione che corrispondono alla colonna selezionata per l'account di archiviazione. Per ulteriori informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [cartelle di lavoro di archiviazione dettagliata](#detailed-storage-workbooks) di seguito. 
+Selezionare un valore nelle colonne **Disponibilità**, **Latenza end-to-end**, **Latenza server** e **tipo di errore transazione/Errori** per accedere a un report basato sul tipo specifico di metrica di archiviazione corrispondente alla colonna selezionata per l'account di archiviazione. Per altre informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [Cartelle di lavoro sull'archiviazione dettagliate](#detailed-storage-workbooks) più avanti. 
 
 >[!NOTE]
->Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere [schema del tipo di risposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errori segnalati, tutti gli altri errori sono rappresentati nella categoria **altro**.
+>Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere lo [schema dei tipi di risposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errore, tutti gli altri errori sono rappresentati nella categoria **Altro**.
 
-La soglia di **disponibilità** predefinita è:
+La soglia di **Disponibilità** predefinita è:
 
-* Avviso-99%
-* Critico-90%
+* Avviso - 99%
+* Critico - 90%
 
-Per impostare una soglia di disponibilità in base ai risultati dell'osservazione o dei requisiti, vedere [modificare la soglia di disponibilità](#modify-the-availability-threshold). 
+Per impostare una soglia di disponibilità in base ai risultati dell'osservazione o ai propri requisiti, vedere [Modificare la soglia di disponibilità](#modify-the-availability-threshold). 
 
-### <a name="capacity-workbook"></a>Cartella di lavoro capacità
+### <a name="capacity-workbook"></a>Cartella di lavoro Capacità
 
-Selezionare **capacità** nella parte superiore della pagina e verrà aperta la cartella di lavoro **capacità** . Mostra la quantità di spazio di archiviazione totale usato nell'account e la capacità usata da ogni servizio dati nell'account per identificare le risorse di archiviazione utilizzate e sottoutilizzate.
+Selezionare **Capacità** nella parte superiore della pagina e verrà aperta la cartella di lavoro **Capacità**. Mostra la quantità di spazio di archiviazione totale usato nell'account e la capacità usata da ogni servizio dati nell'account, per identificare le risorse di archiviazione sovrautilizzate e sottoutilizzate.
 
-![Cartella di lavoro della capacità di più account di archiviazione](./media/storage-insights-overview/storage-account-capacity-02.png) 
+![Cartella di lavoro della capacità per più account di archiviazione](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-Per le colonne nella cartella di lavoro è presente una codifica dei colori condizionale o Heatmaps che segnala la metrica di capacità con un valore blu. Il colore più profondo ha il valore più alto e un colore più chiaro è basato sui valori più bassi.
+Nella cartella di lavoro vengono usate una codifica con colori condizionale o mappe termiche per indicare le metriche di capacità con un valore blu. Il colore più profondo presenta il valore più elevato, mentre un colore più chiaro deriva da valori più bassi.
 
-Quando si seleziona un valore in una delle colonne della cartella di lavoro, si esegue il drill-down nella cartella di lavoro **capacità** per l'account di archiviazione. Ulteriori dettagli sul report drill-down sono descritti nella sezione [cartelle di lavoro di archiviazione dettagliata](#detailed-storage-workbooks) di seguito. 
+Quando si seleziona un valore in una delle colonne della cartella di lavoro, si esegue il drill-down nella cartella di lavoro **Capacità** per l'account di archiviazione. Maggiori informazioni sul report drill-down sono disponibili nella sezione [Cartelle di lavoro sull'archiviazione dettagliate](#detailed-storage-workbooks) più avanti. 
 
 ## <a name="view-from-a-storage-account"></a>Visualizzare da un account di archiviazione
 
-Per accedere Monitoraggio di Azure per le macchine virtuali direttamente da un account di archiviazione:
+Per accedere a Monitoraggio di Azure per le macchine virtuali direttamente da un account di archiviazione:
 
-1. Nella portale di Azure selezionare account di archiviazione.
+1. Nel portale di Azure selezionare Account di archiviazione.
 
-2. Dall'elenco scegliere un account di archiviazione. Nella sezione monitoraggio scegliere Insights.
+2. Scegliere un account di archiviazione nell'elenco. Nella sezione Monitoraggio scegliere Informazioni dettagliate.
 
-    ![Pagina di panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Pagina Panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-Nella cartella di lavoro **Panoramica** per l'account di archiviazione vengono visualizzate diverse metriche delle prestazioni di archiviazione che consentono di valutare rapidamente:
+La cartella di lavoro **Panoramica** per l'account di archiviazione mostra diverse metriche relative alle prestazioni di archiviazione che consentono di valutare rapidamente:
 
-* Integrità del servizio di archiviazione per verificare immediatamente se un problema al di fuori del controllo influisce sul servizio di archiviazione nell'area in cui è distribuito, come indicato nella colonna **Riepilogo** .
+* Integrità del servizio di archiviazione, per vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in cui è distribuito, come indicato nella colonna **Riepilogo**.
 
-* Grafici delle prestazioni interattive con i dettagli più importanti relativi alla capacità di archiviazione, alla disponibilità, alle transazioni e alla latenza.  
+* Grafici delle prestazioni interattivi con i dettagli più importanti relativi a capacità di archiviazione, disponibilità, transazioni e latenza.  
 
-* I riquadri metrica e stato evidenziano la disponibilità del servizio, il numero totale di transazioni per il servizio di archiviazione, la latenza E2E e la latenza del server.
+* Riquadri relativi a metriche e stato che evidenziano la disponibilità del servizio, il numero totale di transazioni per il servizio di archiviazione, la latenza end-to-end e la latenza del server.
 
-La selezione di uno dei pulsanti per **errori**, **prestazioni**, **disponibilità**e **capacità** apre la rispettiva cartella di lavoro. 
+Selezionando uno dei pulsanti per **Errori**, **Prestazioni**, **Disponibilità** e **Capacità** verrà aperta la cartella di lavoro corrispondente. 
 
-![Pagina di panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png)
+![Pagina Panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-## <a name="detailed-storage-workbooks"></a>Cartelle di lavoro di archiviazione dettagliate
+## <a name="detailed-storage-workbooks"></a>Cartelle di lavoro sull'archiviazione dettagliate
 
-Se è stato selezionato un valore in colonne **disponibilità**, **latenza E2E**, **latenza server**e **tipo di errore transazione/errori** dalla cartella di lavoro **Panoramica** di più account di archiviazione o se si seleziona uno dei pulsanti per **errori**, **prestazioni**, **disponibilità**e **capacità** dalla cartella di lavoro **Panoramica** da un account di archiviazione specifico, ciascuno fornisce un set di informazioni interattive relative all'archiviazione personalizzate per tale categoria.  
+Selezionando un valore nelle colonne **Disponibilità**, **Latenza end-to-end**, **Latenza server** e **tipo di errore di transazione/Errori** dalla cartella di lavoro **Panoramica** di più account di archiviazione, oppure selezionando uno dei pulsanti per **Errori**, **Prestazioni**, **Disponibilità** e **Capacità** dalla cartella di lavoro **Panoramica** di uno specifico account di archiviazione, si otterrà un set di informazioni interattive correlate all'archiviazione, personalizzato in base a tale categoria.  
 
-* **Disponibilità** apre la cartella di lavoro **disponibilità** . Mostra lo stato di integrità corrente del servizio di archiviazione di Azure, una tabella che mostra lo stato di integrità disponibile di ogni oggetto categorizzato in base al servizio dati definito nell'account di archiviazione con una linea di tendenza che rappresenta l'intervallo di tempo selezionato e un grafico delle tendenze di disponibilità per ogni servizio dati nell'account.  
+* **Disponibilità** apre la cartella di lavoro **Disponibilità**. Mostra lo stato di integrità corrente del servizio Archiviazione di Azure, una tabella con lo stato di integrità disponibile di ogni oggetto categorizzato in base al servizio dati definito nell'account di archiviazione, con una linea di tendenza che rappresenta l'intervallo di tempo selezionato e un grafico di tendenza della disponibilità per ogni servizio dati nell'account.  
 
     ![Esempio di report di disponibilità](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **Latenza E2E** e **latenza server** consente di aprire la cartella di lavoro **prestazioni** . Include un riquadro Stato rollup che mostra la latenza di E2E e la latenza del server, un grafico delle prestazioni di E2E rispetto alla latenza del server e una tabella che suddivide la latenza delle chiamate effettuate dall'API categorizzate in base al servizio dati definito nell'account di archiviazione.
+* **Latenza E2E** e **Latenza server** aprono la cartella di lavoro **Prestazioni**. Include un riquadro riepilogativo dello stato che mostra la latenza end-to-end e la latenza del server, un grafico delle prestazioni con i due tipi di latenza a confronto e una tabella con la suddivisione della latenza delle chiamate riuscita per API, categorizzate in base al servizio dati definito nell'account di archiviazione.
 
-    ![Esempio di rapporto di prestazioni](./media/storage-insights-overview/storage-account-performance-01.png)
+    ![Esempio di report sulle prestazioni](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* La selezione di una delle categorie di errore elencate nella griglia apre la cartella di lavoro non **riuscita** . Il report Mostra i riquadri della metrica di tutti gli altri errori lato client tranne quelli descritti e le richieste riuscite, errori di limitazione client, un grafico delle prestazioni per la metrica della dimensione del **tipo di risposta** transazione specifica dell'attributo ClientOtherError e due tabelle- **transazioni per nome API** e **transazioni per tipo di risposta**.
+* Selezionando una delle categorie di errore elencate nella griglia viene aperta la cartella di lavoro **Errori**. Il report mostra i riquadri delle metriche di tutti gli altri errori lato client tranne quelli descritti e le richieste riuscite, gli errori di limitazione del client, un grafico delle prestazioni per la metrica della dimensione **Tipo di risposta** della transazione specifica dell'attributo ClientOtherError e due tabelle: **Transactions by API name** (Transazioni per nome API) e **Transazioni in base al tipo di risposta**.
 
-   ![Esempio di report di errore](./media/storage-insights-overview/storage-account-failures-01.png)
+   ![Esempio di report degli errori](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* **Capacity** apre la cartella di lavoro **Capacity** . Mostra la quantità totale di spazio di archiviazione utilizzato per ogni oggetto dati di archiviazione nell'account nei riquadri e nel grafico e il numero di oggetti dati archiviati nell'account.  
+* **Capacità** apre la cartella di lavoro **Capacità**. Mostra la quantità totale di spazio di archiviazione utilizzato per ogni oggetto dati di archiviazione nell'account nei riquadri e nel grafico e il numero di oggetti dati archiviati nell'account.  
 
-    ![Pagina di capacità dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png) 
+    ![Pagina Capacità dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-## <a name="pin-and-export"></a>Pin ed export
+## <a name="pin-and-export"></a>Aggiunta ed esportazione
 
-È possibile aggiungere una delle sezioni della metrica a un dashboard di Azure selezionando l'icona a puntina da disegno in alto a destra nella sezione.
+È possibile aggiungere una qualsiasi delle sezioni della metrica a un dashboard di Azure selezionando l'icona a forma di puntina da disegno in alto a destra nella sezione.
 
 ![Esempio di aggiunta della sezione metrica al dashboard](./media/storage-insights-overview/workbook-pin-example.png)
 
-Le cartelle di lavoro della **Panoramica** o della **capacità** di più sottoscrizioni e account di archiviazione supportano l'esportazione dei risultati in formato Excel selezionando l'icona a forma di freccia giù a destra dell'icona a forma di puntina da disegno.
+Le cartelle di lavoro **Panoramica** o **Capacità** relative a più sottoscrizioni e account di archiviazione supportano l'esportazione dei risultati in formato Excel, selezionando l'icona a forma di freccia in giù a destra della puntina da disegno.
 
-![Esempio di risultati esportazione griglia cartella di lavoro](./media/storage-insights-overview/workbook-export-example.png)
+![Esempio di risultati dell'esportazione della griglia della cartella di lavoro](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage"></a>Personalizzare monitoraggio di Azure per l'archiviazione
+## <a name="customize-azure-monitor-for-storage"></a>Personalizzare Monitoraggio di Azure per l'archiviazione
 
-Questa sezione illustra gli scenari comuni per la modifica della cartella di lavoro per personalizzare il supporto delle esigenze di analisi dei dati:
+Questa sezione illustra gli scenari comuni in cui è utile modificare la cartella di lavoro per personalizzarla a supporto delle proprie esigenze di analisi dei dati:
 
-* Definire l'ambito della cartella di lavoro per selezionare sempre una sottoscrizione o uno o più account di archiviazione specifici
+* Definire l'ambito della cartella di lavoro in modo da selezionare sempre una particolare sottoscrizione o uno o più account di archiviazione specifici
 * Modificare le metriche nella griglia
 * Modificare la soglia di disponibilità
-* Modificare il rendering del colore
+* Modificare il rendering dei colori
 
-Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata per impedire la sovrascrittura della configurazione predefinita nella cartella di lavoro pubblicata. Le cartelle di lavoro vengono salvate in un gruppo di risorse, nella sezione **report personali** riservata all'utente o nella sezione **report condivisi** accessibile a tutti gli utenti con accesso al gruppo di risorse. Dopo avere salvato la cartella di lavoro personalizzata, è necessario passare alla raccolta di cartelle di lavoro per avviarla.
+Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata per evitare la sovrascrittura della configurazione predefinita nella cartella di lavoro pubblicata. Le cartelle di lavoro vengono salvate all'interno di un gruppo di risorse, ovvero nella sezione **Report personali** privata o nella sezione **Report condivisi** accessibile a tutti gli utenti che hanno accesso al gruppo di risorse. Dopo aver salvato la cartella di lavoro personalizzata, per avviarla è necessario passare alla raccolta di cartelle di lavoro.
 
-![Avvia raccolta cartelle di lavoro dalla barra dei comandi](./media/storage-insights-overview/workbook-command-bar-gallery.png)
+![Avviare la raccolta di cartelle di lavoro dalla barra dei comandi](./media/storage-insights-overview/workbook-command-bar-gallery.png)
 
 ### <a name="specifying-a-subscription-or-storage-account"></a>Specifica di una sottoscrizione o di un account di archiviazione
 
-È possibile configurare le cartelle di lavoro della **capacità** e della **Panoramica** dell'account di archiviazione e della multisottoscrizione per definire l'ambito di una o più sottoscrizioni o account di archiviazione a ogni esecuzione, seguire questa procedura.
+È possibile configurare le cartelle di lavoro **Panoramica** o **Errori** relative a più sottoscrizioni e account di archiviazione in modo da includere nell'ambito una o più specifiche sottoscrizioni o uno o più specifici account di archiviazione per ogni esecuzione, seguendo questa procedura.
 
-1. Selezionare **monitoraggio** dal portale e quindi fare clic su **account di archiviazione** nel riquadro a sinistra.
+1. Selezionare **Monitoraggio** dal portale e quindi selezionare **Account di archiviazione** dal riquadro a sinistra.
 
-2. Nella cartella di lavoro **Panoramica** , dalla barra dei comandi, selezionare **modifica**.
+2. Nella cartella di lavoro **Panoramica** selezionare **Modifica** nella barra dei comandi.
 
-3. Selezionare nell'elenco a discesa **sottoscrizioni** una o più sottoscrizioni per le quali si desidera impostare il valore predefinito. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 10 sottoscrizioni.  
+3. Nell'elenco a discesa **Sottoscrizioni** selezionare una o più sottoscrizioni da usare come predefinite. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 10 sottoscrizioni.  
 
-4. Selezionare dall'elenco a discesa **account di archiviazione** uno o più account per i quali si vuole impostare come predefinito. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 200 account di archiviazione. 
+4. Nell'elenco a discesa **Account di archiviazione** selezionare uno o più account da usare come predefiniti. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 200 account di archiviazione. 
 
-5. Selezionare **Salva con nome** dalla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **modifica eseguita** per tornare alla modalità di lettura.  
+5. Selezionare **Salva con nome** sulla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **Modifica completata** per tornare alla modalità di lettura.  
 
 ### <a name="modify-metrics-and-colors-in-the-workbook"></a>Modificare le metriche e i colori nella cartella di lavoro
 
-Le cartelle di lavoro predefinite contengono dati di metrica e sono in grado di modificare o rimuovere una qualsiasi delle visualizzazioni e personalizzarle in base alle esigenze specifiche del team.
+Le cartelle di lavoro predefinite contengono dati di metrica ed è possibile modificare o rimuovere qualsiasi visualizzazione e personalizzarle in base alle esigenze specifiche del team.
 
-In questo esempio, si sta lavorando con la cartella di lavoro di capacità dell'account di archiviazione e multisottoscrizione per dimostrare come:
+In questo esempio si usa la cartella di lavoro Capacità relativa a più sottoscrizioni e account di archiviazione per dimostrare come:
 
 * Rimuovere una metrica
-* Modificare il rendering del colore
+* Modificare il rendering dei colori
 
-È possibile eseguire le stesse modifiche in una qualsiasi delle cartelle di lavoro di **errori**, **prestazioni**, **disponibilità**e **capacità** predefinite.
+È possibile eseguire le stesse modifiche su una qualsiasi delle cartelle di lavoro predefinite **Errori**, **Prestazioni**, **Disponibilità** e **Capacità**.
 
-1. Selezionare **monitoraggio** dal portale e quindi fare clic su **account di archiviazione** nel riquadro a sinistra.
+1. Selezionare **Monitoraggio** dal portale e quindi selezionare **Account di archiviazione** dal riquadro a sinistra.
 
-2. Selezionare **capacità** per passare alla cartella di lavoro capacità e dalla barra dei comandi, selezionare **modifica** dalla barra dei comandi.
+2. Selezionare **Capacità** per passare alla cartella di lavoro della capacità e nella barra dei comandi selezionare **Modifica**.
 
-    ![Selezionare modifica per modificare una cartella di lavoro](./media/storage-insights-overview/workbook-edit-workbook.png)
+    ![Selezionare Modifica per modificare una cartella di lavoro](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Accanto alla sezione metrica, selezionare **modifica**.
+3. Accanto alla sezione delle metriche selezionare **Modifica**.
 
-    ![Selezionare modifica per modificare la metrica della cartella di lavoro della capacità](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
+    ![Selezionare Modifica per modificare le metriche della cartella di lavoro della capacità](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. Verrà rimossa la colonna della **sequenza temporale della capacità utilizzata** per l'account, quindi selezionare **Impostazioni colonna** nella griglia metriche.
+4. Verrà rimossa la colonna **Sequenza temporale capacità usata account**, quindi selezionare **Impostazioni di colonna** nella griglia delle metriche.
 
-    ![Modificare le impostazioni delle colonne](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
+    ![Modifica impostazioni di colonna](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata Timeline $ | L'account usa la sequenza temporale della capacità $** e, sotto il **renderer della colonna** dell'elenco a discesa, selezionare **Hidden**.
+5. Nel riquadro **Modifica impostazioni di colonna**, sotto la sezione **Colonne** selezionare **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$** e nell'elenco a discesa **Renderer colonna** selezionare **Nascosto**.
 
-6. Selezionare **Salva e Chiudi** per eseguire il commit della modifica.
+6. Selezionare **Salva e chiudi** per eseguire il commit della modifica.
 
-A questo punto è possibile modificare il tema colori per la metrica della capacità nel report per usare il verde anziché il blu.
+A questo punto è possibile modificare il tema colori per le metriche di capacità nel report in modo da usare il verde anziché il blu.
 
-1. Selezionare **le impostazioni delle colonne** nella griglia metrica.
+1. Selezionare **Impostazioni di colonna** nella griglia delle metriche.
 
-2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ | Microsoft. storage/storageaccounts/Blobservices-Capacity-BlobCapacity $ | Microsoft. storage/Storageaccounts/fileservices-Capacity-filecapacity $ | Microsoft. storage/storageaccounts/Queueservices-Capacity-QueueCapacity $ | Microsoft. storage/storageaccounts/Tableservices-Capacity-TableCapacity** Nella **tavolozza dei colori**dell'elenco a discesa selezionare **verde**.
+2. Nel riquadro **Modifica impostazioni di colonna**, sotto la sezione **Colonne** selezionare **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . Nell'elenco a discesa **Tavolozza dei colori** selezionare **Verde**.
 
-3. Selezionare **Salva e Chiudi** per eseguire il commit della modifica.
+3. Selezionare **Salva e chiudi** per eseguire il commit della modifica.
 
-4. Selezionare **Salva con nome** dalla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **modifica eseguita** per tornare alla modalità di lettura.  
+4. Selezionare **Salva con nome** sulla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **Modifica completata** per tornare alla modalità di lettura.  
 
 ### <a name="modify-the-availability-threshold"></a>Modificare la soglia di disponibilità
 
-In questo esempio si usa la cartella di lavoro di capacità dell'account di archiviazione e si dimostra come modificare la soglia di disponibilità. Per impostazione predefinita, la percentuale di disponibilità del report della griglia e del riquadro è configurata con una soglia minima di 90 e la soglia massima di 99. Il valore soglia minimo della **percentuale di disponibilità** nella griglia **disponibilità per nome API** verrà modificato in 85%, il che significa che lo stato di integrità passa a critico se la soglia è inferiore al 85%. 
+In questo esempio si usa la cartella di lavoro sulla capacità dell'account di archiviazione e si dimostra come modificare la soglia di disponibilità. Per impostazione predefinita, il riquadro e la griglia che mostrano la percentuale di disponibilità sono configurati con una soglia minima di 90 e una soglia massima di 99. Si modificherà il valore di soglia minima della **percentuale di disponibilità** nella griglia **Disponibilità per nome API** all'85%, il che significa che lo stato di integrità passerà a critico se la soglia è inferiore all'85%. 
 
-1. Selezionare **account di archiviazione** dal portale e quindi selezionare un account di archiviazione dall'elenco.
+1. Selezionare **Account di archiviazione** dal portale e quindi selezionare un account di archiviazione dall'elenco.
 
-2. Selezionare **Insights** nel riquadro a sinistra.
+2. Selezionare **Informazioni dettagliate** dal riquadro a sinistra.
 
-3. Nella cartella di lavoro selezionare **disponibilità** per passare alla cartella di lavoro disponibilità, quindi scegliere **modifica** dalla barra dei comandi. 
+3. Nella cartella di lavoro selezionare **Disponibilità** per passare alla cartella di lavoro corrispondente, quindi selezionare **Modifica** dalla barra dei comandi. 
 
-4. Scorrere fino alla parte inferiore della pagina e sul lato sinistro accanto alla griglia **availability by API** selezionare **Edit (modifica**).
+4. Scorrere verso il basso fino alla parte inferiore della pagina e sul lato sinistro accanto alla griglia della **disponibilità per API** selezionare **Modifica**.
 
-    ![Modificare la disponibilità in base alle impostazioni della griglia nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
+    ![Modificare le impostazioni della griglia di disponibilità in base al nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Selezionare **Impostazioni colonne** , quindi nel riquadro **Modifica impostazioni** colonne, nella sezione **colonne** selezionare **disponibilità (%) (Soglie + formattato)**.
+5. Selezionare **Impostazioni di colonna**, quindi nel riquadro **Modifica impostazioni di colonna** selezionare **Availability (%) (Thresholds + Formatted)** (Disponibilità % - Soglie + formattati) nella sezione **Colonne**.
 
-6. Modificare il valore dello stato di integrità **critico** da **90** a **85** , quindi fare clic su **Salva e Chiudi**.
+6. Modificare il valore per lo stato di integrità **Critico** da **90** a **85**, quindi fare clic su **Salva e chiudi**.
 
-    ![Modificare il valore soglia di disponibilità per lo stato critico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
+    ![Modificare il valore della soglia di disponibilità per lo stato critico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
-7. Selezionare **Salva con nome** dalla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **modifica eseguita** per tornare alla modalità di lettura.
+7. Selezionare **Salva con nome** sulla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **Modifica completata** per tornare alla modalità di lettura.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Questa sezione illustra la diagnosi e la risoluzione dei problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per l'archiviazione. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
+Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni dei problemi più comuni che possono verificarsi durante l'uso di Monitoraggio di Azure per l'archiviazione. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Risoluzione dei problemi di prestazioni, capacità o disponibilità
 
-Per risolvere eventuali problemi correlati all'archiviazione identificati con monitoraggio di Azure per l'archiviazione, vedere le indicazioni per la [risoluzione dei problemi](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)di archiviazione di Azure.  
+Per risolvere i problemi relativi all'archiviazione identificati con Monitoraggio di Azure per l'archiviazione, vedere la [guida alla risoluzione dei problemi](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) di Archiviazione di Azure.  
 
-### <a name="why-can-i-only-see-200-storage-accounts"></a>Perché è possibile visualizzare solo gli account di archiviazione 200?
+### <a name="why-can-i-only-see-200-storage-accounts"></a>Perché è possibile vedere solo 200 account di archiviazione?
 
-Il numero di account di archiviazione selezionati ha un limite di 200, indipendentemente dal numero di sottoscrizioni selezionate.
+Per il numero di account di archiviazione selezionati esiste un limite di 200, indipendentemente dal numero di sottoscrizioni selezionate.
 
 ### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Cosa accade quando si fa clic su un riquadro aggiunto di recente nel dashboard?
 
-* Se si fa clic in un punto qualsiasi del riquadro, viene visualizzata la scheda dalla quale è stato aggiunto il riquadro. Se, ad esempio, si aggiunge un grafico nella scheda "Panoramica dell'account di archiviazione", quando si fa clic su tale riquadro nel dashboard verrà aperta la visualizzazione predefinita, tuttavia se si aggiunge un grafo dalla propria copia salvata, verrà aperta la visualizzazione della copia salvata.
-* L'icona del filtro in alto a sinistra del titolo apre la scheda "Configura impostazioni riquadro".
-* L'icona a ellisse in alto a destra fornirà le opzioni per "personalizzare i dati del titolo", "Customize", "Refresh" e "Remove from Dashboard".
+* Se si fa clic in un punto qualsiasi del riquadro, verrà visualizzata la scheda da cui è stato aggiunto il riquadro. Se, ad esempio, si aggiunge un grafico nella scheda "Panoramica account di archiviazione", quando si fa clic su tale riquadro nel dashboard verrà aperta la visualizzazione predefinita. Se invece si aggiunge un grafico dalla propria copia salvata, verrà aperta la visualizzazione della copia salvata.
+* L'icona del filtro nella parte superiore sinistra del titolo apre la scheda "Configura le impostazioni del riquadro".
+* L'icona con i puntini di sospensione in alto a destra offre le opzioni per personalizzare i dati del titolo, personalizzare, aggiornare, e rimuovere dal dashboard.
 
 ### <a name="what-happens-when-i-save-a-workbook"></a>Cosa accade quando si salva una cartella di lavoro?
 
-* Quando si salva una cartella di lavoro, è possibile creare una nuova copia della cartella di lavoro con le modifiche e modificare il titolo. Salvando non viene sovrascritta la cartella di lavoro, la cartella di lavoro corrente sarà sempre la visualizzazione predefinita.
-* Una cartella di lavoro non **salvata** è solo la visualizzazione predefinita.
+* Quando si salva una cartella di lavoro, è possibile crearne una nuova copia con le proprie modifiche e cambiare il titolo. Salvando, la cartella di lavoro non viene sovrascritta. La cartella di lavoro corrente sarà sempre la visualizzazione predefinita.
+* Una cartella di lavoro **non salvata** è semplicemente la visualizzazione predefinita.
 
 
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Perché non vengono visualizzate tutte le sottoscrizioni nel portale?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Perché non è possibile visualizzare tutte le sottoscrizioni nel portale?
 
-Il portale visualizzerà solo i dati per le sottoscrizioni selezionate all'avvio del portale. Per modificare le sottoscrizioni selezionate, andare in alto a destra e fare clic sul notebook con un'icona di filtro. Verrà visualizzata la scheda Directory + sottoscrizioni.
+All'avvio il portale mostrerà i dati solo per le sottoscrizioni selezionate. Per modificare le sottoscrizioni selezionate, andare in alto a destra e fare clic sul blocco appunti con l'icona di un filtro. Verrà visualizzata la scheda Directory e sottoscrizione.
 
 ![Directory e sottoscrizione](./media/storage-insights-overview/fqa3.png)
 
-### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Come modificare la colorazione e la soglia per la disponibilità?
+### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Come si fa a modificare la colorazione e la soglia per la disponibilità?
 
-Per la procedura dettagliata su come modificare la colorazione e le soglie per la disponibilità, vedere la sezione [modificare la soglia di disponibilità](storage-insights-overview.md#modify-the-availability-threshold) .
+Per la procedura dettagliata su come modificare la colorazione e le soglie per la disponibilità, vedere la sezione [Modificare la soglia di disponibilità](storage-insights-overview.md#modify-the-availability-threshold).
 
-### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Come analizzare e risolvere i problemi relativi ai dati visualizzati in monitoraggio di Azure per l'archiviazione
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Come si fa ad analizzare e risolvere i problemi relativi ai dati visualizzati in Monitoraggio di Azure per l'archiviazione?
 
- Per informazioni dettagliate su come analizzare e risolvere i problemi relativi ai dati di archiviazione di Azure visualizzati in monitoraggio di Azure per l'archiviazione, vedere l'articolo [monitorare, diagnosticare e risolvere i problemi di archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) .
+ Per informazioni dettagliate su come analizzare e risolvere i problemi relativi ai dati di Archiviazione di Azure visualizzati in Monitoraggio di Azure per l'archiviazione, vedere l'articolo relativo a [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting).
 
-### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Perché non vengono visualizzati tutti i tipi di errori nelle metriche?
+### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Perché nelle metriche non vengono visualizzati tutti i tipi di errori?
 
-Attualmente vengono visualizzati fino a tre tipi diversi di errori e il resto degli errori viene raggruppato in un singolo bucket. Viene controllata tramite splitByLimit e può essere modificata. Per modificare questa proprietà:
+Attualmente vengono visualizzati fino a tre tipi diversi di errori, il resto viene raggruppato in un unico bucket. Il comportamento viene controllato tramite splitByLimit e può essere modificato. Per modificare questa proprietà:
 
 1. Fare clic su Modifica cartella di lavoro.
-2. Passare a metrica, fare clic su modifica e quindi selezionare **transazioni, somma** o qualsiasi metrica che si vuole modificare.
+2. Passare alle metriche, fare clic su Modifica e quindi selezionare **Transactions, Sum** (Transazioni, Somma) o qualunque metrica che si voglia modificare.
 
-    ![Passare a metrica e fare clic su modifica e quindi su "transazioni, somme"](./media/storage-insights-overview/fqa7.png)
+    ![Passare alle metriche e fare clic su Modifica e quindi su "Transactions, Sum" (Transazioni, Somma)](./media/storage-insights-overview/fqa7.png)
 
 1. Modificare quindi il numero di divisioni.
 
-    ![Selezionare i parametri della metrica "](./media/storage-insights-overview/fqa7-2.png)
+    ![Selezionare i parametri della metrica"](./media/storage-insights-overview/fqa7-2.png)
 
-Se si desidera visualizzare n tipi di errore diversi rispetto a specificare splitByLimit come n + 1, 1 in aggiunta per il resto degli errori.
+Se si vogliono visualizzare n tipi di errore diversi, specificare splitByLimit come n+1. 1 indica il resto degli errori.
 
-###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>La cartella di lavoro è stata salvata in un account di archiviazione. Perché non è possibile trovarlo adesso?
+###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Si è salvata la cartella di lavoro in un account di archiviazione. Perché non si riesce più a trovarla?
 
-Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è stato salvato. Provare a trovare l'account di archiviazione specifico in cui l'utente ha salvato la cartella di lavoro. In caso contrario, non è possibile trovare una cartella di lavoro specifica senza conoscere la risorsa (account di archiviazione).
+Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è stata salvata. Provare a trovare lo specifico account di archiviazione in cui l'utente ha salvato la cartella di lavoro. Altrimenti, non è possibile trovare una specifica cartella di lavoro senza conoscere la risorsa (account di archiviazione).
 
 ### <a name="what-is-time-range"></a>Che cos'è l'intervallo di tempo?
 
-L'intervallo di tempo Mostra i dati di un determinato intervallo di tempo. Se, ad esempio, l'intervallo di tempo è di 24 ore, vengono visualizzati i dati delle ultime 24 ore.
+L'intervallo di tempo mostra i dati di un determinato periodo. Se, ad esempio, l'intervallo di tempo è di 24 ore, vengono visualizzati i dati delle ultime 24 ore.
 
-### <a name="what-is-time-granularity-time-grain"></a>Che cos'è la granularità temporale (Time Grain)?
+### <a name="what-is-time-granularity-time-grain"></a>Che cos'è la granularità temporale?
 
-La granularità temporale è la differenza di tempo tra due punti dati. Se, ad esempio, l'intervallo di tempo è impostato su 1 secondo, significa che la metrica viene raccolta ogni secondo.
+La granularità temporale è la differenza di tempo tra due punti dati. Se, ad esempio, l'intervallo di tempo è impostato su 1 secondo, le metriche vengono raccolte ogni secondo.
 
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual è la granularità temporale dopo che è stata aggiunta una parte delle cartelle di lavoro a un dashboard?
+### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual è la granularità temporale dopo aver aggiunto una parte delle cartelle di lavoro a un dashboard?
 
-La granularità predefinita è impostata su automatico, attualmente non può essere modificata in questo momento.
+La granularità temporale predefinita è impostata su automatica, attualmente non può essere modificata.
 
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Ricerca per categorie modificare l'intervallo di tempo e TimeSpan del passaggio della cartella di lavoro nel dashboard?
+### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Come si modifica l'intervallo di tempo del passaggio della cartella di lavoro nel dashboard?
 
-Per impostazione predefinita, l'intervallo di tempo/intervallo di tempo nel riquadro del dashboard è impostato su 24 ore, per modificare questo clic sui puntini di sospensione in alto a destra, selezionare **Personalizza dati del riquadro**, selezionare "Sostituisci le impostazioni dell'ora del dashboard al livello del titolo" e quindi selezionare un intervallo di tempo usando il menu a discesa.  
+Per impostazione predefinita, l'intervallo di tempo nel riquadro del dashboard è impostato su 24 ore. Per modificarlo, fare clic sui puntini di sospensione in alto a destra, selezionare **Personalizza dati riquadro**, selezionare "Eseguire l'override delle impostazioni di ora del dashboard a livello del riquadro" e quindi selezionare un intervallo di tempo usando il menu a discesa.  
 
-![Selezionare i puntini di sospensione nell'angolo destro del riquadro e scegliere Personalizza questi dati.](./media/storage-insights-overview/fqa-data-settings.png)
+![Selezionare i puntini di sospensione nell'angolo destro del riquadro e scegliere Personalizza dati riquadro](./media/storage-insights-overview/fqa-data-settings.png)
 
-![In Configura impostazioni riquadro selezionare l'elenco a discesa TimeSpan per modificare l'intervallo di tempo](./media/storage-insights-overview/fqa-timespan.png)
+![In Configura le impostazioni del riquadro selezionare l'elenco a discesa dell'intervallo di tempo per modificarlo](./media/storage-insights-overview/fqa-timespan.png)
 
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Ricerca per categorie modificare il titolo della cartella di lavoro o un passaggio di cartella di lavoro aggiunto a un dashboard?
+### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Come si modifica il titolo della cartella di lavoro o di un passaggio della cartella di lavoro aggiunto a un dashboard?
 
-Il titolo della cartella di lavoro o del passaggio della cartella di lavoro aggiunto a un dashboard mantiene lo stesso nome disponibile nella cartella di lavoro. Per modificare il titolo, è necessario salvare la propria copia della cartella di lavoro. Sarà quindi possibile denominare la cartella di lavoro prima di fare clic su Salva.
+Il titolo della cartella di lavoro o del passaggio della cartella di lavoro aggiunto a un dashboard mantiene lo stesso nome che aveva nella cartella di lavoro. Per modificare il titolo è necessario salvare una copia della cartella di lavoro. Sarà quindi possibile assegnare un nome alla cartella di lavoro prima di fare clic su Salva.
 
 ![Selezionare Salva nella parte superiore per salvare una copia della cartella di lavoro e modificarne il nome](./media/storage-insights-overview/fqa-change-workbook-name.png)
 
-Per modificare il nome di un passaggio nella cartella di lavoro salvata, selezionare modifica sotto il passaggio e quindi selezionare l'ingranaggio nella parte inferiore delle impostazioni.
+Per modificare il nome di un passaggio nella cartella di lavoro salvata, selezionare Modifica sotto il passaggio e quindi selezionare l'ingranaggio in fondo alle impostazioni.
 
-![Selezionare modifica nella parte inferiore di un passaggio della cartella di lavoro per aprire le impostazioni ](./media/storage-insights-overview/fqa-edit.png)
- ![ in impostazioni selezionare l'ingranaggio in basso per poter modificare il nome del passaggio.](./media/storage-insights-overview/fqa-change-name.png)
+![Selezionare Modifica nella parte inferiore di un passaggio della cartella di lavoro per aprire le impostazioni](./media/storage-insights-overview/fqa-edit.png)
+![Nelle impostazioni selezionare l'ingranaggio in fondo per poter modificare il nome del passaggio](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi delle metriche](../platform/alerts-metric.md) e le notifiche sull'integrità del [servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici per facilitare il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
-* Informazioni sulle cartelle di lavoro degli scenari sono progettate per supportare, come creare nuovi report esistenti e personalizzarli e altro ancora esaminando [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](../app/usage-workbooks.md).
+* Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
 
 * Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

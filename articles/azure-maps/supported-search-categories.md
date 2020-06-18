@@ -1,6 +1,6 @@
 ---
-title: Categorie di ricerca | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sulle categorie di ricerca supportate nelle mappe Microsoft Azure.
+title: Categorie di ricerca | Mappe di Microsoft Azure
+description: Questo articolo illustra le categorie di ricerca supportate in Mappe di Microsoft Azure.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76988289"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745974"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorie supportate in Mappe di Azure
 
-Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) di punti di interesse, sono disponibili più di cento categorie supportate. Di seguito viene fornito l'elenco dei codici di categoria per i nomi di categoria supportati. I codici categoria vengono generati per le categorie di primo livello. Tutte le sottocategorie condividono lo stesso codice di categoria. Questo elenco di categorie è soggetto a modifiche con nuove versioni dei dati.
+Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) di punti di interesse, sono disponibili più di cento categorie supportate. Di seguito viene fornito l'elenco dei codici di categoria per i nomi di categoria supportati. I codici di categoria vengono generati per le categorie di primo livello. Tutte le sottocategorie condividono lo stesso codice di categoria. Questo elenco di categorie è soggetto a modifiche in occasione delle nuove versioni dei dati.
 
 <br/>
 
 | **Codice di categoria** | **Categorie corrispondenti al codice** |
 | --- | --- |
 | ACCESS\_GATEWAY | accesso a linee aeree, barriera di sicurezza, accesso all'aerostazione, gate di accesso |
-| ADMINISTRATIVE\_DIVISION | provincia, divisione amministrativa di quarto grado, divisione amministrativa di primo grado, divisione amministrativa storica di terzo grado, sede di divisione amministrativa di quarto grado, sede di divisione amministrativa di secondo grado, entità politica dipendente, luogo abitato, sede di divisione amministrativa di terzo grado, luoghi abitati, divisione amministrativa di secondo grado, sede di divisione amministrativa di primo grado, località abitata, regione storica, sito storico, luogo storico abitato, insediamento israeliano, divisione amministrativa storica di quarto grado, divisione amministrativa di quinto grado, divisione amministrativa storica di primo grado, divisione amministrativa di terzo grado, entità politica storica, divisione amministrativa storica, sede governativa di entità politica, divisione amministrativa storica di secondo grado, capitale di entità politica |
+| ADMINISTRATIVE\_DIVISION | provincia, divisione amministrativa di quarto grado, divisione amministrativa di primo grado, divisione amministrativa storica di terzo grado, sede di divisione amministrativa di quarto grado, sede di divisione amministrativa di secondo grado, entità politica dipendente, luogo abitato, sede di divisione amministrativa di terzo grado, luoghi abitati, divisione amministrativa di secondo grado, sede di divisione amministrativa di primo grado, località abitata, regione storica, sito storico, luogo storico abitato, insediamento israeliano, divisione amministrativa storica di quarto grado, divisione amministrativa di quinto grado, divisione amministrativa storica di primo grado, divisione amministrativa di terzo grado, entità politica storica, divisione amministrativa storica, sede governativa di entità politica, divisione amministrativa storica di secondo grado, capitale/città principale di entità politica |
 | ADVENTURE\_SPORTS\_VENUE | adventure sports venue |
 | AGRICULTURE | orticultura, produttore primario, agricoltura, fattoria, tenuta agricola, cascina, proprietà colonica, area di pascolo, comune, struttura per acquacoltura, fattorie, area di pesca, attività casearia, campo/i |
 | AIRPORT | autorità privata, autorità militare, eliporto, chiuso, aeroporto medio, aeroporto grande, aeroporto piccolo, campo di aviazione, base di idrovolanti, autorità pubblica, porto per palloni aerostatici, aeroporto |
@@ -45,7 +45,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | COLLEGE\_UNIVERSITY | junior college/college statale, college/università, college, scuola preparatoria all'università, università |
 | COMMERCIAL\_BUILDING | edificio di uffici, sede del complesso di uffici, edificio commerciale |
 | COMMUNITY\_CENTER | community center |
-| COMPANY | elettronica, produzione, servizi dati per computer, tecnologie per l'integrità pubblica, finanza diversificata, Shelter di animali, compagnie aeree, noleggio di attrezzature, servizio, posta elettronica/pacchetto/consegna del trasporto, linee del bus, riparazione di appliance domestiche, servizi di pulizia, OEM, servizi fiscali, gas naturale, servizi legali, costruzione, telecomunicazioni servizi, consulenti per gli investitori, pubblicità/marketing, spazio di archiviazione, risparmio di risorse, assicurazione, software per computer, farmaceutico, catering, servizi di matrimonio, tecnologia agricola, immobiliare, taxi, servizio navetta limousine, noleggio di charter di bus, data mining, tecnologie di pubblicazione, telefono via cavo, distribuzione di importazione/esportazione, società, Asylum, miniera/i di carbone, immobili, birrificio, miniera d'oro |
+| COMPANY | elettronica, produzione, servizi dati informatici, tecnologie per la sanità pubblica, servizi finanziari diversificati, rifugio animali, linea aerea, noleggio di apparecchiature, servizio, recapito di posta/pacchi/merci, linee di autobus, riparazione di elettrodomestici, servizi di pulizia, OEM, servizi fiscali, petrolio e gas naturali, servizi legali, costruzione, telecomunicazioni, trasporto, produzione automobilistica, chimica, servizi funerari, camere mortuarie, ponti/tunnel, automobili, ingegneria meccanica, servizi, consulenza sugli investimenti, pubblicità/marketing, depositi mobili, istituzioni di risparmio, assicurazioni, software, farmaceutica, catering, servizi matrimoniali, tecnologia agricola, mercato immobiliare, taxi, servizio navetta con limousine, noleggio di charter bus, settore minerario, tecnologie di pubblicazione, telefonia via cavo, distribuzione in importazione/esportazione, società, ospizi, miniera/e di carbone, immobile/i, produzione di birra, miniera/e d'oro |
 | COURTHOUSE | courthouse |
 | CULTURAL\_CENTER | cultural center |
 | DENTIST | dentist |
@@ -105,7 +105,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | REPAIR\_FACILITY | carrozzerie, gommisti, officine di riparazione, centri di sostituzione cristalli auto, riparazione auto generale, vendita e installazione di accessori auto, riparazione di motocicli, servizio di riparazione autocarri, struttura di riparazione |
 | RESEARCH\_FACILITY | research facility |
 | RESIDENTIAL\_ACCOMMODATION | casa di riposo, complesso residenziale pubblico, complesso di appartamenti, condominio, mercato immobiliare residenziale, alloggi residenziali |
-| RESTAURANT | Tedesco, Creolo-cajun, olandese, sale banchetti, Bistro, israeliano, slovacco, giamaicano, vegetariano, pesce, vietnamita, maltese, Sichuan, gallese, cinese, giapponese, algerino, californiano, Fusion, Shandong, salad bar, Savoy an, spagnolo, etiopico, taiwanese, ciambelle, iraniano, canadese, americano, norvegese, francese, Hunan, polinesiano, afgano, stradale, asiatico, svizzero, erotico, Crêperie, Surinamese, egiziano, ungherese, nepalese, barbecue, Hot Pot, hamburger, Mediterraneo, latino americano, tapas, britannico, messicano, Guangdong, Asia mongolo, International, cozze, thailandese, venezuelano, rumeno, pollo, minestra, Kosher, Steak House, yogurt/Juice Bar, italiano, coreano, cipriota, Bosniaco, boliviano, domenicano, belga, tunisino, Scottish, inglese, pakistano, ceco, hawaiano, Maghrib, tibetano, arabo, Middle Eastern, Chile, Shanghai, Polish, filippino, sudanesi, Armeno, birmano, brasiliano, scandinavo, bulgaro, Soul Food, colombiano, ebreo, Pizza, siciliano, organico, greco, basco, uruguaiano, caffetterie, finlandese, africano, Corsica, siriano, Caraibi, Dongbei, russo , Grill, Take away, fast food, Australian, Irish, pub food, fondute, libanese, Indonesiano, danese, provenzale, teppanyaki, Indian, Mauritius, Continental continentale, Peruvian, cambogiano, snack, svedese, macrobiotica, Ice Cream lounge, slavo, turco, argentino, austriaco, esotico, portoghese, lussemburghese, marocchino, sandwich, cubano, ristorante |
+| RESTAURANT | Tedesco, creolo-Cajun, olandese, sale banchetti, bistrot, israeliano, slovacco, giamaicano, vegetariano, pesce, vietnamita, maltese, di Sechuan, gallese, cinese, giapponese, algerino, californiano, fusion, Shandong, insalate, savoiardo, spagnolo, etiope, taiwanese, ciambelle, iraniano, canadese, americano, norvegese, francese, Hunan, polinesiano, afgano, autogrill, asiatico, svizzero, crêperie, surinamese, egiziano, ungherese, nepalese, carne alla griglia, hot pot, hamburger, mediterraneo, latinoamericano, tapas, britannico, messicano, Guangdong, asiatico (altro), buffet, sushi, mongolo, internazionale, frutti di mare, thai, venezuelano, rumeno, pollo, zuppe, kosher, steak house, bar di yogurt/succhi, italiano, coreano, cipriota, bosniaco, boliviano, dominicano, belga, tunisino, scozzese, inglese, pakistano, ceco, hawaiano, magrebino, tibetano, arabo, mediorientale, cileno, Shangai, polacco, filippino, sudanese, armeno, burmese, brasiliano, scandinavo, bulgaro, soul food, colombiano, ebraico, pizza, siciliano, organico, greco, basco, uruguayano, self-service, finlandese, africano, corso, siriano, caraibico, Dongbei, russo, grill, take-away, fast food, australiano, irlandese, ristorante pub, fonduta, libanese, indonesiano, danese, provenzale, Teppanyaki, indiano, mauriziano, continentale occidentale, peruviano, cambogiano, spuntini, svedese, macrobiotico, gelateria, slavo, turco, argentino, austriaco, esotico, portoghese, lussemburghese, marocchino, panini, cubano, ristorante |
 | RESTAURANT\_AREA | restaurant area |
 | REST\_AREA | area di riposo, luogo di sosta |
 | SCENIC\_PANORAMIC\_VIEW | vista panoramica/scenografica, punto di osservazione |

@@ -8,22 +8,23 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: monitoring
+ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637152"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684471"
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
 
 Analisi archiviazione di Azure esegue la registrazione e fornisce le metriche dei dati per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dalla [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [imposta](/rest/api/storageservices/set-blob-service-properties)proprietà servizio BLOB, [Imposta proprietà servizio di Accodamento](/rest/api/storageservices/set-queue-service-properties), [Imposta proprietà servizio tabelle](/rest/api/storageservices/set-table-service-properties)e [Imposta proprietà servizio file](/rest/api/storageservices/Get-File-Service-Properties) per abilitare analisi archiviazione per ogni servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarla dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Usare le operazioni [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) e [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) per abilitare Analisi archiviazione per ciascun servizio.
 
 I dati aggregati vengono archiviati in un BLOB noto (per la registrazione) e in tabelle note (per le metriche), a cui è possibile accedere tramite le API del servizio BLOB e del servizio tabelle.
 
-Analisi archiviazione può archiviare un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Per altre informazioni sui limiti dell'account di archiviazione, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](scalability-targets-standard-account.md).
+Analisi archiviazione può archiviare un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Per altre informazioni sui limiti degli account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](scalability-targets-standard-account.md).
 
 Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 

@@ -1,15 +1,15 @@
 ---
 title: Carichi di lavoro dei contenitori
-description: Informazioni su come eseguire e ridimensionare le app dalle immagini del contenitore in Azure Batch. Creare un pool di nodi di calcolo che supporta l'esecuzione di attività contenitore.
-ms.topic: article
-ms.date: 03/02/2020
+description: Informazioni su come eseguire e ridimensionare le app dalle immagini del contenitore in Azure Batch. Creare un pool di nodi di calcolo che supporta l'esecuzione di attività del contenitore.
+ms.topic: how-to
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116129"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726724"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -23,16 +23,16 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Versioni di SDK**: gli SDK di batch supportano le immagini del contenitore nelle versioni seguenti:
+* **Versioni di SDK**: gli SDK di Batch supportano le immagini del contenitore nelle versioni seguenti:
     * API REST di Batch, versione: 2017-09-01.6.0
     * .NET SDK di Batch, versione 8.0.0
     * Python SDK di Batch, versione 4.0
     * Java SDK di Batch, versione 3.0
     * Node.js SDK di Batch, versione 3.0
 
-* **Account**: nell'abbonamento di Azure è necessario creare un account Batch e, facoltativamente, un account di Archiviazione di Azure.
+* **Account**: nella sottoscrizione di Azure è necessario creare un account Batch e, facoltativamente, un account di archiviazione di Azure.
 
-* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
+* **Un'immagine di macchina virtuale supportata**: i contenitori sono supportati solo nei pool creati con Configurazione macchina virtuale, dalle immagini illustrate in dettaglio nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -44,35 +44,35 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 Per creare un pool di nodi di calcolo della macchina virtuale per i carichi di lavoro del contenitore, usare una delle immagini di Windows o Linux supportate seguenti. Per altre informazioni sulle immagini del Marketplace compatibili con Batch, vedere [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images).
 
-### <a name="windows-support"></a>supporto per Windows
+### <a name="windows-support"></a>Supporto Windows
 
-Batch supporta immagini di Windows Server con designazioni del supporto per i contenitori. In genere questi nomi di SKU di immagine sono `-with-containers` con `-with-containers-smalldisk`suffisso o. Inoltre, [l'API per elencare tutte le immagini supportate in batch](batch-linux-nodes.md#list-of-virtual-machine-images) indica una `DockerCompatible` funzionalità se l'immagine supporta i contenitori docker.
+Batch supporta le immagini di Windows Server con designazioni del supporto per i contenitori. In genere, questi nomi di SKU di immagine hanno il suffisso `-with-containers` o `-with-containers-smalldisk`. Inoltre, [l'API per elencare tutte le immagini supportate in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denota una funzionalità `DockerCompatible` se l'immagine supporta i contenitori Docker.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in Windows.
 
 ### <a name="linux-support"></a>Supporto di Linux
 
-Per i carichi di lavoro del contenitore Linux, batch supporta attualmente le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace senza la necessità di un'immagine personalizzata.
+Per i carichi di lavoro dei contenitori Linux, Batch attualmente supporta le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace senza richiedere un'immagine personalizzata.
 
 #### <a name="vm-sizes-without-rdma"></a>Dimensioni delle macchine virtuali senza RDMA
 
-- Pubblicazione`microsoft-azure-batch`
-  - Offerta`centos-container`
-  - Offerta`ubuntu-server-container`
+- Server di pubblicazione: `microsoft-azure-batch`
+  - Offerta: `centos-container`
+  - Offerta: `ubuntu-server-container`
 
 #### <a name="vm-sizes-with-rdma"></a>Dimensioni delle macchine virtuali con RDMA
 
-- Pubblicazione`microsoft-azure-batch`
-  - Offerta`centos-container-rdma`
-  - Offerta`ubuntu-server-container-rdma`
+- Server di pubblicazione: `microsoft-azure-batch`
+  - Offerta: `centos-container-rdma`
+  - Offerta: `ubuntu-server-container-rdma`
 
-Queste immagini sono supportate solo per l'uso nei pool di Azure Batch e sono rivolte all'esecuzione del contenitore docker. Forniscono:
+Queste immagini sono supportate solo per l'uso nei pool di Azure Batch e sono rivolte all'esecuzione del contenitore Docker. Forniscono:
 
-* Un runtime del contenitore [Moby](https://github.com/moby/moby) compatibile con Docker pre-installato
+* Runtime del contenitore [Moby](https://github.com/moby/moby) preinstallato compatibile con Docker
 
-* Driver GPU NVIDIA preinstallati e runtime del contenitore NVIDIA per semplificare la distribuzione nelle VM serie N di Azure
+* Driver GPU NVIDIA preinstallati e runtime di contenitore NVIDIA per semplificare la distribuzione nelle VM di Azure serie N
 
-* Immagine preinstallata/preconfigurata con supporto per le dimensioni delle `-rdma`VM InfiniBand RDMA per le immagini con il suffisso. Attualmente queste immagini non supportano le dimensioni delle macchine virtuali SR-IOV IB/RDMA.
+* Immagine preinstallata/preconfigurata con supporto per le dimensioni delle macchine virtuali InfiniBand RDMA per le immagini con il suffisso `-rdma`. Attualmente queste immagini non supportano le dimensioni delle macchine virtuali SR-IOV IB/RDMA.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in una delle distribuzioni Linux compatibili con Batch. Se si sceglie di inserire l'immagine personalizzata di Linux, vedere le istruzioni in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
@@ -159,32 +159,40 @@ new_pool = batch.models.PoolAddParameter(
 L'esempio seguente relativo a C# presuppone che si voglia eseguire una prelettura di un'immagine TensorFlow dall'[hub Docker](https://hub.docker.com). Questo esempio include un'attività di avvio che viene eseguita nell'host della VM sui nodi del pool. È possibile eseguire un'attività di avvio nell'host, ad esempio, per montare un file server accessibile dai contenitori.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
@@ -195,22 +203,22 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
+ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -225,7 +233,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che `--rm` l'opzione contenitore non richiede un' `--runtime` opzione aggiuntiva perché viene gestita da batch.
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione del contenitore `--rm` non richiede un'opzione `--runtime` aggiuntiva perché viene eseguita da Batch.
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 
@@ -285,7 +293,6 @@ L'esempio C# seguente illustra le impostazioni di base del contenitore per un'at
 
 ```csharp
 // Simple container task command
-
 string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
@@ -295,10 +302,9 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine);
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

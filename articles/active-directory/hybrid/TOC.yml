@@ -188,6 +188,8 @@
       items:
         - name: Abilitare il writeback dei dispositivi
           href: how-to-connect-device-writeback.md
+        - name: Abilitare il writeback dei gruppi
+          href: how-to-connect-group-writeback.md
         - name: Opzioni del dispositivo
           href: how-to-connect-device-options.md
         - name: Funzionalità aggiuntive in Azure AD Connect

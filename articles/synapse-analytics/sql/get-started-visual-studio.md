@@ -1,6 +1,6 @@
 ---
-title: Connettersi ed eseguire query su sinapsi SQL con Visual Studio e SSDT
-description: Usare Visual Studio per eseguire query nel pool SQL usando Azure sinapsi Analytics.
+title: Connettersi ed eseguire query su Synapse SQL con Visual Studio e SSDT
+description: Usare Visual Studio per eseguire query nel pool SQL tramite Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201683"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658144"
 ---
-# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Connettersi a sinapsi SQL con Visual Studio e SSDT
+# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Connettersi a Synapse SQL con Visual Studio e SSDT
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,21 +26,21 @@ ms.locfileid: "83201683"
 > 
 > 
 
-Usare Visual Studio per eseguire query nel pool SQL usando Azure sinapsi Analytics. Questo metodo usa l'estensione SQL Server Data Tools (SSDT) in Visual Studio 2019. 
+Usare Visual Studio per eseguire query nel pool SQL tramite Azure Synapse Analytics. Questo metodo usa l'estensione di SQL Server Data Tools (SSDT) in Visual Studio 2019. 
 
 > [!NOTE]
 > SQL su richiesta (anteprima) non è supportato da SSDT.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per usare questa esercitazione, è necessario disporre dei componenti seguenti:
+Per usare l'esercitazione è necessario disporre dei componenti seguenti:
 
-* Un pool SQL esistente. Se non si dispone di uno, vedere [creare un pool SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per completare questo prerequisito.
-* SSDT per Visual Studio. Se si dispone di Visual Studio, probabilmente si dispone già di questo componente. Per istruzioni sull'installazione e sulle opzioni, vedere [Installazione di Visual Studio e SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [connettersi al pool SQL](connect-overview.md).
+* Un pool SQL esistente. Se non ne è presente uno, vedere [Creare un pool SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per completare questo prerequisito.
+* SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente questo componente è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+* Il nome completo dell'istanza di SQL Server. Per trovare il nome del server, vedere [Connettersi a un pool SQL](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. connessione al pool SQL
+## <a name="1-connect-to-sql-pool"></a>1. Connettersi a un pool SQL
 1. Aprire Visual Studio 2019.
-2. Aprire il Esplora oggetti di SQL Server. A tale scopo, selezionare **Visualizza**  >  **Esplora oggetti di SQL Server**.
+2. Aprire Esplora oggetti di SQL Server selezionando **Vista** > **Esplora oggetti di SQL Server**.
    
     ![Esplora oggetti di SQL Server](./media/get-started-visual-studio/open-ssdt.png)
 3. Fare clic sull'icona **Aggiungi SQL Server** .
@@ -51,15 +51,15 @@ Per usare questa esercitazione, è necessario disporre dei componenti seguenti:
     ![Connetti al server](./media/get-started-visual-studio/connection-dialog.png)
    
    * **Nome server**: Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione**: selezionare **l'autenticazione SQL Server** o **Active Directory l'autenticazione integrata**:
+   * **Autenticazione**: Selezionare **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**:
    * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
    * Fare clic su **Connetti**.
 5. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere AdventureWorksDW per visualizzare le tabelle nel database di esempio.
    
     ![Esplorare AdventureWorksDW](./media/get-started-visual-studio/explore-sample.png)
 
-## <a name="2-run-a-sample-query"></a>2. eseguire una query di esempio
-Ora che è stata stabilita una connessione al database, si scriverà una query.
+## <a name="2-run-a-sample-query"></a>2. Eseguire una query di esempio
+Ora che è stata stabilita una connessione al database, è possibile scrivere una query.
 
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 2. Selezionare **Nuova query**. Viene visualizzata una nuova finestra di query.
@@ -70,7 +70,7 @@ Ora che è stata stabilita una connessione al database, si scriverà una query.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Consente di eseguire la query. A questo scopo, fare clic sulla freccia verde oppure usare la combinazione di tasti seguente: `CTRL`+`SHIFT`+`E`.
+4. Per eseguire la query, fare clic sulla freccia verde oppure usare il collegamento seguente: `CTRL`+`SHIFT`+`E`.
    
     ![Esegui query](./media/get-started-visual-studio/run-query.png)
 5. Osservare i risultati della query. In questo esempio la tabella FactInternetSales include 60398 righe.
@@ -79,5 +79,5 @@ Ora che è stata stabilita una connessione al database, si scriverà una query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](get-started-power-bi-professional.md).
-Per configurare l'ambiente per l'autenticazione Azure Active Directory, vedere eseguire l'autenticazione [al pool SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Eseguire l'autenticazione in un pool SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

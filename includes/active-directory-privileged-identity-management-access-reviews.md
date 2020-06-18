@@ -5,19 +5,19 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67476268"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868088"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creare una o più verifiche di accesso
 
-1. Fare clic su **nuovo** per creare una nuova verifica di accesso.
+1. Fare clic su **Nuova** per creare una nuova verifica di accesso.
 
 1. Assegnare un nome alla verifica di accesso. Facoltativamente è possibile assegnare una descrizione alla verifica. Il nome e la descrizione vengono visualizzati dai revisori.
 
@@ -27,37 +27,38 @@ ms.locfileid: "67476268"
 
     ![Data di inizio, frequenza, durata, fine, numero di volte e data di fine](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, **trimestrale**, **annuale**o **semestrale**. Usare il dispositivo di scorrimento **durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
+1. Per rendere ricorrente la verifica di accesso, modificare l'impostazione **Frequenza** da **Singola** a **Settimanale**, **Mensile**, **Trimestrale** o **Annuale** o **Semestrale**. Usare il dispositivo di scorrimento **Durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
 
-1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un altro amministratore utente o un altro amministratore globale può arrestare la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini a tale data.
+1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
 
-1. Nella sezione **utenti** selezionare uno o più ruoli di cui si desidera verificare l'appartenenza.
+1. Nella sezione **Utenti** selezionare uno o più ruoli di cui si desidera verificare l'appartenenza.
 
-    ![Ambito degli utenti per verificare l'appartenenza ai ruoli](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Ambito degli utenti per verificare l'appartenenza ai ruoli di](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Se si seleziona più di un ruolo, vengono create più verifiche di accesso. Se ad esempio si selezionano cinque ruoli, vengono create cinque verifiche di accesso separate.
+    > - I ruoli selezionati qui includono sia i [ruoli permanenti che idonei](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Se si seleziona più di un ruolo, vengono create più verifiche di accesso. Se ad esempio si selezionano cinque ruoli, vengono create cinque verifiche di accesso separate.
 
-    Se si sta creando una verifica di accesso dei ruoli di Azure AD, di seguito viene illustrato un esempio dell'elenco di appartenenza alla verifica.
+    Se si sta creando una verifica di accesso dei **ruoli di Azure AD**, di seguito è riportato un esempio dell'elenco Verifica l'appartenenza.
 
-    ![Elencare il riquadro delle appartenenze Azure AD i ruoli che è possibile selezionare](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Riquadro Verifica l'appartenenza che elenca i ruoli di Azure AD che è possibile selezionare](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Se si sta creando una verifica di accesso dei ruoli delle risorse di Azure, di seguito viene illustrato un esempio dell'elenco di appartenenza alla verifica.
+    Se si sta creando una verifica di accesso dei **ruoli delle risorse di Azure**, l'immagine seguente riporta un esempio dell'elenco Verifica l'appartenenza.
 
-    ![Riquadro Verifica appartenenza che elenca i ruoli delle risorse di Azure che è possibile selezionare](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Riquadro Verifica l'appartenenza che elenca i ruoli delle risorse di Azure che è possibile selezionare](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
-1. Nella sezione **revisori** selezionare una o più persone per esaminare tutti gli utenti. In alternativa è possibile fare in modo che i membri verifichino il proprio accesso.
+1. Nella sezione **Revisori** selezionare una o più persone per la verifica di tutti gli utenti. In alternativa è possibile fare in modo che i membri verifichino il proprio accesso.
 
-    ![Elenco di revisori di utenti o membri selezionati (self)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Elenco dei revisori degli utenti o membri selezionati (autonomo)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
-    - **Utenti selezionati** : usare questa opzione quando non si è certi di chi necessita di accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
-    - **Membri (self)** : usare questa opzione per fare in modo che gli utenti esamino le proprie assegnazioni di ruolo.
+    - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
+    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo.
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 
 1. Per specificare cosa succede dopo il completamento di una verifica, espandere la sezione **Impostazioni al completamento**.
 
-    ![Al termine delle impostazioni per l'applicazione automatica e la revisione non risponde](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Le Impostazioni al completamento per l'applicazione automatica e la revisione non rispondono](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. Se si vuole rimuovere automaticamente l'accesso per gli utenti rifiutati, impostare l'opzione **Applica automaticamente i risultati alla risorsa** su **Abilita**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
 
@@ -72,7 +73,7 @@ ms.locfileid: "67476268"
 
 1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
 
-    ![Impostazioni avanzate per Mostra raccomandazioni, Richiedi motivo all'approvazione, notifiche di posta elettronica e promemoria](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Impostazioni avanzate per Mostra suggerimenti, Richiedi il motivo all'approvazione, Notifiche tramite posta elettronica e Promemoria](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
 

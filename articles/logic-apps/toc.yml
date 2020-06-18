@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su App per la logica di Azure
       href: logic-apps-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare app per la logica - Portale di Azure
@@ -94,12 +94,6 @@
           href: logic-apps-handle-large-messages.md
         - name: Gestire i problemi di limitazione della larghezza di banda della rete o gli errori 429
           href: handle-throttling-problems-429-errors.md
-        - name: Sicurezza
-          items:
-            - name: Migliorare la sicurezza per le app per la logica
-              href: logic-apps-securing-a-logic-app.md
-            - name: Eseguire l'autenticazione con le identità gestite
-              href: create-managed-service-identity.md
         - name: Sviluppare connettori personalizzati
           href: custom-connector-overview.md
         - name: Sviluppare le API personalizzate
@@ -316,6 +310,14 @@
           href: logic-apps-enterprise-integration-xml-validation.md
         - name: Yammer
           href: ../connectors/connectors-create-api-yammer.md
+    - name: Sicurezza
+      items:
+        - name: Migliorare la sicurezza per le app per la logica
+          href: logic-apps-securing-a-logic-app.md
+        - name: Eseguire l'autenticazione con le identità gestite
+          href: create-managed-service-identity.md
+        - name: Bloccare le connessioni nelle app per la logica
+          href: block-connections-connectors.md
     - name: Gestione
       items:
         - name: Gestire app per la logica - Portale di Azure

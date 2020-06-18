@@ -4,12 +4,13 @@ description: Informazioni sull'offerta opzionale del contratto di servizio relat
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683210"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299554"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -25,18 +26,6 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 ## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 
 Il contratto di servizio relativo al tempo di attività è una funzionalità a pagamento abilitata per cluster. Il prezzo del contratto di servizio relativo al tempo di attività è determinato dal numero di cluster discreti e non dalle dimensioni dei singoli cluster. Per altre informazioni, consultare i [dettagli sui prezzi del contratto di servizio relativo al tempo di attività](https://azure.microsoft.com/pricing/details/kubernetes-service/).
-
-## <a name="region-availability"></a>Disponibilità a livello di area
-
-Il contratto di servizio relativo al tempo di attività è disponibile nelle seguenti aree:
-
-* Australia orientale
-* Canada centrale
-* Stati Uniti orientali
-* Stati Uniti orientali 2
-* Stati Uniti centro-meridionali
-* Asia sud-orientale
-* Stati Uniti occidentali 2
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

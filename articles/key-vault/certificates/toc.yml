@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sui certificati
       href: about-certificates.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: CLI
@@ -34,10 +34,14 @@
       href: create-certificate-scenarios.md
     - name: Metodi di creazione dei certificati
       href: create-certificate.md
+- name: Guide pratiche
+  items:
+    - name: Integrazione di Key Vault con l'autorità di certificazione DigiCert
+      href: how-to-integrate-certificate-authority.md
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/keyvault
     - name: .NET

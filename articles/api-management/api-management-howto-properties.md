@@ -1,6 +1,6 @@
 ---
-title: Come usare i valori denominati nei criteri di gestione API di Azure
-description: Informazioni su come usare i valori denominati nei criteri di gestione API di Azure.
+title: Come usare i valori denominati nei criteri di Gestione API di Azure
+description: Informazioni su come usare i valori denominati nei criteri di Gestione API di Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,73 +12,69 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260922"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649207"
 ---
-# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di gestione API di Azure
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati.
 
-Ogni istanza del servizio gestione API ha una raccolta di coppie chiave/valore, denominata valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti in tutti i criteri e la configurazione dell'API. Ogni valore denominato può avere gli attributi seguenti:
+Ogni istanza del servizio Gestione API dispone di una raccolta di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni valore denominato può avere gli attributi seguenti:
 
 | Attributo      | Type            | Descrizione                                                                                                                            |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Utilizzato per fare riferimento al valore denominato nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
-| `Value`        | stringa          | Valore effettivo. Non devono essere vuoti o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                        |
+| `Display name` | string          | Usato per fare riferimento al valore denominato nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
+| `Value`        | string          | Valore effettivo. Non deve essere vuoto o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                        |
 | `Secret`       | boolean         | Determina se il valore è un segreto e se deve essere crittografato.                                                               |
-| `Tags`         | matrice di valori string | Utilizzato per filtrare l'elenco di valori denominati. Fino a 32 tag.                                                                                    |
+| `Tags`         | matrice di valori string | Usato per filtrare l'elenco di valori denominati. Fino a 32 tag.                                                                                    |
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
-I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore `Credential` denominato è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
+I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore denominato `Credential` è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
 
 | Nome       | valore                      | Segreto | Tag          |
 | ---------- | -------------------------- | ------ | ------------- |
-| valore      | 42                         | False  | numeri vitali |
+| valore      | 42                         | False  | vital-numbers |
 | Credenziale | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateTime.Now.ToString()) | False  |               |
 
 > [!NOTE]
-> Anziché i valori denominati archiviati in un servizio gestione API, è possibile usare i valori archiviati nel servizio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) come illustrato in questo [esempio](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
+> Anziché i valori denominati archiviati in un servizio Gestione API, è possibile usare i valori archiviati nel servizio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), come illustrato in questo [esempio](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Per aggiungere e modificare un valore denominato
 
 ![Aggiungere un valore denominato](./media/api-management-howto-properties/add-property.png)
 
-1. Selezionare **API** da **gestione API**.
+1. Selezionare **API** in **GESTIONE API**.
 2. Selezionare **Valori denominati**.
-3. Premere **+ Aggiungi**.
+3. Premere **+Aggiungi**.
 
-    Nome e Valore sono obbligatori. Se il valore è un segreto, selezionare la casella _di controllo questo è un segreto_ . Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
+    Nome e Valore sono obbligatori. Se il valore è un segreto, selezionare la casella di controllo _Questo è un segreto_. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
 
-4. Scegliere **Crea**.
+4. Fare clic su **Crea**.
 
-Una volta creato il valore denominato, è possibile modificarlo facendo clic su di esso. Se si modifica il nome del valore denominato, tutti i criteri che fanno riferimento a quel valore denominato vengono aggiornati automaticamente in modo da usare il nuovo nome.
-
-Per informazioni sulla modifica di un valore denominato usando l'API REST, vedere [modificare un valore denominato usando l'API REST](/rest/api/apimanagement/2019-12-01/property?patch).
+Dopo aver creato il valore denominato, è possibile modificarlo facendo clic su di esso. Se si modifica il nome del valore denominato, tutti i criteri che fanno riferimento a tale valore denominato vengono aggiornati automaticamente con il nuovo nome.
 
 ## <a name="to-delete-a-named-value"></a>Per eliminare un valore denominato
 
 Per eliminare un valore denominato, fare clic su **Elimina** accanto al valore denominato da eliminare.
 
 > [!IMPORTANT]
-> Se un criterio fa riferimento a un valore denominato, non sarà possibile eliminarlo correttamente fino a quando non si rimuove il valore denominato da tutti i criteri che lo usano.
+> Se all'interno di almeno un criterio si fa riferimento al valore denominato, sarà possibile eliminarlo solo dopo aver rimosso il valore denominato da tutti i criteri che lo usano.
 
-Per informazioni sull'eliminazione di un valore denominato usando l'API REST, vedere [eliminare un valore denominato usando l'API REST](/rest/api/apimanagement/2019-12-01/property/delete).
+## <a name="to-search-and-filter-named-values"></a>Per cercare e filtrare valori denominati
 
-## <a name="to-search-and-filter-named-values"></a>Per ricercare e filtrare i valori denominati
+La scheda **Valori denominati** include funzionalità di ricerca e filtro che consentono di gestire i valori denominati. Per filtrare l'elenco dei valori denominati in base al nome, immettere un termine di ricerca nella casella di testo di **ricerca di proprietà**. Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
 
-La scheda **Valori denominati** include funzionalità di ricerca e filtro che consentono di gestire i valori denominati. Per filtrare l'elenco di valori denominati in base al nome, immettere un termine di ricerca nella casella di testo **proprietà di ricerca** . Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
-
-Per filtrare l'elenco in base al tag, immettere uno o più tag nella casella **di testo Filtra per tag** . Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **filtro in base ai tag** e premere INVIO.
+Per filtrare l'elenco in base al tag, immettere uno o più tag nella casella di testo di **filtro in base ai tag**. Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **filtro in base ai tag** e premere INVIO.
 
 ## <a name="to-use-a-named-value"></a>Per usare un valore denominato
 
-Per usare un valore denominato in un criterio, inserire il nome all'interno di una coppia di parentesi graffe `{{ContosoHeader}}`, come illustrato nell'esempio seguente:
+Per usare un valore denominato in un criterio, inserirne il nome all'interno di parentesi graffe doppie, ad esempio `{{ContosoHeader}}`, come illustrato nell'esempio seguente:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -86,7 +82,7 @@ Per usare un valore denominato in un criterio, inserire il nome all'interno di u
 </set-header>
 ```
 
-In questo esempio, la proprietà `ContosoHeader` viene usata come nome di un'intestazione in un criterio `set-header` e la proprietà `ContosoHeaderValue` viene usata come valore di tale intestazione. Quando questo criterio viene valutato durante una richiesta o una risposta al gateway di gestione API `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` viene sostituito con i rispettivi valori.
+In questo esempio, la proprietà `ContosoHeader` viene usata come nome di un'intestazione in un criterio `set-header` e la proprietà `ContosoHeaderValue` viene usata come valore di tale intestazione. Quando questo criterio viene valutato durante una richiesta o una risposta al gateway di Gestione API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` vengono sostituiti dai rispettivi valori.
 
 I valori denominati possono essere usati come valori completi di attributo o di elemento, come illustrato nell'esempio precedente, ma possono anche essere inseriti all'interno di un'espressione di testo o combinati con una parte di un'espressione di testo, come illustrato nell'esempio seguente: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
@@ -104,11 +100,11 @@ Quando questo criterio viene valutato, `{{ExpressionProperty}}` viene sostituito
 
 ![Portale per sviluppatori][api-management-send-results]
 
-Se si esamina la [traccia di controllo API](api-management-howto-api-inspector.md) per una chiamata che include i due criteri di esempio precedenti con i valori denominati, è `set-header` possibile visualizzare i due criteri con i valori denominati inseriti e la valutazione dell'espressione di criteri per il valore denominato che contiene l'espressione di criteri.
+Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.md) relativa a una chiamata che include i due criteri con valori denominati degli esempi precedenti, è possibile vedere i due criteri `set-header` con i valori denominati inseriti, nonché la valutazione delle espressioni dei criteri per il valore denominato che contiene l'espressione.
 
 ![Traccia di Controllo API][api-management-api-inspector-trace]
 
-Mentre i valori denominati possono contenere espressioni di criteri, non possono contenere altri valori denominati. Se il testo contenente un riferimento a un valore denominato viene usato per un valore `Text: {{MyProperty}}`, ad esempio, il riferimento non verrà risolto e sostituito.
+Sebbene i valori denominati possano contenere espressioni di criteri, non possono contenere altri valori denominati. Se il testo contenente un riferimento a un valore denominato viene usato per un valore, ad esempio `Text: {{MyProperty}}`, tale riferimento non verrà risolto e sostituito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

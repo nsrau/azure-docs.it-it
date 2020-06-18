@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault estensione VM per Linux
-description: Distribuire un agente che esegue l'aggiornamento automatico dei certificati Key Vault sulle macchine virtuali usando un'estensione della macchina virtuale.
+title: Estensione macchina virtuale di Azure Key Vault per Linux
+description: Distribuire un agente che esegue l'aggiornamento automatico dei certificati di Key Vault nelle macchine virtuali tramite un'estensione macchina virtuale.
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
@@ -8,29 +8,29 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410873"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723324"
 ---
-# <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault estensione della macchina virtuale per Linux
+# <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
-L'estensione della macchina virtuale Key Vault fornisce l'aggiornamento automatico dei certificati archiviati in un insieme di credenziali delle chiavi di Azure. In particolare, l'estensione monitora un elenco di certificati osservati archiviati in Key Vault.  Quando si rileva una modifica, l'estensione recupera e installa i certificati corrispondenti. L'estensione della macchina virtuale Key Vault è pubblicata e supportata da Microsoft, attualmente nelle VM Linux. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione Key Vault VM per Linux. 
+L'estensione macchina virtuale di Key Vault offre l'aggiornamento automatico dei certificati archiviati in un insieme di credenziali delle chiavi di Azure. In particolare, l'estensione monitora un elenco di certificati osservati archiviati in insiemi di credenziali delle chiavi.  Quando rileva una modifica, l'estensione recupera e installa i certificati corrispondenti. L'estensione macchina virtuale di Key Vault è pubblicata e supportata da Microsoft, attualmente in macchine virtuali Linux. Questo documento descrive dettagliatamente le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Key Vault per Linux. 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione della macchina virtuale Key Vault supporta le distribuzioni di Linux seguenti:
+L'estensione macchina virtuale di Key Vault supporta queste distribuzioni Linux:
 
 - Ubuntu-1604
 - Ubuntu-1804
 - Debian-9
-- SUSE-15 
+- Suse-15 
 
-### <a name="supported-certificate-content-types"></a>Tipi di contenuto certificato supportati
+### <a name="supported-certificate-content-types"></a>Tipi di contenuto del certificato supportati
 
-- #12 PKCS
+- PKCS #12
 - PEM
 
 ## <a name="extension-schema"></a>Schema dell'estensione
@@ -65,9 +65,9 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 ```
 
 > [!NOTE]
-> Gli URL dei certificati osservati devono essere nel `https://myVaultName.vault.azure.net/secrets/myCertName`formato.
+> Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Questo perché il `/secrets` percorso restituisce il certificato completo, inclusa la chiave privata, ma non il `/certificates` percorso. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Ciò è dovuto al fatto che il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo restituisce. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valori delle proprietà
@@ -88,9 +88,9 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono uno strumento ideale per distribuire una o più macchine virtuali per cui è necessario l'aggiornamento dei certificati successivamente alla distribuzione. L'estensione può essere distribuita a singole macchine virtuali o a set di scalabilità di macchine virtuali. Lo schema e la configurazione sono comuni a entrambi i tipi di modello. 
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono uno strumento ideale per distribuire una o più macchine virtuali per cui è necessario l'aggiornamento dei certificati successivamente alla distribuzione. L'estensione può essere distribuita in singole macchine virtuali o in set di scalabilità di macchine virtuali. Lo schema e la configurazione sono comuni a entrambi i tipi di modello. 
 
-La configurazione JSON per un'estensione della macchina virtuale deve essere annidata all'interno del frammento di risorse della macchina `"resources": []` virtuale del modello, in particolare l'oggetto per il modello di macchina virtuale e `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` in caso di set di scalabilità di macchine virtuali in oggetto.
+La configurazione JSON per un'estensione macchina virtuale deve essere annidata all'interno del frammento delle risorse della macchina virtuale del modello, in particolare nell'oggetto `"resources": []` per il modello di macchina virtuale e nell'oggetto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` nel caso di un set di scalabilità di macchine virtuali.
 
 ```json
     {
@@ -167,7 +167,7 @@ La configurazione JSON per un'estensione della macchina virtuale deve essere ann
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione di VM Key Vault a una macchina virtuale o un set di scalabilità di macchine virtuali esistente. 
+Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virtuale o un set di scalabilità di macchine virtuali esistente è possibile usare l'interfaccia della riga di comando di Azure. 
  
 * Per distribuire l'estensione in una macchina virtuale:
     
@@ -194,7 +194,7 @@ L'interfaccia della riga di comando di Azure può essere usata per distribuire l
 Tenere presenti le restrizioni e i requisiti seguenti:
 - Restrizioni relative all'insieme di credenziali:
   - Deve essere già presente al momento della distribuzione 
-  - Il criterio di accesso Key Vault è impostato per l'identità VM/VMSS con MSI
+  - Il criterio di accesso all'insieme di credenziali delle chiavi deve essere impostato per l'identità della macchina virtuale o del set di scalabilità di macchine virtuali usando un'identità gestita. Vedere [Fornire l'autenticazione a Key Vault con un'identità gestita](../../key-vault/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
@@ -215,4 +215,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

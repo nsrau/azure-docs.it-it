@@ -1,21 +1,21 @@
 ---
-title: Gestire le repliche di lettura-portale di Azure-database di Azure per MySQL
-description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando il portale di Azure.
+title: Gestire repliche in lettura - Portale di Azure - Database di Azure per MySQL
+description: Informazioni su come creare e gestire repliche in lettura in Database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b7226e5ae8c468339e02dbe87e279266e4609da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063487"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849434"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
-In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MySQL usando il portale di Azure.
+Questo articolo descrive come creare e gestire repliche in lettura nel servizio Database di Azure per MySQL usando il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 È possibile creare un server di replica in lettura seguendo questa procedura:
 
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il server di Database di Azure per MySQL esistente da usare come master. Questa azione apre la pagina **Panoramica**.
 
@@ -40,19 +40,19 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 5. Immettere un nome per il server di replica.
 
-    ![Database di Azure per MySQL-nome replica](./media/howto-read-replica-portal/replica-name.png)
+    ![Database di Azure per MySQL - Nome della replica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare il percorso per il server di replica. Il percorso predefinito è identico a quello del server master.
+6. Selezionare la posizione per il server di replica. La posizione predefinita è la stessa di quella del server master.
 
-    ![Database di Azure per MySQL-percorso di replica](./media/howto-read-replica-portal/replica-location.png)
+    ![Database di Azure per MySQL - Posizione della replica](./media/howto-read-replica-portal/replica-location.png)
 
    > [!NOTE]
-   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
 7. Selezionare **OK** per confermare la creazione della replica.
 
 > [!NOTE]
-> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
+> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. Il server di replica viene creato sempre nello stesso gruppo di risorse e nella stessa sottoscrizione del server master. Per creare un server di replica in una sottoscrizione o un gruppo di risorse diverso, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
 
 Dopo che è stato creato, il server di replica può essere visualizzato nel pannello **Replica**.
 

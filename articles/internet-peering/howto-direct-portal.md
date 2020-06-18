@@ -1,59 +1,84 @@
 ---
-title: Creare o modificare un peering diretto usando il portale di Azure
+title: Creare o modificare un peering di Direct con il portale di Azure
 titleSuffix: Azure
-description: Creare o modificare un peering diretto usando il portale di Azure
+description: Creare o modificare un peering di Direct con il portale di Azure
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: dcd6aaf584691005dd071a7aba5958070f598978
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 5/19/2020
+ms.author: derekol
+ms.openlocfilehash: 59b9079b500817c31586c0a566082a867d7e7f41
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681038"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683989"
 ---
-# <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Creare o modificare un peering diretto usando il portale di Azure
+# <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Creare o modificare un peering di Direct con il portale di Azure
 
-Questo articolo descrive come creare un peering Microsoft diretto usando il portale di Azure. Questo articolo illustra anche come controllare lo stato della risorsa, aggiornarla o eliminarla ed effettuarne il deprovisioning.
+Questo articolo descrive come creare un peering di Direct per un provider di servizi Internet o un provider di Internet Exchange usando il portale di Azure. Questo articolo descrive come controllare lo stato della risorsa, aggiornarla o eliminarla ed effettuarne il deprovisioning.
 
 Se si preferisce, è possibile completare questa guida usando Azure [PowerShell](howto-direct-powershell.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata relativa al peering diretto](walkthrough-direct-all.md) .
-* Se si hanno già connessioni peering dirette con Microsoft che non vengono convertite in risorse di Azure, vedere [convertire un peering diretto legacy in una risorsa di Azure usando il portale](howto-legacy-direct-portal.md).
+* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata per il peering di Direct](walkthrough-direct-all.md).
+* Se esistono già connessioni di peering di Direct con Microsoft che non sono convertite in risorse di Azure, vedere [Convertire un peering di Direct legacy in risorsa di Azure tramite il portale](howto-legacy-direct-portal.md).
 
-## <a name="create-and-provision-a-direct-peering"></a>Creare ed effettuare il provisioning di un peering diretto
+## <a name="create-and-provision-a-direct-peering"></a>Creare un peering di Direct ed effettuarne il provisioning
 
 ### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Accedere al portale e selezionare la sottoscrizione
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name="create-a-direct-peering"></a><a name=create></a>Creare un peering diretto
+### <a name="create-a-direct-peering"></a><a name=create></a>Creare un peering di Direct
 
-È possibile creare una nuova richiesta di peering usando la risorsa **peering** .
+I provider di servizi internet o Internet Exchange possono creare una nuova richiesta di peering di Direct tramite la [creazione di un peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Avviare la risorsa e configurare le impostazioni di base
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
+1. Nella scheda **Generale** della pagina **Create a Peering** (Crea peering) compilare le caselle come illustrato nell'immagine seguente:
+
+
+    ![Registrare il Servizio di peering](./media/setup-basics-tab.png)
+
+2. Selezionare la sottoscrizione di Azure.
+
+3. Per Gruppo di risorse, è possibile sceglierne uno esistente nell'elenco a discesa o crearne uno nuovo selezionando Crea nuovo. Per questo esempio, creare un nuovo gruppo di risorse.
+
+4. Il nome corrisponde a quello della risorsa e può essere qualsiasi nome desiderato.
+
+5. Se si sceglie un gruppo di risorse esistente, l'area viene selezionata automaticamente. Se si sceglie di creare un nuovo gruppo di risorse, è necessario scegliere anche l'area di Azure in cui deve trovarsi la risorsa.
+
+    >[!NOTE]
+    > L'area in cui si trova un gruppo di risorse è indipendente dalla località in cui si vuole creare il peering con Microsoft. Tuttavia, è consigliabile organizzare le risorse di peering all'interno di gruppi di risorse che si trovano nelle aree di Azure più vicine. Ad esempio, per peering in Ashburn è possibile creare un gruppo di risorse nell'area Stati Uniti orientali o Stati Uniti orientali 2.
+
+6. Selezionare l'ASN nella casella **ASN peer**.
+
+    >[!IMPORTANT]
+    >È possibile scegliere un ASN solo con stato di convalida approvato prima di inviare una richiesta di peering. Se la richiesta dell'ASN del peer è appena stata inviata, attendere 12 ore che venga approvata l'associazione dell'ASN. Se la convalida dell'ASN selezionato è in sospeso, verrà visualizzato un messaggio di errore. Se l'ASN che è necessario scegliere non è visualizzato, verificare di aver selezionato la sottoscrizione corretta. Se sì, controllare se è già stata creata una richiesta di ASN del peer facendo riferimento a **[Associare l'ASN del peer alla sottoscrizione di Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
+
+7. Selezionare **Avanti: Configurazione** per continuare.
+
+
+
+    ![Registrare il Servizio di peering](./media/setup-direct-basics-filled-tab.png)
+
 
 #### <a name="configure-connections-and-submit"></a>Configurare le connessioni e inviare
 [!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration.md)]
 
-### <a name="verify-direct-peering"></a><a name=get></a>Verificare il peering diretto
+### <a name="verify-direct-peering"></a><a name=get></a>Verificare il peering di Direct
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-## <a name="modify-a-direct-peering"></a><a name="modify"></a>Modificare un peering diretto
+## <a name="modify-a-direct-peering"></a><a name="modify"></a>Modificare un peering di Direct
 [!INCLUDE [peering-direct-modify-portal](./includes/direct-portal-modify.md)]
 
-## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>Effettuare il deprovisioning di un peering diretto
+## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>Effettuare il deprovisioning di un peering di Direct
 [!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare o modificare il peering di Exchange tramite il portale](howto-exchange-portal.md)
-* [Convertire un peering di Exchange legacy in una risorsa di Azure tramite il portale](howto-legacy-exchange-portal.md)
+* [Creare o modificare un peering di Exchange con il portale](howto-exchange-portal.md)
+* [Convertire un peering di Exchange legacy in una risorsa di Azure con il portale](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md).
+Per altre informazioni, vedere [Domande frequenti sul peering Internet](faqs.md).

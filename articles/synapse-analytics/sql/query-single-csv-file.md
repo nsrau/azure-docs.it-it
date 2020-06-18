@@ -1,42 +1,39 @@
 ---
 title: Eseguire query su file CSV con SQL su richiesta (anteprima)
-description: In questo articolo si apprenderà come eseguire una query su singoli file CSV con formati di file diversi usando SQL su richiesta (anteprima).
+description: Questo articolo illustra come eseguire una query su singoli file CSV con formati di file diversi usando SQL su richiesta (anteprima).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431592"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234137"
 ---
-# <a name="query-csv-files"></a>Eseguire query sui file CSV
+# <a name="query-csv-files"></a>Eseguire query su file CSV
 
-In questo articolo si apprenderà come eseguire una query su un singolo file CSV usando SQL su richiesta (anteprima) in Azure sinapsi Analytics. I file CSV possono avere formati diversi: 
+Questo articolo illustra come eseguire una query su un singolo file CSV usando SQL su richiesta (anteprima) in Azure Synapse Analytics. I file CSV possono avere formati diversi: 
 
-- Con e senza una riga di intestazione
+- Con e senza riga di intestazione
 - Valori delimitati da virgole e tabulazioni
-- Terminazioni riga stile Windows e UNIX
-- Valori non delimitati da virgolette e caratteri di escape
+- Terminazioni riga in stile Windows e UNIX
+- Valori delimitati da virgolette o meno e caratteri di escape
 
 Tutte le varianti precedenti verranno descritte di seguito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere la parte restante di questo articolo, vedere gli articoli seguenti:
+Il primo passaggio consiste nel **creare un database** in cui verranno create le tabelle. Inizializzare quindi gli oggetti eseguendo uno [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di installazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
 
-- [Prima configurazione](query-data-storage.md#first-time-setup)
-- [Prerequisiti](query-data-storage.md#prerequisites)
+## <a name="windows-style-new-line"></a>Nuova riga in stile Windows
 
-## <a name="windows-style-new-line"></a>Nuova riga stile Windows
-
-Nella query seguente viene illustrato come leggere un file CSV senza una riga di intestazione, con una nuova riga di tipo Windows e colonne delimitate da virgole.
+La query seguente mostra come leggere un file CSV senza alcuna riga di intestazione, con nuova riga in stile Windows e colonne delimitate da virgole.
 
 Anteprima file:
 
@@ -45,8 +42,9 @@ Anteprima file:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -63,17 +61,18 @@ WHERE
 
 ## <a name="unix-style-new-line"></a>Nuova riga in stile UNIX
 
-Nella query seguente viene illustrato come leggere un file senza una riga di intestazione, con una nuova riga di tipo UNIX e con colonne delimitate da virgole. Si noti la posizione diversa del file rispetto agli altri esempi.
+La query seguente mostra come leggere un file senza alcuna riga di intestazione, con nuova riga in stile UNIX e colonne delimitate da virgole. Si noti la posizione diversa del file rispetto agli altri esempi.
 
 Anteprima file:
 
-![Prime 10 righe del file CSV senza riga di intestazione e con nuova riga di tipo UNIX.](./media/query-single-csv-file/population-unix.png)
+![Prime 10 righe del file CSV senza riga di intestazione, con nuova riga in stile UNIX.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -90,17 +89,18 @@ WHERE
 
 ## <a name="header-row"></a>Riga di intestazione
 
-Nella query seguente viene illustrato come leggere un file con una riga di intestazione con una nuova riga di tipo UNIX e colonne delimitate da virgole. Si noti la posizione diversa del file rispetto agli altri esempi.
+La query seguente mostra come leggere un file con una riga di intestazione, con nuova riga in stile UNIX e colonne delimitate da virgole. Si noti la posizione diversa del file rispetto agli altri esempi.
 
 Anteprima file:
 
-![Prime 10 righe del file CSV con riga di intestazione e con nuova riga in stile UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
+![Prime 10 righe del file CSV con riga di intestazione e nuova riga in stile UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
     )
@@ -115,19 +115,20 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="custom-quote-character"></a>Carattere virgolette personalizzate
+## <a name="custom-quote-character"></a>Carattere virgolette personalizzato
 
-Nella query seguente viene illustrato come leggere un file con una riga di intestazione, con una nuova riga di tipo UNIX, colonne delimitate da virgole e valori tra virgolette. Si noti la posizione diversa del file rispetto agli altri esempi.
+La query seguente mostra come leggere un file con riga di intestazione, nuova riga in stile UNIX, colonne delimitate da virgole e valori delimitati da virgolette. Si noti la posizione diversa del file rispetto agli altri esempi.
 
 Anteprima file:
 
-![Prime 10 righe del file CSV con riga di intestazione e con valori di nuova riga e virgolette di tipo UNIX.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Prime 10 righe del file CSV con riga di intestazione, nuova riga in stile UNIX e valori delimitati da virgolette.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -145,21 +146,22 @@ WHERE
 ```
 
 > [!NOTE]
-> Questa query restituisce gli stessi risultati se è stato omesso il parametro FIELDQUOTE poiché il valore predefinito per FIELDQUOTE è una virgoletta doppia.
+> Questa query restituisce gli stessi risultati se il parametro FIELDQUOTE è stato omesso, poiché il valore predefinito per FIELDQUOTE è una virgoletta doppia.
 
-## <a name="escaping-characters"></a>Utilizzo di caratteri di escape
+## <a name="escaping-characters"></a>Uso di caratteri di escape
 
-La query seguente mostra come leggere un file con una riga di intestazione, con una nuova riga di tipo UNIX, colonne delimitate da virgole e un carattere di escape usato per il delimitatore di campo (virgola) all'interno dei valori. Si noti la posizione diversa del file rispetto agli altri esempi.
+La query seguente mostra come leggere un file con riga di intestazione, nuova riga in stile UNIX, colonne delimitate da virgole e l'uso di un carattere di escape per il delimitatore di campo (virgola) all'interno dei valori. Si noti la posizione diversa del file rispetto agli altri esempi.
 
 Anteprima file:
 
-![Prime 10 righe del file CSV con riga di intestazione e con carattere di escape e nuova riga di tipo UNIX usati per il delimitatore di campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Prime 10 righe del file CSV con riga di intestazione, nuova riga in stile UNIX e carattere di escape usato per il delimitatore di campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-escape/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -172,25 +174,26 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
-> Questa query avrà esito negativo se ESCAPECHAR non è specificato perché la virgola in "slov, Enia" verrebbe considerata come delimitatore di campo anziché come parte del nome del paese. "Slov, Enia" verrebbe considerato come due colonne. La riga specifica, quindi, avrà una colonna maggiore di altre righe e una colonna maggiore di quella definita nella clausola WITH.
+> Questa query avrà esito negativo se il parametro ESCAPECHAR non è specificato perché la virgola in "Slov,enia" verrebbe considerata come delimitatore di campo anziché come parte del nome del Paese/dell'area. "Slov,enia" verrebbe considerato come composto da due colonne. La riga specifica avrà quindi una colonna in più rispetto alle altre righe e una colonna in più rispetto a quelle definite nella clausola WITH.
 
 ## <a name="tab-delimited-files"></a>File delimitati da tabulazioni
 
-Nella query seguente viene illustrato come leggere un file con una riga di intestazione con una nuova riga di tipo UNIX e colonne delimitate da tabulazioni. Si noti la posizione diversa del file rispetto agli altri esempi.
+La query seguente mostra come leggere un file con riga di intestazione, nuova riga in stile UNIX e colonne delimitate da tabulazioni. Si noti la posizione diversa del file rispetto agli altri esempi.
 
 Anteprima file:
 
-![Prime 10 righe del file CSV con riga di intestazione e con nuovo delimitatore di riga e di tabulazione in stile UNIX.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![Prime 10 righe del file CSV con riga di intestazione, nuova riga in stile UNIX e tabulazioni come delimitatore.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-tsv/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -208,25 +211,26 @@ WHERE
 
 ## <a name="returning-subset-of-columns"></a>Restituzione di subset di colonne
 
-Fino ad ora è stato specificato lo schema del file CSV usando con ed elencando tutte le colonne. È possibile specificare solo le colonne effettivamente necessarie nella query usando un numero ordinale per ogni colonna necessaria. Si ometteranno anche le colonne di nessun interesse.
+Fino ad ora è stato specificato lo schema del file CSV usando il parametro WITH ed elencando tutte le colonne. È possibile specificare solo le colonne effettivamente necessarie nella query usando un numero ordinale per ogni colonna necessaria. Si ometteranno anche le colonne di nessun interesse.
 
-La query seguente restituisce il numero di nomi di paese distinti in un file, specificando solo le colonne necessarie:
+La query seguente restituisce il numero di nomi di Paese/area distinti in un file, specificando solo le colonne necessarie:
 
 > [!NOTE]
-> Osservare la clausola WITH nella query seguente. si noti che c'è "2" (senza virgolette) alla fine della riga in cui si definisce la colonna *[country_name]* . Significa che la colonna *[country_name]* è la seconda colonna del file. La query ignorerà tutte le colonne del file ad eccezione della seconda.
+> Osservare la clausola WITH nella query seguente. Si noti che è presente "2" (senza virgolette) alla fine della riga in cui si definisce la colonna *[country_name]* . Ciò significa che la colonna *[country_name]* è la seconda colonna del file. La query ignorerà tutte le colonne del file, ad eccezione della seconda.
 
 ```sql
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
 WITH (
-    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[country_code] VARCHAR (5),
+    [country_name] VARCHAR (100) 2
     --[year] smallint,
     --[population] bigint
 ) AS [r]
@@ -236,5 +240,5 @@ WITH (
 
 Negli articoli successivi verrà illustrato come:
 
-- [Esecuzione di query sui file parquet](query-parquet-files.md)
-- [Esecuzione di query su cartelle e più file](query-folders-multiple-csv-files.md)
+- [Eseguire query su file Parquet](query-parquet-files.md)
+- [Eseguire query su cartelle e file multipli](query-folders-multiple-csv-files.md)

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983076"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682222"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 
@@ -41,7 +41,7 @@ Molte di queste impostazioni possono essere modificate solo da Azure AD Connect.
 
 Di seguito sono riportate le impostazioni che possono essere configurate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Commento |
+| DirSyncFeature | Comment |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Consente l'aggiunta di oggetti a userPrincipalName oltre all'indirizzo SMTP primario. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName per gli utenti gestiti/con licenza (non federati). |
@@ -55,14 +55,14 @@ Una volta abilitata una funzionalità, non potrà essere disabilitata di nuovo.
 
 Le impostazioni seguenti vengono configurate da Azure AD Connect e non possono essere modificate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Commento |
+| DirSyncFeature | Comment |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect: Abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: Estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Consente di mettere in quarantena un attributo quando è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione. |
 | Sincronizzazione dell'hash delle password |[Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticazione pass-through|[Accesso utente con l'autenticazione pass-through di Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Anteprima: Writeback dei gruppi](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Writeback dei gruppi|
 | UserWriteback |Attualmente non supportata. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicate attribute resiliency
@@ -89,7 +89,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Sincronizzare gli aggiornamenti di userPrincipalName
 
-In passato, gli aggiornamenti dell'attributo UserPrincipalName usando il servizio di sincronizzazione locale sono stati bloccati, a meno che non siano soddisfatte entrambe le condizioni seguenti:
+In genere, gli aggiornamenti dell'attributo UserPrincipalName tramite il servizio di sincronizzazione locale vengono bloccati, a meno che non siano rispettate entrambe le condizioni seguenti:
 
 * L'utente è gestito (non federato).
 * All'utente non è stata assegnata una licenza.
@@ -98,7 +98,7 @@ In passato, gli aggiornamenti dell'attributo UserPrincipalName usando il servizi
 > Da marzo 2019, è consentita la sincronizzazione delle modifiche UPN per gli account utente federati.
 > 
 
-L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare il userPrincipalName quando viene modificato in locale e si usa la sincronizzazione dell'hash delle password o l'autenticazione pass-through.
+L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName quando viene modificato a livello locale e si usa la sincronizzazione dell'hash delle password o l'autenticazione pass-through.
 
 Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:  
 
@@ -116,5 +116,5 @@ Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistent
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

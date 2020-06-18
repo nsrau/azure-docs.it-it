@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78272933"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681357"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento interno tramite Azure PowerShell
 
-È possibile usare Azure PowerShell per configurare il [reindirizzamento del traffico Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione viene definito un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. In questa esercitazione si presuppone che l'utente sia proprietario di più domini e usi esempi di *www\.contoso.com* e *www\.contoso.org*.
+È possibile usare Azure PowerShell per configurare il [reindirizzamento del traffico Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione viene definito un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www\.contoso.com* e *www\.contoso.org*.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -107,7 +107,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Creare il primo listener e la regola
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini di *www\.contoso.com* e *www\.contoso.org*.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati listener per i domini *www\.contoso.com* e *www\.contoso.org*.
 
 Creare il primo listener denominato *contosoComListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end create in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -199,7 +199,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-second-routing-rule"></a>Aggiungere la seconda regola di routing
 
-È quindi possibile associare la configurazione di reindirizzamento a una nuova regola denominata *contosoOrgRule* usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+È quindi possibile associare la configurazione del reindirizzamento a una nuova regola denominata *contosoOrgRule* usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -292,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, [https://www.contoso.com](https://www.contoso.com).
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, `https://www.contoso.com`.
 
 ![Testare il sito contoso nel gateway applicazione](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Modificare l'indirizzo in un altro dominio. ad esempio https://www.contoso.org , si noterà che il traffico è stato reindirizzato al listener per www\.contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio `https://www.contoso.org`. Il traffico dovrebbe essere stato reindirizzato al listener per www\.contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

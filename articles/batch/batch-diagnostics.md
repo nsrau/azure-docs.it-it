@@ -1,15 +1,15 @@
 ---
 title: Metriche, avvisi e log di diagnostica
 description: Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell'account Azure Batch, come pool e attività.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a33f71cd185a327bfe6852b9acd7d7317b94c2c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117302"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726741"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -18,7 +18,7 @@ Questo articolo descrive come monitorare un account Batch tramite le funzionalit
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
-Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Tra le metriche di esempio in un account Batch sono incluse quelle relative a eventi di creazione di pool, conteggio di nodi per priorità bassa ed eventi di completamento di attività. 
+Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Metriche di esempio di un account Batch sono quelle relative a eventi di creazione di pool, numero di nodi con priorità bassa ed eventi di completamento di attività. 
 
 Vedere l'[elenco delle metriche di Batch supportate](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -34,13 +34,13 @@ Le metriche:
 
 Per visualizzare tutte le metriche dell'account Batch: 
 
-1. Nel portale fare clic su **tutti i servizi** > **account batch**e quindi sul nome dell'account batch.
+1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** selezionare **Metrica**.
 3. Selezionare una o più metriche. Se lo si desidera, è possibile selezionare metriche di risorse aggiuntive tramite gli elenchi a discesa **Sottoscrizioni**, **Gruppo di risorse**, **Tipo di risorsa** e **Risorsa**.
-    * Per le metriche basate su conteggi (ad esempio "conteggio principale dedicato" o "numero di nodi con priorità bassa"), usare l'aggregazione "media". Per le metriche basate su eventi, ad esempio "eventi di completamento ridimensionamento pool", usare l'aggregazione "count".
+    * Per le metriche basate su conteggi (ad esempio "Numero di core dedicati" o "Numero di nodi a bassa priorità"), usare l'aggregazione "Media". Per le metriche basate su eventi (ad esempio "Eventi ridimensionamento pool completati"), usare l'aggregazione "Conteggio".
 
 > [!WARNING]
-> Non usare l'aggregazione "sum", che somma i valori di tutti i punti dati ricevuti nel periodo del grafico
+> Non usare l'aggregazione "Somma" che somma i valori di tutti i punti dati ricevuti nel periodo del grafico
 > 
 > 
 
@@ -62,11 +62,11 @@ Ad esempio, è possibile configurare un avviso sulle metriche quando il numero d
 
 Per configurare un avviso sulle metriche nel portale:
 
-1. Fare clic su **tutti i servizi** > **account batch**e quindi sul nome dell'account batch.
+1. Fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** fare clic su **Regole di avviso** > **Aggiungi avviso per la metrica**.
 3. Selezionare una metrica, una condizione di avviso, ad esempio quando una metrica supera un valore specifico durante un periodo, e una o più notifiche.
 
-È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per ulteriori informazioni, vedere [Cenni preliminari sugli avvisi](../azure-monitor/platform/alerts-overview.md). Per includere le informazioni specifiche relative a processi, attività o pool negli avvisi, vedere le informazioni sulle query di ricerca in [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/learn/tutorial-response.md)
+È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per altre informazioni, vedere [Panoramica degli avvisi](../azure-monitor/platform/alerts-overview.md). Per includere le informazioni specifiche del processo, dell'attività o del pool negli avvisi, vedere le informazioni sulle query di ricerca in [Rispondere agli eventi con gli avvisi di Monitoraggio di Azure](../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="batch-diagnostics"></a>Diagnostica di Batch
 
@@ -86,7 +86,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 * Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
 
-* Inviare i log di diagnostica ai [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power bi o Excel.
+* Inviare i log di diagnostica ai [log di Monitoraggio di Azure](../log-analytics/log-analytics-overview.md) dove è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
 
 > [!NOTE]
 > Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
@@ -94,13 +94,13 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Abilitare la raccolta dei log di diagnostica di Batch
 
-1. Nel portale fare clic su **tutti i servizi** > **account batch**e quindi sul nome dell'account batch.
+1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** fare clic su **Log di diagnostica** > **Abilita diagnostica**.
-3. In **impostazioni di diagnostica**immettere un nome per l'impostazione e scegliere una destinazione del log (account di archiviazione esistente, Hub eventi o log di monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
+3. In **Impostazioni di diagnostica** immettere un nome per l'impostazione e scegliere una destinazione dei log (account di archiviazione esistente, hub eventi o log di Monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
 
     Quando si seleziona un account di archiviazione, è facoltativamente possibile impostare criteri di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
     ![Diagnostica di Batch](media/batch-diagnostics/diagnostics-portal.png)
 
@@ -125,9 +125,9 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Ogni `PT1H.json` file BLOB contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio `h=12`,). Durante l'ora odierna, gli eventi vengono aggiunti al `PT1H.json` file non appena si verificano. Il valore dei minuti`m=00`() è `00`sempre, perché gli eventi del log di diagnostica sono suddivisi in singoli BLOB all'ora. Tutte le ore sono in formato UTC.
+Ogni file BLOB `PT1H.json` contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL del BLOB, ad esempio `h=12`. Nell'ora corrente gli eventi che si verificano vengono aggiunti al file `PT1H.json`. Il valore dei minuti (`m=00`) è sempre `00` poiché gli eventi del log di diagnostica vengono suddivisi in singoli BLOB per ogni ora. Tutte le ore sono in formato UTC.
 
-Di seguito è riportato un esempio `PoolResizeCompleteEvent` di una voce `PT1H.json` in un file di log. Sono incluse informazioni sul numero corrente e di destinazione dei nodi dedicati e con priorità bassa, oltre all'ora di inizio e di fine dell'operazione:
+Di seguito è riportato un esempio di voce `PoolResizeCompleteEvent` in un file di log `PT1H.json`. Sono incluse informazioni sul numero corrente e di destinazione dei nodi dedicati e a priorità bassa, oltre all'ora di inizio e di fine dell'operazione:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
@@ -164,14 +164,14 @@ Il servizio Batch attualmente emette gli eventi di log del servizio seguenti. Qu
 
 | **Eventi del log del servizio** |
 | --- |
-| [Pool create](batch-pool-create-event.md) (Creazione del pool) |
-| [Pool delete start](batch-pool-delete-start-event.md) (Avvio dell'eliminazione del pool) |
-| [Pool delete complete](batch-pool-delete-complete-event.md) (Completamento dell'eliminazione del pool) |
-| [Pool resize start](batch-pool-resize-start-event.md) (Avvio del ridimensionamento del pool) |
-| [Pool resize complete](batch-pool-resize-complete-event.md) (Completamento del ridimensionamento del pool) |
-| [Task start](batch-task-start-event.md) (Avvio dell'attività) |
-| [Task complete](batch-task-complete-event.md) (Completamento dell'attività) |
-| [Task fail](batch-task-fail-event.md) (Errore dell'attività) |
+| [Creazione di pool](batch-pool-create-event.md) |
+| [Avvio dell'eliminazione di pool](batch-pool-delete-start-event.md) |
+| [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md) |
+| [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md) |
+| [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md) |
+| [Avvio dell'attività](batch-task-start-event.md) |
+| [Attività completata](batch-task-complete-event.md) |
+| [Errore dell'attività](batch-task-fail-event.md) |
 
 
 

@@ -1,41 +1,41 @@
 ---
-title: Crittografia inattiva con una chiave gestita dal cliente
-description: Informazioni sulla crittografia al resto del registro contenitori di Azure e su come crittografare il registro con una chiave gestita dal cliente archiviata in Azure Key Vault
+title: Crittografia dati inattivi con chiave gestita dal cliente
+description: Informazioni sulla crittografia dei dati inattivi del Registro Azure Container e su come crittografare il registro con una chiave gestita dal cliente archiviata in Azure Key Vault
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: d9cd10401e7f645a8edd269184a56dc27544a8c8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927318"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683495"
 ---
-# <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro di sistema usando una chiave gestita dal cliente
+# <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
-Quando si archiviano immagini e altri elementi in un registro contenitori di Azure, Azure crittografa automaticamente il contenuto del registro di sistema inattivo con le [chiavi gestite dal servizio](../security/fundamentals/encryption-atrest.md#data-encryption-models). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando una chiave creata e gestita in Azure Key Vault. Questo articolo illustra la procedura con l'interfaccia della riga di comando di Azure e il portale di Azure.
+Quando si archiviano immagini e altri artefatti in un registro contenitori di Azure, Azure crittografa automaticamente il contenuto inattivo del registro con le [chiavi gestite dal servizio](../security/fundamentals/encryption-atrest.md#data-encryption-models). È possibile integrare la crittografia predefinita con un ulteriore livello di crittografia usando una chiave creata e gestita in Azure Key Vault. Questo articolo illustra i passaggi usando l'interfaccia della riga di comando di Azure e il portale di Azure.
 
-La crittografia lato server con chiavi gestite dal cliente è supportata tramite l'integrazione con [Azure Key Vault](../key-vault/general/overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi. Con Azure Key Vault è anche possibile controllare l'utilizzo della chiave.
+La crittografia lato server con le chiavi gestite dal cliente è supportata attraverso l'integrazione con [Azure Key Vault](../key-vault/general/overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare le chiavi. Con Azure Key Vault è anche possibile controllare l'utilizzo delle chiavi.
 
-Questa funzionalità è disponibile nel livello di servizio del registro contenitori **Premium** . Per informazioni sui limiti e i livelli di servizio del registro di sistema, vedere [sku container Registry di Azure](container-registry-skus.md).
+Questa funzionalità è disponibile nel livello di servizio **Premium** del registro contenitori. Per informazioni sui livelli di servizio e sui limiti del registro contenitori, vedere [Livelli di servizio del Registro Azure Container](container-registry-skus.md).
 
    
 ## <a name="things-to-know"></a>Informazioni importanti
 
-* Attualmente è possibile abilitare una chiave gestita dal cliente solo quando si crea un registro di sistema.
-* Dopo aver abilitato una chiave gestita dal cliente in un registro, non è possibile disabilitarla.
-* L' [attendibilità del contenuto](container-registry-content-trust.md) non è attualmente supportata in un registro crittografato con una chiave gestita dal cliente.
-* In un registro crittografato con una chiave gestita dal cliente, i log di esecuzione per le [attività ACR](container-registry-tasks-overview.md) sono attualmente conservati solo per 24 ore. Se è necessario conservare i log per un periodo di tempo più lungo, vedere linee guida per [esportare e archiviare i log di esecuzione dell'attività](container-registry-tasks-logs.md#alternative-log-storage).
+* Attualmente è possibile abilitare una chiave gestita dal cliente solo quando si crea un registro.
+* Dopo aver abilitato una chiave gestita dal cliente per un registro, non è possibile disabilitarla.
+* L'[attendibilità del contenuto](container-registry-content-trust.md) non è attualmente supportata in un registro crittografato con una chiave gestita dal cliente.
+* In un registro crittografato con una chiave gestita dal cliente, i log di esecuzione per le [Attività del Registro Azure Container](container-registry-tasks-overview.md) attualmente vengono conservati solo per 24 ore. Se è necessario conservare i log per un periodo di tempo più lungo, vedere le istruzioni per [esportare e archiviare i log di esecuzione delle attività](container-registry-tasks-logs.md#alternative-log-storage).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria la versione 2.2.0 o successiva dell'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="enable-customer-managed-key---cli"></a>Abilitare la chiave gestita dal cliente-interfaccia della riga di comando
+## <a name="enable-customer-managed-key---cli"></a>Abilitare la chiave gestita dal cliente - interfaccia della riga di comando
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Se necessario, eseguire il comando [AZ Group create][az-group-create] per creare un gruppo di risorse per la creazione dell'insieme di credenziali delle chiavi, del registro contenitori e di altre risorse richieste.
+Se necessario, eseguire il comando [az group create][az-group-create] per creare un gruppo di risorse per la creazione dell'insieme di credenziali delle chiavi, del registro contenitori e di altre risorse richieste.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -43,7 +43,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 
-Creare un'identità gestita assegnata dall'utente [per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) con il comando [AZ Identity create][az-identity-create] . Questa identità verrà usata dal registro di sistema per accedere al servizio Key Vault.
+Creare un'[identità gestita assegnata dall'utente per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) con il comando [az identity create][az-identity-create]. Questa identità verrà usata dal registro per accedere al servizio Key Vault.
 
 ```azurecli
 az identity create \
@@ -51,7 +51,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-Nell'output del comando prendere nota dei valori seguenti: `id` e. `principalId` Questi valori sono necessari nei passaggi successivi per configurare l'accesso al registro di sistema all'insieme di credenziali delle chiavi.
+Nell'output del comando prendere nota dei valori seguenti: `id` e `principalId`. Questi valori sono necessari nei passaggi successivi per configurare l'accesso del registro all'insieme di credenziali delle chiavi.
 
 ```JSON
 {
@@ -78,9 +78,9 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Creare un insieme di credenziali delle chiavi con [AZ Key Vault create][az-keyvault-create] per archiviare una chiave gestita dal cliente per la crittografia del registro di sistema. 
+Creare un insieme di credenziali delle chiavi con [az keyvault create][az-keyvault-create] per archiviare una chiave gestita dal cliente per la crittografia del registro. 
 
-Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi o Key Vault, è necessario abilitare le impostazioni seguenti: **eliminazione** temporanea e **ripulitura della protezione**. L'esempio seguente include i parametri per queste impostazioni: 
+Per evitare la perdita di dati causata da eliminazioni accidentali delle chiavi o dell'insieme di credenziali delle chiavi, è necessario abilitare le impostazioni seguenti: **Eliminazione temporanea** e **Protezione dall'eliminazione**. L'esempio seguente include i parametri per queste impostazioni: 
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -89,9 +89,9 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-### <a name="add-key-vault-access-policy"></a>Aggiungere i criteri di accesso di Key Vault
+### <a name="add-key-vault-access-policy"></a>Aggiungere i criteri di accesso dell'insieme di credenziali delle chiavi
 
-Configurare i criteri per l'insieme di credenziali delle chiavi in modo che l'identità possa accedervi. Nel comando [AZ per set-Policy][az-keyvault-set-policy] seguente viene passato l'ID entità dell'identità gestita creata, archiviata in precedenza in una variabile di ambiente. Impostare le autorizzazioni chiave per **Get**, **unwrapKey**e **wrapKey**.  
+Configurare un criterio per l'insieme di credenziali delle chiavi in modo che l'identità possa accedervi. Nel comando [az keyvault set-policy][az-keyvault-set-policy] che segue viene passato l'ID entità di sicurezza dell'identità gestita creata, archiviato in precedenza in una variabile di ambiente. Impostare le autorizzazioni delle chiavi per **get**, **unwrapKey** e **wrapKey**.  
 
 ```azurecli
 az keyvault set-policy \
@@ -101,9 +101,9 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey 
 ```
 
-### <a name="create-key-and-get-key-id"></a>Crea chiave e Ottieni ID chiave
+### <a name="create-key-and-get-key-id"></a>Creare la chiave e ottenere l'ID chiave
 
-Eseguire il comando [AZ Key Vault Key create][az-keyvault-key-create] per creare una chiave nell'insieme di credenziali delle chiavi.
+Per creare una chiave nell'insieme di credenziali delle chiavi, eseguire il comando [az keyvault key create][az-keyvault-key-create].
 
 ```azurecli
 az keyvault key create \
@@ -111,7 +111,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-Nell'output del comando prendere nota dell'ID della chiave `kid`. Questo ID verrà usato nel passaggio successivo:
+Nell'output del comando prendere nota dell'ID della chiave, `kid`. Questo ID verrà usato nel passaggio successivo:
 
 ```JSON
 [...]
@@ -143,9 +143,9 @@ keyID=$(az keyvault key show \
   --query 'key.kid' --output tsv)
 ```
 
-### <a name="create-a-registry-with-customer-managed-key"></a>Creare un registro con una chiave gestita dal cliente
+### <a name="create-a-registry-with-customer-managed-key"></a>Creare un registro con la chiave gestita dal cliente
 
-Eseguire il comando [AZ ACR create][az-acr-create] per creare un registro nel livello di servizio Premium e abilitare la chiave gestita dal cliente. Passare l'ID dell'entità di identità gestita e l'ID chiave, archiviati in precedenza nelle variabili di ambiente:
+Eseguire il comando [az acr create][az-acr-create] per creare un registro nel livello di servizio Premium e abilitare la chiave gestita dal cliente. Passare l'ID entità di sicurezza dell'identità gestita e l'ID chiave, archiviati in precedenza nelle variabili di ambiente:
 
 ```azurecli
 az acr create \
@@ -156,9 +156,9 @@ az acr create \
   --sku Premium
 ```
 
-### <a name="show-encryption-status"></a>Mostra stato crittografia
+### <a name="show-encryption-status"></a>Visualizzare lo stato della crittografia
 
-Per indicare se la crittografia del registro di sistema con una chiave gestita dal cliente è abilitata, eseguire il comando [AZ ACR Encryption Show][az-acr-encryption-show] :
+Per indicare se la crittografia del registro con una chiave gestita dal cliente è abilitata, eseguire il comando [az acr encryption show][az-acr-encryption-show]:
 
 ```azurecli
 az acr encryption show --name <registry-name> 
@@ -177,64 +177,64 @@ L'output è simile a:
 }
 ```
 
-## <a name="enable-customer-managed-key---portal"></a>Abilitare la chiave gestita dal cliente-portale
+## <a name="enable-customer-managed-key---portal"></a>Abilitare la chiave gestita dal cliente - portale
 
 ### <a name="create-a-managed-identity"></a>Creare un'identità gestita
 
-Creare un'identità gestita assegnata dall'utente [per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) nel portale di Azure. Per i passaggi, vedere [creare un'identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+Creare un'[identità gestita assegnata dall'utente per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) nel portale di Azure. Per la procedura, vedere [Creare un'identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-Il nome dell'identità viene usato nei passaggi successivi.
+Il nome dell'identità verrà usato nei passaggi successivi.
 
-![Creare un'identità gestita assegnata dall'utente nell'portale di Azure](./media/container-registry-customer-managed-keys/create-managed-identity.png)
+![Creare l'identità gestita assegnata dall'utente nel portale di Azure](./media/container-registry-customer-managed-keys/create-managed-identity.png)
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Per i passaggi necessari per creare un insieme di credenziali delle chiavi, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../key-vault/secrets/quick-create-portal.md).
+Per i passaggi necessari per creare un insieme di credenziali delle chiavi, vedere [Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../key-vault/secrets/quick-create-portal.md).
 
-Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, nella scheda **nozioni di base** abilitare le impostazioni di protezione seguenti: **eliminazione** temporanea e **ripulitura**. Queste impostazioni consentono di evitare la perdita di dati causata da eliminazioni accidentali di chiavi o Key Vault.
+Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, abilitare le impostazioni di protezione seguenti nella scheda **Nozioni di base**: **Eliminazione temporanea** e **Protezione dall'eliminazione**. Queste impostazioni consentono di evitare la perdita di dati causata da eliminazioni accidentali delle chiavi o dell'insieme di credenziali delle chiavi.
 
-![Creare un insieme di credenziali delle chiavi nella portale di Azure](./media/container-registry-customer-managed-keys/create-key-vault.png)
+![Creare un insieme di credenziali delle chiavi nel portale di Azure](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
-### <a name="add-key-vault-access-policy"></a>Aggiungere i criteri di accesso di Key Vault
+### <a name="add-key-vault-access-policy"></a>Aggiungere i criteri di accesso dell'insieme di credenziali delle chiavi
 
-Configurare i criteri per l'insieme di credenziali delle chiavi in modo che l'identità possa accedervi.
+Configurare un criterio per l'insieme di credenziali delle chiavi in modo che l'identità possa accedervi.
 
-1. Passare a Key Vault.
-1. Selezionare **Impostazioni** > **criteri di accesso > + Aggiungi criteri di accesso**.
-1. Selezionare **autorizzazioni chiave**e selezionare **Get**, **Unwrap Key**e **Wrap Key**.
-1. Selezionare **Seleziona entità** e selezionare il nome della risorsa dell'identità gestita assegnata dall'utente.  
-1. Selezionare **Aggiungi**, quindi fare clic su **Salva**.
+1. Passare all'insieme di credenziali delle chiavi.
+1. Selezionare **Impostazioni** > **Criteri di accesso > +Aggiungi un criterio di accesso**.
+1. Selezionare **Autorizzazioni chiave**, quindi **Recupera**, **Annulla il wrapping della chiave** ed **Esegui il wrapping della chiave**.
+1. Selezionare **Selezionare un'entità**, quindi il nome della risorsa dell'identità gestita assegnata dall'utente.  
+1. Selezionare **Aggiungi** e quindi **Salva**.
 
-![Creare i criteri di accesso di Key Vault](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+![Creare un criterio di accesso dell'insieme di credenziali delle chiavi](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
 
 ### <a name="create-key"></a>Creare la chiave
 
-1. Passare a Key Vault.
-1. Selezionare **Impostazioni** > **chiavi**.
-1. Selezionare **+ genera/importa** e immettere un nome univoco per la chiave.
-1. Accettare i valori predefiniti rimanenti e selezionare **Crea**.
-1. Dopo la creazione, selezionare la chiave e prendere nota della versione della chiave corrente.
+1. Passare all'insieme di credenziali delle chiavi.
+1. Selezionare **Impostazioni** > **Chiavi**.
+1. Selezionare **+Genera/Importa** e immettere un nome univoco per la chiave.
+1. Accettare i rimanenti valori predefiniti e selezionare **Crea**.
+1. Al termine della creazione, selezionare la chiave e prendere nota della versione corrente della chiave.
 
 ### <a name="create-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 
-1. Selezionare **Crea una risorsa** > **contenitori** > **container Registry**.
-1. Nella scheda **nozioni di base** selezionare o creare un gruppo di risorse e immettere un nome del registro di sistema. In **SKU**selezionare **Premium**.
-1. Nella scheda **crittografia** , in **chiave gestita dal cliente**, selezionare **abilitato**.
-1. In **Identity (identità**) selezionare l'identità gestita creata.
-1. In **crittografia**selezionare **Seleziona da Key Vault**.
-1. Nella finestra **Seleziona chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi, la chiave e la versione creati nella sezione precedente.
-1. Nella scheda **crittografia** selezionare **Verifica + crea**.
-1. Selezionare **Crea** per distribuire l'istanza del registro di sistema.
+1. Selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
+1. Nella scheda **Nozioni di base** selezionare o creare un gruppo di risorse e immettere un nome di registro. In **SKU** selezionare **Premium**.
+1. Nella scheda **Crittografia**, selezionare **Abilitata** in **Chiave gestita dal cliente**.
+1. In **Identità** selezionare l'identità gestita creata.
+1. In **Crittografia** selezionare **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
+1. Nella finestra **Selezionare la chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi, la chiave e la versione creati nella sezione precedente.
+1. Nella scheda **Crittografia** selezionare **Rivedi e crea**.
+1. Selezionare **Crea** per distribuire l'istanza del registro.
 
 ![Creare il registro contenitori nel portale di Azure](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Per visualizzare lo stato di crittografia del registro di sistema nel portale, passare al registro di sistema. In **Impostazioni**selezionare **crittografia**.
+Per visualizzare lo stato della crittografia del registro nel portale, passare al registro. In **Impostazioni** selezionare **Crittografia**.
 
-## <a name="enable-customer-managed-key---template"></a>Abilitare il modello di chiave gestita dal cliente
+## <a name="enable-customer-managed-key---template"></a>Abilitare la chiave gestita dal cliente - modello
 
-È anche possibile usare un modello di Gestione risorse per creare un registro di sistema e abilitare la crittografia con una chiave gestita dal cliente. 
+È anche possibile usare un modello di Resource Manager per creare un registro e abilitare la crittografia con una chiave gestita dal cliente. 
 
-Il modello seguente crea un nuovo registro contenitori e un'identità gestita assegnata dall'utente. Copiare il contenuto seguente in un nuovo file e salvarlo utilizzando un nome file, `CMKtemplate.json`ad esempio.
+Il modello seguente crea un nuovo registro contenitori e un'identità gestita assegnata dall'utente. Copiare il contenuto seguente in un nuovo file e salvarlo usando un nome file, ad esempio `CMKtemplate.json`.
 
 ```JSON
 {
@@ -340,12 +340,12 @@ Il modello seguente crea un nuovo registro contenitori e un'identità gestita as
 
 ```
 
-Seguire i passaggi nelle sezioni precedenti per creare le risorse seguenti:
+Seguire i passaggi delle sezioni precedenti per creare le risorse seguenti:
 
-* Key Vault, identificato dal nome
-* Chiave dell'insieme di credenziali delle chiavi, identificata dall'ID chiave
+* Insieme di credenziali delle chiavi, identificato dal nome
+* Insieme di credenziali delle chiavi, identificato dall'ID chiave
 
-Eseguire il comando [AZ Group Deployment create][az-group-deployment-create] seguente per creare il registro di sistema usando il file di modello precedente. Dove indicato, fornire un nuovo nome del registro di sistema e il nome identità gestita, nonché il nome dell'insieme di credenziali delle chiavi e l'ID chiave creati. 
+Eseguire il seguente comando [az group deployment create][az-group-deployment-create] per creare il registro usando il file di modello precedente. Dove indicato, specificare un nuovo nome del registro e il nome dell'identità gestita, nonché il nome dell'insieme di credenziali delle chiavi e l'ID chiave creato. 
 
 ```bash
 az group deployment create \
@@ -358,30 +358,30 @@ az group deployment create \
     kek_id=<key-vault-key-id>
 ```
 
-### <a name="show-encryption-status"></a>Mostra stato crittografia
+### <a name="show-encryption-status"></a>Visualizzare lo stato della crittografia
 
-Per visualizzare lo stato della crittografia del registro di sistema, eseguire il comando [AZ ACR Encryption Show][az-acr-encryption-show] :
+Per visualizzare lo stato della crittografia del registro, eseguire il comando [az acr encryption show][az-acr-encryption-show]:
 
 ```azurecli
 az acr encryption show --name <registry-name> 
 ```
 
-## <a name="use-the-registry"></a>Usare il registro di sistema
+## <a name="use-the-registry"></a>Usare il registro
 
-Dopo aver abilitato una chiave gestita dal cliente in un registro, è possibile eseguire le stesse operazioni del registro di sistema eseguite in un registro non crittografato con una chiave gestita dal cliente. Ad esempio, è possibile eseguire l'autenticazione con il registro di sistema e le immagini Docker push. Vedere comandi di esempio in [push ed estrazione di un'immagine](container-registry-get-started-docker-cli.md).
+Dopo aver abilitato una chiave gestita dal cliente in un registro, è possibile eseguire le stesse operazioni del registro che si eseguono in un registro non crittografato con una chiave gestita dal cliente. Ad esempio, è possibile eseguire l'autenticazione con il registro ed effettuare il push delle immagini Docker. Vedere i comandi di esempio in [Effettuare il push e il pull di un'immagine](container-registry-get-started-docker-cli.md).
 
-## <a name="rotate-key"></a>Ruota chiave
+## <a name="rotate-key"></a>Ruotare la chiave
 
-Ruotare una chiave gestita dal cliente utilizzata per la crittografia del registro di sistema per i criteri di conformità. Creare una nuova chiave o aggiornare una versione della chiave, quindi aggiornare il registro di sistema per crittografare i dati usando la chiave. È possibile eseguire questi passaggi usando l'interfaccia della riga di comando di Azure o nel portale.
+Ruotare una chiave gestita dal cliente usata per la crittografia del registro nei criteri di conformità. Creare una nuova chiave o aggiornare una versione della chiave, quindi aggiornare il registro per crittografare i dati usando la chiave. È possibile eseguire questi passaggi usando l'interfaccia della riga di comando di Azure o il portale.
 
-Quando si ruota una chiave, viene in genere specificata la stessa identità utilizzata durante la creazione del registro di sistema. Facoltativamente, configurare una nuova identità assegnata dall'utente per l'accesso alla chiave o abilitare e specificare l'identità assegnata dal sistema del registro di sistema.
+Quando si ruota una chiave, in genere si specifica la stessa identità usata durante la creazione del registro. Facoltativamente, configurare una nuova identità assegnata dall'utente per l'accesso alla chiave o abilitare e specificare l'identità assegnata dal sistema del registro.
 
 > [!NOTE]
-> Verificare che i [criteri di accesso](#add-key-vault-access-policy) dell'insieme di credenziali delle chiavi necessari siano impostati per l'identità configurata per l'accesso alla chiave. 
+> Verificare che il [criterio di accesso dell'insieme di credenziali delle chiavi](#add-key-vault-access-policy) richiesto sia impostato per l'identità configurata per l'accesso alla chiave. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Usare i comandi [AZ Key Vault Key][az-keyvault-key] per creare o gestire le chiavi di Key Vault. Ad esempio, per creare una nuova versione o chiave della chiave, eseguire il comando [AZ Key Vault Key create][az-keyvault-key-create] :
+Usare i comandi [az keyvault key][az-keyvault-key] per creare o gestire le chiavi dell'insieme di credenziali delle chiavi. Ad esempio, per creare una nuova chiave o una nuova versione della chiave, eseguire il comando [az keyvault key create][az-keyvault-key-create]:
 
 ```azurecli
 # Create new version of existing key
@@ -395,7 +395,7 @@ az keyvault key create \
   --vault-name <key-vault-name> 
 ```
 
-Eseguire quindi il comando [AZ ACR Encryption ruot-Key][az-acr-encryption-rotate-key] , passando il nuovo ID chiave e l'identità che si vuole configurare:
+Quindi eseguire il comando [az acr encryption rotate-key][az-acr-encryption-rotate-key], passando il nuovo ID chiave e l'identità che si vuole configurare:
 
 ```azurecli
 # Rotate key and use user-assigned identity
@@ -413,22 +413,22 @@ az acr encryption rotate-key \
 
 ### <a name="portal"></a>Portale
 
-Usare le impostazioni di **crittografia** del registro di sistema per aggiornare la versione della chiave, la chiave, l'insieme di credenziali delle chiavi o le impostazioni di identità usate per la chiave gestita dal cliente. 
+Usare le impostazioni di **crittografia** del registro per aggiornare la versione della chiave, la chiave, l'insieme di credenziali delle chiavi o le impostazioni dell'identità usati per la chiave gestita dal cliente. 
 
 Ad esempio, per generare e configurare una nuova versione della chiave:
 
-1. Nel portale passare al registro di sistema. 
-1. In **Impostazioni**selezionare**chiave di modifica** **crittografia** > .
-1. Selezionare il **tasto seleziona**
+1. Passare al registro nel portale. 
+1. In **Impostazioni** selezionare **Crittografia** > **Modifica chiave**.
+1. Selezionare **Selezionare una chiave**
     
-    ![Ruota la chiave nella portale di Azure](./media/container-registry-customer-managed-keys/rotate-key.png)
-1. Nella finestra **Seleziona chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi e la chiave configurata in precedenza e in **versione**Selezionare **Crea nuovo**.
-1. Nella finestra **Crea un tasto** selezionare **genera**, quindi **Crea**.
+    ![Ruotare la chiave nel portale di Azure](./media/container-registry-customer-managed-keys/rotate-key.png)
+1. Nella finestra **Selezionare la chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi e la chiave configurati in precedenza e in **Versione** selezionare **Crea nuovo**.
+1. Nella finestra **Creare una chiave** selezionare **Genera** e quindi **Crea**.
 1. Completare la selezione della chiave e selezionare **Salva**.
 
-## <a name="revoke-key"></a>Revoca chiave
+## <a name="revoke-key"></a>Revocare la chiave
 
-Revocare la chiave di crittografia gestita dal cliente modificando il criterio di accesso nell'insieme di credenziali delle chiavi o eliminando la chiave. Ad esempio, usare il comando [AZ chiave Vault Delete-Policy][az-keyvault-delete-policy] per modificare i criteri di accesso dell'identità gestita usata dal registro di sistema:
+Per revocare la chiave di crittografia gestita dal cliente, modificare il criterio di accesso nell'insieme di credenziali delle chiavi o eliminare la chiave. Ad esempio, usare il comando [az keyvault delete-policy][az-keyvault-delete-policy] per modificare il criterio di accesso dell'identità gestita usata dal registro:
 
 ```azurecli
 az keyvault delete-policy \
@@ -437,48 +437,48 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-La revoca della chiave blocca efficacemente l'accesso a tutti i dati del registro di sistema, poiché il registro di sistema non può accedere alla chiave di crittografia. Se l'accesso alla chiave è abilitato o viene ripristinata la chiave eliminata, il registro di sistema selezionerà la chiave in modo che sia possibile accedere nuovamente ai dati crittografati del registro di sistema.
+La revoca della chiave blocca efficacemente l'accesso a tutti i dati del registro, poiché il registro non può accedere alla chiave di crittografia. Se l'accesso alla chiave è abilitato o viene ripristinata la chiave eliminata, il registro selezionerà la chiave in modo che sia possibile accedere di nuovo ai dati crittografati del registro.
 
 ## <a name="advanced-scenarios"></a>Scenari avanzati
 
 ### <a name="system-assigned-identity"></a>Identità assegnata dal sistema
 
-È possibile configurare l'identità gestita assegnata dal sistema di un registro per accedere all'insieme di credenziali delle chiavi per le chiavi di crittografia. Se non si ha familiarità con le diverse identità gestite per le risorse di Azure, vedere la [Panoramica](../active-directory/managed-identities-azure-resources/overview.md).
+È possibile configurare l'identità gestita assegnata dal sistema di un registro per accedere all'insieme di credenziali delle chiavi per le chiavi di crittografia. Se non si ha familiarità con i diversi tipi di identità gestita per le risorse di Azure, vedere la [panoramica](../active-directory/managed-identities-azure-resources/overview.md).
 
-Per abilitare l'identità assegnata dal sistema del registro di sistema nel portale:
+Per abilitare l'identità assegnata dal sistema del registro nel portale:
 
-1. Nel portale passare al registro di sistema. 
-1. Selezionare **Impostazioni** >  **Identity**.
-1. In **sistema assegnato**impostare **stato** **su on**. Selezionare **Salva**.
-1. Copiare l' **ID oggetto** dell'identità.
+1. Passare al registro nel portale. 
+1. Selezionare **Impostazioni** >  **Identità**.
+1. In **Assegnata dal sistema** impostare **Stato** su **Attiva**. Selezionare **Salva**.
+1. Copiare l'**ID oggetto** dell'identità.
 
-Per concedere l'accesso all'identità all'insieme di credenziali delle chiavi:
+Per concedere all'identità l'accesso all'insieme di credenziali delle chiavi:
 
-1. Passare a Key Vault.
-1. Selezionare **Impostazioni** > **criteri di accesso > + Aggiungi criteri di accesso**.
-1. Selezionare **autorizzazioni chiave**e selezionare **Get**, **Unwrap Key**e **Wrap Key**.
-1. Selezionare **Seleziona entità** e cercare l'ID oggetto dell'identità gestita assegnata dal sistema oppure il nome del registro.  
-1. Selezionare **Aggiungi**, quindi fare clic su **Salva**.
+1. Passare all'insieme di credenziali delle chiavi.
+1. Selezionare **Impostazioni** > **Criteri di accesso > +Aggiungi un criterio di accesso**.
+1. Selezionare **Autorizzazioni chiave**, quindi **Recupera**, **Annulla il wrapping della chiave** ed **Esegui il wrapping della chiave**.
+1. Selezionare l'opzione **Selezionare un'entità** e cercare l'ID oggetto dell'identità gestita assegnata dal sistema oppure il nome del registro.  
+1. Selezionare **Aggiungi** e quindi **Salva**.
 
-Per aggiornare le impostazioni di crittografia del registro di sistema in modo da usare l'identità:
+Per aggiornare le impostazioni di crittografia del registro per l'uso dell'identità:
 
-1. Nel portale passare al registro di sistema. 
-1. In **Impostazioni**selezionare**chiave di modifica** **crittografia** > .
-1. In **Identity**selezionare **sistema assegnato**e selezionare **Salva**.
+1. Passare al registro nel portale. 
+1. In **Impostazioni** selezionare **Crittografia** > **Modifica chiave**.
+1. In **Identità** selezionare **Assegnata dal sistema** e selezionare **Salva**.
 
-### <a name="key-vault-firewall"></a>Firewall Key Vault
+### <a name="key-vault-firewall"></a>Firewall di Key Vault
 
-Se l'insieme di credenziali delle chiavi di Azure viene distribuito in una rete virtuale con un firewall Key Vault, seguire questa procedura:
+Se l'insieme di credenziali delle chiavi di Azure è distribuito in una rete virtuale con un firewall di Key Vault, seguire questa procedura:
 
-1. Configurare la crittografia del registro di sistema per usare l'identità assegnata dal sistema del registro di sistema. Vedere la sezione precedente.
-2. Configurare l'insieme di credenziali delle chiavi per consentire l'accesso da parte di qualsiasi [servizio attendibile](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+1. Configurare la crittografia del registro per l'uso dell'identità assegnata dal sistema del registro. Vedere la sezione precedente.
+2. Configurare l'insieme di credenziali delle chiavi per consentire l'accesso da parte di qualsiasi [servizio considerato attendibile](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
 
-Per i passaggi dettagliati, vedere [configurare Azure Key Vault firewall e reti virtuali](../key-vault/general/network-security.md). 
+Per la procedura dettagliata, vedere [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/general/network-security.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulla crittografia dei tuoi inattivi [in Azure](../security/fundamentals/encryption-atrest.md).
-* Altre informazioni sui criteri di accesso e su come [proteggere l'accesso a un insieme di](../key-vault/general/secure-your-key-vault.md)credenziali delle chiavi.
+* Altre informazioni sulla [crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md).
+* Altre informazioni sui criteri di accesso e su come [proteggere l'accesso a un insieme di credenziali delle chiavi](../key-vault/general/secure-your-key-vault.md).
 
 
 <!-- LINKS - external -->

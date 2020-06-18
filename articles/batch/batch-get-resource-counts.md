@@ -1,15 +1,15 @@
 ---
-title: Conteggio degli Stati per attività e nodi
+title: Conteggiare gli stati per attività e nodi
 description: Conteggiare le attività e i nodi di calcolo di Azure Batch in base allo stato per gestire e monitorare le soluzioni Batch.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116095"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780162"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 
@@ -19,7 +19,7 @@ Per monitorare e gestire soluzioni Azure Batch su larga scala, è necessario un 
 
   Conteggiando le attività in ogni stato, è possibile visualizzare più facilmente lo stato di avanzamento di un processo a un utente o rilevare ritardi o errori imprevisti che possono influire sul processo. Il recupero dei conteggi è disponibile a partire dall'API del servizio Batch versione 2017-06-01.5.1 e negli SDK e strumenti correlati.
 
-* L'operazione di [conteggio dei nodi del pool][rest_get_node_counts] riceve il numero di nodi di calcolo dedicati e con priorità bassa di ogni pool in vari stati: creazione, inattività, non in linea, annullamento, riavvio, ricreazione immagine, avvio e altri. 
+* L'operazione di [conteggio dei nodi del pool][rest_get_node_counts] riceve il numero di nodi di calcolo dedicati e con priorità bassa di ogni pool in vari stati: in fase di creazione, inattivo, offline, superato, riavvio, ricreazione immagine, avvio e altri. 
 
   Conteggiando i nodi in ogni stato, è possibile determinare quando sono disponibili le risorse di calcolo adeguata per eseguire i processi e identificare potenziali problemi nei pool. L'elenco dei conteggi dei nodi del pool è disponibile a partire dall'API del servizio Batch versione 2018-03-01.6.1 e negli SDK e strumenti correlati.
 
@@ -66,7 +66,7 @@ L'operazione di conteggio dei nodi del pool conta i nodi di calcolo di ogni pool
 - **Reimaging**: un nodo in cui viene reinstallato il sistema operativo.
 - **Running**: nodo che esegue una o più attività (diversa dall'attività di avvio).
 - **Starting**: nodo in cui viene avviato il servizio Batch. 
-- **StartTaskFailed**: nodo in cui l'[attività di avvio][rest_start_task] non è riuscita e ha esaurito tutti i tentativi e in cui `waitForSuccess` è impostato sull'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
+- **StartTaskFailed**: nodo in cui l'[attività di avvio][rest_start_task] non è riuscita e sono stati esauriti tutti i tentativi e in cui `waitForSuccess` è impostato sull'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
 - **Unknown**: nodo che ha perso il contatto con il servizio Batch e il cui stato non è noto.
 - **Unusable**: nodo che non può essere usato per l'esecuzione di attività a causa di errori.
 - **WaitingForStartTask**: nodo in cui l'attività ha iniziato l'esecuzione, ma è impostato `waitForSuccess` e l'attività di avvio non è stata completata.
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Per ottenere i conteggi dei nodi per i pool, è possibile usare un criterio simile per REST e altri linguaggi supportati.
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sui concetti e sulle funzionalità del servizio Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md). L'articolo descrive le risorse principali di Batch, tra cui pool, nodi di calcolo, processi e attività, e include una panoramica delle funzionalità del servizio.
-
+* Informazioni [sul flusso di lavoro e sulle risorse principali del servizio Batch](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
 * Per informazioni sull'applicazione dei filtri alle query di elenco per le risorse di Batch, vedere [Creare query per elencare le risorse di Batch in modo efficiente](batch-efficient-list-queries.md).
 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871213"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737504"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -44,7 +44,7 @@ I criteri di mapping delle attestazioni sono un tipo di oggetto **Criteri** che 
 
 Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
-| Set di attestazioni | Description |
+| Set di attestazioni | Descrizione |
 |---|---|
 | Set di attestazioni core | Sono presenti in ogni token, indipendentemente dai criteri. Queste attestazioni sono anche considerate limitate e non possono essere modificate. |
 | Set di attestazioni di base | Include le attestazioni generate per impostazione predefinita per i token (oltre al set di attestazioni core). È possibile omettere o modificare le attestazioni di base usando i criteri di mapping delle attestazioni. |
@@ -87,7 +87,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| code |
+| codice |
 | controls |
 | credential_keys |
 | csr |
@@ -153,13 +153,13 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | pwd_exp |
 | pwd_url |
 | redirect_uri |
-| token di aggiornamento |
+| refresh_token |
 | refreshtoken |
 | request_nonce |
-| risorse |
+| resource |
 | ruolo |
 | roles |
-| ambito |
+| scope |
 | scp |
 | sid |
 | firma |
@@ -177,7 +177,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| nomeutente |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -275,10 +275,10 @@ Impostare l'elemento Source su uno dei valori seguenti:
 - "application": i dati nell'attestazione sono una proprietà dell'entità servizio application (client). 
 - "resource": i dati nell'attestazione sono una proprietà dell'entità servizio resource.
 - "audience": i dati nell'attestazione sono una proprietà dell'entità servizio che corrisponde al destinatario del token (entità servizio resource o client).
-- "company": i dati nell'attestazione sono una proprietà dell'oggetto company del tenant delle risorse.
+- "company": i dati nell'attestazione sono una proprietà dell'oggetto Company del tenant delle risorse.
 - "transformation": i dati nell'attestazione derivano dalla trasformazione delle attestazioni. Vedere la sezione "Trasformazione delle attestazioni" più avanti in questo articolo.
 
-Se l'origine è Transformation, anche l'elemento **TransformationID** deve essere incluso in questa definizione di attestazione.
+Se l'origine è transformation, anche l'elemento **TransformationID** deve essere incluso in questa definizione di attestazione.
 
 L'elemento ID identifica la proprietà dell'origine che indica il valore per l'attestazione. La tabella seguente elenca i valori di ID validi per ogni valore di Source.
 
@@ -293,10 +293,10 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | mail | Indirizzo di posta elettronica |
 | Utente | userprincipalname | Nome entità utente |
 | Utente | department|department|
-| Utente | onpremisessamaccountname | Nome account SAM locale |
+| Utente | onpremisessamaccountname | Nome dell'account SAM locale |
 | Utente | netbiosname| Nome NetBios |
 | Utente | dnsdomainname | Nome di dominio DNS |
-| Utente | onpremisesecurityidentifier | Identificatore di sicurezza locale |
+| Utente | onpremisesecurityidentifier | ID di sicurezza locale |
 | Utente | companyname| Nome organizzazione |
 | Utente | streetaddress | Indirizzo |
 | Utente | postalcode | CAP |
@@ -319,22 +319,22 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | extensionattribute14 | Attributo di estensione 14 |
 | Utente | extensionattribute15 | Attributo di estensione 15 |
 | Utente | othermail | Posta elettronica alternativa |
-| Utente | country | Country |
+| Utente | country | Paese/Area geografica |
 | Utente | city | city |
-| Utente | state | Stato |
+| Utente | state | State |
 | Utente | jobtitle | Posizione |
 | Utente | employeeid | ID dipendente |
 | Utente | facsimiletelephonenumber | Numero di telefono fax |
 | application, resource, audience | displayname | Nome visualizzato |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | tags | Tag di entità servizio |
-| Company | tenantcountry | Paese del tenant |
+| Company | tenantcountry | Paese/Area geografica del tenant |
 
 **TransformationID:** l'elemento TransformationID è obbligatorio solo se l'elemento Source è impostato su "transformation".
 
 - Questo elemento deve corrispondere all'elemento ID della voce di trasformazione nella proprietà **ClaimsTransformation** che definisce la modalità di generazione dei dati per questa attestazione.
 
-**Tipo di attestazione:** Gli elementi **JwtClaimType** e **SamlClaimType** definiscono a quale attestazione si riferisce questa voce dello schema di attestazione.
+**Tipo di attestazione:** gli elementi **JwtClaimType** e **SamlClaimType** definiscono l'attestazione a cui questa voce dello schema di attestazioni fa riferimento.
 
 - JwtClaimType deve contenere il nome dell'attestazione da generare nel token JWT.
 - SamlClaimType deve contenere l'URI dell'attestazione da generare nei token SAML.
@@ -358,22 +358,22 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabella 4: Metodi di trasformazione e input/output previsti
 
-|TransformationMethod|Input previsto|Output previsto|Description|
+|TransformationMethod|Input previsto|Output previsto|Descrizione|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Estrae la parte locale di un indirizzo di posta elettronica. Ad esempio: mail:"foo@bar.com" comporta in outputClaim:"foo". Se non è presente un segno \@, la stringa di input originale viene restituita così come è.|
 
-**InputClaims:** un elemento InputClaims può essere usato per passare i dati da una voce dello schema di attestazioni a una trasformazione. Dispone di due attributi: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**InputClaims:** un elemento InputClaims può essere usato per passare i dati da una voce dello schema di attestazioni a una trasformazione. Include due attributi: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** viene aggiunto all'elemento ID della voce dello schema di attestazioni per trovare l'attestazione di input appropriata. 
+- **ClaimTypeReferenceId** viene unito in join con l'elemento ID della voce dello schema di attestazioni per trovare l'attestazione di input appropriata. 
 - **TransformationClaimType** viene usato per assegnare un nome univoco a questo input. Questo nome deve corrispondere a uno degli input previsti per il metodo di trasformazione.
 
-**InputParameters:** un elemento InputParameters viene usato per passare un valore costante a una trasformazione. Dispone di due attributi: **value** e **ID**.
+**InputParameters:** un elemento InputParameters viene usato per passare un valore costante a una trasformazione. Include due attributi: **Value** e **ID**.
 
 - **Value** è il valore costante effettivo da passare.
 - **ID** viene usato per assegnare un nome univoco all'input. Il nome deve corrispondere a uno degli input previsti per il metodo di trasformazione.
 
-**OutputClaims:** un elemento OutputClaims viene usato per contenere i dati generati da una trasformazione e associarli a una voce dello schema di attestazioni. Dispone di due attributi: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** un elemento OutputClaims viene usato per contenere i dati generati da una trasformazione e associarli a una voce dello schema di attestazioni. Include due attributi: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** viene unito in join all'elemento ID della voce dello schema di attestazioni per individuare l'attestazione di output appropriata.
 - **TransformationClaimType** viene usato per assegnare un nome univoco all'output. Il nome deve corrispondere a uno degli output previsti per il metodo di trasformazione.
@@ -410,14 +410,14 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 | TransformationMethod | Restrizioni |
 | ----- | ----- |
-| ExtractMailPrefix | Nessuno |
+| ExtractMailPrefix | nessuno |
 | Join | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 
-È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati. Per aggiungere una chiave di firma personalizzata, è possibile usare il cmdlet `new-azureadapplicationkeycredential` Azure PowerShell per creare una credenziale di chiave simmetrica per l'oggetto applicazione. Per ulteriori informazioni su questo cmdlet di Azure PowerShell, vedere [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati. Per aggiungere una chiave di firma personalizzata, è possibile usare il cmdlet `new-azureadapplicationkeycredential` di Azure PowerShell per creare una credenziale della chiave simmetrica per l'oggetto applicazione. Per altre informazioni su questo cmdlet di Azure PowerShell, vedere [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Per le app con mapping delle attestazioni abilitato è necessario convalidare le chiavi di firma del token aggiungendole alle [richieste di metadati OpenID Connect.](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) `appid={client_id}` Di seguito è riportato il formato del documento di metadati OpenID Connect da usare: 
+Per le app con mapping delle attestazioni abilitato è necessario convalidare le chiavi di firma del token aggiungendo `appid={client_id}` alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Di seguito è riportato il formato del documento di metadati OpenID Connect. 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -437,11 +437,11 @@ In molti scenari di Azure AD è possibile personalizzare le attestazioni generat
 
 #### <a name="prerequisites"></a>Prerequisiti
 
-Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le entità servizio. Se non si ha familiarità con Azure AD, è consigliabile [acquisire informazioni su come ottenere un tenant di Azure ad](quickstart-create-new-tenant.md) prima di procedere con questi esempi.
+Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le entità servizio. Se non si ha familiarità con Azure AD, è consigliabile [capire come ottenere un tenant di Azure AD](quickstart-create-new-tenant.md) prima di procedere con questi esempi.
 
 Per iniziare, seguire questa procedura:
 
-1. Scaricare la [versione di anteprima pubblica del modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)più recente.
+1. Scaricare l'ultima [versione di anteprima pubblica del modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Eseguire il comando Connect per accedere all'account amministratore di Azure AD. Eseguire questo comando ogni volta che si avvia una nuova sessione.
 
    ``` powershell
@@ -453,7 +453,7 @@ Per iniziare, seguire questa procedura:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare un criterio per omettere le attestazioni di base dai token emessi a un'entità servizio
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio
 
 In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
 
@@ -469,16 +469,16 @@ In questo esempio si creano criteri che rimuovono il set di attestazioni di base
       Get-AzureADPolicy
       ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio.
-   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire una query sull'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)accedere al proprio account di Azure ad.
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare un criterio per includere EmployeeID e TenantCountry come attestazioni nei token emessi per un'entità servizio
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per includere EmployeeID e TenantCountry come attestazioni nei token emessi per un'entità servizio
 
-In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai token emessi per le entità servizio collegate. EmployeeID viene emesso come tipo di attestazione nome sia nei token SAML sia nei token JWT. TenantCountry viene emesso come tipo di attestazione paese sia nei token SAML sia nei token JWT. In questo esempio si continua a includere il set di attestazioni di base nei token.
+In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai token emessi per le entità servizio collegate. EmployeeID viene emesso come tipo di attestazione nome sia nei token SAML sia nei token JWT. TenantCountry viene emesso come tipo di attestazione paese/area geografica sia nei token SAML sia nei token JWT. In questo esempio si continua a includere il set di attestazioni di base nei token.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, aggiungono le attestazioni EmployeeID e TenantCountry ai token.
    1. Per creare i criteri, eseguire questo comando:  
@@ -493,14 +493,14 @@ In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai
       Get-AzureADPolicy
       ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire una query sull'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)accedere al proprio account di Azure ad.
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare i criteri con una trasformazione di attestazioni in token emessi per un'entità servizio
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare i criteri con una trasformazione di attestazioni in token emessi per un'entità servizio
 
 In questo esempio si creano i criteri che generano un'attestazione personalizzata "JoinedData" nei token JWT emessi per le entità servizio collegate. Questa attestazione contiene un valore creato aggiungendo i dati archiviati nell'attributo extensionattribute1 all'oggetto utente con ".sandbox". In questo esempio si esclude il set di attestazioni di base nei token.
 
@@ -517,7 +517,7 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
       Get-AzureADPolicy
       ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire una query sull'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)accedere al proprio account di Azure ad.
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API di Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando: 
      
       ``` powershell
@@ -526,4 +526,4 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
 
 ## <a name="see-also"></a>Vedere anche
 
-Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite la portale di Azure, vedere [procedura: personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](active-directory-saml-claims-customization.md)
+Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](active-directory-saml-claims-customization.md)

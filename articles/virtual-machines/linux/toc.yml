@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
@@ -56,12 +56,8 @@
       href: tutorial-azure-devops-blue-green-strategy.md
     - name: 15d - CI/CD con Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16a - Creare uno stack LAMP
+    - name: 16 - Creare uno stack LAMP
       href: tutorial-lamp-stack.md
-    - name: 16b - Creare uno stack LEMP
-      href: tutorial-lemp-stack.md
-    - name: 16c - Creare uno stack MEAN
-      href: tutorial-mean-stack.md
     - name: 17 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
 - name: Esempi
@@ -898,7 +894,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

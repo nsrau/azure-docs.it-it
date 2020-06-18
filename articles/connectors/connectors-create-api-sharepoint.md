@@ -1,5 +1,5 @@
 ---
-title: Connettersi a SharePoint da app per la logica di Azure
+title: Connettersi a SharePoint da App per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio e la gestione delle risorse in SharePoint Online o SharePoint Server in locale usando App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06dfca4fc59ba6ff32714d7a92b0d4a65e262de5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789257"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826010"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorare e gestire le risorse di SharePoint con App per la logica di Azure
 
@@ -43,7 +43,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 * Prima di poter connettere le app per la logica a sistemi locali, ad esempio SharePoint Server, è necessario [installare e configurare un gateway dati locale](../logic-apps/logic-apps-gateway-install.md). In questo modo, è possibile specificare di usare l'installazione del gateway quando si crea la connessione a SharePoint Server per l'app per la logica.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SharePoint. Per iniziare con un trigger di SharePoint, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SharePoint, avviare l'app per la logica con un trigger, ad esempio un trigger Salesforce, se si ha un account Salesforce.
 
@@ -66,9 +66,9 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
    Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi **di selezionare Connetti tramite il gateway dati locale**. Al termine dell'operazione, scegliere **Crea**.
+1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi di selezionare **Connetti tramite gateway dati locale**. Al termine dell'operazione, scegliere **Crea**.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -76,9 +76,9 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sharepoint/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,51 +1,51 @@
 ---
 title: Determinare le cause di non conformità
-description: Quando una risorsa non è conforme, esistono molti motivi possibili. Scopri cosa ha causato la mancata conformità.
-ms.date: 04/26/2019
+description: Quando una risorsa non è conforme, i motivi possibili sono molti. Informazioni sulle possibili cause di non conformità.
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182583"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684237"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
-Quando una risorsa di Azure viene determinata come non conforme a una regola dei criteri, è utile comprendere la parte della regola con la quale la risorsa non è conforme. È inoltre utile comprendere quale modifica ha modificato una risorsa conforme in precedenza per renderla non conforme. Sono disponibili due modi per trovare queste informazioni:
+Quando si determina che una risorsa di Azure non è conforme a una regola dei criteri, è utile comprendere a quale parte della regola la risorsa non è conforme. È anche importante conoscere quale modifica ha trasformato una risorsa precedentemente conforme in una risorsa non conforme. È possibile trovare queste informazioni in due modi:
 
 > [!div class="checklist"]
-> - [Dettagli conformità](#compliance-details)
+> - [Dettagli di conformità](#compliance-details)
 > - [Cronologia modifiche (anteprima)](#change-history)
 
-## <a name="compliance-details"></a>Dettagli conformità
+## <a name="compliance-details"></a>Dettagli di conformità
 
-Quando una risorsa non è conforme, i dettagli di conformità per tale risorsa sono disponibili nella pagina **conformità criteri** . Il riquadro dettagli conformità include le informazioni seguenti:
+Quando una risorsa non è conforme, è possibile trovare i dettagli di conformità della risorsa nella pagina **Conformità dei criteri**. Il riquadro dei dettagli di conformità include le informazioni seguenti:
 
-- Dettagli delle risorse, ad esempio nome, tipo, posizione e ID risorsa
-- Stato di conformità e timestamp dell'ultima valutazione per l'assegnazione di criteri corrente
-- Elenco di _motivi_ per la mancata conformità delle risorse
+- Dettagli della risorsa, ad esempio nome, tipo, posizione e ID risorsa
+- Stato di conformità e timestamp dell'ultima valutazione per l'assegnazione dei criteri corrente
+- Elenco dei _motivi_ per cui la risorsa non è conforme
 
 > [!IMPORTANT]
-> Poiché i dettagli di conformità per una risorsa _non conforme_ mostrano il valore corrente delle proprietà di tale risorsa, l'utente deve avere un'operazione di **lettura** per il **tipo** di risorsa. Ad esempio, se la risorsa _non conforme_ è **Microsoft. Compute/virtualMachines** , l'utente deve disporre dell'operazione **Microsoft. Compute/virtualMachines/Read** . Se l'utente non ha l'operazione necessaria, viene visualizzato un errore di accesso.
+> Poiché i dettagli di conformità per una risorsa _Non conforme_ indicano il valore corrente delle proprietà di tale risorsa, è necessario che l'utente disponga dell'operazione di **lettura** per la proprietà **type** della risorsa. Se ad esempio la risorsa _Non conforme_ è **Microsoft.Compute/virtualMachines**, l'utente deve disporre dell'operazione **Microsoft.Compute/virtualMachines/read**. Se l'utente non dispone dell'operazione necessaria, viene visualizzato un errore di accesso.
 
 Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
-1. Nella pagina **Panoramica** o **conformità** Selezionare un criterio in uno stato di **conformità** _non conforme_.
+1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio il cui **stato di conformità** sia _Non conforme_.
 
-1. Nella scheda **conformità risorse** della pagina **conformità criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa in uno **stato di conformità** _non conforme_. Quindi selezionare **Visualizza i dettagli di conformità**.
+1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa il cui **stato di conformità** sia _Non conforme_. Quindi selezionare **Visualizzare i dettagli sulla conformità**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Opzione Visualizza dettagli conformità" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Opzione Visualizzare i dettagli sulla conformità" border="false":::
 
-1. Il riquadro **Dettagli conformità** Visualizza le informazioni dalla valutazione più recente della risorsa all'assegnazione di criteri corrente. In questo esempio, il campo **Microsoft. SQL/Servers/Version** è _12,0_ mentre è prevista la definizione del criterio _14,0_. Se la risorsa non è conforme per diversi motivi, ciascuna di esse viene elencata in questo riquadro.
+1. Il riquadro **Dettagli conformità** visualizza le informazioni della valutazione più recente della risorsa rispetto all'assegnazione dei criteri corrente. In questo esempio il valore del campo **Microsoft.Sql/servers/version** è _12.0_ mentre la definizione del criterio prevedeva _14.0_. Se la risorsa non è conforme per più motivi, in questo riquadro vengono elencati tutti i motivi.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Riquadro dei dettagli di conformità e motivi per la mancata conformità" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Riquadro Dettagli conformità e motivi di non conformità" border="false":::
 
-   Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists** , i dettagli includono la proprietà **Details. Type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). L' **ultima risorsa valutata** è una risorsa correlata dalla sezione dei **Dettagli** della definizione.
+   Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists**, i dettagli includono la proprietà **details.type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà di AuditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà di DeployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ultima risorsa valutata** collega a una risorsa correlata della sezione dei **dettagli** della definizione.
 
-   Esempio di definizione di **deployIfNotExists** parziale:
+   Esempio parziale della definizione di **deployIfNotExists**:
 
    ```json
    {
@@ -70,68 +70,68 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Riquadro dei dettagli di conformità-* ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Riquadro Dettagli conformità - *ifNotExists" border="false":::
 
 > [!NOTE]
-> Per proteggere i dati, quando il valore di una proprietà è un _segreto_ , il valore corrente Visualizza gli asterischi.
+> Per proteggere i dati, quando il valore di una proprietà è _segreto_, il valore corrente visualizza gli asterischi.
 
-Questi dettagli spiegano il motivo per cui una risorsa non è attualmente conforme, ma non Mostra quando è stata apportata la modifica alla risorsa che lo ha causato come non conforme. Per informazioni, vedere la [cronologia delle modifiche (anteprima)](#change-history) riportata di seguito.
+Questi dettagli spiegano il motivo per cui una risorsa non è attualmente conforme, ma non indicano quando è stata apportata alla risorsa la modifica che l'ha resa non conforme. Per questo tipo di informazioni, vedere la sezione [Cronologia modifiche (anteprima)](#change-history) più avanti.
 
 ### <a name="compliance-reasons"></a>Motivi di conformità
 
-Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla [condizione](../concepts/definition-structure.md#conditions) responsabile nella definizione dei criteri:
+Nella matrice seguente viene eseguito il mapping di ogni possibile _motivo_ relativamente alla [condizione ](../concepts/definition-structure.md#conditions) responsabile nella definizione dei criteri:
 
 |Motivo | Condizione |
 |-|-|
 |Il valore corrente deve contenere il valore di destinazione come chiave. |containsKey o **not** notContainsKey |
-|Il valore corrente deve contenere il valore di destinazione. |contiene o **non** notContains |
-|Il valore corrente deve essere uguale al valore di destinazione. |uguale a o **non** notEquals |
-|Il valore corrente deve essere minore del valore di destinazione. |minore o **non** greaterOrEquals |
-|Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o **meno** |
-|Il valore corrente deve essere maggiore del valore di destinazione. |maggiore o **non** lessOrEquals |
-|Il valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals o **non** superiore |
+|Il valore corrente deve contenere il valore di destinazione. |contains o **not** notContains |
+|Il valore corrente deve essere uguale al valore di destinazione. |equals o **not** notEquals |
+|Il valore corrente deve essere minore del valore di destinazione. |less o **not** greaterOrEquals |
+|Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o **not** less |
+|Il valore corrente deve essere maggiore del valore di destinazione. |greater o **not** lessOrEquals |
+|Il valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals o **not** greater |
 |Il valore corrente deve esistere. |esiste |
-|Il valore corrente deve essere nel valore di destinazione. |in o **non** notIn |
-|Il valore corrente deve essere simile al valore di destinazione. |like o **not** notLike |
-|Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole e minuscole. |corrisponde o **non** notMatch |
-|Il valore corrente non deve essere soggetto a distinzione tra maiuscole e minuscole. |matchInsensitively o **not** notMatchInsensitively |
-|Il valore corrente non deve contenere il valore di destinazione come chiave. |notContainsKey o **not** ContainsKey|
-|Il valore corrente non deve contenere il valore di destinazione. |notContains o **not** Contains |
-|Il valore corrente non deve essere uguale al valore di destinazione. |notEquals o **not** Equals |
-|Il valore corrente non deve esistere. |**non** esiste  |
+|Il valore corrente deve essere nel valore di destinazione. |in o **not** notIn |
+|Il valore corrente deve essere uguale al valore di destinazione. |like o **not** notLike |
+|Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole/minuscole. |match o **not** notMatch |
+|Il valore corrente deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |matchInsensitively o **not** notMatchInsensitively |
+|Il valore corrente non deve contenere il valore di destinazione come chiave. |notContainsKey o **not** containsKey|
+|Il valore corrente non deve contenere il valore di destinazione. |notContains o **not** contains |
+|Il valore corrente non deve essere uguale al valore di destinazione. |notEquals o **not** equals |
+|Il valore corrente non deve esistere. |**not** exists  |
 |Il valore corrente non deve essere nel valore di destinazione. |notIn o **not** in |
-|Il valore corrente non deve essere simile al valore di destinazione. |notLike o **No** like |
-|Il valore corrente non deve essere soggetto a distinzione tra maiuscole e minuscole. |notMatch o **not** match |
-|Il valore corrente non deve far distinzione tra maiuscole e minuscole con il valore di destinazione. |notMatchInsensitively o **not** matchInsensitively |
-|Nessuna risorsa correlata corrisponde ai dettagli degli effetti nella definizione dei criteri. |Una risorsa del tipo definito in **then. Details. Type** e relativa alla risorsa definita nella parte **if** della regola dei criteri non esiste. |
+|Il valore corrente non deve essere uguale al valore di destinazione. |notLike o **not** like |
+|Il valore corrente non deve corrispondere al valore di destinazione con distinzione tra maiuscole/minuscole. |notMatch o **not** match |
+|Il valore corrente non deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |notMatchInsensitively o **not** matchInsensitively |
+|Non esistono risorse correlate corrispondenti ai dettagli dell'effetto nella definizione dei criteri. |Non esiste una risorsa del tipo definito in **then.details.type** e relativa alla risorsa definita nella parte **if** della regola dei criteri. |
 
-## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione Guest
+## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione guest
 
-Per i criteri _auditIfNotExists_ nella categoria _configurazione Guest_ , è possibile che vengano valutate più impostazioni nella macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Se, ad esempio, si esegue il controllo per un elenco di criteri password e solo uno di essi ha lo stato _non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e perché.
+Per i criteri _auditIfNotExists_ nella categoria _Configurazione guest_, è possibile che vengano valutate più impostazioni nella macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Ad esempio, se si esegue il controllo di un elenco di criteri password e solo per uno di essi lo stato è _Non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e il motivo della non conformità.
 
-Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale _non è conforme_.
+Potrebbe non essere possibile accedere direttamente alla macchina virtuale. È tuttavia necessario segnalare il motivo per cui lo stato della macchina virtuale è _Non conforme_.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
 Per iniziare, seguire la stessa procedura descritta nella sezione precedente per visualizzare i dettagli di conformità dei criteri.
 
-Nella visualizzazione riquadro **Dettagli conformità** fare clic sul collegamento **ultima risorsa valutata**.
+Nel riquadro Dettagli conformità fare clic sul collegamento **Ultima risorsa valutata**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Visualizza i dettagli della definizione auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Visualizzare i dettagli della definizione di auditIfNotExists" border="false":::
 
-Nella pagina **assegnazione Guest** vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga della vista rappresenta una valutazione eseguita all'interno del computer. Nella colonna **reason** viene visualizzata una frase che descrive il motivo per cui l'assegnazione Guest è _non conforme_ . Se, ad esempio, si controllano i criteri password, nella colonna **motivo** verrà visualizzato testo con il valore corrente per ogni impostazione.
+Nella pagina **Assegnazione guest** vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga della vista rappresenta una valutazione eseguita all'interno del computer. Nella colonna **Motivo** viene visualizzata una frase che descrive il motivo per cui l'assegnazione guest è _Non conforme_. Se ad esempio si controllano i criteri password, nella colonna **Motivo** verrà visualizzato il testo che include il valore corrente per ogni impostazione.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Visualizza i dettagli di conformità" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Visualizzare i dettagli di conformità" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-È anche possibile visualizzare i dettagli di conformità da Azure PowerShell. Assicurarsi prima di tutto che sia installato il modulo di configurazione Guest.
+È anche possibile visualizzare i dettagli di conformità da Azure PowerShell. Assicurarsi prima di tutto che il modulo Configurazione guest sia installato.
 
 ```azurepowershell-interactive
 Install-Module Az.GuestConfiguration
 ```
 
-È possibile visualizzare lo stato corrente di tutte le assegnazioni Guest per una macchina virtuale usando il comando seguente:
+È possibile visualizzare lo stato corrente di tutte le assegnazioni guest per una macchina virtuale usando il comando seguente:
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
@@ -144,7 +144,7 @@ Audit that an application is installed inside Windows VMs                 {[Inst
 Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
 ```
 
-Per visualizzare solo la frase del _motivo_ che descrive il motivo per cui la macchina virtuale _non è conforme_, restituire solo il motivo della proprietà figlio.
+Per visualizzare solo la frase del _motivo_ che descrive la ragione per cui la macchina virtuale è _Non conforme_, restituire solo la proprietà figlio Reason.
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
@@ -154,7 +154,7 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-È anche possibile generare una cronologia di conformità per le assegnazioni Guest nell'ambito del computer. L'output di questo comando include i dettagli di ogni report per la macchina virtuale.
+È anche possibile generare una cronologia di conformità per le assegnazioni guest nell'ambito del computer. L'output di questo comando include i dettagli di ogni report per la macchina virtuale.
 
 > [!NOTE]
 > L'output può restituire un volume elevato di dati. È consigliabile archiviare l'output in una variabile.
@@ -172,7 +172,7 @@ PolicyDisplayName                                                         Compli
 <truncated>
 ```
 
-Per semplificare questa visualizzazione, usare il parametro **ShowChanged** . L'output di questo comando include solo i report che hanno seguito una modifica dello stato di conformità.
+Per semplificare questa visualizzazione, usare il parametro **ShowChanged**. L'output di questo comando include solo i report che hanno riportato una modifica dello stato di conformità.
 
 ```azurepowershell-interactive
 $guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
@@ -190,32 +190,32 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="change-history-preview"></a><a name="change-history"/>Cronologia modifiche (anteprima)
 
-Come parte di una nuova versione di **anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano l' [eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Gestione risorse.
+La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle modifiche per tutte le risorse di Azure che supportano l'[eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Viene attivato un rilevamento delle modifiche ogni volta che vengono aggiunte, rimosse o modificate le proprietà di Resource Manager.
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
-1. Nella pagina **Panoramica** o **conformità** Selezionare un criterio in uno stato di **conformità**.
+1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio con uno **stato di conformità** qualsiasi.
 
-1. Nella scheda **conformità risorse** della pagina **conformità criteri** Selezionare una risorsa.
+1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** selezionare una risorsa.
 
 1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Scheda cronologia modifiche criteri di Azure nella pagina conformità risorse" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Scheda Cronologia modifiche di Criteri di Azure nella pagina Conformità risorsa" border="false":::
 
-1. Selezionare una delle modifiche rilevate. Le _differenze visive_ per la risorsa vengono visualizzate nella pagina della **cronologia delle modifiche** .
+1. Selezionare una delle modifiche rilevate. Verrà visualizzato il _diff visivo_ per la risorsa nella pagina **Cronologia modifiche**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Differenze visive della cronologia modifiche dei criteri di Azure nella pagina Cronologia modifiche" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Diff visivo in Cronologia modifiche di Criteri di Azure nella pagina Cronologia modifiche" border="false":::
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Le modifiche rilevate potrebbero non essere correlate allo stato di conformità corrente della risorsa.
 
-I dati della cronologia delle modifiche vengono forniti da [Azure Resource Graph](../../resource-graph/overview.md). Per eseguire una query su queste informazioni all'esterno del portale di Azure, vedere [ottenere le modifiche alle risorse](../../resource-graph/how-to/get-resource-changes.md).
+I dati della cronologia delle modifiche vengono forniti da [Azure Resource Graph](../../resource-graph/overview.md). Per eseguire una query su queste informazioni all'esterno del portale di Azure, vedere [Ottenere le modifiche delle risorse](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
+- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](get-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](remediate-resources.md).
-- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
+- Informazioni su come [correggere le risorse non conformi](remediate-resources.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
