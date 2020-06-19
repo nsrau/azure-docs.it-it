@@ -2,7 +2,7 @@
 title: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 description: In questa esercitazione viene configurata la replica tra un'istanza gestita del server di pubblicazione, un'istanza gestita del server di distribuzione e un sottoscrittore di SQL Server in una macchina virtuale di Azure, insieme ai componenti di rete necessari come una zona DNS privato e il peering VPN.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: a34ac27459a84048ac5fc9ef10f6f55def6cec78
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221330"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708519"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
