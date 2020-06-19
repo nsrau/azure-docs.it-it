@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 92f7ba30e2a3c66218974ab65502c35139ab1f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086216"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235534"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Connettersi prima di tutto alla macchina virtuale e quindi eseguire l'accesso.
@@ -20,10 +20,10 @@ Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà
 Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario installare un client RDP per Mac come [Desktop remoto Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
-1. Passare alla [portale di Azure](https://portal.azure.com/) per connettersi a una macchina virtuale. Cercare e selezionare **Macchine virtuali**.
+1. Passare al [portale di Azure](https://portal.azure.com/) per connettersi a una macchina virtuale. Cercare e selezionare **Macchine virtuali**.
 2. Selezionare la macchina virtuale dall'elenco.
-3. All'inizio della pagina della macchina virtuale selezionare **Connetti**.
-4. Nella pagina **connessione alla macchina virtuale** selezionare **RDP**, quindi selezionare l' **indirizzo IP** e il **numero di porta**appropriati. Nella maggior parte dei casi, è consigliabile usare l'indirizzo IP e la porta predefiniti. Selezionare **Scarica file RDP**. Se per la macchina virtuale è impostato un criterio JIT, selezionare prima il pulsante **Richiedi accesso** per richiedere l'accesso e poter quindi scaricare il file RDP. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
+3. Selezionare **Connetti** all'inizio della pagina della macchina virtuale.
+4. Nella pagina **Connetti a macchina virtuale** selezionare **RDP** e quindi l'**Indirizzo IP** e il **Numero porta** appropriati. Nella maggior parte dei casi, è consigliabile usare l'indirizzo IP e la porta predefiniti. Selezionare **Scarica file RDP**. Se per la macchina virtuale è impostato un criterio JIT, selezionare prima il pulsante **Richiedi accesso** per richiedere l'accesso e poter quindi scaricare il file RDP. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
 5. Aprire il file RDP scaricato e selezionare **Connetti** quando richiesto. Verrà visualizzato un avviso per segnalare che l'autore del file `.rdp` è sconosciuto. Si tratta di un comportamento previsto. Nella finestra **Connessione Desktop remoto** selezionare **Connetti** per continuare.
    
     ![Screenshot di un avviso relativo a un autore sconosciuto.](./media/connect-logon/rdp-warn.png)
@@ -40,7 +40,7 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
 
 
    > [!TIP]
-   > Se il pulsante **Connetti** nel portale è disattivato e non si è connessi ad Azure tramite una connessione [Express Route](../../expressroute/expressroute-introduction.md) o [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), per poter usare il protocollo RDP sarà necessario creare un indirizzo IP pubblico e assegnarlo alla macchina virtuale. Per altre informazioni, vedere [Indirizzi IP pubblici in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+   > Se il pulsante **Connetti** nel portale è disattivato e non si è connessi ad Azure tramite una connessione [Express Route](../../expressroute/expressroute-introduction.md) o [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), per poter usare il protocollo RDP sarà necessario creare un indirizzo IP pubblico e assegnarlo alla macchina virtuale. Per altre informazioni, vedere [Indirizzi IP pubblici in Azure](../../virtual-network/public-ip-addresses.md).
    > 
    > 
 
@@ -48,7 +48,7 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
 
  
 
-Se si usa PowerShell e si dispone del modulo Azure PowerShell installato, è anche possibile connettersi usando `Get-AzRemoteDesktopFile` il cmdlet, come illustrato di seguito.
+Se si usa PowerShell e il modulo Azure PowerShell è installato, è anche possibile connettersi usando il cmdlet `Get-AzRemoteDesktopFile`, come illustrato di seguito.
 
 In questo esempio verrà avviata immediatamente la connessione RDP, con prompt simili ai precedenti.
 

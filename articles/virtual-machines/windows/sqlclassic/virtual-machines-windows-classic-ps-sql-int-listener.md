@@ -1,6 +1,6 @@
 ---
 title: Configurare un listener ILB per i gruppi di disponibilità (versione classica)
-description: Questa esercitazione usa le risorse create con il modello di distribuzione classica e crea un listener del gruppo di disponibilità Always On in per una VM SQL Server in Azure che usa un servizio di bilanciamento del carico interno.
+description: Questa esercitazione usa risorse create con il modello di distribuzione classica e crea un listener del gruppo di disponibilità AlwaysOn per una VM di SQL Server in Azure che usa un servizio di bilanciamento del carico interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978160"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014817"
 ---
-# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurare un listener ILB per i gruppi di disponibilità in macchine virtuali SQL Server di Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurare un listener ILB per i gruppi di disponibilità in VM di SQL Server di Azure
 > [!div class="op_single_selector"]
 > * [Listener interno](../classic/ps-sql-int-listener.md)
 > * [Listener esterno](../classic/ps-sql-ext-listener.md)
@@ -32,9 +32,9 @@ ms.locfileid: "75978160"
 ## <a name="overview"></a>Panoramica
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classica](../../../azure-resource-manager/management/deployment-models.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../../azure-resource-manager/management/deployment-models.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
 
-Per configurare un listener per un gruppo di disponibilità AlwaysOn nel modello di Resource Manager, vedere [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità AlwaysOn in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Per configurare un listener per un gruppo di disponibilità AlwaysOn nel modello di Resource Manager, vedere [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità AlwaysOn in Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali. Le procedure riportate in questo articolo presuppongono che sia già stato [configurato un gruppo di disponibilità](../classic/portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
 
@@ -105,7 +105,7 @@ Creare un endpoint con carico bilanciato per ogni VM che ospita una replica di A
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se il prompt è ancora **>>** visualizzato, premere di nuovo invio per assicurarsi che l'esecuzione dello script venga avviata.
+13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Se necessario, verificare che KB2854082 sia installato.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se il prompt è ancora **>>** visualizzato, premere di nuovo invio per assicurarsi che l'esecuzione dello script venga avviata.
+3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 4. Ripetere i passaggi precedenti per ciascuna VM.  
     Questo script consente di configurare la risorsa Indirizzo IP con l'indirizzo IP del servizio cloud e di impostare altri parametri come la porta probe. Quando la risorsa Indirizzo IP viene portata online, può rispondere al polling sulla porta probe dall'endpoint con carico bilanciato, creato in precedenza.

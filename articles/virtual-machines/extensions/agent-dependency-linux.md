@@ -1,6 +1,6 @@
 ---
-title: Estensione della macchina virtuale per le dipendenze di monitoraggio di Azure per Linux
-description: Distribuire l'agente di dipendenza di monitoraggio di Azure in una macchina virtuale Linux usando un'estensione macchina virtuale.
+title: Estensione macchina virtuale Dependency Agent di Monitoraggio di Azure per Linux
+description: Distribuire Dependency Agent di Monitoraggio di Azure in una macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 82f9c5a67cb056752cf8310be3b7c9f0bd2501e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf4653ea7e49404af9e6d46796a7b00d9373c6da
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254040"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996551"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Estensione della macchina virtuale per le dipendenze di monitoraggio di Azure per Linux
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Dependency Agent di Monitoraggio di Azure per Linux
 
-La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali ottiene i dati da Microsoft Dependency Agent. L'estensione macchina virtuale dell'agente di dipendenza VM di Azure per Linux è pubblicata e supportata da Microsoft. L'estensione installa Dependency Agent nelle macchine virtuali di Azure. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale dell'agente di dipendenza VM di Azure per Linux.
+La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali ottiene i dati da Microsoft Dependency Agent. L'estensione macchina virtuale Dependency Agent VM di Azure per Linux è pubblicata e supportata da Microsoft. L'estensione installa Dependency Agent nelle macchine virtuali di Azure. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale Dependency Agent VM di Azure per Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione Azure VM Dependency Agent per Linux può essere eseguita nei sistemi operativi supportati elencati nella sezione [sistemi operativi supportati](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) dell'articolo sulla distribuzione di monitoraggio di Azure per le macchine virtuali.
+È possibile eseguire l'estensione Dependency Agent VM di Azure per Linux nei sistemi operativi supportati, elencati nella sezione [Sistemi operativi supportati](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) dell'articolo sulla distribuzione di Monitoraggio di Azure per le macchine virtuali.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON seguente mostra lo schema dell'estensione dell'agente di dipendenza delle macchine virtuali di Azure in una VM Linux di Azure. 
+Il codice JSON seguente visualizza lo schema dell'estensione Dependency Agent VM di Azure in una macchina virtuale Linux di Azure. 
 
 ```json
 {
@@ -73,20 +73,20 @@ Il codice JSON seguente mostra lo schema dell'estensione dell'agente di dipenden
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/esempio |
+| Nome | Valore/Esempio |
 | ---- | ---- |
-| apiVersion | 2015-01-01 |
-| publisher | Microsoft. Azure. Monitoring. DependencyAgent |
+| apiVersion | 01-01-2015 |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentLinux |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. È possibile usare lo schema JSON descritto in dettaglio nella sezione precedente di un modello di Azure Resource Manager per eseguire l'estensione dell'agente di dipendenza delle macchine virtuali di Azure durante una distribuzione del modello di Azure Resource Manager.
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. È possibile usare lo schema JSON descritto nella sezione precedente in un modello di Azure Resource Manager per eseguire l'estensione Dependency Agent VM di Azure durante la distribuzione di un modello di Azure Resource Manager.
 
-Il codice JSON per un'estensione della macchina virtuale può essere annidato all'interno della risorsa della macchina virtuale. In alternativa, è possibile posizionarlo alla radice o al livello superiore di un modello di Gestione risorse JSON. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/templates/child-resource-name-type.md).
+Il modello JSON per un'estensione macchina virtuale può essere annidato nella risorsa della macchina virtuale. In alternativa, è possibile posizionarlo al livello radice o al livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio).
 
-Nell'esempio seguente si presuppone che l'estensione dell'agente di dipendenza sia annidata all'interno della risorsa della macchina virtuale. Quando si nidifica la risorsa di estensione, il codice JSON viene inserito `"resources": []` nell'oggetto della macchina virtuale.
+L'esempio seguente presuppone che l'estensione Dependency Agent sia annidata nella risorsa della macchina virtuale. Quando si annida la risorsa di estensione, l'elemento JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
 
 ```json
@@ -107,7 +107,7 @@ Nell'esempio seguente si presuppone che l'estensione dell'agente di dipendenza s
 }
 ```
 
-Quando si inserisce l'estensione JSON alla radice del modello, il nome della risorsa include un riferimento alla macchina virtuale padre. Il tipo riflette la configurazione nidificata. 
+Quando si inserisce il codice JSON dell'estensione nella radice del modello, il nome della risorsa include un riferimento alla macchina virtuale padre. Il tipo riflette la configurazione nidificata. 
 
 ```json
 {
@@ -129,7 +129,7 @@ Quando si inserisce l'estensione JSON alla radice del modello, il nome della ris
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per distribuire l'estensione VM di Dependency Agent in una macchina virtuale esistente.  
+È possibile usare l'interfaccia della riga di comando di Azure per distribuire l'estensione Dependency Agent VM in una macchina virtuale esistente.  
 
 ```azurecli
 
@@ -145,7 +145,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure e usando l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente usando l'interfaccia della riga di comando di Azure:
+I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -154,9 +154,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 ```
-/opt/microsoft/dependcency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log 
 ```
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni su come usare il supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi aspetto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow di Azure](https://azure.microsoft.com/support/forums/). È anche possibile registrare un evento imprevisto del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

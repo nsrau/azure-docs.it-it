@@ -1,5 +1,5 @@
 ---
-title: 'Modello di valutazione: riferimento al modulo'
+title: 'Evaluate Model: informazioni di riferimento sul modulo'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare il modulo Evaluate Model in Azure Machine Learning per misurare l'accuratezza di un modello sottoposto a training.
 services: machine-learning
@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983364"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847413"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
-Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a training. Si fornisce un set di dati contenente i punteggi generati da un modello e il modulo **Evaluate Model** calcola un set di metriche di valutazione standard del settore.
+Usare questo modulo per misurare l'accuratezza di un modello sottoposto a training. Sulla base di un set di dati contenente i punteggi generati da un modello, il modulo **Evaluate Model** calcola un set di metriche di valutazione standard del settore.
   
- Le metriche restituite dal **modello di valutazione** dipendono dal tipo di modello che si sta valutando:  
+ Le metriche restituite da **Evaluate Model** dipendono dal tipo di modello da valutare:  
   
 -   **Modelli di classificazione**    
 -   **Modelli di regressione**  
@@ -30,103 +30,103 @@ Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a t
 
 
 > [!TIP]
-> Se non si ha familiarità con la valutazione del modello, si consiglia la serie di video di Dr. Stephen Elston come parte del [corso di apprendimento automatico](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EDX. 
+> Se non si ha familiarità con la valutazione dei modelli, è consigliabile seguire la serie di video di Stephen Elston, come parte del [corso su Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Come usare Evaluate Model
-1. Connettere l'output del set di dati con **Punteggio** dell'output del [modello di Punteggio](./score-model.md) o del set di dati dei risultati della assegnazione dei [dati ai cluster](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
+1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
   > [!NOTE] 
-  > Se si usano moduli come "Seleziona colonne nel set di dati" per selezionare una parte del set di dati di input, verificare che la colonna di etichette effettiva (usata nel training), la colonna ' scored Probabilities ' e la colonna ' scored labels ' esistano per calcolare le metriche come l'AUC, l'accuratezza per la classificazione binaria/anomalia
-  > Colonna di etichetta effettiva, colonna ' scored labels ' esistente per calcolare le metriche per la classificazione o la regressione multiclasse.
-  > Colonna ' assegnazioni ', colonne ' DistancesToClusterCenter No. X ' (X è l'indice centrale, compreso tra 0,..., numero di centroidi-1) esistente per calcolare le metriche per il clustering.
+  > Se si usano moduli come "Select Columns in Dataset" per selezionare parte del set di dati di input, assicurarsi che la colonna Actual label (usata nel training), la colonna 'Scored Probabilities' e la colonna 'Scored labels' esistano per calcolare metriche come l'area sotto la curva e l'accuratezza per la classificazione binaria e il rilevamento anomalie.
+  > La colonna Actual label e la colonna 'Scored Labels' consentono di calcolare le metriche per la classificazione/regressione multiclasse.
+  > La colonna 'Assignments' e le colonne 'DistancesToClusterCenter no.X' (X è l'indice del centroide, che varia da 0 a numero di centroidi-1) consentono di calcolare le metriche per il clustering.
 
-2. Opzionale Connettere l'output del set di dati con **Punteggio** dell'output del [modello di Punteggio](./score-model.md) o del set di dati dei risultati di assegna i dati ai cluster per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono avere lo stesso tipo di algoritmo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
+2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
     > [!NOTE]
-    > Il tipo di algoritmo fa riferimento a' classificazione a due classi ',' classificazione multiclasse ',' regressione ',' clustering ' in ' Machine Learning algoritmi '. 
+    > Il tipo di algoritmo fa riferimento a 'classificazione a due classi', 'classificazione multiclasse', 'regressione', 'clustering' negli algoritmi di Machine Learning. 
 
 3. Inviare la pipeline per generare i punteggi di valutazione.
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Visualizza risultati valutazione** per visualizzare i risultati.
+Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs**, in cui la sezione **Data Outputs** contiene diverse icone.   L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
 
 Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
-Il modello o i dati collegati alla porta sinistra vengono presentati per primi nel report, seguiti dalle metriche per il set di dati o dal modello collegato sulla porta destra.  
+Il modello o i dati collegati alla porta sinistra vengono presentati prima nel report, poi nelle metriche per il set di dati o il modello collegato alla porta destra.  
 
 Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering basati sugli stessi dati, ma con parametri diversi.  
 
-![Comparing2Models](media/module/evaluate-2-models.png)  
+![Confronto di due modelli](media/module/evaluate-2-models.png)  
 
-Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a quelli di due modelli di regressione oppure a confrontati due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
+Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto ai punteggi di due modelli di regressione oppure a quelli di due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
 
 ## <a name="metrics"></a>Metriche
 
-In questa sezione vengono descritte le metriche restituite per i tipi specifici di modelli supportati per l'utilizzo con **Evaluate Model**:
+Questa sezione descrive le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model**:
 
-+ [modelli di classificazione](#metrics-for-classification-models)
-+ [modelli di regressione](#metrics-for-regression-models)
-+ [modelli di clustering](#metrics-for-clustering-models)
++ [Modelli di classificazione](#metrics-for-classification-models)
++ [Modelli di regressione](#metrics-for-regression-models)
++ [Modelli di clustering](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Metriche per i modelli di classificazione
 
-Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti.
+Per la valutazione dei modelli di classificazione, vengono segnalate le metriche seguenti.
   
--   L' **accuratezza** misura la bontà di un modello di classificazione come la percentuale di risultati reali al numero totale di case.  
+-   **Accuratezza**: misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
   
--   La **precisione** è la percentuale di risultati reali rispetto a tutti i risultati positivi.  
+-   **Precisione**: rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi.  
   
--   **Richiama** è la frazione di tutti i risultati corretti restituiti dal modello.  
+-   **Richiamo**: corrisponde alla percentuale di tutti i risultati corretti restituiti dal modello.  
   
--   Il **Punteggio f** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore f-Score ideale è 1.  
+-   **Punteggio F**: viene calcolato come media ponderata di precisione e richiamo con un numero compreso tra 0 e 1, dove il valore ideale è 1.  
   
--   **AUC** misura l'area sotto la curva tracciata con i veri positivi sull'asse y e i falsi positivi sull'asse x. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
+-   **Area sotto la curva**: misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
   
-- La **perdita di log media** è un singolo punteggio usato per esprimere la penalità per i risultati errati. Viene calcolata come differenza tra due distribuzioni di probabilità, quella vera e quella nel modello.  
+- **Perdita logaritmica media**: è un singolo punteggio usato per esprimere la penalità per i risultati errati. Viene calcolata come differenza tra due distribuzioni di probabilità: quella vera e quella nel modello.  
   
-- La **perdita dei log di training** è un singolo punteggio che rappresenta il vantaggio del classificatore su una stima casuale. La perdita di log misura l'incertezza del modello confrontando le probabilità che restituisce ai valori noti (verità) nelle etichette. Si desidera ridurre al minimo la perdita di log per il modello nel suo complesso.
+- **Perdita logaritmica del training**: è un singolo punteggio che rappresenta il vantaggio del classificatore rispetto a una previsione casuale. La perdita logaritmica misura l'incertezza del modello confrontando le probabilità che restituisce con i valori noti (verità) nelle etichette. L'obiettivo è ridurre al minimo la perdita logaritmica per il modello nel suo complesso.
 
 ### <a name="metrics-for-regression-models"></a>Metriche per i modelli di regressione
  
-Le metriche restituite per i modelli di regressione sono progettate per stimare la quantità di errori.  Un modello viene considerato adatto ai dati anche se la differenza tra i valori osservati e quelli stimati è ridotta. Tuttavia, l'analisi del modello dei residui (la differenza tra un punto stimato e il valore effettivo corrispondente) può indicare una grande quantità di potenziali distorsioni nel modello.  
+Le metriche restituite per i modelli di regressione sono progettate per stimare la quantità di errori.  Un modello viene considerato adatto ai dati se la differenza tra i valori osservati e quelli previsti è minima. Tuttavia, l'analisi del modello dei residui (la differenza tra un punto previsto qualunque e il valore effettivo corrispondente) può fornire molte indicazioni sulla potenziale distorsione del modello.  
   
- Per la valutazione dei modelli di regressione vengono restituite le metriche seguenti.
+ Per la valutazione dei modelli di regressione, vengono segnalate le metriche seguenti.
   
-- **Errore assoluto medio (Mae)** consente di misurare la distanza tra le stime e i risultati effettivi; un punteggio più basso è quindi migliore.  
+- **Errore assoluto medio (MAE)** : misura la distanza tra le previsioni e i risultati effettivi; pertanto un punteggio più basso è migliore.  
   
-- **Radice errore quadratico medio (valori RMSE)** crea un singolo valore che riepiloga l'errore nel modello. Grazie alla quadratura della differenza, la metrica ignora la differenza tra la stima e la stima.  
+- **Radice dell'errore quadratico medio (RMSE)** : crea un singolo valore che riepiloga l'errore nel modello. Grazie alla quadratura della differenza, la metrica ignora la differenza tra previsioni per eccesso e per difetto.  
   
-- **Errore assoluto relativo (Rae)** è la differenza assoluta relativa tra i valori previsti ed effettivi; relativa perché la differenza media è divisa per la media aritmetica.  
+- **Errore assoluto relativo (RAE)** : è la differenza assoluta relativa tra i valori previsti e quelli effettivi; è relativo perché la differenza media viene divisa per la media aritmetica.  
   
-- L'errore **quadratico relativo (RSE)** normalizza in modo analogo l'errore quadrato totale dei valori stimati dividendo per l'errore quadrato totale dei valori effettivi.  
+- **Errore quadratico relativo (RSE)** : analogamente normalizza l'errore quadratico totale dei valori previsti dividendolo per l'errore quadratico totale dei valori effettivi.  
   
 
   
-- Il **coefficiente di determinazione**, spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile usare l'attenzione per interpretare i valori di R<sup>2</sup> , in quanto i valori bassi possono essere completamente normali e i valori elevati possono essere sospetti.
+- **Coefficiente di determinazione**: spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile interpretare con cautela i valori di R<sup>2</sup>, in quanto i valori bassi possono essere perfettamente normali e i valori alti possono essere sospetti.
 
 ###  <a name="metrics-for-clustering-models"></a>Metriche per i modelli di clustering
 
-Poiché i modelli di clustering differiscono significativamente dai modelli di classificazione e regressione in molti aspetti, [Evaluate Model](evaluate-model.md) restituisce anche un set di statistiche diverso per i modelli di clustering.  
+Poiché i modelli di clustering sono significativamente diversi dai modelli di classificazione e di regressione per molti aspetti, [Evaluate Model](evaluate-model.md) restituisce anche un set di statistiche diverso per i modelli di clustering.  
   
- Le statistiche restituite per un modello di clustering descrivono il numero di punti dati assegnati a ogni cluster, la quantità di separazione tra i cluster e il modo in cui i punti dati vengono raggruppati all'interno di ogni cluster.  
+ Le statistiche restituite per un modello di clustering descrivono il numero di punti dati assegnati a ogni cluster, il grado di separazione tra i cluster e il livello di aggregazione dei punti dati all'interno di ogni cluster.  
   
- Le statistiche per il modello di clustering vengono calcolate in base all'intero set di dati, con righe aggiuntive contenenti le statistiche per ogni cluster.  
+ Le statistiche per il modello di clustering vengono calcolate come media dell'intero set di dati, con righe aggiuntive contenenti le statiche per ogni cluster.  
   
-Per la valutazione dei modelli di clustering vengono restituite le metriche seguenti.
+Per la valutazione dei modelli di clustering, vengono segnalate le metriche seguenti.
     
--   I punteggi nella colonna, la **distanza media da un altro centro**, rappresentano la chiusura, in media, di ogni punto del cluster verso il centroidi di tutti gli altri cluster.   
+-   I punteggi della colonna **Average Distance to Other Center** rappresentano la distanza, in media, di ogni punto del cluster dai centroidi di tutti gli altri cluster.   
 
--   I punteggi della colonna, ovvero la **distanza media dal centro cluster**, rappresentano la chiusura di tutti i punti di un cluster al centro del cluster.  
+-   I punteggi della colonna **Average Distance to Cluster Center** rappresentano la distanza di tutti i punti di un cluster dal centroide di tale cluster.  
   
--   Nella colonna **numero di punti** è indicato il numero di punti dati assegnati a ogni cluster, insieme al numero complessivo totale di punti dati in qualsiasi cluster.  
+-   La colonna **Number of Points** indica il numero di punti dati assegnati a ogni cluster, oltre al numero complessivo totale di punti dati inclusi in qualsiasi cluster.  
   
-     Se il numero di punti dati assegnati ai cluster è inferiore al numero totale di punti dati disponibili, significa che non è stato possibile assegnare i punti dati a un cluster.  
+     Se il numero di punti dati assegnati ai cluster è minore del numero totale di punti dati disponibili, significa che a un cluster non è stato possibile assegnare punti dati.  
   
--   I punteggi nella colonna, **distanza massima da cluster Center**, rappresentano la somma delle distanze tra ogni punto e il baricentro del cluster del punto.  
+-   I punteggi della colonna **Maximal Distance to Cluster Center** rappresentano la somma delle distanze tra ogni punto e il centroide del cluster di tale punto.  
   
-     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. È consigliabile esaminare questa statistica insieme alla **distanza media da cluster Center** per determinare la distribuzione del cluster.   
+     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center**.   
 
--   Il Punteggio di **valutazione combinato** nella parte inferiore di ogni sezione dei risultati elenca i punteggi medi per i cluster creati in quel particolare modello.  
+-   Il punteggio **Combined Evaluation** alla fine di ogni sezione di risultati indica i punteggi medi dei cluster creati in quel particolare modello.  
   
 
 ## <a name="next-steps"></a>Passaggi successivi

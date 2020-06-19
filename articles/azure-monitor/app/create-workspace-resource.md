@@ -4,13 +4,13 @@ description: Informazioni sui passaggi necessari per abilitare le nuove risorse 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 65c2220bd3e9ea93e562b256e84796aed9046d00
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/18/2020
+ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211408"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647887"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Risorse di Application Insights basate sull'area di lavoro (anteprima)
 
@@ -40,9 +40,7 @@ Facendo clic sul testo del collegamento in blu verrà visualizzata l'area di lav
 
 ## <a name="copy-the-connection-string"></a>Copia della stringa di connessione
 
-La [stringa di connessione]() identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
-
-![Fare clic e copiare la chiave di strumentazione](./media/create-new-resource/instrumentation-key.png)
+La [stringa di connessione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
 
 ## <a name="monitoring-configuration"></a>Configurazione del monitoraggio
 
@@ -192,6 +190,10 @@ Il comando di PowerShell `New-AzApplicationInsights` non supporta attualmente la
 Dopo aver creato una risorsa di Application Insights basata sull'area di lavoro, è possibile modificare l'area di lavoro Log Analytics associata.
 
 Dal riquadro della risorsa di Application Insights selezionare **Proprietà** > **Cambia l'area di lavoro** > **Aree di lavoro di Log Analytics**
+
+## <a name="export-telemetry"></a>Esportare i dati di telemetria
+
+La funzionalità di esportazione continua legacy non è supportata per risorse basate su area di lavoro. Selezionare invece **Impostazioni di diagnostica** > **Aggiungi impostazione di diagnostica** dalla risorsa di Application Insights. È possibile selezionare tutte le tabelle o un subset di tabelle da archiviare in un account di archiviazione o di cui eseguire lo streaming in Hub eventi di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

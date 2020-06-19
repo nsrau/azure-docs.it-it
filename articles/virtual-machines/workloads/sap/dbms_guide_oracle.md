@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645845"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022543"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645845"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -320,12 +320,12 @@ Le note SAP seguenti sono correlate a SAP in Azure.
 
 | Numero della nota | Titolo |
 | --- | --- |
-| [1928533] |Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
-| [2015553] |SAP on Microsoft Azure: prerequisiti per il supporto |
+| [1928533] |Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
+| [2015553] |SAP in Microsoft Azure: Prerequisiti di supporto |
 | [1999351] |Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
 | [2178632] |Metriche chiave del monitoraggio per SAP in Microsoft Azure |
-| [2191498] |SAP in Linux con Azure: monitoraggio avanzato |
-| [2039619] |Applicazioni SAP su Microsoft Azure con il database Oracle: versioni e prodotti supportati |
+| [2191498] |SAP in Linux con Azure: Monitoraggio avanzato |
+| [2039619] |Applicazioni SAP in Microsoft Azure che usano Oracle Database: prodotti e versioni supportate |
 | [2243692] |Linux in una macchina virtuale di Microsoft Azure (IaaS): problemi delle licenze SAP |
 | [2069760] |Installazione e aggiornamento di Oracle Linux 7.x SAP |
 | [1597355] |Raccomandazione sullo spazio di scambio per Linux |
@@ -357,7 +357,7 @@ Per determinare la giusta quantità di spazio per i file temporanei, è possibil
 
 È consigliabile usare [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). È anche caldamente consigliato l'uso di [dischi SSD Premium](../../windows/disks-types.md) per le distribuzioni di Oracle Database.
 
-Le unità di rete o le condivisioni remote, come i servizi file di Azure, non sono supportate per i file di Oracle Database. Per altre informazioni, vedi:
+Le unità di rete o le condivisioni remote, come i servizi file di Azure, non sono supportate per i file di Oracle Database. Per altre informazioni, vedere:
 
 - [Introduzione al servizio File di Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -366,7 +366,7 @@ Le unità di rete o le condivisioni remote, come i servizi file di Azure, non so
 
 Se si usano dischi basati su Archiviazione BLOB di pagine di Azure o su Managed Disks, le indicazioni riportate in [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md) si applicano anche alle distribuzioni con Oracle Database.
 
-Esistono quote relative alla velocità effettiva delle operazioni di I/O al secondo per i dischi di Azure. Questo concetto è spiegato in [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md). Le quote esatte dipendono dal tipo di macchina virtuale usato. Un elenco dei tipi di macchina virtuale con le rispettive quote è disponibile in [Dimensioni delle macchine virtuali Windows in Azure][virtual-machines-sizes-windows].
+Esistono quote relative alla velocità effettiva delle operazioni di I/O al secondo per i dischi di Azure. Questo concetto è spiegato in [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md). Le quote esatte dipendono dal tipo di macchina virtuale usato. Un elenco dei tipi di macchina virtuale con le rispettive quote è disponibile in [Dimensioni per le macchine virtuali Windows in Azure][virtual-machines-sizes-windows].
 
 Per identificare i tipi di macchina virtuale di Azure supportati, vedere la nota SAP [1928533].
 
@@ -374,10 +374,10 @@ La configurazione minima è la seguente:
 
 | Componente | Disco | Memorizzazione nella cache | Pool di archiviazione |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA & mirrlogB | Premium | nessuno | Non necessario |
-| \oracle\<SID > \origlogaA & mirrlogA | Premium | nessuno | Non necessario |
-| \oracle\<SID > \sapdata1...n | Premium | Sola lettura | Può essere usato |
-| \oracle\<SID > \oraarch | Standard | nessuno | Non necessario |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | nessuno | Non necessario |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | nessuno | Non necessario |
+| \oracle\<SID>\sapdata1...n | Premium | Sola lettura | Può essere usato |
+| \oracle\<SID>\oraarch | Standard | nessuno | Non necessario |
 | Oracle Home, saptrace,... | Disco del sistema operativo | | Non necessario |
 
 
@@ -391,14 +391,14 @@ La configurazione delle prestazioni è la seguente:
 | \oracle\<SID>\origlogaB | Premium | nessuno | Può essere usato |
 | \oracle\<SID>\mirrlogAB | Premium | nessuno | Può essere usato |
 | \oracle\<SID>\mirrlogBA | Premium | nessuno | Può essere usato |
-| \oracle\<SID > \sapdata1...n | Premium | Sola lettura | Consigliato  |
+| \oracle\<SID>\sapdata1...n | Premium | Sola lettura | Consigliato  |
 | \oracle\SID\sapdata(n+1)* | Premium | nessuno | Può essere usato |
-| \oracle\<SID > \oraarch* | Premium | nessuno | Non necessario |
+| \oracle\<SID>\oraarch* | Premium | nessuno | Non necessario |
 | Oracle Home, saptrace,... | Disco del sistema operativo | Non necessario |
 
 *(n+1): hosting degli spazi di tabella SYSTEM, TEMP e UNDO. Il modello I/O degli spazi di tabella di sistema e fase di rollback sono diversi dagli altri spazi tabella che ospitano i dati dell'applicazione. Nessuna cache è l'opzione migliore per le prestazioni del sistema e per gli spazi di tabella in fase di rollback.
 
-* oraarch: il pool di archiviazione non è necessario dal punto di vista delle prestazioni. Può essere usato per ottenere più spazio.
+\* oraarch: il pool di archiviazione non è necessario dal punto di vista delle prestazioni. Può essere usato per ottenere più spazio.
 
 Se sono necessarie più operazioni di I/O al secondo, è consigliabile usare i pool di archiviazione di Windows (disponibili solo in Windows Server 2012 e versioni successive) per creare un solo dispositivo logico di grandi dimensioni su più dischi montati. Questo approccio riduce il sovraccarico di amministrazione per la gestione dello spazio su disco ed evita la fatica di distribuire manualmente i file su più dischi montati.
 
@@ -464,13 +464,13 @@ Configurazione minima:
 
 | Componente | Disco | Memorizzazione nella cache | Rimozione * |
 | --- | ---| --- | --- |
-| /Oracle/\<SID>/Origlogaa & mirrlogB | Premium | nessuno | Non necessario |
-| /Oracle/\<SID>/Origlogab & mirrlogA | Premium | nessuno | Non necessario |
-| SID\</Oracle/>/sapdata1... n | Premium | Sola lettura | Può essere usato |
-| SID\</Oracle/>/oraarch | Standard | nessuno | Non necessario |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | nessuno | Non necessario |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | nessuno | Non necessario |
+| /oracle/\<SID>/sapdata1...n | Premium | Sola lettura | Può essere usato |
+| /oracle/\<SID>/oraarch | Standard | nessuno | Non necessario |
 | Oracle Home, saptrace,... | Disco del sistema operativo | | Non necessario |
 
-*Rimozione: stripe LVM o MDADM usando RAID0
+*Rimozione: striscia o MDADM usando RAID0
 
 La selezione dei dischi per l'hosting dei log in fase di rollforward online di Oracle dovrebbe essere guidata dai requisiti di operazioni di I/O al secondo. È possibile archiviare tutti gli spazi di tabella sapdata1... n in un unico disco montato, purché il volume, le operazioni di I/O al secondo e la velocità effettiva soddisfino i requisiti. 
 
@@ -478,20 +478,20 @@ Configurazione delle prestazioni:
 
 | Componente | Disco | Memorizzazione nella cache | Rimozione * |
 | --- | ---| --- | --- |
-| SID\</Oracle/>/origlogaa | Premium | nessuno | Può essere usato  |
-| SID\</Oracle/>/origlogab | Premium | nessuno | Può essere usato |
-| SID\</Oracle/>/mirrlogab | Premium | nessuno | Può essere usato |
-| SID\</Oracle/>/mirrlogba | Premium | nessuno | Può essere usato |
-| SID\</Oracle/>/sapdata1... n | Premium | Sola lettura | Consigliato  |
-| /Oracle/\<SID>/sapdata (n + 1) * | Premium | nessuno | Può essere usato |
-| /Oracle/\<SID>/oraarch * | Premium | nessuno | Non necessario |
+| /oracle/\<SID>/origlogaA | Premium | nessuno | Può essere usato  |
+| /oracle/\<SID>/origlogaB | Premium | nessuno | Può essere usato |
+| /oracle/\<SID>/mirrlogAB | Premium | nessuno | Può essere usato |
+| /oracle/\<SID>/mirrlogBA | Premium | nessuno | Può essere usato |
+| /oracle/\<SID>/sapdata1...n | Premium | Sola lettura | Consigliato  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | nessuno | Può essere usato |
+| /oracle/\<SID>/oraarch* | Premium | nessuno | Non necessario |
 | Oracle Home, saptrace,... | Disco del sistema operativo | Non necessario |
 
-*Rimozione: stripe LVM o MDADM usando RAID0
+*Rimozione: striscia o MDADM usando RAID0
 
-* (n + 1): spazi di tabella del sistema di hosting, TEMP e UNDO: il modello di I/O del sistema e gli spazi di tabella di annullamento sono diversi da quelli degli altri tablespace che ospitano i dati dell'applicazione. Nessuna cache è l'opzione migliore per le prestazioni del sistema e per gli spazi di tabella in fase di rollback.
+*(n+1): hosting degli spazi di tabella SYSTEM, TEMP e UNDO: Il modello I/O degli spazi di tabella di sistema e fase di rollback sono diversi dagli altri spazi tabella che ospitano i dati dell'applicazione. Nessuna cache è l'opzione migliore per le prestazioni del sistema e per gli spazi di tabella in fase di rollback.
 
-* oraarch: il pool di archiviazione non è necessario dal punto di vista delle prestazioni.
+\* oraarch: il pool di archiviazione non è necessario dal punto di vista delle prestazioni.
 
 
 Se sono necessarie più operazioni di I/O al secondo, è consigliabile usare LVM (Logical Volume Manager) o MDADM per creare un solo volume logico di grandi dimensioni su più dischi montati. Per altre informazioni, vedere [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md) per linee guida e collegamenti ad altri articoli su come usare al meglio LVM o MDADM. Questo approccio riduce il sovraccarico di amministrazione per la gestione dello spazio su disco ed evita la fatica di distribuire manualmente i file in più dischi montati.

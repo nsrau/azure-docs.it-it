@@ -7,7 +7,7 @@
       href: what-is-luis.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Compilare app di dominio predefinite
       href: luis-get-started-create-app.md
@@ -194,11 +194,7 @@
         - name: Eseguire la migrazione da un'entità composita
           href: migrate-from-composite-entity.md
         - name: Eseguire la migrazione alla risorsa di creazione
-          items:
-            - name: Panoramica
-              href: luis-migration-authoring.md
-            - name: Come eseguire la migrazione
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Eseguire la migrazione all'API V3
           href: luis-migration-api-v3.md
     - name: Gestire un'app
@@ -209,11 +205,7 @@
         - name: Impostazioni di app e versioni
           href: how-to-application-settings-portal.md
         - name: Eseguire la migrazione alla risorsa di creazione
-          items:
-            - name: Panoramica
-              href: luis-migration-authoring.md
-            - name: Come eseguire la migrazione
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Autori e collaboratori
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md

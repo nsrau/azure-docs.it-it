@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b07ffe92a5dd0c105188fab55bc679c04f660ed2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ed46859184dd17141892373943ac43e407b21eb6
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300944"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817675"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Windows
 
@@ -48,6 +48,8 @@ cd helloworld
 ```
 
 ## <a name="configure-the-maven-plugin"></a>Configurare il plug-in Maven
+
+Il processo di distribuzione in Servizio app di Azure può prelevare automaticamente le credenziali dall'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è installata, il plug-in Maven consentirà di accedere tramite OAuth o credenziali del dispositivo. Controllare i dettagli sull'[autenticazione con i plug-in Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) se necessario.
 
 È possibile eseguire il comando maven seguente nel prompt dei comandi per configurare la distribuzione, scegliere **'2'** per il sistema operativo **Windows** nel primo passaggio, accettare le configurazioni predefinite premendo **INVIO** finché non viene visualizzato il prompt **Confirm (Y/N)** , quindi premere **'y'** per completare la configurazione. 
 

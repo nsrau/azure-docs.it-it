@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176142"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873586"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -37,7 +37,7 @@ Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o 
 
 La funzionalità snapshot di condivisione è disponibile a livello di condivisione di file. Il recupero è disponibile a livello di singolo file, per consentire il ripristino di file singoli. È possibile ripristinare una condivisione file completa usando SMB, l'API REST, il portale, la libreria client o gli strumenti di PowerShell o dell'interfaccia della riga di comando.
 
-Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Se, ad esempio, l'URI di una condivisione file\/è http:/StorageSample.Core.file.Windows.NET/MyShare, l'URI dello snapshot di condivisione è simile al seguente:
+Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Se ad esempio l'URI di una condivisione file è http:\//storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione è simile al seguente:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -71,7 +71,7 @@ Le operazioni di copia che interessano file e snapshot di condivisione osservano
 
 Lo snapshot di condivisione resta intatto dopo la copia, ma la condivisione file di base viene sovrascritta con una copia dei dati disponibili nello snapshot di condivisione. Tutti i file ripristinati vengono conteggiati come "contenuto modificato".
 
-È possibile copiare un file in uno snapshot di condivisione in una destinazione diversa con un nome diverso. Il file di destinazione risultante è un file scrivibile e non uno snapshot di condivisione. In questo caso, la condivisione file di base rimarrà intatta.
+È possibile copiare un file incluso in uno snapshot di condivisione in un'altra destinazione con un nome diverso. Il file di destinazione risultante è un file scrivibile e non uno snapshot di condivisione. In questo caso, la condivisione file di base rimarrà intatta.
 
 Quando un file di destinazione viene sovrascritto con una copia, qualsiasi snapshot di condivisione associato al file di destinazione originale resta intatto.
 
@@ -80,7 +80,7 @@ Quando si esegue l'infrastruttura in Azure, automatizzare i backup per il ripris
 
 Prima di distribuire l'utilità di pianificazione dello snapshot di condivisione valutare con cura le impostazioni di frequenza e conservazione dello snapshot di condivisione per evitare costi superflui.
 
-Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli snapshot di condivisione non impediscono le eliminazioni accidentali in una condivisione file o un account di archiviazione. Per proteggere l'account di archiviazione da eliminazioni accidentali è possibile bloccare l'account di archiviazione o il gruppo di risorse.
+Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli snapshot di condivisione non impediscono le eliminazioni accidentali in una condivisione file o un account di archiviazione. Per proteggere l'account di archiviazione da eliminazioni accidentali, è possibile [abilitare l'eliminazione temporanea](storage-files-prevent-file-share-deletion.md) o bloccare l'account di archiviazione e/o il gruppo di risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:

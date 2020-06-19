@@ -1,6 +1,6 @@
 ---
-title: Assegnare i ruoli di amministratore di Azure AD con Microsoft Graph API | Microsoft Docs
-description: Assegnare e rimuovere i ruoli di amministratore di Azure AD con API Graph in Azure Active Directory
+title: Assegnare ruoli di amministratore di Azure AD con l'API Microsoft Graph | Microsoft Docs
+description: Assegnare e rimuovere ruoli di amministratore di Azure AD con l'API Graph in Azure Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,24 +13,24 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c93c8e354c7c02c6a085c2baa8fd664faaf1f64
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 7ac6f06a936893f26c634951e50a3579401c15d5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582626"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869611"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assegnare ruoli di amministratore personalizzati usando l'API Microsoft Graph in Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assegnare ruoli di amministratore personalizzati con l'API Microsoft Graph in Azure Active Directory 
 
-È possibile automatizzare il modo in cui si assegnano i ruoli agli account utente usando l'API Microsoft Graph. Questo articolo illustra le operazioni POST, GET e DELETE su roleAssignments.
+È possibile automatizzare il modo in cui assegnare ruoli agli account utente tramite l'API Microsoft Graph. Questo articolo illustra le operazioni POST, GET e DELETE su roleAssignments.
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Connettersi all'organizzazione Azure AD usando un account amministratore globale o un amministratore di identità con privilegi per assegnare o rimuovere i ruoli.
+Per assegnare o rimuovere i ruoli, connettersi all'organizzazione Azure AD usando un account amministratore globale o amministratore di identità con privilegi.
 
 ## <a name="post-operations-on-roleassignment"></a>Operazioni POST su RoleAssignment
 
-Richiesta HTTP per creare un'assegnazione di ruolo tra un utente e una definizione di ruolo.
+Richiesta HTTP per creare un'assegnazione di ruolo tra un utente e una definizione del ruolo.
 
 POST
 
@@ -45,7 +45,7 @@ Corpo
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -55,7 +55,7 @@ Risposta
 HTTP/1.1 201 Created
 ```
 
-Richiesta HTTP per creare un'assegnazione di ruolo in cui la definizione dell'entità o del ruolo non esiste
+Richiesta HTTP per creare un'assegnazione di ruolo in cui la definizione del ruolo o dell'entità di sicurezza non esiste
 
 POST
 
@@ -69,7 +69,7 @@ Corpo
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -79,10 +79,10 @@ Risposta
 HTTP/1.1 404 Not Found
 ```
 
-Richiesta HTTP per creare una singola assegnazione di ruolo con ambito di risorsa in una definizione di ruolo predefinita.
+Richiesta HTTP per creare una singola assegnazione di ruolo con ambito di risorsa in una definizione del ruolo predefinita.
 
 > [!NOTE] 
-> I ruoli predefiniti hanno oggi una limitazione in cui possono avere un ambito solo per l'ambito "/" dell'intera organizzazione o per l'ambito "/AU/*". L'ambito di una singola risorsa non funziona per i ruoli predefiniti, ma funziona per i ruoli personalizzati.
+> I ruoli predefiniti prevedono oggi una limitazione, per cui possono disporre di un ambito solo per l'ambito "/" a livello di organizzazione o per l'ambito "/AU/*". La definizione dell'ambito di una singola risorsa non è applicabile ai ruoli predefiniti, ma lo è ai ruoli personalizzati.
 
 POST
 
@@ -96,7 +96,7 @@ Corpo
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/ab2e1023-bddc-4038-9ac1-ad4843e7e539"]
+    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
 }
 ```
 
@@ -124,9 +124,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>Operazioni GET su RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>Operazioni get su RoleAssignment
 
-Richiesta HTTP per ottenere un'assegnazione di ruolo per un'entità specificata
+Richiesta HTTP per ottenere un'assegnazione di ruolo per un'entità di sicurezza specifica
 
 GET
 
@@ -142,17 +142,17 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 } ,
 {
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
-Richiesta HTTP per ottenere un'assegnazione di ruolo per una determinata definizione di ruolo.
+Richiesta HTTP per ottenere un'assegnazione di ruolo per una definizione del ruolo specifica.
 
 GET
 
@@ -168,7 +168,7 @@ HTTP/1.1 200 OK
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -188,13 +188,13 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
 ## <a name="delete-operations-on-roleassignment"></a>Operazioni DELETE su RoleAssignment
 
-Richiesta HTTP per eliminare un'assegnazione di ruolo tra un utente e una definizione di ruolo.
+Richiesta HTTP per eliminare un'assegnazione di ruolo tra un utente e una definizione del ruolo.
 
 DELETE
 

@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372337"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052702"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi di Language Understanding Service
 
@@ -38,13 +38,11 @@ Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gesti
 
 Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta della chiave gestita dal cliente del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con LUIS, è necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Il nuovo SKU funzionerà come lo SKU F0 già disponibile ad eccezione di CMK. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
-Le risorse di E0 sono disponibili solo per il servizio di creazione e il livello E0 inizialmente sarà supportato solo nell'area Stati Uniti occidentali.
-
 ![Immagine della sottoscrizione LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>Disponibilità a livello di area
 
-Le chiavi gestite dal cliente sono attualmente disponibili nell'area **Stati Uniti occidentali** .
+Le chiavi gestite dal cliente sono disponibili in tutte le [aree di creazione](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -57,7 +55,7 @@ Esistono alcune limitazioni quando si usa il livello E0 con le applicazioni crea
 * La funzionalità di priming vocale del servizio Azure bot non è supportata per le applicazioni nel livello E0. Questa funzionalità è disponibile tramite il servizio Azure bot, che non supporta CMK.
 * La funzionalità di priming vocale del portale richiede l'archiviazione BLOB di Azure. Per altre informazioni, vedere [Bring your own storage](../Speech-Service/speech-encryption-of-data-at-rest.md#bring-your-own-storage-byos-for-customization-and-logging).
 
-### <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
+### <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 
 Una nuova risorsa di servizi cognitivi è sempre crittografata usando chiavi gestite da Microsoft. Non è possibile abilitare le chiavi gestite dal cliente nel momento in cui viene creata la risorsa. Le chiavi gestite dal cliente vengono archiviate in Azure Key Vault e l'insieme di credenziali delle chiavi deve essere sottoposto a provisioning con criteri di accesso che concedono le autorizzazioni chiave all'identità gestita associata alla risorsa Servizi cognitivi. L'identità gestita è disponibile solo dopo la creazione della risorsa usando il piano tariffario per CMK.
 
@@ -87,7 +85,7 @@ La rotazione della chiave non attiva la nuova crittografia dei dati nella risors
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
 
-Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) o l'interfaccia della riga di comando di [Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi, in quanto la chiave di crittografia non è accessibile dai servizi cognitivi.
+Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault//) o [Interfaccia della riga di comando per Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi, in quanto la chiave di crittografia non è accessibile dai servizi cognitivi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

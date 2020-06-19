@@ -1,6 +1,6 @@
 ---
-title: Usare l'indice BLOB per gestire e trovare i dati nell'archivio BLOB di Azure
-description: Vedere esempi di come usare i tag di indice BLOB per categorizzare, gestire ed eseguire query per individuare oggetti BLOB.
+title: Utilizzare l'indice BLOB per gestire e trovare i dati nell'archiviazione BLOB di Azure
+description: Vedere gli esempi di come usare i tag indice BLOB per categorizzare, gestire ed eseguire query per individuare oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
@@ -8,37 +8,37 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: cc82b6578b06323d8cf9a09644d50043dba8e554
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121236"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774321"
 ---
-# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usare i tag degli indici BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
+# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilizzare i tag indice BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
 
-I tag dell'indice BLOB categorizzano i dati nell'account di archiviazione usando gli attributi di tag chiave-valore. Questi tag vengono automaticamente indicizzati ed esposti come indice multidimensionale Queryable per trovare facilmente i dati. Questo articolo illustra come impostare, ottenere e trovare i dati usando i tag degli indici BLOB.
+I tag indice BLOB categorizzano i dati nell'account di archiviazione utilizzando gli attributi di tag chiave-valore. Questi tag vengono automaticamente indicizzati ed esposti come indice multidimensionale disponibile per query per trovare facilmente i dati. Questo articolo illustra come impostare, ottenere e trovare i dati usando i tag indice BLOB.
 
-Per altre informazioni sull'indice BLOB, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
+Per altre informazioni sull'indice BLOB, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale**. Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 - Sottoscrizione registrata e approvata per l'accesso all'anteprima dell'indice BLOB
-- Accesso a [portale di Azure](https://portal.azure.com/)
+- Accesso al [portale di Azure](https://portal.azure.com/)
 
 # <a name="net"></a>[.NET](#tab/net)
-Poiché l'indice BLOB è in anteprima pubblica, il pacchetto di archiviazione .NET viene rilasciato nel feed NuGet di anteprima. Questa libreria è soggetta a modifiche tra ora e quando diventa ufficiale. 
+Poiché l'indice BLOB è in anteprima pubblica, il pacchetto di archiviazione .NET viene rilasciato nel feed NuGet di anteprima. Questa libreria è soggetta a modifiche fino a quando non diventa ufficiale. 
 
 1. In Visual Studio aggiungere l'URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` alle origini dei pacchetti NuGet. 
 
-   Per informazioni, vedere [origini di pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+   Per informazioni, vedere [Origini pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
-2. In Gestione pacchetti NuGet trovare il pacchetto **Azure. storage. Blobs** e installare la versione **12.5.0-dev. 20200422.2** nel progetto. È anche possibile eseguire il comando```Install-Package Azure.Storage.Blobs -Version12.5.0-dev.20200422.2```
+2. In Gestione pacchetti NuGet trovare il pacchetto **Azure.Storage.Blobs** e installare la versione **12.5.0-dev.20200422.2** nel progetto. È anche possibile eseguire il comando ```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
 
-   Per informazioni, vedere [trovare e installare un pacchetto](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Per informazioni, vedere [Trovare e installare un pacchetto](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Aggiungere le istruzioni using seguenti all'inizio del file di codice.
 ```csharp
@@ -52,25 +52,25 @@ using System.Threading.Tasks;
 ```
 ---
 
-## <a name="upload-a-new-blob-with-index-tags"></a>Caricare un nuovo BLOB con tag di indice
+## <a name="upload-a-new-blob-with-index-tags"></a>Caricare un nuovo BLOB con tag indice
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione 
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/) 
 
-2. Passare all'opzione **contenitori** in **servizio BLOB**, selezionare il contenitore
+2. Passare all'opzione **Contenitori** in **Servizio BLOB** e selezionare il contenitore
 
 3. Selezionare il pulsante **Carica** per aprire il pannello Carica ed esplorare il file system locale per trovare un file da caricare come BLOB in blocchi.
 
-4. Espandere l'elenco a discesa **Avanzate** e passare alla sezione relativa ai **tag degli indici BLOB**
+4. Espandere l'elenco a discesa **Avanzate** e passare alla sezione **Tag indice BLOB**
 
-5. Immettere i tag dell'indice BLOB chiave/valore che si desidera applicare ai dati
+5. Immettere i tag indice BLOB con i dati chiave/valore che si vuole applicare ai dati
 
-6. Selezionare il pulsante **upload (carica** ) per caricare il BLOB
+6. Selezionare il pulsante **Carica** per caricare il BLOB
 
-![Caricare dati con tag di indice BLOB](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
+![Caricare i dati con i tag indice BLOB](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
 
 # <a name="net"></a>[.NET](#tab/net)
-Nell'esempio seguente viene illustrato come creare un BLOB di Accodamento con tag impostati durante la creazione.
+Nell'esempio seguente viene illustrato come creare un BLOB di accodamento con tag impostati durante la creazione.
 ```csharp
 static async Task BlobIndexTagsOnCreate()
    {
@@ -105,22 +105,22 @@ static async Task BlobIndexTagsOnCreate()
 
 ---
 
-## <a name="get-set-and-update-blob-index-tags"></a>Ottenere, impostare e aggiornare i tag degli indici BLOB
+## <a name="get-set-and-update-blob-index-tags"></a>Ottenere, impostare e aggiornare i tag indice BLOB
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione 
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/) 
 
-2. Passare all'opzione **contenitori** in **servizio BLOB**, selezionare il contenitore
+2. Passare all'opzione **Contenitori** in **Servizio BLOB** e selezionare il contenitore
 
-3. Consente di selezionare il BLOB desiderato dall'elenco dei BLOB all'interno del contenitore selezionato
+3. Selezionare il BLOB desiderato dall'elenco di BLOB all'interno del contenitore selezionato
 
-4. Nella scheda Panoramica BLOB vengono visualizzate le proprietà del BLOB, inclusi i **tag degli indici BLOB**
+4. La scheda Panoramica del BLOB visualizzerà le proprietà del BLOB, inclusi eventuali **tag indice BLOB**
 
-5. È possibile ottenere, impostare, modificare o eliminare i tag di indice chiave/valore per il BLOB
+5. È possibile ottenere, impostare, modificare o eliminare qualsiasi tag indice con chiave/valore per il BLOB
 
-6. Selezionare il pulsante **Salva** per confermare eventuali aggiornamenti al BLOB
+6. Seleziona il pulsante **Salva** per confermare eventuali aggiornamenti apportati al BLOB
 
-![Ottenere, impostare, aggiornare ed eliminare tag di indice BLOB sugli oggetti](media/storage-blob-index-concepts/blob-index-get-set-tags.png)
+![Ottenere, impostare, aggiornare ed eliminare tag indice BLOB negli oggetti](media/storage-blob-index-concepts/blob-index-get-set-tags.png)
 
 # <a name="net"></a>[.NET](#tab/net)
 ```csharp
@@ -178,23 +178,23 @@ static async Task BlobIndexTagsExample()
 
 ---
 
-## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrare e trovare i dati con i tag degli indici BLOB
+## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrare e trovare i dati con i tag indice BLOB
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-All'interno del portale di Azure, il filtro tag indice BLOB applica automaticamente il `@container` parametro per definire l'ambito del contenitore selezionato. Per filtrare e trovare i dati contrassegnati nell'intero account di archiviazione, usare l'API REST, gli SDK o gli strumenti.
+All'interno del portale di Azure, il filtro tag indice BLOB applica automaticamente il parametro `@container` per definire l'ambito del contenitore selezionato. Per filtrare e trovare i dati con tag nell'intero account di archiviazione, usare l'API REST, gli SDK o gli strumenti.
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione. 
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/). 
 
-2. Passare all'opzione **contenitori** in **servizio BLOB**, selezionare il contenitore
+2. Passare all'opzione **Contenitori** in **Servizio BLOB** e selezionare il contenitore
 
-3. Selezionare il pulsante di filtro per gli **indici BLOB** per filtrare nel contenitore selezionato
+3. Selezionare il pulsante **Filtro tag indice BLOB** per applicare il filtro all'interno del contenitore selezionato
 
-4. Immettere una chiave tag di indice BLOB e un valore di tag
+4. Immettere un valore e una chiave del tag indice BLOB
 
-5. Selezionare il pulsante di filtro per gli **indici BLOB** per aggiungere altri filtri Tag (fino a 10)
+5. Selezionare il pulsante **Filtro tag indice BLOB** per aggiungere altri filtri tag (fino a 10)
 
-![Filtrare e trovare oggetti con tag con tag di indice BLOB](media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png)
+![Filtrare e trovare oggetti con tag con tag indice BLOB](media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png)
 
 # <a name="net"></a>[.NET](#tab/net)
 ```csharp
@@ -275,29 +275,29 @@ static async Task FindBlobsByTagsExample()
 
 ---
 
-## <a name="lifecycle-management-with-blob-index-tag-filters"></a>Gestione del ciclo di vita con filtri dei tag di indice BLOB
+## <a name="lifecycle-management-with-blob-index-tag-filters"></a>Gestione del ciclo di vita con filtri tag indice BLOB
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione. 
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/). 
 
-2. Passare all'opzione di **gestione del ciclo** di vita in **servizio BLOB**
+2. Passare all'opzione **Gestione del ciclo di vita** in **Servizio BLOB**
 
-3. Selezionare *Aggiungi regola* e quindi compilare i campi del modulo del set di azioni
+3. Selezionare *Aggiungi regola* e quindi compilare i campi modulo di Set di azioni
 
-4. Selezionare il set di filtri per aggiungere un filtro facoltativo per la corrispondenza del prefisso e la corrispondenza dell'indice BLOB ![ aggiungere i filtri dei tag di indice BLOB per la gestione](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Selezionare Set di filtri per aggiungere un filtro facoltativo per Corrispondenza prefisso e Corrispondenza indice BLOB ![Aggiungere i filtri tag indice BLOB per la gestione del ciclo di vita](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. Selezionare **Verifica + Aggiungi** per esaminare la regola di gestione del ciclo di vita delle impostazioni regola ![ con l'esempio di filtro tag di indice BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. Selezionare **Rivedi e aggiungi** per controllare le impostazioni delle regole ![Regola di gestione del ciclo di vita con un esempio del filtro tag indice BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Selezionare **Aggiungi** per applicare la nuova regola ai criteri di gestione del ciclo di vita
 
 # <a name="net"></a>[.NET](#tab/net)
-I criteri di [gestione del ciclo](storage-lifecycle-management-concepts.md) di vita vengono applicati per ogni account di archiviazione a livello di piano di controllo. Per .NET, installare la [libreria di archiviazione di Microsoft Azure Management 16.0.0 o versione](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) successiva per sfruttare i vantaggi del filtro di corrispondenza dell'indice BLOB in una regola di gestione del ciclo di vita.
+I criteri di [gestione del ciclo di vita](storage-lifecycle-management-concepts.md) vengono applicati per ogni account di archiviazione a livello di piano di controllo. Per .NET installare la versione [Microsoft Azure Management Storage Library versione 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) o versione successiva per sfruttare i vantaggi del filtro Corrispondenza indice BLOB in una regola di gestione del ciclo di vita.
 
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'indice BLOB. Vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md )
+Altre informazioni sull'indice BLOB. Vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md )
 
-Altre informazioni sulla gestione del ciclo di vita. Vedere [gestire il ciclo di vita dell'archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
+Altre informazioni sulla gestione del ciclo di vita. Vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
