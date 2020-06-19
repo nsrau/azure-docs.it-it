@@ -5,35 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/23/2020
-ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/12/2020
+ms.openlocfilehash: 2627cd540efe644315e303337b7dce95a6e2d126
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114854"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832045"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 
 Le soluzioni di monitoraggio sfruttano i servizi in Azure per offrire informazioni dettagliate aggiuntive sul funzionamento di un determinato servizio o di un'applicazione specifica. Questo articolo offre una breve panoramica delle soluzioni di monitoraggio in Azure e informazioni dettagliate sull'uso e l'installazione di tali soluzioni.
 
-> [!NOTE]
-> In precedenza le soluzioni di monitoraggio erano denominate soluzioni di gestione.
-
-Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. Possono anche sfruttare altri servizi, come Automazione di Azure, per eseguire azioni relative all'applicazione o al servizio.
-
-È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili senza costi aggiuntivi, ma raccolgono dati che potrebbero richiamare costi di utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Mentre le soluzioni sono in genere disponibili gratuitamente, l'uso della raccolta dei dati potrebbe determinare un addebito. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
 
 ## <a name="use-monitoring-solutions"></a>Usare le soluzioni di monitoraggio
 
 Aprire la pagina **Panoramica** in Monitoraggio di Azure per visualizzare un riquadro per ogni soluzione installata nell'area di lavoro. 
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **monitoraggio**.
+1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Monitoraggio**.
 1. Nel menu **Informazioni dettagliate** selezionare **Altri**.
 1. Usare le caselle a discesa nella parte superiore della schermata per modificare l'area di lavoro o l'intervallo di tempo usato per i riquadri.
-1. Fare clic sul riquadro per una soluzione per aprirne la visualizzazione, che include un'analisi più dettagliata dei dati raccolti.
+1. Fare clic sul riquadro di una soluzione per aprire la visualizzazione corrispondente, in cui sarà possibile esaminare analisi più dettagliate sui dati raccolti.
 
 ![Panoramica](media/solutions/overview.png)
 
@@ -43,7 +36,7 @@ Le soluzioni di monitoraggio possono contenere più tipi di risorse di Azure ed 
 
 Usare la procedura seguente per elencare le soluzioni di monitoraggio installate nella sottoscrizione.
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare le **soluzioni**.
+1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Soluzioni**.
 1. Vengono elencate le soluzioni installate in tutte le aree di lavoro. Il nome della soluzione è seguito dal nome dell'area di lavoro in cui è installata.
 1. Usare le caselle a discesa nella parte superiore della schermata per filtrare in base alla sottoscrizione o al gruppo di risorse.
 
@@ -59,10 +52,10 @@ Fare clic sul nome di una soluzione per aprire la relativa pagina di riepilogo. 
 Le soluzioni di monitoraggio di Microsoft e dei partner sono disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile cercare e installare le soluzioni disponibili usando la procedura seguente. Quando si installa una soluzione, è necessario selezionare un'[area di lavoro Log Analytics](../platform/manage-access.md) in cui la soluzione verrà installata e in cui verranno raccolti i dati.
 
 1. Nell'[elenco delle soluzioni per la sottoscrizione ](#list-installed-monitoring-solutions) fare clic su **Aggiungi**.
-1. Sfogliare o cercare una soluzione. È anche possibile esplorare le soluzioni da [questo collegamento di ricerca](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
+1. Individuare o cercare una soluzione. È anche possibile individuare le soluzioni utilizzando questo [collegamento di ricerca](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Individuare la soluzione di monitoraggio desiderata e leggere la relativa descrizione.
 1. Fare clic su **Crea** per avviare il processo di installazione.
-1. Quando viene avviato il processo di installazione, viene richiesto di specificare l'area di lavoro Log Analytics e fornire la configurazione necessaria per la soluzione.
+1. All'avvio del processo di installazione, verrà chiesto di specificare l'area di lavoro Log Analytics e di presentare tutte le configurazioni necessarie per la soluzione.
 
 ![Installare una soluzione](media/solutions/install-solution.png)
 
@@ -74,27 +67,27 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
 2. Passare a [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). 
 3. Cercare una soluzione adatta alle proprie esigenze.
 4. Selezionare la soluzione nei risultati per visualizzarne i dettagli.
-5. Fare clic sul pulsante **Distribuisci in Azure** .
+5. Fare clic sul pulsante **Distribuisci in Azure**.
 6. Viene richiesto di fornire informazioni come il gruppo di risorse e la posizione, oltre ai valori per i parametri nella soluzione.
 7. Fare clic su **Acquista** per installare la soluzione.
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>area di lavoro Log Analytics e account di Automazione
 
-Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro Log Analytics](../platform/manage-access.md) per archiviare i dati raccolti dalla soluzione e per ospitare le ricerche nei log e le visualizzazioni. Alcune soluzioni richiedono anche un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le relative risorse. L'area di lavoro e l'account devono soddisfare i requisiti indicati di seguito.
+Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro Log Analytics](../platform/manage-access.md) per archiviare i dati raccolti dalla soluzione e per ospitare le ricerche nei log e le visualizzazioni. Alcune soluzioni richiedono anche un [account di Automazione](../../automation/automation-security-overview.md) per contenere i runbook e le relative risorse. L'area di lavoro e l'account devono soddisfare i requisiti indicati di seguito.
 
 * Ogni installazione di una soluzione può usare solo un'area di lavoro Log Analytics e un account di Automazione. È possibile installare la soluzione separatamente in più aree di lavoro.
 * Se una soluzione richiede un account di Automazione, l'area di lavoro Log Analytics e l'account di Automazione devono essere collegati tra loro. Un'area di lavoro Log Analytics può essere collegata a un solo account di Automazione e un account di Automazione può essere collegato a una sola area di lavoro Log Analytics.
-* Per essere collegati, l'area di lavoro Log Analytics e l'account di automazione devono trovarsi nella stessa sottoscrizione, ma possono trovarsi in diversi gruppi di risorse distribuiti nella stessa area. L'eccezione è rappresentata da un'area di lavoro nell'area Stati Uniti orientali e un account di Automazione nell'area Stati Uniti orientali 2.
+* L'area di lavoro Log Analytics e l'account di Automazione devono riferirsi alla stessa sottoscrizione, ma possono essere inclusi in gruppi di risorse diversi distribuiti nella stessa area. L'eccezione è rappresentata da un'area di lavoro nell'area Stati Uniti orientali e un account di Automazione nell'area Stati Uniti orientali 2.
 
-Quando si installa una soluzione tramite Azure Marketplace, vengono richiesti un'area di lavoro e un account di automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
+Quando si installa una soluzione tramite Azure Marketplace, viene chiesto di specificare un'area di lavoro e un account di Automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificare il collegamento tra un'area di lavoro Log Analytics e un account di Automazione
 
 È possibile verificare il collegamento tra un'area di lavoro Log Analytics e un account Automazione mediante la procedura seguente.
 
 1. Selezionare l'account di Automazione nel portale di Azure.
-1. Scorrere fino alla sezione **risorse correlate** del menu e selezionare **area di lavoro collegata**.
-1. Se l' **area di lavoro** è collegata a un account di automazione, in questa pagina viene elencata l'area di lavoro a cui è collegata. Se si seleziona il nome dell'area di lavoro elencata, si verrà reindirizzati alla pagina Panoramica per l'area di lavoro.
+1. Scorrere fino alla voce **Risorse correlate** del menu e scegliere **Linked workplace** (Area di lavoro collegata).
+1. Se l'**area di lavoro** è collegata a un account di Automazione, in questa pagina verrà riportata l'area di lavoro a cui è collegato l'account. Se si seleziona il nome dell'area di lavoro inclusa nell'elenco, si verrà reindirizzati alla pagina di panoramica relativa all'area di lavoro.
 
 ## <a name="remove-a-monitoring-solution"></a>Rimuovere una soluzione di monitoraggio
 

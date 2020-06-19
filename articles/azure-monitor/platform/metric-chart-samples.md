@@ -1,5 +1,5 @@
 ---
-title: Esempio di grafico delle metriche di monitoraggio di Azure
+title: Esempio di grafico delle metriche di Monitoraggio di Azure
 description: Informazioni sulla visualizzazione dei dati di Monitoraggio di Azure.
 author: vgorbenko
 services: azure-monitor
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77660871"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797453"
 ---
-# <a name="metric-chart-examples"></a>Esempi di grafico delle metriche 
+# <a name="metric-chart-examples"></a>Esempi di grafici delle metriche 
 
 La piattaforma di Azure offre [più di mille metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), molte delle quali con dimensioni. Usando i [filtri di dimensione](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), applicando [suddivisioni](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controllando il tipo di grafico e modificando le impostazioni del grafico, è possibile creare visualizzazioni diagnostiche avanzate e dashboard che forniscono informazioni dettagliate sull'integrità dell'infrastruttura e delle applicazioni. Questo articolo mostra alcuni esempi dei grafici che è possibile creare usando [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) e illustra i passaggi necessari per configurare ciascuno di essi.
 
@@ -52,5 +52,5 @@ Nel selettore metrica, selezionare l'account di archiviazione e la metrica **Tra
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md) di Monitoraggio di Azure
+* Informazioni sulle [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md) di Monitoraggio di Azure
 * Informazioni su [Esplora metriche](metrics-charts.md)

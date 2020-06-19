@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.custom: tracking-python
-ms.openlocfilehash: 7550ba3883503c5991cd14e80354b187116a3b51
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3a79097a5939feb7380475a3cc3a80c4cb15f655
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560284"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753392"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Inviare o ricevere eventi da Hub eventi tramite Python (azure-eventhub versione 5)
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con il pacchetto Python **azure-eventhub versione 5**.
@@ -128,8 +128,8 @@ In questa sezione viene creato uno script Python per ricevere eventi dall'hub ev
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient.from_connection_string("EVENT HUBS NAMESPACE CONNECTION STRING", consumer_group="$Default", eventhub_name="EVENT HUB NAME", checkpoint_store=checkpoint_store)
         async with client:
-            # Call the receive method.
-            await client.receive(on_event=on_event)
+            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
+            await client.receive(on_event=on_event,  starting_position="-1")
 
     if __name__ == '__main__':
         loop = asyncio.get_event_loop()

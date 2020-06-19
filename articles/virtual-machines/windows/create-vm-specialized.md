@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086403"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234541"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -27,9 +27,9 @@ Sono disponibili diverse opzioni:
 
 È anche possibile usare il portale di Azure per [creare una nuova macchina virtuale da un disco rigido virtuale specializzato](create-vm-specialized-portal.md).
 
-Questo articolo illustra come usare i dischi gestiti. Se si dispone di una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [creare una macchina virtuale da un disco rigido virtuale specializzato in un account di archiviazione](sa-create-vm-specialized.md).
+Questo articolo illustra come usare i dischi gestiti. Se è presente una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione](sa-create-vm-specialized.md).
 
-È consigliabile limitare il numero di distribuzioni simultanee a 20 VM da un singolo disco rigido virtuale o snapshot. 
+È consigliabile limitare il numero delle distribuzioni simultanee a 20 VM per ogni disco rigido virtuale o snapshot. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opzione 1: Usare un disco esistente
 
@@ -51,20 +51,20 @@ Sarà quindi possibile collegare questo disco come disco del sistema operativo a
 ### <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 Usare il disco rigido virtuale così com'è per creare una nuova macchina virtuale. 
   
-  * [Preparare un disco rigido virtuale Windows da caricare in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale usando Sysprep.
+  * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale usando Sysprep.
   * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware.
   * Verificare che la macchina virtuale sia configurata per ottenere l'indirizzo IP e le impostazioni DNS da DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
 
 ### <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale
 
-È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per le istruzioni, vedere [Caricare un disco rigido virtuale su Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opzione 3: Copiare una macchina virtuale di Azure esistente
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opzione 3: Copiare una VM di Azure esistente
 
 È possibile creare una copia di una macchina virtuale che usa dischi gestiti acquisendo uno snapshot della macchina virtuale e quindi usando tale snapshot per creare un nuovo disco gestito e una nuova macchina virtuale.
 
-Se si vuole copiare una macchina virtuale esistente in un'altra area, è consigliabile usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Se si vuole copiare una VM esistente in un'altra area, è consigliabile usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Acquisire uno snapshot del disco del sistema operativo
 
@@ -112,7 +112,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Per usare questo snapshot per creare una macchina virtuale che deve essere a prestazioni elevate, aggiungere il `-AccountType Premium_LRS` parametro al comando New-AzSnapshotConfig. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
+Per creare una VM a prestazioni elevate con questo snapshot, aggiungere il parametro `-AccountType Premium_LRS` al comando New-AzSnapshotConfig. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creare un nuovo disco dallo snapshot
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
 Per altre informazioni sugli endpoint e sulle regole dei gruppi di sicurezza di rete, vedere [Apertura di porte in una macchina virtuale tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Creare un indirizzo IP pubblico e NIC
-Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, saranno necessari un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e un'interfaccia di rete.
+Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, saranno necessari un [indirizzo IP pubblico](../../virtual-network/public-ip-addresses.md) e un'interfaccia di rete.
 
 1. Creare l'IP pubblico. In questo esempio, il nome dell'indirizzo IP pubblico è *myIP*.
    
@@ -261,7 +261,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verificare che la VM sia stata creata
-La VM appena creata verrà visualizzata nella [portale di Azure](https://portal.azure.com) in **Sfoglia** > **macchine virtuali**o usando i comandi di PowerShell seguenti.
+La macchina virtuale appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** oppure usando i comandi di PowerShell seguenti.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

@@ -8,11 +8,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215409"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711868"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure v12 per .NET
 

@@ -1,7 +1,7 @@
 ---
 title: 'Creare una rete virtuale: guida introduttiva - Portale di Azure'
 titleSuffix: Azure Virtual Network
-description: 'Guida introduttiva: Creare una rete virtuale nel portale di Azure. Queste reti consentono la comunicazione sicura tra risorse di Azure, come le VM, e con Internet.'
+description: 'Avvio rapido: Creare una rete virtuale nel portale di Azure. Queste reti consentono la comunicazione sicura tra risorse di Azure, come le VM, e con Internet.'
 author: KumudD
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -12,13 +12,13 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79214789"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707413"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale usando il portale di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Avvio rapido: Creare una rete virtuale usando il portale di Azure
 
 Questo argomento di avvio rapido illustra come creare una rete virtuale con il portale di Azure. Vengono distribuite due macchine virtuali (VM). Successivamente, si stabilisce una comunicazione sicura tra le VM, a cui ci si connette da Internet. Una rete virtuale è il blocco costitutivo fondamentale per una rete privata in Azure. Consente la comunicazione sicura tra le risorse di Azure, come le VM, e con Internet.
 
@@ -59,7 +59,7 @@ Creare due VM nella rete virtuale:
 
 1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
 
-1. In Azure Marketplace selezionare **Calcolo** > **Windows Server 2019 Datacenter**. Selezionare **Create** (Crea).
+1. In Azure Marketplace selezionare **Calcolo** > **Windows Server 2019 Datacenter**. Selezionare **Crea**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 

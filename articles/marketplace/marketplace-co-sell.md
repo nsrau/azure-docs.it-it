@@ -1,36 +1,37 @@
 ---
-title: Co-selling partner Engagement-Marketplace commerciale Microsoft
-description: Il programma di co-selling del centro per partner Microsoft per i partner può aiutarti a raggiungere una vasta clientela e a generare nuove vendite.
+title: Programma di co-selling per i partner - Marketplace commerciale Microsoft
+description: Grazie al programma di co-selling per i partner del Centro per i partner Microsoft è possibile raggiungere una vasta platea di clienti e generare nuove vendite.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: 23823e3952adcad6c7047636a24596e930927f6f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/19/2020
+ms.openlocfilehash: 86ff08ed01ea09497c14e91b4c891988569e2df1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857348"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657948"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
-Se sei un partner, puoi usare il programma di co-selling Microsoft per collaborare direttamente con Microsoft in caso di opportunità di vendita congiunte. Il programma consente ai nostri partner di raggiungere una vasta community di clienti e di creare nuove opportunità di vendita che consentono di accelerare la crescita aziendale.
+I partner possono usare il programma di co-selling Microsoft per collaborare direttamente con Microsoft su iniziative di vendita congiunte. Il programma consente ai partner di raggiungere una vasta community di clienti e creare nuove opportunità di vendita per accelerare la crescita aziendale.
 
-## <a name="partner-selling-motions"></a>Movimenti di vendita partner
+## <a name="partner-selling-motions"></a>Processi di vendita per i partner
 
-Microsoft offre tre movimenti di vendita partner:
+Microsoft offre tre processi di vendita per i partner:
 
-* *Vendi tramite partner*: puoi rivendere la tecnologia Microsoft attraverso i tuoi venditori.
-* *Co-selling dei servizi*: i venditori e i partner collaborano per vendere il progetto o i servizi gestiti con la tecnologia Microsoft Embedded.
-* *Co-selling IP*: i venditori e i partner collaborano per la vendita della soluzione IP in pacchetto ripetibile. *
+* *Vendita tramite partner*: è possibile rivendere la tecnologia Microsoft tramite i propri venditori.
+* *Co-selling di servizi*: venditori e partner collaborano per vendere progetti o servizi gestiti con tecnologia Microsoft incorporata.
+* *Co-selling di IP*: venditori e partner collaborano per vendere soluzioni IP ripetibili e in pacchetto.*
 
-\*Alcune di queste soluzioni di co-selling IP potrebbero ricevere incentivi aggiuntivi quando vengono vendute e distribuite correttamente con i team di vendita dei campi di Microsoft.
+\* Alcune di queste soluzioni di co-selling di IP potrebbero ricevere ulteriori incentivi se vendute e distribuite con team di vendita sul campo Microsoft.
 
-![Diagramma che illustra il modo in cui la co-selling si verifica quando i lead di vendita vengono condivisi, accettati e vinti dai clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+![Diagramma che illustra come avviene il co-selling quando i clienti potenziali vengono condivisi, accettati e acquisiti a fronte dei clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più sulla [vendita con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Informazioni sull' [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Vedere altre informazioni su come [vendere con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+* Vedere altre informazioni sull'[opzione di co-selling nel Centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Leggere la [Guida al programma di co-selling per i partner](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

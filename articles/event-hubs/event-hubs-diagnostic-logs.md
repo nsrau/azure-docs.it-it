@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649791"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259304"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -247,7 +247,7 @@ Le stringhe JSON dei log utente della chiave gestita dal cliente includono gli e
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
-- [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
+- [Esempi di Hub eventi](sdks.md)
 - Introduzione all'Hub eventi
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)

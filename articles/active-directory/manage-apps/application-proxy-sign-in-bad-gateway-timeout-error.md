@@ -1,5 +1,5 @@
 ---
-title: Non è possibile accedere all'errore dell'applicazione aziendale con l'app proxy app
+title: Errore di accesso all'applicazione aziendale con l'app Proxy app
 description: Come risolvere problemi di accesso comuni con applicazioni Proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: bbb3743251f2818ab1e4255b3dc6e7f4f9cbbcba
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275460"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846733"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
@@ -31,13 +31,13 @@ Questo articolo consente di risolvere alcuni problemi comuni per l'errore "Impos
 
 Quando viene visualizzato questo errore, individuare il codice di stato nella pagina dell'errore. Questo codice è probabilmente uno dei seguenti codici di stato:
 
-- **Gateway Timeout** (timeout del gateway): il servizio Proxy di applicazione non è in grado di raggiungere il connettore. Questo errore in genere indica un problema con l'assegnazione del connettore, con il connettore stesso o con le regole di rete relative al connettore.
-- **Bad Gateway** (gateway non valido): il connettore non è in grado di raggiungere l'applicazione back-end. Questo errore potrebbe indicare un errore di configurazione dell'applicazione.
+- **Gateway Timeout** (timeout del gateway): il servizio Proxy di applicazione non riesce a raggiungere il connettore. Questo errore in genere indica un problema con l'assegnazione del connettore, con il connettore stesso o con le regole di rete relative al connettore.
+- **Bad Gateway** (gateway non valido): il connettore non riesce a raggiungere l'applicazione back-end. Questo errore potrebbe indicare un errore di configurazione dell'applicazione.
 - **Forbidden** (accesso non consentito): l'utente non è autorizzato ad accedere all'applicazione. Questo errore può verificarsi quando l'utente non è assegnato all'applicazione in Azure Active Directory o se l'utente non dispone dell'autorizzazione per accedere all'applicazione sul back-end.
 
 Per trovare il codice, cercare il campo "Status Code" (Codice di stato) nel testo sulla parte inferiore sinistra del messaggio di errore. Cercare anche altri suggerimenti in fondo della pagina.
 
-![Esempio: errore di timeout del gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Esempio: Errore di timeout del gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Per dettagli su come risolvere la causa principale di questi errori e per ulteriori dettagli sulle risoluzioni consigliate, vedere la sezione corrispondente di seguito.
 
@@ -71,19 +71,19 @@ Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'appl
 Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzionante:
 
 1. Aprire l'applicazione nel portale selezionando **Azure Active Directory**, facendo cli csu **Applicazioni aziendali** e quindi su **Tutte le applicazioni**. Aprire l'applicazione, quindi selezionare **Proxy dell'applicazione** dal menu a sinistra.
-1. Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non vengono visualizzati avvisi, passare a verificare che siano consentite tutte le porte necessarie.
+1. Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non viene visualizzato alcun avviso, procedere a verificare se tutte le [porte necessarie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) sono consentite.
 1. Se compare il gruppo di connettori sbagliato, selezionare il gruppo corretto e verificare che non siano più visualizzati avvisi. Se compare il gruppo di connettori desiderato, fare clic sul messaggio di avviso per aprire la pagina con la gestione connettori.
 1. A questo punto, vi sono alcuni metodi per ulteriori approfondimenti:
 
-   - Spostare un connettore attivo nel gruppo: se si dispone di un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
-   - Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. In genere, il connettore viene installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
-   - Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non è in grado di raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere questo problema, passare a verificare che siano consentite tutte le porte necessarie.
+   - Spostare un connettore attivo nel gruppo: se è disponibile un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
+   - Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. Normalmente il connettore è installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
+   - Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non riesce a raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere il problema, procedere a verificare se tutte le porte necessarie sono consentite.
 
 Dopo aver eseguito tutte queste operazioni per assicurarsi che l'applicazione sia assegnata a un gruppo con connettori funzionanti, provare di nuovo l'applicazione. Se ancora non funziona, passare alla sezione successiva.
 
-## <a name="check-all-required-ports-are-open"></a>Verificare che tutte le porte necessarie siano aperte
+## <a name="check-all-required-ports-are-open"></a>Verificare se tutte le porte necessarie sono aperte
 
-Per verificare che tutte le porte richieste siano aperte, vedere la documentazione sull'apertura delle porte. Se tutte le porte richieste sono aperte, passare alla sezione successiva.
+Per verificare se tutte le porte necessarie sono aperte, vedere la [documentazione sull'apertura delle porte](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Se tutte le porte richieste sono aperte, passare alla sezione successiva.
 
 ## <a name="check-for-other-connector-errors"></a>Verificare la presenza di altri errori del connettore
 
@@ -105,4 +105,4 @@ Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)
+[Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)

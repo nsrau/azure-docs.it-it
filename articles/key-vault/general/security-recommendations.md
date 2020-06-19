@@ -1,6 +1,6 @@
 ---
 title: Raccomandazioni sulla sicurezza per Azure Key Vault
-description: Raccomandazioni sulla sicurezza per Azure Key Vault. L'implementazione di queste linee guida consente di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa
+description: Raccomandazioni sulla sicurezza per Azure Key Vault. Implementando queste linee guida sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,48 +10,48 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81616489"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872985"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Raccomandazioni sulla sicurezza per Azure Key Vault
 
-Questo articolo contiene raccomandazioni sulla sicurezza per Azure Key Vault. L'implementazione di questi consigli consentirà di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Questo articolo contiene raccomandazioni sulla sicurezza per Azure Key Vault. Implementando queste raccomandazioni sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa. Per altre informazioni sulle iniziative intraprese da Microsoft per assolvere alle responsabilità dei provider di servizi, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Alcuni consigli inclusi in questo articolo possono essere monitorati automaticamente dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse in Azure. Analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Fornisce quindi suggerimenti su come risolverli.
+Alcune raccomandazioni presenti in questo articolo possono essere monitorate automaticamente dal Centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse di Azure: analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza e fornisce raccomandazioni per affrontarle in modo efficace.
 
-- Per altre informazioni sulle raccomandazioni del Centro sicurezza di Azure, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../../security-center/security-center-recommendations.md).
-- Per informazioni sul centro sicurezza di Azure, vedere [che cos'è il Centro sicurezza di Azure?](../../security-center/security-center-intro.md)
+- Per altre informazioni sulle raccomandazioni del Centro di sicurezza di Azure, vedere [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-recommendations.md).
+- Per informazioni sul Centro sicurezza di Azure, vedere [Che cos'è il Centro sicurezza di Azure?](../../security-center/security-center-intro.md)
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-|Abilita eliminazione temporanea | [Eliminazione](overview-soft-delete.md)temporanea) consente di recuperare gli insiemi di credenziali eliminati e gli oggetti dell'insieme di credenziali |  - |
-| Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio dei privilegi minimi e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |
+|Abilitare l'eliminazione temporanea | L'[eliminazione temporanea](overview-soft-delete.md) consente il recupero di insiemi di credenziali e di oggetti di insiemi di credenziali eliminati |  - |
+| Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio del privilegio minimo e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-| Limitare il numero di utenti con accesso collaboratore | Se un utente ha le autorizzazioni di collaboratore per un piano di gestione dell'insieme di credenziali delle chiavi, l'utente può concedere l'accesso al piano dati impostando un criterio di accesso Key Vault. È necessario controllare strettamente chi ha accesso al ruolo Collaboratore agli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti che hanno la necessità di accedere alle persone autorizzate possano accedere e gestire gli insiemi di credenziali. È possibile leggere [l'accesso protetto a Key Vault](secure-your-key-vault.md)) | - |
+| Limitare il numero di utenti con accesso di tipo Collaboratore | Se un utente dispone di autorizzazioni di tipo Collaboratore per un piano di gestione dell'insieme di credenziali delle chiavi, può concedere a se stesso l'accesso al piano dati impostando i criteri di accesso per Key Vault. È consigliabile controllare attentamente chi ha accesso come collaboratore agli insiemi di credenziali delle chiavi e assicurarsi che solo le persone autorizzate possano accedere e gestire gli insiemi di credenziali. Vedere [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md). | - |
 
 ## <a name="monitoring"></a>Monitoraggio
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
  I log di diagnostica in Key Vault devono essere abilitati | Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. | [Sì](../../security-center/security-center-identity-access.md) |
-| Limitare gli utenti che possono accedere ai log di Azure Key Vault | [Log Key Vault](logging.md)) salvare le informazioni sulle attività eseguite nell'insieme di credenziali, ad esempio la creazione o l'eliminazione di insiemi di credenziali, chiavi, segreti e possono essere usate durante un'indagine |  - |
+| Limitare gli utenti che possono accedere ai log degli insiemi di credenziali di Azure Key Vault | I [log di Key Vault](logging.md) salvano le informazioni sulle attività eseguite nell'insieme di credenziali, come la creazione o l'eliminazione di insiemi di credenziali, chiavi e segreti, e possono essere usati durante un'indagine |  - |
 
 ## <a name="networking"></a>Rete
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-|Limita l'esposizione alla rete | L'accesso alla rete deve essere limitato alle reti virtuali usate dalle soluzioni che richiedono l'accesso all'insieme di credenziali. Esaminare le informazioni sugli [endpoint del servizio rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)) | - |
+|Limitare l'esposizione della rete | L'accesso alla rete deve essere limitato alle reti virtuali usate dalle soluzioni che richiedono l'accesso all'insieme di credenziali. Rivedere le informazioni contenute nell'articolo [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md) | - |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Rivolgersi al provider di applicazioni per verificare se sono presenti requisiti di sicurezza aggiuntivi. Per ulteriori informazioni sullo sviluppo di applicazioni sicure, vedere la [documentazione sullo sviluppo protetto](../../security/fundamentals/abstract-develop-secure-apps.md).
+Verificare con il provider di applicazioni l'eventuale necessità di soddisfare requisiti di sicurezza aggiuntivi. Per altre informazioni sullo sviluppo di applicazioni sicure, vedere [Documentazione sullo sviluppo sicuro](../../security/fundamentals/abstract-develop-secure-apps.md).

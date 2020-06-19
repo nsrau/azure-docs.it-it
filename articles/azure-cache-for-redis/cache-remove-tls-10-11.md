@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197843"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848822"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1.0 and 1.1 per l'uso con cache di Azure per Redis
 
@@ -31,12 +31,12 @@ Questo articolo offre indicazioni generali su come rilevare le dipendenze da que
 
 Le date di entrata in vigore di queste modifiche sono:
 
-| Cloud               | Data di inizio della fase 1 | Data di inizio della fase 2      |
-|---------------------|--------------------|-------------------------|
-| Azure (globale)      |  13 gennaio 2020  | 11 maggio 2020            |
-| Azure Government    |  13 marzo 2020    | 11 maggio 2020            |
-| Azure Germania       |  13 marzo 2020    | 11 maggio 2020            |
-| Azure Cina         |  13 marzo 2020    | 11 maggio 2020            |
+| Cloud                | Data di inizio della fase 1 | Data di inizio della fase 2      |
+|----------------------|--------------------|-------------------------|
+| Azure (globale)       |  13 gennaio 2020  | 11 maggio 2020            |
+| Azure Government     |  13 marzo 2020    | 11 maggio 2020            |
+| Azure Germania        |  13 marzo 2020    | 11 maggio 2020            |
+| 21Vianet per Azure Cina |  13 marzo 2020    | 11 maggio 2020            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verificare se l'applicazione è già conforme
 
@@ -55,7 +55,12 @@ Per impostazione predefinita, i client .NET Redis usano la versione più recente
 
 ### <a name="net-core"></a>.NET Core
 
-Per impostazione predefinita, i client .NET Core Redis usano la versione più recente di TLS.
+Per impostazione predefinita, i client .NET Core Redis usano la versione di TLS predefinita del sistema operativo che ovviamente dipende da quest'ultimo. 
+
+A seconda della versione del sistema operativo e di altre patch che hanno eventualmente modificato la versione di TLS predefinita, la versione di TLS del sistema operativo può essere molto varia. Anche se non sono disponibili informazioni complete al riguardo, per il sistema operativo Windows in particolare è possibile trovare altre informazioni [qui](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+
+Tuttavia, se si usa un sistema operativo precedente, o semplicemente per sicurezza, è consigliabile configurare manualmente la versione TLS preferita tramite il client.
+
 
 ### <a name="java"></a>Java
 

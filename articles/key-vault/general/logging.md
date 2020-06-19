@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9198892f95635add27bcfe9e479d0dd6fe3f08d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425370"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790484"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -216,13 +216,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di proce
 
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
-I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Ecco un esempio di voce di registro. Eseguire questo comando:
-
-```powershell
-Get-AzKeyVault -VaultName 'contosokeyvault'`
-```
-
-Verrà restituita una voce di log simile alla seguente:
+I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Ecco un esempio di voce di registro. 
 
 ```json
     {

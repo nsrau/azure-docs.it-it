@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120811"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986674"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
-Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in una sottoscrizione diversa del volto di servizi cognitivi di Azure. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo usando una sottoscrizione di valutazione gratuita e che ora si voglia eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le sottoscrizioni in aree diverse per un'operazione aziendale di grandi dimensioni.
+Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in una sottoscrizione diversa del volto di servizi cognitivi di Azure. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo con una sottoscrizione gratuita ed è ora necessario eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le sottoscrizioni in aree diverse per un'operazione aziendale di grandi dimensioni.
 
 Questa stessa strategia di migrazione si applica anche agli oggetti LargePersonGroup e LargeFaceList. Se non si ha familiarità con i concetti illustrati in questa guida, vedere le relative definizioni nella Guida ai [concetti di riconoscimento delle facce](../concepts/face-recognition.md) . Questa guida usa la libreria client .NET con C#.
 

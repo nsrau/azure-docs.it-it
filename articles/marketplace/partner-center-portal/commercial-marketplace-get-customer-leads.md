@@ -1,70 +1,70 @@
 ---
-title: Gestione dei lead da Microsoft Commercial Marketplace
-description: Informazioni sulla generazione e la ricezione di lead dei clienti dalle offerte Microsoft AppSource e Azure Marketplace
+title: Gestione dei lead nel marketplace commerciale Microsoft
+description: Informazioni sulla generazione e la ricezione di lead dei clienti provenienti dalle offerte Microsoft AppSource e Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837329"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800938"
 ---
-# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clienti lead dall'offerta del Marketplace commerciale
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Lead di clienti tramite l'offerta del marketplace commerciale
 
-I lead sono i clienti interessati a distribuire le offerte da [Microsoft AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile ricevere i lead dei clienti dopo la pubblicazione dell'offerta nel Marketplace commerciale. Questo articolo illustra i concetti seguenti relativi alla gestione dei lead:
+I lead sono i clienti interessati a distribuire le offerte da [Microsoft AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile ricevere i lead dei clienti dopo la pubblicazione dell'offerta nel marketplace commerciale. In questo articolo vengono descritti i concetti di gestione dei lead seguenti:
 
-* Il modo in cui l'offerta del Marketplace commerciale genera lead dei clienti per assicurarsi di non perdere le opportunità aziendali. 
-* Come connettere il sistema CRM (Customer Relationship Management) all'offerta per poter gestire i lead in un'unica posizione centrale.
-* I dati principali che si inviano per poter completare i clienti che hanno contattato l'utente.
+* il modo in cui l'offerta del marketplace commerciale genera lead dei clienti per assicurarsi di non perdere opportunità aziendali; 
+* come connettere il sistema CRM (Customer Relationship Management) all'offerta per poter gestire i lead in un'unica posizione centrale;
+* i dati dei lead inviati da Microsoft per poter seguire i clienti da cui si è stati contattati.
 
-## <a name="generate-customer-leads"></a>Genera lead cliente
+## <a name="generate-customer-leads"></a>Generare lead clienti
 
-Di seguito sono riportati i punti in cui viene generato un lead:
+Di seguito sono riportati i punti in cui viene generato un lead.
 
-- Un cliente acconsente alla condivisione delle informazioni dopo aver selezionato **contattatemi** dal Marketplace commerciale. Questo è un lead *iniziale di interesse* . Condividiamo le informazioni relative al cliente che ha espresso interesse nel ricevere il prodotto. Il lead si trova al vertice del grafico a imbuto relativo all'acquisizione dei clienti.
+- Un cliente acconsente a condividere le sue informazioni dopo aver selezionato **Contatta** dal marketplace commerciale. Questo lead è un lead di *interesse iniziale*. Le informazioni relative al cliente che ha espresso interesse nel ricevere il prodotto vengono condivise con l'utente. Il lead si trova al vertice del grafico a imbuto relativo all'acquisizione dei clienti.
 
-    ![Dynamics 365 contattatemi](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
+    ![Dynamics 365, Contatta](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
-- Un cliente seleziona **Get it now** (oppure seleziona **Crea** nella [portale di Azure](https://portal.azure.com/)) per ottenere l'offerta. Questo è un lead *attivo* . Le informazioni relative al cliente che ha iniziato a distribuire il prodotto vengono condivise con l'utente.
+- Un cliente seleziona **Scarica adesso** (oppure seleziona **Crea** nel [portale di Azure](https://portal.azure.com/)) per ricevere l'offerta. Si tratta di un lead *attivo*. Le informazioni relative al cliente che ha iniziato a distribuire il prodotto vengono condivise con l'utente.
 
-    ![Pulsante Ottieni ora SQL](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
+    ![SQL Pulsante Scarica adesso](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
 
     ![Pulsante Crea di Windows Server](./media/commercial-marketplace-get-customer-leads/windows-server-create.png)
 
-- Un cliente seleziona **test drive** o **versione di valutazione gratuita** per provare l'offerta. Le unità di test o le versioni di valutazione gratuite sono un'opportunità accelerata per la condivisione immediata dell'azienda con potenziali clienti senza alcuna barriera all'ingresso.
+- Un cliente seleziona **test drive** o **versione di valutazione gratuita** per provare l'offerta. I test drive o le versioni di valutazione gratuita sono opportunità accelerate per condividere immediatamente la propria attività con potenziali clienti senza limiti di ingresso.
 
-    ![Pulsante test drive di Dynamics 365](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
+    ![Pulsante Test drive di Dynamics 365](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
 
-    ![Pulsante versione di valutazione gratuita di Dynamics 365](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
+    ![Pulsante Versione di valutazione gratuita di Dynamics 365](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
 
 ## <a name="connect-to-your-crm-system"></a>Connettersi al sistema CRM
 
 [!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-## <a name="understand-lead-data"></a>Informazioni sui lead
+## <a name="understand-lead-data"></a>Informazioni sui dati dei lead
 
-Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati in campi specifici. Il primo campo da cercare `LeadSource` è il campo che segue il formato:**offerta**di azione **Source-Action** | di origine.
+Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati in campi specifici. Il primo campo da cercare è il campo `LeadSource`, che segue il formato: **Origine-Azione** | **Offerta**.
 
-**Origini**: il valore di questo campo viene popolato in base al Marketplace che ha generato il lead. I valori possibili sono `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
+**Origini**: Il valore di questo campo viene popolato in base al marketplace che ha generato il lead. I valori possibili sono `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
 
-**Azioni**: il valore di questo campo viene popolato in base all'azione eseguita dal cliente nel Marketplace che ha generato il lead.
+**Azioni**: Il valore di questo campo viene popolato in base all'azione svolta dal cliente nel marketplace che ha generato il lead.
 
 I valori possibili sono:
 
-- **"Ins"**: sta per essere *installato*. Questa azione si trova in Azure Marketplace o in AppSource quando un cliente acquisisce il prodotto.
-- **"PLT"**: sta per la *versione di valutazione del partner*. Questa azione è in AppSource quando un cliente seleziona l'opzione **Contact me** .
-- **"DNC"**: sta per non *contattare*. Questa azione si trova in AppSource quando viene richiesto di contattare un partner che è stato incrociato nella pagina dell'app. Si condivide una notifica che questo cliente è stato elencato in modo incrociato nell'app, ma non è necessario contattarlo.
-- **"Crea"**: questa azione è solo all'interno del portale di Azure e viene generata quando un cliente acquista l'offerta al proprio account.
-- **"StartTestDrive"**: questa azione è solo per l'opzione **test drive** e viene generata quando un cliente avvia la test drive.
+- **"INS"** : è l'acronimo per *installazione*. Questa azione si trova in Azure Marketplace o AppSource quando un cliente acquisisce il prodotto.
+- **"PLT"** : significa *versione di valutazione condotta dal partner*. Questa azione si trova in AppSource quando un cliente seleziona l'opzione **Contatta**.
+- **"DNC"** : sta per *non contattare*. L'azione si trova in AppSource quando un partner che è stato elencato in modo incrociato nella pagina app riceve una richiesta per essere contattato. Viene condiviso l'annuncio che il cliente è stato elencato nell'app, ma non deve essere contattato.
+- **"Crea"** : questa azione si trova solo nel portale di Azure e si genera quando un cliente acquista l'offerta dal proprio account.
+- **"StartTestDrive"** : questa azione riguarda solo l'opzione **Test drive** e si genera quando un cliente avvia il test drive.
 
-**Offerte**: è possibile che nel Marketplace commerciale siano disponibili più offerte. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID dell'editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel Marketplace.
+**Offerte**: nel marketplace commerciale potrebbero esistere più offerte. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel marketplace.
 
-Negli esempi seguenti vengono illustrati i valori nel `publisherid.offerid`formato previsto: 
+Negli esempi seguenti vengono illustrati i valori nel formato previsto `publisherid.offerid`: 
 
 - `checkpoint.check-point-r77-10sg-byol`
 - `bitnami.openedxcypress`
@@ -72,39 +72,39 @@ Negli esempi seguenti vengono illustrati i valori nel `publisherid.offerid`forma
 
 ## <a name="customer-information"></a>Informazioni sul cliente
 
-Le informazioni del cliente vengono inviate tramite più campi. Nell'esempio seguente vengono illustrate le informazioni sul cliente contenute in un lead:
+Le informazioni sul cliente vengono inviate tramite più campi. L'esempio seguente mostra le informazioni sul cliente contenute in un lead.
 
-- Nome: John
-- Cognome: Smith
+- FirstName: John
+- LastName: Smith
 - E-mail: jsmith\@microsoft.com
 - Telefono: 1234567890
 - Paese: Stati Uniti
-- Azienda: Microsoft
-- Posizione: CTO
+- Società: Microsoft
+- Titolo: CTO
 
 >[!NOTE]
->Non tutti i dati dell'esempio precedente sono sempre disponibili per ogni lead. Poiché i lead verranno derivati da più passaggi, come indicato nella sezione "generazione di clienti potenziali", il modo migliore per gestire i lead consiste nel deduplicare i record e personalizzare i follow-up. In questo modo, ogni cliente riceve un messaggio appropriato e si crea una relazione univoca.
+>Non tutti i dati dell'esempio precedente sono sempre disponibili per ogni lead. Poiché si otterranno lead dai vari passaggi, come specificato nella sezione "Generare lead clienti", il modo migliore per gestire i lead è deduplicare i record e personalizzare i follow-up. In questo modo, ogni cliente riceve un messaggio appropriato e si crea una relazione univoca.
 
 ## <a name="best-practices-for-lead-management"></a>Procedure consigliate per la gestione dei lead
 
 - **Processo**: definire un processo di vendita chiaro, con attività cardine, analisi e una chiara proprietà del team.
-- **Qualifica**: definire i prerequisiti, che indicano se un lead è stato completo. Assicurarsi che i rappresentanti di vendita o marketing siano qualificati con attenzione prima di eseguirli durante il processo di vendita completo.
+- **Qualificazione**: definire i prerequisiti, che indicano se un lead era completo. Assicurarsi che i rappresentanti di vendita o marketing qualifichino i lead con attenzione prima di prenderli in considerazione per il processo di vendita completo.
 - **Completamento**: non dimenticare di completare la procedura. Si prevede che la transazione tipica richieda da 5 a 12 chiamate di completamento.
-- **Coltiva**: è possibile coltivare i lead in modo da raggiungere un margine di profitto superiore.
+- **Seguire**: consolidare i lead in modo da raggiungere un margine di profitto superiore.
 
 ## <a name="common-questions-about-lead-management"></a>Domande frequenti sulla gestione dei lead
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Dove è possibile ottenere assistenza per configurare la destinazione dei lead?
 
-Attenersi alla procedura descritta nella sezione [connettersi al sistema CRM](#connect-to-your-crm-system)o inviare un ticket di supporto tramite la [Guida e il supporto](https://partner.microsoft.com/support/v2/?stage=1)tecnico del centro per i partner. Selezionare quindi **creazione** > offerta**il tipo di configurazione dell'offerta** > **Gestione lead**.
+Attenersi alla procedura illustrata nella sezione [Connettersi al sistema CRM](#connect-to-your-crm-system) o inviare un ticket di supporto tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport). Selezionare quindi **Offer creation (Creazione offerta)**  > **Your type of offer (Tipo di offerta)**  > **Lead management configuration (Configurazione di gestione dei lead)** .
 
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>È necessario configurare una destinazione lead per pubblicare un'offerta nel Marketplace commerciale?
+### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>È necessario configurare una destinazione dei lead per pubblicare un'offerta nel marketplace commerciale?
 
-La risposta dipende dal tipo di offerta che si sta pubblicando. Il software come un servizio (SaaS) e il coinvolgimento dei clienti di Dynamics 365 ti **contatteranno** per elencare tutte le offerte di Dynamics 365 per Finanza e operazioni, tutte le offerte di Dynamics 365 business Central e tutte le offerte di servizi di consulenza. Di conseguenza, richiedono una connessione a una destinazione lead. Se il tipo di offerta non è presente nell'elenco, non è necessaria una connessione a una destinazione lead. Si consiglia di configurare una destinazione lead in modo da non perdere le opportunità aziendali.
+La risposta dipende dal tipo di offerta che si sta pubblicando. Software as a service (SaaS) e Dynamics 365 Customer Engagement usano il pulsante **Contatta** per elencare tutte le offerte di Dynamics 365 per Finanza e operazioni, tutte le offerte di Dynamics 365 Business Central e tutte le offerte dei Servizi di consulenza. Di conseguenza, richiedono una connessione a una destinazione lead. Se il tipo di offerta non è presente nell'elenco, non è necessaria una connessione a una destinazione lead. Si consiglia di configurare una destinazione lead in modo da non perdere le opportunità aziendali.
 
 ### <a name="how-can-i-find-the-test-lead"></a>Come si trova il lead di test?
 
-Cercare `"MSFT_TEST"` nella destinazione principale. Ecco un esempio di lead di test di Microsoft:
+Cercare `"MSFT_TEST"` nella destinazione del lead. Di seguito è riportato un esempio di lead di test di Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844
@@ -121,46 +121,46 @@ phone = 1234567890
 title = MSFT_TEST_636573304831318844
 ```
 
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Ho un'offerta Live, ma perché non vedo alcun lead?
+### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Perché per un'offerta attiva non è visualizzato alcun lead?
 
-Verificare che la connessione alla destinazione principale sia valida. Ti invieremo un lead di test dopo aver selezionato **pubblica** sull'offerta nel centro per i partner. Se viene visualizzato il test lead, la connessione è valida. È anche possibile testare la connessione del lead provando ad acquisire l'anteprima dell'offerta durante il passaggio di anteprima. Selezionare **Ottieni ora**, **contattami**o versione di **valutazione gratuita** sull'inserzione nel Marketplace commerciale.
+Verificare che la connessione alla destinazione del lead sia valida. Microsoft invierà un lead di test dopo aver selezionato **Pubblica** sull'offerta nel Centro per i partner. Se viene visualizzato il lead di test, la connessione è valida. È anche possibile testare la connessione del lead provando ad acquisire l'anteprima dell'offerta durante il passaggio dell'anteprima. Selezionare **Scarica adesso**, **Contatta** o **Versione di valutazione gratuita** nell'inserzione nel marketplace commerciale.
 
-Assicurarsi anche di cercare i dati corretti. Il contenuto della sezione informazioni sui [Lead data](#understand-lead-data) di questo articolo descrive i dati principali inviati alla destinazione principale.
+Assicurarsi inoltre di cercare i dati corretti. Il contenuto della sezione [Informazioni sui dati dei lead](#understand-lead-data) di questo articolo descrive i dati inviati alla destinazione dei lead.
 
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>L'archiviazione BLOB di Azure è stata configurata come destinazione principale, ma perché non è possibile vedere il responsabile?
+### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>È stata configurata l'archiviazione BLOB di Azure come destinazione dei lead. Perché il lead non è visualizzato?
 
-L'archiviazione BLOB di Azure non è più supportata come destinazione principale, quindi mancano i lead dei clienti generati dall'offerta. Passare a una delle altre [Opzioni di destinazione principale](./commercial-marketplace-get-customer-leads.md). 
+L'archiviazione BLOB di Azure non è più supportata come destinazione dei lead, quindi mancano i lead dei clienti generati dall'offerta. Passare a qualsiasi altra [opzione di destinazione dei lead](./commercial-marketplace-get-customer-leads.md). 
 
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Ho ricevuto un messaggio di posta elettronica dal Marketplace commerciale, ma perché non riesco a trovare il lead nel mio CRM?
+### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>È stato ricevuto un messaggio di posta elettronica dal marketplace commerciale, perché non si riesce a trovare il lead nel sistema CRM?
 
-È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, le informazioni personali non vengono passate dal dominio. edu. Inviare un ticket di supporto tramite la [Guida e il supporto](https://partner.microsoft.com/support/v2/?stage=1)tecnico del centro per i partner.
+È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, le informazioni personali non vengono passate da questo tipo di domini. Inviare un ticket di supporto tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport).
 
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>È stata configurata una tabella di Azure come destinazione principale. Come è possibile visualizzare i lead?
+### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>È stata configurata una tabella di Azure come destinazione dei lead. Come è possibile visualizzare i lead?
 
-È possibile accedere ai dati dei lead archiviati nella tabella di Azure dalla portale di Azure. È anche possibile scaricare e installare gratuitamente [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per visualizzare i dati della tabella dell'account di archiviazione di Azure.
+È possibile accedere ai dati dei lead archiviati nella tabella di Azure dal portale di Azure. È possibile inoltre scaricare e installare gratuitamente [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per visualizzare i dati delle tabelle del proprio account di archiviazione di Azure.
 
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>È stata configurata una tabella di Azure come destinazione principale. Posso ricevere una notifica ogni volta che viene inviato un nuovo lead del Marketplace commerciale?
+### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>È stata configurata una tabella di Azure come destinazione dei lead. Posso ricevere una notifica ogni volta che viene inviato un nuovo lead del marketplace commerciale?
 
-Sì. Seguire le istruzioni in [configurare la gestione dei lead usando una tabella di Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) per configurare un Microsoft Flow che invia un messaggio di posta elettronica se viene aggiunto un lead alla tabella di Azure.
+Sì. Seguire le istruzioni in [Usare le tabelle di Azure per configurare la gestione dei lead](./commercial-marketplace-lead-management-instructions-azure-table.md) per configurare un flusso Microsoft che invia un messaggio di posta elettronica se viene aggiunto un lead alla tabella di Azure.
 
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Salesforce è stato configurato come destinazione principale, ma perché non è possibile trovare i lead?
+### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>È stato configurato Salesforce come destinazione dei lead. Perché i lead non sono visualizzati?
 
-Controllare se il modulo Web-to-lead è un campo obbligatorio in base a un elenco di selezione. In caso contrario, passare il campo a un campo di testo non obbligatorio.
+Verificare se il modulo Web-to-Lead (Da Web a lead) è un campo obbligatorio in base a un elenco a discesa. Se lo è, impostarlo su un campo di testo non obbligatorio.
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>C'è stato un problema con la destinazione dei lead e non si sono visti alcuni lead. È possibile riceverli tramite posta elettronica?
 
-A causa dei criteri di informazioni personali, non è possibile condividere le informazioni sui lead tramite posta elettronica non protetta.
+A causa dei criteri relativi ai dati personali, non è possibile condividere informazioni sui lead tramite posta elettronica non protetta.
 
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>È stata configurata una tabella di Azure come destinazione principale. Quanto costa?
+### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>È stata configurata una tabella di Azure come destinazione dei lead. Quale sarà il costo?
 
-I dati di generazione dei lead sono bassi. È inferiore a 1 GB per quasi tutti i Publisher. Il costo dipende dal numero di lead ricevuti. Se, ad esempio, vengono ricevuti 1.000 lead in un mese, il costo è di circa 50 centesimi. Per altre informazioni sui prezzi di archiviazione, vedere [Panoramica dei prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+I dati sulla generazione dei lead sono scarsi. Sono inferiori a 1 GB per quasi tutti gli autori. Il costo dipende dal numero di lead ricevuti. Se, ad esempio, vengono ricevuti 1.000 lead in un mese, il costo è di circa 50 centesimi. Per altre informazioni sui prezzi dell'archiviazione, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Se la domanda non è stata risposta, contattare supporto tecnico Microsoft tramite la [Guida e il supporto](https://aka.ms/marketplacepublishersupport)tecnico del centro per i partner. Selezionare quindi **creazione** > offerta**il tipo di configurazione dell'offerta** > **Gestione lead**.
+Se non è stata fornita una risposta alla domanda, contattare il supporto tecnico Microsoft tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport). Selezionare quindi **Offer creation (Creazione offerta)**  > **Your type of offer (Tipo di offerta)**  > **Lead management configuration (Configurazione di gestione dei lead)** .
 
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Ricevo notifiche tramite posta elettronica quando vengono ricevuti nuovi clienti potenziali. Come è possibile configurare un altro utente per ricevere questi messaggi di posta elettronica?
+### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Ricevo notifiche tramite posta elettronica quando vengono ricevuti nuovi lead. Come è possibile configurare un altro utente per la ricezione di questi messaggi di posta elettronica?
 
-Accedere alla propria offerta nel centro per i partner e passare alla pagina di **configurazione dell'offerta** >**modifica** **della gestione dei** > lead. Aggiornare gli indirizzi di posta elettronica nel campo **indirizzo di posta elettronica di contatto** .
+Accedere alla propria offerta nel Centro per i partner e passare alla pagina **Offer setup (Configurazione dell'offerta)** > **Lead Management (Gestione dei lead)**  > **Modifica**. Aggiornare gli indirizzi di posta elettronica nel campo **Indirizzo di posta elettronica di contatto**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurata la configurazione tecnica, incorporare questi lead nella strategia di vendita e marketing attuale e nei processi operativi. Siamo interessati a comprendere meglio il processo di vendita globale e desideriamo collaborare con te per fornire lead di alta qualità e dati sufficienti per ottenere risultati ottimali. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Segnalaci se sei interessato a [inviare commenti](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti per consentire al tuo team di vendita di ottenere risultati più efficaci con i lead del Marketplace commerciale.
+Dopo che è stata eseguita la configurazione tecnica, incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi [feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace commerciale in modo ottimale.

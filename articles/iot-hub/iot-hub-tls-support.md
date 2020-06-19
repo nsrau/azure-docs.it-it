@@ -1,30 +1,30 @@
 ---
-title: Supporto TLS per hub Azure
-description: Procedure consigliate per l'uso di connessioni TLS sicure per dispositivi e servizi che comunicano con l'hub Internet
+title: Supporto TLS per l'hub IoT di Azure
+description: Procedure consigliate per l'uso di connessioni TLS sicure per i dispositivi e i servizi che comunicano con l'hub IoT
 services: iot-hub
 author: rezasherafat
 ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: 7ab3b48d22f116a707f68cbf6284928c7d2557e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5b9f6b993b0d0f527d041b4ee055bf51fefa1253
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409498"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848246"
 ---
-# <a name="tls-support-in-iot-hub"></a>Supporto di TLS nell'hub Internet
+# <a name="tls-support-in-iot-hub"></a>Supporto TLS nell'hub IoT
 
-Hub Internet usa Transport Layer Security (TLS) per proteggere le connessioni da dispositivi e servizi Internet. Sono attualmente supportate tre versioni del protocollo TLS, ovvero le versioni 1,0, 1,1 e 1,2.
+L'hub IoT usa il protocollo Transport Layer Security (TLS) per la protezione delle connessioni dai dispositivi e dai servizi IoT. Attualmente sono supportate tre versioni del protocollo TLS, ovvero le versioni 1.0, 1.1 e 1.2.
 
-TLS 1,0 e 1,1 sono considerati legacy e sono pianificati per la deprecazione. Per altre informazioni, vedere [deprecazione di TLS 1,0 e 1,1 per l'hub](iot-hub-tls-deprecating-1-0-and-1-1.md)Internet. Si consiglia di usare TLS 1,2 come versione preferita di TLS quando ci si connette all'hub Internet.
+Le versioni 1.0 e 1.1 di TLS sono considerate legacy e ne è prevista la deprecazione. Per altre informazioni, vedere [Deprecazione di TLS 1.0 e 1.1 nell'hub IoT](iot-hub-tls-deprecating-1-0-and-1-1.md). È consigliabile usare TLS 1.2 come versione preferita di TLS durante la connessione all'hub IoT.
 
-## <a name="restrict-connections-to-tls-12-in-your-iot-hub-resource"></a>Limitare le connessioni a TLS 1,2 nella risorsa dell'hub Internet delle cose
+## <a name="restrict-connections-to-tls-12-in-your-iot-hub-resource"></a>Limitare le connessioni a TLS 1.2 nella risorsa dell'hub IoT
 
-Per una maggiore sicurezza, è consigliabile configurare gli hub di Internet delle cose in modo da consentire *solo* connessioni client che usano TLS versione 1,2 e per applicare l'uso di [crittografie consigliate](#recommended-ciphers).
+Per ulteriore sicurezza, è consigliabile configurare gli hub IoT per consentire *soltanto* le connessioni client che usano la versione 1.2 di TLS e per applicare l'uso delle [crittografie consigliate](#recommended-ciphers).
 
-A questo scopo, effettuare il provisioning di un nuovo hub Internet in una delle [aree supportate](#supported-regions) e impostare la `minTlsVersion` proprietà su `1.2` nella specifica della risorsa dell'hub Internet del modello di Azure Resource Manager:
+A questo scopo, eseguire il provisioning di un nuovo hub IoT in una delle [aree supportate](#supported-regions) e impostare la proprietà `minTlsVersion` su `1.2` nella specifica della risorsa dell'hub IoT del modello di Azure Resource Manager:
 
 ```json
 {
@@ -49,14 +49,14 @@ A questo scopo, effettuare il provisioning di un nuovo hub Internet in una delle
 }
 ```
 
-La risorsa dell'hub Internet delle cose creata con questa configurazione rifiuterà ai client dei dispositivi e dei servizi che tentano di connettersi usando le versioni di TLS 1,0 e 1,1. Analogamente, l'handshake TLS verrà rifiutato se il messaggio HELLo del client non elenca alcuna [crittografia consigliata](#recommended-ciphers).
+La risorsa dell'hub IoT creata con questa configurazione rifiuterà i client dei dispositivi e dei servizi che tentano di connettersi usando le versioni 1.0 e 1.1 di TLS. Analogamente, l'handshake TLS verrà rifiutato se nel messaggio HELLO del client non è indicata alcuna delle [crittografie consigliate](#recommended-ciphers).
 
 > [!NOTE]
-> La `minTlsVersion` proprietà è di sola lettura e non può essere modificata dopo la creazione della risorsa hub Internet. È pertanto essenziale verificare e convalidare in modo corretto che *tutti* i dispositivi e i servizi Internet siano compatibili con TLS 1,2 e le [crittografie consigliate](#recommended-ciphers) in anticipo.
+> La proprietà `minTlsVersion` è di sola lettura e non è possibile modificarla in seguito alla creazione della risorsa dell'hub IoT. È pertanto essenziale testare e convalidare anticipatamente e in modo adeguato la compatibilità di *tutti* i dispositivi e i servizi IoT con TLS 1.2 e con le [crittografie consigliate](#recommended-ciphers).
 
-### <a name="supported-regions"></a>Aree supportate
+## <a name="supported-regions"></a>Aree supportate
 
-Gli hub Internet delle cose che richiedono l'uso di TLS 1,2 possono essere creati nelle aree seguenti:
+Gli hub IoT che richiedono l'uso di TLS 1.2 possono essere creati nelle aree seguenti:
 
 * Stati Uniti orientali
 * Stati Uniti centro-meridionali
@@ -65,30 +65,45 @@ Gli hub Internet delle cose che richiedono l'uso di TLS 1,2 possono essere creat
 * US Gov Virginia
 
 > [!NOTE]
-> Al momento del failover, `minTlsVersion` la proprietà dell'hub Internet delle cose rimarrà valida nell'area geografica abbinata dopo il failover.
+> Al momento del failover, la proprietà `minTlsVersion` dell'hub IoT rimarrà valida nell'area abbinata in seguito al failover.
 
-### <a name="recommended-ciphers"></a>Crittografie consigliate
+## <a name="recommended-ciphers"></a>Crittografie consigliate
 
-Gli hub Internet delle cose configurati per accettare solo TLS 1,2 applicheranno anche l'uso delle seguenti crittografie consigliate:
+Gli hub IoT configurati per accettare solo TLS 1.2 imporranno anche l'uso delle crittografie consigliate seguenti:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-### <a name="use-tls-12-in-your-iot-hub-sdks"></a>Usare TLS 1,2 negli SDK dell'hub Internet delle cose
+Per gli hub IoT non configurati per l'applicazione di TLS 1.2, quest'ultimo funziona comunque con le crittografie seguenti:
 
-Usare i collegamenti seguenti per configurare TLS 1,2 e le crittografie consentite negli SDK client dell'hub Internet.
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_CBC_SHA256`
+* `TLS_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-| Linguaggio | Versioni che supportano TLS 1,2 | Documentazione |
+## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Usare TLS 1.2 negli SDK dell'hub IoT
+
+Usare i collegamenti seguenti per configurare TLS 1.2 e le crittografie consentite negli SDK del client dell'hub IoT.
+
+| Linguaggio | Versioni che supportano TLS 1.2 | Documentazione |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 o versione successiva            | [Collegamento](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Versione 2.0.0 o successiva             | [Collegamento](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Versione 1.21.4 o successiva            | [Collegamento](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Versione 1.19.0 o successiva            | [Collegamento](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Versione 1.12.2 o successiva            | [Collegamento](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 o versioni successive            | [Collegamento](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Versione 2.0.0 o successive             | [Collegamento](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Versione 1.21.4 o successive            | [Collegamento](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Versione 1.19.0 o successive            | [Collegamento](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Versione 1.12.2 o successive            | [Collegamento](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
-### <a name="use-tls-12-in-your-iot-edge-setup"></a>Usare TLS 1,2 nell'installazione di IoT Edge
+## <a name="use-tls-12-in-your-iot-edge-setup"></a>Usare TLS 1.2 nella configurazione di IoT Edge
 
-I dispositivi IoT Edge possono essere configurati per l'uso di TLS 1,2 durante la comunicazione con l'hub Internet. A tale scopo, utilizzare la [pagina della documentazione IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+È possibile configurare l'uso di TLS 1.2 da parte dei dispositivi IoT Edge durante la comunicazione con l'hub IoT. A tale scopo, vedere la [pagina della documentazione di IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

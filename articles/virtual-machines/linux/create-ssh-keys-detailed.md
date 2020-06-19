@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969546"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142470"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una VM Linux di Azure 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una macchina virtuale Linux in Azure 
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare una macchina virtuale Linux in Azure che per impostazione predefinita usa le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le VM create con il portale di Azure, l'interfaccia della riga di comando di Azure, i modelli di Resource Manager o altri strumenti possono includere la chiave pubblica SSH come parte della distribuzione, configurando in questo modo l'autenticazione con chiave SSH per le connessioni SSH. 
 
 Questo articolo riporta informazioni e procedure dettagliate per creare e gestire una coppia di file della chiave pubblica e privata RSA SSH per le connessioni client SSH. Per i comandi rapidi, vedere [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](mac-create-ssh-keys.md).
@@ -35,7 +35,7 @@ Se non si vogliono usare chiavi SSH, è possibile configurare la VM Linux in mod
 
 ## <a name="generate-keys-with-ssh-keygen"></a>Generare chiavi con ssh-keygen
 
-Per creare le chiavi, un comando preferito è `ssh-keygen`, disponibile con le utilità OpenSSH in Azure Cloud Shell, un host macOS o Linux, il [sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/about) e altri strumenti. `ssh-keygen` presenta una serie di domande e quindi scrive una chiave privata e una chiave pubblica corrispondente. 
+Per creare le chiavi, un comando preferito è `ssh-keygen`, disponibile con le utilità OpenSSH in Azure Cloud Shell, un host macOS o Linux e Windows 10. `ssh-keygen` presenta una serie di domande e quindi scrive una chiave privata e una chiave pubblica corrispondente. 
 
 Per impostazione predefinita, le chiavi SSH vengono conservate nella directory `~/.ssh`.  Se non si dispone di una directory `~/.ssh`, questa viene creata automaticamente dal comando `ssh-keygen` con le autorizzazioni corrette.
 
@@ -64,7 +64,7 @@ ssh-keygen \
 
 `ssh-keygen`: programma usato per creare le chiavi.
 
-`-m PEM`= formattare la chiave come PEM
+`-m PEM` = formattare la chiave come PEM
 
 `-t rsa` = tipo di chiave da creare, in questo caso nel formato RSA
 

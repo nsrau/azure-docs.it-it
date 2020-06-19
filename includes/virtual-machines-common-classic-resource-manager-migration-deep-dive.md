@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
-ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778291"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 È importante comprendere prima di tutto la differenza tra le operazioni a livello di piano dati e quelle a livello di piano di gestione sulle risorse dell'infrastruttura distribuita come servizio (IaaS).
 
-* Il *piano di gestione/controllo* descrive le chiamate che entrano nel piano di gestione/controllo o l'API per la modifica delle risorse. Ad esempio, operazioni come la creazione di una VM, il riavvio di una VM e l'aggiornamento di una rete virtuale con una nuova subnet gestiscono le risorse in esecuzione. Non incidono direttamente sulla connessione alle macchine virtuali.
-* Il *piano dati* (applicazione) descrive il runtime dell'applicazione stessa e prevede l'interazione con istanze che non passano attraverso l'API di Azure. Ad esempio, l'accesso a un sito Web o il pull dei dati da un'istanza di SQL Server o da un server MongoDB in esecuzione sono interazioni a livello di piano dati o dell'applicazione. Altri esempi includono la copia di un BLOB da un account di archiviazione e l'accesso a un indirizzo IP pubblico per l'uso di Remote Desktop Protocol (RDP) o Secure Shell (SSH) nella macchina virtuale. Queste operazioni mantengono in esecuzione l'applicazione nelle risorse di calcolo, rete e archiviazione.
+* Il *piano di gestione/controllo* descrive le chiamate che arrivano al piano di gestione/controllo o l'API per la modifica delle risorse. Ad esempio, operazioni come la creazione di una VM, il riavvio di una VM e l'aggiornamento di una rete virtuale con una nuova subnet gestiscono le risorse in esecuzione. Non incidono direttamente sulla connessione alle macchine virtuali.
+* Il *piano dati* (applicazione) descrive la fase di esecuzione dell'applicazione stessa e prevede l'interazione con istanze che non passano attraverso l'API di Azure. Ad esempio, l'accesso a un sito Web o il pull dei dati da un'istanza di SQL Server o da un server MongoDB in esecuzione sono interazioni a livello di piano dati o dell'applicazione. Altri esempi includono la copia di un BLOB da un account di archiviazione e l'accesso a un indirizzo IP pubblico per l'uso di Remote Desktop Protocol (RDP) o Secure Shell (SSH) nella macchina virtuale. Queste operazioni mantengono in esecuzione l'applicazione nelle risorse di calcolo, rete e archiviazione.
 
 Il piano dati è lo stesso sia per il modello di distribuzione classica che per gli stack di Azure Resource Manager. La differenza sta nel fatto che, durante il processo di migrazione, Microsoft converte la rappresentazione delle risorse dal modello di distribuzione classica a quella nello stack di Azure Resource Manager. È quindi necessario usare nuovi strumenti, API e SDK per gestire le risorse nello stack di Azure Resource Manager.
 
@@ -121,7 +121,7 @@ Questo è un passaggio facoltativo che permette di annullare le modifiche al mod
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non vengono più visualizzate nel modello di distribuzione classica e sono disponibili solo nel modello di distribuzione Resource Manager. Le risorse migrate possono essere gestite solo nel nuovo portale.
 
 > [!NOTE]
-> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se l'errore persiste, creare un ticket di supporto o creare un forum su [Microsoft Q&a](https://docs.microsoft.com/answers/index.html)
+> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se l'errore persiste, creare un ticket di supporto oppure creare un forum nella sezione [Domande e risposte Microsoft](https://docs.microsoft.com/answers/index.html)
 >
 >
 
@@ -151,11 +151,11 @@ La tabella seguente mostra la rappresentazione delle risorse nel modello di dist
 | Regole NAT in ingresso |Regole NAT in ingresso |Gli endpoint di input definiti nella VM vengono convertiti in regole NAT in ingresso nel servizio di bilanciamento del carico durante la migrazione. |
 | Indirizzo VIP |Indirizzo IP pubblico con nome DNS |L'indirizzo IP virtuale diventa un indirizzo IP pubblico e viene associato al servizio di bilanciamento del carico. La migrazione di un indirizzo IP virtuale può essere eseguita solo se all'indirizzo è assegnato un endpoint di input. |
 | Rete virtuale |Rete virtuale |Viene eseguita la migrazione della rete virtuale con tutte le relative proprietà nel modello di distribuzione di Resource Manager. Viene creato un nuovo gruppo di risorse con il nome `-migrated`. |
-| IP riservati |Indirizzo IP pubblico con allocationMethod statico |Gli indirizzi IP riservati associati al servizio di bilanciamento del carico vengono trasferiti con la migrazione del servizio cloud o della macchina virtuale. La migrazione di indirizzi IP riservati non associati non è attualmente supportata. |
+| IP riservati |Indirizzo IP pubblico con allocationMethod statico |Gli indirizzi IP riservati associati al servizio di bilanciamento del carico vengono trasferiti con la migrazione del servizio cloud o della macchina virtuale. È possibile eseguire la migrazione di indirizzi IP riservati non associati tramite [Move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurereservedip?view=azuresmps-4.0.0).  |
 | Indirizzo IP pubblico per VM |Indirizzo IP pubblico con Allocationmethod dinamico |L'indirizzo IP pubblico associato alla VM viene convertito come risorsa indirizzo IP pubblico con il metodo di allocazione impostato su statico. |
-| Gruppi di sicurezza di rete |Gruppi di sicurezza di rete |I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. |
+| Gruppi di sicurezza di rete |Gruppi di sicurezza di rete |I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di gruppi di sicurezza di rete non associati tramite [Move-AzureNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
 | Server DNS |Server DNS |Viene eseguita la migrazione dei server DNS associati a una rete virtuale o alla VM come parte della migrazione delle risorse corrispondenti insieme a tutte le proprietà. |
-| Route definite dall'utente |Route definite dall'utente |Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Il routing definito dall'utente nel modello di distribuzione classica non viene rimosso durante la migrazione. Le operazioni del piano di gestione per il routing definito dall'utente vengono bloccate mentre la migrazione è in corso. |
+| Route definite dall'utente |Route definite dall'utente |Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Il routing definito dall'utente nel modello di distribuzione classica non viene rimosso durante la migrazione. Le operazioni del piano di gestione per il routing definito dall'utente vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di route definite dall'utente non associate tramite [Move-AzureRouteTable](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Move-AzureRouteTable?view=azuresmps-4.0.0). |
 | Proprietà di inoltro IP nella configurazione di rete di una VM |Proprietà di inoltro IP nella scheda di rete |La proprietà di IP in una VM viene convertita in una proprietà nell'interfaccia di rete durante la migrazione. |
 | Servizio di bilanciamento del carico con più IP |Servizio di bilanciamento del carico con più risorse IP pubblico |Ogni indirizzo IP pubblico associato al servizio di bilanciamento del carico viene convertito in una risorsa IP pubblico e associato al servizio di bilanciamento del carico al termine della migrazione. |
 | Nomi DNS interni nella VM |Nomi DNS interni nella NIC |Durante la migrazione, i suffissi DNS interni per le VM vengono migrati a una proprietà di sola lettura chiamata "InternalDomainNameSuffix" sulla scheda di interfaccia di rete. Il suffisso non subisce modifiche dopo la migrazione e la risoluzione della macchina virtuale continua a funzionare come in precedenza. |

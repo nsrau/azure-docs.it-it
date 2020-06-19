@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645872"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022591"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in macchine virtuali di Azure
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645872"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -319,7 +319,7 @@ Le informazioni generali sull'esecuzione di SAP NetWeaver in SAP MaxDB sono disp
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Versioni di Microsoft Windows e tipi di VM di Azure supportati per SAP MaxDB DBMS
 Per trovare la versione supportata di Microsoft Windows per SAP MaxDB DBMS in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Product Availability Matrix (PAM) SAP ][sap-pam] (Matrice di disponibilità del prodotto (PAM) SAP)
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente del sistema operativo Microsoft Windows, ovvero Microsoft Windows 2016.
@@ -385,7 +385,7 @@ La versione minima di SAP liveCache supportata nelle macchine virtuali di Azure 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Versioni di Microsoft Windows e tipi di VM di Azure supportati per SAP liveCache DBMS
 Per trovare la versione supportata di Microsoft Windows per SAP liveCache in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Product Availability Matrix (PAM) SAP ][sap-pam] (Matrice di disponibilità del prodotto (PAM) SAP)
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente del sistema operativo Microsoft Windows Server. 
@@ -427,18 +427,18 @@ SAP attualmente supporta:
 
 È consigliabile usare la versione più recente di SAP Content Server e la versione più recente di **Microsoft IIS**. 
 
-Controllare le versioni supportate più recenti di SAP Content Server e Microsoft IIS in [Product Availability Matrix (PAM) SAP][sap-pam].
+Controllare le versioni supportate più recenti di SAP Content Server e Microsoft IIS in [Product Availability Matrix (PAM) SAP ][sap-pam] (Matrice di disponibilità del prodotto (PAM) SAP).
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Tipi di VM di Azure e di Microsoft Windows supportati per SAP Content Server
 Per trovare le versioni di Windows supportate per SAP Content Server in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Product Availability Matrix (PAM) SAP ][sap-pam] (Matrice di disponibilità del prodotto (PAM) SAP)
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente di Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linee guida per la configurazione di SAP Content Server per le installazioni di SAP nelle VM di Azure
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per il server di contenuti in Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per SAP Content Server in Azure
 Se si configura SAP Content Server per archiviare i file nel database SAP MaxDB, tutte le procedure consigliate per Archiviazione di Azure indicate per SAP MaxDB in questo documento sono valide anche per lo scenario di SAP Content Server. 
 
 Se si configura SAP Content Server per archiviare i file nel file system, è consigliabile usare un'unità logica dedicata. Gli spazi di archiviazione Windows consentono anche di aumentare le dimensioni logiche del disco e la velocità effettiva delle operazioni di I/O al secondo, come descritto in[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di Macchine virtuali di Azure per un carico di lavoro SAP). 

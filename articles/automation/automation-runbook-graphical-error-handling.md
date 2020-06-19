@@ -1,71 +1,68 @@
 ---
-title: Gestione degli errori nei runbook grafici di Automazione di Azure
-description: Questo articolo descrive come implementare la logica di gestione degli errori nei runbook grafici di Automazione di Azure.
+title: Gestire gli errori nei runbook grafici di Automazione di Azure
+description: Questo articolo descrive come implementare la logica di gestione degli errori nei runbook grafici.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367075"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832266"
 ---
-# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestione degli errori nei runbook grafici di Automazione di Azure
+# <a name="handle-errors-in-graphical-runbooks"></a>Gestire gli errori nei runbook grafici
 
-Un principio di progettazione chiave da considerare per il Runbook grafico di automazione di Azure è l'identificazione dei problemi che potrebbero verificarsi durante l'esecuzione di Runbook. ad esempio problemi relativi a esito positivo o negativo, stati di errore previsti e condizioni di errori imprevisti.
+Un principio di progettazione chiave da considerare per il runbook grafico di Automazione di Azure è l'identificazione dei problemi che potrebbero verificarsi durante l'esecuzione di runbook. ad esempio problemi relativi a esito positivo o negativo, stati di errore previsti e condizioni di errori imprevisti.
 
-Spesso, in caso di errore non fatale che si verifica con un'attività Runbook, Windows PowerShell gestisce l'attività elaborando qualsiasi attività successiva, indipendentemente dall'errore. È probabile che l'errore generi un'eccezione, ma è comunque consentita l'esecuzione dell'attività successiva.
+Spesso, se è presente un errore non irreversibile che si verifica con un'attività del runbook, Windows PowerShell gestisce l'attività elaborando eventuali attività successive, indipendentemente dall'errore. È probabile che l'errore generi un'eccezione, ma è comunque consentita l'esecuzione dell'attività successiva.
 
-Il Runbook grafico deve includere il codice di gestione degli errori per gestire i problemi di esecuzione. Per convalidare l'output di un'attività o gestire un errore, è possibile usare un'attività di codice PowerShell, definire la logica condizionale nel collegamento di output dell'attività oppure applicare un altro metodo.
+Il runbook grafico deve includere il codice di gestione degli errori per gestire i problemi di esecuzione. Per convalidare l'output di un'attività o gestire un errore, è possibile usare un'attività del codice di PowerShell, definire la logica condizionale nel collegamento di output dell'attività o applicare un altro metodo.
 
-I runbook grafici di Automazione di Azure sono stati migliorati con la capacità di includere la gestione degli errori. È ora possibile trasformare le eccezioni in errori non irreversibili e creare collegamenti di errori tra le attività. Il processo migliorato consente ai Runbook di rilevare gli errori e di gestire le condizioni realizzate o impreviste. 
+I runbook grafici di Automazione di Azure sono stati migliorati con la capacità di includere la gestione degli errori. È ora possibile trasformare le eccezioni in errori non irreversibili e creare collegamenti di errori tra le attività. Il processo migliorato consente al runbook di rilevare gli errori e gestire condizioni realizzate o impreviste. 
 
->[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
+## <a name="powershell-error-types"></a>Tipi di errori di PowerShell
 
-## <a name="powershell-error-types"></a>Tipi di errore di PowerShell
-
-I tipi di errori di PowerShell che possono verificarsi durante l'esecuzione di Runbook sono la chiusura di errori e errori non fatali.
+Durante l'esecuzione del runbook possono verificarsi errori PowerShell di tipo irreversibile o non irreversibile.
  
-### <a name="terminating-error"></a>Errore di terminazione
+### <a name="terminating-error"></a>Errore irreversibile
 
-Un errore irreversibile è un errore grave durante l'esecuzione che interrompe completamente l'esecuzione di un comando o di uno script. Gli esempi includono cmdlet inesistenti, errori di sintassi che impediscono l'esecuzione di un cmdlet e altri errori irreversibili.
+Si tratta di un errore grave durante l'esecuzione, che arresta completamente un comando o l'esecuzione dello script. Gli esempi includono cmdlet inesistenti, errori di sintassi che impediscono l'esecuzione di un cmdlet e altri errori irreversibili.
 
-### <a name="non-terminating-error"></a>Errore non fatale
+### <a name="non-terminating-error"></a>Errore non irreversibile
 
-Un errore non fatale è un errore non grave che consente di continuare l'esecuzione nonostante la condizione di errore. Gli esempi includono errori operativi, ad esempio errori di file non trovati e problemi di autorizzazioni.
+Si tratta di un errore non grave che consente di continuare comunque l'esecuzione nonostante la condizione di errore. Gli esempi includono errori operativi come errori di file non trovati e problemi relativi alle autorizzazioni.
 
 ## <a name="when-to-use-error-handling"></a>Quando usare la gestione degli errori
 
-Usare la gestione degli errori in runbook quando un'attività critica genera un errore o un'eccezione. È importante impedire l'elaborazione dell'attività successiva del Runbook e gestire l'errore in modo appropriato. La gestione dell'errore è particolarmente importante quando i manuali operativi supportano un processo operativo aziendale o del servizio.
+Usare la gestione degli errori nel runbook quando un'attività critica genera un errore o un'eccezione. È importante impedire l'elaborazione dell'attività successiva del runbook e gestire l'errore in modo appropriato. La gestione dell'errore è essenziale soprattutto quando i runbook supportano un processo correlato alle operazioni aziendali o di servizio.
 
-Per ogni attività che può generare un errore, è possibile aggiungere un collegamento di errore che punta a qualsiasi altra attività. L'attività di destinazione può essere di qualsiasi tipo, tra cui attività del codice, chiamata di un cmdlet, chiamata di un altro Runbook e così via. L'attività di destinazione può inoltre includere collegamenti in uscita, ovvero collegamenti normali o di errore. I collegamenti consentono all'Runbook di implementare una logica di gestione degli errori complessa senza ricorrere a un'attività di codice.
+## <a name="add-error-links"></a>Aggiungere collegamenti di errore
 
-La procedura consigliata consiste nel creare un Runbook di gestione degli errori dedicato con funzionalità comuni, ma questa pratica non è obbligatoria. Si consideri, ad esempio, un Runbook che tenta di avviare una macchina virtuale e di installarvi un'applicazione. Se la macchina virtuale non viene avviata correttamente,:
+Per ogni attività che può generare un errore, è possibile aggiungere un collegamento di errore che punta a qualsiasi altra attività. L'attività di destinazione può essere di qualsiasi tipo, incluse attività di codice, chiamata di un cmdlet, chiamata di un altro runbook e così via. L'attività di destinazione può avere anche collegamenti in uscita, regolari o di errore. I collegamenti consentono al runbook di implementare una logica complessa per la gestione degli errori senza dovere usare alcuna attività di codice.
 
-1. Invia una notifica relativa a questo problema.
-2. Avvia un altro Runbook che effettua automaticamente il provisioning di una nuova macchina virtuale.
+La procedura consigliata comporta la creazione di un runbook dedicato per la gestione degli errori con funzionalità comuni, ma questa pratica non è obbligatoria. Si consideri ad esempio un runbook che prova ad avviare una macchina virtuale e installarvi un'applicazione. Se la macchina virtuale non viene avviata correttamente:
 
-Una soluzione consiste nel disporre di un collegamento di errore in Runbook che punta a un'attività che gestisce il passaggio uno. Ad esempio, Runbook può connettere il `Write-Warning` cmdlet a un'attività per il passaggio due, ad esempio il cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
+1. invia una notifica relativa al problema;
+2. avvia un altro runbook che effettua automaticamente il provisioning di una nuova macchina virtuale.
 
-È anche possibile generalizzare questo comportamento per l'uso in molti manuali operativi inserendo queste due attività in un Runbook di gestione degli errori separato. Prima che il Runbook originale chiami questo errore di gestione Runbook, può costruire un messaggio personalizzato dai dati e quindi passarlo come parametro al Runbook di gestione degli errori.
+Una soluzione consiste nell'avere un collegamento di errore nel runbook che fa riferimento a un'attività che gestisce il primo passaggio. Ad esempio, il runbook può connettere il cmdlet `Write-Warning` a un'attività per il passaggio due, ad esempio il cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0).
 
-## <a name="how-to-use-error-handling"></a>Come usare la gestione degli errori
+Si può anche generalizzare questo comportamento per usarlo in diversi runbook, inserendo le due attività in un runbook di gestione degli errori separato. Prima che il runbook originale chiami tale runbook di gestione degli errori, potrebbe creare un messaggio personalizzato dai suoi dati e quindi passarlo come parametro al runbook di gestione degli errori.
 
-Ogni attività nel runbook dispone di un'impostazione di configurazione che consente di trasformare le eccezioni in errori non fatali. Per impostazione predefinita, questa impostazione è disabilitata. Si consiglia di abilitare questa impostazione per qualsiasi attività in cui il Runbook gestisce gli errori. Questa impostazione assicura che Runbook gestisca gli errori di terminazione e non fatale nell'attività come errori non fatali, usando un collegamento di errore.  
+## <a name="turn-exceptions-into-non-terminating-errors"></a>Trasformare le eccezioni in errori non irreversibili
 
-Dopo aver abilitato l'impostazione di configurazione, fare in modo che il Runbook crei un'attività che gestisce l'errore. Se l'attività genera un errore, vengono seguiti i collegamenti di errore in uscita. I collegamenti normali non vengono seguiti, anche se l'attività produce anche un output regolare.<br><br> ![Esempio di collegamento di errore in un runbook di Automazione](media/automation-runbook-graphical-error-handling/error-link-example.png)
+Ogni attività del runbook ha un'impostazione di configurazione che trasforma le eccezioni in errori non irreversibili. Per impostazione predefinita, questa impostazione è disabilitata. Si consiglia di abilitare questa impostazione per qualsiasi attività in cui il runbook gestisce gli errori. Questa impostazione assicura che il runbook gestisca gli errori irreversibili e non irreversibili nell'attività come errori non irreversibili, usando un collegamento di errore.  
 
-Nell'esempio seguente un Runbook recupera una variabile che contiene il nome computer di una macchina virtuale. Tenta quindi di avviare la macchina virtuale con l'attività successiva.<br><br> ![Esempio di gestione degli errori di Runbook di automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+Dopo aver abilitato l'impostazione di configurazione, fare in modo che il runbook crei un'attività che gestisce l'errore. Se l'attività produce un errore, vengono seguiti i collegamenti all'errore prodotto. I collegamenti normali non vengono seguiti, sebbene l'attività produca anche un output regolare.<br><br> ![Esempio di collegamento di errore in un runbook di Automazione](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-L' `Get-AutomationVariable` attività e il cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) sono configurati in modo da convertire le eccezioni in errori. Se si verificano problemi durante il recupero della variabile o l'avvio della macchina virtuale, il codice genera errori.<br><br> ![Impostazioni](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)delle attività di gestione degli errori di Runbook di automazione.
+Nell'esempio seguente un runbook recupera una variabile che include il nome del computer di una macchina virtuale, quindi prova ad avviare la macchina virtuale con l'attività successiva.<br><br> ![Esempio di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-I collegamenti di errore propagano da queste `error management` attività a una singola attività di codice. Questa attività viene configurata con una semplice espressione PowerShell che `throw` usa la parola chiave per arrestare l' `$Error.Exception.Message` elaborazione, insieme a per ottenere il messaggio che descrive l'eccezione corrente.<br><br> ![Esempio di codice di gestione degli errori Runbook di automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+L'attività `Get-AutomationVariable` e il cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) sono configurati in modo da convertire le eccezioni in errori. Se si verificano problemi nel recupero della variabile o nell'avvio della macchina virtuale, il codice genera errori.<br><br> ![Impostazioni delle attività di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+
+I collegamenti di errore passano da queste attività a una singola attività di codice `error management`. Questa attività viene configurata con una semplice espressione di PowerShell che usa la parola chiave `throw` per arrestare l'elaborazione, insieme a `$Error.Exception.Message` per ottenere il messaggio che illustra l'eccezione corrente.<br><br> ![Esempio di codice di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sui collegamenti e sui tipi di collegamento di errore nei runbook grafici, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow).
-
-* Per altre informazioni sull'esecuzione di Runbook, sul monitoraggio dei processi Runbook e su altri dettagli tecnici, vedere [esecuzione di Runbook in automazione di Azure](automation-runbook-execution.md).
+* Per informazioni sulla risoluzione degli errori di runbook grafici, vedere [Risolvere gli errori di runbook](troubleshoot/runbooks.md).

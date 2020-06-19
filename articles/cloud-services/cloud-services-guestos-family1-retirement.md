@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68359594"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835632"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Avviso di ritiro della famiglia di sistemi operativi guest 1
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.
@@ -23,7 +23,7 @@ Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1°
 
 **3 novembre 2014**. Il supporto esteso per la famiglia di sistemi operativi guest 1 è terminato ed è stato completamente ritirato. Saranno interessati tutti i servizi ancora attivi nella famiglia 1. Questi servizi potranno essere interrotti in qualsiasi momento. Non è garantito che i servizi continuino a essere operativi, a meno che l'utente non esegua manualmente l'aggiornamento.
 
-Per altre domande, visitare i [forum dei servizi cloud](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/).
+Per altre domande, visitare la [pagina delle domande di Domande e risposte Microsoft per Servizi cloud](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) o [contattare il supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Si è interessati?
 I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
@@ -32,7 +32,7 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
 3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure è "Windows Server 2008".
 
-Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sullo script, vedere [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014).
+Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sullo script, vedere [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Fine vita della famiglia di sistemi operativi guest di Azure: 1° giugno 2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

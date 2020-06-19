@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186323"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647733"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
-In quanto servizio di database cloud nativo completamente gestito, Azure Cosmos DB semplifica la fatturazione, addebitando solo la velocità effettiva di cui è stato effettuato il provisioning e le risorse di archiviazione utilizzate. Non sono previsti costi aggiuntivi per le licenze, hardware, costi di utilità o costi della struttura rispetto alle alternative ospitate in locale o in IaaS. Quando si considerano le funzionalità per più aree di Azure Cosmos DB, il servizio di database offre una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
+In quanto servizio di database cloud nativo completamente gestito, Azure Cosmos DB semplifica la fatturazione, addebitando solo la velocità effettiva di cui è stato effettuato il provisioning e le risorse di archiviazione utilizzate. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
 
 Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e a seconda delle risorse di archiviazione utilizzate. Per la velocità effettiva di cui è stato effettuato il provisioning, l'unità per la fatturazione è 100 UR al secondo all'ora, l'importo addebitato è di 0,008 dollari all'ora, in base al prezzo pubblico standard. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). Per le risorse di archiviazione utilizzate, vengono fatturati 0,25 dollari al mese per ogni GB di spazio di archiviazione. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese.
 
 > [!NOTE]
-> La fatturazione è per qualsiasi parte di un'ora di clock, non una durata di 60 minuti.
+> La fatturazione è per qualsiasi parte di un'ora, non per una durata di 60 minuti.
 
 ## <a name="billing-examples"></a>Esempi di fatturazione
 
@@ -31,7 +31,7 @@ Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli 
 
 * Si supponga di configurare una velocità effettiva di 1.000 UR/sec per un contenitore esistente 24 ore * 30 giorni al mese = 720 ore totali.  
 
-* 1.000 UR/sec corrisponde a 10 unità di 100 UR/sec all'ora per ogni ora di esistenza dei contenitori (1.000/100 = 10). 
+* 1\.000 UR/sec corrisponde a 10 unità di 100 UR/sec all'ora per ogni ora di esistenza dei contenitori (1.000/100 = 10). 
 
 * Moltiplicando 10 unità all'ora per il costo di 0,008 dollari (per 100 UR/sec all'ora) si ottiene 0,08 dollari all'ora. 
 
@@ -71,7 +71,7 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * La fattura sarà quindi di 0,008 x 222 = 1,776 dollari/ora. 
 
-* In un mese di 720 ore (24 ore * 30 giorni), se la velocità effettiva con provisioning di 500 ore è 1.200 ur/sec e per le restanti 220 ore di velocità effettiva con provisioning è stato 22.200 ur/sec, la fattura mensile indica: 500 x $0.096/hour + 220 x $1.776/hour = $438.72/month.
+* In un mese di 720 ore (24 ore * 30 giorni), se per 500 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 1.200 UR/sec e per le restanti 220 ore è stata pari a 22.200 UR/sec, la fattura mensile indicherà: 500 x 0,096 dollari/ora + 220 x 1,776 dollari/ora =  438,72 dollari/mese.
 
 ![Esempio di fattura con velocità effettiva dedicata](./media/understand-your-bill/bill-example1.png)
 
@@ -81,23 +81,23 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * L'addebito sarà di 1200 x 0,008 dollari = 9,60 dollari/ora. 
 
-* Se è necessario cambiare la velocità effettiva e per ogni database si aumenta la velocità effettiva di cui è stato effettuato il provisioning di 10 K UR/sec e si aggiunge un nuovo contenitore al primo database con modalità di velocità effettiva dedicata di 15 K UR/sec al database di velocità effettiva condiviso, la capacità di cui è stato effettuato il provisioning complessiva è di 155 K UR/sec (60 K UR/sec + 80 K UR/sec + 15 K UR/sec).  
+* Se è necessario cambiare la velocità effettiva e per ogni database si aumenta la velocità effettiva di cui è stato effettuato il provisioning di 10 K UR/sec e si aggiunge un nuovo contenitore al primo database con modalità di velocità effettiva dedicata di 15 K UR/sec al database di velocità effettiva condiviso, la capacità complessiva di cui è stato effettuato il provisioning è di 155 K UR/sec (60 K UR/sec + 80 K UR/sec + 15 K UR/sec).  
 
-* La fattura verrà quindi modificata in: 1.550 * $0,008 = $12.40/hour.  
+* La fattura passerà quindi a: 1.550 * 0,008 dollari = 12,40 dollari/ora.  
 
-* In un mese di 720 ore, se per la velocità effettiva con provisioning di 300 ore era 120-K ur/sec e per le rimanenti 420 ore di velocità effettiva con provisioning era 155-K ur/sec, la fattura mensile indicherà: 300 x $9.60/hour + 420 x $12.40/hour = $2.880 + $5.208 = $8088 al mese. 
+* In un mese di 720 ore, se per 300 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 120 K UR/sec e per le restanti 420 ore è stata pari a 155 K UR/sec, la fattura mensile indicherà: 300 x 9,60 dollari/ora + 420 x 12,40 dollari/ora =  2.880 dollari + 5.208 dollari = 8.088 dollari/mese. 
 
 ![Esempio di fattura con velocità effettiva condivisa](./media/understand-your-bill/bill-example2.png)
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Esempi di fatturazione con replica geografica e multimaster  
 
-È possibile aggiungere o rimuovere aree di Azure ovunque nel mondo per l'account del database di Azure Cosmos in qualsiasi momento. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos verrà riservata in ognuna delle aree di Azure associate all'account del database Azure Cosmos. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva di cui è stato effettuato il provisioning (area di scrittura singola) costa 0,008 dollari/ora per 100 UR/sec e la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili (configurazione multimaster) costa 0,016 dollari/ora per 100 UR/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
+Nell'account di database di Azure Cosmos è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva di cui è stato effettuato il provisioning (area di scrittura singola) costa 0,008 dollari/ora per 100 UR/sec e la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili (configurazione multimaster) costa 0,016 dollari/ora per 100 UR/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in un'area singola
 
 Si supponga di avere un contenitore Azure Cosmos negli Stati Uniti occidentali. Il contenitore viene creato con una velocità effettiva 10 K UR/sec e questo mese viene archiviato 1 TB di dati. Si supponga di aggiungere tre aree (Stati Uniti orientali, Europa settentrionale e Asia orientale) all'account di Azure Cosmos, ognuna con le stesse risorse di archiviazione e con la stessa velocità effettiva. La fattura mensile totale sarà la seguente (presupponendo un mese di 30 giorni). La fattura sarà la seguente: 
 
-|**Item** |**Utilizzo (mese)** |**Tariffa** |**Costo mensile** |
+|**Elemento** |**Utilizzo (mese)** |**Tariffa** |**Costo mensile** |
 |---------|---------|---------|-------|
 |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali      | 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora   |$ 576|
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale       | 3 * 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora  |$ 1.728|
@@ -105,13 +105,13 @@ Si supponga di avere un contenitore Azure Cosmos negli Stati Uniti occidentali. 
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
 |**Totale**     |     |  |**$ 2.554**|
 
-*Supponiamo inoltre che tu abbia in uscita 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati in Stati Uniti orientali, Europa settentrionale e Asia orientale. Viene addebitata l'uscita in base alle tariffe di trasferimento dati.*
+*Si supponga anche che vengano trasmessi 100 GB di dati in uscita ogni mese dal contenitore negli Stati Uniti occidentali verso gli Stati Uniti orientali, l'Europa settentrionale e l'Asia orientale. Viene fatturato il traffico in uscita in base alle tariffe per il trasferimento di dati.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in più aree
 
 Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali. Il contenitore viene creato con una velocità effettiva 10 K UR/sec e questo mese viene archiviato 1 TB di dati. Si supponga di aggiungere tre aree (Stati Uniti orientali, Europa settentrionale e Asia orientale), ognuna con le stesse risorse di archiviazione e con la stessa velocità effettiva e che si voglia avere la possibilità di scrivere nei contenitori di tutte le aree associate all'account di Azure Cosmos. La fattura mensile totale sarà la seguente (presupponendo un mese di 30 giorni):
 
-|**Item** |**Utilizzo (mese)**|**Tariffa** |**Costo mensile** |
+|**Elemento** |**Utilizzo (mese)**|**Tariffa** |**Costo mensile** |
 |---------|---------|---------|-------|
 |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)       | 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora    |$ 1.152 |
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in tutte le aree)        | (3+1) * 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora   |$ 4.608 |
@@ -119,9 +119,9 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
 |**Totale**     |     |  |**$ 6.010**|
 
-*Supponiamo inoltre che tu abbia in uscita 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati in Stati Uniti orientali, Europa settentrionale e Asia orientale. Viene addebitata l'uscita in base alle tariffe di trasferimento dati.*
+*Si supponga anche che vengano trasmessi 100 GB di dati in uscita ogni mese dal contenitore negli Stati Uniti occidentali verso gli Stati Uniti orientali, l'Europa settentrionale e l'Asia orientale. Viene fatturato il traffico in uscita in base alle tariffe per il trasferimento di dati.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Esempio di fatturazione: account Azure Cosmos con velocità effettiva a livello di database e multimaster, inclusa la modalità velocità effettiva dedicata per alcuni contenitori
+### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Esempio di fatturazione: Account Azure Cosmos con velocità effettiva multimaster a livello di database, inclusa la modalità di velocità effettiva dedicata per alcuni contenitori
 
 Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tutte le aree sono scrivibili (configurazione multimaster). Per semplicità, si suppone che le dimensioni delle risorse di archiviazione rimangano costanti e non cambino. Nel corso del mese, la velocità effettiva di cui è stato effettuato il provisioning è variata nel modo seguente (presupponendo 30 giorni o 720 ore): 
 
@@ -181,60 +181,60 @@ Le modifiche della velocità effettiva totale durante le 720 ore del mese sono i
 
 La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calcolata come segue:
 
-|**Hours**  |**UR/sec** |**Item** |**Utilizzo (orario)** |**Costii** |
+|**Ore**  |**UR/sec** |**Elemento** |**Utilizzo (orario)** |**Costii** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1: 10 K <br/>D2: 30 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$ 960  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
 |[101-200] |D1: 50 K <br/>D2: 70 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$ 1920  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$ 5.760  |
-|[201-300]  |D1: 50 K <br/>D2: 70 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2.240  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$ 6.720 |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$ 5.760  |
+|[201-300]  |D1: 50 K <br/>D2: 70 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$ 2.240  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$ 6.720 |
 |[301-400] |D1: 10 K <br/>D2: 80 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$ 1.440   |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
 |[401-500] |D1: 10 K <br>D2: 10 K <br>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$ 640  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$ 1.280  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$ 1.280  |
 |[501-700] |D1: 20 K <br>D2: 100 K <br>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$ 3.840  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$ 7.680  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$ 7.680  |
 |[701-720] |D1: 20 K <br/>D2: 50 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$ 224  |
-| | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$ 224  |
+| | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$ 224  |
 || |**Costo mensile totale**  | |**$38.688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account di livello gratuito
-Con Azure Cosmos DB livello gratuito, otterrai le prime 400 ur/sec e 5 GB di spazio di archiviazione nell'account gratuitamente, applicato a livello di account. Tutte le UR/s e le archiviazioni oltre 400 ur/sec e 5 GB saranno fatturate in base alle normali tariffe tariffarie per la pagina dei prezzi. Nella fattura non verrà visualizzato alcun addebito o una voce per le unità di 400 ur/sec gratuite e 5 GB, ma solo per le UR/sec e per le risorse di archiviazione superiori a quelle previste per il livello gratuito. 400 ur/sec si applica a qualsiasi tipo di velocità effettiva con provisioning di Ur/s, scalabilità automatica e multimaster.  
+## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account livello gratuito
+Azure Cosmos DB livello gratuito offre i primi 400 UR/sec e 5 GB di spazio di archiviazione nell'account gratuiti, applicati a livello di account. Eventuali UR/sec superiori a 400 RU/sec e spazio di archiviazione superiore a 5 GB saranno fatturati in base ai normali prezzi, come illustrato nella relativa pagina. Nella fattura non verrà riportato alcun addebito o alcuna voce per le 400 UR/sec e per i 5 GB, ma solo le UR/sec e lo spazio di archiviazione che superano quelli forniti gratuitamente. Le 400 UR/sec si applicano a qualsiasi tipo di velocità effettiva con provisioning di UR/sec, scalabilità automatica e multimaster.  
 
-### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione-contenitore o database con velocità effettiva con provisioning
-- Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 ur/s e 5 GB di spazio di archiviazione.
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione - Contenitore o database con velocità effettiva di provisioning
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 UR/sec e 5 GB di spazio di archiviazione.
 - La fattura non visualizzerà alcun addebito per questa risorsa. Il costo orario e mensile sarà pari a $0.
-- Si supponga ora che nello stesso account venga aggiunto un altro database o contenitore con 1000 ur/sec e 10 GB di spazio di archiviazione.
-- Nella fattura verrà ora visualizzato un addebito per le UR/sec 1000 e 10 GB di spazio di archiviazione. 
+- Si supponga ora che nello stesso account venga aggiunto un altro database o contenitore con 1000 UR/sec e 10 GB di spazio di archiviazione.
+- Nella fattura verrà ora visualizzato un addebito per le 1000 UR/sec e 10 GB di spazio di archiviazione. 
 
-### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Esempio di fatturazione-contenitore o database con velocità effettiva di scalabilità automatica
-- Si supponga che in un account di livello gratuito venga creato un database o un contenitore con scalabilità automatica abilitata, con un numero massimo di Ur/s di 4000 ur/sec. Questa risorsa verrà ridimensionata automaticamente tra 400 ur/s-4000 ur/sec. 
-- Si supponga che, tra l'ora 1 e l'ora 10, la risorsa sia almeno di 400 ur/sec. Durante l'ora 11 la risorsa è scalabile fino a 1000 ur/sec e quindi viene sottoposta a 400 ur/sec entro l'ora.
-- In ore da 1 a 10 verrà addebitato il costo $0 per la velocità effettiva, perché le 400 ur/s sono state coperte dal livello gratuito. 
-- Nell'ora 11 viene addebitata una tariffa valida di 1000 ur/s-400 ur/s = 600 ur/sec, in quanto si tratta delle UR/sec più alte nell'ora. Si tratta di 6 unità di 100 ur/sec per l'ora, quindi il costo totale della velocità effettiva per l'ora sarà 6 unità * $0,012 = $0,072. 
-- Qualsiasi spazio di archiviazione oltre i primi 5 GB verrà fatturato in base alle normali tariffe di archiviazione. 
+### <a name="billing-example---container-with-autoscale-throughput"></a>Esempio di fatturazione: contenitore con velocità effettiva di scalabilità automatica
+- Si supponga che in un account di livello gratuito venga creato un contenitore con scalabilità automatica abilitata, con un numero massimo di UR/sec di 4000 UR/sec. Questa risorsa verrà ridimensionata automaticamente tra 400 RU/s e 4.000 UR/sec. 
+- Si supponga che tra la prima e la decima ora la risorsa sia almeno di 400 UR/sec. Durante l'undicesima ora, la risorsa aumenta fino a 1.000 UR/sec e quindi torna a 400 UR/sec entro l'ora.
+- Nelle ore da 1 a 10 verrà addebitato il costo di $0 per la velocità effettiva, perché le 400 UR/sec sono state coperte dal livello gratuito. 
+- Nell'undicesima ora viene addebitata una tariffa effettiva di 1000 UR/sec - 400 UR/sec = 600 UR/sec, in quanto si tratta delle massime UR/sec nell'ora. Si tratta di 6 unità di 100 UR/sec per l'ora, quindi il costo totale della velocità effettiva per l'ora sarà di 6 unità * $0,012 = $0,072. 
+- Qualsiasi risorsa di archiviazione oltre i primi 5 GB verrà fatturata in base alle normali tariffe di archiviazione. 
 
-### <a name="billing-example---multi-region-single-write-region-account"></a>Esempio di fatturazione-più aree, account con singola area di scrittura
-- Supponiamo che in un account di livello gratuito creiamo un database o un contenitore con 1200 ur/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account con un solo master (Single Write-Region).
-- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 ur/s = 3600 ur/s e 3 * 10 GB = 30 GB di spazio di archiviazione.
-- Con lo sconto del livello gratuito, dopo la rimozione di 400 ur/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 ur/s (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura singola e di 25 GB di spazio di archiviazione.
-- Il costo mensile per ur/sec è: 32 unità * $0,008 * 24 ore * 31 giorni = $190,46. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25/GB = $6,25. Il costo totale sarebbe $190,46 + $6,25 = $196,71.
-- Nota: se il prezzo unitario per le UR/s o lo spazio di archiviazione è diverso nelle aree, il livello gratuito 400 ur/sec e 5 GB rifletteranno le tariffe dell'area in cui è stato creato l'account.
+### <a name="billing-example---multi-region-single-write-region-account"></a>Esempio di fatturazione - Account con più aree o una singola area di scrittura
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account con un solo master (area a scrittura singola).
+- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 UR/sec = 3600 UR/sec e 3 * 10 GB = 30 GB di spazio di archiviazione.
+- Con lo sconto del livello gratuito, dopo la rimozione di 400 UR/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 UR/sec (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura singola e di 25 GB di spazio di archiviazione.
+- Il costo mensile per UR/sec sarà: 32 unità * $0,008 * 24 ore * 31 giorni = $190,46. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25 / GB = $6,25. Il costo totale sarebbe $190,46 + $6,25 = $196,71.
+- Nota: se il prezzo unitario per UR/sec o lo spazio di archiviazione è diverso nelle varie aree, il livello gratuito di 400 UR/sec e 5 GB rifletterà le tariffe dell'area in cui è stato creato l'account.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Esempio di fatturazione-account multiarea, multimaster (più aree di scrittura)
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Esempio di fatturazione - Account con più aree, multimaster (aree di scrittura multiple)
 
-Questo esempio riflette i [prezzi multimaster](https://azure.microsoft.com/pricing/details/cosmos-db/) per gli account creati dopo il 1 ° dicembre 2019. 
-- Supponiamo che in un account di livello gratuito creiamo un database o un contenitore con 1200 ur/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account multi-master (più aree di scrittura). 
-- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 ur/s = 3600 ur/s e 3 * 10 GB = 30 GB di spazio di archiviazione.
-- Con lo sconto del livello gratuito, dopo la rimozione di 400 ur/sec e di 5 GB di spazio di archiviazione, verrà addebitato un effettivo 3200 ur/sec (32 unità) di velocità effettiva con provisioning a più aree di scrittura e 25 GB di spazio di archiviazione.
-- Il costo mensile per ur/sec è: 32 unità * $0,016 * 24 ore * 31 giorni = $380,93. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25/GB = $6,25. Il costo totale sarebbe $380,93 + $6,25 = $387,18.
+Questo esempio riflette [i prezzi multimaster](https://azure.microsoft.com/pricing/details/cosmos-db/) per gli account creati dopo il 1° dicembre 2019. 
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account multimaster (area a scrittura singola). 
+- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 UR/sec = 3600 UR/sec e 3 * 10 GB = 30 GB di spazio di archiviazione.
+- Con lo sconto del livello gratuito, dopo la rimozione di 400 UR/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 UR/sec (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura multipla e di 25 GB di spazio di archiviazione.
+- Il costo mensile per UR/sec sarà: 32 unità * $0,016 * 24 ore * 31 giorni = $380,93. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25 / GB = $6,25. Il costo totale sarebbe $380,93 + $6,25 = $387,18.
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Stima proattiva della fattura mensile  
 
 Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fattura prima della fine del mese. È possibile stimare la fattura nel modo seguente:
 
-|**Costo di archiviazione** | |
+|**Costi di archiviazione** | |
 |----|----|
 |Dimensioni medie dei record (KB) |1 |
 |Numero di record  |100.000.000  |
@@ -244,23 +244,23 @@ Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fatt
 
 <br>
 
-|**Costo velocità effettiva** | | | |
+|**Costi della velocità effettiva** | | | |
 |----|----|----|----|
-|Tipo di operazione| Richieste/sec| Media ur/richiesta| UR necessarie|
+|Tipo di operazione| Richieste/sec| Avg. UR/richiesta| UR necessarie|
 |Scrittura| 100 | 5 | 500|
 |Lettura| 400| 1| 400|
 
-Totale ur/sec: 500 + 400 = 900 costo orario: 900/100 * $0,008 = $0,072 costo mensile previsto per la velocità effettiva (presupponendo 31 giorni): $0,072 * 24 * 31 = $53,57
+Totale UR/sec: 500 + 400 = 900 Costo orario: 900/100 * $ 0,008 = $ 0,072 Costo mensile previsto per la velocità effettiva (presupponendo 31 giorni): $ 0,072 * 24 * 31 = $ 53,57
 
 **Costo mensile totale**
 
 Costo mensile totale = Costo mensile per l'archiviazione + Costo mensile per la velocità effettiva Costo mensile totale = $ 25,00 + $ 53,57 = $ 78,57
 
-*I prezzi possono variare in base all'area. Per i prezzi aggiornati, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).*
+*I prezzi possono variare a seconda dell'area. Per i prezzi aggiornati, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).*
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Fatturazione con capacità riservata di Azure Cosmos DB
 
-Azure Cosmos DB capacità riservata ti permette di acquistare in anticipo la velocità effettiva con provisioning, ovvero una capacità riservata o una prenotazione, che può essere applicata a tutti i database e contenitori di Azure Cosmos (per qualsiasi API o modello di dati) in tutte le aree di Azure. Poiché il prezzo della velocità effettiva di cui è stato effettuato il provisioning varia in base all'area, è possibile considerare la capacità riservata come un credito monetario acquistato a prezzo scontato che può essere dedotto dal prezzo della velocità effettiva di cui è stato effettuato il provisioning in ogni area. Si supponga, ad esempio, che un account di Azure Cosmos abbia un singolo contenitore di cui sia stato effettuato il provisioning con 50 K UR/sec e due aree replicate globalmente: Stati Uniti orientali e Giappone orientale. Se si sceglie l'opzione con pagamento in base al consumo, si paga:  
+La capacità riservata di Azure Cosmos DB consente di acquistare in anticipo velocità effettiva di cui è stato effettuato il provisioning (capacità riservata o prenotazione) che può essere applicata a tutti i database e a tutti i contenitori di Azure Cosmos (per qualsiasi modello di dati o API) in tutte le aree di Azure. Poiché il prezzo della velocità effettiva di cui è stato effettuato il provisioning varia in base all'area, è possibile considerare la capacità riservata come un credito monetario acquistato a prezzo scontato che può essere dedotto dal prezzo della velocità effettiva di cui è stato effettuato il provisioning in ogni area. Si supponga, ad esempio, che un account di Azure Cosmos abbia un singolo contenitore di cui sia stato effettuato il provisioning con 50 K UR/sec e due aree replicate globalmente: Stati Uniti orientali e Giappone orientale. Se si sceglie l'opzione con pagamento in base al consumo, si paga:  
 
 * Nell'area Stati Uniti orientali: 50 K UR/sec alla tariffa di $ 0,008 per 100 UR/sec 
 
@@ -276,7 +276,7 @@ La fattura totale (senza capacità riservata) è (presupponendo 30 giorni o 720 
 
 Si supponga invece di aver acquistato capacità riservata. È possibile acquistare capacità riservata per 100 K UR/sec al prezzo di 56,064 dollari per un anno (con lo sconto del 20%) o di 6,40 dollari all'ora. Vedere i prezzi della capacità riservata nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
 
-* Costo della velocità effettiva (pagamento in base al consumo): 100.000 UR/sec/100 * $0.008/hour * 8760 ore in un anno = $70.080 
+* Costo della velocità effettiva (con pagamento in base al consumo): 100.000 UR/sec/100 * $ 0,008/ora * 8760 ore in un anno = $ 70,080 
 
 * Costo della velocità effettiva (con capacità riservata) $ 70,080, con lo sconto del 20% = $ 56,064 
 
