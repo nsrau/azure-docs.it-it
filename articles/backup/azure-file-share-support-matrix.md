@@ -1,35 +1,35 @@
 ---
 title: Matrice di supporto per il backup di condivisioni file di Azure
-description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto per il backup di condivisioni file di Azure.
+description: Informazioni riepilogative su impostazioni e limitazioni del supporto per il backup di condivisioni file di Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 38e8cdba4913a56b4dc6b4398a99db9e9f93be51
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116731"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684634"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
-È possibile usare il [servizio backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview) per eseguire il backup delle condivisioni file di Azure. Questo articolo riepiloga le impostazioni di supporto quando si esegue il backup di condivisioni file di Azure con backup di Azure.
+Per eseguire il backup di condivisioni file di Azure è possibile usare il [servizio Backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). Questo articolo riepiloga le impostazioni di supporto quando si esegue il backup di condivisioni file di Azure con Backup di Azure.
 
-## <a name="supported-geos"></a>GEOS supportato
+## <a name="supported-geos"></a>Aree geografiche supportate
 
-Il backup per le condivisioni file di Azure è disponibile nelle aree geografiche seguenti:
+Il backup di condivisioni file di Azure è disponibile nelle aree geografiche seguenti:
 
-**Aree GA**:<br>
-Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Sud Asia orientale (SEA), Svizzera occidentale (SZW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (nè), India occidentale (INW), Australia centrale (ACL), Corea centrale (KRC), Giappone occidentale (JPW), Sudafrica settentrionale (SAN), Regno Unito occidentale (UKW) , Corea meridionale (KRS), Germania settentrionale (GN), Norvegia occidentale (NWW), Sudafrica occidentale (SAW), Svizzera settentrionale (SZN), Germania centro-occidentale (GWC), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), India centrale (INC), Canada orientale (cloud ed Enterprise), Asia orientale (EA), Australia orientale (AE), Stati Uniti centrali (CUS), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US gov Virginia (UGV), US DoD (area centrale) (UDC), US DoD (area orientale) (UDE)
+**Regioni di disponibilità generale**:<br>
+Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti centro-meridionali (SCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Asia sud-orientale (SEA), Svizzera occidentale (SZW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (NWE), India occidentale (INW), Australia centrale (ACL), Corea centrale (KRC), Giappone occidentale (JPW), Sudafrica settentrionale (SAN), Regno Unito meridionale (UKS), Regno Unito occidentale (UKW), Corea meridionale (KRS), Europa settentrionale (NE), Germania settentrionale (GN), Norvegia occidentale (NWW), Sudafrica occidentale (SAW), Svizzera settentrionale (SZN), Germania centro-occidentale (GWC), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), India centrale (INC), Canada orientale (CNE), Asia orientale (EA), Australia orientale (AE), Stati Uniti centrali (CUS), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD (area centrale) (UDC), US DoD (area orientale) (UDE)
 
-**Aree supportate (come parte dell'anteprima) ma non ancora GA**:<br>
-Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Stati Uniti centro-meridionali (SCUS), Regno Unito meridionale (UKS), Europa occidentale (Microsoft)
+**Aree supportate (come parte dell'anteprima) ma non ancora con disponibilità generale**:<br>
+Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa occidentale (WE)
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
 | Dettagli dell'account di archiviazione | Supporto                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per utilizzo generico V1, per utilizzo generico V2 e tipo di archiviazione di file |
-| Prestazioni              | Backup di Azure supporta le condivisioni file negli account di archiviazione standard e Premium |
+| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per uso generico V1, per uso generico V2 e account di archiviazione di tipo archiviazione file |
+| Prestazioni              | Backup di Azure supporta le condivisioni file negli account di archiviazione Standard e Premium |
 | Replica              | Sono supportate le condivisioni file di Azure negli account di archiviazione con qualsiasi tipo di replica |
 
 ## <a name="supported-file-shares"></a>Condivisioni file supportate
@@ -46,7 +46,7 @@ Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentriona
 | Impostazione                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
 | Numero massimo di condivisioni file che possono essere protette al giorno per ogni insieme di credenziali | 200   |
-| Numero massimo di account di archiviazione che possono essere registrati per ogni insieme di credenziali al giorno | 50    |
+| Numero massimo di account di archiviazione che possono essere registrati al giorno per ogni insieme di credenziali | 50    |
 
 ## <a name="backup-limits"></a>Limiti relativi a Backup
 
@@ -60,15 +60,15 @@ Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentriona
 | Impostazione                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Numero massimo di ripristini al giorno                           | 10      |
-| Numero massimo di file per ripristino                         | 10      |
-| Dimensione massima consigliata per il ripristino per le condivisioni file di grandi dimensioni | 15 TiB |
+| Numero massimo di file per ogni ripristino                         | 10      |
+| Dimensioni massime consigliate per il ripristino per le condivisioni file di grandi dimensioni | 15 TiB |
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 
 | Impostazione                                                      | Limite    |
 | ------------------------------------------------------------ | -------- |
 | Numero massimo di punti di ripristino per ogni condivisione file in un momento qualsiasi | 200      |
-| Massimo periodo di conservazione del punto di ripristino creato dal backup su richiesta | 10 anni |
+| Periodo massimo di conservazione del punto di ripristino creato da backup su richiesta | 10 anni |
 | Conservazione massima dei punti di ripristino giornalieri (snapshot) per ogni condivisione file| 200 giorni |
 | Conservazione massima dei punti di ripristino settimanali (snapshot) per ogni condivisione file | 200 settimane |
 | Conservazione massima dei punti di ripristino mensili (snapshot) per ogni condivisione file | 120 mesi |
@@ -76,13 +76,13 @@ Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentriona
 
 ## <a name="supported-restore-methods"></a>Metodi di ripristino supportati
 
-| Metodo Restore     | Dettagli                                                      |
+| Metodo di ripristino     | Dettagli                                                      |
 | ------------------ | ------------------------------------------------------------ |
-| Ripristino della condivisione completa | È possibile ripristinare la condivisione file completa nel percorso originale o in un percorso alternativo |
+| Ripristino completo della condivisione | È possibile ripristinare una condivisione file completa nel percorso originale o in uno alternativo |
 | Ripristino a livello di elemento | È possibile ripristinare singoli file e cartelle nel percorso originale o in un percorso alternativo |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [eseguire il backup delle condivisioni file di Azure](backup-afs.md)
-* Informazioni su come [ripristinare le condivisioni file di Azure](restore-afs.md)
-* Informazioni su come [gestire i backup di condivisioni file di Azure](manage-afs-backup.md)
+* Informazioni su come [Eseguire il backup di condivisioni file di Azure](backup-afs.md)
+* Informazioni su come [Eseguire il ripristino di condivisioni file di Azure](restore-afs.md)
+* Informazioni su come [Gestire i backup di condivisioni file di Azure](manage-afs-backup.md)

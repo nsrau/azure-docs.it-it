@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi dei connettori di Azure Data Factory
-description: Informazioni su come risolvere i problemi del connettore in Azure Data Factory.
+description: Informazioni su come risolvere i problemi relativi ai connettori in Azure Data Factory.
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -9,108 +9,108 @@ ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 50f76d9b4f3061e6e9a1e4a0b510146dbded422a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 7e818a80f9df97ce4e5f5b8f1ef9385d2e6b0ecc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198998"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827761"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i connettori in Azure Data Factory.
+Questo articolo illustra i metodi più comuni per la risoluzione dei problemi relativi ai connettori in Azure Data Factory.
   
 
 ## <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
-### <a name="error-code--azurebloboperationfailed"></a>Codice di errore: AzureBlobOperationFailed
+### <a name="error-code--azurebloboperationfailed"></a>Codice errore:  AzureBlobOperationFailed
 
-- **Messaggio**:`Blob operation Failed. ContainerName: %containerName;, path: %path;.`
+- **Messaggio**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
-- **Causa**: l'operazione di archiviazione BLOB ha raggiunto un problema.
+- **Causa**: Un'operazione di archiviazione BLOB ha generato un problema.
 
-- **Raccomandazione**: controllare l'errore in dettagli. Vedere il documento della Guida BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes . Se serve assistenza, contattare il team di archiviazione.
-
-
-### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Codice di errore: AzureBlobServiceNotReturnExpectedDataLength
-
-- **Messaggio**:`Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
+- **Raccomandazione**:  Controllare i dettagli dell'errore. Fare riferimento al documento della Guida dei BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Per assistenza, contattare il team di archiviazione.
 
 
-### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>Codice di errore: AzureBlobNotSupportMultipleFilesIntoSingleBlob
+### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Codice errore:  AzureBlobServiceNotReturnExpectedDataLength
 
-- **Messaggio**:`Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+- **Messaggio**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
 
 
-### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>Codice di errore: AzureStorageOperationFailedConcurrentWrite
+### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>Codice errore:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
 
-- **Messaggio**:`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+- **Messaggio**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+
+
+### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>Codice errore:  AzureStorageOperationFailedConcurrentWrite
+
+- **Messaggio**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-### <a name="error-message-request-size-is-too-large"></a>Messaggio di errore: dimensione della richiesta troppo grande
+### <a name="error-message-request-size-is-too-large"></a>Messaggio di errore: Le dimensioni della richiesta sono troppo grandi
 
-- **Sintomi**: i dati vengono copiati in Azure Cosmos DB con le dimensioni predefinite del batch di scrittura e l'errore di hit *"**dimensioni della richiesta è troppo grande**"*.
+- **Sintomi**: Si copiano i dati in Azure Cosmos DB con le dimensioni predefinite del batch di scrittura e viene generato l'errore *"**Le dimensioni della richiesta sono troppo grandi**"* .
 
-- **Motivo**: Cosmos DB limita le dimensioni di una singola richiesta a 2 MB. La formula è, Size della richiesta = dimensioni del singolo documento * dimensioni del batch di scrittura. Se le dimensioni del documento sono elevate, il comportamento predefinito comporterà dimensioni di richiesta troppo grandi. È possibile ottimizzare le dimensioni del batch di scrittura.
+- **Causa**: Cosmos DB limita le dimensioni di una singola richiesta a 2 MB. La formula è Dimensioni richiesta = Dimensioni singolo documento * Dimensioni batch di scrittura. Se le dimensioni del documento sono grandi, il comportamento predefinito risulterà in una richiesta di dimensioni troppo grandi. È possibile ottimizzare le dimensioni del batch di scrittura.
 
-- **Soluzione**: nel sink dell'attività di copia ridurre il valore di ' dimensioni batch di scrittura ' (il valore predefinito è 10000).
+- **Soluzione**: Nel sink dell'attività di copia, ridurre il valore di "Dimensioni batch di scrittura" (il valore predefinito è 10000).
 
-### <a name="error-message-unique-index-constraint-violation"></a>Messaggio di errore: violazione del vincolo di indice univoco
+### <a name="error-message-unique-index-constraint-violation"></a>Messaggio di errore: Violazione di vincolo di indice univoco
 
-- **Sintomi**: quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
+- **Sintomi**: Quando si copiano i dati in Cosmos DB, viene generato l'errore seguente:
 
     ```
     Message=Partition range id 0 | Failed to import mini-batch. 
     Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
     ```
 
-- **Causa**: sono possibili due cause:
+- **Causa**: Le cause possono essere due:
 
-    - Se si usa l'istruzione **Insert** As Write Behavior, questo errore indica che i dati di origine contengono righe/oggetti con lo stesso ID.
+    - Se si usa **Insert** come comportamento di scrittura, questo errore indica che i dati di origine contengono righe/oggetti con lo stesso ID.
 
-    - Se si usa **Upsert** come comportamento di scrittura e si imposta un'altra chiave univoca per il contenitore, questo errore indica che i dati di origine contengono righe/oggetti con ID diversi ma lo stesso valore per la chiave univoca definita.
+    - Se si usa **Upsert** come comportamento di scrittura e si imposta un'altra chiave univoca per il contenitore, questo errore indica che i dati di origine contengono righe/oggetti con ID diversi, ma lo stesso valore per la chiave univoca definita.
 
 - **Soluzione**: 
 
-    - Per cause1, impostare **Upsert** come comportamento di scrittura.
-    - Per la seconda ragione, assicurarsi che ogni documento abbia un valore diverso per la chiave univoca definita.
+    - Per la prima causa, impostare **Upsert** come comportamento di scrittura.
+    - Per la seconda causa, assicurarsi che ogni documento abbia un valore diverso per la chiave univoca definita.
 
-### <a name="error-message-request-rate-is-large"></a>Messaggio di errore: la frequenza delle richieste è elevata
+### <a name="error-message-request-rate-is-large"></a>Messaggio di errore: La frequenza delle richieste è troppo elevata
 
-- **Sintomi**: quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
+- **Sintomi**: Quando si copiano i dati in Cosmos DB, viene generato l'errore seguente:
 
     ```
     Type=Microsoft.Azure.Documents.DocumentClientException,
     Message=Message: {"Errors":["Request rate is large"]}
     ```
 
-- **Motivo**: le unità richiesta usate sono maggiori di quelle disponibili configurate in Cosmos DB. Informazioni su come Cosmos DB calcola ur da [qui](../cosmos-db/request-units.md#request-unit-considerations).
+- **Causa**: Il numero di unità richiesta usate è superiore al numero di unità richiesta disponibili configurate in Cosmos DB. Per informazioni su come Cosmos DB calcola le unità richiesta, vedere [qui](../cosmos-db/request-units.md#request-unit-considerations).
 
-- **Soluzione**: di seguito sono riportate due soluzioni:
+- **Soluzione**: Sono disponibili due soluzioni:
 
-    1. **Aumentare il** numero di unità richiesta del contenitore a un valore più grande in Cosmos DB, che consente di migliorare le prestazioni dell'attività di copia, anche se comporta un aumento dei costi Cosmos DB. 
+    1. **Aumentare il numero di unità richiesta del contenitore** in Cosmos DB, operazione che consente di migliorare le prestazioni dell'attività di copia, anche se comporta un aumento dei costi in Cosmos DB. 
 
-    2. Ridurre il valore di **writeBatchSize** a un valore più piccolo, ad esempio 1000, e impostare **parallelCopies** su un valore più basso, ad esempio 1, in modo che le prestazioni dell'esecuzione della copia risultino inferiori a quelle correnti ma non aumenteranno i costi in Cosmos DB.
+    2. Ridurre **writeBatchSize** a un valore più piccolo, ad esempio 1000, e impostare **parallelCopies** su un valore più basso, ad esempio 1, in modo che le prestazioni dell'esecuzione della copia risultino inferiori a quelle correnti ma non aumentino i costi in Cosmos DB.
 
 ### <a name="column-missing-in-column-mapping"></a>Colonna mancante nel mapping delle colonne
 
-- **Sintomi**: quando si importa lo schema per Cosmos DB per il mapping delle colonne, alcune colonne risultano mancanti. 
+- **Sintomi**: Quando si importa uno schema per Cosmos DB per il mapping delle colonne, alcune colonne risultano mancanti. 
 
-- **Motivo**: ADF deduce lo schema dai primi 10 documenti Cosmos DB. Se alcune colonne/proprietà non dispongono di un valore in tali documenti, non verranno rilevati da ADF, quindi non verranno visualizzati.
+- **Causa**: Azure Data Factory deduce lo schema dai primi 10 documenti di Cosmos DB. Se alcune colonne/proprietà non dispongono di un valore in tali documenti, non verranno rilevate da Azure Data Factory e quindi non verranno visualizzate.
 
-- **Soluzione**: è possibile ottimizzare la query come indicato di seguito per applicare la colonna per la visualizzazione nel set di risultati con un valore vuoto: (si supponga che la colonna "Impossibile" non sia presente nei primi 10 documenti). In alternativa, è possibile aggiungere manualmente la colonna per il mapping.
+- **Soluzione**: È possibile ottimizzare la query come indicato di seguito per far sì che la colonna venga visualizzata nel set di risultati con un valore vuoto: (si supponga che nei primi 10 documenti manchi la colonna "impossibile"). In alternativa, è possibile aggiungere manualmente la colonna per il mapping.
 
     ```sql
     select c.company, c.category, c.comments, (c.impossible??'') as impossible from c
     ```
 
-### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>Messaggio di errore: GuidRepresentation per il Reader è CSharpLegacy
+### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>Messaggio di errore: GuidRepresentation per il lettore è CSharpLegacy
 
-- **Sintomi**: quando si copiano dati da Cosmos DB MongoAPI/MongoDB con il campo UUID, viene raggiunto l'errore seguente:
+- **Sintomi**: Quando si copiano dati da Cosmos DB MongoAPI/MongoDB con il campo UUID, viene generato l'errore seguente:
 
     ```
     Failed to read data via MongoDB client.,
@@ -118,232 +118,232 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
     ```
 
-- **Motivo**: esistono due modi per rappresentare UUID in BSON-UuidStardard e UuidLegacy. Per impostazione predefinita, UuidLegacy viene usato per leggere i dati. Si raggiungerà un errore se i dati UUID in MongoDB sono UuidStandard.
+- **Causa**: Esistono due modi per rappresentare UUID in BSON - UuidStardard e UuidLegacy. Per impostazione predefinita, viene usato UuidLegacy per leggere i dati. Verrà generato un errore se i dati UUID in MongoDB sono UuidStandard.
 
-- **Soluzione**: nella stringa di connessione di MongoDB aggiungere l'opzione "**uuidRepresentation = standard**". Per altre informazioni, vedere [stringa di connessione MongoDB](connector-mongodb.md#linked-service-properties).
+- **Soluzione**: Nella stringa di connessione MongoDB aggiungere l'opzione "**uuidRepresentation = standard**". Per altre informazioni, vedere [Stringa di connessione MongoDB](connector-mongodb.md#linked-service-properties).
             
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-### <a name="error-code--adlsgen2operationfailed"></a>Codice di errore: AdlsGen2OperationFailed
+### <a name="error-code--adlsgen2operationfailed"></a>Codice errore:  AdlsGen2OperationFailed
 
-- **Messaggio**:`ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Messaggio**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
-- **Motivo**: ADLS Gen2 genera l'errore che indica che l'operazione non è riuscita.
+- **Causa**: ADLS Gen2 genera l'errore che indica che l'operazione non è riuscita.
 
-- **Raccomandazione**: controllare il messaggio di errore dettagliato generato da ADLS Gen2. Se il problema è causato da un errore temporaneo, riprovare. Per ulteriori informazioni, contattare il supporto di archiviazione di Azure e fornire l'ID richiesta nel messaggio di errore.
+- **Raccomandazione**:  Controllare il messaggio di errore dettagliato generato da ADLS Gen2. Se il problema è causato da un errore temporaneo, riprovare. Per ulteriore assistenza, contattare il supporto di Archiviazione di Azure e fornire l'ID richiesta presente nel messaggio di errore.
 
-- **Motivo**: quando il messaggio di errore contiene ' Forbidden ', l'entità servizio o l'identità gestita utilizzata potrebbe non disporre di autorizzazioni sufficienti per accedere al ADLS Gen2.
+- **Causa**: Se il messaggio di errore contiene 'Accesso negato', l'entità servizio o l'identità gestita usata potrebbe non avere autorizzazioni sufficienti per accedere ad ADLS Gen2.
 
-- **Raccomandazione**: fare riferimento al documento della guida: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication .
+- **Raccomandazione**:  Fare riferimento al documento della Guida: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
 
-- **Motivo**: quando il messaggio di errore contiene ' InternalServerError ', l'errore viene restituito da ADLS Gen2.
+- **Causa**: Se il messaggio di errore contiene 'InternalServerError', l'errore viene restituito da ADLS Gen2.
 
-- **Raccomandazione**: il problema potrebbe essere causato da un errore temporaneo. riprovare. Se il problema persiste, contattare il supporto di archiviazione di Azure e fornire l'ID richiesta nel messaggio di errore.
-
-
-### <a name="error-code--adlsgen2invalidurl"></a>Codice di errore: AdlsGen2InvalidUrl
-
-- **Messaggio**:`Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
+- **Raccomandazione**:  Il problema potrebbe essere causato da un errore temporaneo, riprovare. Se il problema persiste, contattare il supporto di Archiviazione di Azure e fornire l'ID richiesta presente nel messaggio di errore.
 
 
-### <a name="error-code--adlsgen2invalidfolderpath"></a>Codice di errore: AdlsGen2InvalidFolderPath
+### <a name="error-code--adlsgen2invalidurl"></a>Codice errore:  AdlsGen2InvalidUrl
 
-- **Messaggio**:`The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
-
-
-### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>Codice di errore: AdlsGen2OperationFailedConcurrentWrite
-
-- **Messaggio**:`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+- **Messaggio**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
 
 
-### <a name="error-code--adlsgen2timeouterror"></a>Codice di errore: AdlsGen2TimeoutError
+### <a name="error-code--adlsgen2invalidfolderpath"></a>Codice errore:  AdlsGen2InvalidFolderPath
 
-- **Messaggio**:`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+- **Messaggio**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
+
+
+### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>Codice errore:  AdlsGen2OperationFailedConcurrentWrite
+
+- **Messaggio**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+
+### <a name="error-code--adlsgen2timeouterror"></a>Codice errore:  AdlsGen2TimeoutError
+
+- **Messaggio**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
-### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Messaggio di errore: il server remoto ha restituito un errore: (403) non consentito
+### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Messaggio di errore: Errore del server remoto: (403) Accesso negato
 
-- **Sintomi**: l'attività di copia ha esito negativo con l'errore seguente: 
+- **Sintomi**: L'attività di copia ha esito negativo con l'errore seguente: 
 
     ```
     Message: The remote server returned an error: (403) Forbidden.. 
     Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **Motivo**: è possibile che l'entità servizio o l'identità gestita usata non disponga dell'autorizzazione per accedere a una cartella o a un file specifico.
+- **Causa**: Una delle possibili cause è che l'entità servizio o l'identità gestita usata non è autorizzata ad accedere a una cartella o a un file specifico.
 
-- **Soluzione**: concedere le autorizzazioni corrispondenti per tutte le cartelle e le sottocartelle che è necessario copiare. Fare riferimento a [questo documento](connector-azure-data-lake-store.md#linked-service-properties).
+- **Soluzione**: Concedere le autorizzazioni corrispondenti per tutte le cartelle e le sottocartelle che è necessario copiare. Fare riferimento a [questo documento](connector-azure-data-lake-store.md#linked-service-properties).
 
-### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Messaggio di errore: non è stato possibile ottenere il token di accesso tramite l'entità servizio. Errore ADAL: service_unavailable
+### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Messaggio di errore: Non è stato possibile ottenere il token di accesso tramite l'entità servizio. Errore ADAL: service_unavailable
 
-- **Sintomi**: l'attività di copia ha esito negativo con l'errore seguente:
+- **Sintomi**: L'attività di copia ha esito negativo con l'errore seguente:
 
     ```
     Failed to get access token by using service principal. 
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
     ```
 
-- **Motivo**: quando il server dei token di servizio (STS) di proprietà di Azure Active Directory non è disponibile, ad esempio troppo occupato per gestire le richieste, viene restituito un errore HTTP 503. 
+- **Causa**: Quando il server dei token di servizio (STS) di proprietà di Azure Active Directory non è disponibile, ad esempio è troppo occupato per gestire le richieste, restituisce un errore HTTP 503. 
 
-- **Soluzione**: ripetere l'attività di copia dopo alcuni minuti.
+- **Soluzione**: Eseguire di nuovo l'attività di copia dopo alcuni minuti.
                   
 
-## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL Data Warehouse/database SQL di Azure/SQL Server
+## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL Data Warehouse/Database SQL di Azure/SQL Server
 
-### <a name="error-code--sqlfailedtoconnect"></a>Codice di errore: SqlFailedToConnect
+### <a name="error-code--sqlfailedtoconnect"></a>Codice errore:  SqlFailedToConnect
 
-- **Messaggio**:`Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Messaggio**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
-- **Motivo**: se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
+- **Causa**: Se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
 
-- **Raccomandazione**: per altri dettagli, cercare il codice di errore SQL in questo documento di riferimento https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Per ulteriori informazioni, contattare il supporto SQL di Azure.
+- **Raccomandazione**:  Per altri dettagli, eseguire una ricerca in base al codice di errore SQL in questo documento di riferimento: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Per assistenza, contattare il supporto di Azure SQL.
 
-- **Motivo**: se il messaggio di errore contiene "client con indirizzo IP"... " non è consentito accedere al server e si sta provando a connettersi al database SQL di Azure, in genere è causato da un problema del firewall del database SQL di Azure.
+- **Causa**: Se il messaggio di errore contiene "L'accesso al server del client con indirizzo IP '...' non è consentito" e si sta provando a connettersi al database SQL di Azure, in genere l'errore è causato da un problema del firewall del database SQL di Azure.
 
-- **Raccomandazione**: nella configurazione di Azure SQL Server Firewall abilitare l'opzione "Consenti ai servizi e alle risorse di Azure di accedere al server". Documentazione di riferimento: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
+- **Raccomandazione**:  Nella configurazione del firewall di SQL Server di Azure abilitare l'opzione "Consenti alle risorse e ai servizi di Azure di accedere a questo server". Documentazione di riferimento: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
-### <a name="error-code--sqloperationfailed"></a>Codice di errore: SqlOperationFailed
+### <a name="error-code--sqloperationfailed"></a>Codice errore:  SqlOperationFailed
 
-- **Messaggio**:`A database operation failed. Please search error to get more details.`
+- **Messaggio**: `A database operation failed. Please search error to get more details.`
 
-- **Motivo**: se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
+- **Causa**: Se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
 
-- **Raccomandazione**: se l'errore SQL non è chiaro, provare a modificare il database con il livello di compatibilità più recente ' 150'. Può generare errori SQL più recenti della versione. Vedere la documentazione dettagliata: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
-        Per la risoluzione dei problemi relativi a SQL, eseguire una ricerca in base al codice di errore SQL in questo documento di riferimento per ulteriori informazioni: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Per ulteriori informazioni, contattare il supporto SQL di Azure.
+- **Raccomandazione**:  Se l'errore SQL non è chiaro, provare a modificare il database con il livello di compatibilità più recente '150'. Può generare errori SQL dell'ultima versione. Fare riferimento al documento dettagliato: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
+        Per la risoluzione dei problemi SQL, eseguire una ricerca in base al codice di errore SQL in questo documento di riferimento per altri dettagli: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Per assistenza, contattare il supporto di Azure SQL.
 
-- **Causa**: se il messaggio di errore contiene "PdwManagedToNativeInteropException", in genere è causato da una mancata corrispondenza tra le dimensioni delle colonne di origine e sink.
+- **Causa**: Se il messaggio di errore contiene "PdwManagedToNativeInteropException", in genere l'errore è causato da una mancata corrispondenza tra le dimensioni delle colonne di origine e sink.
 
-- **Raccomandazione**: controllare le dimensioni delle colonne di origine e sink. Per ulteriori informazioni, contattare il supporto SQL di Azure.
+- **Raccomandazione**:  Controllare le dimensioni delle colonne di origine e sink. Per assistenza, contattare il supporto di Azure SQL.
 
-- **Causa**: se il messaggio di errore contiene "InvalidOperationException", in genere è causato da dati di input non validi.
+- **Causa**: Se il messaggio di errore contiene "InvalidOperationException", in genere l'errore è causato da dati di input non validi.
 
-- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
+- **Raccomandazione**:  Per identificare la riga in cui si è verificato il problema, abilitare la funzionalità di tolleranza di errore nell'attività di copia, in modo da poter reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
-### <a name="error-code--sqlunauthorizedaccess"></a>Codice di errore: SqlUnauthorizedAccess
+### <a name="error-code--sqlunauthorizedaccess"></a>Codice errore:  SqlUnauthorizedAccess
 
-- **Messaggio**:`Cannot connect to '%connectorName;'. Detail Message: '%message;'`
+- **Messaggio**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
-- **Causa**: le credenziali non sono corrette oppure l'account di accesso non può accedere al database SQL.
+- **Causa**: Le credenziali non sono corrette oppure l'account di accesso non può accedere al database SQL.
 
-- **Consiglio**: verificare che l'account di accesso disponga di autorizzazioni sufficienti per accedere al database SQL.
+- **Raccomandazione**:  Verificare che l'account di accesso abbia autorizzazioni sufficienti per accedere al database SQL.
 
 
-### <a name="error-code--sqlopenconnectiontimeout"></a>Codice di errore: SqlOpenConnectionTimeout
+### <a name="error-code--sqlopenconnectiontimeout"></a>Codice errore:  SqlOpenConnectionTimeout
 
-- **Messaggio**:`Open connection to database timeout after '%timeoutValue;' seconds.`
+- **Messaggio**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
-- **Cause**: potrebbe essere un errore temporaneo del database SQL.
+- **Causa**: Potrebbe trattarsi di un errore temporaneo del database SQL.
 
-- **Raccomandazione**: riprovare ad aggiornare la stringa di connessione del servizio collegato con un valore di timeout di connessione maggiore.
+- **Raccomandazione**:  Riprovare ad aggiornare la stringa di connessione del servizio collegato con un valore di timeout della connessione maggiore.
 
 
-### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Codice di errore: SqlAutoCreateTableTypeMapFailed
+### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Codice errore:  SqlAutoCreateTableTypeMapFailed
 
-- **Messaggio**:`Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
+- **Messaggio**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
-- **Causa**: la tabella di creazione automatica non può soddisfare i requisiti di origine.
+- **Causa**: La tabella di creazione automatica non soddisfa i requisiti di origine.
 
-- **Raccomandazione**: aggiornare il tipo di colonna in ' mapping ' o creare manualmente la tabella di sink nel server di destinazione.
+- **Raccomandazione**:  Aggiornare il tipo di colonna nei 'mapping' o creare manualmente la tabella di sink nel server di destinazione.
 
 
-### <a name="error-code--sqldatatypenotsupported"></a>Codice di errore: SqlDataTypeNotSupported
+### <a name="error-code--sqldatatypenotsupported"></a>Codice errore:  SqlDataTypeNotSupported
 
-- **Messaggio**:`A database operation failed. Check the SQL errors.`
+- **Messaggio**: `A database operation failed. Check the SQL errors.`
 
-- **Causa**: se il problema si verifica nell'origine SQL e l'errore è correlato all'overflow di SqlDateTime, il valore dei dati è sull'intervallo del tipo di logica (1/1/1753 12:00:00 AM-12/31/9999 11:59:59 PM).
+- **Causa**: Se il problema si verifica nell'origine SQL e l'errore è correlato all'overflow di SqlDateTime, il valore dei dati è oltre l'intervallo del tipo di logica (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
 
-- **Raccomandazione**: eseguire il cast del tipo in stringa nella query SQL di origine o nel mapping delle colonne dell'attività di copia modificare il tipo di colonna in ' String '.
+- **Raccomandazione**:  Eseguire il cast del tipo alla stringa nella query SQL di origine o nel mapping delle colonne dell'attività di copia modificare il tipo di colonna in 'String'.
 
-- **Causa**: se il problema si verifica nel sink SQL e l'errore è correlato all'overflow di SqlDateTime, il valore dei dati è sull'intervallo consentito nella tabella di sink.
+- **Causa**: Se il problema si verifica nel sink SQL e l'errore è correlato all'overflow di SqlDateTime, il valore dei dati è oltre l'intervallo consentito nella tabella di sink.
 
-- **Raccomandazione**: aggiornare il tipo di colonna corrispondente al tipo ' datetime2' nella tabella di sink.
+- **Raccomandazione**:  Aggiornare il tipo di colonna corrispondente con il tipo 'datetime2' nella tabella di sink.
 
 
-### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Codice di errore: SqlInvalidDbStoredProcedure
+### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Codice errore:  SqlInvalidDbStoredProcedure
 
-- **Messaggio**:`The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
+- **Messaggio**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **Motivo**: la stored procedure specificata non è valida. Il problema potrebbe essere causato dal fatto che il stored procedure non restituisce alcun dato.
+- **Causa**: La stored procedure specificata non è valida. Il problema potrebbe essere causato dal fatto che la stored procedure non restituisce alcun dato.
 
-- **Raccomandazione**: convalidare il stored procedure da strumenti SQL. Verificare che il stored procedure possa restituire i dati.
+- **Raccomandazione**:  Convalidare la stored procedure con gli strumenti SQL. Assicurarsi che la stored procedure possa restituire i dati.
 
 
-### <a name="error-code--sqlinvaliddbquerystring"></a>Codice di errore: SqlInvalidDbQueryString
+### <a name="error-code--sqlinvaliddbquerystring"></a>Codice errore:  SqlInvalidDbQueryString
 
-- **Messaggio**:`The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
+- **Messaggio**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
-- **Motivo**: la query SQL specificata non è valida. La causa potrebbe essere la mancata restituzione di dati da parte della query
+- **Causa**: La query SQL specificata non è valida. Il problema potrebbe essere causato dal fatto che la query non restituisce alcun dato
 
-- **Raccomandazione**: convalidare la query SQL tramite strumenti SQL. Assicurarsi che la query possa restituire i dati.
+- **Raccomandazione**:  Convalidare la query SQL con gli strumenti SQL. Assicurarsi che la query possa restituire i dati.
 
 
-### <a name="error-code--sqlinvalidcolumnname"></a>Codice di errore: SqlInvalidColumnName
+### <a name="error-code--sqlinvalidcolumnname"></a>Codice errore:  SqlInvalidColumnName
 
-- **Messaggio**:`Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
+- **Messaggio**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
-- **Cause**: Impossibile trovare la colonna. Possibile configurazione errata.
+- **Causa**: Non è possibile trovare la colonna. È possibile che la configurazione non sia corretta.
 
-- **Raccomandazione**: verificare la colonna nella query,' Structure ' nel set di dati è mapping ' nell'attività.
+- **Raccomandazione**:  Verificare la colonna nella query, la 'struttura' nel set di dati e i 'mapping' nell'attività.
 
 
-### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>Codice di errore: SqlColumnNameMismatchByCaseSensitive
+### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>Codice errore:  SqlColumnNameMismatchByCaseSensitive
 
-- **Messaggio**:`Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
+- **Messaggio**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
 
 
-### <a name="error-code--sqlbatchwritetimeout"></a>Codice di errore: SqlBatchWriteTimeout
+### <a name="error-code--sqlbatchwritetimeout"></a>Codice errore:  SqlBatchWriteTimeout
 
-- **Messaggio**:`Timeouts in SQL write operation.`
+- **Messaggio**: `Timeouts in SQL write operation.`
 
-- **Cause**: potrebbe essere un errore temporaneo del database SQL.
+- **Causa**: Potrebbe trattarsi di un errore temporaneo del database SQL.
 
-- **Raccomandazione**: riprovare. Se si tratta di un problema, contattare il supporto SQL di Azure.
+- **Raccomandazione**:  Riprovare. Se il problema si ripresenta, contattare il supporto di Azure SQL.
 
 
-### <a name="error-code--sqlbatchwritetransactionfailed"></a>Codice di errore: SqlBatchWriteTransactionFailed
+### <a name="error-code--sqlbatchwritetransactionfailed"></a>Codice errore:  SqlBatchWriteTransactionFailed
 
-- **Messaggio**:`SQL transaction commits failed`
+- **Messaggio**: `SQL transaction commits failed`
 
-- **Motivo**: se i dettagli dell'eccezione indicano costantemente il timeout della transazione, la latenza di rete tra il runtime di integrazione e il database è superiore alla soglia predefinita come 30 secondi.
+- **Causa**: Se i dettagli dell'eccezione indicano costantemente il timeout della transazione, la latenza di rete tra il runtime di integrazione e il database è superiore alla soglia predefinita di 30 secondi.
 
-- **Raccomandazione**: aggiornare la stringa di connessione del servizio collegato SQL con il valore ' timeout connessione ' uguale a 120 o superiore e rieseguire l'attività.
+- **Raccomandazione**:  Aggiornare la stringa di connessione del servizio collegato SQL con un valore di 'timeout connessione' maggiore o uguale a 120 ed eseguire di nuovo l'attività.
 
-- **Causa**: se i dettagli dell'eccezione indicano in modo intermittente la connessione SqlConnection, potrebbe trattarsi di un errore di rete temporaneo o di un problema lato database SQL
+- **Causa**: Se i dettagli dell'eccezione indicano in modo intermittente un'interruzione della connessione SQL, potrebbe trattarsi di un errore di rete temporaneo o di un problema relativo al database SQL
 
-- **Raccomandazione**: ritentare l'attività ed esaminare le metriche laterali del database SQL.
+- **Raccomandazione**:  Ripetere l'attività ed esaminare le metriche relative al database SQL.
 
 
-### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Codice di errore: SqlBulkCopyInvalidColumnLength
+### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Codice errore:  SqlBulkCopyInvalidColumnLength
 
-- **Messaggio**:`SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
+- **Messaggio**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
-- **Causa**: la copia bulk di SQL non è riuscita a causa della ricezione di una lunghezza di colonna non valida dal client bcp.
+- **Causa**: La copia bulk SQL non è riuscita perché il client bcp ha inviato una lunghezza di colonna non valida.
 
-- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
+- **Raccomandazione**:  Per identificare la riga in cui si è verificato il problema, abilitare la funzionalità di tolleranza di errore nell'attività di copia, in modo da poter reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
-### <a name="error-code--sqlconnectionisclosed"></a>Codice di errore: SqlConnectionIsClosed
+### <a name="error-code--sqlconnectionisclosed"></a>Codice errore:  SqlConnectionIsClosed
 
-- **Messaggio**:`The connection is closed by SQL Database.`
+- **Messaggio**: `The connection is closed by SQL Database.`
 
-- **Motivo**: la connessione SQL è stata chiusa dal database SQL quando la connessione a esecuzione simultanea e interruzione del server sono elevate.
+- **Causa**: La connessione SQL viene chiusa dal database SQL quando l'esecuzione simultanea e il server terminano la connessione.
 
-- **Suggerimento**: il server remoto ha chiuso la connessione SQL. Riprovare. Se si tratta di un problema, contattare il supporto SQL di Azure.
+- **Raccomandazione**:  La connessione SQL è stata chiusa dal server remoto. Riprovare. Se il problema si ripresenta, contattare il supporto di Azure SQL.
 
 
-### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Codice di errore: SqlCreateTableFailedUnsupportedType
+### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Codice errore:  SqlCreateTableFailedUnsupportedType
 
-- **Messaggio**:`Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
+- **Messaggio**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
 
 
-### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Messaggio di errore: conversione non riuscita durante la conversione da una stringa di caratteri a uniqueidentifier
+### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Messaggio di errore: Conversione non riuscita durante la conversione di una stringa di caratteri nel tipo di dati uniqueidentifier
 
-- **Sintomi**: quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in Azure SQL data warehouse usando la copia di staging e la polibase, viene raggiunto l'errore seguente:
+- **Sintomi**: Quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in Azure SQL Data Warehouse usando la copia di staging e PolyBase, viene generato l'errore seguente:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
@@ -352,13 +352,13 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Motivo**: Azure SQL data warehouse polibase non è in grado di convertire una stringa vuota in GUID.
+- **Causa**: Azure SQL Data Warehouse PolyBase non può convertire una stringa vuota in GUID.
 
-- **Soluzione**: nel sink dell'attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
+- **Soluzione**: Nelle impostazioni Polybase del sink dell'attività di copia impostare l'opzione "**Tipo di uso predefinito**" su false.
 
-### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Messaggio di errore: tipo di dati previsto: DECIMAL (x, x), valore offensivo
+### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Messaggio di errore: Tipo di dati previsto: DECIMAL(x, x), valore danneggiato
 
-- **Sintomi**: quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in SQL DW usando la copia di staging e la polibase, viene raggiunto l'errore seguente:
+- **Sintomi**: Quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in SQL DW usando la copia di staging e PolyBase, si riscontra l'errore seguente:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
@@ -368,13 +368,13 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Motivo**: Azure SQL data warehouse polibase non può inserire una stringa vuota (valore null) in una colonna decimale.
+- **Causa**: Azure SQL Data Warehouse Polybase non può inserire una stringa vuota (valore Null) in una colonna decimale.
 
-- **Soluzione**: nel sink dell'attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
+- **Soluzione**: Nelle impostazioni Polybase del sink dell'attività di copia impostare l'opzione "**Tipo di uso predefinito**" su false.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Messaggio di errore: messaggio eccezione Java: HdfsBridge:: CreateRecordReader
+### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Messaggio di errore: Messaggio di eccezione Java: HdfsBridge::CreateRecordReader
 
-- **Sintomi**: i dati vengono copiati in Azure SQL data warehouse usando la polibase e viene raggiunto l'errore seguente:
+- **Sintomi**: Si copiano i dati in Azure SQL Data Warehouse usando PolyBase e viene generato l'errore seguente:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -383,302 +383,302 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Motivo**: la possibile cause è che lo schema (larghezza totale della colonna) è troppo grande (maggiore di 1 MB). Controllare lo schema della tabella SQL DW di destinazione aggiungendo la dimensione di tutte le colonne:
+- **Causa**: La possibile causa è che lo schema, ovvero la larghezza totale della colonne, sia troppo grande, ovvero maggiore di 1 MB. Controllare lo schema della tabella SQL DW di destinazione aggiungendo le dimensioni di tutte le colonne:
 
-    - Int-> 4 byte
-    - Bigint-> 8 byte
-    - Varchar (n), char (n), Binary (n), varbinary (n)-> n byte
-    - Nvarchar (n), nchar (n)-> n * 2 byte
-    - Data-> 6 byte
-    - DateTime/(2), smalldatetime-> 16 byte
-    - DateTimeOffset-> 20 byte
-    - Decimale-> 19 byte
-    - Float-> 8 byte
-    - Money-> 8 byte
-    - Smallmoney-> 4 byte
-    - Real-> 4 byte
-    - Smallint-> 2 byte
-    - Tempo-> 12 byte
-    - Tinyint-> 1 byte
+    - Int -> 4 byte
+    - Bigint -> 8 byte
+    - Varchar(n), char(n), binary(n), varbinary(n) -> n byte
+    - Nvarchar(n), nchar(n) -> n*2 byte
+    - Date -> 6 byte
+    - Datetime/(2), smalldatetime -> 16 byte
+    - Datetimeoffset -> 20 byte
+    - Decimal -> 19 byte
+    - Float -> 8 byte
+    - Money -> 8 byte
+    - Smallmoney -> 4 byte
+    - Real -> 4 byte
+    - Smallint -> 2 byte
+    - Time -> 12 byte
+    - Tinyint -> 1 byte
 
-- **Soluzione**: ridurre la larghezza della colonna in modo che sia minore di 1 MB
+- **Soluzione**: Ridurre la larghezza delle colonne in modo che sia inferiore a 1 MB
 
-- In alternativa, usare l'approccio BULK INSERT disabilitando la funzionalità di base
+- In alternativa, usare l'approccio di inserimento bulk disabilitando PolyBase
 
-### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Messaggio di errore: la condizione specificata con le intestazioni condizionali HTTP non è stata soddisfatta
+### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Messaggio di errore: La condizione specificata con le intestazioni condizionali HTTP non è stata soddisfatta
 
-- **Sintomi**: si usa la query SQL per estrarre i dati da Azure SQL data warehouse e si raggiunge l'errore seguente:
+- **Sintomi**: Si usano query SQL per estrarre i dati da Azure SQL Data Warehouse e si riscontra l'errore seguente:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Causa**: si è verificata Azure SQL data warehouse problema durante l'esecuzione di query sulla tabella esterna in archiviazione di Azure.
+- **Causa**: Azure SQL Data Warehouse ha riscontrato un problema durante l'esecuzione di query sulla tabella esterna in Archiviazione di Azure.
 
-- **Soluzione**: eseguire la stessa query in SSMS e verificare se viene visualizzato lo stesso risultato. In caso affermativo, aprire un ticket di supporto per Azure SQL Data Warehouse e fornire il nome del server e del database SQL DW per procedere con la risoluzione dei problemi.
+- **Soluzione**: Eseguire la stessa query in SSMS e verificare se viene visualizzato lo stesso risultato. In caso affermativo, aprire un ticket di supporto per Azure SQL Data Warehouse e fornire il nome del server e del database SQL DW per procedere con la risoluzione dei problemi.
             
 
-## <a name="delimited-text-format"></a>Formato testo delimitato
+## <a name="delimited-text-format"></a>Formato di testo delimitato
 
-### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Codice di errore: DelimitedTextColumnNameNotAllowNull
+### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Codice errore:  DelimitedTextColumnNameNotAllowNull
 
-- **Messaggio**:`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
+- **Messaggio**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Motivo**: quando si imposta ' firstRowAsHeader ' nell'attività, la prima riga verrà utilizzata come nome di colonna. Questo errore indica che la prima riga contiene un valore vuoto. Ad esempio: "Columna,, ColumnB".
+- **Causa**: Quando si imposta 'firstRowAsHeader' nell'attività, la prima riga verrà usata come nome di colonna. Questo errore indica che la prima riga contiene un valore vuoto. Ad esempio: 'ColumnA,,ColumnB'.
 
-- **Raccomandazione**: controllare la prima riga e correggere il valore se è presente un valore vuoto.
-
-
-### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Codice di errore: DelimitedTextMoreColumnsThanDefined
-
-- **Messaggio**:`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
-
-- **Motivo**: il numero di colonne della riga problematica è elevato rispetto al numero di colonne della prima riga. La causa potrebbe essere un problema di dati o un delimitatore di colonna/delimitatore di colonna non corretto.
-
-- **Raccomandazione**: per ottenere il numero di righe nel messaggio di errore, controllare la colonna della riga e correggere i dati.
-
-- **Causa**: se il numero di colonne previsto è "1" nel messaggio di errore, è possibile che siano state specificate impostazioni di compressione o di formato errate, che hanno causato l'analisi errata dei file da parte di ADF.
-
-- **Consiglio**: controllare le impostazioni di formato per assicurarsi che corrispondano ai file di origine.
-
-- **Causa**: se l'origine è una cartella, è possibile che i file nella cartella specificata abbiano uno schema diverso.
-
-- **Raccomandazione**: assicurarsi che i file nella cartella specificata abbiano lo stesso schema.
+- **Raccomandazione**:  Controllare la prima riga e correggere il valore se è presente un valore vuoto.
 
 
-### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>Codice di errore: DelimitedTextIncorrectRowDelimiter
+### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Codice errore:  DelimitedTextMoreColumnsThanDefined
 
-- **Messaggio**:`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+- **Messaggio**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+
+- **Causa**: Il numero di colonne della riga problematica è maggiore di quello della prima riga. La causa potrebbe essere dovuta a un problema di dati o a impostazioni non corrette del delimitatore di colonna o del carattere virgolette.
+
+- **Raccomandazione**:  Ottenere il numero di righe nel messaggio di errore, controllare la colonna della riga e correggere i dati.
+
+- **Causa**: Se il numero di colonne previsto è "1" nel messaggio di errore, è possibile che siano state specificate impostazioni di compressione o di formato errate, che hanno causato l'analisi non corretta dei file da parte di Azure Data Factory.
+
+- **Raccomandazione**:  Controllare le impostazioni di formato per assicurarsi che corrispondano ai file di origine.
+
+- **Causa**: Se l'origine è una cartella, è possibile che i file nella cartella specificata abbiano uno schema diverso.
+
+- **Raccomandazione**:  Assicurarsi che i file nella cartella specificata abbiano lo stesso schema.
 
 
-### <a name="error-code--delimitedtexttoolargecolumncount"></a>Codice di errore: DelimitedTextTooLargeColumnCount
+### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>Codice errore:  DelimitedTextIncorrectRowDelimiter
 
-- **Messaggio**:`Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+- **Messaggio**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
 
 
-### <a name="error-code--delimitedtextinvalidsettings"></a>Codice di errore: DelimitedTextInvalidSettings
+### <a name="error-code--delimitedtexttoolargecolumncount"></a>Codice errore:  DelimitedTextTooLargeColumnCount
 
-- **Messaggio**:`%settingIssues;`
+- **Messaggio**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+
+
+### <a name="error-code--delimitedtextinvalidsettings"></a>Codice errore:  DelimitedTextInvalidSettings
+
+- **Messaggio**: `%settingIssues;`
 
 
 
 ## <a name="dynamics-365common-data-servicedynamics-crm"></a>Dynamics 365/Common Data Service/Dynamics CRM
 
-### <a name="error-code--dynamicscreateserviceclienterror"></a>Codice di errore: DynamicsCreateServiceClientError
+### <a name="error-code--dynamicscreateserviceclienterror"></a>Codice errore:  DynamicsCreateServiceClientError
 
-- **Messaggio**:`This is a transient issue on dynamics server side. Try to rerun the pipeline.`
+- **Messaggio**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
 
-- **Causa**: si tratta di un problema temporaneo sul lato Dynamics server.
+- **Causa**: Si tratta di un problema temporaneo relativo al server Dynamics.
 
-- **Raccomandazione**: eseguire di nuovo la pipeline. Se non si riesce, provare a ridurre il parallelismo. Se l'errore persiste, contattare il supporto tecnico di Dynamics.
+- **Raccomandazione**:  Eseguire di nuovo la pipeline. Se il problema persiste, provare a ridurre il parallelismo. Se l'errore persiste ancora, contattare il supporto tecnico di Dynamics.
 
 
 
 ## <a name="json-format"></a>Formato JSON
 
-### <a name="error-code--jsoninvalidarraypathdefinition"></a>Codice di errore: JsonInvalidArrayPathDefinition
+### <a name="error-code--jsoninvalidarraypathdefinition"></a>Codice errore:  JsonInvalidArrayPathDefinition
 
-- **Messaggio**:`Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+- **Messaggio**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
 
 
-### <a name="error-code--jsonemptyjobjectdata"></a>Codice di errore: JsonEmptyJObjectData
+### <a name="error-code--jsonemptyjobjectdata"></a>Codice errore:  JsonEmptyJObjectData
 
-- **Messaggio**:`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+- **Messaggio**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
 
 
-### <a name="error-code--jsonnullvalueinpathdefinition"></a>Codice di errore: JsonNullValueInPathDefinition
+### <a name="error-code--jsonnullvalueinpathdefinition"></a>Codice errore:  JsonNullValueInPathDefinition
 
-- **Messaggio**:`Null JSONPath detected in JsonPathDefinition.`
+- **Messaggio**: `Null JSONPath detected in JsonPathDefinition.`
 
 
-### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>Codice di errore: JsonUnsupportedHierarchicalComplexValue
+### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>Codice errore:  JsonUnsupportedHierarchicalComplexValue
 
-- **Messaggio**:`The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+- **Messaggio**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
 
 
-### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>Codice di errore: JsonConflictPartitionDiscoverySchema
+### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>Codice errore:  JsonConflictPartitionDiscoverySchema
 
-- **Messaggio**:`Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+- **Messaggio**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
 
 
-### <a name="error-code--jsoninvaliddataformat"></a>Codice di errore: JsonInvalidDataFormat
+### <a name="error-code--jsoninvaliddataformat"></a>Codice errore:  JsonInvalidDataFormat
 
-- **Messaggio**:`Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+- **Messaggio**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
 
 
-### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>Codice di errore: JsonInvalidDataMixedArrayAndObject
+### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>Codice errore:  JsonInvalidDataMixedArrayAndObject
 
-- **Messaggio**:`Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+- **Messaggio**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
 
 
 
-## <a name="parquet-format"></a>Formato parquet
+## <a name="parquet-format"></a>Formato Parquet
 
-### <a name="error-code--parquetjavainvocationexception"></a>Codice di errore: ParquetJavaInvocationException
+### <a name="error-code--parquetjavainvocationexception"></a>Codice errore:  ParquetJavaInvocationException
 
-- **Messaggio**:`An error occurred when invoking java, message: %javaException;.`
+- **Messaggio**: `An error occurred when invoking java, message: %javaException;.`
 
-- **Causa**: quando il messaggio di errore contiene ' Java. lang. OutOfMemory ',' Java heap space ' è doubleCapacity ', in genere si tratta di un problema di gestione della memoria nella versione precedente di Integration Runtime.
+- **Causa**: Se il messaggio di errore contiene 'java.lang.OutOfMemory', 'Spazio dell'heap di Java' e 'doubleCapacity', in genere si tratta di un problema di gestione della memoria nella versione precedente del runtime di integrazione.
 
-- **Suggerimento**: se si usa Integration Runtime self-hosted e la versione è precedente a 3.20.7159.1, suggerire di eseguire l'aggiornamento alla versione più recente.
+- **Raccomandazione**:  Se si usa il runtime di integrazione self-hosted e la versione è precedente a 3.20.7159.1, è consigliabile eseguire l'aggiornamento alla versione più recente.
 
-- **Motivo**: quando il messaggio di errore contiene ' Java. lang. OutOfMemory ', il runtime di integrazione non dispone di risorse sufficienti per elaborare i file.
+- **Causa**: Se il messaggio di errore contiene 'java.lang.OutOfMemory', il runtime di integrazione non dispone di risorse sufficienti per elaborare i file.
 
-- **Raccomandazione**: limitare le esecuzioni simultanee nel runtime di integrazione. Per Integration Runtime indipendenti, passare a un computer potente con memoria uguale o maggiore di 8 GB.
+- **Raccomandazione**:  Limitare le esecuzioni simultanee nel runtime di integrazione. Per il runtime di integrazione self-hosted aumentare la memoria fino a ottenere un computer potente con memoria uguale o superiore a 8 GB.
 
-- **Motivo**: se il messaggio di errore contiene ' NullPointerReference ', è possibile che si verifichi un errore temporaneo.
+- **Causa**: Se il messaggio di errore contiene 'NullPointerReference', è possibile che sia un errore temporaneo.
 
-- **Raccomandazione**: riprovare. Se il problema persiste, contattare il supporto tecnico.
+- **Raccomandazione**:  Riprovare. Se il problema persiste, contattare il supporto tecnico.
 
 
-### <a name="error-code--parquetinvalidfile"></a>Codice di errore: ParquetInvalidFile
+### <a name="error-code--parquetinvalidfile"></a>Codice errore:  ParquetInvalidFile
 
-- **Messaggio**:`File is not a valid parquet file.`
+- **Messaggio**: `File is not a valid parquet file.`
 
-- **Causa**: problema di file parquet.
+- **Causa**: Problema del file parquet.
 
-- **Raccomandazione**: controllare che l'input sia un file parquet valido.
+- **Raccomandazione**:  Verificare che l'input sia un file parquet valido.
 
 
-### <a name="error-code--parquetnotsupportedtype"></a>Codice di errore: ParquetNotSupportedType
+### <a name="error-code--parquetnotsupportedtype"></a>Codice errore:  ParquetNotSupportedType
 
-- **Messaggio**:`Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
+- **Messaggio**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **Motivo**: il formato parquet non è supportato in Azure Data Factory.
+- **Causa**: Il formato parquet non è supportato in Azure Data Factory.
 
-- **Raccomandazione**: controllare i dati di origine. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
+- **Raccomandazione**:  Controllare i dati di origine. Fare riferimento al documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
 
 
-### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Codice di errore: ParquetMissedDecimalPrecisionScale
+### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Codice errore:  ParquetMissedDecimalPrecisionScale
 
-- **Messaggio**:`Decimal Precision or Scale information is not found in schema for column: %column;.`
+- **Messaggio**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
-- **Motivo**: provare ad analizzare la precisione e la scala dei numeri, ma non vengono fornite informazioni di questo tipo.
+- **Causa**: Si è provato ad analizzare la precisione e la scala di un numero, ma non sono state fornite tali informazioni.
 
-- **Raccomandazione**:' source ' non restituisce precisione e scala corrette. Controllare la precisione e la scala della colonna del problema.
+- **Raccomandazione**:  'Source' non restituisce la precisione e la scala corrette. Controllare la precisione e la scala della colonna del problema.
 
 
-### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Codice di errore: ParquetInvalidDecimalPrecisionScale
+### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Codice errore:  ParquetInvalidDecimalPrecisionScale
 
-- **Messaggio**:`Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
+- **Messaggio**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
-- **Motivo**: lo schema non è valido.
+- **Causa**: Lo schema non è valido.
 
-- **Consiglio**: controllare la precisione e la scala della colonna del problema.
+- **Raccomandazione**:  Controllare la precisione e la scala della colonna del problema.
 
 
-### <a name="error-code--parquetcolumnnotfound"></a>Codice di errore: ParquetColumnNotFound
+### <a name="error-code--parquetcolumnnotfound"></a>Codice errore:  ParquetColumnNotFound
 
-- **Messaggio**:`Column %column; does not exist in Parquet file.`
+- **Messaggio**: `Column %column; does not exist in Parquet file.`
 
-- **Causa**: lo schema di origine non corrisponde allo schema del sink.
+- **Causa**: Lo schema di origine non corrisponde allo schema del sink.
 
-- **Raccomandazione**: controllare the'mappings ' in ' Activity '. Verificare che sia possibile eseguire il mapping della colonna di origine alla colonna di sink a destra.
+- **Raccomandazione**:  Controllare i 'mapping' in 'attività'. Assicurarsi che sia possibile eseguire il mapping della colonna di origine alla colonna sink corretta.
 
 
-### <a name="error-code--parquetinvaliddataformat"></a>Codice di errore: ParquetInvalidDataFormat
+### <a name="error-code--parquetinvaliddataformat"></a>Codice errore:  ParquetInvalidDataFormat
 
-- **Messaggio**:`Incorrect format of %srcValue; for converting to %dstType;.`
+- **Messaggio**: `Incorrect format of %srcValue; for converting to %dstType;.`
 
-- **Causa**: i dati non possono essere convertiti nel tipo specificato nei mapping. origine
+- **Causa**: Non è possibile convertire i dati nel tipo specificato in mapping.source
 
-- **Raccomandazione**: controllare i dati di origine o specificare il tipo di dati corretto per la colonna nel mapping delle colonne dell'attività di copia. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
+- **Raccomandazione**:  Controllare i dati di origine o specificare il tipo di dati corretto per la colonna nel mapping delle colonne dell'attività di copia. Fare riferimento al documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
 
 
-### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Codice di errore: ParquetDataCountNotMatchColumnCount
+### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Codice errore:  ParquetDataCountNotMatchColumnCount
 
-- **Messaggio**:`The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
+- **Messaggio**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
-- **Causa**: numero di colonne di origine e numero di colonne sink non corrispondenti
+- **Causa**: Il numero di colonne di origine e il numero di colonne sink non corrispondono
 
-- **Raccomandazione**: il numero di colonne di origine del controllo doppio è uguale al numero di colonne del sink in ' mapping '.
+- **Raccomandazione**:  Controllare che il numero di colonne di origine sia uguale al numero di colonne sink nel 'mapping'.
 
 
-### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>Codice di errore: ParquetDataTypeNotMatchColumnType
+### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>Codice errore:  ParquetDataTypeNotMatchColumnType
 
-- **Messaggio**: tipo di dati% srcType; non corrisponde al tipo di colonna specificato% dstType; nella colonna '% columnIndex;'.
+- **Messaggio**: Il tipo di dati %srcType; non corrisponde al tipo di colonna specificato %dstType; nella colonna '%columnIndex;'.
 
-- **Causa**: i dati dell'origine non possono essere convertiti in tipi definiti nel sink
+- **Causa**: I dati dell'origine non possono essere convertiti in tipi definiti nel sink
 
-- **Raccomandazione**: specificare un tipo corretto in mapping. sink.
+- **Raccomandazione**:  Specificare un tipo corretto in mapping.sink.
 
 
-### <a name="error-code--parquetbridgeinvaliddata"></a>Codice di errore: ParquetBridgeInvalidData
+### <a name="error-code--parquetbridgeinvaliddata"></a>Codice errore:  ParquetBridgeInvalidData
 
-- **Messaggio**:`%message;`
+- **Messaggio**: `%message;`
 
-- **Motivo**: valore dei dati oltre la limitazione
+- **Causa**: Valore dei dati oltre la limitazione
 
-- **Raccomandazione**: riprovare. Se il problema persiste, contattaci.
+- **Raccomandazione**:  Riprovare. Se il problema persiste, contattare Microsoft.
 
 
-### <a name="error-code--parquetunsupportedinterpretation"></a>Codice di errore: ParquetUnsupportedInterpretation
+### <a name="error-code--parquetunsupportedinterpretation"></a>Codice errore:  ParquetUnsupportedInterpretation
 
-- **Messaggio**:`The given interpretation '%interpretation;' of parquet format is not supported.`
+- **Messaggio**: `The given interpretation '%interpretation;' of parquet format is not supported.`
 
-- **Cause**: scenario non supportato
+- **Causa**: Scenario non supportato
 
-- **Raccomandazione**:' ParquetInterpretFor ' non deve essere ' sparkSql '.
+- **Raccomandazione**:  'ParquetInterpretFor' non deve essere 'sparkSql'.
 
 
-### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Codice di errore: ParquetUnsupportFileLevelCompressionOption
+### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Codice errore:  ParquetUnsupportFileLevelCompressionOption
 
-- **Messaggio**:`File level compression is not supported for Parquet.`
+- **Messaggio**: `File level compression is not supported for Parquet.`
 
-- **Cause**: scenario non supportato
+- **Causa**: Scenario non supportato
 
-- **Raccomandazione**: rimuovere ' CompressionType ' nel payload.
+- **Raccomandazione**:  Rimuovere 'CompressionType' nel payload.
 
 
 
-## <a name="general-copy-activity-error"></a>Errore di attività di copia generale
+## <a name="general-copy-activity-error"></a>Errore generale dell'attività di copia
 
-### <a name="error-code--jrenotfound"></a>Codice di errore: JreNotFound
+### <a name="error-code--jrenotfound"></a>Codice errore:  JreNotFound
 
-- **Messaggio**:`Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+- **Messaggio**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
-- **Motivo**: il runtime di integrazione self-hosted non riesce a trovare il runtime Java. Il runtime Java è necessario per la lettura di un'origine particolare.
+- **Causa**: Il runtime di integrazione self-hosted non riesce a trovare Java Runtime. Java Runtime è necessario per la lettura di un'origine particolare.
 
-- **Consiglio**: controllare l'ambiente di runtime di integrazione, la documentazione di riferimento:https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+- **Raccomandazione**:  Controllare l'ambiente del runtime di integrazione. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
 
 
-### <a name="error-code--wildcardpathsinknotsupported"></a>Codice di errore: WildcardPathSinkNotSupported
+### <a name="error-code--wildcardpathsinknotsupported"></a>Codice errore:  WildcardPathSinkNotSupported
 
-- **Messaggio**:`Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
+- **Messaggio**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 
-- **Motivo**: il set di dati sink non supporta caratteri jolly.
+- **Causa**: Il set di dati sink non supporta i caratteri jolly.
 
-- **Raccomandazione**: controllare il set di dati sink e correggere il percorso senza il valore jolly.
+- **Raccomandazione**:  Controllare il set di dati sink e correggere il percorso senza il carattere jolly.
 
 
-### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>Codice di errore: MappingInvalidPropertyWithEmptyValue
+### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>Codice errore:  MappingInvalidPropertyWithEmptyValue
 
-- **Messaggio**:`One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
+- **Messaggio**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
 
 
-### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>Codice di errore: MappingInvalidPropertyWithNamePathAndOrdinal
+### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>Codice errore:  MappingInvalidPropertyWithNamePathAndOrdinal
 
-- **Messaggio**:`Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
+- **Messaggio**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
 
 
-### <a name="error-code--mappingduplicatedordinal"></a>Codice di errore: MappingDuplicatedOrdinal
+### <a name="error-code--mappingduplicatedordinal"></a>Codice errore:  MappingDuplicatedOrdinal
 
-- **Messaggio**:`Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
+- **Messaggio**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
 
 
-### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>Codice di errore: MappingInvalidOrdinalForSinkColumn
+### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>Codice errore:  MappingInvalidOrdinalForSinkColumn
 
-- **Messaggio**:`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
+- **Messaggio**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla risoluzione dei problemi, provare a usare le risorse seguenti:
+Per altre informazioni sulla risoluzione dei problemi, usare le risorse seguenti:
 
 *  [Blog di Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Richieste di funzionalità Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Richieste di funzionalità di Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Video di Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow per Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Informazioni su Twitter sui Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [Informazioni su Twitter su Data Factory](https://twitter.com/hashtag/DataFactory)
             

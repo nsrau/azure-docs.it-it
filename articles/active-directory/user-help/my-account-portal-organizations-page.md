@@ -1,6 +1,6 @@
 ---
-title: 'Gestire le organizzazioni dal portale per gli account personali: Azure AD'
-description: Come visualizzare e lasciare le organizzazioni connesse all'account aziendale o dell'Istituto di istruzione dalla pagina organizzazioni del portale account personale.
+title: Gestire le organizzazioni dal portale Account personale - Azure AD
+description: Come visualizzare e mantenere connesse le organizzazioni all'account aziendale o dell'istituto di istruzione dalla pagina Organizzazioni del portale Account personale.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,37 +8,37 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 79136f86c647c0453d600fe2601be56571ee6fed
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 54e19d8680a5b5b7477c143a1857931b082fed98
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625885"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742253"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina delle organizzazioni
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina Organizzazioni
 
-La pagina **organizzazioni** del portale **account personale** consente di gestire le organizzazioni (in genere, il nome dell'organizzazione) connesse all'account aziendale o dell'Istituto di istruzione. Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
+La pagina **Organizzazioni** del portale **Account personale** consente di gestire le organizzazioni (in genere, il nome dell'organizzazione) connesse all'account aziendale o dell'istituto di istruzione. Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 - **Organizzazione principale.** L'organizzazione principale è l'organizzazione titolare dell'account aziendale o dell'istituto di istruzione. Non è possibile lasciare l'organizzazione principale.
 
     >[!NOTE]
-    > Se non si dispone di un'organizzazione domestica assegnata, verrà visualizzata solo una singola intestazione che indica alle organizzazioni l'elenco delle organizzazioni associate.
+    > Se non si dispone di un'organizzazione principale assegnata, verrà visualizzata solo una singola intestazione con la dicitura Organizzazioni con l'elenco delle organizzazioni associate.
 
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connesse a un account aziendale o dell'Istituto di istruzione. Se si è un amministratore che cerca informazioni sulla gestione di utenti e gruppi per i dipendenti e altri usi, vedere la [documentazione relativa alla gestione degli utenti aziendali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connessa a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
-1. Accedere all'account aziendale o dell'Istituto di istruzione e quindi passare all' **account personale** (https://myaccount.microsoft.com/) pagina.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina **Account personale** (https://myaccount.microsoft.com/) ).
 
 2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
 
-    ![Pagina account personale, che mostra i collegamenti delle organizzazioni evidenziate](media/my-account-portal/my-account-portal-organizations.png)
+    ![Pagina Account personale con i collegamenti Organizzazioni evidenziati](media/my-account-portal/my-account-portal-organizations.png)
 
 3. Verificare le informazioni in **Organizzazione principale**.
 
@@ -51,9 +51,9 @@ La pagina **organizzazioni** del portale **account personale** consente di gesti
 È possibile uscire da qualsiasi organizzazione eccetto l'organizzazione principale.
 
 >[!Important]
->Se si esce da un'organizzazione per errore, non è possibile annullare l'azione. È necessario attendere che l'amministratore dell'organizzazione voglia invitare di nuovo l'utente.
+>Se si esce da un'organizzazione per errore, non è possibile annullare l'azione. È necessario attendere di essere invitati nuovamente dall'amministratore dell'organizzazione.
 
-- Selezionare **lascia l'organizzazione** accanto all'organizzazione che si vuole lasciare, quindi selezionare **lascia** per confermare che si desidera uscire.
+- Selezionare **Esci da organizzazione** accanto all'organizzazione da cui si vuole uscire e quindi selezionare **Esci** per confermare.
 
     ![Pagina Organizzazioni con il collegamento Esci dall'organizzazione evidenziato](media/my-account-portal/my-account-portal-organizations-leave.png)
 
@@ -61,10 +61,10 @@ La pagina **organizzazioni** del portale **account personale** consente di gesti
 
 Dopo aver visualizzato le organizzazioni, è possibile:
 
-- Visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
 
-- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md)connessi.
+- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi.
 
-- Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
+- Visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md).
 
-- Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+- Visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).

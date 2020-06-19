@@ -1,5 +1,5 @@
 ---
-title: Registrare i dispositivi personali nel Azure AD di rete di un'organizzazione
+title: Registrare i dispositivi personali nella rete dell'organizzazione - Azure AD
 description: Informazioni su come registrare il dispositivo personale nella rete dell'organizzazione in modo da poter accedere alle risorse protette dell'organizzazione.
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/04/2019
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063867"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747397"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrare il dispositivo personale nella rete dell'organizzazione
 Registrare il dispositivo personale, in genere un telefono o tablet, nella rete dell'organizzazione. Dopo aver registrato il dispositivo, sarà possibile accedere alle risorse limitate della propria organizzazione.

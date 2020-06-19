@@ -4,12 +4,12 @@ description: Questo articolo descrive come valutare le macchine virtuali VMware 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331883"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771309"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Valutare le VM VMware con Valutazione server
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 - [Completare la prima esercitazione](tutorial-prepare-vmware.md) di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
 - Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
     - [Preparare Azure](tutorial-prepare-vmware.md#prepare-azure) per l'uso con Azure Migrate.
-    - [Preparare VMware per la valutazione](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) della migrazione. La procedura include la verifica delle impostazioni di VMware, e la configurazione di un account per l'accesso di Azure Migrate al server vCenter.
+    - [Preparare VMware per la valutazione](tutorial-prepare-vmware.md#prepare-for-assessment) della migrazione. La procedura include la verifica delle impostazioni di VMware, e la configurazione di un account per l'accesso di Azure Migrate al server vCenter.
     - [Verificare](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) i requisiti per la distribuzione dell'appliance di Azure Migrate per la valutazione di VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurare un progetto di Azure Migrate
@@ -170,7 +170,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP dell'istanza del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
 2. In **Nome utente** e **Password** specificare le credenziali dell'account del server vCenter che verranno usate dall'appliance per individuare le macchine virtuali nell'istanza del server vCenter. 
 
-    - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter data center, cluster, una cartella di cluster, host, una cartella di host o singole VM), rivedere le istruzioni riportate in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure Migrate.
 
 3. Selezionare **Convalida connessione** per verificare che l'appliance possa connettersi al server vCenter.
@@ -178,7 +178,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 
     - Facoltativamente, è possibile aggiungere qui le credenziali se è stato creato un account da usare per la [funzionalità di individuazione delle applicazioni](how-to-discover-applications.md) o la [funzionalità di analisi delle dipendenze senza agente](how-to-create-group-machine-dependencies-agentless.md).
     - Se non si usano queste funzionalità, è possibile ignorare questa impostazione.
-    - Verificare le credenziali necessarie per l'[individuazione delle app](migrate-support-matrix-vmware.md#application-discovery) o l'[analisi senza agente](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Verificare le credenziali necessarie per l'[individuazione delle app](migrate-support-matrix-vmware.md#application-discovery-requirements) o l'[analisi senza agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Salvare e avviare l'individuazione** delle VM.
 

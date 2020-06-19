@@ -1,46 +1,46 @@
 ---
-title: Funzioni per i progetti di Azure
-description: Descrive le funzioni disponibili per l'uso con gli artefatti del progetto in definizioni e assegnazioni di progetti di Azure.
-ms.date: 12/09/2019
+title: Funzioni di Azure Blueprints
+description: Descrive le funzioni disponibili per l'uso con gli artefatti del progetto in definizioni e assegnazioni Azure Blueprints.
+ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280677"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834782"
 ---
-# <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con i progetti di Azure
+# <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con Azure Blueprints
 
-I progettisti di Azure offrono funzioni che rendono più dinamica la definizione di un progetto. Queste funzioni sono destinate all'uso con definizioni di progetto e artefatti del progetto. Un elemento del modello di Gestione risorse supporta l'uso completo di funzioni Gestione risorse, oltre a ottenere un valore dinamico tramite un parametro di progetto.
+Azure Blueprints offre funzioni che rendono più dinamica la definizione di un progetto. Queste funzioni sono destinate all'uso con definizioni di progetto e artefatti del progetto. Un elemento del modello di Resource Manager risorse supporta l'utilizzo completo delle funzioni di Resource Manager, oltre a ottenere un valore dinamico tramite un parametro di progetto.
 
 Sono supportate le funzioni seguenti:
 
-- [elementi](#artifacts)
-- [Concat](#concat)
-- [parametri](#parameters)
+- [artifacts](#artifacts)
+- [concat](#concat)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [abbonamento](#subscription)
+- [sottoscrizione](#subscription)
 
-## <a name="artifacts"></a>Artefatti
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
-Restituisce un oggetto di proprietà popolate con gli output degli artefatti del progetto.
+Restituisce un oggetto di proprietà popolato con gli output degli artefatti del progetto.
 
 > [!NOTE]
-> Impossibile `artifacts()` utilizzare la funzione all'interno di un modello di gestione risorse. La funzione può essere usata solo nella definizione di progetto JSON o nell'artefatto JSON quando si gestisce il progetto con Azure PowerShell o l'API REST come parte di [cianografie come codice](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> Non è possibile utilizzare la funzione `artifacts()` dall'interno di un modello di Resource Manager. La funzione può essere usata solo nel codice JSON della definizione di progetto o nell'artefatto JSON quando si gestisce il progetto con Azure PowerShell o l'API REST come parte di [Blueprints come codice](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sì |stringa |Nome di un elemento del progetto. |
+| artifactName |Sì |string |Nome di un artefatto del progetto. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Oggetto delle proprietà di output. Le proprietà degli **output** dipendono dal tipo di elemento del progetto a cui si fa riferimento. Tutti i tipi seguono il formato:
+Oggetto delle proprietà di output. Le proprietà **output** proprietà dipendono dal tipo di elemento del progetto a cui si fa riferimento. Tutti i tipi seguono il formato:
 
 ```json
 {
@@ -48,7 +48,7 @@ Oggetto delle proprietà di output. Le proprietà degli **output** dipendono dal
 }
 ```
 
-#### <a name="policy-assignment-artifact"></a>Elemento assegnazione criteri
+#### <a name="policy-assignment-artifact"></a>Artefatto dell'assegnazione dei criteri
 
 ```json
 {
@@ -60,11 +60,11 @@ Oggetto delle proprietà di output. Le proprietà degli **output** dipendono dal
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Elemento del modello di Gestione risorse
+#### <a name="resource-manager-template-artifact"></a>Artefatto del modello di Resource Manager
 
-Le proprietà **Outputs** dell'oggetto restituito sono definite nel modello di gestione risorse e restituite dalla distribuzione.
+Le proprietà **output** dell'oggetto restituito vengono definite all'interno del modello di Resource Manager e restituite dalla distribuzione.
 
-#### <a name="role-assignment-artifact"></a>Artefatto di assegnazione di ruolo
+#### <a name="role-assignment-artifact"></a>Artefatto dell'assegnazione di ruolo
 
 ```json
 {
@@ -78,7 +78,7 @@ Le proprietà **Outputs** dell'oggetto restituito sono definite nel modello di g
 
 ### <a name="example"></a>Esempio
 
-Un elemento del modello di Gestione risorse con ID _myTemplateArtifact_ contenente la proprietà di output di esempio seguente:
+Un artefatto del modello di Resource Manager con ID _myTemplateArtifact_ contenente la seguente proprietà di output di esempio:
 
 ```json
 {
@@ -104,15 +104,15 @@ Un elemento del modello di Gestione risorse con ID _myTemplateArtifact_ contenen
 }
 ```
 
-Di seguito sono riportati alcuni esempi di recupero dei dati dall'esempio _myTemplateArtifact_ :
+Di seguito sono riportati alcuni esempi di recupero dei dati dal campione _myTemplateArtifact_:
 
 | Expression | Type | valore |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["primo", "secondo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Stringa | prima |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Stringa | "valore stringa" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Oggetto | {"SetProperty": "valore personale", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Stringa | "valore personale" |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Oggetto | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -125,8 +125,8 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| string1 |Sì |stringa |Il primo valore per la concatenazione. |
-| argomenti aggiuntivi |No |stringa |Valori aggiuntivi in ordine sequenziale per la concatenazione |
+| string1 |Sì |string |Il primo valore per la concatenazione. |
+| argomenti aggiuntivi |No |string |Altri valori in ordine sequenziale per la concatenazione |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -134,7 +134,7 @@ Stringa di valori concatenati.
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello Azure Resource Manager perché funziona solo con le stringhe.
+La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager perché funziona solo con le stringhe.
 
 ### <a name="example"></a>Esempio
 
@@ -144,21 +144,21 @@ La funzione Azure Blueprint differisce dalla funzione del modello Azure Resource
 
 `parameters(parameterName)`
 
-Restituisce un valore del parametro del progetto. Il nome del parametro specificato deve essere definito nella definizione del progetto o negli artefatti del progetto.
+Restituisce un valore del parametro del progetto. Il nome del parametro specificato deve essere definito nel progetto o negli artefatti del progetto.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |stringa |Nome del parametro da restituire. |
+| parameterName |Sì |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Il valore del parametro di progetto o di elemento del progetto specificato.
+Il valore del parametro di progetto o dell'artefatto del progetto specificato.
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello Azure Resource Manager perché funziona solo con i parametri del progetto.
+La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager perché funziona solo con i parametri del progetto.
 
 ### <a name="example"></a>Esempio
 
@@ -184,7 +184,7 @@ Definire il parametro _principalIds_ nella definizione del progetto:
 }
 ```
 
-Usare quindi _principalIds_ come argomento di `parameters()` in un elemento del progetto:
+Usare quindi _principalIds_ come argomento per `parameters()` in un artefatto del progetto:
 
 ```json
 {
@@ -218,13 +218,13 @@ L'oggetto restituito è nel formato seguente:
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager. Non `resourceGroup()` è possibile usare la funzione in un elemento a livello di sottoscrizione o nella definizione del progetto. Può essere usato solo negli elementi del progetto che fanno parte di un elemento del gruppo di risorse.
+La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager. Non è possibile usare la funzione `resourceGroup()` in un artefatto a livello di sottoscrizione o nella definizione del progetto. Può essere usata solo negli artefatti del progetto che fanno parte di un artefatto del gruppo di risorse.
 
-Un uso comune della `resourceGroup()` funzione consiste nel creare risorse nella stessa posizione dell'artefatto del gruppo di risorse.
+Un utilizzo comune della funzione `resourceGroup()` consiste nel creare risorse nello stesso percorso dell'artefatto del gruppo di risorse.
 
 ### <a name="example"></a>Esempio
 
-Per usare il percorso del gruppo di risorse, impostare nella definizione del progetto o durante l'assegnazione, come percorso di un altro artefatto, dichiarare un oggetto segnaposto del gruppo di risorse nella definizione del progetto. In questo esempio, _NetworkingPlaceholder_ è il nome del segnaposto del gruppo di risorse.
+Per usare il percorso del gruppo di risorse, impostato nella definizione del progetto o durante l'assegnazione, come percorso di un altro artefatto, dichiarare un oggetto segnaposto del gruppo di risorse nella definizione del progetto. In questo esempio _NetworkingPlaceholder_ è il nome del segnaposto del gruppo di risorse.
 
 ```json
 {
@@ -240,7 +240,7 @@ Per usare il percorso del gruppo di risorse, impostare nella definizione del pro
 }
 ```
 
-Usare quindi la `resourceGroup()` funzione nel contesto di un elemento del progetto che fa riferimento a un oggetto segnaposto del gruppo di risorse. In questo esempio, l'elemento del modello viene distribuito nel gruppo di risorse _NetworkingPlaceholder_ e fornisce il parametro _resourceLocation_ popolato dinamicamente con il percorso del gruppo di risorse _NetworkingPlaceholder_ al modello. Il percorso del gruppo di risorse _NetworkingPlaceholder_ potrebbe essere stato definito in modo statico nella definizione del progetto o definito in modo dinamico durante l'assegnazione. In entrambi i casi, l'artefatto modello fornisce informazioni come parametro e lo usa per distribuire le risorse nel percorso corretto.
+Usare quindi la funzione `resourceGroup()` nel contesto di un artefatto del progetto del progetto che fa riferimento a un oggetto segnaposto del gruppo di risorse. In questo esempio, l'elemento del modello viene distribuito all'interno del gruppo di risorse _NetworkingPlaceholder_ e fornisce al modello il parametro _resourceLocation_ popolato dinamicamente con il percorso del gruppo di risorse _NetworkingPlaceholder_. Il percorso del gruppo di risorse _NetworkingPlaceholder_ può essere stato definito in modo statico nella definizione del progetto o in modo dinamico durante l'assegnazione. In entrambi i casi, l'artefatto del modello fornisce tale dato come parametro e lo usa per distribuire le risorse nel percorso corretto.
 
 ```json
 {
@@ -265,13 +265,13 @@ Usare quindi la `resourceGroup()` funzione nel contesto di un elemento del proge
 
 `resourceGroups(placeholderName)`
 
-Restituisce un oggetto che rappresenta l'elemento del gruppo di risorse specificato. A differenza `resourceGroup()`di, che richiede il contesto dell'artefatto, questa funzione viene usata per ottenere le proprietà di un segnaposto del gruppo di risorse specifico quando non è nel contesto di tale gruppo di risorse.
+Restituisce un oggetto che rappresenta l'artefatto del gruppo di risorse specificato. A differenza di `resourceGroup()`, che richiede il contesto dell'artefatto, questa funzione viene usata per ottenere le proprietà di un segnaposto del gruppo di risorse specifico quando non si trova nel contesto di tale gruppo di risorse.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| segnaposto |Sì |stringa |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
+| placeholderName |Sì |string |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -286,7 +286,7 @@ L'oggetto restituito è nel formato seguente:
 
 ### <a name="example"></a>Esempio
 
-Per usare il percorso del gruppo di risorse, impostare nella definizione del progetto o durante l'assegnazione, come percorso di un altro artefatto, dichiarare un oggetto segnaposto del gruppo di risorse nella definizione del progetto. In questo esempio, _NetworkingPlaceholder_ è il nome del segnaposto del gruppo di risorse.
+Per usare il percorso del gruppo di risorse, impostato nella definizione del progetto o durante l'assegnazione, come percorso di un altro artefatto, dichiarare un oggetto segnaposto del gruppo di risorse nella definizione del progetto. In questo esempio _NetworkingPlaceholder_ è il nome del segnaposto del gruppo di risorse.
 
 ```json
 {
@@ -302,7 +302,7 @@ Per usare il percorso del gruppo di risorse, impostare nella definizione del pro
 }
 ```
 
-Usare quindi la `resourceGroups()` funzione dal contesto di qualsiasi elemento del progetto per ottenere un riferimento all'oggetto segnaposto del gruppo di risorse. In questo esempio, l'elemento del modello viene distribuito all'esterno del gruppo di risorse _NetworkingPlaceholder_ e fornisce il parametro _artifactLocation_ popolato dinamicamente con il percorso del gruppo di risorse _NetworkingPlaceholder_ al modello. Il percorso del gruppo di risorse _NetworkingPlaceholder_ potrebbe essere stato definito in modo statico nella definizione del progetto o definito in modo dinamico durante l'assegnazione. In entrambi i casi, l'artefatto modello fornisce informazioni come parametro e lo usa per distribuire le risorse nel percorso corretto.
+Usare quindi la funzione `resourceGroups()` dal contesto dell'artefatto di un progetto per ottenere un riferimento a un oggetto segnaposto del gruppo di risorse. In questo esempio, l'elemento del modello viene distribuito all'esterno del gruppo di risorse _NetworkingPlaceholder_ e fornisce al modello il parametro _artifactLocation_ popolato dinamicamente con il percorso del gruppo di risorse _NetworkingPlaceholder_. Il percorso del gruppo di risorse _NetworkingPlaceholder_ può essere stato definito in modo statico nella definizione del progetto o in modo dinamico durante l'assegnazione. In entrambi i casi, l'artefatto del modello fornisce tale dato come parametro e lo usa per distribuire le risorse nel percorso corretto.
 
 ```json
 {
@@ -327,7 +327,7 @@ Usare quindi la `resourceGroups()` funzione dal contesto di qualsiasi elemento d
 
 `subscription()`
 
-Restituisce informazioni dettagliate sulla sottoscrizione per l'assegnazione del progetto corrente.
+Restituisce i dettagli sulla sottoscrizione per l'assegnazione del progetto corrente.
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -344,7 +344,7 @@ L'oggetto restituito è nel formato seguente:
 
 ### <a name="example"></a>Esempio
 
-Usare il nome visualizzato della sottoscrizione e la `concat()` funzione per creare una convenzione di denominazione passata come parametro _resourceName_ all'elemento del modello.
+Usare il nome visualizzato della sottoscrizione e la funzione `concat()` per creare una convenzione di denominazione passata come parametro _resourceName_ all'artefatto del modello.
 
 ```json
 {

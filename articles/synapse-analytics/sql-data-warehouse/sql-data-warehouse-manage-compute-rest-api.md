@@ -1,6 +1,6 @@
 ---
-title: Sospendere, riprendere e ridimensionare con le API REST
-description: Gestire la potenza di calcolo in Azure sinapsi Analytics data warehouse tramite le API REST.
+title: Sospendere, riprendere e dimensionare con le API REST
+description: Gestire la potenza di calcolo nel data warehouse Azure Synapse Analytics tramite le API REST.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4efd5c63af9f09d41733e8e172270410245977ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 65161915a63b58ad75ff2c01c16c95dec1aad2ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633209"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652628"
 ---
-# <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST per Azure SQL Data Warehouse
+# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>API REST per il data warehouse Azure Synapse Analytics
 
-API REST per la gestione delle risorse di calcolo in Azure sinapsi Analytics data warehouse.
+API REST per la gestione del calcolo nel data warehouse Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
 
@@ -56,7 +56,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>Controllare lo stato del database
 
 > [!NOTE]
-> Attualmente controllare lo stato del database potrebbe restituire ONLINE mentre il database sta completando il flusso di lavoro online, causando errori di connessione. Se si usa questa chiamata API per attivare i tentativi di connessione, potrebbe essere necessario aggiungere un ritardo da 2 a 3 minuti nel codice dell'applicazione.
+> Attualmente il controllo dello stato del database può restituire ONLINE mentre il database completa il flusso di lavoro online, generando errori di connessione. Se si usa questa chiamata API per attivare i tentativi di connessione, potrebbe essere necessario aggiungere un ritardo di 2-3 minuti nel codice dell'applicazione.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
@@ -71,9 +71,9 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Imposta pianificazione di manutenzione
+## <a name="set-maintenance-schedule"></a>Impostare la pianificazione della manutenzione
 
-Per impostare e aggiornare una pianificazione di manutenzione in un data warehouse esistente.
+Impostare e aggiornare una pianificazione di manutenzione in un data warehouse esistente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

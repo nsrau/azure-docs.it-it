@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426068"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836499"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
 
@@ -55,7 +55,7 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
 *   **InputEventsSourcesTotal** è il numero di unità di dati lette. Ad esempio il numero di BLOB.
 *   **InputEventsTotal** è il numero di eventi letti. Questa metrica è disponibile per ogni partizione.
 *   **InputEventsInBytesTotal** è il numero di byte letti.
-*   **InputEventsLastArrivalTime** viene aggiornato con l'ora di Accodamento di ogni evento ricevuto.
+*   **InputEventsLastArrivalTime** viene aggiornato con l'ora di accodamento di ogni evento ricevuto.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>L'ora viene spostata in avanti? Se vengono letti eventi reali, potrebbe non essere generata la punteggiatura.
 
@@ -79,11 +79,11 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi dei flussi](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
+* [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

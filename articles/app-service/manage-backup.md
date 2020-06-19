@@ -5,15 +5,15 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535758"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170614"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
-La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
+La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati per un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
 
 Per informazioni sul ripristino di un'app dal backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md).
 
@@ -22,7 +22,7 @@ Per informazioni sul ripristino di un'app dal backup, vedere [Ripristinare un'ap
 ## <a name="what-gets-backed-up"></a>Elementi di cui viene eseguito il backup
 Il servizio app può eseguire il backup delle informazioni seguenti in un account di archiviazione di Azure e nel contenitore configurati per essere usati dall'app. 
 
-* Configurazione delle app
+* Configurazione dell'app
 * Contenuto del file
 * Database connesso all'app
 
@@ -41,11 +41,11 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisiti e restrizioni
-* Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard** o al livello **Premium**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
+* Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard**, **Premium** o **Isolated**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md). I livelli **Premium** e **Isolated** consentono un maggior numero di backup giornalieri rispetto al livello **Standard**.
 * Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
-* Il backup del database di Azure abilitato per TLS per MySQL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
-* I backup del database di Azure abilitato per TLS per PostgreSQL non sono supportati. Se è configurato un backup, si otterranno i backup non riusciti.
+* Il backup di Database di Azure per MySQL abilitato per TLS non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* Il backup di Database di Azure per PostgreSQL abilitato per TLS non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
 * Per i database MySQL in-app viene automaticamente eseguito un backup senza alcuna configurazione. Se si modificano manualmente le impostazioni per i database MySQL in-app, ad esempio si aggiungono stringhe di connessione, è possibile che i backup non vengano eseguiti correttamente.
 * L'uso di un account di archiviazione abilitato per un firewall come destinazione per i backup non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
 
@@ -64,11 +64,11 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
     > 
     > 
 
-2. Nella pagina **backup** selezionare **backup non è configurato. Fare clic qui per configurare il backup per l'app**.
+2. Nella pagina **Backup** selezionare **Il backup non è configurato. Fare clic qui per configurare il backup per l'app**.
 
-    ![Fare clic su Configura.](./media/manage-backup/configure-start.png)
+    ![Fare clic su Configura](./media/manage-backup/configure-start.png)
 
-3. Nella pagina **configurazione backup** fare clic su **archiviazione non configurata** per configurare un account di archiviazione.
+3. Nella pagina **Configurazione backup** fare clic su **Archiviazione non configurata** per configurare un account di archiviazione.
 
     ![Scegliere l'account di archiviazione](./media/manage-backup/configure-storage.png)
 
@@ -86,7 +86,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
     > 
 
 6. Nella pagina **Configurazione backup** fare clic su **Salva**.
-7. Nella pagina **backup** fare clic su **backup**.
+7. Nella pagina **Backup** fare clic su **Backup**.
 
     ![Pulsante BackUp Now](./media/manage-backup/manual-backup.png)
 
@@ -115,7 +115,7 @@ In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. D
 I backup parziali consentono di scegliere esattamente i file di cui eseguire il backup.
 
 > [!NOTE]
-> I singoli database del backup possono avere una dimensione massima di 4 GB, ma la dimensione totale massima del backup è 10 GB
+> I singoli database del backup possono avere una dimensione massima di 4 GB, ma la dimensione massima totale del backup è 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Escludere file dal backup
 Si supponga di avere un'app che contiene file di log e immagini statiche di cui è stato eseguito un backup e che nos si intende modificare. In questi casi è possibile escludere le cartelle e i file dall'archiviazione nei backup futuri. Per escludere file e cartelle dai backup, creare un file `_backup.filter` nella cartella `D:\home\site\wwwroot` dell'applicazione. Specificare l'elenco di file e cartelle da escludere in questo file. 
@@ -134,7 +134,7 @@ Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel fi
 \site\wwwroot\Images\2013
 ```
 
-Caricare il file `_backup.filter` nella directory `D:\home\site\wwwroot\` del sito usando [ftp](deploy-ftp.md) o qualsiasi altro metodo. Se si vuole, è possibile creare il file direttamente usando Kudu `DebugConsole` e inserire il contenuto.
+Caricare il file `_backup.filter` nella directory `D:\home\site\wwwroot\` del sito usando [ftp](deploy-ftp.md) o qualsiasi altro metodo. È anche possibile creare il file direttamente usando il comando `DebugConsole` in Kudu e inserire i contenuti nel file.
 
 Eseguire i backup secondo la procedura consueta, ovvero [manualmente](#create-a-manual-backup) o [automaticamente](#configure-automated-backups). A questo punto, eventuali file e cartelle specificati in `_backup.filter` verranno esclusi dai backup futuri pianificati o avviati manualmente. 
 

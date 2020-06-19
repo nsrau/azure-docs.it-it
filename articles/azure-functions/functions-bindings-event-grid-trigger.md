@@ -1,31 +1,31 @@
 ---
-title: Trigger di griglia di eventi di Azure per funzioni di Azure
-description: Informazioni su come eseguire il codice quando si inviano eventi di griglia di eventi in funzioni di Azure.
+title: Trigger Griglia di eventi di Azure per Funzioni di Azure
+description: Informazioni su come eseguire il codice quando si inviano eventi di Griglia di eventi in Funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891286"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648337"
 ---
-# <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger di griglia di eventi di Azure per funzioni di Azure
+# <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
 
-Usare il trigger di funzione per rispondere a un evento inviato a un argomento di griglia di eventi.
+È possibile usare il trigger di funzioni per rispondere a un evento inviato a un argomento di Griglia di eventi.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-event-grid.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-event-grid.md).
 
 ## <a name="example"></a>Esempio
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per un esempio di trigger HTTP, vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md).
+Per un esempio di trigger HTTP, vedere [Ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md).
 
-### <a name="c-2x-and-higher"></a>C# (2. x e versioni successive)
+### <a name="c-2x-and-higher"></a>C# (versione 2.x e successive)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) associata a `EventGridEvent`:
 
@@ -95,9 +95,9 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-### <a name="version-2x-and-higher"></a>Versione 2. x e successive
+### <a name="version-2x-and-higher"></a>Versione 2.x e successive
 
-Di seguito è riportato un esempio che esegue `EventGridEvent`l'associazione a:
+Di seguito è riportato un esempio che crea un'associazione con `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -207,9 +207,9 @@ Questa sezione contiene gli esempi seguenti:
 * [Trigger griglia di eventi, parametro String](#event-grid-trigger-string-parameter)
 * [Trigger griglia di eventi, parametro POJO](#event-grid-trigger-pojo-parameter)
 
-Negli esempi seguenti viene illustrata l'associazione di trigger in [Java](functions-reference-java.md) che usa l'associazione e stampa un evento, ricevendo prima `String` l'evento come e il secondo come POJO.
+Gli esempi seguenti illustrano l'associazione di trigger in [Java](functions-reference-java.md), che usa l'associazione e stampa un evento. Il primo riceve l'evento come `String`, il secondo come POJO.
 
-### <a name="event-grid-trigger-string-parameter"></a>Trigger griglia di eventi, parametro String
+### <a name="event-grid-trigger-string-parameter"></a>Trigger Griglia di eventi, parametro String
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -223,7 +223,7 @@ Negli esempi seguenti viene illustrata l'associazione di trigger in [Java](funct
   }
 ```
 
-### <a name="event-grid-trigger-pojo-parameter"></a>Trigger griglia di eventi, parametro POJO
+### <a name="event-grid-trigger-pojo-parameter"></a>Trigger Griglia di eventi, parametro POJO
 
 Questo esempio usa il POJO seguente, che rappresenta le proprietà di livello superiore di un evento Griglia di eventi:
 
@@ -245,7 +245,7 @@ public class EventSchema {
 }
 ```
 
-All'arrivo, il payload JSON dell'evento viene deserializzato nel POJO ```EventSchema``` per l'uso nella funzione. Questo processo consente alla funzione di accedere alle proprietà dell'evento in modo orientato agli oggetti.
+All'arrivo, il payload JSON dell'evento viene deserializzato nel POJO ```EventSchema``` per l'uso nella funzione. Questo processo consente alla funzione di accedere alle proprietà dell'evento in una modalità orientata agli oggetti.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -287,7 +287,7 @@ Per un esempio completo, vedere l'esempio in C#.
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -299,7 +299,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) consente di configurare in modo dichiarativo un'associazione di griglia di eventi fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
+L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) consente di configurare in modo dichiarativo un'associazione di Griglia di eventi fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e [configurazione](#configuration).
 
 ---
 
@@ -310,19 +310,19 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |Proprietà di function.json |Descrizione|
 |---------|---------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
-| **direzione** | Obbligatoria. Deve essere impostata su `in`. |
-| **name** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
+| **direction** | Obbligatoria. Deve essere impostata su `in`. |
+| **nome** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-In funzioni di Azure 1. x, è possibile usare i tipi di parametro seguenti per il trigger griglia di eventi:
+In Funzioni di Azure 1.x è possibile usare i tipi di parametro seguenti per il trigger Griglia di eventi:
 
 * `JObject`
 * `string`
 
-In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo di parametro seguente per il trigger griglia di eventi:
+In Funzioni di Azure 2.x e versioni successive è anche possibile usare il tipo di parametro seguente per il trigger Griglia di eventi:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - Definisce le proprietà dei campi comuni a tutti i tipi di evento.
 
@@ -331,12 +331,12 @@ In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-In funzioni di Azure 1. x, è possibile usare i tipi di parametro seguenti per il trigger griglia di eventi:
+In Funzioni di Azure 1.x è possibile usare i tipi di parametro seguenti per il trigger Griglia di eventi:
 
 * `JObject`
 * `string`
 
-In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo di parametro seguente per il trigger griglia di eventi:
+In Funzioni di Azure 2.x e versioni successive è anche possibile usare il tipo di parametro seguente per il trigger Griglia di eventi:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - Definisce le proprietà dei campi comuni a tutti i tipi di evento.
 
@@ -345,15 +345,15 @@ In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L'istanza di `name` griglia di eventi è disponibile tramite il parametro configurato nella proprietà del file *Function. JSON* .
+L'istanza di Griglia di eventi è disponibile tramite il parametro configurato nella proprietà *function.json* del file `name`.
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'istanza di griglia di eventi è disponibile tramite il parametro configurato nella `name` proprietà del file *Function. JSON* , tipizzato come. `func.EventGridEvent`
+L'istanza di Griglia di eventi è disponibile tramite il parametro configurato nella proprietà *function.json* del file `name`, tipizzata come `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'istanza dell'evento di griglia di eventi è disponibile tramite il parametro `EventGridTrigger` associato all'attributo, tipizzato come `EventSchema`. Per altri dettagli, vedere l' [esempio](#example) .
+L'istanza dell'evento di Griglia di eventi è disponibile tramite il parametro associato all'attributo `EventGridTrigger`, tipizzato come `EventSchema`. Per informazioni dettagliate, vedere l'[esempio](#example).
 
 ---
 
@@ -401,13 +401,13 @@ Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario crear
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
+Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e selezionare **Crea sottoscrizione di Griglia di eventi**.
 
-![Creare una sottoscrizione nel portale](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connettere una nuova sottoscrizione di eventi da attivare nel portale.":::
 
-Quando si seleziona questo collegamento, nel portale si apre la pagina **Crea sottoscrizione di eventi** con l'URL dell'endpoint precompilato.
+Quando si seleziona questo collegamento, nel portale si apre la pagina **Crea sottoscrizione di eventi** con l'endpoint del trigger corrente già definito.
 
-![URL dell'endpoint precompilato](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Creare una sottoscrizione di eventi con l'endpoint funzione già definito" :::
 
 Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure, vedere [Creare eventi personalizzati con il portale di Azure](../event-grid/custom-event-quickstart-portal.md) nella documentazione relativa a Griglia di eventi.
 
@@ -417,7 +417,7 @@ Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Az
 
 Il comando richiede l'URL dell'endpoint che richiama la funzione. L'esempio seguente illustra il modello di URL specifico della versione:
 
-#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2. x (e versioni successive)
+#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2.x e successive
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
@@ -429,7 +429,7 @@ La chiave di sistema è una chiave di autorizzazione che deve essere inclusa nel
 
 Di seguito è riportato un esempio di sottoscrizione a un account di archiviazione BLOB (con un segnaposto per la chiave di sistema):
 
-#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2. x (e versioni successive)
+#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2.x e successive
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -457,7 +457,7 @@ Per altre informazioni su come creare una sottoscrizione, vedere la [guida intro
 
 È possibile ottenere la chiave di sistema tramite l'API seguente (HTTP GET):
 
-#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2. x (e versioni successive)
+#### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2.x e successive
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
@@ -543,14 +543,14 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 * Impostare un'intestazione `Content-Type: application/json`.
 * Impostare un'intestazione `aeg-event-type: Notification`.
 * Incollare i dati di RequestBin nel corpo della richiesta.
-* Inserire l'URL della funzione trigger griglia di eventi.
-  * Per 2. x e versioni successive, usare il modello seguente:
+* Inviare all'URL della funzione trigger Griglia di eventi.
+  * Per la versione 2.x e successive, usare il criterio seguente:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * Per 1. x usare:
+  * Per la versione 1.x, usare:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -570,4 +570,4 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Inviare un evento di griglia di eventi](./functions-bindings-event-grid-output.md)
+* [Inviare un evento di Griglia di eventi](./functions-bindings-event-grid-output.md)

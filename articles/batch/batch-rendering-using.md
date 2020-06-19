@@ -1,16 +1,16 @@
 ---
 title: Uso delle funzionalità di rendering
-description: Come usare le funzionalità di rendering Azure Batch. Provare a utilizzare l'applicazione Batch Explorer, direttamente o richiamata da un plug-in di applicazione client.
+description: Informazioni su come usare le funzionalità di rendering di Azure Batch. Provare a usare l'applicazione Batch Explorer, direttamente o chiamandola da un plug-in di applicazione client.
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
-ms.topic: conceptual
-ms.openlocfilehash: 6dd7d73d2b04f6e076794ee63d0a546170782fce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115636"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726401"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso del rendering di Azure Batch
 
@@ -46,18 +46,18 @@ Per l'uso con Batch Explorer è disponibile un set completo di modelli che sempl
 
 Sono modelli che soddisfano le esigenze di tutte le applicazioni delle immagini di macchine virtuali per il rendering presenti nel Marketplace.  Per ogni applicazione esistono più modelli, inclusi i modelli di pool per soddisfare le esigenze di pool di CPU e GPU, pool Windows e Linux. I modelli di processi includono il rendering di Blender con fotogrammi completi o affiancati e il rendering distribuito di V-Ray. Il set di modelli disponibili verrà ampliato nel tempo per soddisfare altre funzionalità di Batch, ad esempio la scalabilità automatica del pool.
 
-È anche possibile creare modelli personalizzati da zero o modificando i modelli forniti. I modelli personalizzati possono essere usati selezionando l'elemento ' local templates ' nella sezione ' Gallery ' del Batch Explorer.
+È anche possibile creare modelli personalizzati da zero o modificando i modelli forniti. Per usare i modelli personalizzati, selezionare l'elemento 'Modelli locali' nella sezione 'Raccolta' di Batch Explorer.
 
 ### <a name="file-system-and-data-movement"></a>File system e spostamento dati
 
-La sezione relativa ai dati in Batch Explorer consente la copia dei file tra un file system locale e gli account di archiviazione di Azure.
+La sezione 'Dati' in Batch Explorer consente di copiare i file tra un file system locale e gli account di Archiviazione di Azure.
 
 ## <a name="client-application-plug-ins"></a>Plug-in per applicazioni client
 
 Sono disponibili plug-in per alcune applicazioni client.  I plug-in consentono di creare pool e processi direttamente dall'applicazione o di richiamare Batch Explorer.
 
-* [Blender 2,79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
+* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8 e versioni successive](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
@@ -66,4 +66,4 @@ Sono disponibili plug-in per alcune applicazioni client.  I plug-in consentono d
 Per esempi del rendering di Batch provare le due esercitazioni:
 
 * [Eseguire il rendering con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Rendering con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Eseguire il rendering con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

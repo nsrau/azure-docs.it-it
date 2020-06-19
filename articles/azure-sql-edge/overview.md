@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6e5e54f7bf61d933240403ff952c1aa6e162958f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594580"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712809"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Che cos'è SQL Edge di Azure (anteprima)?
 
@@ -33,7 +33,7 @@ SQL Edge di Azure è disponibile in Azure Marketplace e può essere distribuito 
 
 ## <a name="editions-of-sql-edge"></a>Edizioni di SQL Edge
 
-SQL Edge è disponibile con tre diverse edizioni o piani software. Queste edizioni hanno set di funzionalità identici e si differenziano solo in termini di diritti di utilizzo e per la quantità di CPU/memoria supportata.
+SQL Edge è disponibile con due edizioni o piani software diversi. Queste edizioni hanno set di funzionalità identici e si differenziano solo in termini di diritti di utilizzo e per la quantità di CPU/memoria supportata.
 
    |**Pianificare**  |**Descrizione**  |
    |---------|---------|
@@ -42,7 +42,7 @@ SQL Edge è disponibile con tre diverse edizioni o piani software. Queste edizio
 
 ## <a name="pricing-and-availability"></a>Prezzi e disponibilità
 
-SQL Edge di Azure è attualmente in anteprima. Per altre informazioni sui prezzi e sulla disponibilità, vedere [SQL Edge di Azure](https://azure.microsoft.com/services/sql-database-edge/).
+SQL Edge di Azure è attualmente in anteprima. Per altre informazioni sui prezzi e sulla disponibilità, vedere [SQL Edge di Azure](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Per informazioni sulle differenze tra le funzionalità di SQL Edge di Azure e SQL Server, nonché sulle differenze tra le diverse opzioni di SQL Edge di Azure, vedere [Funzionalità supportate di SQL Edge di Azure](features.md).
