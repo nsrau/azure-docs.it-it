@@ -13,17 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 05/20/2020
 ms.author: shvija
-ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265012"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726095"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
-Hub eventi di Azure consente di acquisire automaticamente i dati in streaming in hub eventi in un [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o Azure Data Lake storage account di [generazione 1 o gen 2](https://azure.microsoft.com/services/data-lake-store/) di propria scelta, con la flessibilità aggiuntiva di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
+Hub eventi di Azure consente di acquisire automaticamente i dati in streaming di Hub eventi in un account di [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o [Azure Data Lake Storage Gen 1 o Gen 2](https://azure.microsoft.com/services/data-lake-store/) a scelta, con la possibilità di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
+
+> [!NOTE]
+> La configurazione di Acquisizione di Hub eventi per l'uso di Azure Data Lake Storage **Gen 2** corrisponde alla configurazione per l'uso di un'istanza di Archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Configurare Acquisizione di Hub eventi](event-hubs-capture-enable-through-portal.md). 
 
 Acquisizione di Hub eventi consente di elaborare pipeline in tempo reale e basate su batch nello stesso flusso. Ciò significa che è possibile compilare soluzioni che si adattano alle esigenze nel corso del tempo. Sia che si debbano compilare oggi sistemi basati su batch con lo sguardo rivolto alla futura elaborazione in tempo reale o che si voglia aggiungere un percorso a freddo efficiente a una soluzione in tempo reale esistente, Acquisizione di Hub eventi semplifica l'uso dei dati in streaming.
 
@@ -32,7 +35,7 @@ Acquisizione di Hub eventi consente di elaborare pipeline in tempo reale e basat
 
 Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-scalability.md#partitions). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Di conseguenza, un determinato hub eventi non sarà mai "troppo pieno".
 
-Acquisizione di hub eventi consente di specificare il proprio account di archiviazione BLOB di Azure e il contenitore o l'account Azure Data Lake Storage, che vengono usati per archiviare i dati acquisiti. Questi account possono trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità Acquisizione di Hub eventi.
+Acquisizione di Hub eventi consente di specificare un account di Archiviazione BLOB di Azure e un contenitore oppure un account Azure Data Lake Storage da usare per archiviare i dati acquisiti. Questi account possono trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità Acquisizione di Hub eventi.
 
 I dati acquisiti vengono scritti in formato [Apache Avro][Apache Avro], un formato compatto, rapido, binario che offre strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory. Altre informazioni sull'uso di Avro sono disponibili più avanti in questo articolo.
 
@@ -44,17 +47,17 @@ Acquisizione di Hub eventi consente di configurare una finestra per controllare 
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Si noti che i valori di data vengono riempiti con zeri, come illustrato nel nome di file di esempio seguente:
+I valori di data vengono riempiti con zeri, come illustrato nel nome di file di esempio seguente:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
-Nel caso in cui il BLOB di archiviazione di Azure sia temporaneamente non disponibile, l'acquisizione di hub eventi manterrà i dati per il periodo di conservazione dei dati configurato nell'hub eventi e riempirà i dati quando l'account di archiviazione sarà nuovamente disponibile.
+Nel caso in cui il BLOB di archiviazione di Azure sia temporaneamente non disponibile, Acquisizione di Hub eventi manterrà i dati per il periodo di conservazione configurato nell'hub eventi e compilerà di nuovo i dati quando l'account di archiviazione sarà nuovamente disponibile.
 
 ### <a name="scaling-to-throughput-units"></a>Ridimensionamento alle unità elaborate
 
-Il traffico di hub eventi è controllato da [unità di velocità effettiva](event-hubs-scalability.md#throughput-units). Una singola unità elaborata consente 1 MB al secondo o 1000 eventi al secondo in ingresso e il doppio in uscita. Hub eventi Standard può essere configurato con 1-20 unità elaborate e altre possono essere acquistate con una [richiesta di supporto][support request] per l'aumento della quota. L'uso superiore rispetto alle unità elaborate acquistate è limitato. Acquisizione di Hub eventi copia i dati direttamente dalla memoria di Hub eventi interna, ignorando le quote in uscita di unità elaborate e salvando l'uscita per altri lettori di elaborazione, ad esempio l'analisi di flusso o Spark.
+Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-scalability.md#throughput-units). Una singola unità elaborata consente 1 MB al secondo o 1000 eventi al secondo in ingresso e il doppio in uscita. Hub eventi Standard può essere configurato con 1-20 unità elaborate e altre possono essere acquistate con una [richiesta di supporto][support request] per l'aumento della quota. L'uso superiore rispetto alle unità elaborate acquistate è limitato. Acquisizione di Hub eventi copia i dati direttamente dalla memoria di Hub eventi interna, ignorando le quote in uscita di unità elaborate e salvando l'uscita per altri lettori di elaborazione, ad esempio l'analisi di flusso o Spark.
 
 Acquisizione di Hub eventi, dopo essere stata configurata, viene eseguita automaticamente quando si invia il primo evento e continua l'esecuzione. Per comunicare facilmente all'elaborazione downstream che il processo è funzionante, Hub eventi scrive file vuoti quando non sono presenti dati. Questo processo ottiene una cadenza prevedibile e un marcatore che possono alimentare i processori batch.
 
@@ -62,7 +65,7 @@ Acquisizione di Hub eventi, dopo essere stata configurata, viene eseguita automa
 
 È possibile configurare Acquisizione al momento della creazione dell'hub eventi usando il [portale di Azure](https://portal.azure.com) o i modelli di Azure Resource Manager. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Abilitare l'acquisizione di hub eventi usando il portale di Azure](event-hubs-capture-enable-through-portal.md)
+- [Abilitare Acquisizione di Hub eventi usando il portale di Azure](event-hubs-capture-enable-through-portal.md)
 - [Creare uno spazio dei nomi di Hub eventi con un hub eventi e abilitare l'acquisizione con un modello di Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 
@@ -82,7 +85,7 @@ Per esplorare facilmente i file di Avro, è possibile usare il file JAR [Avro To
 
 È disponibile un supporto nativo per Archiviazione BLOB di Azure, che rende più semplice eseguire query sui dati in un file Avro, come descritto nella documentazione:
 
-[Apache Drill: plug-in di archiviazione BLOB di Azure][Apache Drill: Azure Blob Storage Plugin]
+[Apache Drill: Plug-in per Archiviazione BLOB di Azure][Apache Drill: Azure Blob Storage Plugin]
 
 Per eseguire con facilità query sui file acquisiti, è possibile creare ed eseguire una macchina virtuale con Apache Drill abilitata tramite un contenitore per l'accesso ad Archiviazione BLOB di Azure:
 
@@ -90,14 +93,14 @@ https://github.com/yorek/apache-drill-azure-blob
 
 Un esempio completo end-to-end è disponibile nel repository Flussi scalabili:
 
-[Streaming su larga scala: acquisizione di hub eventi]
+[Flussi scalabili: Acquisizione di Hub eventi]
 
 ### <a name="use-apache-spark"></a>Usare Apache Spark
 
-[Apache Spark][Apache Spark] è un "motore di analisi unificato per l'elaborazione di dati su larga scala". Supporta diversi linguaggi, tra cui SQL, e può accedere facilmente ad Archiviazione BLOB di Azure. Sono disponibili alcune opzioni per eseguire Apache Spark in Azure e ognuna consente di accedere facilmente all'archivio BLOB di Azure:
+[Apache Spark][Apache Spark] è un "motore di analisi unificato per l'elaborazione di dati su larga scala". Supporta diversi linguaggi, tra cui SQL, e può accedere facilmente ad Archiviazione BLOB di Azure. Per l'esecuzione di Apache Spark in Azure sono disponibili diverse opzioni, ciascuna delle quali consente un accesso semplificato ad Archiviazione BLOB di Azure:
 
-- [HDInsight: indirizzare i file in archiviazione di Azure][HDInsight: Address files in Azure storage]
-- [Azure Databricks: archiviazione BLOB di Azure][Azure Databricks: Azure Blob Storage]
+- [HDInsight: Accedere ai file in Archiviazione di Azure][HDInsight: Address files in Azure storage]
+- [Azure Databricks: Archiviazione BLOB di Azure][Azure Databricks: Azure Blob Storage]
 - [Servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### <a name="use-avro-tools"></a>Usare Avro Tools
@@ -131,25 +134,25 @@ Questo comando restituisce
 
 Per eseguire operazioni di elaborazione più avanzate, scaricare e installare Avro per la propria piattaforma. Al momento della stesura di questo articolo, sono disponibili implementazioni per C, C++, C\#, Java, NodeJS, Perl, PHP, Python e Ruby.
 
-In Apache Avro sono disponibili guide introduttive complete per [Java][Java] e [Python][Python]. È anche possibile leggere l'articolo [Introduzione all'acquisizione di hub eventi](event-hubs-capture-python.md) .
+In Apache Avro sono disponibili guide introduttive complete per [Java][Java] e [Python][Python]. È anche possibile leggere l'articolo [Acquisizione di Hub eventi di Azure](event-hubs-capture-python.md).
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Come viene addebitato l'uso di Acquisizione di Hub eventi
 
 L'uso di Acquisizione di Hub eventi viene registrato in modo simile a quello delle unità elaborate, come tariffa oraria. L'addebito è direttamente proporzionale al numero di unità elaborate acquistate per lo spazio dei nomi. Quando le unità elaborate aumentano o diminuiscono, anche Acquisizione di Hub eventi aumenta o diminuisce per offrire prestazioni corrispondenti. Le misurazioni vengono eseguite in parallelo. Per i dettagli sui prezzi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-Si noti che l'acquisizione non utilizza la quota in uscita perché viene fatturata separatamente. 
+L'acquisizione non usa la quota in uscita perché viene fatturata separatamente. 
 
 ## <a name="integration-with-event-grid"></a>Integrazione con Griglia di eventi 
 
-È possibile creare una sottoscrizione di Griglia di eventi di Azure con uno spazio dei nomi di Hub eventi come origine. L'esercitazione seguente illustra come creare una sottoscrizione di Griglia di eventi con un hub eventi come origine e un'app di Funzioni di Azure come sink: [Elaborare i dati di Hub eventi acquisiti ed eseguirne la migrazione a SQL Data Warehouse con Griglia di eventi e Funzioni di Azure](store-captured-data-data-warehouse.md).
+È possibile creare una sottoscrizione di Griglia di eventi di Azure con uno spazio dei nomi di Hub eventi come origine. L'esercitazione seguente illustra come creare una sottoscrizione di Griglia di eventi con un hub eventi come origine e un'app Funzioni di Azure come sink: [Elaborare i dati di Hub eventi acquisiti ed eseguirne la migrazione a SQL Data Warehouse con Griglia di eventi e Funzioni di Azure](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Acquisizione di Hub eventi rappresenta il modo più facile per ottenere i dati in Azure. Con Azure Data Lake, Azure Data Factory e Azure HDInsight, è possibile eseguire l'elaborazione batch e altre analisi usando strumenti e piattaforme familiari a scelta con la scalabilità necessaria.
 
 Informazioni su come abilitare questa funzionalità usando il modello di portale di Azure e di Azure Resource Manager:
 
-- [Usare il portale di Azure per abilitare Acquisizione di Hub eventi](event-hubs-capture-enable-through-portal.md)
-- [Usare un modello di Azure Resource Manager per abilitare l'acquisizione di hub eventi](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+- [Usare il portale di Azure per abilitare l'acquisizione di hub eventi](event-hubs-capture-enable-through-portal.md)
+- [Usare un modello di Azure Resource Manager per abilitare Acquisizione di Hub eventi](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 
 [Apache Avro]: https://avro.apache.org/
@@ -165,4 +168,4 @@ Informazioni su come abilitare questa funzionalità usando il modello di portale
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[Streaming su larga scala: acquisizione di hub eventi]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[Flussi scalabili: Acquisizione di Hub eventi]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

@@ -1,5 +1,5 @@
 ---
-title: Usare il filtro pacchetti di FreeBSD per creare un firewall in Azure
+title: Usare Packet Filter di FreeBSD per creare un firewall in Azure
 description: Informazioni su come distribuire un firewall NAT usando PF di FreeBSD in Azure.
 author: KylieLiang
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945097"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652531"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedura: usare Packet Filter di FreeBSD per creare un firewall sicuro in Azure
 In questo articolo viene illustrato come distribuire un firewall NAT usando Packet Filter di FreeBSD tramite un modello di Azure Resource Manager per uno scenario server Web comune.
@@ -34,7 +34,7 @@ Il modello Azure Resource Manager configura una macchina virtuale FreeBSD che es
 az group create --name myResourceGroup --location westus
 ```
 
-Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment). Scaricare [file azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i propri valori di risorsa, ad esempio `adminPassword`, `networkPrefix`e `domainNamePrefix`. 
+Quindi distribuire il modello pf-freebsd-setup con [az group deployment create](/cli/azure/group/deployment). Scaricare azuredeploy.parameters.json nello stesso percorso e definire i valori di risorse specifici, ad esempio `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -49,7 +49,7 @@ az network public-ip list --resource-group myResourceGroup
 ```
     
 ## <a name="next-steps"></a>Passaggi successivi
-Si desidera configurare un proprio NAT in Azure? Open Source, gratuito ma potente? PF è quindi una scelta ottimale. Usando il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) sono necessari solo cinque minuti per configurare un firewall NAT con bilanciamento del carico round robin tramite PF di FreeBSD in Azure per uno scenario di server Web comune. 
+Si desidera configurare un proprio NAT in Azure? Open Source, gratuito ma potente? PF è quindi una scelta ottimale. Usando il modello pf-freebsd-setup sono necessari solo cinque minuti per configurare un firewall NAT con bilanciamento del carico round robin tramite PF di FreeBSD in Azure per uno scenario di server Web comune. 
 
 Se si desiderano altre informazioni sull'offerta di FreeBSD in Azure, fare riferimento all'[introduzione a FreeBSD in Azure](freebsd-intro-on-azure.md).
 

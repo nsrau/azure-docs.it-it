@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546937"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684413"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
 * [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
 
-Facoltativamente, per altre informazioni su batch, vedere [la documentazione di batch](https://docs.microsoft.com/azure/batch/).
+Facoltativamente, vedere la [documentazione di Batch](https://docs.microsoft.com/azure/batch/) per altre informazioni su Batch.
 
 ## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
 Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
@@ -63,7 +63,7 @@ Data Factory include attività predefinite. Ad esempio, è disponibile l'attivit
 
 Il diagramma illustra come Data Factory orchestra l'elaborazione e lo spostamento dei dati. Viene inoltre illustrato come Batch elabora i dati in modo parallelo. Scaricare e stampare il diagramma per riferimento (297 x 420 mm, formato A3). Per accedere al diagramma in modo da poterlo stampare, vedere [HPC and data orchestration by using Batch and Data Factory (Orchestrazione di HPC e dati mediante Batch e Data Factory)](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagramma di elaborazione dati su larga scala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
+[![Diagramma di elaborazione dei dati su larga scala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 Nell'elenco seguente vengono presentati i passaggi di base del processo. La soluzione include il codice e le spiegazioni per compilare la soluzione end-to-end.
 
@@ -71,20 +71,20 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 
 * **Creare un'istanza di Data Factory** configurata con le entità che rappresentano l'archivio BLOB, il servizio di calcolo di Batch, i dati di input/output e una pipeline o un flusso di lavoro con attività per lo spostamento e la trasformazione dei dati.
 
-* **Creare un'attività .NET personalizzata nella pipeline Data Factory.** L'attività è il codice utente che viene eseguito nel pool di Batch.
+* **Creare un'attività personalizzata di .NET nella pipeline di Data Factory.** L'attività è il codice utente che viene eseguito nel pool di Batch.
 
-* **Archiviare grandi quantità di dati di input come BLOB in archiviazione di Azure.** I dati vengono divisi in sezioni logiche, in genere in base al tempo.
+* **Archiviare grandi quantità di dati di input come BLOB in Archiviazione di Azure.** I dati vengono divisi in sezioni logiche, in genere in base al tempo.
 
 * **Data Factory copia i dati che vengono elaborati in parallelo** nel percorso secondario.
 
 * **Data Factory esegue l'attività personalizzata usando il pool allocato da Batch.** Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nella risorsa di archiviazione.
 
-* **Data Factory sposta i risultati finali in una terza posizione, per la** distribuzione tramite un'app o per un'ulteriore elaborazione da parte di altri strumenti.
+* **Data Factory sposta i risultati finali in un terzo percorso,** per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
 
 ## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
 La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.
 
-**Tempo**: se si ha familiarità con le nozioni di base di Azure, di Data Factory e di Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
+**Tempo:** se si ha familiarità con le nozioni di base di Azure, Azure Data Factory e Azure Batch e sono stati completati i prerequisiti elencati di seguito, il completamento di questa soluzione richiede da una a due ore.
 
 ### <a name="prerequisites"></a>Prerequisiti
 #### <a name="azure-subscription"></a>Sottoscrizione di Azure
@@ -94,7 +94,7 @@ Se non si dispone di una sottoscrizione di Azure, è possibile creare un account
 Usare un account di archiviazione per archiviare i dati di questa esercitazione. Se non si dispone di un account di archiviazione, vedere [Create a storage account (Creare un account di archiviazione)](../../storage/common/storage-account-create.md). La soluzione di esempio usa l'archivio BLOB.
 
 #### <a name="azure-batch-account"></a>Account Azure Batch
-Creare un account di Batch usando il [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È anche possibile usare il cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) per creare un account batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Creare un account di Batch usando il [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È possibile anche usare il cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) per creare un account di Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Batch indirettamente tramite una pipeline di data factory.
 
@@ -111,7 +111,7 @@ Creare un pool di Batch con almeno 2 nodi di calcolo.
 
    a. Immettere un ID per il pool (**ID pool**). Annotare l'ID del pool. È necessario quando si crea la soluzione di data factory.
 
-   b. Specificare **Windows Server 2012 R2** per l'impostazione della **famiglia di sistemi operativi** .
+   b. Specificare **Windows Server 2012 R2** per l'impostazione **Famiglia di Sistemi Operativi**.
 
    c. Selezionare un **piano tariffario per il nodo**.
 
@@ -124,7 +124,7 @@ Creare un pool di Batch con almeno 2 nodi di calcolo.
 #### <a name="azure-storage-explorer"></a>Esplora archivi Azure
 Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
 
-1. Creare un contenitore denominato **container** con accesso privato (nessun accesso anonimo).
+1. Creare un contenitore denominato **mycontainer** con accesso privato (nessun accesso anonimo).
 
 1. Se si usa CloudXplorer, creare cartelle e sottocartelle con la struttura seguente:
 
@@ -170,8 +170,8 @@ public IDictionary<string, string> Execute(
 * Il metodo accetta quattro parametri:
 
   * **linkedServices**. Un elenco enumerabile di servizi collegati che collegano origini dati di input/output (ad esempio, l'archivio BLOB) alla data factory. In questo esempio c'è un solo servizio collegato di tipo Archiviazione di Azure usato sia per l'input che per l'output.
-  * **set di impostazioni**. Questo parametro rappresenta un elenco enumerabile di set di dati. È possibile usare questo parametro per ottenere le posizioni e gli schemi definiti da set di dati di input e di output.
-  * **attività**. Questo parametro rappresenta l'entità di calcolo corrente. In questo caso si tratta di un servizio Batch.
+  * **datasets**. Questo parametro rappresenta un elenco enumerabile di set di dati. È possibile usare questo parametro per ottenere le posizioni e gli schemi definiti da set di dati di input e di output.
+  * **activity**. Questo parametro rappresenta l'entità di calcolo corrente. In questo caso si tratta di un servizio Batch.
   * **logger**. Il logger consente di scrivere commenti di debug che verranno visualizzati come log "Utente" per la pipeline.
 * Il metodo restituisce un dizionario che può essere usato per concatenare le attività personalizzate in un secondo momento. Questa funzionalità non è ancora implementata, quindi il metodo restituisce un dizionario vuoto.
 
@@ -180,9 +180,9 @@ public IDictionary<string, string> Execute(
 
    a. Avviare Visual Studio versione 2012, 2013 o 2015.
 
-   b. Selezionare **file** > **nuovo** > **progetto**.
+   b. Selezionare **File** > **New** (Nuovo)  > **Project** (Progetto).
 
-   c. Espandere **Modelli** e quindi selezionare **Visual C\#**. In questa procedura dettagliata viene usato C\#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.
+   c. Espandere **Modelli** e quindi selezionare **Visual C\#** . In questa procedura dettagliata viene usato C\#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.
 
    d. Selezionare la **libreria di classi** dall'elenco relativo ai tipi di progetto visualizzato a destra.
 
@@ -192,7 +192,7 @@ public IDictionary<string, string> Execute(
 
    g. Selezionare **OK** per creare il progetto.
 
-1. Selezionare **strumenti** > **gestione** > pacchetti NuGet**console di gestione pacchetti**.
+1. Fare clic su **Strumenti** > **Gestione Pacchetti NuGet** > **Console di Gestione pacchetti**.
 
 1. In Console di Gestione pacchetti eseguire il comando seguente per importare Microsoft.Azure.Management.DataFactories:
 
@@ -434,7 +434,7 @@ Questa sezione offre informazioni dettagliate sul codice nel metodo Execute.
 
 1. Il codice per l'uso in modo logico del set di BLOB viene inserito all'interno del ciclo do-while. Nel metodo **Execute** il ciclo do-while passa l'elenco di BLOB a un metodo denominato **Calculate**. Il metodo restituisce una variabile stringa denominata **output** che rappresenta il risultato dell'iterazione di tutti i BLOB nel segmento.
 
-   Restituisce il numero di occorrenze del termine di ricerca "Microsoft" nel BLOB passato al metodo **Calculate** .
+   Restituisce il numero di occorrenze del termine di ricerca "Microsoft" nel BLOB passato al metodo **Calculate**.
 
     ```csharp
     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
@@ -524,7 +524,7 @@ Per ogni esecuzione di attività viene creata un'attività. In questo esempio è
 La procedura dettagliata seguente fornisce dettagli aggiuntivi.
 
 #### <a name="step-1-create-the-data-factory"></a>Passaggio 1: Creare la data factory
-1. Dopo aver effettuato l'accesso alla [portale di Azure](https://portal.azure.com/), seguire questa procedura:
+1. Dopo l'accesso al [portale di Azure](https://portal.azure.com/), seguire questa procedura:
 
    a. Fare clic su **NUOVO** nel menu a sinistra.
 
@@ -560,7 +560,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
-   ![Distribuisci](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Distribuire](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Creare un servizio collegato Azure Batch
 In questo passaggio si crea un servizio collegato per l'account di Batch, che verrà usato per eseguire l'attività personalizzata di data factory.
@@ -573,12 +573,12 @@ In questo passaggio si crea un servizio collegato per l'account di Batch, che ve
 
    b. Sostituire **chiave di accesso** con la chiave di accesso dell'account di Batch.
 
-   c. Immettere l'ID del pool per la proprietà **PoolName** . Per questa proprietà è possibile specificare il nome del pool o l'ID del pool.
+   c. Immettere l'ID del pool per la proprietà **poolName**. Per questa proprietà è possibile specificare il nome del pool o l'ID del pool.
 
    d. Immettere l'URI del batch per la proprietà JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L'URL del pannello **account batch** è nel formato seguente: \<AccountName.\> \<region\>. batch.Azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
+      > L'URL del pannello **Account di Batch** è nel formato seguente: \<nomeaccount\>.\<area\>.batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,7 +659,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     }
     ```
 
-    Più avanti in questa procedura dettagliata viene creata una pipeline con ora di inizio: 2015-11-16T00:00:00Z e ora di fine: 2015-11-16T05:00:00Z. Viene pianificata per produrre dati ogni ora, in modo da ottenere cinque sezioni di input/output tra **00**:00:00 e \> **05**:00:00.
+    Più avanti in questa procedura dettagliata viene creata una pipeline con ora di inizio: 2015-11-16T00:00:00Z e ora di fine: 2015-11-16T05:00:00Z. Viene pianificata per produrre dati ogni ora, in modo da ottenere cinque sezioni di input/output nell'intervallo **00**:00:00 -\> **05**:00:00.
 
     La **frequenza** e l'**intervallo** per il set di dati di input sono impostati su **Ora** e **1**. Ciò significa che la sezione di input è disponibile ogni ora.
 
@@ -667,21 +667,21 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
     | **Sezione** | **Ora di inizio**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**: 00:00 |
+    | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**: 00:00 |
-    | 4         | 2015-11-16T**03**: 00:00 |
-    | 5         | 2015-11-16T**04**: 00:00 |
+    | 3         | 2015-11-16T**02**:00:00 |
+    | 4         | 2015-11-16T**03**:00:00 |
+    | 5         | 2015-11-16T**04**:00:00 |
 
     La proprietà **folderPath** viene calcolata usando la parte di anno, mese, giorno e ora dell'ora di inizio sezione (**SliceStart**). Ecco come viene eseguito il mapping di una cartella di input a una sezione.
 
     | **Sezione** | **Ora di inizio**          | **Cartella di input**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
 1. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **InputDataset**.
 
@@ -724,11 +724,11 @@ In questo passaggio si crea un altro set di dati di tipo AzureBlob per rappresen
 
     | **Sezione** | **Ora di inizio**          | **File di output**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00. txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01. txt** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03. txt** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04. txt** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
     Tenere presente che tutti i file in una cartella di input, ad esempio 2015-11-16-00, fanno parte di una sezione con l'ora di inizio 2015-11-16-00. Quando la sezione viene elaborata, l'attività personalizzata esamina ogni file e produce una riga nel file di output con il numero di occorrenze del termine di ricerca "Microsoft." Se nella cartella 2015-11-16-00 sono presenti tre file, ci saranno tre righe nel file di output 2015-11-16-00.txt.
 
@@ -792,7 +792,7 @@ In questo passaggio si crea una pipeline con un'attività, ovvero l'attività pe
    Tenere presente quanto segue:
 
    * Nella pipeline esiste una sola attività ed è di tipo **DotNetActivity**.
-   * **AssemblyName** è impostato sul nome della dll **MyDotNetActivity. dll**.
+   * **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
    * **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity**. Si tratta in sostanza di \<spazio dei nomi\>.\<nome classe\> nel codice.
    * **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato di Archiviazione. Questo articolo presuppone che venga usato lo stesso account di archiviazione.
    * **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. Ha il formato: \<containerforthezip\>/\<nameofthezip.zip\>.
@@ -800,7 +800,7 @@ In questo passaggio si crea una pipeline con un'attività, ovvero l'attività pe
    * La proprietà **linkedServiceName** dell'attività personalizzata punta ad **AzureBatchLinkedService** per indicare a Data Factory che l'attività personalizzata deve essere eseguita in Batch.
    * L'impostazione **concurrency** è importante. Se si usa il valore predefinito 1, le sezioni vengono elaborate una dopo l'altra, anche se sono disponibili 2 o più nodi di calcolo nel pool di Batch. In questo modo non si sfrutta la funzionalità di elaborazione parallela di Batch. Se si imposta **concurrency** su un valore superiore, ad esempio 2, potranno essere elaborate contemporaneamente due sezioni (corrispondenti a due attività in Batch). In questo caso vengono usate entrambe le macchine virtuali nel pool di Batch. Impostare quindi correttamente la proprietà concurrency.
    * Per impostazione predefinita, viene eseguita solo un'attività (sezione) in una VM in qualsiasi momento. Per impostazione predefinita, **Numero massimo attività per ogni macchina virtuale** è impostato su 1 per un pool di Batch. Come parte dei prerequisiti, è stato creato un pool con questa proprietà impostata su 2. Di conseguenza, sono eseguibili le sezioni di due data factory in una macchina virtuale nello stesso momento.
-     - La proprietà **isPaused** è impostata su false per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su **true** per sospendere la pipeline e reimpostarla su **false** per il riavvio.
+     - La proprietà **isPaused** è impostata su false per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su **true** per sospendere la pipeline e reimpostarla su **false** per riavviarla.
      -   I tempi di **inizio** e **fine** sono distanti cinque ore. Le sezioni vengono generate ogni ora, in modo che la pipeline generi cinque sezioni.
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
@@ -843,7 +843,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 
 1. Si proverà ora con più file in una cartella. Creare i file **file2.txt**, **file3.txt**, **file4.txt** e **file5.txt** con lo stesso contenuto del file.txt nella cartella **2015-11-06-01**.
 
-1. Nella cartella di output eliminare il file di output **2015-11-16-01. txt**.
+1. Nella cartella di output eliminare il file di output **2015-11-16-01.txt**.
 
 1. Nel pannello **OutputDataset** fare clic con il pulsante destro del mouse sulla sezione con **ORA DI INIZIO SEZIONE** impostata su **11/16/2015 01:00:00 AM**. Scegliere quindi **Esegui** per rieseguire/rielaborare la sezione. A questo punto, la sezione ha cinque file anziché un file.
 
@@ -930,11 +930,11 @@ Il debug è costituito da alcune tecniche di base.
 #### <a name="extend-the-sample"></a>Estendere l'esempio
 È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Data Factory e di Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
 
-1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 07 201-11-16, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
+1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
 
-1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
+1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
 
-1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione del **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
+1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
 
 1. Creare un pool di Batch con la funzionalità **scalabilità automatica**. Il ridimensionamento automatico dei nodi di calcolo in un pool di Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione.
 
@@ -954,15 +954,15 @@ Il debug è costituito da alcune tecniche di base.
 
    Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari da 15 a 30 minuti perché il servizio Batch prepari la macchina virtuale prima di eseguire l'attività personalizzata. Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
 
-1. Nella soluzione di esempio il metodo**Execute** richiama il metodo **Calculate** che elabora una sezione di dati di input per generare una sezione di dati di output. È possibile scrivere un metodo personalizzato per elaborare i dati di input e sostituire la chiamata al metodo **Calculate** nel metodo **Execute** con una chiamata al metodo.
+1. Nella soluzione di esempio il metodo**Execute** richiama il metodo **Calculate** che elabora una sezione di dati di input per generare una sezione di dati di output. È possibile scrivere un metodo personalizzato per elaborare i dati di input e sostituire la chiamata al metodo **Calculate** nel metodo **Execute** con una chiamata al metodo personalizzato.
 
 ### <a name="next-steps-consume-the-data"></a>Passaggi successivi: Utilizzare i dati
 Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Power BI. Ecco alcuni collegamenti che illustrano Power BI e come è possibile usarlo in Azure:
 
 * [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Introduzione a Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure e Power BI: panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Riferimenti
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

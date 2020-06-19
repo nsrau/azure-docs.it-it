@@ -1,5 +1,5 @@
 ---
-title: Usare i notebook con Sentinel di Azure per la ricerca di sicurezza
+title: Usare i notebook con Azure Sentinel per la ricerca di sicurezza
 description: Questo articolo descrive come usare i notebook con le funzionalità di ricerca di Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -10,134 +10,134 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77581838"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652021"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Usare i notebook di Jupyter per cercare minacce per la sicurezza
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Usare i notebook Jupyter per ricercare minacce alla sicurezza
 
-La base di Azure Sentinel è l'archivio dati. combina le query a prestazioni elevate, lo schema dinamico e le scale a volumi di dati di grandi dimensioni. Il portale di Azure e tutti gli strumenti di Azure Sentinel usano un'API comune per accedere a questo archivio dati. La stessa API è disponibile anche per strumenti esterni, ad esempio [Jupyter](https://jupyter.org/) notebook e Python. Mentre molte attività comuni possono essere eseguite nel portale, Jupyter estende l'ambito delle operazioni che è possibile eseguire con questi dati. Combina la programmabilità completa con una vasta raccolta di librerie per l'apprendimento automatico, la visualizzazione e l'analisi dei dati. Questi attributi rendono Jupyter uno strumento accattivante per l'analisi della sicurezza e la ricerca.
+Azure Sentinel si basa sull'archivio dati e combina l'esecuzione di query con prestazioni elevate, lo schema dinamico e i ridimensionamenti ai volumi di dati di grandi dimensioni. Il portale di Azure e tutti gli strumenti di Azure Sentinel usano un'API comune per accedere a questo archivio dati. La stessa API è disponibile anche per strumenti esterni come Python e i notebook [Jupyter](https://jupyter.org/). Mentre è possibile eseguire nel portale molte attività comuni, Jupyter estende l'ambito delle operazioni che è possibile eseguire con questi dati. Combina la programmabilità completa con una vasta raccolta di librerie per l'apprendimento automatico, la visualizzazione e l'analisi dei dati. Questi attributi rendono Jupyter uno strumento efficace per l'analisi e la ricerca della sicurezza.
 
-![Notebook di esempio](./media/notebooks/sentinel-notebooks-map.png)
+![notebook di esempio](./media/notebooks/sentinel-notebooks-map.png)
 
-L'esperienza Jupyter è stata integrata nell'portale di Azure, semplificando la creazione e l'esecuzione di notebook per l'analisi dei dati. La libreria *Kqlmagic* fornisce l'associazione che consente di eseguire query da Azure Sentinel ed eseguirle direttamente all'interno di un notebook. Le query usano il [linguaggio di query kusto](https://kusto.azurewebsites.net/docs/query/index.html). Diversi notebook, sviluppati da alcuni analisti della sicurezza di Microsoft, sono inclusi in un pacchetto di Azure Sentinel. Alcuni di questi notebook sono compilati per uno scenario specifico e possono essere usati così come sono. Altri sono intesi come esempi per illustrare le tecniche e le funzionalità che è possibile copiare o adattare per l'uso nei propri notebook. Altri notebook possono anche essere importati dalla community di Azure Sentinel GitHub.
+L'esperienza Jupyter è stata integrata nel portale di Azure al fine di semplificare la creazione e l'esecuzione di notebook per l'analisi dei dati. Tramite la libreria *Kqlmagic*, è possibile prendere le query da Azure Sentinel ed eseguirle direttamente in un notebook. Le query usano il [linguaggio di query Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Diversi notebook, sviluppati da alcuni analisti della sicurezza di Microsoft, sono inclusi nel pacchetto di Azure Sentinel. Alcuni di questi notebook sono compilati per uno scenario specifico e possono essere usati così come sono. Altri sono intesi come esempi per illustrare le tecniche e le funzionalità che è possibile copiare o adattare per poterle usare nei propri notebook. È possibile anche importare altri notebook dal repository GitHub della community di Azure Sentinel.
 
-L'esperienza Jupyter integrata usa [Azure Notebooks](https://notebooks.azure.com/) per archiviare, condividere ed eseguire notebook. È anche possibile eseguire questi notebook localmente se si dispone di un ambiente Python e Jupyter nel computer o in altri ambienti JupterHub come Azure Databricks.
+L'esperienza Jupyter integrata usa [Azure Notebooks](https://notebooks.azure.com/) per archiviare, condividere ed eseguire i notebook. È anche possibile eseguire tali notebook in locale se si dispone di un ambiente Python e Jupyter sul proprio computer o in altri ambienti JupterHub, come Azure Databricks.
 
-I notebook hanno due componenti:
+I notebook presentano due componenti:
 
-- Interfaccia basata su browser in cui si immettono ed eseguono query e codice e in cui vengono visualizzati i risultati dell'esecuzione.
-- *Kernel* responsabile dell'analisi e dell'esecuzione del codice stesso. 
+- Un'interfaccia basata su browser in cui si immettono ed eseguono query e codice e in cui vengono visualizzati i risultati dell'esecuzione.
+- Un *kernel* responsabile dell'analisi e dell'esecuzione del codice stesso. 
 
-In Azure Notebooks, per impostazione predefinita, questo kernel viene eseguito in risorse di *calcolo e archiviazione cloud gratuite*di Azure. Se i notebook includono modelli o visualizzazioni complesse di Machine Learning, è consigliabile usare risorse di calcolo più potenti e dedicate, ad esempio [macchine virtuali per l'analisi scientifica dei dati](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). I notebook nell'account vengono mantenuti privati a meno che non si scelga di condividerli.
+In Azure Notebooks, per impostazione predefinita, questo kernel viene eseguito nelle *risorse di calcolo e archiviazione cloud gratuite* di Azure. Se i notebook includono visualizzazioni o modelli di Machine Learning complessi, è consigliabile usare risorse di calcolo più potenti e dedicate, ad esempio [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). I notebook nell'account vengono mantenuti privati a meno che non si scelga di condividerli.
 
-I notebook di Sentinel di Azure usano molte librerie Python più diffuse, ad esempio Pandas, Matplotlib, bokeh e altri. Sono disponibili molti altri pacchetti Python tra cui scegliere, per aree quali:
+I notebook di Azure Sentinel usano molte delle librerie Python più diffuse, come pandas, matplotlib, bokeh e altre. Sono disponibili molti altri pacchetti Python tra cui scegliere, in riferimento ad aree quali:
 
 - Visualizzazioni e grafica
 - Elaborazione e analisi dei dati
 - Statistiche e calcolo numerico
-- Apprendimento automatico e apprendimento avanzato
+- Apprendimento automatico e Deep Learning
 
-Sono stati rilasciati anche alcuni strumenti di sicurezza Jupyter open source in un pacchetto denominato [msticpy](https://github.com/Microsoft/msticpy/). Questo pacchetto viene usato in molti dei notebook inclusi. Gli strumenti Msticpy sono progettati in modo specifico per semplificare la creazione di notebook per la ricerca e l'analisi e stiamo lavorando attivamente a nuove funzionalità e miglioramenti.
+Sono stati rilasciati anche alcuni strumenti di sicurezza Jupyter open source in un pacchetto denominato [msticpy](https://github.com/Microsoft/msticpy/), usato in molti dei notebook inclusi. Gli strumenti msticpy sono progettati in modo specifico per semplificare la creazione di notebook per la ricerca e l'analisi, ed è in corso lo sviluppo di nuove funzionalità e miglioramenti.
 
 I notebook iniziali includono:
 
-- **Analisi guidata-avvisi processo**: consente di valutare rapidamente gli avvisi analizzando l'attività nell'host o negli host interessati.
-- **Ricerca guidata: Esplora host di Windows**: consente di esplorare l'attività dell'account, le esecuzioni di processi, le attività di rete e altri eventi in un host.
-- **Caccia guidata-Office365-esplorazione**: ricerca di attività di Office 365 sospette in più set di dati di Office 365.
+- **Indagine guidata - Avvisi sui processi**: consente di valutare rapidamente gli avvisi analizzando l'attività negli host interessati.
+- **Guided hunting - Windows host explorer** (Ricerca guidata - Esplora host di Windows): consente di esplorare l'attività dell'account, le esecuzioni dei processi, le attività di rete e altri eventi all'interno di un host.
+- **Guided hunting - Office365-Exploring** (Ricerca guidata - Esplorazione Office365): consente di eseguire la ricerca di attività sospette di Office 365 in più set di dati di Office 365.
 
-Il [repository GitHub della community di Azure Sentinel](https://github.com/Azure/Azure-Sentinel) è la località per tutti i futuri notebook di Azure Sentinel creati da Microsoft o che hanno contribuito alla community.
+Tutti i futuri notebook di Azure Sentinel creati da Microsoft o forniti dalla community si troveranno nel [repository GitHub della community di Azure Sentinel](https://github.com/Azure/Azure-Sentinel).
 
-Per usare i notebook, è necessario disporre di un account Azure Notebooks. Per altre informazioni, vedere [Guida introduttiva: accedere e impostare un ID utente](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) dalla documentazione Azure Notebooks. Per creare questo account, è possibile usare l'opzione **iscrizione per Azure Notebooks** dalla barra dei comandi in **Azure Sentinel-Notebooks**:
+Per usare i notebook, è necessario disporre di un account di Azure Notebooks. Per altre informazioni, vedere [Avvio rapido: Accedere e impostare un ID utente](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) nella documentazione di Azure Notebooks. Per creare questo account, è possibile usare l'opzione **Iscrizione ad Azure Notebooks** dalla barra dei comandi in **Azure Sentinel - Notebook**:
 
 > [!div class="mx-imgBorder"]
->![Iscriversi per Azure Notebooks opzione](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
+>![opzione Iscrizione ad Azure Notebooks](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-È possibile eseguire un notebook direttamente da Azure Sentinel oppure clonare tutti i notebook di Azure Sentinel in un nuovo progetto Azure Notebooks.
+È possibile eseguire un notebook direttamente da Azure Sentinel oppure clonare tutti i notebook di Azure Sentinel in un nuovo progetto di Azure Notebooks.
 
 ## <a name="run-a-notebook-from-azure-sentinel"></a>Eseguire un notebook da Azure Sentinel
  
-1. Dal portale di Azure passare a**notebook**di**gestione delle** > minacce di **Azure Sentinel** > , in cui è possibile visualizzare i notebook forniti da Azure Sentinel. 
+1. Dal portale di Azure passare ad **Azure Sentinel** > **Gestione delle minacce** > **Azure Notebooks**, in cui è possibile visualizzare i notebook forniti da Azure Sentinel. 
 
-2. Selezionare singoli notebook per leggere le descrizioni, i tipi di dati e le origini dati richiesti. Ad esempio:
+2. Selezionare singoli notebook per leggere le relative descrizioni, i tipi di dati e le origini dati richiesti. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![avvia notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-3. Selezionare il notebook che si vuole usare e quindi selezionare **Avvia notebook (anteprima)** per clonare e configurare il notebook in un nuovo progetto Azure Notebooks che si connette all'area di lavoro di Azure Sentinel. Al termine del processo, il notebook viene aperto all'interno Azure Notebooks per l'esecuzione.
+3. Selezionare il notebook che si vuole usare e quindi selezionare **Avvia Notebooks (anteprima)** per clonare e configurare il notebook in un nuovo progetto di Azure Notebooks che si connette all'area di lavoro di Azure Sentinel. Al termine del processo, il notebook viene aperto all'interno di Azure Notebooks per l'esecuzione.
 
-## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clonare notebook di Sentinel di Azure in un nuovo progetto Azure Notebooks
+## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clonare i notebook di Azure Sentinel in un nuovo progetto di Azure Notebooks
 
-Questa procedura crea automaticamente un progetto di Azure Notebooks, che contiene i notebook di Azure Sentinel. È quindi possibile eseguire i notebook così come sono o apportare modifiche e quindi eseguirli.
+Questa procedura crea automaticamente un progetto di Azure Notebooks contenente i notebook di Azure Sentinel. È quindi possibile eseguire i notebook così come sono o apportare modifiche prima di eseguirli.
 
-1. Dal portale di Azure passare ad **Azure Sentinel** > **Threat Management** > **Notebooks** e quindi selezionare **Clone Notebooks** dalla barra dei comandi:
+1. Dal portale di Azure passare ad **Azure Sentinel** > **Gestione delle minacce** > **Azure Notebooks** e quindi selezionare **Clone Notebooks** (Clona notebook) dalla barra dei comandi:
   
     > [!div class="mx-imgBorder"]
-    >![Clone Notebooks-opzione](./media/notebooks/sentinel-azure-clone-notebooks.png)
+    >![opzione Clona notebook](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
-2. Quando viene visualizzata la finestra di dialogo seguente, selezionare **Importa** per clonare il repository GitHub nel progetto Azure Notebooks. Se non si dispone di un account Azure Notebooks esistente, verrà richiesto di crearne uno ed effettuare l'accesso.
+2. Quando viene visualizzata la finestra di dialogo seguente, selezionare **Importa** per clonare il repository GitHub nel progetto di Azure Notebooks. Se non si dispone di un account di Azure Notebooks esistente, verrà richiesto di crearne uno ed effettuare l'accesso.
 
    ![Importa notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. Nella finestra di dialogo **carica repository GitHub** non selezionare Clona in modo **ricorsivo** perché questa opzione fa riferimento ai repository GitHub collegati. Per il nome del progetto, usare il nome predefinito o digitare un nuovo nome. Fare quindi clic su **Import (importa** ) per avviare la clonazione del contenuto github. l'operazione può richiedere alcuni minuti.
+3. Nella finestra di dialogo **Upload GitHub Repository** (Carica repository GitHub), non selezionare **Clone recursively** (Clona in modo ricorsivo) perché questa opzione fa riferimento ai repository GitHub collegati. Per il nome del progetto, usare il nome predefinito o digitarne uno nuovo. Fare quindi clic su **Importa** per avviare la clonazione del contenuto GitHub, operazione che può richiedere alcuni minuti.
 
    ![Importa notebook](./media/notebooks/sentinel-create-project.png)
 
-4. Aprire il progetto appena creato, quindi aprire la cartella **Notebooks (notebook** ) per visualizzare i notebook. Ad esempio:
+4. Aprire il progetto appena creato, quindi aprire la cartella **Azure Notebooks** per visualizzare i notebook. Ad esempio:
 
    ![Importa repository](./media/notebooks/sentinel-open-notebook1.png)
 
-È quindi possibile eseguire i notebook da Azure Notebooks. Per tornare a questi notebook da Azure Sentinel, selezionare **Vai ai notebook** dalla barra dei comandi in **Azure Sentinel-Notebooks**:
+È quindi possibile eseguire i notebook da Azure Notebooks. Per tornare a questi notebook da Azure Sentinel, selezionare **Vai ai notebook** dalla barra dei comandi in **Azure Sentinel - Notebooks** (Azure Sentinel - Notebook):
 
 > [!div class="mx-imgBorder"]
->![Passa all'opzione Notebooks](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+>![opzione Vai ai notebook](./media/notebooks/sentinel-azure-to-go-notebooks.png)
 
 
-## <a name="using-notebooks-to-hunt"></a>Uso di notebook per la ricerca
+## <a name="using-notebooks-to-hunt"></a>Uso dei notebook per la ricerca
 
-Ogni notebook illustra i passaggi per eseguire una ricerca o un'indagine. Le librerie e altre dipendenze necessarie per il notebook possono essere installate dal notebook stesso o tramite una semplice procedura di configurazione. La configurazione che associa il progetto notebook alla sottoscrizione di Azure Sentinel viene automaticamente fornita nei passaggi precedenti.
+Ogni notebook illustra i passaggi a cui attenersi per eseguire una ricerca o un'indagine. Le librerie e altre dipendenze richieste dal notebook possono essere installate dal notebook stesso o tramite una semplice procedura di configurazione. La configurazione che associa il progetto notebook alla sottoscrizione di Azure Sentinel viene automaticamente fornita nei passaggi precedenti.
 
-1. Se non si è già in Azure Notebooks, è possibile usare l'opzione **Vai ai notebook** dalla barra dei comandi in **Azure Sentinel-Notebooks**:
+1. Se non si è già in Azure Notebooks, è possibile usare l'opzione **Vai ai notebook** dalla barra dei comandi in **Azure Sentinel - Notebooks** (Azure Sentinel - Notebook):
     
     > [!div class="mx-imgBorder"]
-    >![Passa all'opzione Notebooks](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    >![opzione Vai ai notebook](./media/notebooks/sentinel-azure-to-go-notebooks.png)
     
-    In Azure Notebooks selezionare **progetti personali**, quindi il progetto che contiene i notebook di Sentinel di Azure e infine la cartella **Notebooks** .
+    In Azure Notebooks selezionare **Progetti**, quindi il progetto contenente i notebook di Azure Sentinel e infine la cartella **Notebooks**.
     
-2. Prima di aprire un notebook, tenere presente che, per impostazione predefinita, è selezionata l'opzione calcolo gratuito per l'esecuzione dei notebook:
+2. Prima di aprire un notebook, tenere presente che, per impostazione predefinita, è selezionata l'opzione del calcolo gratuito per l'esecuzione dei notebook:
     
-   ![Seleziona notebook](./media/notebooks/sentinel-open-notebook2.png)
+   ![seleziona notebook](./media/notebooks/sentinel-open-notebook2.png)
     
-    Se sono state configurate le macchine virtuali per l'analisi scientifica dei dati (DSVM) da usare come illustrato nell'introduzione, selezionare il DSVM ed eseguire l'autenticazione prima di aprire il primo notebook. 
+    Se sono state configurate le Data Science Virtual Machine (DSVM) da usare come illustrato nell'introduzione, selezionare la DSVM ed eseguire l'autenticazione prima di aprire il primo notebook. 
 
 3. Selezionare un notebook per aprirlo.
     
-    La prima volta che si apre un notebook, potrebbe essere richiesto di selezionare una versione del kernel. Se non viene richiesto, è possibile selezionare la **versione del kernel da** >  kernel**Change kernel**, quindi selezionare una versione di almeno 3,6. La versione del kernel selezionata viene visualizzata nella parte superiore destra della finestra del notebook:
+    La prima volta che si apre un notebook potrebbe essere richiesto di selezionare una versione del kernel. Se non viene richiesto, è possibile selezionare la versione del kernel da **Kernel** >  **Change kernel** (Modifica kernel), quindi selezionare una versione a partire almeno dalla 3.6. La versione del kernel selezionata viene visualizzata in alto a destra nella finestra del notebook:
     
-   ![Seleziona notebook](./media/notebooks/sentinel-select-kernel.png)
+   ![seleziona notebook](./media/notebooks/sentinel-select-kernel.png)
 
-4. Prima di apportare modifiche al notebook che è stato scaricato, è consigliabile creare una copia del notebook originale e utilizzare la copia. A tale scopo, selezionare **file** > **Crea una copia**. L'uso delle copie consente di eseguire l'aggiornamento in modo sicuro alle versioni future dei notebook senza sovrascrivere i dati.
+4. Prima di apportare modifiche al notebook scaricato, è consigliabile creare una copia del notebook originale su cui lavorare. A tale scopo, selezionare **File** > **Crea una copia**. Quando si lavora sulle copie è possibile eseguire l'aggiornamento in modo sicuro alle versioni future dei notebook senza sovrascrivere i dati.
     
     A questo punto si è pronti per eseguire o modificare il notebook selezionato.
 
 Consigli:
 
-- Per una rapida introduzione all'esecuzione di query sui dati in Sentinel di Azure, vedere il notebook [getstarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) nella cartella principale **Notebooks** . 
+- Per una rapida introduzione all'esecuzione di query sui dati in Azure Sentinel, vedere il notebook [Getstarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) nella cartella **Notebooks** principale. 
 
-- Ulteriori notebook di esempio sono disponibili nella sottocartella **Sample-Notebooks** . Questi notebook di esempio sono stati salvati con i dati, in modo che sia più semplice visualizzare l'output desiderato. È consigliabile visualizzare questi notebook in [nbviewer](https://nbviewer.jupyter.org/). 
+- Nella sottocartella **Sample-Notebooks** sono riportati altri notebook di esempio salvati con i dati, in modo che sia più semplice visualizzare l'output desiderato. È consigliabile visualizzare questi notebook in [nbviewer](https://nbviewer.jupyter.org/). 
 
-- La cartella **HOWTO** contiene i notebook che descrivono, ad esempio: impostazione della versione predefinita di Python, configurazione di un DSVM, creazione di segnalibri di Azure Sentinel da un notebook e altri argomenti.
+- La cartella **HowTos** contiene notebook che descrivono, ad esempio, come: impostare la versione predefinita di Python, configurare una DSVM, creare segnalibri di Azure Sentinel da un notebook e altro ancora.
 
 I notebook forniti sono intesi come strumenti utili e come illustrazioni ed esempi di codice che è possibile usare per lo sviluppo di notebook personali.
 
-Commenti e suggerimenti, suggerimenti, richieste di funzionalità, notebook con contributi, report sui bug, miglioramenti e aggiunte ai notebook esistenti. Per creare un problema o un fork e caricare un contributo, visitare la [community di Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel) .
+Qualsiasi feedback, suggerimento, richiesta di funzionalità, notebook con contributi, report sui bug, miglioramento e aggiunta ai notebook esistenti sarà ben accetto. Per creare un problema o per creare una copia tramite fork e caricare un contributo, visitare il [repository GitHub della community di Azure Sentinel](https://github.com/Azure/Azure-Sentinel).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come iniziare a usare i notebook di Jupyter in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo articolo si sono apprese le attività iniziali da svolgere con i notebook Jupyter in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 
-- [Cercare in modo proattivo le minacce](hunting.md)
-- [Usare i segnalibri per salvare informazioni interessanti durante la ricerca](bookmarks.md)
+- [Cercare le minacce in modo proattivo](hunting.md)
+- [Usare i segnalibri per salvare informazioni utili durante la ricerca](bookmarks.md)

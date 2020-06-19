@@ -7,23 +7,24 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086318"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726962"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 
 È possibile creare più macchine virtuali da un'immagine di macchina virtuale gestita di Azure tramite il portale di Azure o PowerShell. Un'immagine di macchina virtuale gestita contiene le informazioni necessarie per creare una macchina virtuale, inclusi i dischi dati e del sistema operativo. I dischi rigidi virtuali (VHD) che costituiscono l'immagine, inclusi i dischi del sistema operativo e qualsiasi disco dati, vengono archiviati come dischi gestiti. 
 
-Prima di creare una nuova macchina virtuale, è necessario [creare un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare come immagine di origine e concedere l'accesso in lettura all'immagine a qualsiasi utente che deve avere accesso all'immagine. 
+Prima di creare una nuova macchina virtuale, è necessario [creare un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare come immagine di origine e concedere l'accesso in lettura all'immagine a tutti gli utenti che devono accedervi. 
 
+Un'immagine gestita supporta fino a 20 distribuzioni simultanee. Il tentativo di creare più di 20 macchine virtuali contemporaneamente dalla stessa immagine gestita può causare timeout del provisioning dovuti alle limitazioni delle prestazioni di archiviazione di un singolo disco rigido virtuale. Per creare più di 20 macchine virtuali contemporaneamente, usare un'immagine di [Raccolte immagini condivise](shared-image-galleries.md) configurata con una replica ogni 20 distribuzioni di macchina virtuale simultanee.
 
 ## <a name="use-the-portal"></a>Usare il portale
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per trovare un'immagine gestita. Cercare e selezionare le **Immagini**.
+1. Accedere al [portale di Azure](https://portal.azure.com) per trovare una macchina virtuale gestita. Cercare e selezionare **Immagini**.
 3. Selezionare l'immagine che si intende usare dall'elenco. Si apre la pagina **Panoramica** delle immagini.
 4. Scegliere **Crea macchina virtuale** dal menu.
 5. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questa posizione verranno usati per accedere alla macchina virtuale. Al termine, selezionare **OK**. È possibile creare la nuova macchina virtuale in un gruppo di risorse esistente o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse per archiviare la macchina virtuale.

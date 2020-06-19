@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223648"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687192"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -61,7 +61,7 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 3. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono risiedere nella stessa località.
-6. Selezionare **Create** (Crea).
+6. Selezionare **Crea**.
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
@@ -140,7 +140,7 @@ Distribuire il firewall nella rete virtuale.
 
    |Impostazione  |valore  |
    |---------|---------|
-   |Subscription     |\<sottoscrizione in uso\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selezionare la stessa località usata in precedenza|
@@ -165,7 +165,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
 7. In **Località** selezionare la stessa località usata in precedenza.
-8. Selezionare **Create** (Crea).
+8. Selezionare **Crea**.
 9. Selezionare **Aggiorna** e quindi selezionare la tabella di route **Firewall-route**.
 10. Selezionare **Subnet** e quindi **Associa**.
 11. Selezionare **Rete virtuale** > **Test-FW-VN**.

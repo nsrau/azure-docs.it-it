@@ -1,27 +1,27 @@
 ---
 title: Usare set di dati di grandi dimensioni
-description: Informazioni su come ottenere, formattare, pagina e ignorare i record in set di dati di grandi dimensioni durante l'uso di Azure Resource Graph.
+description: Informazioni su come ottenere i record, formattarli, restituirli in pagine e ignorarli in set di dati di grandi dimensioni durante l'uso di Azure Resource Graph.
 ms.date: 03/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: be15a6234935627ca748276e6330c50c3ee5a775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064734"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681078"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
 Azure Resource Graph è progettato per elaborare e ottenere informazioni sulle risorse nell'ambiente di Azure. Resource Graph rende più rapido il recupero di questi dati, anche in caso di query su migliaia di record. Resource Graph offre diverse opzioni per l'utilizzo di questi set di dati di grandi dimensioni.
 
-Per istruzioni sull'uso delle query a frequenza elevata, vedere [linee guida per le richieste limitate](./guidance-for-throttled-requests.md).
+Per informazioni sull'uso di query a frequenza elevata, vedere [Istruzioni per le richieste con limitazioni](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Dimensioni dei risultati dei set di dati
 
 Per impostazione predefinita, Resource Graph limita a **100** record i risultati che possono essere restituiti da ogni query. Questa impostazione protegge sia l'utente che il servizio da query non intenzionali che restituirebbero set di dati di grandi dimensioni. Questo evento si verifica per lo più mentre l'utente fa diversi esperimenti con le query per trovare e filtrare le risorse nel modo più adeguato alle sue esigenze. Questa impostazione è diversa dall'uso degli operatori di linguaggio [top](/azure/kusto/query/topoperator) o [limit](/azure/kusto/query/limitoperator) di Esplora dati di Azure per limitare i risultati.
 
 > [!NOTE]
-> Quando si usa **First**, è consigliabile ordinare i risultati in base a almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili.
+> Quando si usa **First**, è consigliabile ordinare i risultati in base ad almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili.
 
 È possibile eseguire l'override del limite predefinito tramite tutti i metodi di interazione con Resource Graph. Gli esempi seguenti mostrano come impostare il limite di dimensioni dei set di dati su _200_:
 
@@ -37,14 +37,17 @@ Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/r
 
 Ha la priorità il controllo _più restrittivo_. Ad esempio, se la query usa l'operatore **top** o **limit** e la sua esecuzione restituirebbe più record rispetto a **First**, il numero massimo di record restituiti sarebbe uguale a **First**. Analogamente, se il valore di **top** o **limit** è inferiore a **First**, il set di record restituito sarebbe il valore più piccolo configurato da **top** o **limit**.
 
-Attualmente il valore massimo consentito per **First** è _5000_.
+**First** ha attualmente un valore massimo consentito pari a _5000_ che raggiunge tramite la [paginazione dei risultati](#paging-results) _1000_ record alla volta.
+
+> [!IMPORTANT]
+> Quando **First** è configurato con un valore superiore a _1000_ record, la query deve **proiettare** il campo **ID** affinché la paginazione funzioni. Se questo non è presente nella query, la [paginazione](#paging-results) della risposta non viene eseguita e i risultati si limitano a _1000_ record.
 
 ## <a name="skipping-records"></a>Ignorare record
 
 Un'altra opzione per l'elaborazione di set di dati di grandi dimensioni è il controllo **Skip**. Questo controllo consente alla query di saltare o ignorare il numero definito di record prima di restituire i risultati. **Skip** è utile per le query che ordinano i risultati in un modo significativo allo scopo di ottenere i record situati in una posizione centrale del set di risultati. Se i risultati desiderati sono alla fine del set di dati restituito, è più efficiente usare una configurazione di ordinamento diversa e recuperare i risultati dall'inizio del set di dati.
 
 > [!NOTE]
-> Quando si usa **Skip**, è consigliabile ordinare i risultati in base a almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili.
+> Quando si usa **Skip**, è consigliabile ordinare i risultati in base ad almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili.
 
 Gli esempi seguenti mostrano come ignorare i primi _10_ record restituiti da una query facendo iniziare il set di risultati restituito dall'undicesimo record:
 
@@ -60,12 +63,12 @@ Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/r
 
 ## <a name="paging-results"></a>Risultati di paging
 
-Quando è necessario suddividere un set di risultati in set di record più piccoli per l'elaborazione o perché un set di risultati supera il valore massimo consentito di _1000_ record restituiti, utilizzare il paging. L'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
+Se è necessario suddividere un set di risultati in set di record più piccoli ai fini dell'elaborazione o per evitare di superare il valore massimo consentito di _1000_ record restituiti, usare la paginazione. L'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** offre i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
 **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
- **resultTruncated** è **true** quando il paging è disabilitato o non è possibile a `id` causa di nessuna colonna o quando sono disponibili meno risorse di quelle richieste da una query. Quando **resultTruncated** è **true**, la proprietà **$skipToken** non è impostata.
+ **resultTruncated** è **true** se la paginazione è disabilitata o risulta impossibile a causa dell'assenza della colonna `id` o quando le risorse disponibili sono inferiori a quelle richieste da una query. Quando **resultTruncated** è **true**, la proprietà **$skipToken** non è impostata.
 
-Gli esempi seguenti illustrano come **ignorare** i primi record 3000 e restituire i **primi** 1000 record dopo che questi record sono stati IGNORAti con l'interfaccia della riga di comando di Azure e Azure PowerShell:
+Gli esempi seguenti illustrano come **ignorare** i primi 3000 record e restituire i **primi** 1000 record dopo i record ignorati con l'interfaccia della riga di comando di Azure e Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
@@ -76,21 +79,21 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se non è presente nella query, la risposta non includerà il **$skipToken**.
+> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se questo non è presente nella query, la risposta non includerà **$skipToken**.
 
 Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) (Query della pagina successiva) nella documentazione dell'API REST.
 
 ## <a name="formatting-results"></a>Formattazione dei risultati
 
-I risultati di una query di Graph di risorse sono disponibili in due formati, _Table_ e _ObjectArray_. Il formato viene configurato con il parametro **ResultFormat** come parte delle opzioni di richiesta. Il formato della _tabella_ è il valore predefinito per **ResultFormat**.
+I risultati di una query di Resource Graph sono offerti in due formati: _Table_ e _ObjectArray_. Il formato viene configurato con il parametro **resultFormat** nell'ambito delle opzioni della richiesta. Il formato _Table_ è il valore predefinito per **resultFormat**.
 
-I risultati dell'interfaccia della riga di comando di Azure sono disponibili in JSON per impostazione predefinita. I risultati in Azure PowerShell sono **PSCustomObject** per impostazione predefinita, ma possono essere convertiti rapidamente in JSON usando `ConvertTo-Json` il cmdlet. Per gli altri SDK, i risultati della query possono essere configurati in modo da restituire il formato _ObjectArray_ .
+Per impostazione predefinita, i risultati dell'interfaccia della riga di comando di Azure vengono restituiti in formato JSON. I risultati in Azure PowerShell sono, per impostazione predefinita, un elemento **PSCustomObject**, ma possono essere rapidamente convertiti in formato JSON usando il cmdlet `ConvertTo-Json`. Per gli altri SDK, è possibile configurare i risultati delle query in modo da restituire il formato _ObjectArray_.
 
-### <a name="format---table"></a>Format-Table
+### <a name="format---table"></a>Formato - Table
 
-Il formato predefinito, _Table_, restituisce i risultati in un formato JSON progettato per evidenziare la progettazione della colonna e i valori di riga delle proprietà restituite dalla query. Questo formato è molto simile ai dati definiti in una tabella strutturata o in un foglio di calcolo con le colonne identificate prima e quindi ogni riga che rappresenta i dati allineati a tali colonne.
+Il formato predefinito, _Table_, restituisce i risultati in un formato JSON ideato per evidenziare la struttura delle colonne e i valori di riga delle proprietà restituite dalla query. Questo formato è molto simile ai dati definiti in una tabella o un foglio di calcolo strutturato con le colonne identificate per prime e quindi ogni riga che rappresenta i dati allineati a queste colonne.
 
-Di seguito è riportato un esempio di risultato di una query con la formattazione della _tabella_ :
+Di seguito è riportato un esempio del risultato di una query con la formattazione _Table_:
 
 ```json
 {
@@ -128,11 +131,11 @@ Di seguito è riportato un esempio di risultato di una query con la formattazion
 }
 ```
 
-### <a name="format---objectarray"></a>Format-ObjectArray
+### <a name="format---objectarray"></a>Formato - ObjectArray
 
-Il formato _ObjectArray_ restituisce anche i risultati in formato JSON. Questa progettazione è tuttavia allineata alla relazione tra coppie chiave/valore comune in JSON, in cui la colonna e i dati di riga corrispondono ai gruppi di matrici.
+Anche il formato _ObjectArray_ restituisce i risultati in un formato JSON. Questa progettazione si allinea tuttavia alla relazione della coppia chiave/valore comune in JSON, in cui la colonna e i dati della riga vengono associati in gruppi di matrici.
 
-Di seguito è riportato un esempio di risultato di una query con la formattazione _ObjectArray_ :
+Di seguito è riportato un esempio del risultato di una query con la formattazione _ObjectArray_:
 
 ```json
 {
@@ -149,7 +152,7 @@ Di seguito è riportato un esempio di risultato di una query con la formattazion
 }
 ```
 
-Di seguito sono riportati alcuni esempi di impostazione di **ResultFormat** per l'uso del formato _ObjectArray_ :
+Di seguito sono riportati alcuni esempi su come impostare **resultFormat** in modo che usi il formato _ObjectArray_:
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
@@ -166,6 +169,6 @@ response = client.resources(request)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
-- Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
+- Vedere il linguaggio in uso in [Query di base](../samples/starter.md).
+- Vedere gli usi avanzati in [Query avanzate](../samples/advanced.md).
 - Altre informazioni su come [esplorare le risorse](explore-resources.md).

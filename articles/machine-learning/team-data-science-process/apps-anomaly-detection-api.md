@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721881"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656552"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 
 > [!NOTE]
-> Questo elemento è in manutenzione. Si consiglia di usare il [servizio API del rilevatore di anomalie](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) basato su una raccolta di algoritmi di Machine Learning in Servizi cognitivi di Azure per rilevare le anomalie dalle metriche aziendali, operative e Internet.
+> Questo elemento è in fase di manutenzione. Si consiglia di usare il [servizio dell'API Rilevamento anomalie](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) basato su una raccolta di algoritmi di Machine Learning in Servizi cognitivi di Azure per rilevare le anomalie dalle metriche aziendali, operative e IoT.
 
 ## <a name="overview"></a>Panoramica
-L' [API di rilevamento delle anomalie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) è un esempio compilato con Azure Machine Learning che rileva le anomalie nei dati delle serie temporali con valori numerici distanziati in modo uniforme nel tempo.
+[API di rilevamento delle anomalie](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
 
 Questa API può rilevare i seguenti tipi di modelli di anomalie nei dati delle serie temporali:
 
@@ -39,26 +39,26 @@ L'offerta per il rilevamento anomalie include strumenti utili per iniziare.
 * L' [applicazione Web](https://anomalydetection-aml.azurewebsites.net/) consente di valutare e visualizzare i risultati delle API di rilevamento anomalie sui dati.
 
 > [!NOTE]
-> Provare la **soluzione IT Anomaly Insights** supportata da [questa API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
+> Provare la **soluzione IT Anomaly Insights** supportata da [questa API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>Distribuzione API
-Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile eseguire questa operazione in [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  In questo modo, vengono distribuiti due Azure Machine Learning Studio (classiche) servizi Web (e le relative risorse correlate) alla sottoscrizione di Azure, una per il rilevamento delle anomalie con rilevamento della stagionalità e una senza rilevamento della stagionalità.  Una volta completata la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi web Azure Machine Learning Studio (classica)](https://services.azureml.net/webservices/) .  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile eseguire questa operazione in [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Con questa operazione due servizi Web di Azure Machine Learning Studio (versione classica) (e le relative risorse) verranno distribuiti alla sottoscrizione di Azure, uno per il rilevamento delle anomalie con rilevamento della stagionalità e l'altro senza rilevamento della stagionalità.  Dopo aver completato la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi Web di Azure Machine Learning Studio (versione classica)](https://services.azureml.net/webservices/).  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](/azure/machine-learning/studio/manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Scalabilità dell'API
-Per impostazione predefinita, la distribuzione disporrà di un piano di fatturazione per sviluppo/test gratuito che include 1.000 transazioni al mese e 2 ore di calcolo al mese.  È possibile passare a un altro piano in base alle proprie esigenze.  I dettagli sui prezzi dei vari piani sono disponibili [qui](https://azure.microsoft.com/pricing/details/machine-learning/) in "Prezzi API Web di produzione".
+Per impostazione predefinita, la distribuzione disporrà di un piano di fatturazione di sviluppo/test gratuito che include 1.000 operazioni e 2 ore di calcolo al mese.  È possibile passare a un altro piano in base alle proprie esigenze.  I dettagli sui prezzi dei vari piani sono disponibili [qui](https://azure.microsoft.com/pricing/details/machine-learning/) in "Prezzi API Web di produzione".
 
 ## <a name="managing-aml-plans"></a>Gestione dei piani AML
-È possibile gestire il piano di fatturazione [qui](https://services.azureml.net/plans/).  Il nome del piano si basa sul nome del gruppo di risorse scelto durante la distribuzione dell'API, oltre a una stringa univoca per la sottoscrizione.  Le istruzioni su come aggiornare il piano sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) nella sezione "Gestione dei piani di fatturazione".
+È possibile gestire il piano di fatturazione [qui](https://services.azureml.net/plans/).  Il nome del piano si basa sul nome del gruppo di risorse scelto durante la distribuzione dell'API, oltre a una stringa univoca per la sottoscrizione.  Le istruzioni su come aggiornare il piano sono disponibili [qui](/azure/machine-learning/studio/manage-new-webservice) nella sezione "Gestione dei piani di fatturazione".
 
 ## <a name="api-definition"></a>Definizione dell'API
-Il servizio Web fornisce un'API basata su REST su HTTPS che può essere usata in modi diversi, tra cui un'applicazione Web o per dispositivi mobili, R, Python, Excel e così via.  I dati delle serie temporali vengono inviati al servizio tramite una chiamata API REST e viene eseguita una combinazione dei tre tipi di anomalie descritti di seguito.
+Il servizio Web offre un’API basata su REST in HTTPS che può essere usata in modi diversi, ad esempio come applicazione Web o mobile, R, Python, Excel, ecc.  I dati delle serie temporali vengono inviati al servizio tramite una chiamata API REST che esegue una combinazione dei tre tipi di anomalie descritte di seguito.
 
 ## <a name="calling-the-api"></a>Chiamata all'API
-Per chiamare l'API, è necessario conoscere la posizione endpoint e la chiave API.  Questi due requisiti, insieme al codice di esempio per la chiamata all'API, sono disponibili nella pagina dei [servizi web Azure Machine Learning Studio (classico)](https://services.azureml.net/webservices/) .  Passare all'API desiderato e quindi fare clic sulla scheda "Consumo" per individuarli.  È possibile chiamare l'API come API di spavalderia (ovvero con il parametro `format=swagger`URL) o come API non di spavalderia, ovvero senza il `format` parametro URL.  Il codice di esempio usa il formato Swagger.  Di seguito viene riportato un esempio di richiesta e risposta in formato non Swagger.  Questi esempi sono endpoint di stagionalità.  L'endpoint di non stagionalità è simile.
+Per chiamare l'API, è necessario conoscere la posizione endpoint e la chiave API.  Questi due requisiti, insieme al codice di esempio per chiamare l'API, sono disponibili nella pagina dei [servizi Web di Azure Machine Learning Studio (versione classica)](https://services.azureml.net/webservices/).  Passare all'API desiderato e quindi fare clic sulla scheda "Consumo" per individuarli.  È possibile chiamare l'API come API Swagger (vale a dire con il parametro URL `format=swagger`) o come un'API non Swagger (ovvero senza il parametro URL `format`).  Il codice di esempio usa il formato Swagger.  Di seguito viene riportato un esempio di richiesta e risposta in formato non Swagger.  Questi esempi sono endpoint di stagionalità.  L'endpoint di non stagionalità è simile.
 
 ### <a name="sample-request-body"></a>Corpo della richiesta di esempio
 La richiesta contiene due oggetti: `Inputs` e `GlobalParameters`.  Nella richiesta di esempio riportata di seguito, alcuni parametri vengono inviati in modo esplicito, mentre per altri questo non avviene (scorrere verso il basso per un elenco completo dei parametri per ogni endpoint).  I parametri che non vengono inviati in modo esplicito nella richiesta useranno i valori predefiniti indicati di seguito.
@@ -83,7 +83,7 @@ La richiesta contiene due oggetti: `Inputs` e `GlobalParameters`.  Nella richies
     }
 
 ### <a name="sample-response"></a>Risposta di esempio
-Per visualizzare il `ColumnNames` campo, è necessario includere `details=true` come parametro URL nella richiesta.  Vedere le tabelle di seguito per il significato di ognuno di questi campi.
+Per visualizzare il campo `ColumnNames`, è necessario includere `details=true` come parametro URL nella richiesta.  Vedere le tabelle di seguito per il significato di ognuno di questi campi.
 
     {
         "Results": {
@@ -109,24 +109,24 @@ La figura seguente illustra un esempio di anomalie che l'API Score può rilevare
 ![API Score][1]
 
 ### <a name="detectors"></a>Funzionalità di rilevamento
-L'API di rilevamento delle anomalie supporta i rilevatori in tre categorie generali. Informazioni dettagliate su specifici parametri di input e output per ogni funzionalità di rilevamento sono disponibili nella tabella seguente.
+L'API di rilevamento anomalie supporta funzionalità di rilevamento in tre categorie generali. Informazioni dettagliate su specifici parametri di input e output per ogni funzionalità di rilevamento sono disponibili nella tabella seguente.
 
 | Categoria di rilevamento | Funzionalità di rilevamento | Descrizione | Parametri di input | Output |
 | --- | --- | --- | --- | --- |
 | Rilevamento picchi |Rilevamento picchi TSpike |Rileva picchi e flessioni in base alla distanza dei valori dal primo e dal terzi quartile |*tspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo però la sensibilità |TSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. |
 | Rilevamento picchi | Rilevamento picchi ZSpike |Rileva picchi e flessioni in base alla distanza dei punti dati dalla loro media |*zspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo la sensibilità |ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. |
-| Rilevamento di tendenza lenta |Rilevamento di tendenza lenta |Rileva la tendenza positiva lenta in base alla sensibilità impostata. |*trenddetector. Sensitivity:* soglia per il punteggio del rilevatore (valore predefinito: 3,25, 3,25-5 è un intervallo ragionevole tra cui selezionare; Maggiore è il meno sensibile) |tscore: numero mobile che rappresenta il punteggio dell'anomalia nella tendenza. |
-| Rilevamento della modifica di livello | Rilevamento bidirezionale della modifica di livello |Rileva la modifica di livello verso l'alto e verso il basso in base alla sensibilità impostata. |*bileveldetector. Sensitivity:* soglia per il punteggio del rilevatore (valore predefinito: 3,25, 3,25-5 è un intervallo ragionevole tra cui selezionare; Maggiore è il meno sensibile) |rpscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto e verso il basso. |
+| Rilevamento di tendenza lenta |Rilevamento di tendenza lenta |Rileva la tendenza positiva lenta in base alla sensibilità impostata. |*trenddetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. I valori compresi tra 3,25 e 5 rappresentano un intervallo di selezione ragionevole. Più alto è il valore, minore sarà la sensibilità. |tscore: numero mobile che rappresenta il punteggio dell'anomalia nella tendenza. |
+| Rilevamento della modifica di livello | Rilevamento bidirezionale della modifica di livello |Rileva la modifica di livello verso l'alto e verso il basso in base alla sensibilità impostata. |*bileveldetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. I valori compresi tra 3,25 e 5 rappresentano un intervallo di selezione ragionevole. Più alto è il valore, minore sarà la sensibilità. |rpscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto e verso il basso. |
 
 ### <a name="parameters"></a>Parametri
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | Descrizione | Impostazione predefinita | Tipo | Intervallo valido | Intervallo consigliato |
+| Parametri di input | Descrizione | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
 | detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambe |enumerato |Entrambi, picchi e flessioni |Entrambe |
-| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
 | tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
@@ -147,7 +147,7 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 L'API ScoreWithSeasonality viene usata per eseguire il rilevamento di anomalie in serie temporali che includono modelli stagionali. Questa API è utile per rilevare le deviazioni nei modelli stagionali.
-La figura seguente illustra un esempio di anomalie rilevate in una serie temporale stagionale. La serie temporale ha un picco (il primo punto nero), due dip (il secondo punto nero e uno alla fine) e una modifica di livello (punto rosso). Sia il dip al centro della serie temporale che la modifica del livello sono distinguibili solo dopo la rimozione dei componenti stagionali dalla serie.
+La figura seguente illustra un esempio di anomalie rilevate in una serie temporale stagionale. La serie temporale presenta un picco (primo punto nero), due flessioni (secondo punto nero e uno alla fine) e una modifica di livello (punto rosso). Sia la flessione al centro della serie temporale sia la modifica di livello sono rilevabili solo dopo la rimozione dei componenti stagionali dalla serie.
 ![Stagionalità API][2]
 
 ### <a name="detectors"></a>Funzionalità di rilevamento
@@ -157,16 +157,16 @@ I rilevatori nell'endpoint stagionalità sono simili a quelli nell'endpoint non 
 
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | Descrizione | Impostazione predefinita | Tipo | Intervallo valido | Intervallo consigliato |
+| Parametri di input | Descrizione | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |integer |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
 | preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerato |zero, lkv, mean |N/D |
 | detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
 | detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambe |enumerato |Entrambi, picchi e flessioni |Entrambe |
-| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| negtrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza negativa. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| negtrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza negativa. |3.25 |double |nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
 | tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | seasonality.enable |Se è necessario eseguire analisi di stagionalità. |true |boolean |true, false |In base alle serie temporali. |
@@ -181,7 +181,7 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 | --- | --- |
 | Tempo |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | OriginalData |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
-| ProcessedData |Una delle opzioni seguenti: <ul><li>Serie temporali regolate in base alla stagionalità in caso di rilevamento di una stagionalità significativa e di selezione dell'opzione deseason</li><li>Serie temporali regolate in base alla stagionalità e senza tendenza, se è stata rilevata una stagionalità significativa ed è selezionata l'opzione deseasontrend</li><li>in caso contrario, questa opzione corrisponde a OriginalData</li> |
+| ProcessedData |Una delle opzioni seguenti: <ul><li>Serie temporali regolate in base alla stagionalità in caso di rilevamento di una stagionalità significativa e di selezione dell'opzione deseason</li><li>Serie temporali regolate in base alla stagionalità e senza tendenza, se è stata rilevata una stagionalità significativa ed è selezionata l'opzione deseasontrend</li><li>In caso contrario, questa opzione è uguale a OriginalData</li> |
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | BiLevelChangeScore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello |
