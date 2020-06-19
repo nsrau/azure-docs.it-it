@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662234"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886707"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Esercitazione: Diagnosticare, correggere ed eseguire il commit delle modifiche apportate al set di competenze
 
@@ -173,12 +173,12 @@ Al termine dell'esecuzione della sessione di debug, fare clic sulla scheda Error
 ## <a name="fix-missing-skill-output-values"></a>Correggere i valori di output della competenza mancanti
 
 > [!div class="mx-imgBorder"]
-> ![Errori e avvisi](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Errori e avvisi](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Mancano dei valori di output da una competenza. Per identificare la competenza con l'errore, passare alla scheda Enriched Data Structure (Struttura dei dati arricchiti), trovare il nome del valore e osservare la relativa origine. I valori organizations e locations mancanti sono output della competenza #1. Aprendo l'analizzatore di espressioni </> per ogni percorso, le espressioni verranno visualizzate rispettivamente come "/document/content/organizations" e "/document/content/locations".
 
 > [!div class="mx-imgBorder"]
-> ![Entità organizations dell'analizzatore di espressioni](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Entità organizations dell'analizzatore di espressioni](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 L'output di queste entità è vuoto e non dovrebbe esserlo. Quali sono gli input che producono questo risultato?
 
@@ -187,7 +187,7 @@ L'output di queste entità è vuoto e non dovrebbe esserlo. Quali sono gli input
 1. Aprire l'analizzatore di espressioni **</>** per la proprietà INPUTS "text".
 
 > [!div class="mx-imgBorder"]
-> ![Input per la competenza text](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Input per la competenza text](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 Il risultato visualizzato per questo input non sembra un input di testo, ma piuttosto un'immagine racchiusa tra nuove righe. La mancanza di testo indica che non ci sono entità identificabili. In base alla gerarchia delle competenze, il contenuto viene prima elaborato dalla competenza #6 (OCR) e quindi viene passato alla competenza #5 (Merge). 
 
@@ -195,7 +195,7 @@ Il risultato visualizzato per questo input non sembra un input di testo, ma piut
 1. Selezionare la scheda **Esecuzioni** nel riquadro dei dettagli della competenza a destra e aprire l'analizzatore di espressioni **</>** per la proprietà OUTPUTS "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Output della competenza Merge](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Output della competenza Merge](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Qui il testo è associato all'immagine. Osservando l'espressione "/document/merged_content" si può notare l'errore nei percorsi "organizations" e "locations"per la competenza #1. Invece di usare "/document/content" dovrebbe usare "/document/merged_content" per la proprietà INPUTS "text".
 
@@ -216,7 +216,7 @@ Al termine dell'esecuzione dell'indicizzatore, gli errori sono ancora presenti. 
 1. Aprire l'analizzatore di espressioni **</>** per l'entità "organizations".
 
 > [!div class="mx-imgBorder"]
-> ![Output dell'entità organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Output dell'entità organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 La valutazione del risultato dell'espressione restituisce il risultato corretto. La competenza lavora per identificare il valore corretto dell'entità "organizations". Tuttavia il mapping dell'output nel percorso dell'entità continua a generare un errore. Confrontando il percorso di output nella competenza con il percorso di output nell'errore, si nota che la competenza padre delle entità outputs, organizations e locations è nel nodo /document/content, mentre il mapping dei campi di output prevede che i risultati siano assegnati a una competenza padre nel nodo /document/merged_content. Nel passaggio precedente l'input è stato modificato da "/document/content" a "/document/merged_content". Per assicurare che l'output venga generato con il contesto corretto, occorre modificare il contesto nelle impostazioni della competenza.
 
@@ -228,7 +228,7 @@ La valutazione del risultato dell'espressione restituisce il risultato corretto.
 1. Fare clic su **Esegui** nel menu della finestra della sessione. Verrà avviata un'altra esecuzione del set di competenze usando il documento.
 
 > [!div class="mx-imgBorder"]
-> ![Correzione del contesto nell'impostazione della competenza](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Correzione del contesto nell'impostazione della competenza](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Tutti gli errori sono stati risolti.
 

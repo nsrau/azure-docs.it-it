@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/02/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4752fe65cf06b894413df2fda0decdfbb427afd5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449380"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673412"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -63,7 +63,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Griglia di eventi di Azure| Tutte le aree pubbliche       |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/event-grid/network-security) |
 |App Web di Azure | Tutte le aree pubbliche      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| Hub IoT | Tutte le aree pubbliche    |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Hub IoT Azure | Tutte le aree pubbliche    |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Servizio Azure SignalR | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://aka.ms/asrs/privatelink)   |
 | Monitoraggio di Azure <br/>(Log Analytics e Application Insights) | Tutte le aree pubbliche      |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
 

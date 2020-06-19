@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b6247feff8e30c4c70e27f1a5f2af9d8b6818de5
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086046"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905946"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
@@ -150,3 +150,6 @@ Procedere con l'articolo successivo per informazioni su come creare un'app .NET 
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core con database SQL](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+> [!div class="nextstepaction"]
+> [Configurare l'app ASP.NET Core](configure-language-dotnetcore.md)

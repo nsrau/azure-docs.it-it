@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8a69e0bfe172d2cc7a291ee51ffa73ae7b484731
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 30a4e375bc05d939358b54b279228e1696b17e66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613295"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729337"
 ---
 # <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>In cosa la nuova versione di Gemelli digitali di Azure è diversa dalla versione precedente (2018)?
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 La prima versione di anteprima pubblica di Gemelli digitali di Azure è stata rilasciata a ottobre 2018. Sebbene i concetti di base della versione precedente siano stati trasferiti al nuovo servizio ora in anteprima pubblica, molte interfacce e dettagli di implementazione sono stati modificati per rendere il servizio più flessibile e accessibile. Queste modifiche sono state motivate dal feedback dei clienti.
 
