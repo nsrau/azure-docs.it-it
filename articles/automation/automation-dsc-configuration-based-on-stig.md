@@ -1,6 +1,6 @@
 ---
-title: Configurazione basata su STIG da usare nella configurazione dello stato-automazione di Azure
-description: Informazioni sulle configurazioni basate su STIG per la configurazione dello stato in automazione di Azure.
+title: Configurare i dati in base a STIG per State Configuration di Automazione di Azure
+description: Questo articolo descrive come configurare i dati in base a STIG per State Configuration di Automazione di Azure.
 keywords: dsc,powershell,configurazione,installazione
 services: automation
 ms.service: automation
@@ -10,19 +10,19 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1b05f9e77d3530f3e883aa3f9d98de09c8f54c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585542"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836992"
 ---
-# <a name="configuration-based-on-stig"></a>Configurazione basata su STIG
+# <a name="configure-data-based-on-stig"></a>Configurare i dati in base a STIG
 
-> Si applica a: Windows PowerShell 5,1
+> Si applica a: Windows PowerShell 5.1
 
-La creazione di contenuto di configurazione per la prima volta può risultare complessa.
-In molti casi, l'obiettivo è quello di automatizzare la configurazione dei server che seguono una "linea di base" che si spera sia allineata a una raccomandazione di settore.
+La creazione di contenuti per la configurazione per la prima volta può risultare un'operazione complessa.
+In molti casi l'obiettivo è quello di automatizzare la configurazione dei server conformi a una "baseline" che dovrebbe essere allineata a una raccomandazione del settore.
 
 > [!NOTE]
 > Questo articolo fa riferimento a una soluzione gestita dalla community open source.
@@ -30,19 +30,19 @@ In molti casi, l'obiettivo è quello di automatizzare la configurazione dei serv
 
 ## <a name="community-project-powerstig"></a>Progetto della community: PowerSTIG
 
-Un progetto della community denominato [PowerSTIG](https://github.com/microsoft/powerstig) mira a risolvere questo problema generando contenuti DSC basati su [informazioni pubbliche](https://public.cyber.mil/stigs/) fornite da Stig (Guida all'implementazione tecnica della sicurezza).
+L'obiettivo di un progetto della community denominato [PowerSTIG](https://github.com/microsoft/powerstig) è proprio quello di risolvere questo problema grazie alla generazione di contenuti DSC basati sulle [informazioni pubbliche](https://public.cyber.mil/stigs/) fornite su STIG (Security Technical Implementation Guide).
 
-La gestione delle linee di base è più complessa di quanto non sia il suono.
+La gestione delle baseline è più complessa di quanto sembri.
 Molte organizzazioni devono [documentare le eccezioni](https://github.com/microsoft/powerstig#powerstigdata) alle regole e gestire tali dati su larga scala.
-PowerSTIG risolve il problema fornendo [risorse composite](https://github.com/microsoft/powerstig#powerstigdsc) per risolvere ogni area della configurazione anziché tentare di risolvere l'intero intervallo di impostazioni in un file di grandi dimensioni.
+Per risolvere il problema, PowerSTIG fornisce [risorse composite](https://github.com/microsoft/powerstig#powerstigdsc) che consentono di gestire le singole aree della configurazione, invece di provare a gestire tutte le impostazioni in un unico file di grandi dimensioni.
 
-Una volta generate le configurazioni, è possibile usare gli [script di configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) o [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) per eseguire il pull delle configurazioni.
+Dopo aver generato le configurazioni, è possibile usare gli [script di configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricarli tali file in Automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Registrare quindi i server da [locale](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) o [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) per eseguire il pull delle configurazioni.
 
-Per provare PowerSTIG, visitare il [PowerShell Gallery](https://www.powershellgallery.com) e scaricare la soluzione oppure fare clic su "Project Site" per visualizzare la [documentazione](https://github.com/microsoft/powerstig).
+Per provare PowerSTIG, visitare [PowerShell Gallery](https://www.powershellgallery.com) e scaricare la soluzione oppure fare clic su "Sito di progetto" per visualizzare la [documentazione](https://github.com/microsoft/powerstig).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview)
-- [Risorse DSC](/powershell/scripting/dsc/resources/resources)
-- [Configurazione della Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Per informazioni su PowerShell DSC, vedere [Panoramica della configurazione di Desired State Configuration per Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- In [Risorse DSC](/powershell/scripting/dsc/resources/resources) sono disponibili informazioni sulle risorse di PowerShell DSC.
+- Per altri dettagli sulla configurazione di Configuration Manager locale, vedere [Configurazione di Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaconfig).

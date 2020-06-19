@@ -1,5 +1,5 @@
 ---
-title: Controllare le distribuzioni per le procedure consigliate
+title: Controllare l'implementazione delle procedure consigliate nelle distribuzioni
 titleSuffix: Azure Kubernetes Service
 description: Informazioni su come controllare l'implementazione delle procedure consigliate nelle distribuzioni nel servizio Azure Kubernetes mediante kube-advisor
 services: container-service
@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 17e21c142dc354de7b72bc17396b19366027c5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668391"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773793"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verifica delle procedure consigliate di Kubernetes nel cluster
 
@@ -20,9 +20,9 @@ Esistono diverse procedure consigliate da seguire relative alle distribuzioni di
 
 ## <a name="about-kube-advisor"></a>Informazioni su kube-advisor
 
-Lo [strumento kube-advisor][kube-advisor-github] è un singolo contenitore progettato per essere eseguito nel cluster. Esegue una query nel server API Kubernetes per informazioni sulle distribuzioni e restituisce un set di miglioramenti suggeriti.
+Lo [strumento kube-advisor][kube-advisor-github] è un singolo contenitore progettato per l'esecuzione nel cluster. Esegue una query nel server API Kubernetes per informazioni sulle distribuzioni e restituisce un set di miglioramenti suggeriti.
 
-Lo strumento Kube-Advisor può creare report sulle richieste di risorse e sui limiti mancanti in PodSpecs per le applicazioni Windows e sulle applicazioni Linux, ma lo strumento Kube-Advisor stesso deve essere pianificato in un pod Linux. È possibile pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico usando un [selettore di nodo][k8s-node-selector] nella configurazione del Pod.
+Con lo strumento kube-advisor è possibile creare report su limiti e richieste di risorse mancanti nei file PodSpec per le applicazioni Windows e le applicazioni Linux, ma è necessario pianificare l'esecuzione di tale strumento in un pod Linux. Per pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico, è possibile usare un [selettore di nodo][k8s-node-selector] nella configurazione del pod.
 
 > [!NOTE]
 > Lo strumento kube-advisor è supportato da Microsoft nel modo più efficiente possibile. I problemi e i suggerimenti devono essere segnalati in GitHub.
@@ -34,7 +34,7 @@ Per eseguire lo strumento in un cluster configurato per il [controllo degli acce
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
-kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
 Se non si usa il controllo degli accessi in base al ruolo, è possibile eseguire il comando come indicato di seguito:
@@ -51,9 +51,9 @@ Entro pochi secondi, dovrebbe essere visualizzata una tabella che descrive i pos
 
 Lo strumento convalida diverse procedure consigliate di Kubernetes, ognuna con la procedura di correzione suggerita.
 
-### <a name="resource-requests-and-limits"></a>Richieste di risorse e limiti
+### <a name="resource-requests-and-limits"></a>Limiti e richieste di risorse
 
-Kubernetes supporta la definizione delle [richieste di risorse e dei limiti per le specifiche di pod][kube-cpumem]. La richiesta definisce il valore minimo di CPU e memoria necessario per eseguire il contenitore. Il limite definisce il valore di CPU e memoria massimo che dovrebbe essere consentito.
+Kubernetes supporta la definizione di [limiti e richieste di risorse nelle specifiche di pod][kube-cpumem]. La richiesta definisce il valore minimo di CPU e memoria necessario per eseguire il contenitore. Il limite definisce il valore di CPU e memoria massimo che dovrebbe essere consentito.
 
 Per impostazione predefinita, non vengono impostati richieste o limiti nelle specifiche di pod. Questo può causare la sovrapianificazione dei nodi e l'esaurimento dei contenitori. Lo strumento kube-advisor evidenzia i pod senza impostazione delle richieste e dei limiti.
 

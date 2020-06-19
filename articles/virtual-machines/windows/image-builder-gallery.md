@@ -1,30 +1,30 @@
 ---
 title: Usare Azure Image Builder con una raccolta immagini per macchine virtuali Windows (anteprima)
-description: Creare versioni di immagini della raccolta condivisa di Azure usando il generatore di immagini di Azure e Azure PowerShell.
+description: Creare versioni di immagini della raccolta condivisa di Azure usando Azure Image Builder e Azure PowerShell.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 89c93d83631884cab1143a520fea01246f1b5e89
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871830"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656665"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: creare un'immagine di Windows e distribuirla in una raccolta di immagini condivise 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Windows e distribuirla in una raccolta immagini condivise 
 
-Questo articolo illustra come è possibile usare il generatore di immagini di Azure e Azure PowerShell per creare una versione di immagine in una raccolta di [Immagini condivise](shared-image-galleries.md), quindi distribuire l'immagine a livello globale. Questa operazione può essere eseguita anche tramite l'interfaccia della riga di comando di [Azure](../linux/image-builder-gallery.md).
+Questo articolo illustra come usare Azure Image Builder e Azure PowerShell per creare una versione dell'immagine di una [raccolta immagini condivise](shared-image-galleries.md) e quindi distribuirla a livello globale. Questa operazione può essere eseguita anche con l'[interfaccia della riga di comando di Azure](../linux/image-builder-gallery.md).
 
-Per configurare l'immagine verrà usato un modello JSON. Il file con estensione JSON usato è il seguente: [armTemplateWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Verrà eseguito il download e la modifica di una versione locale del modello, in modo che questo articolo venga scritto usando la sessione locale di PowerShell.
+Per configurare l'immagine, si userà un modello con estensione json. Il file con estensione json usato è [helloImageTemplateforSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Si eseguiranno il download e la modifica di una versione locale del modello, per cui questo articolo è stato scritto usando una sessione locale di PowerShell.
 
-Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) come valore per la `distribute` sezione del modello.
+Per distribuire l'immagine in una raccolta immagini condivise, il modello usa [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) come valore per la sezione `distribute`.
 
-Azure Image Builder esegue automaticamente Sysprep per generalizzare l'immagine. si tratta di un comando Sysprep generico, che può essere [sostituito](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessario. 
+Azure Image Builder esegue automaticamente Sysprep per generalizzare l'immagine. Si tratta di un comando Sysprep generico, di cui è possibile eseguire l'[override](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessario. 
 
-Tenere presente il numero di volte in cui si esegue la personalizzazione del livello. È possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine di Windows. Dopo l'esecuzione di Sysprep 8 volte, è necessario ricreare l'immagine di Windows. Per ulteriori informazioni, vedere [limiti relativi al numero di volte in cui è possibile eseguire Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Prestare attenzione al numero di volte in cui si eseguono personalizzazioni. È possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine Windows. Dopo aver eseguito Sysprep 8 volte, è necessario ricreare l'immagine Windows. Per altre informazioni, vedere [Limiti del numero di volte in cui è possibile eseguire Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
@@ -43,9 +43,9 @@ Verificare lo stato della registrazione della funzionalità.
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Attendere fino `RegistrationState` a `Registered` quando non viene spostato al passaggio successivo.
+Attendere che `RegistrationState` diventi `Registered` prima di continuare con il passaggio successivo.
 
-Verificare le registrazioni del provider. Verificare che ogni venga `Registered`restituito.
+Controllare le registrazioni del provider. Verificare che ognuna restituisca `Registered`.
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +54,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Se non vengono restituiti `Registered`, utilizzare il comando seguente per registrare i provider:
+Se non restituiscono `Registered`, usare il comando seguente per registrare i provider:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +65,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>Creare le variabili
 
-Le informazioni verranno utilizzate ripetutamente, quindi verranno create alcune variabili per archiviare tali informazioni. Sostituire i valori per le variabili, ad `username` esempio `vmpassword`e, con le proprie informazioni.
+Alcune informazioni verranno usate ripetutamente, pertanto verranno create alcune variabili in cui archiviarle. Sostituire i valori per le variabili, ad esempio `username` e `vmpassword`, con le proprie informazioni.
 
 ```powershell
 # Get existing context
@@ -97,29 +97,29 @@ New-AzResourceGroup `
 ```
 
 
-## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare le autorizzazioni per il gruppo di risorse
-Image Builder userà l' [identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) specificata per inserire l'immagine nella raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine al SIG. La definizione del ruolo verrà quindi assegnata all'identità utente.
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare autorizzazioni per il gruppo di risorse
+Image Builder userà l'[identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) specificata per inserire l'immagine nella raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure che include azioni granulari per eseguire la distribuzione dell'immagine nella raccolta immagini condivise. La definizione del ruolo verrà quindi assegnata all'identità utente.
 
 ```powershell
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
 ### <a name="assign-permissions-for-identity-to-distribute-images"></a>Assegnare le autorizzazioni per l'identità per la distribuzione di immagini
 
-Questo comando Scarica un modello di definizione di ruolo di Azure e aggiorna il modello con i parametri specificati in precedenza.
+Questo comando scarica un modello di definizione di ruolo di Azure e lo aggiorna con i parametri specificati in precedenza.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -136,7 +136,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -145,9 +145,9 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 
 ## <a name="create-the-shared-image-gallery"></a>Creare la Raccolta immagini condivise
 
-Per usare Image Builder con una raccolta di immagini condivise, è necessario disporre di una raccolta immagini esistente e di una definizione di immagine. Image Builder non creerà la raccolta immagini e la definizione di immagine.
+Per usare Image Builder con una raccolta immagini condivise, è necessario avere una raccolta immagini esistente e una definizione di immagine. Image Builder non crea autonomamente la raccolta immagini e la definizione di immagine.
 
-Se non si dispone già di una raccolta e di una definizione di immagine da usare, iniziare creandoli. Per prima cosa, creare una raccolta di immagini.
+Se non si ha già una raccolta e una definizione di immagine da usare, iniziare creando questi elementi. In primo luogo creare un raccolta di immagini.
 
 ```powershell
 # Image gallery name
@@ -182,7 +182,7 @@ New-AzGalleryImageDefinition `
 
 ## <a name="download-and-configure-the-template"></a>Scaricare e configurare il modello
 
-Scaricare il modello con estensione JSON e configurarlo con le variabili.
+Scaricare il modello con estensione json e configurarlo con le variabili.
 
 ```powershell
 
@@ -207,13 +207,13 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione dell'immagine
+## <a name="create-the-image-version"></a>Creare la versione di immagine
 
-Il modello deve essere inviato al servizio, in modo da scaricare eventuali artefatti dipendenti, ad esempio gli script, e archiviarli nel gruppo di risorse di staging, con prefisso *it_*.
+Il modello deve essere inviato al servizio, in modo da scaricare eventuali artefatti dipendenti, ad esempio gli script, e archiviarli nel gruppo di risorse di staging, con prefisso *IT_* .
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -224,7 +224,7 @@ New-AzResourceGroupDeployment `
    -svclocation $location
 ```
 
-Per compilare l'immagine, è necessario richiamare "Run" sul modello.
+Per compilare l'immagine, è necessario richiamare 'Run' sul modello.
 
 ```powershell
 Invoke-AzResourceAction `
@@ -235,9 +235,9 @@ Invoke-AzResourceAction `
    -Action Run
 ```
 
-La creazione dell'immagine e la relativa replica in entrambe le aree possono richiedere alcuni minuti. Attendere il completamento di questa parte prima di procedere alla creazione di una macchina virtuale.
+La creazione dell'immagine e la sua replica in entrambe le aree possono richiedere del tempo. Attendere il completamento di questa parte prima di procedere alla creazione di una macchina virtuale.
 
-Per informazioni sulle opzioni per automatizzare il recupero dello stato di compilazione dell'immagine, vedere il [file Leggimi](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) relativo a questo modello in GitHub.
+Per informazioni sulle opzioni disponibili per automatizzare il recupero dello stato di compilazione dell'immagine, vedere il file [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) per questo modello in GitHub.
 
 
 ## <a name="create-the-vm"></a>Creare la VM
@@ -289,30 +289,30 @@ New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfi
 ```
 
 ## <a name="verify-the-customization"></a>Verificare la personalizzazione
-Creare una connessione Desktop remoto alla macchina virtuale usando il nome utente e la password impostati al momento della creazione della macchina virtuale. All'interno della macchina virtuale aprire un prompt dei comandi e digitare:
+Creare una connessione Desktop remoto alla macchina virtuale usando il nome utente e la password impostati al momento della creazione della VM. All'interno della macchina virtuale aprire un prompt dei comandi e digitare:
 
 ```console
 dir c:\
 ```
 
-Verrà visualizzata una directory denominata `buildActions` che è stata creata durante la personalizzazione delle immagini.
+Verrà visualizzata una directory denominata `buildActions` creata durante la personalizzazione dell'immagine.
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se si vuole provare a ripersonalizzare la versione dell'immagine per creare una nuova versione della stessa immagine, **ignorare questo passaggio** e passare a [usare il generatore di immagini di Azure per creare un'altra versione](image-builder-gallery-update-image-version.md)dell'immagine.
+Se si vuole provare a ripetere la personalizzazione per creare una nuova versione della stessa immagine, **ignorare questo passaggio** e passare [Usare Azure Image Builder per creare un'altra versione dell'immagine](image-builder-gallery-update-image-version.md).
 
 
-Questa operazione eliminerà l'immagine creata insieme a tutti gli altri file di risorse. Assicurarsi che la distribuzione sia stata completata prima di eliminare le risorse.
+Questa operazione eliminerà l'immagine creata e tutti gli altri file di risorse. Assicurarsi che la distribuzione sia stata completata prima di eliminare le risorse.
 
-Eliminare prima il modello di gruppo di risorse. in caso contrario, il gruppo di risorse di gestione temporanea (*it_*) utilizzato da AIB non verrà pulito.
+Eliminare prima il modello di gruppo di risorse; in caso contrario, il gruppo di risorse di staging (*IT_* ) usato da Azure Image Builder non verrà pulito.
 
-Ottenere ResourceID del modello di immagine. 
+Ottenere il valore ResourceID del modello di immagine. 
 
 ```powerShell
 $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-Elimina modello di immagine.
+Eliminare il modello di immagine.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
@@ -321,22 +321,22 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 Elimina assegnazione ruolo
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
-Rimuovi definizioni
+Rimuovere le definizioni
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
-Elimina identità
+Eliminare l'identità
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
-eliminare il gruppo di risorse.
+Eliminare il gruppo di risorse.
 
 ```powerShell
 Remove-AzResourceGroup $imageResourceGroup -Force
@@ -344,4 +344,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come aggiornare la versione dell'immagine creata, vedere [usare Azure Image Builder per creare un'altra versione di](image-builder-gallery-update-image-version.md)immagine.
+Per informazioni su come aggiornare la versione dell'immagine creata, vedere [Usare Azure Image Builder per creare un'altra versione dell'immagine](image-builder-gallery-update-image-version.md).

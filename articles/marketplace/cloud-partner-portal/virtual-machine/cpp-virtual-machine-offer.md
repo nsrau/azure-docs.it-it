@@ -1,50 +1,19 @@
 ---
-title: Offerta di macchine virtuali in Azure Marketplace
-description: Panoramica del processo per la pubblicazione di un'offerta di macchina virtuale in Azure Marketplace.
+title: Offerte di macchine virtuali in Azure Marketplace
+description: Panoramica del processo di pubblicazione di un'offerta di macchine virtuali in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/20/2020
 ms.author: dsindona
-ms.openlocfilehash: b857cf8b7485beb884adf77d99f82d965f55a0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0eb48207eb6eb51ebf3d96e1cdc4da721a1cd7d7
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142792"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726945"
 ---
-# <a name="virtual-machine-offer"></a>Offerta di una macchina virtuale
+# <a name="azure-virtual-machine-offer"></a>Offerte di macchine virtuali di Azure
 
-> [!IMPORTANT]
-> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
-
-|    |    |
-|-----------------------------------------------------------------|------------------------------------------|
-| Questa sezione descrive come pubblicare una nuova offerta di macchina virtuale in [Azure Marketplace](https://azuremarketplace.microsoft.com). Viene fornito il supporto per macchine virtuali basate su Windows e basate su Linux, che contiene un disco rigido virtuale del sistema operativo (VHD) e zero o più dischi rigidi virtuali di dati. | ![icone della macchina virtuale](./media/virtual-machine-icon.png)  |
-
-
-## <a name="publishing-overview"></a>Panoramica della pubblicazione
-
-Il video seguente, [Optimize Your Azure Marketplace Offer](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player) (Ottimizzare l'offerta in Microsoft Azure Marketplace), presenta un'ampia panoramica di Microsoft Azure Marketplace, incluse le procedure per la pubblicazione nel marketplace (usando una soluzione di macchina virtuale), come ottimizzare l'esperienza utente con la pagina dei prodotti e l'esperienza Test Drive facoltativa, come vengono generati i lead dell'utente e come è possibile usarli e ottimizzare il coinvolgimento dei clienti.
-
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
-
-
-## <a name="vm-publishing-process-flow"></a>Flusso del processo di pubblicazione di una macchina virtuale
-
-Il diagramma seguente illustra ad alto livello la procedura di pubblicazione di un'offerta di macchina virtuale. 
-
-![Processo di pubblicazione di una VM](./media/publishvm_001.png)
-
-1. Creare l'offerta: vengono configurati tutti i dettagli e tutte le informazioni sull'offerta, ad esempio la descrizione dell'offerta, i materiali di marketing, le clausole legali, le informazioni di supporto e le specifiche relative alle risorse.
-
-2. Creare le risorse commerciali e tecniche: creare le risorse commerciali (documenti legali e materiali di marketing) e tecniche per la soluzione associata (in questo caso, la macchina virtuale e i dischi collegati). 
-
-3. Creare lo SKU: creare lo SKU o gli SKU associati all'offerta e inviarli.  Per ogni immagine che si intende pubblicare è necessario uno SKU univoco. 
- 
-4. Certificare e pubblicare l'offerta: dopo il completamento delle risorse tecniche e dell'offerta, è possibile procedere all'invio di questa. L'invio avvia il processo di pubblicazione, durante il quale la soluzione viene testata, convalidata, certificata e quindi "lanciata" nel marketplace.  
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Prima prendere in considerazione questi passaggi, è necessario soddisfare i [requisiti tecnici e commerciali](./cpp-prerequisites.md) per la pubblicazione di una macchina virtuale in Microsoft Azure Marketplace. 
+Il [portale Cloud Partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte di macchine virtuali di Azure. Questa funzionalità è stata spostata nel [Centro per i partner](https://partner.microsoft.com/pcv/) Microsoft. Per altre informazioni, vedere [Creare un'offerta di macchina virtuale di Azure](../../partner-center-portal/azure-vm-create-offer.md).

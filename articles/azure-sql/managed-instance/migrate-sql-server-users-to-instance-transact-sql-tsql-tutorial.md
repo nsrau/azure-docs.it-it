@@ -2,7 +2,7 @@
 title: Eseguire la migrazione di utenti e gruppi di Windows in SQL Server a un'istanza gestita di SQL tramite T-SQL
 description: Informazioni su come eseguire la migrazione di utenti e gruppi di Windows in un'istanza di SQL Server a un'istanza gestita di SQL di Azure
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: a050e38f037ee0ed2741cfa2e509e21fa9e1151d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310224"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708670"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Esercitazione: Eseguire la migrazione di utenti e gruppi di Windows in un'istanza di SQL Server a un'istanza gestita di SQL di Azure con la sintassi DDL T-SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

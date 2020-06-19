@@ -1,27 +1,27 @@
 ---
 title: Usare l'API Video Indexer
 titleSuffix: Azure Media Services
-description: Questo articolo descrive come iniziare a usare l'API Video Indexer di servizi multimediali di Azure.
+description: Questo articolo descrive come iniziare a usare l'API Video Indexer di Servizi multimediali di Azure.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 62c66f8b787d27b72216eb08b87352d8dbf272fb
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314343"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774355"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
-Video Indexer consolida varie tecnologie di intelligenza artificiale (AI) audio e video offerte da Microsoft in un unico servizio integrato, semplificando lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'utilizzo di tecnologie di intelligenza artificiale, senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità delle piattaforme cloud. È possibile usare l'API per caricare i file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget Insights e Player incorporabili e altro ancora.
+Video Indexer consolida diverse tecnologie di intelligenza artificiale audio e video offerte da Microsoft in un unico servizio integrato, semplificando così lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'uso delle tecnologie di intelligenza artificiale per i contenuti multimediali senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità delle piattaforme cloud. È possibile usare l'API per caricare file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget delle informazioni dettagliate e del lettore incorporabili e altro ancora.
 
-Quando si crea un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si riceve un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (in cui la quota non è limitata). Con una versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita agli utenti del sito Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti dell'API. Con un'opzione a pagamento, è possibile creare un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services.
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con un'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services.
 
 Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -29,50 +29,50 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
 
 1. Accedere al [portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/).
     
-    ![Accedi a Video Indexer portale per sviluppatori](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Accedere al portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
-   > * Gli account personali di Google e Microsoft (Outlook/Live) possono essere usati solo per gli account di prova. Gli account connessi ad Azure richiedono Azure AD.
-   > * Può essere presente un solo account attivo per ogni messaggio di posta elettronica. Se un utente tenta di accedere con user@gmail.com per LinkedIn e in seguito con user@gmail.com per Google, quest'ultimo visualizzerà una pagina di errore che informa che l'utente esiste già.
+   > * Gli account Google e Microsoft personali (Outlook/Live) possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
+   > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente cerca di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente esiste già.
 
 2. Eseguire la sottoscrizione.
 
-    Selezionare la scheda [prodotti](https://api-portal.videoindexer.ai/products) . Quindi selezionare autorizzazione e Sottoscrivi.
+    Selezionare la scheda [Prodotti](https://api-portal.videoindexer.ai/products). Selezionare quindi Autorizzazione ed eseguire la sottoscrizione.
     
-    ![Scheda prodotti nel portale per sviluppatori Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Scheda Prodotti nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
     
-    Una volta effettuata la sottoscrizione, è possibile visualizzare la sottoscrizione e le chiavi primarie e secondarie. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non dovrebbero essere disponibili sul lato client (. js,. html e così via).
+    Dopo aver effettuato la sottoscrizione, si vedrà la sottoscrizione e le chiavi primaria e secondaria. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
 
-    ![Sottoscrizione e chiavi nel portale per sviluppatori Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > L'utente di Video Indexer può usare una chiave di sottoscrizione singola per connetterti a più account Video Indexer. È quindi possibile collegare questi account Video Indexer a diversi account Servizi multimediali.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Ottenere i token di accesso usando l'API di autorizzazione
 
-Una volta effettuata la sottoscrizione all'API di autorizzazione, è possibile ottenere i token di accesso. Questi token di accesso vengono usati per eseguire l'autenticazione con l'API delle operazioni.
+Una volta eseguita la sottoscrizione per l'API di autorizzazione, è possibile ottenere i token di accesso. Questi token di accesso vengono usati per eseguire l'autenticazione con l'API delle operazioni.
 
 Ogni chiamata all'API delle operazioni deve essere associata a un token di accesso, che corrisponde all'ambito di autorizzazione della chiamata.
 
-- Livello utente: i token di accesso a livello di utente consentono di eseguire operazioni a livello di **utente** . ad esempio ottenere gli account associati.
-- Livello dell'account: i token di accesso a livello di account consentono di eseguire operazioni a livello di **account** o di **video** . Ad esempio, caricare video, elencare tutti i video, ottenere informazioni dettagliate video e così via.
-- Livello video: i token di accesso a livello di video consentono di eseguire operazioni su un **video**specifico. Ad esempio, Ottieni informazioni dettagliate video, Scarica didascalie, Ottieni widget e così via.
+- Livello utente: i token di accesso a livello di utente consentono di eseguire operazioni a livello **utente**. ad esempio ottenere gli account associati.
+- Livello account: i token di accesso a livello di account consentono di eseguire operazioni a livello di **account** o a livello di **video**, ad esempio caricare video, elencare tutti i video, ottenere informazioni dettagliate sui video e così via.
+- Livello video: i token di accesso a livello di video consentono di eseguire operazioni su uno specifico **video**, ad esempio ottenere informazioni dettagliate sul video, scaricare i sottotitoli, ottenere i widget e così via.
 
-È possibile controllare se questi token sono di sola lettura o se consentono la modifica specificando **AllowEdit = true/false**.
+È possibile definire se i token devono essere di sola lettura o se devono consentire le modifiche specificando **allowEdit=true/false**.
 
-Per la maggior parte degli scenari da server a server, probabilmente si userà lo stesso token di **account** , perché riguarda sia le operazioni di **account** che le operazioni **video** . Tuttavia, se si prevede di effettuare chiamate sul lato client a Video Indexer (ad esempio da JavaScript), è consigliabile usare un token di accesso **video** per impedire ai client di ottenere l'accesso all'intero account. Questo è anche il motivo per cui, quando si incorpora Video Indexer codice client nel client (ad esempio, usando **Get Insights widget** o **Get Player Widget**), è necessario fornire un token di accesso **video** .
+Per la maggior parte degli scenari da server a server, in genere si userà lo stesso token di **account**, perché consente di eseguire sia le operazioni a livello di **account** che le operazioni a livello di **video**. Se però si prevede di effettuare chiamate lato client a Video Indexer (ad esempio da JavaScript), può essere preferibile usare un token di accesso **video**, in modo da impedire ai client di ottenere l'accesso all'intero account. È sempre per questo motivo che, quando si incorpora codice client di Video Indexer nel client, ad esempio usando **Get Insights Widget** (Ottieni widget informazioni dettagliate) o **Get Player Widget** (Ottieni widget lettore), è necessario fornire un token di accesso **video**.
 
 Per semplificare le operazioni, è possibile usare l'API **Autorizzazione** > **GetAccounts** per ottenere gli account senza prima ottenere un token utente. È anche possibile richiedere di ottenere gli account con token validi, in modo da evitare una chiamata aggiuntiva per ottenere un token di account.
 
 I token di accesso scadono dopo un'ora. Assicurarsi che il token di accesso sia valido prima di usare l'API delle operazioni. Se scade, chiamare di nuovo l'API di autorizzazione per ottenere un nuovo token di accesso.
 
-Si è pronti per iniziare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](https://api-portal.videoindexer.ai/).
+A questo punto si è pronti per avviare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](https://api-portal.videoindexer.ai/).
 
-## <a name="account-id"></a>ID account
+## <a name="account-id"></a>Account ID
 
 Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle operazioni. L'ID account è un GUID che può essere ottenuto in uno dei modi seguenti:
 
@@ -82,11 +82,11 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
     2. Passare alla pagina **Impostazioni**.
     3. Copiare l'ID account.
 
-        ![Impostazioni Video Indexer e ID account](./media/video-indexer-use-apis/account-id.png)
+        ![Impostazioni e ID account di Video Indexer](./media/video-indexer-use-apis/account-id.png)
 
 * Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 
-    Usare l'API per [ottenere l'account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) .
+    Usare l'API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) (Ottieni account).
 
     > [!TIP]
     > È possibile generare i token di accesso per gli account definendo `generateAccessTokens=true`.
@@ -99,13 +99,13 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
     https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
     ```
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 In questa sezione sono elencati alcuni suggerimenti per l'uso dell'API Video Indexer.
 
-- Se si prevede di caricare un video, è consigliabile inserire il file in un percorso di rete pubblico (ad esempio, OneDrive). Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
+- Se si prevede di caricare un video, è consigliabile posizionare il file in un percorso di rete pubblico (ad esempio OneDrive). Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
 
-    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Alcuni dei collegamenti generati da OneDrive sono relativi a una pagina HTML che contiene il file. Una semplice verifica dell'URL consiste nel incollarlo in un browser: se il file inizia a scaricare, è probabile che si tratta di un URL valido. Se il browser esegue il rendering di una visualizzazione, è probabile che non sia un collegamento a un file ma a una pagina HTML.
+    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Alcuni dei collegamenti generati da OneDrive sono relativi a una pagina HTML che contiene il file. Un modo semplice per verificare l'URL è quello di incollarlo in un browser: se viene avviato il download del file, l'URL è probabilmente valido. Se il browser esegue il rendering di una visualizzazione, probabilmente il collegamento non è relativo a un file ma a una pagina HTML.
 
 - Quando si chiama l'API che consente di ottenere informazioni dettagliate sui video per il video specificato, viene visualizzato un output JSON dettagliato come contenuto della risposta. [Consultare informazioni dettagliate sul codice JSON restituito in questo argomento](video-indexer-output-json-v2.md).
 
@@ -116,7 +116,7 @@ Il frammento di codice C# seguente illustra l'uso di tutte le API di Video Index
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
@@ -210,10 +210,10 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Video Indexer](video-indexer-overview.md)
-- [Regioni](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+- [Aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esaminare i dettagli del codice JSON di output](video-indexer-output-json-v2.md)
-- Vedere il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer) che illustra un aspetto importante del caricamento e dell'indicizzazione di un video. Seguendo il codice, è consigliabile usare l'API per le funzionalità di base. Assicurarsi di leggere i commenti inline e di notare i consigli per le procedure consigliate.
+- Vedere il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer) che illustra un aspetto importante del caricamento e dell'indicizzazione di un video. Esaminando il codice ci si può fare un'idea dell'uso dell'API per le funzionalità di base. Assicurarsi di leggere i commenti inline e i suggerimenti per le procedure consigliate.
 

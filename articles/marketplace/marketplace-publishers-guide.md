@@ -1,22 +1,22 @@
 ---
-title: Guida alla pubblicazione nel Marketplace commerciale
-description: Panoramica del Marketplace commerciale per gli editori di app e servizi.
+title: Guida di pubblicazione del marketplace commerciale Microsoft
+description: Panoramica del marketplace commerciale per i partner Microsoft che vogliono pubblicare offerte per Microsoft AppSource e Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261993"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657865"
 ---
-# <a name="commercial-marketplace-publishing-guide"></a>Guida alla pubblicazione nel Marketplace commerciale
+# <a name="commercial-marketplace-publishing-guide"></a>Guida di pubblicazione del marketplace commerciale
 
-La guida alla pubblicazione per Marketplace è stata progettata per aiutare i nuovi editori e quelli già operativi a comprendere come usare le vetrine di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) per rafforzare la crescita della propria azienda in partnership con Microsoft pubblicando inserzioni relative ad applicazioni e servizi.
+La presente guida alla pubblicazione è stata progettata per aiutare i nuovi editori e quelli già operativi a pubblicare inserzioni sulle applicazioni e sui servizi nelle vetrine del marketplace commerciale di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) per rafforzare la crescita della propria azienda in partnership con Microsoft.
 
 >[!Note]
 >Il termine Marketplace in questo contesto è riferito sia ad Azure Marketplace che ad AppSource.  Vedere [Un marketplace, due vetrine](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) per altre informazioni.
@@ -30,7 +30,7 @@ Questa guida include gli argomenti seguenti:
 
 Questa guida contiene informazioni sia tecniche che aziendali sui passaggi che è necessario eseguire prima di pubblicare inserzioni relative ad applicazioni e servizi. Per visualizzare le diverse sezioni della guida e passare direttamente agli argomenti di proprio interesse, usare il sommario.
 
-Per domande su Azure Marketplace e AppSource, inviare un messaggio in **problema** > di**onboarding del Marketplace**. Il Team Marketplace Publisher Onboarding sarà lieto di offrire il proprio supporto. 
+Per eventuali domande su Azure Marketplace e AppSource, inviare un messaggio da **Tipo di problema** > **Marketplace Onboarding**.  Il Team Marketplace Publisher Onboarding sarà lieto di offrire il proprio supporto. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Vantaggi della partecipazione a Marketplace 
 
@@ -52,19 +52,19 @@ Eseguire l'upselling e il cross-selling delle soluzioni risolvendo i problemi de
 
 È possibile ottenere una visione approfondita delle prestazioni delle proprie inserzioni tramite informazioni dettagliate e dati analitici messi a disposizione in Marketplace. È inoltre possibile ottenere altre informazioni sulle prestazioni della campagna, gli ordini e i proventi e su come ottimizzare le attività delle campagne per la propria soluzione.
 
-### <a name="commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale 
+### <a name="commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale 
 
 Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantaggi gratuiti pensati per consentire ai partner di far crescere la propria azienda in Marketplace. Tali vantaggi sono classificabili nelle seguenti categorie: 
 
-*   Tecnica: tutto il che necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
+*   Tecnica: tutto il necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
 
 *   Co-marketing: tutto il necessario per lanciare l'offerta. È possibile accedere gratuitamente alle nozioni fondamentali di Microsoft Go-to-Market per lanciare e promuovere la propria soluzione. Si può anche risultare idonei a partecipare ad altre campagne di marketing Microsoft e godere dell'opportunità di apparire in primo piano in Marketplace.
 
 *   Co-selling: è possibile avviare o accelerare il passaggio alla fase di vendita in collaborazione con Microsoft tramite Marketplace. Accedere a programmi e supporto per promuovere le vendite congiunte con Microsoft Teams.
 
-Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Per ulteriori informazioni [, vedere come creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
+Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Per altre informazioni, vedere l'argomento relativo alla [creazione di un account del Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-Scopri di più sui [vantaggi del Marketplace commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
+Vedere altre informazioni sui [vantaggi del marketplace commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

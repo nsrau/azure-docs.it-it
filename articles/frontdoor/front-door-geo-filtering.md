@@ -1,6 +1,6 @@
 ---
-title: Filtro geografico in un dominio per lo sportello anteriore di Azure | Microsoft Docs
-description: In questo articolo vengono fornite informazioni sui criteri di filtro geografico per lo sportello anteriore di Azure
+title: Filtro geografico in un dominio per il servizio Frontdoor di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni sui criteri di filtro geografico per il servizio Frontdoor di Azure
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -13,24 +13,24 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411172"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739312"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
 
-Per impostazione predefinita, lo sportello anteriore di Azure risponde alle richieste dell'utente indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
+Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
 
-I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese che interessa. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
+I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese o dell'area geografica di interesse. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
 
 È possibile configurare criteri di filtro geografico per il proprio Frontdoor usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) oppure il nostro [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Riferimento per gli indicativi dei paesi
+## <a name="countryregion-code-reference"></a>Informazioni di riferimento sui codici paese/area geografica
 
-|Codice paese | Nome del paese |
+|Codice paese/area geografica | Nome paese/area geografica |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirati Arabi Uniti|
@@ -40,7 +40,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | AM | Armenia|
 | AO | Angola|
 | AR | Argentina|
-| AS | Samoa Americane|
+| AS | Isole Samoa americane|
 | AT | Austria|
 | AU | Australia|
 | AZ | Azerbaigian|
@@ -64,7 +64,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | BZ | Belize|
 | CA | Canada|
 | CD | Congo, Repubblica democratica|
-| CF | Repubblica Centrafricana|
+| CF | Repubblica centrafricana|
 | CH | Svizzera|
 | CI | Côte d'Ivoire (Costa d'Avorio)|
 | CL | Cile|
@@ -91,13 +91,13 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | VF | Francia|
 | GB | Regno Unito|
 | GE | Georgia|
-| GF | Guayana Francese|
+| GF | Guayana francese|
 | GH | Ghana|
 | GN | Guinea|
 | GP | Guadalupa|
 | GR | Grecia|
 | GT | Guatemala|
-| GY | Guyana|
+| GY | Guiana|
 | HK | RAS di Hong Kong|
 | HN | Honduras|
 | HR | Croazia|
@@ -150,7 +150,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | MX | Messico|
 | MY | Malaysia|
 | MZ | Mozambico|
-| N/D | Namibia|
+| ND | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|
@@ -188,7 +188,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | SV | El Salvador|
 | SY | Repubblica araba siriana|
 | SZ | Swaziland|
-| TC | Turks e Caicos, Isole|
+| TC | Isole Turks e Caicos|
 | TG | Togo|
 | TH | Thailandia|
 | TN | Tunisia|

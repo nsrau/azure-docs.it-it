@@ -1,18 +1,18 @@
 ---
-title: Configurare Azure ExpressRoute V1
-description: Configurazione di rete per ambiente del servizio app per PowerApps con Azure ExpressRoute. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+title: Configurare Azure ExpressRoute v1
+description: Configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abe08da95416dd73035115361cb0d87822ad9239
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804436"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013398"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Dettagli della configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute
 
@@ -35,11 +35,11 @@ Per funzionare correttamente, l'ambiente del servizio app richiede le impostazio
 
 * Connettività di rete in uscita verso il servizio File di Azure sulla porta 445.
 
-* Connettività di rete in uscita verso gli endpoint del database SQL di Azure che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL vengono risolti nel dominio database.windows.net, che richiede l'accesso completo alle porte 1433, 11000-11999 e 14000-14999. Per informazioni dettagliate sull'uso delle porte della versione 12 del database SQL, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+* Connettività di rete in uscita verso gli endpoint del database SQL di Azure che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL vengono risolti nel dominio database.windows.net, che richiede l'accesso completo alle porte 1433, 11000-11999 e 14000-14999. Per informazioni dettagliate sull'uso delle porte della versione 12 del database SQL, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 * Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (endpoint del modello di distribuzione classica di Azure e di Azure Resource Manager). La connettività verso questi endpoint include i domini management.core.windows.net e management.azure.com. 
 
-* Connettività di rete in uscita verso i domini ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. La connettività a questi domini è necessaria per supportare la funzionalità TLS.
+* Connettività di rete in uscita verso i domini ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. La connettività a questi domini è necessaria per il supporto della funzionalità TLS.
 
 * La configurazione del DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati in questo articolo. Se gli endpoint non possono essere risolti, l'ambiente del servizio app non viene creato. Gli eventuali ambienti del servizio app esistenti vengono contrassegnati come non integri.
 
@@ -53,7 +53,7 @@ Per funzionare correttamente, l'ambiente del servizio app richiede le impostazio
 
 Per soddisfare i requisiti del DNS, verificare che per la rete virtuale sia configurata e gestita un'infrastruttura DNS valida. Se la configurazione del DNS viene modificata dopo la creazione dell'ambiente del servizio app, gli sviluppatori possono forzare la selezione automatica della nuova configurazione. È possibile attivare un riavvio dell'ambiente in sequenza usando l'icona **Riavvia** nell'area di gestione dell'ambiente del servizio app nel [portale di Azure][NewPortal]. In seguito al riavvio, l'ambiente selezionerà automaticamente la nuova configurazione del DNS.
 
-Per soddisfare i requisiti di accesso di rete in ingresso, configurare un [gruppo di sicurezza di rete (NSG)][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app. Il gruppo di sicurezza di rete consente l'accesso necessario [per controllare il traffico in ingresso all'ambiente del servizio app][requiredports].
+Per soddisfare i requisiti di accesso di rete in ingresso, configurare un [gruppo di sicurezza di rete][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app. Il gruppo di sicurezza di rete consente l'accesso necessario [per controllare il traffico in ingresso all'ambiente del servizio app][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Connettività di rete in uscita
 
@@ -87,20 +87,20 @@ Questa sezione mostra un esempio di configurazione di route definita dall'utente
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Installare Azure PowerShell dalla [pagina Download di Azure][AzureDownloads]. Scegliere un download con la data del mese di giugno 2015 o una data successiva. In **strumenti** > da riga di comando**Windows PowerShell**selezionare **Installa** per installare i cmdlet di PowerShell più recenti.
+* Installare Azure PowerShell dalla [pagina Download di Azure][AzureDownloads]. Scegliere un download con la data del mese di giugno 2015 o una data successiva. In **Strumenti da riga di comando** > **Windows PowerShell**, selezionare **Installa** per installare i cmdlet di PowerShell più recenti.
 
 * Creare una subnet univoca da usare esclusivamente con l'ambiente del servizio app. In questo modo, le route definite dall'utente applicate alla subnet aprono solo il traffico in uscita per l'ambiente del servizio app.
 
 > [!IMPORTANT]
 > Distribuire l'ambiente del servizio app solo dopo aver completato la procedura di configurazione. Questi passaggi consentono di assicurarsi che la connettività di rete in uscita sia disponibile prima di tentare di distribuire l'ambiente del servizio app.
 
-### <a name="step-1-create-a-route-table"></a>Passaggio 1: creare una tabella di route
+### <a name="step-1-create-a-route-table"></a>Passaggio 1: Creare una tabella di route
 
 Creare una tabella di route denominata **DirectInternetRouteTable** nell'area Stati Uniti occidentali di Azure, come mostrato in questo frammento di codice:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Passaggio 2: creare route nella tabella
+### <a name="step-2-create-routes-in-the-table"></a>Passaggio 2: Creare route nella tabella
 
 Aggiungere route alla tabella per abilitare l'accesso in uscita a Internet.  
 
@@ -119,13 +119,13 @@ In alternativa, scaricare un elenco completo e aggiornato di intervalli CIDR usa
 > Una singola route definita dall'utente ha un limite massimo predefinito di 100 route. È necessario compattare gli intervalli di indirizzi IP di Azure in modo da rientrare nel limite di 100 route. Le route definite dall'utente devono essere più specifiche rispetto a quelle annunciate dalla connessione ExpressRoute.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Passaggio 3: associare la tabella alla subnet
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Passaggio 3: Associare la tabella alla subnet
 
 Associare la tabella di route alla subnet in cui si intende distribuire l'ambiente del servizio app. Questo comando associa la tabella **DirectInternetRouteTable** alla subnet **ASESubnet** che conterrà l'ambiente del servizio app.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Passaggio 4: testare e confermare la route
+### <a name="step-4-test-and-confirm-the-route"></a>Passaggio 4: Testare e confermare la route
 
 Dopo aver associato la tabella di route alla subnet, testare e confermare la route.
 
