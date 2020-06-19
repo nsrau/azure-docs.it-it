@@ -1,6 +1,6 @@
 ---
-title: Riferimento ai dati di monitoraggio archiviazione di Azure | Microsoft Docs
-description: Informazioni di riferimento su log e metriche per il monitoraggio dei dati da archiviazione di Azure.
+title: Riferimento ai dati di monitoraggio di Archiviazione di Azure | Microsoft Docs
+description: Informazioni di riferimento su log e metriche per il monitoraggio dei dati di Archiviazione di Azure.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,21 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.custom: monitoring
+ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118159"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684916"
 ---
-# <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio archiviazione di Azure
+# <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Archiviazione di Azure
 
-Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio per archiviazione di Azure, vedere [monitoraggio di archiviazione di Azure](monitor-storage.md) .
+Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio per Archiviazione di Azure, vedere [Monitoraggio di Archiviazione di Azure](monitor-storage.md).
 
 ## <a name="metrics"></a>Metriche
 
-Le tabelle seguenti elencano le metriche della piattaforma raccolte per archiviazione di Azure. 
+Le tabelle seguenti elencano le metriche della piattaforma raccolte per Archiviazione di Azure. 
 
 ### <a name="capacity-metrics"></a>Metriche della capacità
 
@@ -33,40 +34,40 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
-| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
-| ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([Definizione](#metrics-dimensions)) |
+| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([Definizione](#metrics-dimensions)) |
+| ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
-#### <a name="table-storage"></a>Archiviazione - Tabelle
-
-| Metrica | Descrizione |
-| ------------------- | ----------------- |
-| TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| TableEntityCount | Numero di entità tabella nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-
-#### <a name="queue-storage"></a>Archiviazione - Code
+#### <a name="table-storage"></a>Archiviazione tabelle
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| QueueMessageCount | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br/><br/>Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| TableEntityCount | Numero di entità tabella nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+
+#### <a name="queue-storage"></a>Archiviazione code
+
+| Metrica | Descrizione |
+| ------------------- | ----------------- |
+| QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| QueueMessageCount | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 #### <a name="file-storage"></a>Archiviazione file
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
-| FileShareCount | Numero di condivisioni file nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| FileShareCount | Numero di condivisioni file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 ### <a name="transaction-metrics"></a>Metriche di transazione
 
@@ -76,12 +77,12 @@ Archiviazione di Azure fornisce le metriche seguenti relative alle transazioni i
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName e Authentication ([definizione](#metrics-dimensions))<br/> Esempio di valore: 1024 |
-| Dati in ingresso | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
-| Egress | Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
-| SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: millisecondi <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
-| SuccessE2ELatency | Latenza end-to-end media di richieste con esito positivo effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta. <br/><br/> Unità: millisecondi <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
-| Disponibilità | Percentuale della disponibilità per il servizio di archiviazione o per l'operazione API specificata. La disponibilità viene calcolata prendendo il valore totale delle richieste fatturabili e dividendolo per il numero di richieste applicabili, incluse le richieste che hanno restituito errori imprevisti. Tutti gli errori imprevisti provocano la riduzione della disponibilità per il servizio di archiviazione o per l'operazione API specificata. <br/><br/> Unità: percentuale <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 99,99 |
+| Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName e Authentication ([definizione](#metrics-dimensions))<br/> Valore di esempio: 1024 |
+| Dati in ingresso | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| Egress | Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| SuccessE2ELatency | Latenza end-to-end media di richieste con esito positivo effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| Disponibilità | Percentuale della disponibilità per il servizio di archiviazione o per l'operazione API specificata. La disponibilità viene calcolata prendendo il valore totale delle richieste fatturabili e dividendolo per il numero di richieste applicabili, incluse le richieste che hanno restituito errori imprevisti. Tutti gli errori imprevisti provocano la riduzione della disponibilità per il servizio di archiviazione o per l'operazione API specificata. <br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 99,99 |
 
 <a id="metrics-dimensions" />
 
@@ -91,21 +92,21 @@ Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monito
 
 | Nome della dimensione | Descrizione |
 | ------------------- | ----------------- |
-| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob**e **Azure Data Lake storage**. Il BLOB di aggiunta è incluso in BlockBlob. |
-| **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso, che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente possibile. Vedere altri dettagli nel [livello BLOB di archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>A **caldo**: livello frequente</li> <li>**Cool**: livello cool</li> <li>**Archivio**: livello archivio</li> <li>**Premium**: livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipi di livello per il BLOB di pagine Premium</li> <li>**Standard**: tipo di livello per il BLOB di pagine standard</li> <li>**Untiered**: tipo di livello per l'account di archiviazione per utilizzo generico V1</li> |
-| **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **primario** e **secondario**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
-| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori sul lato server, ad eccezione di quelli descritti </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata che ha avuto esito negativo a causa di un accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata che ha avuto esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li><li>**ClientAccountBandwidthThrottlingError**: la richiesta è limitata alla larghezza di banda per superare i [limiti di scalabilità degli account di archiviazione](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la richiesta è limitata alla frequenza di richieste per il superamento dei [limiti di scalabilità degli account di archiviazione](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: altro errore di limitazione lato client. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError sono esclusi.</li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori lato client tranne quelli descritti. </li> <li>**Operazione riuscita**: richiesta riuscita</li> <li> **SuccessWithThrottling**: richiesta riuscite quando un client SMB viene limitato al primo tentativo ma ha esito positivo dopo i tentativi.</li> |
+| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob** e **Azure Data Lake storage**. Il BLOB di aggiunta è incluso in BlockBlob. |
+| **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. Per altre informazioni, vedere [Livello BLOB di Archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>**Hot**: livello di accesso frequente</li> <li>**Cool**: livello di accesso sporadico</li> <li>**Archivio**: livello archivio</li> <li>**Premium**: livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipi di livello per BLOB di pagine Premium</li> <li>**Standard**: tipo di livello per BLOB di pagine standard</li> <li>**Untiered**: tipo di livello per l'account di archiviazione per utilizzo generico v1</li> |
+| **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **Primary** e **Secondary**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
+| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li><li>**ClientAccountBandwidthThrottlingError**: la richiesta è limitata per la larghezza di banda per il superamento dei [limiti di scalabilità dell'account di archiviazione](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la richiesta è limitata per la frequenza di richieste per il superamento dei [limiti di scalabilità dell'account di archiviazione](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: altro errore di limitazione sul lato client. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError sono esclusi.</li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li>**Operazione riuscita**: richiesta con esito positivo</li> <li> **SuccessWithThrottling**: la richiesta è riuscita quando un client SMB viene limitato al primo tentativo, ma ha esito positivo nei tentativi successivi.</li> |
 | **ApiName** | Nome dell'operazione. Ad esempio: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **autenticazione** | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>**AccountKey**: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>**SAS**: la transazione viene autenticata con firme di accesso condiviso.</li> <li>**OAuth**: la transazione viene autenticata con i token di accesso OAuth.</li> <li>**Anonimo**: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>**AnonymousPreflight**: la transazione è una richiesta preliminare.</li> |
+| **autenticazione** | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>**AccountKey**: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>**SAS**: la transazione viene autenticata con firme di accesso condiviso.</li> <li>**OAuth**: la transazione viene autenticata con i token di accesso OAuth.</li> <li>**Anonymous**: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>**AnonymousPreflight**: la transazione è una richiesta preliminare.</li> |
 
 Per le dimensioni che supportano metriche, è necessario specificare il valore relativo alla dimensione per visualizzare i valori delle metriche corrispondenti. Se, ad esempio, si esamina il valore **Transactions** per le risposte con esito positivo, è necessario filtrare la dimensione **ResponseType** con **Success**. In alternativa, se si esamina il valore **BlobCount** per il BLOB in blocchi, è necessario filtrare la dimensione **BlobType** con **BlockBlob**.
 
-## <a name="resource-logs-preview"></a>Log delle risorse (anteprima)
+## <a name="resource-logs-preview"></a>Log risorse (anteprima)
 
 > [!NOTE]
-> Log di archiviazione di Azure in monitoraggio di Azure è disponibile in anteprima pubblica ed è disponibile per l'anteprima dei test in tutte le aree del cloud pubblico. Per eseguire la registrazione nell'anteprima, vedere [Questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Questa anteprima Abilita i log per i BLOB (inclusi Azure Data Lake Storage Gen2), i file, le code, le tabelle, gli account di archiviazione Premium negli account di archiviazione per utilizzo generico V1 e per utilizzo generico V2. gli account di archiviazione di tipo classico non sono supportati.
+> I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Per registrarsi all'anteprima, vedere [questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Questa anteprima abilita i log per BLOB (compreso Azure Data Lake Storage Gen2), file, code, tabelle, account di archiviazione Premium negli account di archiviazione per utilizzo generico v1 e utilizzo generico v2. gli account di archiviazione di tipo classico non sono supportati.
 
-La tabella seguente elenca le proprietà dei log delle risorse di archiviazione di Azure quando vengono raccolti nei log di monitoraggio di Azure o nell'archiviazione di Azure. Le proprietà descrivono l'operazione, il servizio e il tipo di autorizzazione usato per eseguire l'operazione.
+La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione di Azure quando vengono raccolti nei log di Monitoraggio di Azure o in Archiviazione di Azure. Le proprietà descrivono l'operazione, il servizio e il tipo di autorizzazione usati per eseguire l'operazione.
 
 ### <a name="fields-that-describe-the-operation"></a>Campi che descrivono l'operazione
 
@@ -129,20 +130,20 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 
 | Proprietà | Descrizione |
 |:--- |:---|
-|**time** | Ora UTC (Universal Time coordinata) in cui la richiesta è stata ricevuta dalla risorsa di archiviazione. Ad esempio: `2018/11/08 21:09:36.6900118`.|
+|**time** | Ora UTC (Universal Time Coordinated) in cui la richiesta è stata ricevuta dalla risorsa di archiviazione. Ad esempio: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | ID risorsa dell'account di archiviazione. Ad esempio: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**category** | Categoria dell'operazione richiesta. Ad esempio: `StorageRead` , `StorageWrite` o `StorageDelete` .|
-|**operationName** | Tipo di operazione REST eseguita. <br> Per un elenco completo delle operazioni, vedere l' [argomento analisi archiviazione operazioni registrate e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-|**operationVersion** | La versione del servizio di archiviazione specificata quando è stata effettuata la richiesta. Equivale al valore dell'intestazione **x-ms-version** . Ad esempio: `2017-04-17`.|
+|**category** | Categoria dell'operazione richiesta. Ad esempio: `StorageRead`, `StorageWrite` o `StorageDelete`.|
+|**operationName** | Tipo di operazione REST eseguita. <br> Per un elenco completo delle operazioni, vedere l'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+|**operationVersion** | Versione del servizio di archiviazione specificata quando è stata effettuata la richiesta. Equivale al valore dell'intestazione **x-ms-version**. Ad esempio: `2017-04-17`.|
 |**schemaVersion** | Versione dello schema del log. Ad esempio: `1.0`.|
-|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato su `Unknown` . <br> Ad esempio: `206` |
-|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l' [argomento analisi archiviazione operazioni registrate e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive, il messaggio di stato `ClientOtherError` non viene utilizzato. Al contrario, questo campo contiene un codice di errore. Ad esempio: `SASSuccess`  |
-|**durationMs** | Tempo totale, espresso in millisecondi, per eseguire l'operazione richiesta. È incluso il tempo necessario per leggere la richiesta in ingresso e inviare la risposta al richiedente. Ad esempio: `12`.|
+|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato su `Unknown`. <br> Ad esempio: `206` |
+|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive il messaggio di stato `ClientOtherError` non viene usato. Questo campo contiene invece un codice di errore. Ad esempio: `SASSuccess`  |
+|**durationMs** | Tempo totale, espresso in millisecondi, per eseguire l'operazione richiesta. Questo valore include il tempo per leggere la richiesta in arrivo e inviare la risposta al richiedente. Ad esempio: `12`.|
 |**callerIpAddress** | Indirizzo IP del richiedente, incluso il numero di porta. Ad esempio: `192.100.0.102:4362`. |
-|**correlationId** | ID utilizzato per correlare i log tra le risorse. Ad esempio: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
-|**location** | Percorso dell'account di archiviazione. Ad esempio: `North Europe`. |
-|**protocol**|Protocollo utilizzato nell'operazione. Ad esempio: `HTTP` , `HTTPS` , `SMB` o`NFS`|
-| **URI** | URI (Uniform Resource Identifier) richiesto. Ad esempio: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
+|**correlationId** | ID usato per correlare i log tra le risorse. Ad esempio: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
+|**location** | Posizione dell'account di archiviazione. Ad esempio: `North Europe`. |
+|**protocol**|Protocollo usato nell'operazione. Ad esempio: `HTTP`, `HTTPS`, `SMB` o `NFS`|
+| **Uri** | URI (Uniform Resource Identifier) richiesto. Ad esempio: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Campi che descrivono come è stata autenticata l'operazione
 
@@ -177,20 +178,20 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 
 | Proprietà | Descrizione |
 |:--- |:---|
-|**identità/tipo** | Tipo di autenticazione utilizzato per effettuare la richiesta. Ad esempio: `OAuth` , `SAS Key` , `Account Key` o`Anonymous` |
-|**Identity/tokenHash**|Questo campo è riservato solo per uso interno. |
-|**autorizzazione/azione** | Azione assegnata alla richiesta. Ad esempio: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-|**autorizzazione/roleAssignmentId** | ID dell'assegnazione di ruolo. Ad esempio: `4e2521b7-13be-4363-aeda-111111111111`.|
-|**autorizzazione/roleDefinitionId** | ID di definizione del ruolo. Ad esempio: `ba92f5b4-2d11-453d-a403-111111111111"`.|
-|**entità/ID** | ID dell'entità di sicurezza. Ad esempio: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
-|**entità/tipo** | Tipo di entità di sicurezza. Ad esempio: `ServicePrincipal`. |
-|**richiedente/appID** | ID applicazione del Open Authorization (OAuth) utilizzato come richiedente. <br> Ad esempio: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
-|**richiedente/destinatario** | Destinatari OAuth della richiesta. Ad esempio: `https://storage.azure.com`. |
-|**richiedente/objectId** | ID oggetto OAuth del richiedente. In caso di autenticazione Kerberos, rappresenta l'identificatore di oggetto dell'utente autenticato Kerberos. Ad esempio: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
-|**richiedente/tenantId** | ID tenant OAuth dell'identità. Ad esempio: `72f988bf-86f1-41af-91ab-222222222222`.|
-|**richiedente/tokenIssuer** | Emittente del token OAuth. Ad esempio: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
-|**richiedente/UPN** | Nome dell'entità utente (UPN) del richiedente. Ad esempio: `someone@contoso.com`. |
-|**richiedente/nome utente** | Questo campo è riservato solo per uso interno.|
+|**identity / type** | Tipo di autenticazione usato per effettuare la richiesta. Ad esempio: `OAuth`, `SAS Key`, `Account Key` o `Anonymous` |
+|**identity / tokenHash**|Questo campo è solo per uso interno. |
+|**authorization / action** | Azione assegnata alla richiesta. Ad esempio: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+|**authorization / roleAssignmentId** | ID assegnazione di ruolo. Ad esempio: `4e2521b7-13be-4363-aeda-111111111111`.|
+|**authorization / roleDefinitionId** | ID definizione del ruolo. Ad esempio: `ba92f5b4-2d11-453d-a403-111111111111"`.|
+|**principals / id** | ID dell'entità di sicurezza. Ad esempio: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
+|**principals / type** | Tipo dell'entità di sicurezza. Ad esempio: `ServicePrincipal`. |
+|**requester / appID** | ID applicazione OAuth (Open Authorization) usato come richiedente. <br> Ad esempio: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
+|**requester / audience** | Destinatari OAuth della richiesta. Ad esempio: `https://storage.azure.com`. |
+|**requester / objectId** | ID oggetto OAuth del richiedente. In caso di autenticazione Kerberos, rappresenta l'identificatore di oggetto dell'utente autenticato Kerberos. Ad esempio: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
+|**requester / tenantId** | ID tenant OAuth dell'identità. Ad esempio: `72f988bf-86f1-41af-91ab-222222222222`.|
+|**requester / tokenIssuer** | Autorità emittente di token OAuth. Ad esempio: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
+|**requester / upn** | Nome dell'entità utente (UPN) del richiedente. Ad esempio: `someone@contoso.com`. |
+|**requester / userName** | Questo campo è solo per uso interno.|
 
 ### <a name="fields-that-describe-the-service"></a>Campi che descrivono il servizio
 
@@ -234,35 +235,35 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 |:--- |:---|
 |**accountName** | Nome dell'account di archiviazione. Ad esempio: `mystorageaccount`.  |
 |**requestUrl** | URL richiesto. Ad esempio: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
-|**userAgentHeader** | Valore dell' **intestazione User-Agent** , racchiuso tra virgolette. Ad esempio: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
-|**referrerHeader** | Valore dell'intestazione del **Referrer** . Ad esempio: `http://contoso.com/about.html`.|
-|**clientRequestId** | Valore dell'intestazione **x-MS-client-Request-ID** della richiesta. Ad esempio: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
-|**ETag** | Identificatore ETag per l'oggetto restituito, tra virgolette. Ad esempio: `0x8D101F7E4B662C4`.  |
-|**serverLatencyMs** | Tempo totale espresso in millisecondi per eseguire l'operazione richiesta. Questo valore non include la latenza di rete (il tempo per leggere la richiesta in ingresso e inviare la risposta al richiedente). Ad esempio: `22`. |
-|**serviceType** | Servizio associato alla richiesta. ad esempio `blob`, `table`, `files` o `queue`. |
-|**operationCount** | Numero di tutte le operazioni registrate incluse nella richiesta. Questo conteggio inizia con un indice di `0` . Alcune richieste richiedono più di un'operazione, ad esempio una richiesta di copia di un BLOB. La maggior parte delle richieste esegue una sola operazione. Ad esempio: `1`. |
-|**requestHeaderSize** | Dimensione dell'intestazione della richiesta espressa in byte. Ad esempio: `578`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto. |
-|**requestBodySize** | Dimensioni dei pacchetti di richiesta, espressi in byte, letti dal servizio di archiviazione. <br> Ad esempio: `0`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |
-|**responseHeaderSize** | Dimensione dell'intestazione della risposta espressa in byte. Ad esempio: `216`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |
+|**userAgentHeader** | Valore dell'**intestazione User-Agent** tra virgolette. Ad esempio: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
+|**referrerHeader** | Valore dell'intestazione **Referrer**. Ad esempio: `http://contoso.com/about.html`.|
+|**clientRequestId** | Valore dell'intestazione **x-ms-client-request-id** della richiesta. Ad esempio: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
+|**etag** | Identificatore ETag per l'oggetto restituito, tra virgolette. Ad esempio: `0x8D101F7E4B662C4`.  |
+|**serverLatencyMs** | Tempo totale, espresso in millisecondi, per eseguire l'operazione richiesta. Questo valore non include la latenza di rete (il tempo per leggere la richiesta in arrivo e inviare la risposta al richiedente). Ad esempio: `22`. |
+|**serviceType** | Servizio associato alla richiesta. Ad esempio: `blob`, `table`, `files` o `queue`. |
+|**operationCount** | Numero di ogni operazione registrate coinvolta nella richiesta. Questo conteggio inizia con un indice di `0`. Alcune richieste richiedono più di un'operazione, ad esempio una richiesta di copia di un BLOB. La maggior parte delle richieste esegue una sola operazione. Ad esempio: `1`. |
+|**requestHeaderSize** | Dimensioni dell'intestazione della richiesta espresse in byte. Ad esempio: `578`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto. |
+|**requestBodySize** | Dimensioni dei pacchetti della richiesta, espressi in byte, che vengono letti dal servizio di archiviazione. <br> Ad esempio: `0`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |
+|**responseHeaderSize** | Dimensioni dell'intestazione della risposta espresse in byte. Ad esempio: `216`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |
 |**responseBodySize** | Dimensioni dei pacchetti della risposta scritti dal servizio di archiviazione, in byte. Se una richiesta ha esito negativo, questo valore può essere vuoto. Ad esempio: `216`.  |
-|**requestMd5** | Valore dell'intestazione **Content-MD5** o **x-ms-content-MD5** nella richiesta. Il valore hash MD5 specificato in questo campo rappresenta il contenuto nella richiesta. Ad esempio: `788815fd0198be0d275ad329cafd1830`. <br>Questo campo può essere vuoto.  |
-|**serverMd5** | Valore dell'hash MD5 calcolato dal servizio di archiviazione. Ad esempio: `3228b3cf1069a5489b298446321f8521`. <br>Questo campo può essere vuoto.  |
-|**lastModifiedTime** | Ora dell'Ultima modifica (LMT) per l'oggetto restituito.  Ad esempio: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>Questo campo è vuoto per le operazioni che possono restituire più oggetti. |
-|**conditionsUsed** | Elenco delimitato da punti e virgola di coppie chiave-valore che rappresentano una condizione. Le condizioni possono essere le seguenti: <li> If-Modified-Since <li> If-Unmodified-Since <li> If-Match <li> If-None-Match  <br> Ad esempio: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
-|**contentLengthHeader** | Valore dell'intestazione Content-Length per la richiesta inviata al servizio di archiviazione. Se la richiesta ha avuto esito positivo, questo valore è uguale a requestBodySize. Se una richiesta ha esito negativo, questo valore potrebbe non essere uguale a requestBodySize o potrebbe essere vuoto. |
-|**tlsVersion** | Versione di TLS utilizzata nella connessione della richiesta. Ad esempio: `TLS 1.2`. |
-|**smbTreeConnectID** | **TREECONNECTID** SMB (Server Message Block) stabilito al momento della connessione dell'albero. Ad esempio: `0x3` |
-|**smbPersistentHandleID** | ID handle permanente da una richiesta di creazione SMB2 che sopravvive alle riconnessioni di rete.  Viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID. Persistente**. Ad esempio: `0x6003f` |
-|**smbVolatileHandleID** | ID handle volatile da una richiesta di creazione SMB2 riciclata in riconnessioni di rete.  Viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID. Volatile**. Ad esempio: `0xFFFFFFFF00000065` |
-|**smbMessageID** | **MessageID**relativo alla connessione. Ad esempio: `0x3b165` |
-|**smbCreditsConsumed** | In ingresso o in uscita utilizzati dalla richiesta, in unità di 64K. Ad esempio: `0x3` |
-|**smbCommandDetail** | Ulteriori informazioni su questa richiesta specifica anziché sul tipo generale di richiesta. Ad esempio: `0x2000 bytes at offset 0xf2000` |
-|**smbFileId** | **Fileid** associato al file o alla directory.  Approssimativamente analogo a un FileId NTFS. Ad esempio: `0x9223442405598953` |
-|**smbSessionID** | **SESSIONID** SMB2 stabilito al momento dell'installazione della sessione. Ad esempio: `0x8530280128000049` |
-|**UInt32 smbCommandMajor** | Valore nel **comando SMB2_HEADER.** Attualmente, si tratta di un numero compreso tra 0 e 18 inclusi. Ad esempio: `0x6` |
+|**requestMd5** | Valore dell'intestazione **Content-MD5** o **x-ms-content-md5** nella richiesta. Il valore hash MD5 specificato in questo campo rappresenta il contenuto nella richiesta. Ad esempio: `788815fd0198be0d275ad329cafd1830`. <br>Questo campo può essere vuoto.  |
+|**serverMd5** | Valore hash MD5 calcolato dal servizio di archiviazione. Ad esempio: `3228b3cf1069a5489b298446321f8521`. <br>Questo campo può essere vuoto.  |
+|**lastModifiedTime** | Ora dell'ultima modifica per l'oggetto restituito.  Ad esempio: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>Questo campo è vuoto per le operazioni che possono restituire più oggetti. |
+|**conditionsUsed** | Elenco di coppie chiave-valore separate da punto e virgola che rappresentano una condizione. Le condizioni possono essere uno dei valori seguenti: <li> If-Modified-Since <li> If-Unmodified-Since <li> If-Match <li> If-None-Match  <br> Ad esempio: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
+|**contentLengthHeader** | Valore dell'intestazione Content-Length per la richiesta inviata al servizio di archiviazione. Se la richiesta ha avuto esito positivo, questo valore è uguale a requestBodySize. Se una richiesta ha avuto esito negativo, questo valore potrebbe essere diverso da requestBodySize oppure vuoto. |
+|**tlsVersion** | Versione di TLS usata nella connessione della richiesta. Ad esempio: `TLS 1.2`. |
+|**smbTreeConnectID** | SMB (Server Message Block) **treeConnectId** stabilito al momento della connessione ad albero. Ad esempio: `0x3` |
+|**smbPersistentHandleID** | ID handle permanente da una richiesta SMB2 CREATE che sopravvive alle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Persistent**. Ad esempio: `0x6003f` |
+|**smbVolatileHandleID** | ID handle volatile da una richiesta SMB2 CREATE che viene riciclato nelle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Volatile**. Ad esempio: `0xFFFFFFFF00000065` |
+|**smbMessageID** | **MessageId** relativo alla connessione. Ad esempio: `0x3b165` |
+|**smbCreditsConsumed** | Ingresso o uscita utilizzati dalla richiesta, in unità di 64 K. Ad esempio: `0x3` |
+|**smbCommandDetail** | Altre informazioni su questa richiesta specifica anziché sul tipo generale di richiesta. Ad esempio: `0x2000 bytes at offset 0xf2000` |
+|**smbFileId** | **FileId** associato al file o alla directory.  Approssimativamente analogo a NTFS FileId. Ad esempio: `0x9223442405598953` |
+|**smbSessionID** | **SessionId** SMB2 stabilito al momento della configurazione della sessione. Ad esempio: `0x8530280128000049` |
+|**smbCommandMajor  uint32** | Valore in **SMB2_HEADER.Command**. Attualmente, si tratta di un numero compreso tra 0 e 18 inclusi. Ad esempio: `0x6` |
 |**smbCommandMinor** | Sottoclasse di **SmbCommandMajor**, laddove appropriato. Ad esempio: `DirectoryCloseAndDelete` |
 
 ## <a name="see-also"></a>Vedere anche
 
-- Per una descrizione del monitoraggio di archiviazione di Azure, vedere [monitoraggio di archiviazione di Azure](monitor-storage.md) .
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [monitoraggio delle risorse di Azure con](../../azure-monitor/insights/monitor-azure-resource.md) monitoraggio di Azure.
+- Per una descrizione del monitoraggio di Archiviazione di Azure, vedere [Monitoraggio di Archiviazione di Azure](monitor-storage.md).
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).

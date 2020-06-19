@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399315"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647405"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -47,13 +47,13 @@ Per istruzioni dettagliate vedere i [prerequisiti di accesso all'API di creazion
 
 ## <a name="api-endpoints"></a>Endpoint API 
 
-L'endpoint API Microsoft Graph per i log di controllo è `https://graph.microsoft.com/beta/auditLogs/directoryAudits`, mentre l'endpoint API Microsoft Graph per gli accessi è `https://graph.microsoft.com/beta/auditLogs/signIns`. Per altre informazioni, vedere le [informazioni di riferimento sull'API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) e le [informazioni di riferimento sull'API di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
+L'endpoint API Microsoft Graph per i log di controllo è `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`, mentre l'endpoint API Microsoft Graph per gli accessi è `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Per altre informazioni, vedere le [informazioni di riferimento sull'API di controllo](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) e le [informazioni di riferimento sull'API di accesso](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn).
 
-Inoltre, è possibile usare l' [API rilevamento dei rischi di Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) per ottenere l'accesso a livello di codice ai rilevamenti di sicurezza usando Microsoft Graph. Per altre informazioni, vedere [Introduzione a Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+Inoltre, è possibile usare l'[API per i rilevamenti dei rischi di Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) per ottenere l'accesso programmatico ai rilevamenti relativi alla sicurezza, tramite Microsoft Graph. Per altre informazioni, vedere [Introduzione a Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
   
-## <a name="apis-with-microsoft-graph-explorer"></a>API con Esplora Microsoft Graph
+## <a name="apis-with-microsoft-graph-explorer"></a>API con Microsoft Graph Explorer
 
-È possibile usare [esplora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) per verificare i dati dell'API di accesso e di controllo. Assicurarsi di accedere al proprio account con entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer e impostare le autorizzazioni **AuditLog.Read.All** e **Directory.Read.All** per il tenant come illustrato.   
+È possibile usare [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) per verificare i dati dell'API di accesso e di controllo. Assicurarsi di accedere al proprio account con entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer e impostare le autorizzazioni **AuditLog.Read.All** e **Directory.Read.All** per il tenant come illustrato.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 
@@ -63,12 +63,12 @@ Inoltre, è possibile usare l' [API rilevamento dei rischi di Identity Protectio
 
 Usare l'API di creazione report di Azure AD con certificati se si prevede di recuperare i dati dei report senza l'intervento dell'utente.
 
-Per istruzioni dettagliate, vedere [ottenere dati con l'API di creazione di report Azure ad con certificati](tutorial-access-api-with-certificates.md).
+Per istruzioni dettagliate vedere [Ottenere dati con l'API di creazione report di Azure AD con certificati](tutorial-access-api-with-certificates.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
  * [Prerequisiti di accesso all'API di creazione report ](howto-configure-prerequisites-for-reporting-api.md) 
- * [Ottenere dati con l'API di creazione report di Azure AD con certificati](tutorial-access-api-with-certificates.md)
+ * [Ottenere dati con l'API di creazione report di Azure AD con i certificati](tutorial-access-api-with-certificates.md)
  * [Risolvere gli errori relativi all'API di creazione report di Azure AD](troubleshoot-graph-api.md)
 
 

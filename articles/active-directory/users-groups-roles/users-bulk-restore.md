@@ -13,71 +13,71 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203301"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685228"
 ---
-# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Ripristino bulk degli utenti eliminati in Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Ripristinare in blocco gli utenti eliminati in Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta operazioni di ripristino utente bulk e supporta il download di elenchi di utenti, gruppi e membri del gruppo.
+Azure Active Directory (Azure AD) supporta operazioni di ripristino in blocco degli utenti, oltre al download di elenchi di utenti, gruppi e membri di gruppi.
 
 ## <a name="understand-the-csv-template"></a>Informazioni sul modello CSV
 
-Scaricare e compilare il modello CSV per ripristinare correttamente Azure AD utenti in blocco. Il modello CSV scaricato potrebbe essere simile a questo esempio:
+Scaricare e compilare il modello CSV per ripristinare correttamente gli utenti di Azure AD in blocco. Il modello CSV scaricato sarà simile a questo esempio:
 
-![Foglio di calcolo per il caricamento e la chiamata che spiega lo scopo e i valori per ogni riga e colonna](./media/users-bulk-restore/understand-template.png)
+![Foglio di calcolo per il caricamento con callout che illustrano lo scopo e i valori di ogni riga e colonna](./media/users-bulk-restore/understand-template.png)
 
 ### <a name="csv-template-structure"></a>Struttura del modello CSV
 
-Le righe in un modello CSV scaricato sono le seguenti:
+Un modello CSV scaricato contiene le righe descritte di seguito:
 
-- **Numero di versione**: la prima riga contenente il numero di versione deve essere inclusa nel file CSV di caricamento.
-- **Intestazioni di colonna** &lt;: il formato delle intestazioni di colonna è il *nome* &gt; dell'elemento [PropertyName &lt;] *obbligatorio o vuoto*&gt;. Ad esempio: `Object ID [objectId] Required`. Alcune versioni precedenti del modello potrebbero presentare variazioni minime.
-- **Esempi di riga**: sono stati inclusi nel modello una riga di esempi di valori accettabili per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
+- **Numero di versione**: nel file CSV di caricamento deve essere inclusa la prima riga contenente il numero di versione.
+- **Intestazioni di colonna**: il formato delle intestazioni di colonna è &lt;*Nome elemento*&gt; [NomeProprietà] &lt;*Required o vuoto*&gt;. Ad esempio: `Object ID [objectId] Required`. Alcune versioni precedenti del modello potrebbero presentare lievi variazioni.
+- **Riga di esempi**: nel modello è stata inclusa una riga di esempi di valori accettabili per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
 
 ### <a name="additional-guidance"></a>Indicazioni aggiuntive
 
-- Le prime due righe del modello di caricamento non devono essere rimosse o modificate oppure il caricamento non può essere elaborato.
-- Le colonne obbligatorie sono elencate per prime.
-- Non è consigliabile aggiungere nuove colonne al modello. Eventuali colonne aggiuntive aggiunte verranno ignorate e non elaborate.
-- Si consiglia di scaricare la versione più recente del modello CSV il più spesso possibile.
+- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non può essere elaborato.
+- Le colonne obbligatorie sono riportate per prime.
+- Non è consigliabile aggiungere nuove colonne al modello. Eventuali colonne aggiuntive aggiunte saranno ignorate e non verranno elaborate.
+- È consigliabile scaricare la versione più recente del modello CSV il più spesso possibile.
 
-## <a name="to-bulk-restore-users"></a>Per eseguire il ripristino bulk degli utenti
+## <a name="to-bulk-restore-users"></a>Per ripristinare gli utenti in blocco
 
-1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account che sia un amministratore utente nell'organizzazione Azure ad.
-1. In Azure ad selezionare **utenti** > **eliminati**.
-1. Nella pagina **utenti eliminati** selezionare **ripristino Bulk** per caricare un file CSV valido di proprietà degli utenti da ripristinare.
+1. [Accedere all'organizzazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore utenti nell'organizzazione.
+1. In Azure AD selezionare **Utenti** > **Eliminati**.
+1. Nella pagina **Utenti eliminati** selezionare **Ripristino in blocco** per caricare un file CSV valido di proprietà degli utenti da ripristinare.
 
-   ![Selezionare il comando di ripristino Bulk nella pagina utenti eliminati](./media/users-bulk-restore/bulk-restore.png)
+    ![Selezionare il comando di Ripristino in blocco nella pagina Utenti eliminati](./media/users-bulk-restore/bulk-restore.png)
 
-1. Aprire il modello CSV e aggiungere una riga per ogni utente che si desidera ripristinare. L'unico valore richiesto è **ObjectID**. Salvare quindi il file.
+1. Aprire il modello CSV e aggiungere una riga per ogni utente da ripristinare. L'unico valore obbligatorio è **ObjectID**. Salvare quindi il file.
 
-   ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera aggiungere](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Selezionare un file CSV locale in cui elencare gli utenti da aggiungere":::
 
-1. Nella pagina **ripristino Bulk** , in **caricare il file CSV**, selezionare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
+1. Nella pagina **Ripristino in blocco** individuare il file in **Caricare il file CSV**. Quando si seleziona il file e si fa clic su **Invia** viene avviata la convalida del file CSV.
 1. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
-1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione di Azure bulk per il ripristino degli utenti.
-1. Al termine dell'operazione di ripristino, verrà visualizzata una notifica di esito positivo dell'operazione bulk.
+1. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure per il ripristino degli utenti.
+1. Al termine dell'operazione di ripristino in blocco, verrà visualizzata una notifica per indicare che è stata completata correttamente.
 
-Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **risultati operazione bulk** . Il file contiene il motivo per ogni errore.
+Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **Risultati dell'operazione in blocco**. Il file contiene il motivo di ogni errore.
 
 ## <a name="check-status"></a>Controlla stato
 
-È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **risultati operazione bulk** .
+È possibile visualizzare lo stato di tutte le richieste in sospeso di operazioni in blocco nella pagina **Risultati dell'operazione in blocco**.
 
 [![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
-A questo punto, è possibile verificare che gli utenti ripristinati esistano nell'organizzazione del Azure AD nell'portale di Azure o tramite PowerShell.
+Quindi, è possibile verificare che gli utenti ripristinati siano presenti nell'organizzazione di Azure AD nel portale di Azure o tramite PowerShell.
 
-## <a name="view-restored-users-in-the-azure-portal"></a>Visualizzare gli utenti ripristinati nella portale di Azure
+## <a name="view-restored-users-in-the-azure-portal"></a>Visualizzare gli utenti ripristinati nel portale di Azure
 
-1. [Accedere al centro di amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
+1. [Accedere all'interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore utenti nell'organizzazione.
 1. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Utenti**.
-1. In **Mostra**selezionare **tutti gli utenti** e verificare che gli utenti ripristinati siano elencati.
+1. In **Mostra** selezionare **Tutti gli utenti** e verificare che gli utenti ripristinati siano presenti nell'elenco.
 
 ### <a name="view-users-with-powershell"></a>Visualizzare gli utenti con PowerShell
 
@@ -87,10 +87,10 @@ Eseguire il comando seguente:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Si noterà che gli utenti ripristinati sono elencati.
+Gli utenti ripristinati dovrebbero essere presenti nell'elenco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Importazione bulk di utenti](users-bulk-add.md)
-- [Eliminare utenti in blocco](users-bulk-delete.md)
-- [Scarica l'elenco di utenti](users-bulk-download.md)
+- [Importazione di utenti in blocco](users-bulk-add.md)
+- [Eliminazione di utenti in blocco](users-bulk-delete.md)
+- [Scaricare l'elenco degli utenti](users-bulk-download.md)

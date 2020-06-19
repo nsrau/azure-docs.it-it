@@ -12,7 +12,7 @@
       href: overview-faq.md
     - name: Note sulla versione
       href: release-notes.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare un'area di lavoro di Azure Synapse
       href: quickstart-create-workspace.md
@@ -140,20 +140,6 @@
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: TDE con Bring Your Own Key
               href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Sicurezza dei dati avanzata
-          items:
-            - name: Pool SQL
-              items:
-                - name: Panoramica
-                  href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Individuazione dati e classificazione
-                  href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Valutazione della vulnerabilità
-                  href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Advanced Threat Protection
-                  href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Controllo
-                  href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Integrazione e orchestrazione
       items:
         - name: Pipeline e attività
@@ -222,7 +208,7 @@
               href: sql/on-demand-workspace-overview.md
             - name: Pool SQL
               href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Architettura
+            - name: Architecture
               href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Panoramica delle funzionalità
               href: sql/overview-features.md

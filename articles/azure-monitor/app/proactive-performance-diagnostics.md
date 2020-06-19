@@ -4,12 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687682"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697169"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -41,7 +41,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 1. **Valutazione**. La notifica mostra il numero di utenti o il numero di operazioni interessati. Ciò consente di assegnare una priorità al problema.
 2. **Ambito**. Il problema interessa solo alcune pagine o tutto il traffico? È limitato a browser o percorsi specifici? Queste informazioni si possono ricavare dalla notifica.
-3. **Diagnostica**. Spesso, le informazioni di diagnostica nella notifica suggeriscono la natura del problema. Ad esempio, se il tempo di risposta diminuisce quando la frequenza delle richieste è elevata, questo suggerisce che il server o le dipendenze sono sovraccariche. 
+3. **Diagnosi**. Spesso, le informazioni di diagnostica nella notifica suggeriscono la natura del problema. Ad esempio, se il tempo di risposta diminuisce quando la frequenza delle richieste è elevata, questo suggerisce che il server o le dipendenze sono sovraccariche. 
 
     In caso contrario, aprire il pannello Prestazioni in Application Insights. Qui sono contenuti i dati del [Profiler](profiler.md). Se vengono generate eccezioni, è anche possibile provare il [debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md).
 
@@ -49,7 +49,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro [che dispongono dell'](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) accesso per il monitoraggio e il [monitoraggio dei collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
+Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e vengono inviate agli utenti con accesso [Ruolo con autorizzazioni di lettura dei dati di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Collaboratore per il monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa di Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
   ![Impostazioni di rilevamento intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 * *Si possono creare regole personalizzate di rilevamento delle anomalie o personalizzare le regole esistenti?*
 
   * Non ancora, ma è possibile:
-    * [Configurare gli avvisi](../../azure-monitor/app/alerts.md) che indicano quando una metrica supera una soglia.
-    * Esportare i dati di [telemetria](../../azure-monitor/app/export-telemetry.md) in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o [in Power bi, in](../../azure-monitor/app/export-power-bi.md )cui è possibile analizzarli autonomamente.
+    * [Impostare avvisi](/azure/azure-monitor/platform/alerts-log) per essere informati quando una determinata metrica supera una soglia.
+    * [Esportare dati di telemetria](../../azure-monitor/app/export-telemetry.md) in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o in [Power BI](../../azure-monitor/app/export-power-bi.md ), in cui è possibile analizzarli personalmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
-* *Questa operazione sostituisce gli [avvisi delle metriche](../../azure-monitor/app/alerts.md)?*
+* *Ciò sostituisce [gli avvisi delle metriche](/azure/azure-monitor/platform/alerts-log)?*
   * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
@@ -107,8 +107,8 @@ Aprire il pannello delle metriche del browser. La visualizzazione segmentata del
 ### <a name="improve-slow-pages"></a>Migliorare le pagine lente
 Sul Web sono disponibili molti suggerimenti per migliorare le risposte del server e i tempi di caricamento delle pagine, quindi non occorre riportarli in questo articolo. Ecco alcuni suggerimenti probabilmente già noti, ma che possono risultare utili:
 
-* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
-* Dipendenze lente del server: esaminare le posizioni geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
+* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e le altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
+* Dipendenze lente del server: esaminare le località geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
 * Problemi di capacità: esaminare le metriche del server relative ai tempi di risposta e al numero delle richieste. Se i picchi dei tempi di risposta non sono proporzionati ai picchi del numero di richieste, è probabile che le capacità dei server siano insufficienti.
 
 
@@ -125,11 +125,11 @@ La notifica di riduzione del tempo di risposta indica:
   * Le tracce del profiler che consentono di visualizzare dove viene impiegato il tempo dell'operazione. Il collegamento è disponibile se, per questa operazione durante il periodo di rilevamento, sono stati raccolti esempi di analisi del Profiler. 
   * I report di prestazioni in Metric Explorer (Esplora metriche), in cui è possibile suddividere e ripartire filtri/intervalli di tempo per questa operazione.
   * Cercare questa chiamata per visualizzare le proprietà specifiche della chiamata.
-  * Segnalazioni non riuscite: se il conteggio > 1 indica che si sono verificati errori in questa operazione che potrebbero aver contribuito alla riduzione delle prestazioni.
+  * Report relativo a un errore: se il conteggio è maggiore di 1, questa operazione conteneva errori che potrebbero aver contribuito alla riduzione del livello delle prestazioni.
 
 ## <a name="dependency-duration-degradation"></a>Riduzione della durata delle dipendenze
 
-Per le applicazioni moderne è necessario adottare un approccio di progettazione di microservizi, che in molti casi comporta una notevole affidabilità nei servizi esterni. Ad esempio, se l'applicazione si basa su piattaforme di dati o se si compila il proprio servizio Bot, probabilmente ci si baserà su provider di servizi cognitivi che abilitino i bot all'interazione in modi più umani e su alcuni servizi di archiviazione dati da cui i bot possano estrarre le risposte.  
+Le applicazioni moderne adottano con sempre maggiore frequenza un approccio di progettazione ai microservizi, che in molti casi comporta l'affidarsi ai servizi esterni. Ad esempio, se l'applicazione si basa su piattaforme di dati o se si compila il proprio servizio Bot, probabilmente ci si baserà su provider di servizi cognitivi che abilitino i bot all'interazione in modi più umani e su alcuni servizi di archiviazione dati da cui i bot possano estrarre le risposte.  
 
 Esempio di notifica di riduzione delle dipendenze:
 
@@ -160,7 +160,7 @@ Non è necessario impostare regole di soglia o configurare regole. Per rilevare 
 ![Nell'avviso di posta elettronica fare clic sul collegamento per aprire il report di diagnostica in Azure](./media/proactive-performance-diagnostics/03.png)
 
 * **Quando** è visualizzata l'ora in cui è stato rilevato il problema.
-* **Descrizione:**
+* In **Informazioni approfondite** vengono visualizzate le informazioni seguenti:
 
   * Il problema rilevato;
   * Le caratteristiche della serie di eventi in cui è stato rilevato il comportamento anomalo.
@@ -174,11 +174,11 @@ Modificare l'intervallo di tempo e i filtri per esplorare i dati di telemetria.
 Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
 
 * [Profiler](profiler.md) 
-* [Debugger snapshot](../../azure-monitor/app/snapshot-debugger.md)
+* [Debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md)
 * [Analisi](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostica intelligenti di Analisi](../../azure-monitor/app/analytics.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](../../azure-monitor/app/alerts.md)
+* [Configurare manualmente gli avvisi relativi alle metriche](/azure/azure-monitor/platform/alerts-log)
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -4,14 +4,14 @@
   items:
     - name: Che cos'è Azure Databricks?
       href: what-is-azure-databricks.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'area di lavoro
       items:
         - name: Portale
           href: quickstart-create-databricks-workspace-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: quickstart-create-databricks-workspace-powershell.md
         - name: Modello ARM
           displayName: Resource Manager

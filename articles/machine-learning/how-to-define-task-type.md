@@ -1,7 +1,7 @@
 ---
-title: Definire un'attività di machine learning per un'esecuzione automatica di Machine Learning
+title: Definire un'attività di Machine Learning per un'esecuzione di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come definire un'attività di machine learning per un'esecuzione automatica di Machine Learning
+description: Informazioni su come definire un'attività di Machine Learning per un'esecuzione di Machine Learning automatizzato
 services: machine-learning
 author: RachelKellam
 ms.author: rakellam
@@ -10,32 +10,32 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb2fbcda7f30db24b876a66df22071f14df74814
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475494"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653243"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Come definire un'attività di Machine Learning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questo articolo vengono illustrate le attività di machine learning supportate e viene illustrato come definirle per un esperimento di Machine Learning automatizzato (ML).
+In questo articolo vengono illustrate le attività di Machine Learning supportate e viene spiegato come definirle per l'esecuzione di un esperimento di Machine Learning automatizzato.
 
 
-## <a name="what-is-a-machine-learning-task"></a><a name="What is a machine learning task?"></a>Che cos'è un'attività di Machine Learning?
+## <a name="what-is-a-machine-learning-task"></a><a name="What is a machine learning task?"></a> Che cos'è un'attività di Machine Learning?
 
-Un'attività di Machine Learning rappresenta il tipo di problema da risolvere creando un modello predittivo. Automatizzato ML supporta tre tipi diversi di attività, tra cui la classificazione, la regressione e la previsione delle serie temporali.
+Un'attività di Machine Learning rappresenta il tipo di problema da risolvere creando un modello predittivo. Il processo di Machine Learning automatizzato supporta tre tipi diversi di attività, tra cui la classificazione, la regressione e la previsione delle serie temporali.
 
 Tipo di attività| Descrizione| Esempio
 ----|----|----
-Classificazione | Attività per la stima della categoria di una determinata riga in un set di dati. | Rilevamento di frodi su una carta di credito. La colonna di destinazione verrà **rilevata illecitamente** con le categorie *true* o *false*. In questo caso, ogni riga dei dati verrà classificata come true o false.
-Regressione | Attività per la stima di un output di quantità continua. | Costo dell'automobile in base alle funzionalità, la colonna di destinazione è **Price**.
-Previsione |Attività per l'esecuzione di stime informate per determinare la direzione delle tendenze future.| Previsione della domanda di energia per i prossimi 48 ore. La colonna di destinazione è **richiesta** e i valori stimati verrebbero usati per mostrare i modelli nella domanda di energia.
+Classificazione | Attività per la stima della categoria di una determinata riga in un set di dati. | Rilevamento di frodi su una carta di credito. La colonna di destinazione potrebbe essere **Frode rilevata** con le categorie *True* e *False*. In questo caso, ogni riga del set di dati viene classificata come True o False.
+Regressione | Attività per la stima di un output di quantità continuo. | Costo di un'automobile in base alle sue caratteristiche. La colonna di destinazione potrebbe essere **prezzo**.
+Previsione |Attività per l'esecuzione di stime informate per determinare la direzione delle tendenze future.| Previsione della domanda di energia per le prossime 48 ore. La colonna di destinazione potrebbe essere **domanda** e i valori stimati verrebbero usati per rivelare i modelli nella domanda di energia.
 
 L'apprendimento automatico supporta i seguenti algoritmi durante l'automazione e il processo di ottimizzazione. Come utente, non è necessario specificare l'algoritmo.
 
-Classificazione | Regressione | Previsione di una serie temporale
+Classificazione | Regressione | Previsione di serie temporali
 -- |-- |--
 [Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -53,10 +53,10 @@ Classificazione | Regressione | Previsione di una serie temporale
 [Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||
 
 
-### <a name="set-the-task-type"></a>Imposta il tipo di attività
-È possibile impostare il tipo di attività per gli esperimenti di Machine Learning automatici con SDK o Azure Machine Learning Studio.
+### <a name="set-the-task-type"></a>Impostare il tipo di attività
+È possibile impostare il tipo di attività per gli esperimenti di Machine Learning automatizzato con l'SDK o Azure Machine Learning Studio.
 
-Usare il `task` parametro nel `AutoMLConfig` costruttore per specificare il tipo di esperimento.
+Usare il parametro `task` nel costruttore `AutoMLConfig` per specificare il tipo di esperimento.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -65,7 +65,7 @@ from azureml.train.automl import AutoMLConfig
 automl_config = AutoMLConfig(task="classification")
 ```
 
-È possibile impostare l'attività nell'ambito della creazione automatica dell'esperimento di Machine Learning in Azure Machine Learning Studio. 
+È possibile impostare l'attività durante la creazione dell'esecuzione dell'esperimento di Machine Learning automatizzato in Azure Machine Learning Studio. 
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
@@ -74,8 +74,8 @@ automl_config = AutoMLConfig(task="classification")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Scopri [di più su Machine](concept-automated-ml.md) learning in Azure Machine Learning.
-+ Altre informazioni sulla [formazione automatica di un modello di previsione delle serie temporali](how-to-auto-train-forecast.md) in Azure Machine Learning
-+ Provare l'esercitazione sulla [classificazione automatica Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) .
-+ Provare il notebook di esempio di [regressione automatizzata Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) .
++ Altre informazioni sulle funzionalità di [Machine Learning automatizzato](concept-automated-ml.md) in Azure Machine Learning.
++ Altre informazioni sul [training automatico di un modello di previsione di serie temporali](how-to-auto-train-forecast.md) in Azure Machine Learning.
++ Provare l'esercitazione sulla [classificazione con il processo di Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
++ Provare il notebook di esempio sulla [regressione con Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb).
 

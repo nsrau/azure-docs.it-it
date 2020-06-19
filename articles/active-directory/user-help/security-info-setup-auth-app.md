@@ -1,6 +1,6 @@
 ---
-title: Configurare l'app Microsoft Authenticator come metodo di verifica-Azure AD
-description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità usando l'app Microsoft Authenticator come metodo di verifica.
+title: Configurare l'app Microsoft Authenticator come metodo di verifica - Azure AD
+description: Come configurare la pagina Informazione di sicurezza (anteprima) per verificare l'identità usando l'app Microsoft Authenticator come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 264b2803774bcec000fc767693cf96d15e684790
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628402"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744492"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurare l'app Microsoft Authenticator come metodo di verifica
 
@@ -27,9 +27,9 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
-> Se l'opzione app Authenticator non è visibile, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
+> Se l'opzione relativa all'app Authenticator non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'help desk dell'organizzazione per ricevere assistenza.
 
-## <a name="security-vs-password-reset-verification"></a>Sicurezza e verifica della reimpostazione della password
+## <a name="security-vs-password-reset-verification"></a>Verifica di sicurezza o reimpostazione della password
 
 I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
 
@@ -147,7 +147,7 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
@@ -158,7 +158,7 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Eseguire l'accesso con l'app Microsoft Authenticator, seguendo la procedura illustrata nell'articolo [accedere usando la verifica in due passaggi o le informazioni sulla sicurezza](security-info-setup-signin.md) .
+- Eseguire l'accesso con l'app Microsoft Authenticator, seguendo la procedura illustrata nell'articolo [Eseguire l'accesso usando la verifica in due passaggi o le informazioni di sicurezza](security-info-setup-signin.md).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 

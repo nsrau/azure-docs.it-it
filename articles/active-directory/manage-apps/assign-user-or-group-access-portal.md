@@ -1,5 +1,5 @@
 ---
-title: Assegnare un utente o un gruppo a un'app aziendale in Azure AD
+title: Assegnare un utente o gruppo a un'app aziendale in Azure AD
 description: Come selezionare un'app aziendale a cui assegnare un utente o gruppo in anteprima di Azure Active Directory
 services: active-directory
 author: msmimart
@@ -12,78 +12,78 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409193"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772421"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory
 
-Questo articolo illustra come assegnare utenti o gruppi ad applicazioni aziendali in Azure Active Directory (Azure AD), dall'interno del portale di Azure o tramite PowerShell. Quando si assegna un utente a un'applicazione, l'applicazione viene visualizzata nel pannello di [accesso app personali](https://myapps.microsoft.com/) dell'utente per facilitarne l'accesso. Se l'applicazione espone ruoli, è anche possibile assegnare un ruolo specifico all'utente.
+Questo articolo illustra come assegnare utenti o gruppi alle applicazioni aziendali in Azure Active Directory (Azure AD), dal portale di Azure o tramite PowerShell. Quando si assegna un utente a un'applicazione, l'applicazione viene visualizzata nel [pannello di accesso App personali](https://myapps.microsoft.com/) dell'utente per accedervi più facilmente. Se l'applicazione espone ruoli, è anche possibile assegnare un ruolo specifico all'utente.
 
-Per un maggiore controllo, è possibile configurare determinati tipi di applicazioni aziendali in modo da [richiedere l'assegnazione dell'utente](#configure-an-application-to-require-user-assignment). 
+Per un maggiore controllo, è possibile configurare alcuni tipi di applicazioni aziendali per [richiedere l'assegnazione utente](#configure-an-application-to-require-user-assignment). 
 
-Per [assegnare un utente o un gruppo a un'app aziendale](#assign-users-or-groups-to-an-app-via-the-azure-portal), è necessario effettuare l'accesso come amministratore globale, amministratore dell'applicazione, amministratore di applicazioni cloud o il proprietario assegnato dell'app aziendale.
+Per [assegnare un utente o un gruppo a un'app aziendale](#assign-users-or-groups-to-an-app-via-the-azure-portal), è necessario accedere come amministratore globale, amministratore applicazione, amministratore applicazione cloud o proprietario assegnato dell'app aziendale.
 
 > [!NOTE]
-> Per l'assegnazione basata su gruppo è necessario Azure Active Directory Premium P1 o P2 Edition. L'assegnazione basata su gruppi è supportata solo per i gruppi di sicurezza. Le appartenenze ai gruppi annidati e i gruppi di Office 365 non sono attualmente supportati. Per ulteriori requisiti di licenza per le funzionalità descritte in questo articolo, vedere la pagina relativa ai [prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> L'assegnazione basata su gruppo richiede Azure Active Directory Premium, edizione P1 o P2. L'assegnazione basata su gruppo è supportata solo per i gruppi di sicurezza. Le appartenenze a gruppi annidati e i gruppi di Office 365 non sono attualmente supportati. Per altri requisiti di licenza per le funzionalità descritte in questo articolo, vedere la [pagina dei prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
-## <a name="configure-an-application-to-require-user-assignment"></a>Configurare un'applicazione per richiedere l'assegnazione di utenti
+## <a name="configure-an-application-to-require-user-assignment"></a>Configurare un'applicazione per richiedere l'assegnazione utente
 
-Con i seguenti tipi di applicazioni, è possibile scegliere di richiedere agli utenti di essere assegnati all'applicazione prima di potervi accedere:
+Con i tipi di applicazioni seguenti, è possibile scegliere di richiedere che gli utenti vengano assegnati all'applicazione prima che possano accedervi:
 
-- Applicazioni configurate per il Single Sign-On federato (SSO) con autenticazione basata su SAML
-- Applicazioni proxy di applicazione che usano Azure Active Directory pre-autenticazione
-- Le applicazioni basate sulla piattaforma Azure AD applicazione che usano l'autenticazione OAuth 2,0/OpenID Connect dopo che un utente o un amministratore ha acconsentito a tale applicazione.
+- Applicazioni configurate per l'accesso Single Sign-On (SSO) federato con autenticazione basata su SAML
+- Applicazioni proxy di applicazione che usano la preautenticazione di Azure Active Directory
+- Applicazioni create nella piattaforma applicativa Azure AD che usano l'autenticazione OAuth 2.0/OpenID Connect dopo che un utente o un amministratore ha fornito il consenso per tale applicazione.
 
-Quando è richiesta l'assegnazione dell'utente, solo gli utenti assegnati in modo esplicito all'applicazione saranno in grado di eseguire l'accesso. Possono accedere all'app nella pagina App personali o usando un collegamento diretto. 
+Quando è richiesta l'assegnazione utente, solo gli utenti assegnati in modo esplicito all'applicazione (tramite assegnazione utente diretta o in base all'appartenenza al gruppo) potranno eseguire l'accesso. Possono accedere all'app dalla pagina App personali o usando un collegamento diretto. 
 
-Quando l'assegnazione *non è richiesta*, perché è stata impostata questa opzione su **No** o perché l'applicazione usa un'altra modalità SSO, qualsiasi utente potrà accedere all'applicazione se dispone di un collegamento diretto all'applicazione o all' **URL di accesso utente** nella pagina delle **Proprietà** dell'applicazione. 
+Quando l'assegnazione *non è richiesta*, perché questa opzione è stata impostata su **No** o perché l'applicazione usa un'altra modalità di accesso SSO, qualsiasi utente potrà accedere all'applicazione se dispone di un collegamento diretto all'applicazione o dell'**URL accesso utente** nella pagina **Proprietà** dell'applicazione. 
 
-Questa impostazione non influisce sul fatto che un'applicazione venga visualizzata nel pannello di accesso app personali. Le applicazioni vengono visualizzate nei pannelli di accesso delle app personali degli utenti dopo aver assegnato un utente o un gruppo all'applicazione. Per informazioni di base, vedere [gestione dell'accesso alle app](what-is-access-management.md).
+Questa impostazione non influisce sulla presenza di un'applicazione nel pannello di accesso App personali. Le applicazioni vengono visualizzate nei pannelli di accesso App personali degli utenti dopo aver assegnato un utente o un gruppo all'applicazione. Per informazioni di base, vedere [Gestione dell'accesso alle app](what-is-access-management.md).
 
 
-Per richiedere l'assegnazione dell'utente per un'applicazione:
+Per richiedere l'assegnazione utente per un'applicazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore o come proprietario dell'applicazione.
 
-2. Selezionare **Azure Active Directory**. Nel menu di spostamento a sinistra selezionare **applicazioni aziendali**.
+2. Selezionare **Azure Active Directory**. Nel menu di spostamento a sinistra selezionare **Applicazioni aziendali**.
 
-3. Selezionare l'applicazione dall'elenco. Se l'applicazione non viene visualizzata, iniziare a digitarne il nome nella casella di ricerca. In alternativa, usare i controlli filtro per selezionare il tipo di applicazione, lo stato o la visibilità, quindi selezionare **applica**.
+3. Selezionare l'applicazione nell'elenco. Se l'applicazione non viene visualizzata, iniziare a digitarne il nome nella casella di ricerca. In alternativa, usare i controlli del filtro per selezionare il tipo di applicazione, lo stato o la visibilità e quindi selezionare **Applica**.
 
 4. Nel menu di spostamento a sinistra selezionare **Proprietà**.
 
-5. Assicurarsi che l' **assegnazione dell'utente sia obbligatoria?** l'interruttore sia impostato su **Sì**.
+5. Assicurarsi che l'interruttore **Assegnazione utenti obbligatoria** sia impostato su **Sì**.
 
    > [!NOTE]
-   > Se l' **assegnazione utente è obbligatoria?** l'interruttore non è disponibile, è possibile usare PowerShell per impostare la proprietà della approleassignmentrequired nell'entità servizio.
+   > Se l'interruttore **Assegnazione utenti obbligatoria** non è disponibile, è possibile usare PowerShell per impostare la proprietà appRoleAssignmentRequired nell'entità servizio.
 
-6. Selezionare il pulsante **Salva** nella parte superiore della schermata.
+6. Fare clic sul pulsante **Salva** nella parte superiore della schermata.
 
 ## <a name="assign-users-or-groups-to-an-app-via-the-azure-portal"></a>Assegnare utenti o gruppi a un'app tramite il portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un amministratore globale, un amministratore dell'applicazione o un account amministratore dell'applicazione cloud oppure come proprietario assegnato dell'app aziendale.
-2. Selezionare **Azure Active Directory**. Nel menu di spostamento a sinistra selezionare **applicazioni aziendali**.
-3. Selezionare l'applicazione dall'elenco. Se l'applicazione non viene visualizzata, iniziare a digitarne il nome nella casella di ricerca. In alternativa, usare i controlli filtro per selezionare il tipo di applicazione, lo stato o la visibilità, quindi selezionare **applica**.
-4. Nel menu di spostamento a sinistra selezionare **utenti e gruppi**.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale, amministratore applicazione, amministratore applicazione cloud o come proprietario assegnato dell'app aziendale.
+2. Selezionare **Azure Active Directory**. Nel menu di spostamento a sinistra selezionare **Applicazioni aziendali**.
+3. Selezionare l'applicazione nell'elenco. Se l'applicazione non viene visualizzata, iniziare a digitarne il nome nella casella di ricerca. In alternativa, usare i controlli del filtro per selezionare il tipo di applicazione, lo stato o la visibilità e quindi selezionare **Applica**.
+4. Nel menu di spostamento a sinistra selezionare **Utenti e gruppi**.
    > [!NOTE]
-   > Per assegnare gli utenti alle applicazioni Microsoft, ad esempio le app di Office 365, alcune di queste app usano PowerShell. 
-5. Selezionare il pulsante **Aggiungi utente** .
-6. Nel riquadro **Aggiungi assegnazione** selezionare **utenti e gruppi**.
-7. Selezionare l'utente o il gruppo che si desidera assegnare all'applicazione oppure iniziare a digitare il nome dell'utente o del gruppo nella casella di ricerca. È possibile scegliere più utenti e gruppi e le selezioni verranno visualizzate in **elementi selezionati**.
+   > Se si vuole assegnare gli utenti ad applicazioni Microsoft, come le app di Office 365, per alcune di esse è necessario usare PowerShell. 
+5. Selezionare il pulsante **Aggiungi utente**.
+6. Nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+7. Selezionare l'utente o il gruppo da assegnare all'applicazione oppure iniziare a digitare il nome dell'utente o del gruppo nella casella di ricerca. È possibile scegliere più utenti e gruppi e le selezioni verranno visualizzate in **Elementi selezionati**.
 8. Al termine, fare clic su **Seleziona**.
 
    ![Assegnare un utente o gruppo all'app](./media/assign-user-or-group-access-portal/assign-users.png)
 
-9. Nel riquadro **utenti e gruppi** selezionare uno o più utenti o gruppi dall'elenco, quindi scegliere il pulsante **Seleziona** nella parte inferiore del riquadro.
-10. Se l'applicazione lo supporta, è possibile assegnare un ruolo all'utente o al gruppo. Nel riquadro **Aggiungi assegnazione** scegliere **Seleziona ruolo**. Quindi, nel riquadro **Seleziona ruolo** , scegliere un ruolo da applicare agli utenti o ai gruppi selezionati, quindi fare clic su **OK** nella parte inferiore del riquadro. 
+9. Nel riquadro **Utenti e gruppi** selezionare uno o più utenti o gruppi dall'elenco e fare clic sul pulsante **Seleziona** nella parte inferiore del riquadro.
+10. Se l'applicazione lo supporta, è possibile assegnare un ruolo all'utente o al gruppo. Nel riquadro **Aggiungi assegnazione** selezionare **Ruolo**. Nel riquadro **Seleziona ruolo** scegliere un ruolo da applicare agli utenti o ai gruppi selezionati, quindi fare clic su **OK** nella parte inferiore del riquadro. 
 
     > [!NOTE]
-    > Se l'applicazione non supporta la selezione dei ruoli, viene assegnato il ruolo di accesso predefinito. In questo caso, l'applicazione gestisce il livello di accesso degli utenti.
+    > Se l'applicazione non supporta la selezione dei ruoli, verrà assegnato il ruolo di accesso predefinito. In questo caso, l'applicazione gestisce il livello di accesso degli utenti.
 
-2. Nel riquadro **Aggiungi assegnazione** selezionare il pulsante **assegna** nella parte inferiore del riquadro.
+2. Nella parte inferiore del riquadro **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="assign-users-or-groups-to-an-app-via-powershell"></a>Assegnare utenti o gruppi a un'app tramite PowerShell
 
@@ -110,9 +110,11 @@ Per richiedere l'assegnazione dell'utente per un'applicazione:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Per altre informazioni su come assegnare un utente a un ruolo applicazione, vedere la documentazione per [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Per altre informazioni su come assegnare un utente a un ruolo applicazione, vedere la documentazione per [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Per assegnare un gruppo a un'app aziendale, è necessario sostituire `Get-AzureADUser` con `Get-AzureADGroup`.
+Per assegnare un gruppo a un'app aziendale, è necessario sostituire `Get-AzureADUser` con `Get-AzureADGroup` e `New-AzureADUserAppRoleAssignment` con `New-AzureADGroupAppRoleAssignment`.
+
+Per altre informazioni su come assegnare un gruppo a un ruolo applicazione, vedere la documentazione per [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Esempio
 
@@ -136,7 +138,7 @@ Questo esempio assegna l'utente Britta Simon all'applicazione [Microsoft Workpla
 
 1. Eseguire il comando `$sp.AppRoles` per visualizzare i ruoli disponibili per l'applicazione Workplace Analytics. In questo esempio si vuole assegnare a Britta Simon il ruolo di analista (accesso limitato).
 
-   ![Mostra i ruoli disponibili per un utente con il ruolo di analisi dell'area di lavoro](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+   ![Mostra i ruoli disponibili per un utente con il ruolo Workplace Analytics](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 1. Assegnare il nome del ruolo alla variabile `$app_role_name`.
 
@@ -156,7 +158,7 @@ Questo esempio assegna l'utente Britta Simon all'applicazione [Microsoft Workpla
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Altre informazioni sull'accesso degli utenti finali alle applicazioni](end-user-experiences.md)
-- [Pianificare una distribuzione del pannello di accesso Azure AD](access-panel-deployment-plan.md)
+- [Pianificare una distribuzione del pannello di accesso di Azure AD](access-panel-deployment-plan.md)
 - [Gestione dell'accesso alle app](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Passaggi successivi

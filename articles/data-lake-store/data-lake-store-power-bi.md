@@ -1,26 +1,26 @@
 ---
-title: Analizzare i dati in Azure Data Lake Storage Gen1-Power BI
-description: Usare Power BI per analizzare i dati archiviati nel Azure Data Lake Storage Gen1.
+title: Analizzare i dati in Azure Data Lake Storage Gen1 - Power BI
+description: Usare Power BI per analizzare i dati archiviati in Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691663"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744781"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizzare i dati in Azure Data Lake Storage Gen1 con Power BI
-Questo articolo illustra come usare Power BI Desktop per analizzare e visualizzare i dati archiviati nel Azure Data Lake Storage Gen1.
+Questo articolo spiega come usare Power BI Desktop per analizzare e visualizzare i dati archiviati in Azure Data Lake Storage Gen1.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account data Lake storage Gen1**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Storage Gen1 con il portale di Azure](data-lake-store-get-started-portal.md). Questo articolo presuppone che sia già stato creato un account Data Lake Storage Gen1 denominato **myadlsg1** e sia stato caricato un file di dati di esempio (**Drivers.txt**) nell'account. Il file di esempio può essere scaricato dal [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Un account Data Lake Storage Gen1**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Storage Gen1 con il portale di Azure](data-lake-store-get-started-portal.md). Questo articolo presuppone che sia già stato creato un account Data Lake Storage Gen1 denominato **myadlsg1** e sia stato caricato un file di dati di esempio (**Drivers.txt**) nell'account. Il file di esempio può essere scaricato dal [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Creare un report in Power BI Desktop
@@ -34,13 +34,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     ![URL per Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL per Data Lake Storage Gen1")
 5. Nella finestra di dialogo successiva fare clic su **Accedi** per accedere all'account Data Lake Storage Gen1. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. Seguire le istruzioni per accedere all'account.
    
-    ![Accedi Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Accedi Data Lake Storage Gen1")
+    ![Accedere a Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Accedere a Data Lake Storage Gen1")
 6. Dopo aver completato l'accesso, fare clic su **Connetti**.
    
     ![Connettersi a Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connettersi a Data Lake Storage Gen1")
 7. Nella finestra di dialogo successiva viene visualizzato il file caricato nell'account Data Lake Storage Gen1. Verificare le informazioni e fare clic su **Carica**.
    
-    ![Carica dati da Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carica dati da Data Lake Storage Gen1")
+    ![Caricare i dati da Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Caricare i dati da Data Lake Storage Gen1")
 8. Dopo il caricamento dei dati in Power BI, nella scheda **Campi** vengono visualizzati i campi indicati di seguito.
    
     ![Campi importati](./media/data-lake-store-power-bi/imported-fields.png "Campi importati")
@@ -68,23 +68,23 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 14. Dopo l'aggiornamento della query, la scheda **Campi** contiene i nuovi campi disponibili per la visualizzazione.
     
     ![Campi aggiornati](./media/data-lake-store-power-bi/updated-query-fields.png "Campi aggiornati")
-15. Creiamo un grafico a torta per rappresentare i driver in ogni città per un determinato paese/area geografica. Per eseguire questa operazione, effettuare le selezioni seguenti.
+15. A questo punto è possibile creare un grafico a torta che rappresenta i conducenti di ogni città di un determinato paese o area geografica. Per eseguire questa operazione, effettuare le selezioni seguenti.
     
     1. Nella scheda Visualizzazioni fare clic sul simbolo del grafico a torta.
        
-        ![Creazione di un grafico a torta](./media/data-lake-store-power-bi/create-pie-chart.png "Creazione di un grafico a torta")
-    2. Le colonne che verranno usate sono la **colonna 4** (nome della città) e la **colonna 7** (nome del paese/area geografica). Trascinare le colonne dalla scheda **Campi** nella scheda **Visualizzazioni** come illustrato di seguito.
+        ![Creare un grafico a torta](./media/data-lake-store-power-bi/create-pie-chart.png "Creazione di un grafico a torta")
+    2. Verranno utilizzate **Colonna 4** (nome della città) e **Colonna 7** (nome del paese/area geografica). Trascinare le colonne dalla scheda **Campi** nella scheda **Visualizzazioni** come illustrato di seguito.
        
         ![Creare visualizzazioni](./media/data-lake-store-power-bi/create-visualizations.png "Creare visualizzazioni")
     3. Il grafico a torta ora dovrebbe essere simile a quello che segue.
        
         ![Grafico a torta](./media/data-lake-store-power-bi/pie-chart.png "Creare visualizzazioni")
-16. Selezionando un paese o un'area geografica specifica dai filtri a livello di pagina, è ora possibile visualizzare il numero di driver in ogni città del paese selezionato. Ad esempio, nella scheda **Visualizzazioni** selezionare **Brazil** da **Filtri a livello di pagina**.
+16. Se si seleziona un determinato paese o area geografica dai filtri a livello di pagina, sarà possibile visualizzare il numero di conducenti di ogni città dell'area geografica o del paese selezionato. Ad esempio, nella scheda **Visualizzazioni** selezionare **Brazil** da **Filtri a livello di pagina**.
     
-    ![Selezionare un paese](./media/data-lake-store-power-bi/select-country.png "Seleziona un paese/area geografica")
+    ![Selezionare un paese/area geografica](./media/data-lake-store-power-bi/select-country.png "Selezionare un paese/area geografica")
 17. Il grafico a torta viene automaticamente aggiornato in modo da visualizzare i conducenti delle città del Brasile.
     
-    ![Conducenti in un paese](./media/data-lake-store-power-bi/driver-per-country.png "Driver per paese/area geografica")
+    ![Conducenti in un paese/area geografica](./media/data-lake-store-power-bi/driver-per-country.png "Conducenti per paese/area geografica")
 18. Dal menu **File** fare clic su **Salva** per salvare la visualizzazione come file di Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Pubblicare report nel servizio Power BI

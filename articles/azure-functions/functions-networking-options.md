@@ -1,61 +1,53 @@
 ---
 title: Opzioni di rete di Funzioni di Azure
-description: Panoramica di tutte le opzioni di rete disponibili in funzioni di Azure.
+description: Panoramica di tutte le opzioni di rete disponibili in Funzioni di Azure.
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121347"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648813"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
-Questo articolo descrive le funzionalità di rete disponibili nelle opzioni di hosting per funzioni di Azure. Tutte le seguenti opzioni di rete consentono di accedere alle risorse senza utilizzare indirizzi instradabili tramite Internet o per limitare l'accesso a Internet a un'app per le funzioni.
+Questo articolo descrive le funzionalità di rete disponibili nelle opzioni di hosting per Funzioni di Azure. Tutte le opzioni di rete seguenti consentono di accedere in vari modi alle risorse senza usare indirizzi instradabili tramite Internet o di limitare l'accesso a Internet a un'app per le funzioni.
 
-I modelli di hosting hanno diversi livelli di isolamento della rete disponibili. La scelta dell'opzione corretta consente di soddisfare i requisiti di isolamento della rete.
+Nei modelli di hosting sono disponibili diversi livelli di isolamento della rete. La scelta dell'opzione corretta consente di soddisfare i requisiti di isolamento della rete.
 
 È possibile ospitare le app per le funzioni in due modi:
 
 * È possibile scegliere tra le opzioni di piano eseguite in un'infrastruttura multi-tenant, con diversi livelli di opzioni di connettività e scalabilità della rete virtuale:
-    * Il [piano a consumo](functions-scale.md#consumption-plan) viene ridimensionato in modo dinamico in risposta al carico e offre opzioni di isolamento rete minime.
-    * Il [piano Premium](functions-scale.md#premium-plan) è anche scalabile in modo dinamico e offre un isolamento di rete più completo.
-    * Il [piano di servizio app](functions-scale.md#app-service-plan) di Azure funziona a una scala fissa e offre un isolamento della rete simile al piano Premium.
-* È possibile eseguire funzioni in un [ambiente del servizio app](../app-service/environment/intro.md). Questo metodo distribuisce la funzione nella rete virtuale e offre un controllo di rete completo e un isolamento.
+    * Il [Piano a consumo](functions-scale.md#consumption-plan) si ridimensiona dinamicamente in risposta al carico e offre opzioni minime di isolamento rete.
+    * Anche il [piano Premium](functions-scale.md#premium-plan) si ridimensiona dinamicamente e offre un isolamento rete più completo.
+    * Il [piano di servizio app](functions-scale.md#app-service-plan) di Azure opera su scala fissa e offre un isolamento rete simile a quello del piano Premium.
+* È possibile eseguire funzioni in un [ambiente del servizio app](../app-service/environment/intro.md). Questo metodo distribuisce la funzione nella rete virtuale e offre controllo di rete e isolamento completi.
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
 
 |                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrizioni IP in ingresso e accesso al sito privato](#inbound-ip-restrictions)|✅Sì|✅Sì|✅Sì|✅Sì|
-|[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Sì (regione)|✅Sì (Regional e gateway)|✅Sì|
+|[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Sì (Regionale)|✅Sì (Regional e Gateway)|✅Sì|
 |[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Sì |✅Sì|✅Sì|
 |[Connessioni ibride](#hybrid-connections) (solo Windows)|❌No|✅Sì|✅Sì|✅Sì|
 |[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ✅Sì|✅Sì|✅Sì|
 
-## <a name="inbound-ip-restrictions"></a>Restrizioni degli indirizzi IP in ingresso
+## <a name="inbound-ip-restrictions"></a>Restrizioni IP in ingresso
 
-È possibile usare le restrizioni IP per definire un elenco di indirizzi IP ordinato in ordine di priorità a cui è consentito o negato l'accesso all'app. L'elenco può includere indirizzi IPv4 e IPv6. Quando sono presenti una o più voci, alla fine dell'elenco esiste una "Deny All" implicita. Le restrizioni IP funzionano con tutte le opzioni di hosting di funzioni.
+È possibile usare le restrizioni IP per definire un elenco in ordine di priorità di indirizzi IP ai quali è consentito o negato l'accesso all'app. L'elenco può includere indirizzi IPv4 e IPv6. In presenza di una o più voci, alla fine dell'elenco è presente un'istruzione di tipo "rifiuta tutto" implicita. Le restrizioni IP funzionano con tutte le opzioni di hosting di funzioni.
 
 > [!NOTE]
-> Con le restrizioni di rete, è possibile usare l'editor del portale solo dall'interno della rete virtuale o quando è stato inserito l'indirizzo IP del computer usato per accedere al portale di Azure nell'elenco dei destinatari sicuri. Tuttavia, è comunque possibile accedere alle funzionalità della scheda **funzionalità della piattaforma** da qualsiasi computer.
+> Con le restrizioni di rete implementate, è possibile usare l'editor del portale solo dall'interno della rete virtuale o quando l'indirizzo IP del computer usato per accedere al portale di Azure è stato inserito nell'elenco dei destinatari sicuri. È tuttavia possibile accedere a qualsiasi funzionalità della scheda **Funzionalità della piattaforma** da qualsiasi computer.
 
-Per altre informazioni, vedere [restrizioni di accesso statico del servizio app Azure](../app-service/app-service-ip-restrictions.md).
+Per altre informazioni, vedere [Restrizioni di accesso al servizio app di Azure](../app-service/app-service-ip-restrictions.md).
 
 ## <a name="private-site-access"></a>Accesso al sito privato
 
-L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio una rete virtuale di Azure.
-
-* L'accesso al sito privato è disponibile nei piani di [servizio app](functions-scale.md#app-service-plan) , a [consumo](functions-scale.md#consumption-plan)e [Premium](./functions-premium-plan.md)quando sono configurati gli endpoint di servizio.
-    * Gli endpoint di servizio possono essere configurati in base alle singole app in **funzionalità della piattaforma**  >  **rete**  >  **configurare restrizioni di accesso**  >  **Aggiungi regola**. È ora possibile selezionare le reti virtuali come tipo di regola.
-    * Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
-* L'accesso al sito privato è disponibile anche all'interno di un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per altre informazioni, vedere [creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
-
-Per informazioni su come configurare l'accesso al sito privato, vedere [stabilire l'accesso al sito privato di funzioni di Azure](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>Integrazione della rete virtuale
 
@@ -64,89 +56,89 @@ Funzioni di Azure supporta due tipi di integrazione della rete virtuale:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-L'integrazione della rete virtuale in funzioni di Azure usa l'infrastruttura condivisa con le app Web del servizio app. Per ulteriori informazioni sui due tipi di integrazione della rete virtuale, vedere:
+L'integrazione della rete virtuale in Funzioni di Azure usa l'infrastruttura condivisa con le app Web del servizio app. Per altre informazioni sui due tipi di integrazione della rete virtuale, vedere:
 
-* [Integrazione della rete virtuale a livello di area](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway: integrazione della rete virtuale obbligatoria](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Uso dell'integrazione della rete virtuale](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Integrazione della rete virtuale richiesta dal gateway](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-Per informazioni su come configurare l'integrazione della rete virtuale, vedere [integrare un'app per le funzioni con una rete virtuale di Azure](functions-create-vnet.md).
+Per informazioni su come configurare l'integrazione della rete virtuale, vedere [Integrare un'app per le funzioni con una rete virtuale di Azure](functions-create-vnet.md).
 
-## <a name="regional-virtual-network-integration"></a>Integrazione della rete virtuale a livello di area
+## <a name="regional-virtual-network-integration"></a>Integrazione della rete virtuale regionale
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>Connettersi a risorse protette dell'endpoint di servizio
 
-Per garantire un livello di sicurezza più elevato, è possibile limitare un numero di servizi di Azure a una rete virtuale usando gli endpoint di servizio. Per accedere alla risorsa, è quindi necessario integrare l'app per le funzioni con tale rete virtuale. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
+Per garantire un livello di sicurezza più elevato, è possibile limitare vari servizi di Azure a una rete virtuale usando gli endpoint di servizio. Sarà quindi necessario integrare l'app per le funzioni con la rete virtuale per accedere alla risorsa. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
 
-Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
+Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile usare alcuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, questa configurazione interrompe l'app.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. Attualmente non è possibile usare nessuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, questa configurazione interrompe l'esecuzione dell'app.
 
-Per altre informazioni, vedere [requisiti dell'account di archiviazione](./functions-create-function-app-portal.md#storage-account-requirements).
+Per altre informazioni, vedere [Requisiti dell'account di archiviazione](./functions-create-function-app-portal.md#storage-account-requirements).
 
-## <a name="use-key-vault-references"></a>USA riferimenti Key Vault
+## <a name="use-key-vault-references"></a>Usare i riferimenti di Key Vault
 
-È possibile usare i riferimenti Azure Key Vault per usare i segreti Azure Key Vault nell'applicazione funzioni di Azure senza richiedere modifiche al codice. Azure Key Vault è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
+È possibile usare i riferimenti di Azure Key Vault per usare segreti di Azure Key Vault nell'applicazione Funzioni di Azure senza modificare il codice. Azure Key Vault è un servizio che supporta la gestione centralizzata dei segreti, con controllo completo sui criteri di accesso e sulla cronologia di controllo.
 
-Attualmente, i [riferimenti Key Vault](../app-service/app-service-key-vault-references.md) non funzionano se l'insieme di credenziali delle chiavi è protetto con gli endpoint di servizio. Per connettersi a un insieme di credenziali delle chiavi tramite l'integrazione della rete virtuale, è necessario chiamare Key Vault nel codice dell'applicazione.
+Attualmente i [riferimenti di Key Vault](../app-service/app-service-key-vault-references.md) non funzionano se l'insieme di credenziali delle chiavi è protetto con gli endpoint di servizio. Per connettersi a un insieme di credenziali delle chiavi tramite l'integrazione della rete virtuale, è necessario chiamare Key Vault nel codice dell'applicazione.
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 
-Attualmente, è possibile usare funzioni trigger non HTTP da una rete virtuale in uno dei due modi seguenti:
+Attualmente è possibile usare funzioni trigger non HTTP da una rete virtuale in uno dei due modi seguenti:
 
 + Eseguire l'app per le funzioni in un piano Premium e abilitare il supporto dei trigger della rete virtuale.
-+ Eseguire l'app per le funzioni in un piano di servizio app o in ambiente del servizio app.
++ Eseguire l'app per le funzioni in un piano di servizio app o in un ambiente del servizio app.
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP ai servizi in esecuzione all'interno di una rete virtuale. A tale scopo, è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di supporto per il **trigger della rete virtuale** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione**di configurazione.
+Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione **Supporto trigger di rete virtuale** è disponibile nel [portale di Azure](https://portal.azure.com) in **Configurazione** > **Impostazioni di runtime della funzione**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
-È anche possibile abilitare i trigger della rete virtuale usando il comando dell'interfaccia della riga di comando di Azure seguente:
+È anche possibile abilitare i trigger della rete virtuale usando il seguente comando dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
-I trigger della rete virtuale sono supportati nella versione 2. x e successive del runtime di funzioni. Sono supportati i tipi di trigger non HTTP seguenti.
+I trigger della rete virtuale sono supportati nella versione 2.x e versioni successive del runtime di Funzioni. Sono supportati i tipi di trigger non HTTP seguenti.
 
 | Estensione | Versione minima |
 |-----------|---------| 
-|[Microsoft. Azure. webjobs. Extensions. storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 o versione successiva |
-|[Microsoft. Azure. webjobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 o versione successiva|
-|[Microsoft. Azure. webjobs. Extensions. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 o versione successiva|
-|[Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 o versione successiva|
-|[Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 o versione successiva|
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 o versioni successive |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 o versioni successive|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 o versioni successive|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 o versioni successive|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 o versioni successive|
 
 > [!IMPORTANT]
-> Quando si Abilita il supporto dei trigger della rete virtuale, solo i tipi di trigger indicati nella tabella precedente vengono ridimensionati dinamicamente con l'applicazione. È comunque possibile usare i trigger che non sono presenti nella tabella, ma che non vengono ridimensionati oltre il numero di istanze pre-riscaldate. Per l'elenco completo dei trigger, vedere [trigger e associazioni](./functions-triggers-bindings.md#supported-bindings).
+> Quando si abilita il supporto dei trigger della rete virtuale, solo i tipi di trigger indicati nella tabella precedente vengono ridimensionati dinamicamente con l'applicazione. È comunque possibile usare trigger non presenti nella tabella, ma questi non vengono ridimensionati oltre il numero di istanze preriscaldate. Per l'elenco completo dei trigger, vedere [Trigger e associazioni](./functions-triggers-bindings.md#supported-bindings).
 
-### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Piano di servizio app e ambiente del servizio app con i trigger della rete virtuale
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Piano di servizio app e ambiente del servizio app con trigger della rete virtuale
 
-Quando l'app per le funzioni viene eseguita in un piano di servizio app o in una ambiente del servizio app, è possibile usare funzioni trigger non HTTP. Affinché le funzioni vengano attivate correttamente, è necessario essere connessi a una rete virtuale con accesso alla risorsa definita nella connessione trigger.
+Quando l'app per le funzioni viene eseguita in un piano di servizio app o in un ambiente del servizio app, è possibile usare funzioni trigger non HTTP. Per garantire che le funzioni vengano attivate correttamente, è necessario essere connessi a una rete virtuale con accesso alla risorsa definita nella connessione trigger.
 
-Si supponga, ad esempio, di voler configurare Azure Cosmos DB per accettare il traffico solo da una rete virtuale. In questo caso, è necessario distribuire l'app per le funzioni in un piano di servizio app che fornisce l'integrazione della rete virtuale con tale rete virtuale. L'integrazione consente a una funzione di essere attivata da tale risorsa Azure Cosmos DB.
+Si supponga ad esempio di voler configurare Azure Cosmos DB in modo che accetti traffico solo da una rete virtuale. In questo caso è necessario distribuire l'app per le funzioni in un piano di servizio app che offre l'integrazione della rete virtuale con quella rete virtuale specifica. L'integrazione consente a una funzione di essere attivata da quella risorsa Azure Cosmos DB.
 
 ## <a name="hybrid-connections"></a>connessioni ibride
 
-[Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni che vengono eseguite in Windows in tutto tranne il piano a consumo.
+Le [connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) sono una funzionalità di Inoltro di Azure che consente di accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarla per accedere all'applicazione. Le connessioni ibride sono disponibili per le funzioni che vengono eseguite in Windows in tutte le versioni meno il Piano a consumo.
 
-Come usato in funzioni di Azure, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e qualsiasi applicazione, purché si acceda a una porta di ascolto TCP. La funzionalità Connessioni ibride non conosce né interessa il protocollo dell'applicazione o ciò che si sta accedendo. Fornisce solo l'accesso alla rete.
+Come in Funzioni di Azure, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Questo significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e in qualsiasi applicazione, a condizione che si acceda a una porta TCP in ascolto. La funzionalità Connessioni ibride non conosce né deve conoscere qual è il protocollo dell'applicazione o a quale risorsa sta accedendo l'utente. Offre solo l'accesso alla rete.
 
-Per altre informazioni, vedere la [documentazione del servizio app per connessioni ibride](../app-service/app-service-hybrid-connections.md). Questi stessi passaggi di configurazione supportano funzioni di Azure.
+Per altre informazioni, vedere la [Documentazione del servizio app per le connessioni ibride](../app-service/app-service-hybrid-connections.md). La stessa procedura di configurazione supporta Funzioni di Azure.
 
 >[!IMPORTANT]
-> Connessioni ibride è supportato solo nei piani di Windows. Linux non è supportato.
+> Le connessioni ibride sono supportate solo nei piani di Windows. Linux non è supportato.
 
 ## <a name="outbound-ip-restrictions"></a>Restrizioni IP in uscita
 
-Le restrizioni IP in uscita sono disponibili in un piano Premium, in un piano di servizio app o in ambiente del servizio app. È possibile configurare le restrizioni in uscita per la rete virtuale in cui è distribuita la ambiente del servizio app.
+Le restrizioni IP in uscita sono disponibili in un piano Premium, un piano di servizio app o un ambiente del servizio app. È possibile configurare le restrizioni in uscita per la rete virtuale in cui è distribuito l'ambiente del servizio app.
 
-Quando si integra un'app per le funzioni in un piano Premium o un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Aggiungendo l'impostazione dell'applicazione `WEBSITE_VNET_ROUTE_ALL=1` , si forza l'invio di tutto il traffico in uscita nella rete virtuale, in cui è possibile usare le regole del gruppo di sicurezza di rete per limitare il traffico.
+Quando si integra un'app per le funzioni in un piano Premium o in un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Se si aggiunge l'impostazione dell'applicazione `WEBSITE_VNET_ROUTE_ALL=1` si forza l'invio di tutto il traffico in uscita alla rete virtuale, in cui è possibile usare regole del gruppo di sicurezza di rete per limitare il traffico.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -154,11 +146,11 @@ Quando si integra un'app per le funzioni in un piano Premium o un piano di servi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su rete e funzioni di Azure:
+Per altre informazioni sulla rete e su Funzioni di Azure:
 
-* [Segui l'esercitazione su come iniziare a usare l'integrazione della rete virtuale](./functions-create-vnet.md)
-* [Leggi le domande frequenti sulle funzionalità di rete](./functions-networking-faq.md)
-* [Altre informazioni sull'integrazione della rete virtuale con il servizio app/funzioni](../app-service/web-sites-integrate-with-vnet.md)
-* [Altre informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
-* [Abilitare altre funzionalità di rete e controllare con gli ambienti del servizio app](../app-service/environment/intro.md)
-* [Connettersi a singole risorse locali senza modifiche al firewall usando Connessioni ibride](../app-service/app-service-hybrid-connections.md)
+* [Eseguire l'esercitazione Integrare Funzioni con una rete virtuale di Azure](./functions-create-vnet.md)
+* [Leggere le Domande frequenti sulla rete di Funzioni](./functions-networking-faq.md)
+* [Informazioni sull'integrazione della rete virtuale con il servizio app/Funzioni](../app-service/web-sites-integrate-with-vnet.md)
+* [Informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
+* [Abilitare altre funzionalità e il controllo di rete con gli ambienti di servizio app](../app-service/environment/intro.md)
+* [Connettersi a singole risorse locali senza modifiche al firewall usando le connessioni ibride](../app-service/app-service-hybrid-connections.md)

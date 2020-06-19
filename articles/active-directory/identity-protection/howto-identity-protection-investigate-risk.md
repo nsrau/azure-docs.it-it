@@ -1,6 +1,6 @@
 ---
-title: Esaminare Azure Active Directory Identity Protection di rischio
-description: Informazioni su come analizzare gli utenti, i rilevamenti e gli accessi a rischio in Azure Active Directory Identity Protection
+title: Analizzare i rischi in Azure Active Directory Identity Protection
+description: Informazioni su come analizzare utenti, rilevamenti e accessi a rischio in Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,85 +11,88 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253481"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680150"
 ---
-# <a name="how-to-investigate-risk"></a>Procedura: analizzare i rischi
+# <a name="how-to-investigate-risk"></a>Procedura: Analizzare gli eventi di rischio
 
-Identity Protection offre alle organizzazioni tre report che possono usare per analizzare i rischi di identità nel proprio ambiente. Questi report sono gli **utenti a rischio, gli** **accessi a rischio**e i **rilevamenti dei rischi**. L'analisi degli eventi è fondamentale per comprendere meglio e identificare eventuali punti deboli nella strategia di sicurezza.
+Identity Protection offre alle organizzazioni tre report che possono usare per analizzare i rischi relativi alle identità nell'ambiente in uso. Questi report sono **Utenti a rischio**, **Accessi a rischio** e **Rilevamento di rischi**. L'analisi degli eventi è fondamentale per comprendere meglio e identificare eventuali punti deboli nella strategia di sicurezza.
 
-Tutti e tre i report consentono il download degli eventi in. Formato CSV per un'ulteriore analisi al di fuori della portale di Azure. I report utenti a rischio e accessi a rischio consentono di scaricare le voci 2500 più recenti, mentre il rapporto sui rilevamenti dei rischi consente di scaricare i record 5000 più recenti.
+Tutti e tre i report consentono il download degli eventi in formato CSV per un'ulteriore analisi all'esterno del portale di Azure. I report utenti a rischio e accessi a rischio consentono di scaricare le 2.500 voci più recenti, mentre il report sui rilevamenti di rischi consente di scaricare i 5.000 record più recenti.
 
-Le organizzazioni possono sfruttare i vantaggi delle integrazioni dell'API Microsoft Graph per aggregare i dati con altre origini a cui possono accedere come organizzazione.
+Le organizzazioni possono sfruttare i vantaggi offerti dalle integrazioni dell'API Microsoft Graph per aggregare i dati con altre origini a cui possono accedere come organizzazione.
 
-I tre rapporti sono disponibili nella **portale di Azure** > **Azure Active Directory** > **sicurezza**.
+I tre report sono disponibili nel **portale di Azure** > **Azure Active Directory** > **Sicurezza**.
 
 ## <a name="navigating-the-reports"></a>Esplorazione dei report
 
-Ogni report viene avviato con un elenco di tutti i rilevamenti relativi al periodo indicato nella parte superiore del report. Ogni report consente l'aggiunta o la rimozione di colonne in base alle preferenze dell'amministratore. Gli amministratori possono scegliere di scaricare i dati in. CSV o. Formato JSON. I report possono essere filtrati utilizzando i filtri nella parte superiore del report.
+Ogni report viene avviato con un elenco di tutti i rilevamenti relativi al periodo indicato nella parte superiore del report. Ogni report consente l'aggiunta o la rimozione di colonne in base alle preferenze dell'amministratore. Gli amministratori possono scegliere di scaricare i dati in formato CSV o JSON. I report possono essere filtrati usando i filtri disponibili nella parte superiore del report.
 
-Selezionando le singole voci è possibile abilitare voci aggiuntive nella parte superiore del report, ad esempio la possibilità di confermare un accesso come compromesso o sicuro, confermare un utente come compromesso oppure ignorare il rischio utente.
+La selezione di singole voci può abilitare voci aggiuntive nella parte superiore del report, ad esempio la possibilità di confermare un accesso come compromesso o sicuro, confermare un utente come compromesso oppure ignorare il rischio utente.
 
-Selezionando singole voci, viene espansa una finestra dei dettagli sotto i rilevamenti. La visualizzazione dettagli consente agli amministratori di analizzare ed eseguire azioni su ogni rilevamento. 
+La selezione di singole voci espande una finestra dei dettagli sotto i rilevamenti. La visualizzazione dei dettagli consente agli amministratori di analizzare ed eseguire azioni su ogni rilevamento. 
 
-![Esempio di report di Identity Protection che Mostra gli accessi a rischio e i dettagli](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
+![Report di Identity Protection di esempio che mostra gli accessi a rischio e i dettagli](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
 
 ## <a name="risky-users"></a>Utenti a rischio
 
-Con le informazioni fornite dal rapporto utenti a rischio, gli amministratori possono trovare:
+Con le informazioni contenute nel report utenti a rischio gli amministratori possono trovare:
 
-- Quali utenti sono a rischio, sono stati risolti i rischi o sono stati rilevati rischi?
+- Quali utenti sono a rischio, per quali utenti sono stati risolti i rischi o sono stati ignorati i rischi
 - Dettagli sui rilevamenti
 - Cronologia di tutti gli accessi a rischio
 - Cronologia rischio
  
-Gli amministratori possono quindi scegliere di intervenire su questi eventi. Gli amministratori possono scegliere di:
+Gli amministratori possono quindi scegliere di intervenire su questi eventi. E possono scegliere di:
 
-- Reimpostare la password utente
-- Conferma compromissione utente
+- Reimpostare la password dell'utente
+- Confermare la compromissione dell'utente
 - Ignorare il rischio utente
-- Blocca l'accesso dell'utente
-- Approfondire l'uso di Azure ATP
+- Impedire all'utente di accedere
+- Eseguire ulteriori analisi usando Azure ATP
 
 ## <a name="risky-sign-ins"></a>Accessi a rischio
 
-Il report degli accessi a rischio contiene dati filtrabili per un massimo di 30 giorni (1 mese).
+Il report degli accessi a rischio contiene dati filtrabili per gli ultimi 30 giorni (1 mese).
 
-Con le informazioni fornite dal report degli accessi a rischio, gli amministratori possono trovare:
+Con le informazioni contenute nel report accessi a rischio gli amministratori possono trovare:
 
-- Quali accessi sono classificati come a rischio, sono stati confermati compromessi, sono stati confermati, sono stati rilasciati e risolti.
+- Quali accessi sono classificati come a rischio, quali sono stati confermati come compromessi, quali sono stati confermati come sicuri, quali sono stati ignorati o corretti.
 - Livelli di rischio in tempo reale e aggregati associati ai tentativi di accesso.
 - Tipi di rilevamento attivati
 - Criteri di accesso condizionale applicati
-- Dettagli dell'autenticazione a più fattori
+- Dettagli di MFA
 - Informazioni sul dispositivo
 - Informazioni sull'applicazione
 - Informazioni sulla posizione
 
-Gli amministratori possono quindi scegliere di intervenire su questi eventi. Gli amministratori possono scegliere di:
+Gli amministratori possono quindi scegliere di intervenire su questi eventi. E possono scegliere di:
 
-- Confermare la compromissione dell'accesso
-- Conferma l'accesso sicuro
+- Confermare l'accesso compromesso
+- Confermare l'accesso sicuro
+
+> [!NOTE] 
+> Identity Protection valuta il rischio per tutti i flussi di autenticazione, sia interattivi che non interattivi. Tuttavia, il report degli accessi mostra solo gli accessi interattivi. È possibile che vengano visualizzati accessi a rischio che si sono verificati in accessi non interattivi, ma l'accesso non viene visualizzato nel report degli accessi di Azure AD.
 
 ## <a name="risk-detections"></a>Rilevamenti dei rischi
 
-Il report rilevamento rischi contiene dati filtrabili per un massimo di 90 giorni (3 mesi).
+Il report dei rilevamenti di rischi contiene dati filtrabili per gli ultimi 90 giorni (3 mesi).
 
-Con le informazioni fornite dal rapporto sui rilevamenti dei rischi, gli amministratori possono trovare:
+Con le informazioni contenute nel report rilevamenti di rischi gli amministratori possono trovare:
 
-- Informazioni su ogni rilevamento dei rischi, incluso il tipo.
-- Altri rischi attivati allo stesso tempo
-- Percorso del tentativo di accesso
-- Per altri dettagli, fare collegamento a Microsoft Cloud App Security (MCAS).
+- Informazioni su ogni rilevamento di rischi, incluso il tipo.
+- Altri rischi attivati contemporaneamente
+- Posizione del tentativo di accesso
+- Collegamento a informazioni dettagliate in Microsoft Cloud App Security (MCAS).
 
-Gli amministratori possono quindi scegliere di tornare al report dei rischi o degli accessi dell'utente per eseguire azioni in base alle informazioni raccolte.
+Gli amministratori possono quindi scegliere di tornare al report utenti a rischio o accessi a rischio per eseguire azioni in base alle informazioni raccolte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Criteri disponibili per attenuare i rischi](concept-identity-protection-policies.md)
 
-- [Abilitare l'accesso e i criteri di rischio utente](howto-identity-protection-configure-risk-policies.md)
+- [Abilitare i criteri di rischio per accessi e utenti](howto-identity-protection-configure-risk-policies.md)

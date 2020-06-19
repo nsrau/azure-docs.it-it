@@ -2,7 +2,7 @@
 title: Garantire la sicurezza dell'istanza gestita SQL con le entità server (account di accesso) di Azure AD
 description: Informazioni sulle tecniche e le funzionalità per proteggere un'istanza gestita di SQL di Azure e usare le entità server (account di accesso) di Azure AD
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219805"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706439"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita di SQL di Azure con le entità server (account di accesso) di Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

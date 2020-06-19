@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231591"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676455"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Avvio rapido: Creare la prima funzione in Azure con Visual Studio
 
@@ -40,7 +40,7 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
 
 1. Nel codice rinominare la classe Function1 in 'HttpExample'.
 
-1. Nel metodo `HttpTrigger` denominato `run` rinominare l'attributo del metodo `FunctionName` in `HttpExample`.
+1. Nel metodo `HttpTrigger` denominato `Run` rinominare l'attributo del metodo `FunctionName` in `HttpExample`.
 
 Dopo aver rinominato la funzione, è possibile testarla nel computer locale.
 

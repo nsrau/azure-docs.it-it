@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b6cad548c9fdc5b5157c842d6302c8635e21a15
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996823"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099328"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -22,6 +22,17 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 > [!NOTE]
 > Le guide introduttive e le guide per il riconoscimento moduli utilizzano sempre la versione più recente dell'API, a meno che non sia specificato.
+
+## <a name="june-2020"></a>Giugno 2020
+
+### <a name="new-features"></a>Nuove funzionalità
+* **API CopyModel aggiunta agli SDK client** È ora possibile usare gli SDK client per copiare i modelli da una sottoscrizione a un'altra. Per informazioni generali su questa funzionalità, vedere [eseguire il backup e il ripristino dei modelli](./disaster-recovery.md) .
+* **Integrazione di Azure Active Directory** È ora possibile usare le credenziali di AAD per autenticare gli oggetti client del riconoscimento del modulo negli SDK.
+* **Modifiche specifiche dell'SDK** Sono incluse le aggiunte di funzionalità secondarie e le modifiche di rilievo. Per ulteriori informazioni, vedere i log delle modifiche dell'SDK.
+  * [Log delle modifiche anteprima 3 di C# SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Log delle modifiche di Python SDK Preview 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Changelog di Java SDK Preview 3](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Log delle modifiche anteprima 3 di JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ## <a name="april-2020"></a>Aprile 2020
 

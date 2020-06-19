@@ -44,14 +44,10 @@
           href: path-selection-multiple-links.md
 - name: Guide pratiche
   items:
-    - name: Connettere il gateway di rete virtuale alla rete WAN virtuale
-      href: connect-virtual-network-gateway-vwan.md
     - name: Configurare il peering di reti virtuali globale
       href: global-peering-vnet.md
     - name: Aggiornare uno SKU di rete WAN virtuale
       href: upgrade-virtual-wan.md
-    - name: Configurare criteri IPSec personalizzati
-      href: virtual-wan-custom-ipsec-portal.md
     - name: ExpressRoute
       items:
         - name: Creare una connessione ExpressRoute
@@ -62,6 +58,10 @@
       items:
         - name: Creare una connessione da sito a sito
           href: virtual-wan-site-to-site-portal.md
+        - name: Connettere il gateway di rete virtuale alla rete WAN virtuale
+          href: connect-virtual-network-gateway-vwan.md
+        - name: Configurare criteri IPSec personalizzati
+          href: virtual-wan-custom-ipsec-portal.md
     - name: VPN utente (da punto a sito)
       items:
         - name: Creare una connessione VPN utente
@@ -109,7 +109,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
     - name: Interfaccia della riga di comando di Azure

@@ -1,33 +1,33 @@
 ---
-title: Dettagli dei pagamenti per area-Microsoft Commercial Marketplace
-description: Informazioni sul tempo stimato per il trasferimento dei pagamenti e sulle vetrine Microsoft da cui è possibile ricevere i pagamenti, variano a seconda del paese/area geografica e del tipo di account di pagamento.
+title: Informazioni dettagliate sui proventi per area geografica - Marketplace commerciale Microsoft
+description: Informazioni sul tempo stimato per il trasferimento dei pagamenti e sulle vetrine Microsoft da cui è possibile ricevere pagamenti, variabili a seconda del paese/area geografica e del tipo di account relativo ai proventi.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 29b6b47a30760887fb01700e50ecdeb5dd307ad4
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858174"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745021"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
-Il tempo stimato per il trasferimento dei pagamenti e le vetrine a cui è possibile ricevere i pagamenti possono variare a seconda del paese/area geografica e del tipo di account di pagamento. Questo articolo illustra i metodi di pagamento supportati in ogni paese e area geografica.
+Il tempo stimato per il trasferimento dei pagamenti e le vetrine da cui è possibile ricevere pagamenti possono variare a seconda del paese/area geografica e del tipo di account relativo ai proventi. Questo articolo illustra i metodi di pagamento supportati in ogni specifico paese e area geografica.
 
-Per tutti i paesi e le aree geografiche, si paga usando ACH/SEPA o il trasferimento in transito. Alcuni paesi e aree geografiche supportano anche PayPal come metodo di pagamento.
+Per qualsiasi paese e area geografica, il pagamento viene eseguito tramite trasferimento ACH/SEPA o bonifico bancario. Alcuni paesi e aree geografiche supportano anche il metodo di pagamento PayPal.
 
 > [!NOTE]
-> Per ulteriori informazioni su quando Microsoft rilascia i pagamenti per il Marketplace commerciale dopo che si è verificata una transazione, vedere [Dettagli dei criteri di pagamento](./payout-policy-details.md).
+> Per altre informazioni su quando vengono rilasciati i proventi per il marketplace commerciale in seguito a una transazione, vedere [Informazioni dettagliate sui criteri di pagamento](./payout-policy-details.md).
 
-## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Numero di giorni richiesti per il trasferimento dei pagamenti all'account per i proventi
+## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Numero di giorni per il trasferimento dei pagamenti nell'account dei proventi
 
-In genere il pagamento verrà inviato a causa di un determinato mese entro il 15 ° giorno del mese. Tuttavia, il pagamento per raggiungere l'account richiederà ulteriore tempo. Il numero di giorni può variare in base al metodo di pagamento usato per l'account, come descritto di seguito.
+Tutti i pagamenti che scadono entro uno specifico mese vengono in genere inviati entro il 15esimo giorno di tale mese. È tuttavia possibile che il trasferimento del pagamento sull'account richieda più tempo. Il numero di giorni varia a seconda del metodo di pagamento usato per l'account, come descritto di seguito.
 
-| Metodo di pagamento | Giorni approssimativi per raggiungere l'account |
+| Metodo di pagamento | Numero medio di giorni per il trasferimento nel conto |
 | --- | --- |
 | PayPal | 1 giorno lavorativo |
 | ACH/SEPA | 2-3 giorni lavorativi |
@@ -36,9 +36,9 @@ In genere il pagamento verrà inviato a causa di un determinato mese entro il 15
 
 ## <a name="payment-methods-in-countries-and-regions"></a>Metodi di pagamento in paesi e aree geografiche
 
-Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra indicati per ogni Marketplace. La soglia di pagamento in tutti i casi è $50 USD.
+Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metodi di pagamento sopra indicati. In tutti i casi la soglia di pagamento è 50 USD.
 
-| Country | Azure Marketplace | Store, Advertising, mixer e Minecraft | Office | Pagamenti PayPal  |
+| Paese/Area geografica | Azure Marketplace | Store, Advertising, mixer e Minecraft | Office | Pagamenti PayPal  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Sì | Sì | No | No |
 | Albania | Sì | Sì | Sì | Sì |
@@ -66,14 +66,14 @@ Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra i
 | Cambogia | Sì | Sì | Sì | No |
 | Camerun | Sì | Sì | Sì | No |
 | Canada | Sì | Sì | Sì | Sì |
-| Repubblica Centrafricana | Sì | Sì | Sì | No |
-| Ciad | Sì | Sì | Sì | No |
+| Repubblica centrafricana | Sì | Sì | Sì | No |
+| Chad | Sì | Sì | Sì | No |
 | Cile | Sì | Sì | Sì | Sì |
 | Cina | No | Sì | Sì | Sì |
 | Colombia | Sì | Sì | Sì | Sì |
 | Comore | Sì | Sì | No | No |
-| Repubblica democratica del Congo | Sì | Sì | Sì | No |
-| Congo, Repubblica di | Sì | Sì | Sì | No |
+| Repubblica Democratica del Congo | Sì | Sì | Sì | No |
+| Repubblica del Congo | Sì | Sì | Sì | No |
 | Costa Rica | Sì | Sì | Sì | Sì |
 | Costa d'Avorio | Sì | Sì | Sì | No |
 | Croazia | Sì | Sì | Sì | No |
@@ -113,7 +113,7 @@ Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra i
 | Giordania | Sì | Sì | Sì | Sì |
 | Kazakhstan | Sì | Sì | Sì | Sì |
 | Kenya | Sì | Sì | Sì | Sì |
-| Corea (Sud) | Sì | Sì | Sì | No |
+| Corea del Sud | Sì | Sì | Sì | No |
 | Kuwait | Sì | Sì | Sì | Sì |
 | Kirghizistan | No | No | Sì | No |
 | Laos | Sì | Sì | Sì | No |
@@ -137,7 +137,7 @@ Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra i
 | Marocco | Sì | Sì | Sì | No |
 | Mozambico | Sì | Sì | Sì | Sì |
 | Nepal | Sì | Sì | Sì | No |
-| Paesi Bassi, | Sì | Sì | Sì | Sì |
+| Paesi Bassi | Sì | Sì | Sì | Sì |
 | Nuova Zelanda | Sì | Sì | Sì | Sì |
 | Nicaragua | Sì | Sì | Sì | Sì |
 | Niger | Sì | Sì | Sì | No |
@@ -174,7 +174,7 @@ Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra i
 | Tagikistan | Sì | Sì | No | No |
 | Tanzania | Sì | Sì | Sì | No |
 | Thailandia | Sì | Sì | Sì | Sì |
-| Timor-Leste | Sì | Sì | Sì | No |
+| Timor Est | Sì | Sì | Sì | No |
 | Togo | Sì | Sì | Sì | No |
 | Tonga | Sì | Sì | No | No |
 | Trinidad e Tobago | Sì | Sì | Sì | Sì |
@@ -196,4 +196,4 @@ Questi sono i paesi e le aree in cui vengono usati i metodi di pagamento sopra i
 
 ## <a name="next-step"></a>passaggio successivo
 
-- [Panoramica Riepilogo pagamenti](./payout-summary-overview.md)
+- [Panoramica di riepilogo sui proventi](./payout-summary-overview.md)

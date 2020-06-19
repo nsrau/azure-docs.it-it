@@ -4,12 +4,13 @@ description: Informazioni su come usare il portale di Azure per creare un cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7fa547ca8a3907669c9e7671b11fe3a6307d97f4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: references_regions
+ms.openlocfilehash: e27a920aea18affd78f840d3063b8082f716745b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773424"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193944"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 

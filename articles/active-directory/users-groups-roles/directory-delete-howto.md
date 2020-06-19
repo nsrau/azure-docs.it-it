@@ -1,6 +1,6 @@
 ---
-title: Eliminare un Azure AD directory-Azure Active Directory | Microsoft Docs
-description: Viene illustrato come preparare una directory di Azure AD per l'eliminazione, incluse le directory self-service
+title: Eliminare un'organizzazione di Azure AD (tenant) - Azure Active Directory | Microsoft Docs
+description: Illustra come preparare un'organizzazione di Azure AD (tenant) per l'eliminazione, incluse le organizzazioni self-service
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,137 +9,137 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/21/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e5ea42f5196b2c4ffe06c139e595dd4641752d35
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73961828"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816200"
 ---
-# <a name="delete-a-directory-in-azure-active-directory"></a>Eliminare una directory in Azure Active Directory
+# <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminare un tenant in Azure Active Directory
 
-Quando viene eliminata una directory di Azure AD, vengono eliminate anche tutte le risorse contenute nella directory. Preparare l'organizzazione riducendo al minimo le risorse associate prima di eliminare. Solo un amministratore globale di Azure Active Directory (Azure AD) può eliminare una directory di Azure AD dal portale.
+Quando viene eliminata un'organizzazione di Azure AD (tenant), vengono eliminate anche tutte le risorse contenute al suo interno. Preparare l'organizzazione riducendo al minimo le risorse associate prima di eliminarla. Solo un amministratore globale di Azure Active Directory (Azure AD) può eliminare un'organizzazione di Azure AD dal portale.
 
-## <a name="prepare-the-directory"></a>Preparare la directory
+## <a name="prepare-the-organization"></a>Preparare l'organizzazione
 
-Non è possibile eliminare una directory in Azure AD finché non vengono superati diversi controlli. Questi controlli riducono il rischio che l'eliminazione di un Azure AD directory influisca negativamente sull'accesso degli utenti, ad esempio la possibilità di accedere a Office 365 o di accedere alle risorse in Azure. Se ad esempio la directory associata a una sottoscrizione viene eliminata involontariamente, gli utenti non potranno accedere alle risorse di Azure per tale sottoscrizione. Viene verificato che siano soddisfatte le condizioni seguenti:
+Non è possibile eliminare un'organizzazione di Azure AD fino a quando non supera numerosi controlli. In questo modo si riduce il rischio che l'eliminazione di un'organizzazione di Azure AD possa influire negativamente sull'accesso degli utenti, ad esempio sulla possibilità di accedere a Office 365 o alle risorse in Azure. Se l'organizzazione associata a una sottoscrizione viene eliminata accidentalmente, ad esempio, gli utenti non potranno accedere alle risorse di Azure per tale sottoscrizione. Viene verificato che siano soddisfatte le condizioni seguenti:
 
-* Non possono essere presenti utenti nella directory, ad eccezione di un amministratore globale che deve eliminare la directory. Tutti gli altri utenti devono essere eliminati prima che possa essere eliminata la directory. Se gli utenti vengono sincronizzati dall'ambiente locale, è prima necessario disattivare la sincronizzazione e gli utenti devono essere eliminati nella directory cloud usando i cmdlet portale di Azure o Azure PowerShell.
-* La directory non può contenere applicazioni. Prima di poter eliminare la directory, è necessario rimuovere tutte le applicazioni.
-* Non possono essere presenti provider di autenticazione a più fattori collegati alla directory.
-* Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory.
+* Nell'organizzazione (tenant) di Azure AD non deve essere presente alcun utente, ad eccezione dell'amministratore globale che deve eliminare l'organizzazione. Per poter eliminare l'organizzazione, è prima necessario eliminare tutti gli altri utenti. Se gli utenti vengono sincronizzati dall'ambiente locale, è prima necessario disattivare la sincronizzazione ed eliminare gli utenti nell'organizzazione cloud tramite il portale di Azure o i cmdlet di Azure PowerShell.
+* L'organizzazione non può contenere applicazioni. Per poter eliminare l'organizzazione, è prima necessario rimuovere tutte le applicazioni.
+* All'organizzazione non possono essere collegati provider di autenticazione a più fattori.
+* All'organizzazione non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata automaticamente un'organizzazione di Azure AD predefinita, non è possibile eliminare questa organizzazione se la sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare un'organizzazione se la sottoscrizione di un altro utente è associata a tale organizzazione.
 
-## <a name="delete-the-directory"></a>Elimina la directory
+## <a name="delete-the-organization"></a>Eliminare l'organizzazione
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che sia l'amministratore globale dell'organizzazione.
+1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale per l'organizzazione.
 
 2. Selezionare **Azure Active Directory**.
 
-3. Passare alla directory che si vuole eliminare.
+3. Passare all'organizzazione da eliminare.
   
-   ![Conferma organizzazione prima dell'eliminazione](./media/directory-delete-howto/delete-directory-command.png)
+   ![Confermare l'organizzazione prima dell'eliminazione](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Selezionare **Elimina directory**.
+4. Selezionare **Elimina tenant**.
   
-   ![Selezionare il comando per eliminare l'organizzazione](./media/directory-delete-howto/delete-directory-list.png)
+   ![selezionare il comando per eliminare l'organizzazione](./media/directory-delete-howto/delete-directory-list.png)
 
-5. Se la directory non supera uno o più controlli, viene fornito un collegamento ad altre informazioni su come passare. Dopo aver superato tutti i controlli, selezionare **Elimina** per completare il processo.
+5. Se l'organizzazione non supera uno o più controlli, viene fornito un collegamento per ottenere altre informazioni su come superarli. Dopo aver superato tutti i controlli, selezionare **Elimina** per completare il processo.
 
-## <a name="if-you-cant-delete-the-directory"></a>Se non è possibile eliminare la directory
+## <a name="if-you-cant-delete-the-organization"></a>Se non è possibile eliminare l'organizzazione
 
-Quando è stata configurata la directory di Azure AD, è possibile che siano state attivate anche le sottoscrizioni basate su licenza per l'organizzazione, ad esempio Azure AD Premium P2, Office 365 Business Premium o Enterprise Mobility + Security E5. Per evitare la perdita accidentale di dati, non è possibile eliminare una directory fino a quando le sottoscrizioni non vengono eliminate completamente. Per consentire l'eliminazione della directory, le sottoscrizioni devono essere in stato **deprovisioning** . Una sottoscrizione **scaduta** o **annullata** viene spostata allo stato **disabilitato** e la fase finale è lo stato di **deprovisioning** .
+Quando è stata configurata l'organizzazione di Azure AD, potrebbero essere state attivate sottoscrizioni basate su licenza per l'azienda, ad esempio Azure AD Premium P2, Office 365 Business Premium o Enterprise Mobility + Security E5. Per evitare la perdita accidentale di dati, non è possibile eliminare un'organizzazione fino a quando le sottoscrizioni non sono state completamente eliminate. Per consentire l'eliminazione dell'organizzazione, lo stato delle sottoscrizioni deve essere **Deprovisioning eseguito**. Una sottoscrizione **Scaduta** o **Annullata** passa allo stato **Disabilitato** e la fase finale è lo stato **Deprovisioning eseguito**.
 
 Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Stato sottoscrizione | Data | Accesso ai dati
 ----- | ----- | -----
-Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale a Microsoft 365 interfaccia di amministrazione e risorse 
-Scaduto (30 giorni) | Dati accessibili a tutti| Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale a Microsoft 365 interfaccia di amministrazione e risorse
-Disattivato (30 giorni) | Dati accessibili solo all'amministratore | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere al Microsoft 365 interfaccia di amministrazione, ma non possono assegnare licenze o aggiornare gli utenti
-Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere al centro di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
+Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse 
+Scaduto (30 giorni) | Dati accessibili a tutti| Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse
+Disattivato (30 giorni) | Dati accessibili solo all'amministratore | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365, ma non possono assegnare licenze o aggiornare gli utenti
+Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
 
-## <a name="delete-a-subscription"></a>Eliminazione di una sottoscrizione
+## <a name="delete-a-subscription"></a>Eliminare una sottoscrizione
 
-È possibile inserire una sottoscrizione nello stato di **deprovisioning** da eliminare tra tre giorni usando l'interfaccia di amministrazione di Microsoft 365.
+È possibile impostare una sottoscrizione sullo stato **Deprovisoning eseguito** per essere eliminata entro 3 giorni tramite l'interfaccia di amministrazione di Microsoft 365.
 
-1. Accedere al centro di [amministrazione di Microsoft 365](https://admin.microsoft.com) con un account che sia un amministratore globale dell'organizzazione. Se si sta provando a eliminare la directory "contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, effettuare l'accesso con un UPN, ad admin@contoso.onmicrosoft.comesempio.
+1. Accedere all'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com) con un account di amministratore globale nell'organizzazione. Se si sta tentando di eliminare l'organizzazione "Contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, accedere con un nome dell'entità utente, ad esempio admin@contoso.onmicrosoft.com.
 
-2. Visualizzare l'anteprima del nuovo Microsoft 365 interfaccia di amministrazione verificando che l'interruttore **prova il nuovo centro di amministrazione** sia abilitato.
+2. Visualizzare l'anteprima della nuova interfaccia di amministrazione di Microsoft 365 assicurandosi che l'interruttore **Prova la nuova interfaccia di amministrazione** sia abilitato.
 
-   ![Anteprima della nuova esperienza dell'interfaccia di amministrazione di M365](./media/directory-delete-howto/preview-toggle.png)
+   ![Anteprima della nuova esperienza dell'interfaccia di amministrazione di Microsoft 365](./media/directory-delete-howto/preview-toggle.png)
 
-3. Quando il nuovo centro di amministrazione è abilitato, è necessario annullare una sottoscrizione prima di poterla eliminare. Selezionare **fatturazione** e selezionare **prodotti & Servizi**, quindi selezionare **Annulla sottoscrizione** per la sottoscrizione che si vuole annullare. Verrà visualizzata una pagina di feedback.
+3. Dopo aver abilitato la nuova interfaccia di amministrazione, è necessario annullare una sottoscrizione prima di poterla eliminare. Selezionare **Fatturazione**, quindi **Prodotti e servizi** e infine fare clic su **Annulla sottoscrizione** per la sottoscrizione che si vuole annullare. Verrà visualizzata una pagina di feedback.
 
    ![Scegliere una sottoscrizione da annullare](./media/directory-delete-howto/cancel-choose-subscription.png)
 
-4. Completare il modulo feedback e selezionare **Annulla sottoscrizione** per annullare la sottoscrizione.
+4. Completare il modulo di feedback e selezionare **Annulla sottoscrizione** per annullare la sottoscrizione.
 
-   ![Annulla il comando nell'anteprima della sottoscrizione](./media/directory-delete-howto/cancel-command.png)
+   ![Comando Annulla nell'anteprima della sottoscrizione](./media/directory-delete-howto/cancel-command.png)
 
-5. È ora possibile eliminare la sottoscrizione. Selezionare **Elimina** per la sottoscrizione che si vuole eliminare. Se la sottoscrizione non è stata trovata nella pagina **prodotti & Servizi** , assicurarsi che lo **stato della sottoscrizione** sia impostato su **tutti**.
+5. A questo punto è possibile eliminare la sottoscrizione. Selezionare **Elimina** per la sottoscrizione che si vuole eliminare. Se non è possibile trovare la sottoscrizione nella pagina **Prodotti e servizi**, assicurarsi che **Stato sottoscrizione** sia impostato su **Tutti**.
 
    ![Eliminare il collegamento per l'eliminazione della sottoscrizione](./media/directory-delete-howto/delete-command.png)
 
-6. Selezionare **Elimina sottoscrizione** per eliminare la sottoscrizione e accettare i termini e le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile [riattivare la sottoscrizione](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante il periodo di tre giorni.
+6. Selezionare **Elimina sottoscrizione** per eliminare la sottoscrizione e accettare le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile [riattivare la sottoscrizione](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) entro un periodo di tre giorni.
   
-   ![leggere attentamente i termini e le condizioni](./media/directory-delete-howto/delete-terms.png)
+   ![leggere attentamente le condizioni](./media/directory-delete-howto/delete-terms.png)
 
-7. A questo punto lo stato della sottoscrizione è stato modificato e la sottoscrizione è contrassegnata per l'eliminazione. La sottoscrizione passa allo stato **Deprovisioning eseguito** 72 ore dopo.
+7. A questo punto lo stato della sottoscrizione è cambiato e la sottoscrizione è contrassegnata per l'eliminazione. La sottoscrizione passa allo stato **Deprovisioning eseguito** 72 ore dopo.
 
-8. Una volta eliminata una sottoscrizione nella directory e sono trascorse 72 ore, è possibile accedere di nuovo all'interfaccia di amministrazione di Azure AD e non deve esistere alcuna azione necessaria e nessuna sottoscrizione blocca l'eliminazione della directory. Dovrebbe essere possibile eliminare correttamente la directory Azure AD.
+8. Trascorse 72 ore dall'eliminazione della sottoscrizione nell'organizzazione, è possibile effettuare nuovamente l'accesso all'interfaccia di amministrazione di Azure AD: non dovrebbe essere richiesto alcun intervento da parte dell'utente e non dovrebbero essere presenti sottoscrizioni che bloccano l'eliminazione dell'organizzazione. Sarà quindi possibile procedere alla corretta eliminazione dell'organizzazione di Azure AD.
   
    ![superare il controllo della sottoscrizione nella schermata di eliminazione](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Ho una sottoscrizione di valutazione che blocca l'eliminazione
 
-Sono disponibili [prodotti di iscrizione self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) come Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono iscriversi tramite Office 365, che crea anche un utente Guest per l'autenticazione nella directory Azure ad. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando non vengono eliminati completamente dalla directory, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore Azure AD se l'utente ha effettuato l'iscrizione singolarmente o è stato assegnato al prodotto.
+Per alcuni [prodotti con iscrizione self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide), ad esempio Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono effettuare l'iscrizione tramite Office 365. Questa procedura crea anche un utente guest per l'autenticazione nell'organizzazione di Azure AD. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando i prodotti non vengono eliminati completamente dall'organizzazione, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore di Azure AD, indipendentemente dal fatto che l'utente abbia effettuato l'iscrizione singolarmente o che sia stato assegnato al prodotto.
 
-Esistono due tipi di prodotti di iscrizione self-service in modalità di assegnazione: 
+Esistono due tipi di prodotti con iscrizione self-service con modalità di assegnazione diverse: 
 
-* Assegnazione a livello di organizzazione: un amministratore di Azure AD assegna il prodotto all'intera organizzazione e un utente può usare attivamente il servizio con questa assegnazione a livello di organizzazione anche se non è concesso in licenza individualmente.
-* Assegnazione a livello di utente: un singolo utente durante l'iscrizione self-service essenzialmente assegna il prodotto a se stesso senza un amministratore. Quando l'organizzazione viene gestita da un amministratore (vedere [acquisizione di una directory non gestita](domains-admin-takeover.md)da parte dell'amministratore), l'amministratore può assegnare il prodotto direttamente agli utenti senza iscrizione self-service.  
+* Assegnazione a livello di organizzazione: Un amministratore di Azure AD assegna il prodotto all'intera organizzazione e un utente può usare attivamente il servizio con questa assegnazione a livello di organizzazione anche se non gli è stata concessa una licenza individuale.
+* Assegnazione a livello di utente: Un utente singolo durante l'iscrizione self-service assegna il prodotto a se stesso senza un amministratore. Quando l'organizzazione diventa gestita da un amministratore (vedere [Acquisizione di un'organizzazione non gestita da parte di un amministratore](domains-admin-takeover.md)), l'amministratore può assegnare direttamente il prodotto agli utenti senza l'iscrizione self-service.  
 
-Quando si inizia l'eliminazione del prodotto di iscrizione self-service, l'azione Elimina definitivamente i dati e rimuove tutti gli utenti che accedono al servizio. A tutti gli utenti a cui è stata assegnata l'offerta singolarmente o a livello di organizzazione viene quindi impedito l'accesso o l'accesso a tutti i dati esistenti. Se si desidera impedire la perdita di dati con il prodotto di iscrizione self-service, ad esempio i [dashboard di Microsoft Power bi](https://docs.microsoft.com/power-bi/service-export-to-pbix) o la [configurazione dei criteri di Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), assicurarsi che i dati vengano sottoposti a backup e salvati altrove.
+Quando si avvia l'eliminazione del prodotto con iscrizione self-service, l'azione elimina definitivamente i dati e rimuove tutti gli accessi utente al servizio. A tutti gli utenti a cui è stata assegnata l'offerta singolarmente o a livello di organizzazione viene quindi impedito l'accesso al servizio e a tutti i dati esistenti. Per impedire la perdita di dati per il prodotto con iscrizione self-service, ad esempio i [dashboard di Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) o la [configurazione dei criteri di Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), assicurarsi che i dati vengano sottoposti a backup e salvati altrove.
 
-Per ulteriori informazioni sui prodotti e i servizi di iscrizione self-service attualmente disponibili, vedere la pagina relativa ai [programmi self-service disponibili](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Per ulteriori informazioni sui prodotti e i servizi con iscrizione self-service attualmente disponibili, vedere [Programmi self-service disponibili](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
 Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Stato del prodotto | Data | Accesso ai dati
 ------------- | ---- | --------------
-Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale a prodotto, file o app di iscrizione self-service<br>Gli amministratori hanno accesso normale a Microsoft 365 interfaccia di amministrazione e risorse
-Deleted | Dati eliminati | Gli utenti non possono accedere al prodotto, ai file o alle app di iscrizione self-service<br>Gli amministratori possono accedere al centro di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
+Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale al prodotto con iscrizione self-service, ai file o alle app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse
+Deleted | Dati eliminati | Gli utenti non possono accedere al prodotto con iscrizione self-service, ai file o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
 
-## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Come è possibile eliminare un prodotto di iscrizione self-service nel portale di Azure?
+## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Come è possibile eliminare un prodotto con iscrizione self-service nel portale di Azure?
 
-È possibile inserire un prodotto di iscrizione self-service, ad esempio Microsoft Power BI o Azure Rights Management Services in uno stato di eliminazione, da **eliminare** immediatamente nel portale di Azure ad.
+È possibile impostare un prodotto con iscrizione self-service, ad esempio Microsoft Power BI o Azure Rights Management Services su uno stato di **eliminazione** per essere eliminato immediatamente nel portale di Azure AD.
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account che sia un amministratore globale dell'organizzazione. Se si sta tentando di eliminare la directory "contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, effettuare l'accesso con un UPN, admin@contoso.onmicrosoft.comad esempio.
+1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account di amministratore globale nell'organizzazione. Se si sta tentando di eliminare l'organizzazione "Contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, accedere con un nome dell'entità utente, ad esempio admin@contoso.onmicrosoft.com.
 
-2. Selezionare **licenze**e quindi selezionare **prodotti di iscrizione self-service**. È possibile visualizzare tutti i prodotti di iscrizione self-service separatamente dalle sottoscrizioni basate su postazione. Scegliere il prodotto che si desidera eliminare definitivamente. Di seguito è riportato un esempio in Microsoft Power BI:
+2. Selezionare **Licenze**, quindi selezionare **Self-service sign-up products** (Prodotti con iscrizione self-service). È possibile visualizzare tutti i prodotti con iscrizione self-service separatamente dalle sottoscrizioni basate su postazione. Scegliere il prodotto da eliminare definitivamente. Di seguito è riportato un esempio in Microsoft Power BI:
 
-    ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/licenses-page.png)
+    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/licenses-page.png)
 
-3. Selezionare **Elimina** per eliminare il prodotto e accettare le condizioni che i dati vengono eliminati immediatamente e irrevocabilmente. Questa azione di eliminazione rimuove tutti gli utenti e rimuove l'accesso dell'organizzazione al prodotto. Fare clic su Sì per procedere con l'eliminazione.  
+3. Selezionare **Elimina** per eliminare il prodotto e accettare le condizioni che spiegano che i dati verranno eliminati immediatamente e irrevocabilmente. Questa azione di eliminazione rimuove tutti gli utenti e rimuove l'accesso dell'organizzazione al prodotto. Fare clic su Sì per procedere con l'eliminazione.  
 
-    ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/delete-product.png)
+    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/delete-product.png)
 
-4. Quando si seleziona **Sì**, l'eliminazione del prodotto self-service verrà avviata. È presente una notifica che indica che l'eliminazione è in corso.  
+4. Quando si seleziona **Sì**, viene avviata l'eliminazione del prodotto self-service. Verrà visualizzata una notifica che indica che l'eliminazione è in corso.  
 
-    ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/progress-message.png)
+    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/progress-message.png)
 
-5. A questo punto lo stato del prodotto di iscrizione self-service è stato modificato in **eliminato**. Quando si aggiorna la pagina, il prodotto deve essere rimosso dalla pagina dei **prodotti di iscrizione self-service** .  
+5. A questo punto, lo stato del prodotto con iscrizione self-service è passato a **Eliminato**. Quando si aggiorna la pagina, il prodotto non sarà più presente nella pagina **Self-service sign-up products** (Prodotti con iscrizione self-service).  
 
-    ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/product-deleted.png)
+    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/product-deleted.png)
 
-6. Una volta eliminati tutti i prodotti, è possibile accedere di nuovo all'interfaccia di amministrazione di Azure AD e non è necessario eseguire alcuna azione obbligatoria e nessun prodotto blocca l'eliminazione della directory. Dovrebbe essere possibile eliminare correttamente la directory Azure AD.
+6. Dopo aver eliminato tutti i prodotti, è possibile effettuare nuovamente l'accesso all'interfaccia di amministrazione di Azure AD: non dovrebbe essere richiesto alcun intervento da parte dell'utente e non dovrebbero essere presenti prodotti che bloccano l'eliminazione dell'organizzazione. Sarà quindi possibile procedere alla corretta eliminazione dell'organizzazione di Azure AD.
 
-    ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/delete-organization.png)
+    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/delete-organization.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

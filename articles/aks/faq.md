@@ -1,89 +1,89 @@
 ---
 title: Domande frequenti relative al servizio Azure Kubernetes
-description: Trovare le risposte ad alcune domande comuni sul servizio Azure Kubernetes (AKS).
+description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 05/14/2020
+ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123820"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677795"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
 Questo articolo tratta alcune domande frequenti relative al servizio Azure Kubernetes.
 
-## <a name="which-azure-regions-currently-provide-aks"></a>Quali aree di Azure forniscono attualmente AKS?
+## <a name="which-azure-regions-currently-provide-aks"></a>In quali aree di Azure è attualmente disponibile il servizio Azure Kubernetes?
 
-Per un elenco completo delle aree disponibili, vedere la pagina relativa alla [disponibilità e alle aree AKS][aks-regions].
+Per un elenco completo delle aree disponibili, vedere [Aree e disponibilità del servizio Azure Kubernetes e disponibilità][aks-regions].
 
-## <a name="can-i-spread-an-aks-cluster-across-regions"></a>È possibile distribuire un cluster AKS tra più aree?
+## <a name="can-i-spread-an-aks-cluster-across-regions"></a>È possibile distribuire un cluster del servizio Azure Kubernetes tra più aree?
 
-No. I cluster AKS sono risorse a livello di area e non possono estendersi in aree. Vedere [le procedure consigliate per la continuità aziendale e il ripristino di emergenza][bcdr-bestpractices] per istruzioni su come creare un'architettura che includa più aree.
+No. I cluster del servizio Azure Kubernetes sono risorse a livello di area e non possono estendersi in più aree. Per le istruzioni su come creare un'architettura che includa più aree, vedere le [procedure consigliate per la continuità aziendale e il ripristino di emergenza][bcdr-bestpractices].
 
-## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>È possibile distribuire un cluster AKS tra le zone di disponibilità?
+## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>È possibile distribuire un cluster del servizio Azure Kubernetes tra zone di disponibilità?
 
-Sì. È possibile distribuire un cluster AKS in una o più [zone di disponibilità][availability-zones] in [aree che le supportano][az-regions].
+Sì. È possibile distribuire un cluster del servizio Azure Kubernetes in una o più [zone di disponibilità][availability-zones] nelle [aree][az-regions] che le supportano.
 
-## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>È possibile limitare gli utenti che possono accedere al server API Kubernetes?
+## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>È possibile limitare chi ha accesso al server API Kubernetes?
 
 Sì. Sono disponibili due opzioni per limitare l'accesso al server API:
 
-- Usare gli [intervalli IP autorizzati del server API][api-server-authorized-ip-ranges] se si vuole mantenere un endpoint pubblico per il server API, ma limitare l'accesso a un set di intervalli di indirizzi IP attendibili.
-- Usare [un cluster privato][private-clusters] se si vuole limitare il server API in modo che sia accessibile *solo* dall'interno della rete virtuale.
+- Usare gli [intervalli IP autorizzati del server API][api-server-authorized-ip-ranges] per mantenere un endpoint pubblico per il server API ma limitare l'accesso a un set di indirizzi IP attendibili.
+- Usare un [cluster privato][private-clusters] per limitare il server API in modo che sia accessibile *solo* dall'interno della rete virtuale.
 
-## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>È possibile avere dimensioni diverse per le macchine virtuali in un singolo cluster?
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>È possibile avere dimensioni diverse delle VM in un singolo cluster?
 
-Sì, è possibile usare dimensioni diverse per le macchine virtuali nel cluster AKS creando [più pool di nodi][multi-node-pools].
+Sì, è possibile usare dimensioni diverse delle macchine virtuali nel cluster del servizio Azure Kubernetes creando [più pool di nodi][multi-node-pools].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente servizio Azure Kubernetes?
 
-Azure applica automaticamente le patch di sicurezza ai nodi Linux del cluster in base a una pianificazione notturna. Tuttavia, l'utente è responsabile di assicurarsi che questi nodi Linux vengano riavviati in modo obbligatorio. Sono disponibili diverse opzioni per il riavvio dei nodi:
+Azure applica automaticamente le patch di sicurezza ai nodi Linux del cluster in base a una pianificazione notturna. Tuttavia l'utente è responsabile di assicurarsi che i nodi Linux vengano riavviati come richiesto. Sono disponibili diverse opzioni per il riavvio dei nodi:
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
-- Aggiornando il cluster servizio Azure Kubernetes. Il cluster aggiorna automaticamente i [nodi Cordon e drain][cordon-drain] , quindi riporta un nuovo nodo online con l'immagine Ubuntu più recente e una nuova versione patch o una versione secondaria di Kubernetes. Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
-- Usando [KURED](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. KURED viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per la presenza di un file che indica che è necessario riavviare il computer. Nel cluster, i riavvii del sistema operativo vengono gestiti dallo stesso [processo di Cordon e svuotamento][cordon-drain] di un aggiornamento del cluster.
+- Aggiornando il cluster servizio Azure Kubernetes. Gli aggiornamenti del cluster [bloccano e svuotano i nodi][cordon-drain], quindi portano un nuovo nodo online con l'immagine Ubuntu più recente e una nuova versione della patch o una versione secondaria di Kubernetes. Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
+- Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured, eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), esegue il monitoraggio di ogni nodo per verificare la presenza di un file che indica che è necessario un riavvio. All'interno del cluster i riavvii del sistema operativo vengono gestiti con lo stesso [processo di blocco e svuotamento][cordon-drain] dell'aggiornamento del cluster.
 
-Per altre informazioni sull'utilizzo di Kured, vedere [Apply security and kernel updates to nodes in AKS][node-updates-kured] (Applicare aggiornamenti di sicurezza e del kernel ai nodi del servizio Azure Kubernetes).
+Per altre informazioni sull'uso di Kured, vedere [Applicare aggiornamenti di sicurezza e del kernel ai nodi nel servizio Azure Kubernetes][node-updates-kured].
 
 ### <a name="windows-server-nodes"></a>Nodi di Windows Server
 
-Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente e vengono applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento nel cluster e nei pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente per applicare gli aggiornamenti più recenti. In base a una pianificazione regolare secondo il ciclo di rilascio di Windows Update e per il processo di convalida interno, è consigliabile eseguire un aggiornamento nel cluster e nei pool del nodi di Windows Server nel servizio Azure Kubernetes. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server e quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [Aggiornare un pool di nodi nel servizio Azure Kubernetes][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?
 
-AKS si basa su una serie di risorse dell'infrastruttura di Azure, inclusi i set di scalabilità di macchine virtuali, le reti virtuali e i dischi gestiti. In questo modo è possibile sfruttare molte delle funzionalità principali della piattaforma Azure all'interno dell'ambiente Kubernetes gestito fornito da AKS. Ad esempio, la maggior parte dei tipi di macchine virtuali di Azure può essere usata direttamente con AKS e le prenotazioni di Azure possono essere usate per ricevere automaticamente sconti su tali risorse.
+Il servizio Azure Kubernetes si basa su una serie di risorse dell'infrastruttura di Azure, inclusi i set di scalabilità di macchine virtuali, le reti virtuali e i dischi gestiti. In questo modo è possibile sfruttare molte funzionalità essenziali della piattaforma Azure all'interno dell'ambiente Kubernetes gestito fornito dal servizio Azure Kubernetes. Ad esempio, la maggior parte dei tipi di macchine virtuali di Azure può essere usata direttamente con il servizio Azure Kubernetes ed è possibile usare le prenotazioni di Azure per ricevere automaticamente sconti su tali risorse.
 
-Per abilitare questa architettura, ogni distribuzione di AKS si estende su due gruppi di risorse:
+Per rendere disponibile questa architettura, ogni distribuzione del servizio Azure Kubernetes include due gruppi di risorse:
 
-1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome del secondo gruppo di risorse, vedere la sezione successiva.
-1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse dell'infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il nome del gruppo di risorse del nodo è come *MC_myResourceGroup_myAKSCluster_eastus*. AKS Elimina automaticamente la risorsa del nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
+1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse del servizio Azure Kubernetes crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome di questo secondo gruppo di risorse, vedere la sezione successiva.
+1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse di infrastruttura associate al cluster, come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse nodo ha un nome simile a *MC_myResourceGroup_myAKSCluster_eastus*. Il servizio Azure Kubernetes elimina automaticamente la risorsa nodo ogni volta che viene eliminato il cluster, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
 
-## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse del nodo AKS?
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse nodo del servizio Azure Kubernetes?
 
-Sì. Per impostazione predefinita, AKS assegna un nome al gruppo di risorse del nodo *MC_resourcegroupname_clustername_location*, ma è anche possibile specificare un nome personalizzato.
+Sì. Per impostazione predefinita, il servizio Azure Kubernetes assegna al gruppo di risorse nodo il nome *MC_resourcegroupname_clustername_location*, ma è anche possibile specificare un nome personalizzato.
 
-Per specificare il nome del gruppo di risorse, installare la versione dell'estensione dell'interfaccia della riga di comando di Azure [AKS-Preview][aks-preview-cli] *0.3.2* o versioni successive. Quando si crea un cluster AKS usando il comando [AZ AKS create][az-aks-create] , usare il parametro *--node-Resource-Group* e specificare un nome per il gruppo di risorse. Se si [Usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster AKS, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup* .
+Per specificare un nome personalizzato per il gruppo di risorse, installare l'estensione [aks-preview][aks-preview-cli] versione *0.3.2* o successiva dell'interfaccia della riga di comando di Azure. Quando si crea un cluster del servizio Azure Kubernetes con il comando [az aks create][az-aks-create], usare il parametro *--node-resource-group* e specificare un nome per il gruppo di risorse. Se si [usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster del servizio Azure Kubernetes, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup*.
 
 * Il gruppo di risorse secondario viene creato automaticamente dal provider di risorse di Azure nella propria sottoscrizione.
 * È possibile specificare un nome di gruppo di risorse personalizzato solo quando si crea il cluster.
 
-Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è possibile:
+Quando si lavora con il gruppo di risorse nodo, tenere presente che non è possibile:
 
-* Specificare un gruppo di risorse esistente per il gruppo di risorse del nodo.
-* Specificare una sottoscrizione diversa per il gruppo di risorse del nodo.
-* Modificare il nome del gruppo di risorse del nodo dopo la creazione del cluster.
-* Specificare i nomi per le risorse gestite all'interno del gruppo di risorse del nodo.
-* Modificare o eliminare tag di risorse gestite all'interno del gruppo di risorse del nodo. (Per altre informazioni, vedere la sezione successiva).
+* Specificare un gruppo di risorse esistente come gruppo di risorse nodo.
+* Specificare una sottoscrizione diversa per il gruppo di risorse nodo.
+* Cambiare il nome del gruppo di risorse nodo dopo la creazione del cluster.
+* Specificare i nomi delle risorse gestite nel gruppo di risorse nodo.
+* Modificare o eliminare i tag di risorse gestite all'interno del gruppo di risorse nodo. Per altre informazioni, vedere la sezione successiva.
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare tag e altre proprietà delle risorse AKS nel gruppo di risorse del nodo?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare i tag e altre proprietà delle risorse del servizio Azure Kubernetes nel gruppo di risorse nodo?
 
-Se si modificano o eliminano i tag creati da Azure e altre proprietà delle risorse nel gruppo di risorse del nodo, è possibile ottenere risultati imprevisti, ad esempio la scalabilità e l'aggiornamento degli errori. AKS consente di creare e modificare tag personalizzati. Potrebbe essere necessario creare o modificare tag personalizzati, ad esempio, per assegnare una business unit o un centro di costo. Modificando le risorse nel gruppo di risorse nodo del cluster AKS, si interrompe l'obiettivo del livello di servizio (SLO). Per ulteriori informazioni, vedere la pagina relativa all' [offerta di un contratto di servizio da AKS.](#does-aks-offer-a-service-level-agreement)
+La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. Il servizio Azure Kubernetes consente di creare e modificare tag personalizzati. Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. La modifica delle risorse nel gruppo di risorse nodo nel cluster del servizio Azure Kubernetes è una violazione dell'obiettivo del livello di servizio. Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 
-servizio Azure Kubernetes supporta i seguenti [controller di ammissione][admission-controllers]:
+Il servizio Azure Kubernetes supporta i seguenti [controller di ammissione][admission-controllers]:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -94,11 +94,11 @@ servizio Azure Kubernetes supporta i seguenti [controller di ammissione][admissi
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
 
-Attualmente non è possibile modificare l'elenco dei controller di ammissione in AKS.
+Attualmente non è possibile modificare l'elenco di controller di ammissione nel servizio Azure Kubernetes.
 
-## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>È possibile usare I webhook del controller di ammissione su AKS?
+## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>È possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes?
 
-Sì, è possibile usare i webhook del controller di ammissione su AKS. È consigliabile escludere gli spazi dei nomi AKS interni contrassegnati con l' **etichetta del piano di controllo.** Ad esempio, aggiungendo il seguente alla configurazione del webhook:
+Sì, è possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes. È consigliabile escludere gli spazi dei nomi interni del servizio Azure Kubernetes contrassegnati con l'**etichetta del piano di controllo.** Ad esempio, aggiungere quanto segue alla configurazione del webhook:
 
 ```
 namespaceSelector:
@@ -107,87 +107,83 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
-## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>I webhook del controller di ammissione influiscano sugli spazi dei nomi Kube-System e Internal AKS?
+## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>I webhook dei controller di ammissione possono influire sugli spazi dei nomi di kube-system e su quelli interni del servizio Azure Kubernetes?
 
-Per proteggere la stabilità del sistema e impedire che i controller di ammissione personalizzati influiscano sui servizi interni in Kube-System, lo spazio dei nomi AKS ha un **Enforcer di ammissione**, che esclude automaticamente gli spazi dei nomi Kube-System e AKS Internal. Questo servizio garantisce che i controller di ammissione personalizzati non influiscano sui servizi in esecuzione in Kube-System.
+Per proteggere la stabilità del sistema ed evitare che i controller di ammissione personalizzati influiscano sui servizi interni in kube-system, lo spazio dei nomi del servizio Azure Kubernetes include la funzionalità **Admissions Enforcer**, che esclude automaticamente gli spazi dei nomi di kube-system e quelli interni del servizio Azure Kubernetes. Questo servizio garantisce che i controller di ammissione personalizzati non influiscano sui servizi in esecuzione in kube-system.
 
-Se si ha un caso d'uso critico per la distribuzione di un elemento in Kube-System (scelta non consigliata), che è necessario coprire con il webhook di ammissione personalizzato, è possibile aggiungere l'etichetta o l'annotazione seguente in modo che l'applicazione di ammissione la ignori.
+Se si ha un caso d'uso critico per una distribuzione obbligatoria in kube-system (scelta non consigliata), che è necessario coprire con il webhook di ammissione personalizzato, è possibile aggiungere l'etichetta o l'annotazione seguente in modo che Admissions Enforcers lo ignori.
 
-Etichetta: ```"admissions.enforcer/disabled": "true"``` o annotazione:```"admissions.enforcer/disabled": true```
+Etichetta ```"admissions.enforcer/disabled": "true"``` o annotazione ```"admissions.enforcer/disabled": true```
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault è integrato in servizio Azure Kubernetes?
 
-AKS attualmente non è integrato in modo nativo con Azure Key Vault. Tuttavia, il [provider di Azure Key Vault per CSI Secrets Store][csi-driver] consente l'integrazione diretta da Kubernetes pod a Key Vault segreti.
+Il servizio Azure Kubernetes non è attualmente integrato in modalità nativa in Azure Key Vault. Tuttavia, il [provider di Azure Key Vault per l'archivio di segreti CSI][csi-driver] consente l'integrazione diretta dai pod di Kubernetes ai segreti di Key Vault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in servizio Azure Kubernetes?
 
-Sì, i contenitori di Windows Server sono disponibili su AKS. Per eseguire i contenitori di Windows Server in AKS, è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest. I contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, vedere [creare un cluster AKS con un pool di nodi di Windows Server][aks-windows-cli].
+Sì, i contenitori di Windows Server sono disponibili nel servizio Azure Kubernetes. Per eseguire i contenitori di Windows Server nel servizio Azure Kubernetes, creare un pool di nodi che esegue Windows Server come sistema operativo guest. I contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, vedere [Creare un cluster del servizio Azure Kubernetes con un pool di nodi di Windows Server][aks-windows-cli].
 
-Il supporto di Windows Server per il pool di nodi include alcune limitazioni che fanno parte di Windows Server upstream nel progetto Kubernetes. Per ulteriori informazioni su queste limitazioni, vedere la pagina relativa ai [contenitori di Windows Server nelle limitazioni di AKS][aks-windows-limitations].
+Il supporto di Windows Server per il pool di nodi include alcune limitazioni che fanno parte di Windows Server upstream nel progetto Kubernetes. Per altre informazioni su queste limitazioni, vedere [Limitazioni dei contenitori di Windows Server nel servizio Azure Kubernetes][aks-windows-limitations].
 
-## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre un contratto di servizio?
+## <a name="does-aks-offer-a-service-level-agreement"></a>Il servizio Azure Kubernetes offre un contratto di servizio?
 
-AKS offre la possibilità di ottenere una disponibilità del 99,95% per il server API con [contratto di servizio di tempo di servizio] [tempo di sla.md].
+Il servizio Azure Kubernetes fornisce garanzie del contratto di servizio come funzionalità aggiuntiva facoltativa con il [contratto di servizio relativo al tempo di attività][uptime-sla].
 
-In un contratto di servizio (SLA), il provider accetta di rimborsare il costo del servizio del cliente se il livello di servizio pubblicato non è soddisfatto. Poiché AKS è gratuito, non è disponibile alcun costo per il rimborso, quindi AKS non ha un contratto di servizio formale. Tuttavia, AKS cerca di mantenere la disponibilità di almeno il 99,5% per il server API Kubernetes.
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente del servizio Azure Kubernetes?
 
-È importante riconoscere la distinzione tra la disponibilità del servizio AKS, che fa riferimento al tempo di esecuzione del piano di controllo Kubernetes e alla disponibilità del carico di lavoro specifico in esecuzione nelle macchine virtuali di Azure. Sebbene il piano di controllo non sia disponibile se il piano di controllo non è pronto, i carichi di lavoro del cluster in esecuzione in macchine virtuali di Azure possono comunque funzionare. Le macchine virtuali di Azure sono risorse a pagamento supportate da un contratto di contratto finanziario. Leggere [qui per altre informazioni](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sul contratto di contratto per le VM di Azure e su come aumentare la disponibilità con funzionalità come [zone di disponibilità][availability-zones].
+I nodi dell'agente del servizio Azure Kubernetes sono fatturati come macchine virtuali standard di Azure, pertanto se sono state acquistate [prenotazioni di Azure][reservation-discounts] per le dimensioni di VM in uso nel servizio Azure Kubernetes, gli sconti corrispondenti vengono applicati automaticamente.
 
-## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente AKS?
+## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare o eseguire la migrazione del cluster tra tenant di Azure?
 
-I nodi dell'agente AKS vengono fatturati come macchine virtuali standard di Azure, pertanto se sono state acquistate [prenotazioni di Azure][reservation-discounts] per le dimensioni della macchina virtuale in uso nel servizio contenitore di Azure, tali sconti vengono applicati automaticamente.
+È possibile usare il comando `az aks update-credentials` per spostare un cluster del servizio Azure Kubernetes tra i tenant di Azure. Seguire le istruzioni riportate in [Scegliere di aggiornare o creare un'entità servizio](https://docs.microsoft.com/azure/aks/update-credentials), quindi quelle in [Aggiornare il cluster del servizio Azure Kubernetes con le nuove credenziali](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
-## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare/migrare il cluster tra i tenant di Azure?
-
-Il `az aks update-credentials` comando può essere usato per spostare un cluster AKS tra i tenant di Azure. Seguire le istruzioni in [scegliere di aggiornare o creare un'entità servizio](https://docs.microsoft.com/azure/aks/update-credentials) e quindi [aggiornare il cluster AKS con le nuove credenziali](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
-
-## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare/migrare il cluster tra le sottoscrizioni?
+## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare o eseguire la migrazione del cluster tra sottoscrizioni?
 
 Lo spostamento di cluster tra sottoscrizioni non è al momento supportato.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>È possibile spostare i cluster AKS dalla sottoscrizione di Azure corrente a un'altra? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>È possibile spostare i cluster del servizio Azure Kubernetes dalla sottoscrizione di Azure corrente a un'altra? 
 
-Lo stato di trasferimento del cluster AKS e delle risorse associate tra le sottoscrizioni di Azure non è supportato.
+Lo spostamento del cluster del servizio Azure Kubernetes e delle risorse associate tra sottoscrizioni di Azure non è supportato.
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>Perché l'eliminazione del cluster richiede molto tempo? 
 
-La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'utente. in alcuni casi, in particolare quando i clienti portano il proprio gruppo di risorse o l'eliminazione di attività tra RG può richiedere ulteriore tempo o non riuscire. In caso di problemi con le eliminazioni, verificare che non siano presenti blocchi sull'RG, che tutte le risorse esterne all'RG siano dissociate dal RG e così via.
+La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'utente. In alcuni casi, in particolare quando i clienti usano un gruppo di risorse personalizzato o eseguono l'eliminazione di attività tra più gruppi di risorse, l'operazione può richiedere più tempo oppure non riesce. In caso di problemi con le eliminazioni, verificare che non siano presenti blocchi sul gruppo di risorse, che le eventuali risorse esterne siano state disassociate dal gruppo di risorse e così via.
 
-## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Se si dispone di Pod/distribuzioni nello stato ' nodelost ' o ' Unknown ', è ancora possibile aggiornare il cluster?
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Nel caso di pod/distribuzioni con lo stato 'NodeLost' o 'Unknown', è comunque possibile aggiornare il cluster?
 
-È possibile, ma AKS sconsiglia questa operazione. Gli aggiornamenti dovrebbero essere eseguiti idealmente quando lo stato del cluster è noto e integro.
+È possibile, ma questa operazione è sconsigliata nel servizio Azure Kubernetes. Gli aggiornamenti dovrebbero essere eseguiti idealmente quando lo stato del cluster è noto e integro.
 
-## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Se si dispone di un cluster con uno o più nodi in uno stato non integro o arrestato, è possibile eseguire un aggiornamento?
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Se un cluster include uno o più nodi arrestati o con uno stato non integro, è possibile eseguire un aggiornamento?
 
-No, eliminare o rimuovere tutti i nodi con stato di errore o rimossi dal cluster prima di eseguire l'aggiornamento.
+No, eliminare o rimuovere dal cluster tutti i nodi con lo stato di errore prima di procedere con l'aggiornamento.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma è stato visualizzato l'errore`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Dopo l'eliminazione di un cluster viene visualizzato l'errore `[Errno 11001] getaddrinfo failed`. Perché? 
 
-In genere, ciò è dovuto al fatto che gli utenti che dispongono di uno o più gruppi di sicurezza di rete (gruppi) sono ancora in uso e associati al cluster.  Rimuoverli e ripetere l'operazione di eliminazione.
+In genere, questo problema è dovuto al fatto che gli utenti hanno uno o più gruppi di sicurezza di rete ancora in uso e associati al cluster.  Rimuoverli e provare ripetere l'eliminazione.
 
-## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Ho eseguito un aggiornamento, ma ora i pod sono in cicli di arresto anomalo e i probe di conformità hanno esito negativo?
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Dopo un aggiornamento, si verificano arresti anomali ciclici dei pod e i probe di idoneità restituiscono un errore. Come si risolve il problema?
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [AKS Update Credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Il mio cluster era funzionante, ma improvvisamente non è riuscito a eseguire il provisioning di LoadBalancers, montare PVC e così via? 
+## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Il cluster funzionava ma improvvisamente non è possibile effettuare il provisioning di Load Balancer, montare PVC e così via. Come si risolve il problema? 
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [AKS Update Credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per la scalabilità manuale?
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per il ridimensionamento manuale?
 
-No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. Usare le API AKS ( `az aks scale` ).
+No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. Usare le API del servizio Azure Kubernetes (`az aks scale`).
 
-## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>È possibile usare I set di scalabilità di macchine virtuali per eseguire manualmente la scalabilità a 0 nodi?
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>È possibile usare i set di scalabilità di macchine virtuali per il ridimensionamento manuale a 0 nodi?
 
 No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate.
 
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>È possibile arrestare o deallocare tutte le VM?
 
-Sebbene AKS includa meccanismi di resilienza per resistere a tale configurazione ed eseguire il ripristino da tale configurazione, questa non è una configurazione consigliata.
+Anche se il servizio Azure Kubernetes include meccanismi di resilienza per tollerare una configurazione di questo tipo ed eseguire il successivo ripristino, questa scelta non è consigliata.
 
 ## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
 
-Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati e così via. utilizzare le API e i meccanismi di Kubernetes. Ad esempio, utilizzare gli elementi daemonset per installare i componenti necessari.
+No. Il servizio Azure Kubernetes è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare componenti personalizzati e così via, sfruttare le API e i meccanismi di Kubernetes. Ad esempio, usare DaemonSet per installare i componenti necessari.
 
 <!-- LINKS - internal -->
 
@@ -211,7 +207,7 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[tempo di esecuzione-SLA]./uptime-sla.mdd
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
@@ -220,3 +216,4 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

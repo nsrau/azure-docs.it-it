@@ -1,56 +1,55 @@
 ---
-title: Eseguire query su tipi annidati parquet usando SQL su richiesta (anteprima)
-description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet.
+title: Eseguire query su tipi nidificati Parquet con SQL su richiesta (anteprima)
+description: In questo successivo si apprenderà come eseguire query su tipi nidificati Parquet.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431657"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744231"
 ---
-# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati parquet usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
+# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su tipi nidificati Parquet con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
-Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics.  Questa query eseguirà la lettura di tipi annidati parquet.
+In questo articolo si apprenderà come scrivere una query usando SQL su richiesta (anteprima) in Azure Synapse Analytics.  Questa query leggerà tipi nidificati Parquet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere la parte restante di questo articolo, vedere gli articoli seguenti:
-
-- [Prima configurazione](query-data-storage.md#first-time-setup)
-- [Prerequisiti](query-data-storage.md#prerequisites)
+Il primo passaggio consiste nel **creare un database** con un'origine dati di riferimento. Inizializzare quindi gli oggetti eseguendo uno [script di configurazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
 
 ## <a name="project-nested-or-repeated-data"></a>Proiettare dati annidati o ripetuti
 
-La query seguente legge il file *justSimpleArray. parquet* . Proietta tutte le colonne del file parquet, inclusi i dati nidificati o ripetuti.
+La query seguente legge il file *justSimpleArray.parquet* e proietta tutte le colonne del file parquet, inclusi i dati nidificati o ripetuti.
 
 ```sql
 SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
 ## <a name="access-elements-from-nested-columns"></a>Accesso agli elementi di colonne annidate
 
-Nella query seguente viene letto il file *structExample. parquet* e viene illustrato come visualizzare gli elementi di una colonna nidificata:
+La query seguente legge il file *structExample.parquet* e illustra come visualizzare gli elementi di una colonna nidificata:
 
 ```sql
 SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/structExample.parquet',
+        BULK 'parquet/nested/structExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     )
     WITH (
@@ -70,7 +69,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 
-La query seguente legge il file *justSimpleArray. parquet* e USA [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file *justSimpleArray.parquet* e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -80,12 +79,13 @@ SELECT
     JSON_VALUE(SimpleArray, '$[2]') AS ThirdElement
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
-La query seguente legge il file *mapExample. parquet* e USA [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **non scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file *mapExample.parquet* e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **non scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -93,11 +93,12 @@ SELECT
     JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/mapExample.parquet',
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nell'articolo successivo verrà illustrato come eseguire una [query sui file JSON](query-json-files.md).
+Il prossimo articolo illustra come [eseguire query su file JSON](query-json-files.md).

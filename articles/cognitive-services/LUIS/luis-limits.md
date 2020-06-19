@@ -3,12 +3,12 @@ title: Limiti-LUIS
 description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS presenta diverse aree di limiti. Il limite di modelli controlla gli Intent, le entità e le funzionalità di LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449499"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976983"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limiti per il modello e le chiavi LUIS
 LUIS presenta diverse aree di limite. Il primo è il [limite del modello](#model-limits), che controlla gli Intent, le entità e le funzionalità in Luis. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area dei limiti è la [combinazione di tasti](#keyboard-controls) per il controllo del sito Web Luis. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
@@ -27,17 +27,17 @@ Se l'app supera i limiti del modello LUIS, provare a usare un'app [Luis dispatch
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
 | [Finalità][intents]|500 per applicazione: 499 Intent personalizzati e la finalità obbligatoria _None_ .<br>L'applicazione [basata su dispatch](https://aka.ms/dispatch-tool) ha origini di invio 500 corrispondenti.|
-| [Elencare le entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
+| [Elencare entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
 | [entità e ruoli di Machine Learning](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.<br>Le sottoentità possono essere annidate fino a 5 livelli.|
 |Modello come funzionalità| Numero massimo di modelli che possono essere utilizzati come funzionalità per un modello specifico come 10 modelli. Il numero massimo di elenchi di frasi usati come funzionalità per un modello specifico come un elenco di 10 frasi.|
 | [Anteprima-entità elenco dinamico](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di ~ 1K per richiesta dell'endpoint di stima di query|
-| [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
+| [Modelli](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
 | [Elenco di frasi][phrase-list]|500 elenchi di frasi. 10 elenchi di frasi globali a causa del modello come limite di funzionalità. L'elenco di frasi non intercambiabili è costituito da un massimo di 5.000 frasi. L'elenco di frasi intercambiabili è costituito da un massimo di 50.000 frasi. Numero massimo di frasi totali per ogni applicazione di 500.000 frasi.|
 | [Entità predefinite](./luis-prebuilt-entities.md) | nessun limite|
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
-| [Espressione][utterances] | 500 caratteri<br><br>Se il testo è più lungo di questo limite di caratteri, è necessario segmentare l'espressione prima di immettere LUIS e unire di conseguenza le risposte. Ci sono ovvie interruzioni che è possibile usare, ad esempio segni di punteggiatura e pause lunghe nel discorso.|
+| [Espressione][utterances] | 500 caratteri<br><br>Se il testo è più lungo di questo limite di caratteri, è necessario segmentare l'espressione prima di eseguire l'input di LUIS e si riceveranno singole risposte Intent per segmento. Ci sono ovvie interruzioni che è possibile usare, ad esempio segni di punteggiatura e pause lunghe nel discorso.|
 | [Esempi di espressioni][utterances] | 15.000 per applicazione: non esiste alcun limite al numero di enunciati per finalità<br><br>Se è necessario eseguire il training dell'applicazione con altri esempi, usare un approccio del modello di [invio](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) . È possibile eseguire il training di singole app LUIS (note come app figlio per l'app di distribuzione padre) con uno o più Intent e quindi eseguire il training di un'app di distribuzione che campiona da ogni espressione dell'app LUIS figlio per indirizzare la richiesta di stima all'app figlio corretta. |
 | [Versioni](luis-concept-version.md)| 100 versioni per applicazione |
 | [Nome della versione][luis-how-to-manage-versions] | 128 caratteri |
