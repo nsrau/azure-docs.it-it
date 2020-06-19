@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Informazioni su come abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873510"
+ms.locfileid: "83996262"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client
 
@@ -60,24 +60,6 @@ Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup'
 
 Il comando precedente rimuove Azure Dev Spaces dal cluster *MyAKS* in *MyResourceGroup*. Tutti gli spazi dei nomi creati con Azure Dev Spaces rimarranno associati ai carichi di lavoro, ma i nuovi carichi di lavoro in tali spazi dei nomi non verranno instrumentati con Azure Dev Spaces. Se si riavviano eventuali pod esistenti instrumentati con Azure Dev Spaces, è possibile che vengano visualizzati errori. Tali pod dovranno essere ridistribuiti senza strumenti di Azure Dev Spaces. Per rimuovere completamente Azure Dev Spaces dal cluster, eliminare tutti i pod in tutti gli spazi dei nomi in cui è stato abilitato Azure Dev Spaces.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Abilitare o rimuovere Azure Dev Spaces tramite il portale di Azure
-
-Prima di poter abilitare Dev Spaces tramite il portale di Azure, è necessario disporre di:
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
-* [Un cluster del servizio Azure Kubernetes][create-aks-portal] in un'[area supportata][supported-regions].
-
-Per abilitare Azure Dev Spaces tramite il portale di Azure:
-1. Accedere al [portale di Azure][az-portal].
-1. Passare al cluster del servizio Azure Kubernetes.
-1. Selezionare la voce di menu *Dev Spaces*.
-1. Impostare *Abilita Dev Spaces* su *Sì* e fare clic su *Salva*.
-
-![Abilitare Dev Spaces nel portale di Azure](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
-
-L'abilitazione di Azure Dev Spaces tramite il portale di Azure **non** installa alcuno strumento lato client per Azure Dev Spaces.
-
-Per rimuovere Azure Dev Spaces dal cluster del servizio Azure Kubernetes, modificare *Abilita Dev Spaces* su *No* e fare clic su *Salva*. Tutti gli spazi dei nomi creati con Azure Dev Spaces rimarranno associati ai carichi di lavoro, ma i nuovi carichi di lavoro in tali spazi dei nomi non verranno instrumentati con Azure Dev Spaces. Se si riavviano eventuali pod esistenti instrumentati con Azure Dev Spaces, è possibile che vengano visualizzati errori. Tali pod dovranno essere ridistribuiti senza strumenti di Azure Dev Spaces. Per rimuovere completamente Azure Dev Spaces dal cluster, eliminare tutti i pod in tutti gli spazi dei nomi in cui è stato abilitato Azure Dev Spaces.
-
 ## <a name="install-the-client-side-tools"></a>Installare gli strumenti lato client
 
 È possibile usare gli strumenti lato client di Azure Dev Spaces per interagire con le istanze di Dev Spaces in un cluster del servizio Azure Kubernetes dal computer locale. Per installare gli strumenti lato client sono disponibili diversi modi:
@@ -94,7 +76,6 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 > [Sviluppo in team in Azure Dev Spaces][team-development-qs]
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
-[create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md

@@ -5,19 +5,19 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 014442dee1be23a189e22a505abf86050601b2aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826743"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171090"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Abilitare Rilevamento modifiche e inventario da un runbook
 
 Questo articolo descrive come usare un runbook per abilitare la funzionalità [Rilevamento modifiche e inventario](change-tracking.md) per le macchine virtuali dell'ambiente. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Rilevamento modifiche e inventario. 
 
 > [!NOTE]
-> Quando si abilita Rilevamento modifiche e inventario, sono supportate solo determinate aree geografiche per il collegamento a un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere il [ mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](how-to/region-mappings.md).
+> Quando si abilita Rilevamento modifiche e inventario, sono supportate solo determinate aree geografiche per il collegamento a un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](how-to/region-mappings.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -89,10 +89,10 @@ Per avviare questo runbook, è necessario aver abilitato Rilevamento modifiche e
 1. Fare clic sul pulsante Avvia e immettere i valori dei parametri nei campi seguenti:
 
    * **VMNAME**: nome di una macchina virtuale esistente da aggiungere a Rilevamento modifiche e inventario. Lasciare vuoto questo campo per aggiungere tutte le macchine virtuali nel gruppo di risorse.
-   * **VMRESOURCEGROUP**: nome del gruppo di risorse per la macchina virtuale da abilitare.
-   * **SUBSCRIPTIONID**: ID sottoscrizione della nuova macchina virtuale da abilitare. Lasciare vuoto questo campo per usare la sottoscrizione dell'area di lavoro. Se si usa un ID sottoscrizione diverso, aggiungere l'account RunAs per l'account di Automazione come collaboratore per la sottoscrizione.
+   * **VMRESOURCEGROUP** : il nome del gruppo di risorse per la VM da abilitare.
+   * **SUBSCRIPTIONID**: l'ID sottoscrizione della nuova VM da abilitare. Lasciare vuoto questo campo per usare la sottoscrizione dell'area di lavoro. Se si usa un ID sottoscrizione diverso, aggiungere l'account RunAs per l'account di Automazione come collaboratore per la sottoscrizione.
    * **ALREADYONBOARDEDVM**: nome della macchina virtuale già abilitata manualmente per le modifiche.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP**: nome del gruppo di risorse a cui appartiene la macchina virtuale.
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** - Nome del gruppo di risorse a cui appartiene la macchina virtuale.
    * **SOLUTIONTYPE**: immettere **ChangeTracking**.
 
    ![Parametri Enable-MultipleSolution del runbook](media/automation-enable-changes-from-runbook/runbook-parameters.png)
@@ -104,8 +104,4 @@ Per avviare questo runbook, è necessario aver abilitato Rilevamento modifiche e
 
 * Per pianificare un runbook, vedere [Gestire le pianificazioni in Automazione di Azure](shared-resources/schedules.md).
 * Per informazioni dettagliate sull'uso della funzionalità, vedere [Gestire Rilevamento modifiche e inventario](change-tracking-file-contents.md).
-* Per informazioni sulle configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
-* Per informazioni su come usare la funzionalità per identificare il software installato nell'ambiente, vedere [Individuare il software installato nelle VM](automation-tutorial-installed-software.md).
-* Se non si vuole integrare l'account di Automazione con un'area di lavoro Log Analytics quando si abilita la funzionalità, vedere [Scollegare l'area di lavoro dall'account di Automazione](automation-unlink-workspace-change-tracking.md).
-* Al termine della distribuzione delle modifiche nelle macchine virtuali, è possibile rimuoverle come descritto in [Rimuovere macchine virtuali da Rilevamento modifiche e inventario](automation-remove-vms-from-change-tracking.md).
 * Per risolvere i problemi generali relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](troubleshoot/change-tracking.md).

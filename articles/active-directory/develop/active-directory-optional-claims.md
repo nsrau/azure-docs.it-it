@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737555"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993696"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative alle app Azure AD
 
@@ -85,7 +85,6 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 | `pwd_exp`     | Ora di scadenza della password        | Data e ora in cui scade la password. |       |
 | `pwd_url`     | URL per la modifica della password             | URL che l'utente può visitare per cambiare la password.   |   |
 | `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
-| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente. Il nome alternativo è separato dal nome o dal cognome. Richiede l'ambito `profile`.|
 | `family_name` | Cognome                       | Fornisce il cognome dell'utente, come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato nell'account del servizio gestito e in Azure AD. Richiede l'ambito `profile`.   |
 | `given_name`  | Nome                      | Fornisce il nome dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato nell'account del servizio gestito e in Azure AD.  Richiede l'ambito `profile`. |
 | `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
