@@ -7,25 +7,25 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 239955025f21d8679cbcf0bbfe68f9070f0217c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5357397817b9c6712bdb2e35490e2cdd403d13c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426189"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836465"
 ---
-# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integrazione di Azure Machine Learning Studio (classica) in analisi di flusso (anteprima)
-Analisi di flusso supporta le funzioni definite dall'utente che chiamano gli endpoint Azure Machine Learning Studio (classico). Il supporto dell'API REST per questa funzionalità è illustrato in dettaglio nella [libreria delle API REST di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx). Questo articolo fornisce le informazioni supplementari necessarie per la corretta implementazione di questa funzionalità in Analisi di flusso. È stata pubblicata anche un'esercitazione che è disponibile [qui](stream-analytics-machine-learning-integration-tutorial.md).
+# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integrazione di Azure Machine Learning Studio (versione classica) in Analisi di flusso (anteprima)
+Analisi di flusso supporta funzioni definite dall'utente che chiamano gli endpoint di Azure Machine Learning Studio (versione classica). Il supporto dell'API REST per questa funzionalità è illustrato in dettaglio nella [libreria delle API REST di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx). Questo articolo fornisce le informazioni supplementari necessarie per la corretta implementazione di questa funzionalità in Analisi di flusso. È stata pubblicata anche un'esercitazione che è disponibile [qui](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Panoramica: terminologia Azure Machine Learning Studio (classica)
-Microsoft Azure Machine Learning Studio (versione classica) fornisce uno strumento di collaborazione e trascinamento che è possibile usare per compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Questo strumento è denominato *Azure Machine Learning Studio (classico)*. e viene usato per interagire con le risorse di Machine Learning ed eseguire facilmente la compilazione, il test e l'iterazione del progetto. Di seguito sono riportate le risorse e le rispettive definizioni.
+## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Panoramica: Terminologia di Azure Machine Learning Studio (versione classica)
+Microsoft Machine Learning Studio (versione classica) fornisce uno strumento di trascinamento della selezione collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Questo strumento si chiama *Azure Machine Learning Studio (versione classica)* . e viene usato per interagire con le risorse di Machine Learning ed eseguire facilmente la compilazione, il test e l'iterazione del progetto. Di seguito sono riportate le risorse e le rispettive definizioni.
 
-* **Area di lavoro**: l' *area di lavoro* è un contenitore che include tutte le altre risorse di Machine Learning per poterle gestire e controllare.
+* **Area di lavoro**: l'*area di lavoro* è un contenitore che include tutte le altre risorse di Machine Learning per poterle gestire e controllare.
 * **Esperimento**: gli *esperimenti* vengono creati dagli esperti di gestione dati per utilizzare i set di dati ed eseguire il training di un modello di Machine Learning.
-* **Endpoint**: gli *endpoint* sono l'oggetto Azure Machine Learning Studio (classico) usato per acquisire le funzionalità come input, applicare un modello di apprendimento automatico specificato e restituire un output con punteggio.
+* **Endpoint**: gli *endpoint* sono gli oggetti di Azure Machine Learning Studio (versione classica) usati per accettare le funzionalità come input, applicare un modello di apprendimento automatico specificato e restituire un output con punteggio.
 * **Servizio Web di assegnazione dei punteggi**: un *servizio Web di assegnazione dei punteggi* è una raccolta di endpoint, come indicato sopra.
 
-Ogni endpoint ha API per l'esecuzione batch e per l'esecuzione sincrona. Analisi di flusso usa l'esecuzione sincrona. Il servizio specifico è denominato [servizio di richiesta/risposta](../machine-learning/studio/consume-web-services.md) in Azure Machine Learning Studio (classico).
+Ogni endpoint ha API per l'esecuzione batch e per l'esecuzione sincrona. Analisi di flusso usa l'esecuzione sincrona. Il servizio specifico è detto [servizio di richiesta/risposta](../machine-learning/studio/consume-web-services.md) in Azure Machine Learning Studio (versione classica).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Risorse di Machine Learning necessarie per i processi di analisi di flusso
 Ai fini dell'elaborazione dei processi di Analisi di flusso, per la corretta esecuzione sono necessari un endpoint di richiesta/risposta, una [chiave API](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)e una definizione swagger. Analisi di flusso ha un endpoint aggiuntivo che crea l'URL per l'endpoint swagger, cerca l'interfaccia e restituisce all'utente una definizione UDF predefinita.
@@ -41,7 +41,7 @@ Usando le API REST è possibile configurare il processo per chiamare le funzioni
 6. Avviare il processo
 
 ## <a name="creating-a-udf-with-basic-properties"></a>Creazione di una funzione definita dall'utente con proprietà di base
-Nell'esempio di codice seguente viene creata una funzione definita dall'utente scalare denominata *newudf* che esegue il binding a un endpoint Azure Machine Learning Studio (classico). Si noti che l'*endpoint* (URI del servizio) è disponibile nella pagina della Guida dell'API per il servizio scelto e la *chiave API* nella pagina principale dei servizi.
+Il codice di esempio seguente crea una funzione definita dall'utente scalare denominata *newudf* che viene associata a un endpoint di Azure Machine Learning Studio (versione classica). Si noti che l'*endpoint* (URI del servizio) è disponibile nella pagina della Guida dell'API per il servizio scelto e la *chiave API* nella pagina principale dei servizi.
 
 ```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
@@ -68,7 +68,7 @@ Corpo della richiesta di esempio:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chiamare l'endpoint RetrieveDefaultDefinition per la funzione definita dall'utente predefinita
-Una volta creata la struttura della funzione definita dall'utente, è necessaria la definizione completa della funzione. L'endpoint RetrieveDefaultDefinition consente di ottenere la definizione predefinita per una funzione scalare associata a un endpoint Azure Machine Learning Studio (classico). Per il payload seguente è necessario ottenere la definizione di definizione definita dall'utente predefinita per una funzione scalare associata a un endpoint di Azure Machine Learning. Il payload non specifica l'endpoint effettivo perché è già stato fornito durante la richiesta PUT. Analisi di flusso chiama l'endpoint fornito nella richiesta se viene specificato in modo esplicito. In caso contrario, usa quello a cui si è fatto riferimento in origine. Qui la funzione definita dall'utente accetta un singolo parametro di stringa (una frase) e restituisce un singolo output di tipo stringa indicante l'etichetta "sentiment" per tale frase.
+Una volta creata la struttura della funzione definita dall'utente, è necessaria la definizione completa della funzione. L'endpoint RetrieveDefaultDefinition consente di ottenere la definizione predefinita per una funzione scalare associata a un endpoint di Azure Machine Learning Studio (versione classica). Per il payload seguente è necessario ottenere la definizione di definizione definita dall'utente predefinita per una funzione scalare associata a un endpoint di Azure Machine Learning. Il payload non specifica l'endpoint effettivo perché è già stato fornito durante la richiesta PUT. Analisi di flusso chiama l'endpoint fornito nella richiesta se viene specificato in modo esplicito. In caso contrario, usa quello a cui si è fatto riferimento in origine. Qui la funzione definita dall'utente accetta un singolo parametro di stringa (una frase) e restituisce un singolo output di tipo stringa indicante l'etichetta "sentiment" per tale frase.
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
@@ -188,11 +188,11 @@ Cercare ora nella funzione definita dall'utente (denominata qui scoreTweet) ogni
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

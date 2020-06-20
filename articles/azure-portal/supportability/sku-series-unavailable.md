@@ -1,18 +1,18 @@
 ---
-title: Area o serie SKU non disponibili-Azure
-description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata per questa area, che potrebbe richiedere la richiesta di supporto per la gestione delle sottoscrizioni.
+title: Area o serie di SKU non disponibili - Azure
+description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata per questa area, per cui potrebbe essere necessario inviare una richiesta di supporto per la gestione della sottoscrizione.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843635"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835989"
 ---
 # <a name="region-or-sku-unavailable"></a>Area o SKU non disponibili
 
@@ -50,37 +50,37 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-Quando si crea una richiesta di supporto per aumentare la quota di core di calcolo, un'area o una famiglia di SKU non è disponibile per la selezione.
+Durante la creazione di una richiesta di supporto per aumentare la quota di core di calcolo, un'area o una famiglia di SKU non sono disponibili per la selezione.
 
 ## <a name="solution"></a>Soluzione
 
 Si consiglia innanzitutto di prendere in considerazione un'area o uno SKU alternativi che soddisfino le esigenze aziendali.
 
-Se non si riesce a trovare un'area o uno SKU appropriato, creare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per la **gestione delle sottoscrizioni** attenendosi alla procedura seguente:
+Se non si trovano aree o SKU adatti, creare una **richiesta di supporto** per la [gestione della sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) seguendo questa procedura:
 
-1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) . Selezionare quindi **Nuova richiesta di supporto**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Guida e supporto**. Selezionare quindi **Nuova richiesta di supporto**.
 
-1. In **nozioni di base**, per **tipo di problema**, selezionare **Gestione sottoscrizioni**.
+1. In **Informazioni di base** per **Tipo di problema** selezionare **Gestione delle sottoscrizioni**.
 
-1. Selezionare una **sottoscrizione** e immettere una breve descrizione in **Riepilogo**.
+1. Selezionare una **Sottoscrizione** e immettere una breve descrizione in **Riepilogo**.
 
-   ![Scheda nozioni di base della nuova richiesta di supporto](./media/SKU-series-unavailable/support-request-basics.png)
+   ![Scheda Informazioni di base della nuova richiesta di supporto](./media/SKU-series-unavailable/support-request-basics.png)
 
-1. Per **tipo di problema**, scegliere **Seleziona tipo di problema**.
+1. Per **Tipo di problema** scegliere **Selezionare il tipo di problema**.
 
-1. Per **selezionare il tipo di problema**, scegliere un'opzione, ad esempio, non è **possibile accedere alla mia sottoscrizione o alla risorsa** > **il problema non è elencato sopra**. Selezionare **Salva**.
+1. Per **Selezionare il tipo di problema** scegliere un'opzione, ad esempio **Non è possibile accedere alla sottoscrizione o alla risorsa** > **Il problema non è elencato sopra**. Selezionare **Salva**.
 
    ![Specificare un problema per la richiesta](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-1. Selezionare **Avanti: soluzioni** per esplorare le possibili soluzioni. Se necessario, fare clic su **Avanti: dettagli** per continuare.
+1. Selezionare **Avanti: Soluzioni** per esplorare le possibili soluzioni. Se necessario, selezionare **Avanti: Dettagli** per continuare.
 
 1. Immettere le informazioni aggiuntive che è possibile fornire, insieme alle informazioni di contatto.
 
 1. Selezionare **Rivedi e crea**. Dopo aver verificato le informazioni, selezionare **Crea** per creare la richiesta.
 
-## <a name="send-us-your-suggestions"></a>Inviaci i tuoi suggerimenti
+## <a name="send-us-your-suggestions"></a>Inviare suggerimenti
 
-Ci siamo sempre aperti a commenti e suggerimenti. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). Inoltre, è possibile interagire con Microsoft su [Twitter](https://twitter.com/azuresupport) o sui [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). Inoltre, è possibile con Microsoft su [Twitter](https://twitter.com/azuresupport) o sulla [pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/azure).
 
 ## <a name="learn-more"></a>Altre informazioni
 
