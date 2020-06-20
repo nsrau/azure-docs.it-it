@@ -53,4 +53,4 @@ Dopo aver modificato la password, è possibile:
 
 - Visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md).
 
-- Visualizzare come vengono usati dall'organizzazione i [dati relativi alla privacy](my-account-portal-privacy-page.md).
+- Visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
