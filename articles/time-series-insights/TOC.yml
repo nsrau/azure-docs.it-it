@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Time Series Insights
       href: time-series-insights-update-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Azure Time Series Insights disponibile a livello generale
@@ -141,6 +141,9 @@
       items:
         - name: Client SDK JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      displayName: az iot
 - name: Risorse
   expanded: true
   items:

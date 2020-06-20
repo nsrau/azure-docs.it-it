@@ -30,9 +30,9 @@
     - name: Usare le API REST
       items:
         - name: Ottenere la finalità
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Cambiare il modello
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Esercitazioni
   items:
     - name: Creare un'app scomponibile
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: Eseguire la migrazione all'API V2
           href: luis-migration-api-v1-to-v2.md
+    - name: Usare le API REST
+      items:
+        - name: Ottenere la finalità
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Cambiare il modello
+          href: get-started-get-model-rest-apis.md
     - name: Usare i contenitori
       items:
         - name: Installare ed eseguire i contenitori
