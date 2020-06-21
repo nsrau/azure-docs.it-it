@@ -38,9 +38,11 @@
 - name: Esempi
   items:
     - name: Criteri
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Criteri di Azure predefiniti
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Terminologia
