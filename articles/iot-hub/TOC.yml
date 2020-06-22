@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è l'hub IoT di Azure?
       href: about-iot-hub.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Inviare dati di telemetria
@@ -423,6 +423,8 @@
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (servizio)
       href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (gestione)
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/iot/management'
     - name: Java (dispositivo)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (servizio)
@@ -431,6 +433,14 @@
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
     - name: Node.js (servizio)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
+    - name: Node.js (gestione)
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/iothub/management'
+    - name: Python (dispositivo)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-device'
+    - name: Python (servizio)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-hub'
+    - name: Python (gestione)
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-iothub'
     - name: SDK per dispositivi per C
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
     - name: REST (dispositivo)

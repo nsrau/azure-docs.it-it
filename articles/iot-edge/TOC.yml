@@ -27,11 +27,11 @@
               href: tutorial-c-module.md
             - name: Moduli C per dispositivi Windows
               href: tutorial-c-module-windows.md
-        - name: 'C#'
+        - name: C#
           items:
-            - name: 'Moduli C# per dispositivi Linux'
+            - name: Moduli C# per dispositivi Linux
               href: tutorial-csharp-module.md
-            - name: 'Moduli C# per dispositivi Windows'
+            - name: Moduli C# per dispositivi Windows
               href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
@@ -199,6 +199,12 @@
           href: how-to-store-data-blob.md
         - name: Distribuire moduli di archiviazione BLOB
           href: how-to-deploy-blob.md
+    - name: SQL Edge di Azure in IoT Edge
+      items:
+        - name: Informazioni su SQL di Azure al perimetro
+          href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+        - name: Distribuire moduli SQL Edge di Azure
+          href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Gestire con gli strumenti DevOps
       items:
         - name: Azure DevOps Projects
@@ -238,12 +244,12 @@
     - name: Azure IoT SDK
       items:
         - name: IoT SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Esempi di Azure IoT
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'

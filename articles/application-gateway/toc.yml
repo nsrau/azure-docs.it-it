@@ -6,7 +6,7 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare il gateway applicazione - Portale
@@ -156,7 +156,7 @@
           href: ingress-controller-add-health-probes.md
         - name: Usare il gateway applicazione per esporre il servizio Azure Kubernetes tramite HTTP/HTTPS
           href: ingress-controller-expose-service-over-http-https.md
-        - name: Aggiornare il controller in ingresso con Helm
+        - name: Aggiornare il controller di ingresso con Helm
           href: ingress-controller-update-ingress-controller.md
         - name: Usare LetsEncrypt.org con il gateway applicazione
           href: ingress-controller-letsencrypt-certificate-application-gateway.md

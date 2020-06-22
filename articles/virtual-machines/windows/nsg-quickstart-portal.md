@@ -1,18 +1,18 @@
 ---
-title: Aprire le porte a una macchina virtuale usando il portale di AzureOpen ports to a VM using the Azure portal
-description: Informazioni su come aprire una porta/creare un endpoint per la macchina virtuale Windows usando il portale di AzureLearn how to open a port / create an endpoint to your Windows VM using the Azure Portal
+title: Aprire porte in una macchina virtuale usando il portale di Azure
+description: Informazioni su come aprire una porta o creare un endpoint nella macchina virtuale Windows usando il portale di Azure
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865497"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170043"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -25,47 +25,45 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
 
-2. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
 
     ![Creare un gruppo di sicurezza di rete](./media/nsg-quickstart-portal/create-nsg.png)
 
-2. Immettere un nome per il gruppo di sicurezza di rete. 
+1. Immettere un nome per il gruppo di sicurezza di rete. 
 
-3. Selezionare o creare un gruppo di risorse e quindi selezionare un percorso.
+1. Selezionare o creare un gruppo di risorse e quindi selezionare un percorso.
 
-4. Selezionare **Crea** per creare il gruppo di sicurezza di rete.
+1. Selezionare **Crea** per creare il gruppo di sicurezza di rete.
 
 ## <a name="create-an-inbound-security-rule"></a>Creare una regola di sicurezza in ingresso
 
 1. Selezionare il nuovo gruppo di sicurezza di rete. 
 
-2. Selezionare **Regole di sicurezza in ingresso** e quindi **Aggiungi**.
+1. Selezionare **Regole di sicurezza in ingresso** nel menu a sinistra, quindi selezionare **Aggiungi**.
 
-    ![Aggiungere una regola in ingresso](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Passare alla pagina Avanzate](./media/nsg-quickstart-portal/advanced.png)
 
-3. Fare clic su **Avanzate**. 
+1. Nella parte superiore della pagina **Aggiungi regola di sicurezza in ingresso** passare ad **Avanzate** da **Base**. 
 
-4. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
+1. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
 
-5. Facoltativamente, modificare il valore di **Priorità** o **Nome**. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
+1. Facoltativamente, modificare il valore di **Priorità** o **Nome**. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
 
-6. Selezionare **Aggiungi** per creare la regola.
+1. Selezionare **Aggiungi** per creare la regola.
 
 ## <a name="associate-your-network-security-group-with-a-subnet"></a>Associare il gruppo di sicurezza di rete a una subnet
 
 Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete a una subnet o un'interfaccia di rete specifica. Per questo esempio, si assocerà il gruppo di sicurezza di rete a una subnet. 
 
-1. Selezionare **Subnet** e quindi **Associa**.
+1. Selezionare **Subnet** dal menu a sinistra, quindi selezionare **Associa**.
 
-    ![Associare un gruppo di sicurezza di rete a una subnet](./media/nsg-quickstart-portal/associate-subnet.png)
-
-2. Selezionare la rete virtuale, quindi selezionare la subnet appropriata.
+1. Selezionare la rete virtuale, quindi selezionare la subnet appropriata.
 
     ![Associazione di un gruppo di sicurezza di rete a una rete virtuale](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-    Le macchine virtuali che si connettono alla subnet sono ora raggiungibili sulla porta 80.
+1. Al termine, selezionare **OK**.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
@@ -79,5 +77,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile posizionare l
 In questo articolo è stato creato un gruppo di sicurezza di rete, è stata definita una regola in ingresso che consente il traffico HTTP sulla porta 80 ed è stata associata tale regola a una subnet. 
 
 È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
-- [Panoramica di Azure Resource ManagerAzure Resource Manager overview](../../azure-resource-manager/management/overview.md)
+- [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Gruppi di sicurezza](../../virtual-network/security-overview.md)

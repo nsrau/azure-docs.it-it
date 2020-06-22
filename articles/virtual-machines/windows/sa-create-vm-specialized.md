@@ -9,12 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099649"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232816"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -34,7 +34,7 @@ Sono disponibili due opzioni:
 ### <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 È possibile caricare un disco rigido virtuale specializzato creato usando una VM locale o un disco rigido virtuale esportato da un altro cloud. Un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. Se si intende usare il disco rigido virtuale così come è per creare una nuova macchina virtuale, assicurare il completamento delle operazioni seguenti. 
   
-  * [Preparare un disco rigido virtuale Windows da caricare in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale con Sysprep.
+  * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale con Sysprep.
   * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware.
   * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
@@ -112,14 +112,14 @@ Verificare quanto segue:
 ### <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su **Macchine virtuali** > **myVM** &gt; Stop (Termina)
-* **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**.
+* **Portale**: fare clic su **Macchine virtuali** > **myVM** > Stop (Termina)
+* **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)**.
+Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
 
 ### <a name="get-the-storage-account-urls"></a>Ottenere gli URL dell'account di archiviazione
 Sono necessari gli URL degli account di archiviazione di origine e destinazione. Gli URL hanno l'aspetto seguente: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se si conosce già il nome degli account di archiviazione e dei contenitori, per creare l'URL è sufficiente sostituire le informazioni tra parentesi. 
@@ -127,7 +127,7 @@ Sono necessari gli URL degli account di archiviazione di origine e destinazione.
 Per ottenere l'URL è possibile usare il portale di Azure o Azure PowerShell:
 
 * **Portale**: fare clic su **>** per **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **BLOB**. Il file VHD di origine si trova probabilmente nel contenitore **vhds**. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. 
-* **PowerShell**: usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
+* **PowerShell**: usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -137,7 +137,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Trovare le chiavi di accesso per gli account di archiviazione di origine e destinazione. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portale**: fare clic su **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **Chiavi di accesso**. Copiare la chiave denominata **key1**.
-* **PowerShell**: usare [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **Mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
+* **PowerShell**: usare [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -225,7 +225,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 Per altre informazioni sugli endpoint e sulle regole NSG, vedere [Apertura di porte a una VM tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Creare un indirizzo IP pubblico e NIC
-Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, sono necessari un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e un'interfaccia di rete.
+Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, sono necessari un [indirizzo IP pubblico](../../virtual-network/public-ip-addresses.md) e un'interfaccia di rete.
 
 1. Creare l'IP pubblico. In questo esempio, il nome dell'indirizzo IP pubblico è **myIP**.
    
@@ -264,7 +264,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Aggiungere il disco del sistema operativo. In questo esempio, quando viene creato il disco del sistema operativo, il termine "osDisk" viene aggiunto al nome della macchina virtuale per creare il nome del disco del sistema operativo. Questo esempio specifica anche che il disco rigido virtuale basato su Windows deve essere collegato alla macchina virtuale come disco del sistema operativo.
+2. Aggiungere il disco del sistema operativo. In questo esempio, quando viene creato il disco del sistema operativo, il termine "osDisk" viene accodato al nome della macchina virtuale per creare il nome del disco del sistema operativo. Questo esempio specifica anche che il disco rigido virtuale basato su Windows deve essere collegato alla macchina virtuale come disco del sistema operativo.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

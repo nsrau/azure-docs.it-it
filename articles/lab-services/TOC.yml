@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: Scenari
       items:
-        - name: Usare i lab per gestire le classi
+        - name: Usare i servizi lab per gestire le classi
           href: classroom-labs-scenarios.md
+        - name: Usare i servizi lab per hackathon
+          href: hackathon-labs.md
         - name: Lab per le classi - Tipi di classe
           items:
             - name: Panoramica dei tipi di classi

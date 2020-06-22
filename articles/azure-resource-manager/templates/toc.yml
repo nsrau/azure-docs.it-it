@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i modelli di Azure Resource Manager?
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare modelli - Portale
       href: quickstart-create-templates-use-the-portal.md
@@ -12,104 +12,128 @@
       href: quickstart-create-templates-use-visual-studio-code.md
     - name: Servizi di Azure
       items:
-        - name: Servizio Azure Kubernetes
-          href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Analysis Services - Creare un server
-          href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Gateway applicazione
-          href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Backup
-          href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Batch
-          href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: IA + Machine Learning
+          items:
+            - name: Macchina virtuale di data science
+              href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Machine Learning
+              href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Analytics
+          items:
+            - name: Analysis Services
+              href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Databricks
+              href: ../../azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Hub eventi
+              href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - Hadoop
+              href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - HBase
+              href: ../../hdinsight/hbase/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - Interactive Query
+              href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - Kafka
+              href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - ML Services
+              href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: HDInsight - Spark
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Analisi di flusso
+              href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
-          href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Ricerca cognitiva
-          href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Istanze di Container
-          href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Registro Container
-          href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Cosmos DB
-          href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Budget di Gestione costi
-          href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Database per MariaDB
-          href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Database per MySQL
-          href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Database per PostgreSQL
-          href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Databricks
-          href: ../../azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Macchina virtuale di data science
-          href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Griglia di eventi
-          href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Hub eventi
-          href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Firewall - Zone di disponibilità
-          href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Firewall -Gruppi IP
-          href: ../../firewall/quick-create-ipgroup-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Firewall -Più indirizzi
-          href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Gestione firewall
-          href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - Spark
-          href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - Hadoop
-          href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - Kafka
-          href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - HBase
-          href: ../../hdinsight/hbase/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - Interactive Query
-          href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: HDInsight - ML Services
-          href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Key Vault
-          href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Macchina virtuale Linux
-          href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Load Balancer
-          href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Applicazione gestita
-          href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Machine Learning
-          href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Hub di notifica
-          href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Pipeline
-          href: 'https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json'
-        - name: Policy
-          href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Endpoint collegamento privato
-          href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Servizio Collegamento privato
-          href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Resource Graph
-          href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Controllo degli accessi in base al ruolo
-          href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Messaggistica del bus di servizio
-          href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Service Fabric
-          href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Site Recovery
-          href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Database SQL
-          href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Analisi di flusso
-          href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Set di scalabilità di macchine virtuali - Linux
-          href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Set di scalabilità di macchine virtuali - Windows
-          href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Web application firewall
-          href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Macchine virtuali Windows
-          href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          items:
+            - name: Blockchain
+              href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Calcolo
+          items:
+            - name: Batch
+              href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Macchina virtuale Linux
+              href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Set di scalabilità di macchine virtuali - Linux
+              href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Set di scalabilità di macchine virtuali - Windows
+              href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Macchine virtuali Windows
+              href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Contenitori
+          items:
+            - name: Servizio Azure Kubernetes
+              href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Istanze di Container
+              href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Registro Container
+              href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Service Fabric
+              href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Database
+          items:
+            - name: Cosmos DB
+              href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database per MariaDB
+              href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database per MySQL
+              href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database per PostgreSQL
+              href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database SQL
+              href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: DevOps
+          items:
+            - name: Pipeline
+              href: 'https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json'
+        - name: Integrazione
+          items:
+            - name: Griglia di eventi
+              href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Bus di servizio
+              href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Gestione e governance
+          items:
+            - name: Backup
+              href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Gestione dei costi e fatturazione
+              href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Applicazioni gestite
+              href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Policy
+              href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Resource Graph
+              href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Controllo degli accessi in base al ruolo
+              href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Site Recovery
+              href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Rete
+          items:
+            - name: Gateway applicazione
+              href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Firewall - Zone di disponibilità
+              href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Firewall -Gruppi IP
+              href: ../../firewall/quick-create-ipgroup-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Firewall -Più indirizzi
+              href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Gestione firewall
+              href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Load Balancer
+              href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Endpoint Collegamento privato
+              href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Servizio Collegamento privato
+              href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Web application firewall
+              href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Sicurezza
+          items:
+            - name: Key Vault
+              href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Web
+          items:
+            - name: Ricerca cognitiva
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Hub di notifica
+              href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Esercitazioni
   items:
     - name: Modelli per principianti
@@ -178,7 +202,7 @@
           href: deployment-manager-tutorial-health-check.md
 - name: Esempi
   items:
-    - name: Modelli di avvio rapido di Azure
+    - name: Modelli di Guida introduttiva di Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Esempi di modelli
       href: template-samples.md

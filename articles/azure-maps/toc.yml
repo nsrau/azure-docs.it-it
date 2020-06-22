@@ -91,6 +91,17 @@
           href: how-to-manage-account-keys.md
         - name: Gestire l'autenticazione
           href: how-to-manage-authentication.md
+          items:
+            - name: Come proteggere un'applicazione daemon
+              href: how-to-secure-daemon-app.md
+            - name: Come proteggere un'applicazione a pagina singola con accesso interattivo
+              href: how-to-secure-spa-users.md
+            - name: Come proteggere un'applicazione Web
+              href: how-to-secure-webapp-users.md
+            - name: Come proteggere un'applicazione a pagina singola con accesso non interattivo
+              href: how-to-secure-spa-app.md
+            - name: Come proteggere un'applicazione con vincoli di input
+              href: how-to-secure-device-code.md
         - name: Gestire il piano tariffario
           href: how-to-manage-pricing-tier.md
         - name: Gestire Creator
@@ -318,9 +329,9 @@
     - name: Azure IoT SDK
       items:
         - name: IoT SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Condizioni per l'utilizzo di Mappe di Azure
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Prezzi di Mappe di Azure
