@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Database di Azure per PostgreSQL
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Server singolo
@@ -193,6 +193,8 @@
           items:
             - name: Opzioni di configurazione
               href: concepts-hyperscale-configuration-options.md
+            - name: Pagare in anticipo la capacità riservata
+              href: concepts-hyperscale-reserved-pricing.md
 - name: Guide pratiche
   items:
     - name: Server singolo

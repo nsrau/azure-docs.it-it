@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -194,30 +194,6 @@
               href: wrangling-data-flow-overview.md
             - name: Funzioni supportate
               href: wrangling-data-flow-functions.md
-    - name: Migrazione dei dati per Data Lake e EDW
-      items:
-        - name: Perché Azure Data Factory?
-          href: data-migration-guidance-overview.md
-        - name: Eseguire la migrazione dei dati da AWS S3 ad Azure
-          href: data-migration-guidance-s3-azure-storage.md
-        - name: Eseguire la migrazione dei dati da un cluster Hadoop locale ad Azure
-          href: data-migration-guidance-hdfs-azure-storage.md
-        - name: Eseguire la migrazione dei dati da un server Netezza locale ad Azure
-          href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Trasformazione con flusso di dati di mapping
-      items:
-        - name: Elaborare file di testo a larghezza fissa
-          href: how-to-fixed-width.md
-        - name: Gestione delle righe con errori
-          href: how-to-data-flow-error-rows.md
-        - name: Da database SQL di Azure a CosmosDB
-          href: how-to-sqldb-to-cosmosdb.md
-    - name: Migrazione SSIS dall'ambiente locale
-      items:
-        - name: Panoramica sulla migrazione SSIS
-          href: scenario-ssis-migration-overview.md
-        - name: Migrazione SSISDB a Istanza gestita di SQL di Azure
-          href: scenario-ssis-migration-ssisdb-mi.md
     - name: Ruoli e autorizzazioni
       href: concepts-roles-permissions.md
     - name: Regole di denominazione
@@ -612,7 +588,7 @@
         - name: Monitorare il runtime di integrazione
           href: monitor-integration-runtime.md
         - name: Monitorare il runtime di integrazione SSIS di Azure
-          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+          href: monitor-integration-runtime.md#azure-ssis-integration-runtime
         - name: Riconfigurare il runtime di integrazione SSIS di Azure
           href: manage-azure-ssis-integration-runtime.md
         - name: Copiare o clonare una data factory
@@ -683,6 +659,32 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Creare una dipendenza del trigger di finestra a cascata
           href: tumbling-window-trigger-dependency.md
+    - name: Scenari
+      items:
+        - name: Migrazione dei dati per Data Lake e EDW
+          items:
+            - name: Perché Azure Data Factory?
+              href: data-migration-guidance-overview.md
+            - name: Eseguire la migrazione dei dati da AWS S3 ad Azure
+              href: data-migration-guidance-s3-azure-storage.md
+            - name: Eseguire la migrazione dei dati da un cluster Hadoop locale ad Azure
+              href: data-migration-guidance-hdfs-azure-storage.md
+            - name: Eseguire la migrazione dei dati da un server Netezza locale ad Azure
+              href: data-migration-guidance-netezza-azure-sqldw.md
+        - name: Trasformazione con flusso di dati di mapping
+          items:
+            - name: Elaborare file di testo a larghezza fissa
+              href: how-to-fixed-width.md
+            - name: Gestione delle righe con errori
+              href: how-to-data-flow-error-rows.md
+            - name: Da database SQL di Azure a CosmosDB
+              href: how-to-sqldb-to-cosmosdb.md
+        - name: Migrazione SSIS dall'ambiente locale
+          items:
+            - name: Panoramica sulla migrazione SSIS
+              href: scenario-ssis-migration-overview.md
+            - name: Migrazione SSISDB a Istanza gestita di SQL di Azure
+              href: scenario-ssis-migration-ssisdb-mi.md
     - name: Modelli
       items:
         - name: Panoramica dei modelli

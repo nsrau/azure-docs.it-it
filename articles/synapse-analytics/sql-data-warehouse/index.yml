@@ -6,18 +6,18 @@ metadata:
   description: Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala.
   services: synapse-analytics
   ms.service: synapse-analytics
-  ms.subservice: 
+  ms.subservice: sql-dw
   ms.topic: landing-page
   ms.collection: collection
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 04/15/2020
-  ms.openlocfilehash: 23dfa368ae94cada2cd2150fb05a7a294b190860
-  ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+  ms.openlocfilehash: 178ae3234eb5ed41d008aa438e628937c0c53dcb
+  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/09/2020
-  ms.locfileid: "82996844"
+  ms.lasthandoff: 06/23/2020
+  ms.locfileid: "85209505"
 landingContent:
 - title: Informazioni su Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
   linkLists:
