@@ -46,12 +46,16 @@
       items:
         - name: Aggiornamenti di Hub di notifica per iOS 13
           href: push-notification-updates-ios-13.md
-        - name: Inviare notifiche push ad app iOS
+        - name: Inviare notifiche push alle app iOS
           items:
-            - name: Objective-C
-              href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+            - name: Prerequisiti per le esercitazioni su iOS
+              href: ios-sdk-get-started.md
+            - name: Objective-C (versione 3.0.0-preview1)
+              href: ios-sdk-300.md
+            - name: Objective-C (versione 2.0.4)
+              href: ios-sdk-204.md
             - name: Swift
-              href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
+              href: ios-sdk-swift-rest.md
         - name: Inviare notifiche push a specifici dispositivi
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Inviare notifiche push a specifici utenti
@@ -68,7 +72,7 @@
               href: notification-hubs-backend-service-xamarin-forms.md
     - name: Windows Phone
       items:
-        - name: Eseguire il push di notifiche alle app
+        - name: Inviare notifiche push alle app
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: Inviare notifiche push a specifici dispositivi
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
@@ -78,7 +82,7 @@
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
         - name: Inviare notifiche push a specifici dispositivi
           href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-        - name: Eseguire il push di notifiche localizzate alle app
+        - name: Inviare notifiche push localizzate alle app
           href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
         - name: Inviare notifiche push a specifici utenti
           href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

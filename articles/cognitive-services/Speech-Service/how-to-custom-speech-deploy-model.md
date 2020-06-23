@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402186"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130416"
 ---
 # <a name="deploy-a-custom-model"></a>Distribuire un modello personalizzato
 
@@ -39,6 +39,8 @@ Dopo la distribuzione dell'endpoint, il nome dell'endpoint viene visualizzato co
 ## <a name="view-logging-data"></a>Visualizzare i dati di registrazione
 
 I dati di registrazione sono disponibili per il download in **Endpoint > dettagli**.
+> [!NOTE]
+>I dati di registrazione sono disponibili per 30 giorni nell'archiviazione di proprietà di Microsoft e verranno rimossi in seguito. Se un account di archiviazione di proprietà del cliente è collegato alla sottoscrizione di servizi cognitivi, i dati di registrazione non verranno eliminati automaticamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
