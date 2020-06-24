@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su App per la logica di Azure
       href: logic-apps-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare app per la logica - Portale di Azure
@@ -44,6 +44,10 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Continuità aziendale e ripristino di emergenza
       href: business-continuity-disaster-recovery-guidance.md
+    - name: Security
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Sviluppo

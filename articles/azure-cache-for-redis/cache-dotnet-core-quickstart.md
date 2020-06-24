@@ -7,13 +7,13 @@ ms.service: cache
 ms.devlang: dotnet
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/18/2020
+ms.openlocfilehash: 4a8353cf38c63e2642c7f76d05b4b7a2764e0706
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75413045"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117382"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
 
@@ -54,15 +54,14 @@ Aprire il file *Redistest.csproj*. Aggiungere un elemento `DotNetCliToolReferenc
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <UserSecretsId>Redistest</UserSecretsId>
-  </PropertyGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
-  </ItemGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <UserSecretsId>Redistest</UserSecretsId>
+    </PropertyGroup>
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    </ItemGroup>
 </Project>
 ```
 
@@ -93,16 +92,16 @@ using Microsoft.Extensions.Configuration;
 Aggiungere i membri seguenti alla classe `Program` in *Program.cs*. Questo codice consente di inizializzare una configurazione per accedere al segreto utente per la stringa di connessione di Cache Redis di Azure.
 
 ```csharp
-        private static IConfigurationRoot Configuration { get; set; }
-        const string SecretName = "CacheConnection";
+private static IConfigurationRoot Configuration { get; set; }
+const string SecretName = "CacheConnection";
 
-        private static void InitializeConfiguration()
-        {
-            var builder = new ConfigurationBuilder()
-                .AddUserSecrets<Program>();
+private static void InitializeConfiguration()
+{
+    var builder = new ConfigurationBuilder()
+        .AddUserSecrets<Program>();
 
-            Configuration = builder.Build();
-        }
+    Configuration = builder.Build();
+}
 ```
 
 ## <a name="configure-the-cache-client"></a>Configurare il client della cache
@@ -131,19 +130,19 @@ La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultipl
 In *Program.cs* aggiungere i membri seguenti alla classe `Program` dell'applicazione console:
 
 ```csharp
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-        {
-            string cacheConnection = Configuration[SecretName];
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    string cacheConnection = Configuration[SecretName];
+    return ConnectionMultiplexer.Connect(cacheConnection);
+});
 
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
-        }
+public static ConnectionMultiplexer Connection
+{
+    get
+    {
+        return lazyConnection.Value;
+    }
+}
 ```
 
 Questo approccio per la condivisione di un'istanza di `ConnectionMultiplexer` nell'applicazione usa una proprietà statica che restituisce un'istanza connessa. Il codice offre un modo thread-safe per inizializzare solo una singola istanza di `ConnectionMultiplexer` connessa. La proprietà `abortConnect` è impostata su false, a indicare che la chiamata riuscirà anche se non viene stabilita una connessione a Cache Redis di Azure. Una delle funzionalità principali di `ConnectionMultiplexer` è il ripristino automatico della connettività alla cache non appena l'errore di rete o eventuali altri problemi vengono risolti.
@@ -155,42 +154,42 @@ Il valore del segreto *CacheConnection* è accessibile tramite il provider di co
 In *Program.cs* aggiungere il codice seguente per la routine `Main` della classe `Program` per l'applicazione console:
 
 ```csharp
-        static void Main(string[] args)
-        {
-            InitializeConfiguration();
+static void Main(string[] args)
+{
+    InitializeConfiguration();
 
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+    // Connection refers to a property that returns a ConnectionMultiplexer
+    // as shown in the previous example.
+    IDatabase cache = lazyConnection.Value.GetDatabase();
 
-            // Perform cache operations using the cache object...
+    // Perform cache operations using the cache object...
 
-            // Simple PING command
-            string cacheCommand = "PING";
-            Console.WriteLine("\nCache command  : " + cacheCommand);
-            Console.WriteLine("Cache response : " + cache.Execute(cacheCommand).ToString());
+    // Simple PING command
+    string cacheCommand = "PING";
+    Console.WriteLine("\nCache command  : " + cacheCommand);
+    Console.WriteLine("Cache response : " + cache.Execute(cacheCommand).ToString());
 
-            // Simple get and put of integral data types into the cache
-            cacheCommand = "GET Message";
-            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
-            Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
+    // Simple get and put of integral data types into the cache
+    cacheCommand = "GET Message";
+    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
+    Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
-            cacheCommand = "SET Message \"Hello! The cache is working from a .NET Core console app!\"";
-            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
-            Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET Core console app!").ToString());
+    cacheCommand = "SET Message \"Hello! The cache is working from a .NET Core console app!\"";
+    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
+    Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET Core console app!").ToString());
 
-            // Demonstrate "SET Message" executed as expected...
-            cacheCommand = "GET Message";
-            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
-            Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
+    // Demonstrate "SET Message" executed as expected...
+    cacheCommand = "GET Message";
+    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
+    Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
-            // Get the client list, useful to see if connection list is growing...
-            cacheCommand = "CLIENT LIST";
-            Console.WriteLine("\nCache command  : " + cacheCommand);
-            Console.WriteLine("Cache response : \n" + cache.Execute("CLIENT", "LIST").ToString().Replace("id=", "id="));
+    // Get the client list, useful to see if connection list is growing...
+    cacheCommand = "CLIENT LIST";
+    Console.WriteLine("\nCache command  : " + cacheCommand);
+    Console.WriteLine("Cache response : \n" + cache.Execute("CLIENT", "LIST").ToString().Replace("id=", "id="));
 
-            lazyConnection.Value.Dispose();
-        }
+    lazyConnection.Value.Dispose();
+}
 ```
 
 Salvare *Program.cs*.
@@ -239,35 +238,35 @@ using Newtonsoft.Json;
 Aggiungere la definizione di classe `Employee` seguente a *Program.cs*:
 
 ```csharp
-        class Employee
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public int Age { get; set; }
+class Employee
+{
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 
-            public Employee(string EmployeeId, string Name, int Age)
-            {
-                this.Id = EmployeeId;
-                this.Name = Name;
-                this.Age = Age;
-            }
-        }
+    public Employee(string EmployeeId, string Name, int Age)
+    {
+        this.Id = EmployeeId;
+        this.Name = Name;
+        this.Age = Age;
+    }
+}
 ```
 
 Alla fine della routine `Main()` in *Program.cs* e prima della chiamata a `Dispose()`, aggiungere le righe di codice seguenti alla cache e recuperare un oggetto .NET serializzato:
 
 ```csharp
-            // Store .NET object to cache
-            Employee e007 = new Employee("007", "Davide Columbo", 100);
-            Console.WriteLine("Cache response from storing Employee .NET object : " + 
-                cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
+    // Store .NET object to cache
+    Employee e007 = new Employee("007", "Davide Columbo", 100);
+    Console.WriteLine("Cache response from storing Employee .NET object : " + 
+    cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
 
-            // Retrieve .NET object from cache
-            Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
-            Console.WriteLine("Deserialized Employee .NET object :\n");
-            Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
-            Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
-            Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
+    // Retrieve .NET object from cache
+    Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
+    Console.WriteLine("Deserialized Employee .NET object :\n");
+    Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
+    Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
+    Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
 ```
 
 Salvare *Program.cs* e ricompilare l'app con il comando seguente:
