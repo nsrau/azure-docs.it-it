@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b67d3205e95fe7cca6cacaab7e82a1a7e71f3f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82797361"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213024"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Guida introduttiva: Creare un classificatore del carico di lavoro di un pool SQL Synapse con il portale di Azure
 

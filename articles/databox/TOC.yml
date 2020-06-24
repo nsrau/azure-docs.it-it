@@ -46,8 +46,12 @@
                   href: data-box-system-requirements-rest.md
             - name: Conoscere i limiti
               href: data-box-limits.md
-            - name: Esaminare la sicurezza
-              href: data-box-security.md
+            - name: Sicurezza
+              items:
+                - name: Baseline di sicurezza
+                  href: security-baseline.md
+                - name: Esaminare la sicurezza
+                  href: data-box-security.md
             - name: Domande frequenti
               href: data-box-faq.md
         - name: Procedure

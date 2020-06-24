@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e46f9dabe2b6f38a08b8e14bae845e0fee22457
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673412"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081015"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -43,6 +43,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Servizi supportati  |Aree disponibili | Stato  |
 |:-------------------|:-----------------|:--------|
 |Servizi di Collegamento privato dietro Azure Load Balancer | Tutte le aree pubbliche  | GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Automazione di Azure  | Tutte le aree pubbliche | Anteprima | |
 | Archiviazione di Azure        |  Tutte le aree pubbliche       | GA <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | GA <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 |  database SQL di Azure         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |

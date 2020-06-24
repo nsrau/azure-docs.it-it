@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780913"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212497"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
@@ -39,10 +39,10 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 - Il ARM Linux è ora supportato.
 - Sono disponibili i file binari iniziali per [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2) (Linux arm64).
-- Gli utenti di Windows `AudioConfig.fromDefaultMicrophoneInput()` possono `AudioConfig.fromMicrophoneInput(deviceName)` usare o per specificare il microfono da usare.
+- Gli utenti di Windows possono usare `AudioConfig.fromDefaultMicrophoneInput()` o `AudioConfig.fromMicrophoneInput(deviceName)` per specificare il microfono da usare.
 - La dimensione della libreria è stata ottimizzata.
 - Supporto per il riconoscimento a più turni utilizzando lo stesso oggetto riconoscimento vocale/Intent.
-- Correzione di un blocco occasionale che si verifica durante l'arresto del riconoscimento.
+- Risolvere i problemi occasionali in cui il processo smette di rispondere durante l'arresto del riconoscimento.
 - Le app di esempio contengono ora un file partecipante di esempio. Properties per illustrare il formato del file.
 - Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.7.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 
@@ -63,7 +63,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - La nuova tecnologia per le parole chiave offre miglioramenti significativi della qualità, vedere modifiche di rilievo.
 - Nuova pipeline di elaborazione audio per migliorare il riconoscimento dei campi.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - A causa della nuova tecnologia keyword, tutte le parole chiave devono essere ricreate nel portale delle parole chiave migliorato. Per rimuovere completamente le parole chiave obsolete dal dispositivo, disinstallare l'app precedente.
   - ADB disinstallare com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -78,7 +78,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - Gestione delle parole chiave aggiornata. vedere modifiche di rilievo.
 - L'applicazione di esempio aggiunge la lingua scelta per il riconoscimento vocale e la traduzione.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - L' [installazione di una parola chiave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stata semplificata ed è ora inclusa nell'app e non è necessaria un'installazione separata sul dispositivo.
 - Il riconoscimento delle parole chiave è stato modificato e sono supportati due eventi.
@@ -97,7 +97,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - L'accuratezza del riconoscimento vocale risulterà migliorata grazie a un nuovo algoritmo di elaborazione audio.
 - Un bug relativo alla sessione audio di riconoscimento continuo è stato corretto.
 
-**Modifiche che causano un'interruzione**
+**Modifiche di rilievo**
 
 - Questa versione introduce numerose modifiche di rilievo. Vedere [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) per informazioni dettagliate relative alle API.
 - I file di modello KWS non sono compatibili con Speech Devices SDK 1.0.1. I file delle parole chiave esistenti verranno eliminati dopo che i nuovi file di parole chiave vengono scritti nel dispositivo.
