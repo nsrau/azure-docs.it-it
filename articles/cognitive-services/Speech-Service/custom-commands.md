@@ -1,7 +1,7 @@
 ---
-title: Comandi personalizzati (anteprima)-servizio riconoscimento vocale
+title: Comandi personalizzati-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Panoramica delle funzionalità, delle funzionalità e delle restrizioni per i comandi personalizzati (anteprima), una soluzione per la creazione di applicazioni vocali.
+description: Panoramica delle funzionalità, delle funzionalità e delle restrizioni per i comandi personalizzati, una soluzione per la creazione di applicazioni vocali.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,46 +10,49 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 3c02e823202aa848a4de94885276835899562e4b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9954e4fe739c055a00c2e3bc52b73200a7824a43
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266016"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299110"
 ---
-# <a name="what-is-custom-commands-preview"></a>Che cosa sono i comandi personalizzati (anteprima)?
+# <a name="what-is-custom-commands"></a>Che cosa sono i comandi personalizzati?
 
 Le applicazioni vocali come gli [assistenti vocali](voice-assistants.md) ascoltano gli utenti e intraprendono un'azione in risposta e spesso parlano. Usano il [riconoscimento vocale](speech-to-text.md) per trascrivere la voce dell'utente, quindi intervenire sulla comprensione del testo del linguaggio naturale. Questa azione include spesso l'output parlato dell'assistente generato con [sintesi vocale](text-to-speech.md). I dispositivi si connettono agli assistenti con l'oggetto dell'SDK di riconoscimento vocale `DialogServiceConnector` .
 
-**Custom Commands (anteprima)** è una soluzione semplificata per la creazione di applicazioni vocali. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore rispetto ad altre opzioni come la [sintesi vocale diretta](direct-line-speech.md). Questa semplificazione, tuttavia, presenta una riduzione della flessibilità. In questo modo, i comandi personalizzati (anteprima) sono ideali per gli scenari di completamento delle attività o di comando e controllo. È particolarmente adatto per Internet delle cose e per i dispositivi senza intestazioni.
+I **comandi personalizzati** semplificano la creazione di app avanzate per i comandi vocali ottimizzate per esperienze di interazione vocali-First. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore, che ti aiuta a concentrarti sulla creazione della soluzione migliore per gli scenari di comandi vocali.
 
-Per l'interazione e l'integrazione colloquiale complesse con altre soluzioni come la [soluzione Virtual Assistant e il modello Enterprise,](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) è consigliabile usare la voce direct line.
+I comandi personalizzati sono ideali per gli scenari di completamento delle attività, di comando e di controllo, in particolare per i dispositivi Internet delle cose (Internet), per i dispositivi di ambiente e senza intestazioni. Gli esempi includono soluzioni per l'ospitalità, il commercio al dettaglio e il settore automobilistico, che consente di creare le migliori esperienze di controllo vocale in locale per gli utenti guest, gestire l'inventario nell'archivio e controllare le funzionalità in-car durante lo spostamento.
 
-I candidati validi per i comandi personalizzati (anteprima) hanno un vocabolario fisso con set ben definiti di variabili. Ad esempio, le attività di automazione domestica, come il controllo di un termostato, sono ideali.
+> [!TIP]
+> Visualizza le demo di esempio nella pagina di destinazione all'indirizzo [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
+
+Se si è interessati a creare app di conversazione complesse, è consigliabile provare il Framework bot usando la [soluzione Virtual Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). È possibile aggiungere voce a qualsiasi bot del Framework bot usando Direct Line Speech.
+
+I candidati validi per i comandi personalizzati hanno un vocabolario fisso con set di variabili ben definiti. Ad esempio, le attività di automazione domestica, come il controllo di un termostato, sono ideali.
 
    ![Esempi di scenari di completamento delle attività](media/voice-assistants/task-completion-examples.png "esempi di completamento delle attività")
 
-## <a name="getting-started-with-custom-commands-preview"></a>Introduzione ai comandi personalizzati (anteprima)
+## <a name="getting-started-with-custom-commands"></a>Introduzione ai comandi personalizzati
 
-Il primo passaggio per l'uso di comandi personalizzati (anteprima) per creare un'applicazione vocale è [ottenere una chiave di sottoscrizione vocale](get-started.md) e accedere al generatore di comandi personalizzati (anteprima) in [speech studio](https://speech.microsoft.com). Da qui è possibile creare una nuova applicazione di comandi personalizzati (anteprima) e pubblicarla, dopo la quale un'applicazione su dispositivo può comunicare con l'applicazione tramite l'SDK di riconoscimento vocale.
+Il nostro obiettivo con i comandi personalizzati è quello di ridurre il carico cognitivo per apprendere tutte le diverse tecnologie e concentrare la creazione dell'app per i comandi vocali. Primo passaggio per l'uso di comandi personalizzati per <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">creare una risorsa <span class="docon docon-navigate-external x-hidden-focus"></span> vocale di Azure </a>. È possibile creare l'app per i comandi personalizzati in speech studio e pubblicarla, dopo la quale un'applicazione su dispositivo può comunicare con l'app usando l'SDK di riconoscimento vocale.
 
-   ![Flusso di creazione per i comandi personalizzati (anteprima)](media/voice-assistants/custom-commands-flow.png "Flusso di creazione dei comandi personalizzati (anteprima)")
+#### <a name="authoring-flow-for-custom-commands"></a>Creazione di un flusso per i comandi personalizzati
+   ![Creazione di un flusso per i comandi personalizzati](media/voice-assistants/custom-commands-flow.png "Flusso di creazione dei comandi personalizzati")
 
-Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti.
+Seguire la Guida introduttiva per fare in modo che la prima app comandi personalizzati esegua il codice in meno di 10 minuti.
 
-* [Creare un'applicazione di comandi personalizzati (anteprima)](quickstart-custom-speech-commands-create-new.md)
-* [Creare un'applicazione di comandi personalizzati (anteprima) con parametri](quickstart-custom-speech-commands-create-parameters.md)
-* [Connettersi a un'applicazione di comandi personalizzati (anteprima) con l'SDK di riconoscimento vocale, C #](quickstart-custom-speech-commands-speech-sdk.md)
+* [Creare un assistente vocale con comandi personalizzati](quickstart-custom-commands-application.md)
 
-Al termine delle guide introduttive, è possibile esplorare le procedure.
+Una volta completata la Guida introduttiva, esplorare le guide alle procedure per i passaggi dettagliati per la progettazione, lo sviluppo, il debug, la distribuzione e l'integrazione di un'applicazione comandi personalizzata.
 
-- [Aggiungere convalide ai parametri di comando personalizzati](./how-to-custom-speech-commands-validations.md)
-- [Soddisfare i comandi nel client con l'SDK di riconoscimento vocale](./how-to-custom-speech-commands-fulfill-sdk.md)
-- [Aggiungere una conferma a un comando personalizzato](./how-to-custom-speech-commands-confirmations.md)
-- [Aggiungere una correzione in un passaggio a un comando personalizzato](./how-to-custom-speech-commands-one-step-correction.md)
+## <a name="building-voice-assistants-with-custom-commands"></a>Creazione di assistenti vocali con comandi personalizzati
+> [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
-* [Passare a speech studio per provare i comandi personalizzati](https://speech.microsoft.com)
+* [Visualizzare il repository di assistenti vocali su GitHub per gli esempi](https://aka.ms/speech/cc-samples)
+* [Passare a speech studio per provare i comandi personalizzati](https://speech.microsoft.com/customcommands)
 * [Ottenere Speech SDK](speech-sdk.md)

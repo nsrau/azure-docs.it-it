@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/23/2020
+ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780760"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261019"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
 Configurare un [indicizzatore](search-indexer-overview.md) per estrarre i dati ricercabili dal database SQL di Azure e inviarli a un indice di ricerca in Ricerca cognitiva di Azure. 
 
-In questa esercitazione si usa C# e [.NET SDK](https://aka.ms/search-sdk) per le attività seguenti:
+In questa esercitazione si usa C# e [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) per le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare un'origine dati che si connette al database SQL di Azure
