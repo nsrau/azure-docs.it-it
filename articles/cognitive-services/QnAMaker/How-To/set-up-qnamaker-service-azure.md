@@ -3,12 +3,12 @@ title: Configurare un servizio QnA Maker-QnA Maker
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214129"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -51,7 +51,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
     * Scegliere il **percorso di App Insights** in cui verrà distribuita la risorsa Application Insights.
     * Per le misure di risparmio sui costi, è possibile [condividere](#configure-qna-maker-to-use-different-cognitive-search-resource) alcune ma non tutte le risorse di Azure create per QnA Maker.
 
-1. Dopo la convalida di tutti i campi, selezionare **Crea**. Il completamento del processo può richiedere alcuni minuti.
+1. Dopo la convalida di tutti i campi, selezionare **Crea**. Il completamento del processo potrebbe richiedere alcuni minuti.
 
 1. Al termine della distribuzione, verranno visualizzate le risorse seguenti create nella sottoscrizione:
 
@@ -60,9 +60,9 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
     La risorsa con il tipo di _Servizi cognitivi_ ha le chiavi di _sottoscrizione_ .
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Trovare le chiavi di sottoscrizione nel portale di Azure
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Trovare le chiavi di creazione nel portale di Azure
 
-È possibile visualizzare e reimpostare le chiavi della sottoscrizione dalla portale di Azure, in cui è stata creata la risorsa QnA Maker.
+È possibile visualizzare e reimpostare le chiavi di creazione dall'portale di Azure, in cui è stata creata la risorsa QnA Maker. Queste chiavi possono essere denominate chiavi di sottoscrizione. 
 
 1. Passare alla risorsa QnA Maker nella portale di Azure e selezionare la risorsa con il tipo di _Servizi cognitivi_ :
 
@@ -72,7 +72,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     ![Chiave della sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi degli endpoint nel portale di QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi dell'endpoint di query nel portale di QnA Maker
 
 L'endpoint si trova nella stessa area della risorsa perché le chiavi dell'endpoint vengono utilizzate per effettuare una chiamata alla Knowledge base.
 
@@ -118,7 +118,7 @@ Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzio
 
 Se si prevede di avere molte Knowledge base, aggiornare il piano tariffario del servizio ricerca cognitiva di Azure.
 
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A tale scopo, effettuare le operazioni seguenti:
 
 1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
 
@@ -206,8 +206,8 @@ Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile 
     > [!div class="mx-imgBorder"]
     > ![Nel riquadro Configurazione selezionare * * Impostazioni generali * *, quindi trova * * always on * * e selezionare * * on * * come valore.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
 
-1. Selezionare **Salva** per salvare la configurazione.
-1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Seleziona **Continua**.
+1. Selezionare **Save (Salva** ) per salvare la configurazione.
+1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Selezionare **Continua**.
 
 Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
 ## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare il servizio app QnA Maker

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ffa09293ad2ff02e104ce285b6b0aaca7d4744a2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873302"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212667"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
@@ -26,7 +26,7 @@ Se si desidera utilizzare i dati di training con etichette manuali, è necessari
 
 ## <a name="training-data-tips"></a>Suggerimenti per i dati di training
 
-È importante usare un set di dati ottimizzato per il training. Usare i suggerimenti seguenti per assicurarsi di ottenere i risultati migliori dall'operazione di [training del modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) :
+È importante usare un set di dati ottimizzato per il training. Usare i suggerimenti seguenti per assicurarsi di ottenere i risultati migliori dall'operazione di [training del modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) :
 
 * Se possibile, utilizzare documenti PDF basati su testo anziché documenti basati su immagini. I file PDF analizzati vengono gestiti come immagini.
 * Per i form compilati, usare esempi in cui tutti i relativi campi sono stati compilati.
@@ -44,11 +44,11 @@ Verificare anche che il set di dati di training segua i requisiti di input per t
 
 Dopo aver raccolto il set di documenti del modulo da usare per il training, è necessario caricarlo in un contenitore di archiviazione BLOB di Azure. Se non si conosce la procedura per creare un account di archiviazione di Azure con un contenitore, seguire la [Guida introduttiva di archiviazione di Azure per portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
-Se si vogliono usare i dati con etichetta manuale, sarà anche necessario caricare i file con *estensione labels. JSON* e *. OCR. JSON* che corrispondono ai documenti di training. Per generare questi file, è possibile usare lo [strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md) (o la propria interfaccia utente).
+Se si desidera utilizzare i dati con etichetta manualmente, sarà necessario caricare anche il *.labels.js* e *.ocr.jssu* file che corrispondono ai documenti di training. Per generare questi file, è possibile usare lo [strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md) (o la propria interfaccia utente).
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizzare i dati nelle sottocartelle (facoltativo)
 
-Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) ha il formato seguente, dove `<SAS URL>` è l'URL della firma di accesso condiviso del contenitore:
+Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) ha il formato seguente, dove `<SAS URL>` è l'URL della firma di accesso condiviso del contenitore:
 
 ```json
 {

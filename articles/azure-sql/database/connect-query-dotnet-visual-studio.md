@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 94f005ee4b2542e4cc0908880d589a2ee6a4d798
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3f951c05100b5e36a2162e2422a066d563b24136
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267427"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250673"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare .NET (C#) e C# in Visual Studio per connettersi a un database nel database SQL di Azure o nell'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Questa guida di avvio rapido illustra come usare il codice [.NET Framework](http
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
+- Database nel database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
 
   || Database SQL | Istanza gestita di SQL | SQL Server in una macchina virtuale Azure |
   |:--- |:--- |:---|:---|
@@ -49,7 +49,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
 ## <a name="get-server-connection-information"></a>Recuperare le informazioni di connessione del server
 
-Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server o il nome host, il nome del database e le informazioni di accesso.
+Ottenere le informazioni di connessione necessarie per connettersi al database. Nelle procedure successive saranno necessari il nome completo del server o il nome host, il nome del database e le informazioni di accesso.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 

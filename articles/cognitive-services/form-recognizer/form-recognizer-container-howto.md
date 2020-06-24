@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 761cf5831bb2332ae8c3f7a9a8edee707e6810ee
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816336"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213194"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installare ed eseguire i contenitori di riconoscimento form (anteprima)
 
@@ -35,11 +35,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare i prerequisiti seguenti:
 
-| Obbligatoria | Scopo |
+| Necessario | Scopo |
 |----------|---------|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
-| Interfaccia della riga di comando di Azure | Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nell'host. |
+| Interfaccia della riga di comando di Azure | Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'host. |
 | Risorsa API Visione artificiale | Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità riconoscimento del testo come una risorsa di Azure (l'API REST o l'SDK) o un [contenitore](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) *cognitive-Services-Recognize-text* . Si applicano le normali tariffe di fatturazione. <br><br>Passare sia la chiave API sia gli endpoint per la risorsa Visione artificiale (cloud di Azure o contenitore di servizi cognitivi). Usare questa chiave API e l'endpoint come **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `http://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita. |
 | Risorsa Riconoscimento modulo | Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di riconoscimento di Azure **form** per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nella panoramica del **riconoscimento del modulo** portale di Azure e nelle pagine delle chiavi ed entrambi i valori sono necessari per avviare il contenitore.<br><br>**{FORM_RECOGNIZER_API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina chiavi<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: endpoint fornito nella pagina Panoramica |
 
@@ -325,7 +325,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](for
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento modulo. In sintesi:
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117268"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212446"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -34,7 +34,7 @@ Il modo più rapido per avviare l'assegnazione di etichette ai dati consiste nel
 
 Prima di iniziare, è importante tenere presente che esistono due modi per distribuire lo strumento di assegnazione di etichette di esempio in un'istanza di contenitore di Azure (ACI). Entrambe le opzioni vengono usate per eseguire lo strumento di assegnazione di etichette di esempio con ACI: 
 
-* [Uso del portale di Azure](#azure-portal)
+* [Uso della portale di Azure](#azure-portal)
 * [Uso dell'interfaccia della riga di comando di Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -82,14 +82,14 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    > [!div class="mx-imgBorder"]
    > ![Configurare Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. È tutto. Selezionare quindi **Verifica + crea**e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
+7. Questo è tutto. Selezionare quindi **Verifica + crea**e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
 
 > [!NOTE]
 > Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-In alternativa all'uso del portale di Azure, è possibile creare una risorsa usando l'interfaccia della riga di comando di Azure. Prima di continuare, è necessario installare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). È possibile ignorare questo passaggio se si sta già lavorando con l'interfaccia della riga di comando di Azure. 
+In alternativa all'uso del portale di Azure, è possibile creare una risorsa usando l'interfaccia della riga di comando di Azure. Prima di continuare, è necessario installare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). È possibile ignorare questo passaggio se si sta già lavorando con l'interfaccia della riga di comando di Azure. 
 
 È necessario conoscere alcuni aspetti di questo comando:
 

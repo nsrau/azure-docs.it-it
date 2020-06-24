@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783096"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210729"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -332,7 +332,6 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 |es-MX  |Spagnolo (Messico)   |n/d|   sì|    sì|
 |ja-JP| Giapponese    |n/d    |sì    |sì|
 |pt-BR| Portoghese (Brasile)|    n/d|    sì|    sì|
-|ko-KR| Coreano  |n/d    |sì|   sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

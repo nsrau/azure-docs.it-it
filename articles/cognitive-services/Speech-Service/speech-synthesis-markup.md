@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8772607c7f43f2a06f5c9f12ee5efd603a1e324f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017770"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212650"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -53,7 +53,7 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -73,7 +73,7 @@ L' `voice` elemento è obbligatorio. Viene usato per specificare la voce usata p
 </voice>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -96,7 +96,7 @@ L' `voice` elemento è obbligatorio. Viene usato per specificare la voce usata p
 
 All'interno dell' `speak` elemento è possibile specificare più voci per l'output da sintesi vocale. Queste voci possono essere in lingue diverse. Per ogni voce, il testo deve essere racchiuso in un `voice` elemento. 
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -206,7 +206,7 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 <mstts:express-as style="string"></mstts:express-as>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -256,7 +256,7 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 <break time="string" />
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -326,14 +326,14 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 <phoneme alphabet="string" ph="string"></phoneme>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Set di telefono universale</a></li></ul><br>L'alfabeto si applica solo a `phoneme` nell'elemento. | Facoltativo |
 | `ph` | Stringa contenente i telefoni che specificano la pronuncia della parola nell' `phoneme` elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
-**Esempi**
+**esempi**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -372,7 +372,7 @@ A volte il servizio di sintesi vocale non può pronunciare una parola in modo ac
 <lexicon uri="string"/>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione                               | Obbligatoria / Facoltativa |
 |-----------|-------------------------------------------|---------------------|
@@ -403,7 +403,7 @@ Per definire il modo in cui vengono lette più entità, è possibile creare un l
 
 L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` elemento contiene almeno un `grapheme` elemento e uno o più `grapheme` elementi, `alias` e `phoneme` . L' `grapheme` elemento contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Gli `alias` elementi vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L' `phoneme` elemento fornisce il testo che descrive il modo in cui `lexeme` viene pronunciato.
 
-È importante notare che non è possibile impostare direttamente la pronuncia di una parola usando il lessico personalizzato. Se è necessario impostare la pronuncia per un oggetto, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . Ad esempio:
+È importante notare che non è possibile impostare direttamente la pronuncia di una parola usando il lessico personalizzato. Se è necessario impostare la pronuncia per un acronimo o un termine abbreviato, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . Ad esempio:
 
 ```xml
   <lexeme>
@@ -487,7 +487,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 <prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -570,7 +570,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 <say-as interpret-as="string" format="digit string" detail="string"> <say-as>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
@@ -632,7 +632,7 @@ Qualsiasi audio incluso nel documento SSML deve soddisfare i requisiti seguenti:
 <audio src="string"/></audio>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione                                   | Obbligatoria / Facoltativa                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
@@ -668,7 +668,7 @@ Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è
 <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
 ```
 
-**Attributi**
+**Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
