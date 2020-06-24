@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79499637"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130756"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Guida introduttiva: Come iscriversi e caricare il primo video
 
@@ -25,7 +25,7 @@ Al momento della creazione di un account di Video Indexer, è possibile sceglier
 
 ## <a name="sign-up-for-video-indexer"></a>Iscriversi a Video Indexer
 
-Per iniziare a eseguire attività di sviluppo con Video Indexer, visitare il sito Web di [Video Indexer](https://www.videoindexer.com) e iscriversi.
+Per iniziare a eseguire attività di sviluppo con Video Indexer, visitare il sito Web di [Video Indexer](https://www.videoindexer.ai/) e iscriversi.
 
 > [!NOTE]
 > Quando si inizia a usare Video Indexer, tutti i dati archiviati e i contenuti caricati inattivi vengono crittografati con una chiave gestita da Microsoft.

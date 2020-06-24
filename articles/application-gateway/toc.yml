@@ -70,8 +70,6 @@
           href: redirect-overview.md
         - name: Riscrivere le intestazioni HTTP
           href: rewrite-http-headers.md
-        - name: Pagine di errore personalizzate
-          href: custom-error.md
     - name: SSL
       items:
         - name: Terminazione SSL e SSL end-to-end
@@ -240,6 +238,8 @@
           href: log-analytics.md
         - name: Problemi di integrità del back-end
           href: application-gateway-backend-health-troubleshooting.md
+    - name: Pagine di errore personalizzate
+      href: custom-error.md
     - name: Eseguire la migrazione dalla versione 1 alla versione 2
       href: migrate-v1-v2.md
 - name: Informazioni di riferimento

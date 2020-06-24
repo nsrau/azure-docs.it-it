@@ -43,6 +43,10 @@
       href: network-watcher-security-group-view-overview.md
     - name: Autorizzazioni del controllo degli accessi in base al ruolo
       href: required-rbac-permissions.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Configurare Network Watcher
@@ -163,7 +167,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
-      href: '/powershell/module/az.network/#network_watcher'
+      href: /powershell/module/az.network/#network_watcher
     - name: Java
       href: /java/api/com.microsoft.azure.management.network
     - name: Ruby
