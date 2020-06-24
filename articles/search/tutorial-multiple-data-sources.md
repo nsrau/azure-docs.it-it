@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780522"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262209"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Esercitazione: Indicizzazione da più origini dati con .NET SDK
 
@@ -21,7 +21,7 @@ Ricerca cognitiva di Azure consente di importare, analizzare e indicizzare i dat
 
 Questa esercitazione descrive come indicizzare i dati di hotel provenienti da un'origine dati di Azure Cosmos DB e come unirli ai dettagli delle camere ricavati da documenti di Archiviazione BLOB di Azure. Il risultato sarà un indice di ricerca combinato degli hotel contenente tipi di dati complessi.
 
-Questa esercitazione usa C# e [.NET SDK](https://aka.ms/search-sdk). In questa esercitazione verranno eseguite le attività seguenti:
+Questa esercitazione usa C# e [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). In questa esercitazione verranno eseguite le attività seguenti:
 
 > [!div class="checklist"]
 > * Caricare dati di esempio e creare le origini dati

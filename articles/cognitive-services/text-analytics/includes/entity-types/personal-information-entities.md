@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902603"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292142"
 ---
 > [!NOTE]
 > Per rilevare `PHI` , usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
 >
-> ad esempio `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
 Quando si inviano richieste all'endpoint, vengono restituite le categorie di entità seguenti `/v3.1-preview.1/entities/recognition/pii` .
 
@@ -51,7 +51,7 @@ Questa categoria di entità include informazioni di Azure identificabili, inclus
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chiave di autenticazione di Azure DocumentDB             | Chiave di autorizzazione per un server DocumentDB di Azure.                           |
 | Stringa di connessione del database IaaS di Azure e stringa di connessione di SQL di Azure | Stringa di connessione per un database di infrastruttura distribuita come servizio (IaaS) di Azure e una stringa di connessione SQL. |
-| Stringa di connessione SQL di Azure           | Stringa di connessione per un database SQL di Azure.                                |
+| Stringa di connessione SQL di Azure           | Stringa di connessione per un database nel database SQL di Azure.                                |
 | Stringa di connessione di Azure IoT           | Stringa di connessione per Internet delle cose di Azure.                        |
 | Password delle impostazioni di pubblicazione di Azure        | Password per le impostazioni di pubblicazione di Azure.                                        |
 | Stringa di connessione di Cache Redis di Azure   | Stringa di connessione per una cache di Azure per Redis.                             |

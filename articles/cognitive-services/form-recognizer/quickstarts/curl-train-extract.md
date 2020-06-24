@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: fd240abee3bb19b3c54650756a3329d4d1ef8ae5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ea38b7351d2ba512261de94ac00a06eec9ba9946
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206255"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
@@ -39,34 +39,34 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 > [!NOTE]
 > È possibile usare la funzionalità dei dati etichettati per applicare manualmente le etichette ad alcuni o a tutti i dati di training in anticipo. Si tratta di una procedura più complessa, ma il risultato è un training del modello più efficace. Per altre informazioni su questa funzionalità, vedere la sezione [Eseguire il training con le etichette](../overview.md#train-with-labels) della panoramica.
 
-Per eseguire il training di un modello di Riconoscimento modulo con i documenti del contenitore BLOB di Azure, chiamare l'API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
+Per eseguire il training di un modello di Riconoscimento modulo con i documenti del contenitore BLOB di Azure, chiamare l'API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione copiata nel passaggio precedente.
 1. Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso (SAS) del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 Si riceverà una risposta `201 (Success)` con l'intestazione **Location**. Il valore di questa intestazione corrisponde all'ID del nuovo modello da sottoporre a training. 
 
 ## <a name="get-training-results"></a>Ottenere i risultati del training
 
-Dopo aver avviato il training, usare una nuova operazione, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** , per verificare lo stato dell'operazione. Passare l'ID modello in questa chiamata API per controllare lo stato del training:
+Dopo aver avviato il training, usare una nuova operazione, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetCustomModel)** , per verificare lo stato dell'operazione. Passare l'ID modello in questa chiamata API per controllare lo stato del training:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto con la chiave di sottoscrizione di riconoscimento modulo,
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione
 1. Sostituire `<model ID>` con l'ID modello ricevuto nel passaggio precedente
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 Si riceverà una risposta `200 (Success)` con un corpo JSON nel formato seguente. Osservare il campo `"status"`. Al termine del training, avrà il valore `"ready"`. Se il training del modello non è stato completato, è necessario eseguire di nuovo una query sul servizio ripetendo il comando. Si consiglia di attendere almeno un secondo tra le chiamate.
 
 Il campo `"modelId"` contiene l'ID del modello da sottoporre a training. Servirà per il passaggio successivo.
-
+    
 ```json
 { 
   "modelInfo":{ 
@@ -135,7 +135,7 @@ Il campo `"modelId"` contiene l'ID del modello da sottoporre a training. Servir�
 
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analizzare i moduli per trovare le coppie chiave-valore e le tabelle
 
-Quindi, usare il modello appena sottoposto a training per analizzare un documento da cui estrarre le coppie chiave-valore e le tabelle. Chiamare l'API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
+Quindi, usare il modello appena sottoposto a training per analizzare un documento da cui estrarre le coppie chiave-valore e le tabelle. Chiamare l'API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `<model ID>` con l'ID modello ricevuto nella sezione precedente.
@@ -143,7 +143,7 @@ Quindi, usare il modello appena sottoposto a training per analizzare un document
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione.
 
 ```bash
-curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
+curl -v "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
 Si riceverà una risposta `202 (Success)` che include l'intestazione **Operation-Location**. Il valore di questa intestazione include un ID risultati da usare per tenere traccia dei risultati dell'operazione di analisi. Salvare questo ID risultati per il passaggio successivo.
@@ -157,7 +157,7 @@ Usare l'API seguente per eseguire una query sui risultati dell'operazione di ana
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 Si riceverà una risposta `200 (Success)` con un corpo JSON nel formato seguente. L'output è stato abbreviato per semplicità. Osservare il campo `"status"` verso la fine. Al termine dell'operazione di analisi, avrà il valore `"succeeded"`. Se l'operazione di analisi non è stata completata, è necessario eseguire di nuovo una query sul servizio ripetendo il comando. Si consiglia di attendere almeno un secondo tra le chiamate.
@@ -422,4 +422,4 @@ Le tabelle e le associazioni chiave-valore principali si trovano nel nodo `"page
 In questo argomento di avvio rapido è stata usata l'API REST di riconoscimento modulo con cURL per eseguire il training di un modello e quindi eseguire il modello in uno scenario di esempio. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)
