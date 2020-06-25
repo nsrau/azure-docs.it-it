@@ -1871,7 +1871,7 @@ La base per il calcolo è di 30 giorni al mese o 43.200 minuti. Di conseguenza, 
 
 Ad esempio:
 
-(99,95/100) + (99,9/100) + (99,9/100) = 0,9975 o una disponibilità complessiva del 99,75%.
+(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 o una disponibilità complessiva del 99,75%.
 
 #### <a name="virtual-machine-vm-high-availability"></a>Disponibilità elevata delle macchine virtuali
 
