@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 14bf43375e2ebe37d496a7343c5f85c41f55bc29
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307604"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362143"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creare un assistente vocale con comandi personalizzati
 
@@ -24,7 +24,7 @@ Questa Guida introduttiva illustra come creare e testare un'applicazione di coma
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa Voce di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa vocale di Azure in un'area che supporta i comandi personalizzati.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Scaricare il file JSON di esempio di [Smart Room Lite](https://aka.ms/speech/cc-quickstart) .
 > * Scaricare la versione più recente del [client Windows Voice Assistant](https://aka.ms/speech/va-samples-wvac).
 
@@ -82,7 +82,8 @@ Verrà ora visualizzata una panoramica della nuova applicazione comandi personal
     - Accendere la TV
     - Imposta la temperatura su 80 gradi
     - Disattiva
-    - Impostare una sveglia
+    - TV
+    - Imposta un allarme per le 17.00
 
 ## <a name="integrate-custom-commands-application-in-an-assistant"></a>Integrare l'applicazione comandi personalizzati in un assistente
 Prima di poter accedere a questa applicazione dall'esterno di speech studio, è necessario pubblicare l'applicazione. Per la pubblicazione di un'applicazione, è necessario configurare la risorsa LUIS per la stima.  
@@ -92,7 +93,7 @@ Prima di poter accedere a questa applicazione dall'esterno di speech studio, è 
 
 1. Selezionare **Settings (impostazioni** ) nel riquadro sinistro e selezionare **risorse Luis** nel riquadro centrale.
 1. Selezionare una risorsa di stima o crearne una selezionando **Crea nuova risorsa**.
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
     
     > [!div class="mx-imgBorder"]
     > ![Imposta risorse LUIS](media/custom-commands/set-luis-resources.png)
@@ -110,7 +111,7 @@ In alternativa, è anche possibile ottenere questi valori selezionando **Imposta
 
 Nell'ambito di questo articolo, si utilizzerà il client Windows Voice Assistant scaricato come parte dei prerequisiti. Decomprimere la cartella.
 1. Avviare **VoiceAssistantClient.exe**.
-1. Creare un nuovo profilo di pubblicazione e immettere il valore per **profilo di connessione**. Nella sezione **General Settings (impostazioni generali** ) immettere Values **Subscription Key**, **Subscription Key Region** e **Custom Commands App ID**.
+1. Creare un nuovo profilo di pubblicazione e immettere il valore per **profilo di connessione**. Nella sezione **General Settings (impostazioni generali** ) immettere Values **Subscription Key** (uguale al valore della **chiave della risorsa vocale** salvato durante la pubblicazione dell'applicazione), **area chiave della sottoscrizione** e **ID app comandi personalizzati**.
     > [!div class="mx-imgBorder"]
     > ![WVAC Crea profilo](media/custom-commands/create-profile.png)
 1. Selezionare **Salva e applica profilo**.

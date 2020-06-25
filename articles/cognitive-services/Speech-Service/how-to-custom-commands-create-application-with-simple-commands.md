@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307652"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362408"
 ---
 # <a name="create-application-with-simple-commands"></a>Creare un'applicazione con comandi semplici
 
@@ -27,6 +27,10 @@ In questo articolo vengono illustrate le operazioni seguenti:
 ## <a name="create-empty-application"></a>Crea applicazione vuota
 Creare un'applicazione di comandi personalizzata vuota. Per informazioni dettagliate, vedere la [Guida introduttiva](quickstart-custom-commands-application.md). Questa volta, invece di importare un progetto, viene creato un progetto vuoto.
 
+1. Nella casella **nome** immettere il nome `Smart-Room-Lite` del progetto (o un altro elemento di propria scelta).
+1. Nell'elenco **lingua** selezionare **inglese (Stati Uniti)**.
+1. Selezionare o creare una risorsa LUIS di propria scelta.
+
    > [!div class="mx-imgBorder"]
    > ![Creare un progetto](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Creare un'applicazione di comandi personalizzata vuota. Per informazioni dettagl
 
 ## <a name="add-turnon-command"></a>Aggiungi comando accendere
 
-Nell'applicazione **Smart Room-Lite** Custom Commands aggiungere un semplice comando che elabora un enunciato, `turn on the tv` e risponde con il messaggio `Ok, turning the tv on` .
+Nell'applicazione dei comandi personalizzati **Smart Room-Lite** vuota appena creata, aggiungere un semplice comando che elabora un enunciato, `turn on the tv` e risponde con il messaggio `Ok, turning the tv on` .
 
 1. Creare un nuovo comando selezionando **nuovo comando** nella parte superiore del riquadro sinistro. Verrà visualizzata la finestra **nuovo comando** .
 1. Specificare il valore per il campo **nome** come **accendere**.
@@ -74,7 +78,7 @@ Per il momento non sono disponibili parametri, quindi è possibile passare alla 
 
 Successivamente, il comando deve avere una regola di completamento. Questa regola indica all'utente che viene eseguita un'azione di evasione. Per altre informazioni sulle regole e sulle regole di completamento, vedere [riferimenti](./custom-commands-references.md).
 
-1. Selezionare la regola di completamento predefinita **eseguita** e modificarla come indicato di seguito: 
+1. Selezionare la regola di completamento predefinita **eseguita** e modificarla come indicato di seguito:
 
     
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
@@ -84,13 +88,7 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
     | **Actions**    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
     
 
-1. In alternativa, è possibile eliminare la regola di completamento predefinita esistente e crearne una nuova selezionando il **componente aggiuntivo** nella parte superiore del riquadro centrale.
-1. Specificare il valore nella sezione **nome** .
-1. Aggiungere un'azione.
-   1. Creare un'azione selezionando **Aggiungi un'azione** nella sezione **azioni** .
-   1. Nella finestra **nuova azione** selezionare **Invia risposta vocale**nell'elenco **tipo** .
-   1. In **risposta**selezionare **Editor semplice**.
-   1. Nel **primo campo Variazione** specificare valore per Response come `Ok, turning the tv on` .
+
 
    > [!div class="mx-imgBorder"]
    > ![Creare una risposta vocale](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
 1. Selezionare **Save (Salva** ) per salvare l'azione.
 1. Nella sezione **regole di completamento** selezionare **Salva** per salvare tutte le modifiche. 
 
+
+ > [!NOTE]
+    > Non è necessario usare la regola di completamento predefinita fornita con il comando. Se necessario, è possibile eliminare la regola di completamento predefinita esistente e aggiungere una regola personalizzata.
 
 ### <a name="try-it-out"></a>Procedura
 
