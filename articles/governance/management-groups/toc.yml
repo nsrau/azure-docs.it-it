@@ -21,10 +21,10 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/account/management-group
     - name: Azure PowerShell
-      href: '/powershell/module/az.resources/#resources'
+      href: /powershell/module/az.resources/#resources
     - name: Azure SDK per .NET
       href: /dotnet/api/overview/azure/managementgroups
-    - name: Azure SDK per Node
+    - name: Azure SDK per JavaScript
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
     - name: REST
       href: /rest/api/resources/managementgroups

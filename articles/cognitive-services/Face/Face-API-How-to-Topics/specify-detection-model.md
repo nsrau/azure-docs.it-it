@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a90b37b197e25a8db79a87761d94dfded53acf50
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76934570"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323219"
 ---
 # <a name="specify-a-face-detection-model"></a>Specificare un modello di rilevamento volto
 
@@ -47,11 +47,11 @@ Un URL della richiesta per l'API REST di [rilevamento viso] sarà simile al segu
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-Se si usa la libreria client, è possibile assegnare il valore per `detectionModel` passando una stringa appropriata. Se la si lascia non assegnata, l'API utilizzerà la versione del modello`detection_01`predefinita (). Vedere l'esempio di codice seguente per la libreria client .NET.
+Se si usa la libreria client, è possibile assegnare il valore per `detectionModel` passando una stringa appropriata. Se la si lascia non assegnata, l'API utilizzerà la versione del modello predefinita ( `detection_01` ). Vedere l'esempio di codice seguente per la libreria client .NET.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Aggiungi faccia a persona con il modello specificato
@@ -63,7 +63,7 @@ Vedere l'esempio di codice seguente per la libreria client .NET.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
@@ -71,7 +71,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **persona** . Quindi aggiunge un volto a questa **persona** usando il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01`.
+Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **persona** . Quindi aggiunge un volto a questa **persona** usando il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
 
 > [!NOTE]
 > Non è necessario usare lo stesso modello di rilevamento per tutti i visi in un oggetto **Person** e non è necessario usare lo stesso modello di rilevamento quando si rilevano nuovi visi da confrontare con un oggetto **Person** (ad esempio, nell'API di [Identificazione del viso] ).
@@ -81,13 +81,13 @@ Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **pe
 È inoltre possibile specificare un modello di rilevamento quando si aggiunge una faccia a un oggetto **facet** esistente. Vedere l'esempio di codice seguente per la libreria client .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Questo codice crea un **facet** denominato `My face collection` e ne aggiunge una faccia con il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01`.
+Questo codice crea un **facet** denominato `My face collection` e ne aggiunge una faccia con il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
 
 > [!NOTE]
 > Non è necessario utilizzare lo stesso modello di rilevamento per tutti i visi in un oggetto **facet** e non è necessario utilizzare lo stesso modello di rilevamento quando si rilevano nuovi visi da confrontare con un oggetto **facet** .
@@ -103,7 +103,7 @@ I diversi modelli di rilevamento viso sono ottimizzati per diverse attività. Pe
 |Restituisce gli attributi del viso (posto, età, emozione e così via) se sono specificati nella chiamata di rilevamento. |  Non restituisce attributi della faccia.     |
 |Restituisce i punti di riferimento della faccia se specificati nella chiamata di rilevamento.   | Non restituisce riferimenti ai visi.  |
 
-Il modo migliore per confrontare le prestazioni dei modelli `detection_01` e `detection_02` è usarli in un set di dati di esempio. È consigliabile chiamare l'API di [rilevamento viso] su un'ampia gamma di immagini, in particolare immagini di molti visi o di visi difficili da visualizzare, usando ogni modello di rilevamento. Prestare attenzione al numero di visi restituiti da ogni modello.
+Il modo migliore per confrontare le prestazioni dei `detection_01` modelli e `detection_02` è usarli in un set di dati di esempio. È consigliabile chiamare l'API di [rilevamento viso] su un'ampia gamma di immagini, in particolare immagini di molti visi o di visi difficili da visualizzare, usando ogni modello di rilevamento. Prestare attenzione al numero di visi restituiti da ogni modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
