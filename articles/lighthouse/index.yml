@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
-  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+  ms.openlocfilehash: 3d06144a9b0a39e7fe0dfbaf7fbdd789ef439336
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "83871797"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85297835"
 landingContent:
 - title: Informazioni su Azure Lighthouse
   linkLists:
@@ -71,15 +71,17 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: Visualizzare e gestire i provider di servizi
       url: ./how-to/view-manage-service-providers.md
-- title: Usare i servizi di Azure
+- title: Usare i servizi di Azure su larga scala
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Usare i log di Monitoraggio di Azure su larga scala
+    - text: Gestire le aree di lavoro di Azure Sentinel
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Usare i log di Monitoraggio di Azure
       url: ./how-to/monitor-at-scale.md
     - text: Monitorare le modifiche delle deleghe
       url: ./how-to/monitor-at-scale.md
-    - text: Distribuire Criteri di Azure su larga scala
+    - text: distribuire Criteri di Azure
       url: ./how-to/policy-at-scale.md
     - text: Distribuire un criterio che è possibile correggere
       url: ./how-to/deploy-policy-remediation.md

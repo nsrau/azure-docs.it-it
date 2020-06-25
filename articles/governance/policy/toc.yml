@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -62,7 +62,7 @@
           href: ./samples/pattern-deploy-resources.md
     - name: Servizi predefiniti di conformità alle normative
       items:
-        - name: Azure Security Benchmark
+        - name: Benchmark di sicurezza di Azure
           href: ./samples/azure-security-benchmark.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
           href: ./samples/cis-azure-1-1-0.md
@@ -110,12 +110,17 @@
     - name: Creare criteri per proprietà di matrice
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
-    - name: Creare criteri di configurazione guest in Windows
-      displayName: 'powershell, dsc, chef, windows'
-      href: ./how-to/guest-configuration-create.md
-    - name: Creare criteri di configurazione guest in Linux
-      displayName: 'powershell, dsc, chef, linux'
-      href: ./how-to/guest-configuration-create-linux.md
+    - name: Configurazione guest
+      items:
+        - name: Creare criteri di configurazione guest in Windows
+          displayName: 'powershell, dsc, chef, windows'
+          href: ./how-to/guest-configuration-create.md
+        - name: Creare criteri di configurazione guest in Linux
+          displayName: 'powershell, dsc, chef, linux'
+          href: ./how-to/guest-configuration-create-linux.md
+        - name: Creare criteri di configurazione guest da Criteri di gruppo
+          displayName: 'powershell, dsc, grouppolicy, windows'
+          href: ./how-to/guest-configuration-create-group-policy.md
     - name: Ottenere dati sulla conformità
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md
@@ -155,9 +160,9 @@
     - name: Azure PowerShell
       items:
         - name: Policy
-          href: '/powershell/module/az.resources/#policies'
+          href: /powershell/module/az.resources/#policies
         - name: Policy Insights
-          href: '/powershell/module/az.policyinsights#policy_insights'
+          href: /powershell/module/az.policyinsights#policy_insights
         - name: Configurazione guest
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Azure SDK per .NET

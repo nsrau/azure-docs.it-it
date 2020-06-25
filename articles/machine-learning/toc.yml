@@ -150,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: Idoneità e sicurezza aziendale
       items:
-        - name: Sicurezza aziendale
+        - name: Sicurezza e governance aziendale
           items:
             - name: Enterprise Security Package
               displayName: authorization authentication encryption aad azure active directory
@@ -164,8 +164,8 @@
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Proteggere i servizi Web con TLS
-              href: how-to-secure-web-service.md
               displayName: ssl
+              href: how-to-secure-web-service.md
             - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
               href: how-to-use-azure-ad-identity.md
             - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
@@ -274,19 +274,16 @@
               href: how-to-differential-privacy.md
     - name: Eseguire il training dei modelli
       items:
+        - name: Configurare ambienti di training
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
         - name: Usare le stime per Machine Learning
           items:
             - name: Creare oggetti estimator durante il training
               href: how-to-train-ml-models.md
-            - name: Configurare ambienti di training
-              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-              href: how-to-set-up-training-targets.md
             - name: Ottimizzare gli iperparametri
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: Usare Key Vault durante il training
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -295,17 +292,33 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Tenere traccia e monitorare il training
+          items:
+            - name: 'Avviare, monitorare o annullare esecuzioni'
+              displayName: 'cancel, fail, status, child run'
+              href: how-to-manage-runs.md
+            - name: Registrare le metriche per le esecuzioni di training
+              href: how-to-track-experiments.md
+            - name: Tenere traccia di esperimenti con MLflow
+              displayName: 'log, monitor, metrics, Databricks'
+              href: how-to-use-mlflow.md
+            - name: Visualizzare le esecuzioni con TensorBoard
+              displayName: 'log, monitor, metrics'
+              href: how-to-monitor-tensorboard.md
+        - name: Interpretare e spiegare i modelli
+          displayName: interpretability
+          items:
+            - name: Interpretare i modelli di ML
+              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: Illustrare i modelli di ML automatizzato
+              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: Usare Key Vault durante il training
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
         - name: Apprendimento per rinforzo
           href: how-to-use-reinforcement-learning.md
-    - name: Interpretare e spiegare i modelli
-      displayName: interpretability
-      items:
-        - name: Interpretare i modelli di ML
-          displayName: 'SDK, interpret, explain, explanability, interpretability'
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: Illustrare i modelli di ML automatizzato
-          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
-          href: how-to-machine-learning-interpretability-automl.md
     - name: Automatizzare l'apprendimento automatico
       displayName: 'automl, auto ml'
       items:
@@ -334,19 +347,6 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Informazioni su grafici e metriche
           href: how-to-understand-automated-ml.md
-    - name: Tenere traccia e monitorare gli esperimenti
-      items:
-        - name: 'Avviare, monitorare o annullare esecuzioni'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: Registrare le metriche per le esecuzioni di training
-          href: how-to-track-experiments.md
-        - name: Tenere traccia di esperimenti con MLflow
-          displayName: 'log, monitor, metrics, Databricks'
-          href: how-to-use-mlflow.md
-        - name: Visualizzare le esecuzioni con TensorBoard
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
     - name: Distribuire e gestire modelli
       items:
         - name: Dove e come eseguire la distribuzione
@@ -413,7 +413,6 @@
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Debug delle pipeline in Application Insights
-          displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
         - name: Trasformare i dati con la finestra di progettazione
           displayName: pipeline
@@ -483,7 +482,7 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: Forum degli utenti
-      href: 'https://aka.ms/aml-forum-service'
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Confrontare i prodotti Machine Learning

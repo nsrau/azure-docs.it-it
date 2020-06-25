@@ -102,7 +102,7 @@
       href: monitor-container-security.md
     - name: Proteggere i server con Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Usare la sicurezza dei dati avanzata per SQL in VM di Azure
+    - name: Usare la sicurezza dei dati avanzata per computer SQL
       href: security-center-iaas-advanced-data.md
     - name: Usare il servizio app per proteggere le applicazioni
       href: security-center-app-services.md

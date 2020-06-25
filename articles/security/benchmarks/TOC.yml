@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Baseline di sicurezza del gateway applicazione
       href: ../../application-gateway/security-baseline.md
+    - name: Baseline di sicurezza di Automazione
+      href: ../../automation/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Baseline di sicurezza di Backup
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Baseline di sicurezza di Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Baseline di sicurezza di Data Box
+      href: ../../databox/security-baseline.md
     - name: Baseline di sicurezza di Esplora dati
       href: /azure/data-explorer/security-baseline
     - name: Baseline di sicurezza di Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Baseline di sicurezza di Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Baseline di sicurezza di Hub eventi
       href: ../../event-hubs/security-baseline.md
+    - name: Baseline di sicurezza di ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Baseline di sicurezza di Funzioni
       href: ../../azure-functions/security-baseline.md
     - name: Baseline di sicurezza di HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Baseline di sicurezza di Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Baseline di App per la logica
+      href: ../../logic-apps/security-baseline.md
     - name: Baseline di sicurezza di MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Baseline di sicurezza di MySQL
       href: ../../mysql/security-baseline.md
+    - name: Baseline di sicurezza di Network Watcher
+      href: ../../network-watcher/security-baseline.md
     - name: Baseline di sicurezza di PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Baseline di sicurezza di Database SQL

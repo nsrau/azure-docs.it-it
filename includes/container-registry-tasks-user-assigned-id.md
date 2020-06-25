@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -10,14 +10,14 @@ ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 012800806aeff81939baa2cee88e78191e4fb6c5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82195265"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Creare un'identità assegnata dall'utente
 
-Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando il comando [AZ Identity create][az-identity-create] . È possibile usare lo stesso gruppo di risorse usato in precedenza per creare un registro contenitori o uno diverso.
+Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando il comando [az identity create][az-identity-create]. È possibile usare lo stesso gruppo di risorse usato in precedenza per creare il registro contenitori oppure uno diverso.
 
 ```azurecli
 az identity create \
@@ -25,7 +25,7 @@ az identity create \
   --name myACRTasksId
 ```
 
-Per configurare l'identità assegnata dall'utente nei passaggi seguenti, usare il comando [AZ Identity Show][az-identity-show] per archiviare l'ID risorsa dell'identità, l'ID entità e l'ID client nelle variabili.
+Per configurare l'identità nei passaggi seguenti, usare il comando [az identity show][az-identity-show] per archiviare l'ID risorsa, l'ID entità e l'ID client in variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

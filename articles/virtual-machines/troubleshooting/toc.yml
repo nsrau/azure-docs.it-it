@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Blocco in Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Riavvio o errore imprevisto
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: L'avvio della VM è bloccato
           href: troubleshoot-vm-boot-configure-update.md
         - name: Non è possibile avviare la macchina virtuale a causa di Windows Boot Manager

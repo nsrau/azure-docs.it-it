@@ -16,6 +16,8 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Ridimensionare un cloud privato
       href: tutorial-scale-private-cloud.md
+    - name: 6- Creare una raccolta di contenuto per distribuire una VM
+      href: tutorial-deploy-vm-content-library.md
 - name: Concetti
   items:
     - name: Cloud privati e cluster
@@ -28,6 +30,8 @@
       href: concepts-identity.md
     - name: Aggiornamenti di cloud privati
       href: concepts-upgrades.md
+    - name: Gestione API per le VM AVS
+      href: concepts-api-management.md
 - name: Guide pratiche
   items:
     - name: Configurare HCX

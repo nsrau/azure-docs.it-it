@@ -30,7 +30,9 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Inviare avvisi a OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Configurare gli avvisi per gli eventi di integrità delle risorse
+    - name: Configurare avvisi di integrità risorse tramite il portale di Azure
+      href: resource-health-alert-monitor-guide.md
+    - name: Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
       href: resource-health-alert-arm-template-guide.md
 - name: Informazioni di riferimento
   items:

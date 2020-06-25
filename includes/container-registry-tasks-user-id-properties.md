@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -10,12 +10,12 @@ ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1240b4b7e2c84e798c6d7e5257e459628da1420f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "68642085"
 ---
-Nell'output del comando, la `identity` sezione indica che l'identità di `UserAssigned` tipo è impostata nell'attività:
+Nell'output del comando la sezione `identity` mostra che nell'attività è impostata l'identità di tipo `UserAssigned`:
 
 ```console
 [...]
