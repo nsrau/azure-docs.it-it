@@ -4,12 +4,12 @@ description: Distribuire il primo contenitore Windows nel servizio app di Azure.
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0689e46556c4ddfddde073d79886d5cb556fde49
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764078"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205663"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Eseguire un contenitore Windows personalizzato in Azure (anteprima)
 
@@ -51,7 +51,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 1. È necessaria un'[immagine padre supportata](#use-a-different-parent-image). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente e salvare il file:
 
-   ```Dockerfile
+   ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
    ```
 
@@ -142,7 +142,7 @@ I log trasmessi sono simili al seguente:
 
 1. Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero elemento con il codice seguente:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
