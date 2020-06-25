@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c3a035ab5b9e573f153361b41eedcd759baa1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 77bd880bbbc1d600ca21e058993102d69b417f41
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853084"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764095"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textexpander"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con TextExpander
 
@@ -43,7 +43,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* TextExpander supporta l'accesso SSO avviato da **SP e IDP**
+* TextExpander supporta l'accesso SSO avviato da **IDP**
 * TextExpander supporta il provisioning utenti **JIT**
 * Dopo aver configurato TextExpander, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -87,10 +87,6 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://app.textexpander.com/acs/<ORGID>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.textexpander.com/acs/<ORGID>`
-
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    Nella casella di testo **URL di accesso** digitare l'URL: `https://app.textexpander.com/ssoSignin`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di TextExpander](mailto:support@smilesoftware.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

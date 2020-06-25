@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042dd242285081001ca48c9f17e4d42c2294c0ff
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74979137"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Akamai
 
@@ -32,6 +31,61 @@ Questa esercitazione descrive come integrare Akamai con Azure Active Directory (
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Grazie all'integrazione di Azure Active Directory e Akamai Enterprise Application Access (EAA) è possibile accedere senza problemi alle applicazioni legacy ospitate nel cloud o in locale. La soluzione integrata sfrutta i vantaggi di tutte le moderne funzionalità di Azure Active Directory come l'[accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) e [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) per l'accesso ad applicazioni legacy senza modifiche delle app o installazione di agenti.
+
+L'immagine seguente illustra la posizione occupata da Akamai EAA nel più ampio scenario di accesso sicuro ibrido
+
+![Integrazione di Akamai EAA nel più ampio scenario di accesso sicuro ibrido](./media/header-akamai-tutorial/introduction01.png)
+
+### <a name="key-authentication-scenarios"></a>Scenari di autenticazione principali
+
+Oltre allo supporto dell'integrazione nativa di Azure Active Directory per i protocolli di autenticazione moderni, come Open ID Connect, SAML e WS-Fed, Akamai EAA estende l'accesso sicuro per le app di autenticazione basate su scenari legacy per l'accesso interno ed esterno con Azure AD, abilitando scenari moderni (ad esempio, l'accesso senza password) per queste applicazioni, ad esempio:
+
+* App di autenticazione basata su intestazione
+* Desktop remoto
+* SSH (Secure Shell)
+* App di autenticazione Kerberos
+* VNC (Virtual Network Computing)
+* Autenticazione anonima oppure nessuna app di autenticazione incorporata
+* App di autenticazione NTLM (protezione con doppio prompt per l'utente)
+* Applicazione basata su moduli (protezione con doppio prompt per l'utente)
+
+### <a name="integration-scenarios"></a>Scenari di integrazione
+
+La partnership tra Microsoft e Akamai EAA offre la flessibilità necessaria per soddisfare i requisiti aziendali, grazie al supporto di più scenari di integrazione basati su requisiti aziendali. È possibile usare questi scenari per offrire una copertura da attacchi zero-day per tutte le applicazioni e per classificare e configurare gradualmente classificazioni dei criteri appropriate.
+
+#### <a name="integration-scenario-1"></a>Scenario di integrazione 1
+
+Akamai EAA è configurato come una singola applicazione in Azure AD. L'amministratore può configurare i criteri della CA nell'applicazione e, una volta soddisfatte le condizioni, gli utenti possono accedere al portale di Akamai EAA.
+
+**Vantaggi**:
+
+• È necessario configurare l'IDP una sola volta
+
+**Svantaggi**:
+
+• Gli utenti devono interagire con due portali di applicazioni
+
+• La copertura dei criteri della CA è unica e comune per tutte le applicazioni.
+
+![Scenario di integrazione 1](./media/header-akamai-tutorial/scenario1.png)
+
+#### <a name="integration-scenario-2"></a>Scenario di integrazione 2
+
+L'applicazione Akamai EAA viene configurata singolarmente nel portale di Azure AD. L'amministratore può configurare i singoli criteri della CA per le applicazioni e, una volta soddisfatte le condizioni, gli utenti possono essere reindirizzati direttamente all'applicazione specifica.
+
+**Vantaggi**:
+
+• È possibile definire singoli criteri della CA
+
+• Tutte le app sono rappresentate nel menu a cialda di O365 e nel pannello di myApps.microsoft.com.
+
+**Svantaggi**:
+
+• È necessario configurare più IDP.
+
+![Scenario di integrazione 2](./media/header-akamai-tutorial/scenario2.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +98,13 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-- Slack supporta l'accesso SSO avviato da IDP
+- Akamai supporta l'accesso SSO avviato da IDP
+
+#### <a name="important"></a>Importante
+
+Tutte le impostazioni elencate di seguito sono le stesse sia per **Scenario di integrazione 1** che per lo **Scenario di integrazione 2**. Per lo **Scenario di integrazione 2** è stato configurato un singolo IDP in Akamai EAA ed è necessario modificare la proprietà URL in modo che punti all'URL dell'applicazione.
+
+![Importante](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Aggiunta di Akamai dalla raccolta
 
@@ -64,9 +124,14 @@ Configurare e testare l'accesso SSO di Azure AD con Akamai usando un utente di t
 Per configurare e testare l'accesso SSO di Azure AD con Akamai, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Akamai](#configure-akamai-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Configurazione dell'IDP](#setting-up-idp)**
+    * **[Autenticazione basata su intestazione](#header-based-authentication)**
+    * **[Desktop remoto](#remote-desktop)**
+    * **[SSH](#ssh)**
+    * **[Autenticazione Kerberos](#kerberos-authentication)**
     * **[Creare l'utente di test di Akamai](#create-akamai-test-user)** : per avere una controparte di B.Simon in Akamai collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -82,9 +147,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<Yourapp>.login.go.akamai-access.com/sp/response`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https:// <Yourapp>.login.go.akamai-access.com/sp/response`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Akamai](https://www.akamai.com/us/en/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -131,17 +196,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="setting-up-idp"></a>Configurazione dell'IDP
 
-1. Accedere alla console di **Akamai Enterprise Application Access** (Accesso applicazioni aziendali Akamai).
-1. Nella console di **Akamai EAA** selezionare **Identity** (Identità)  > **Identity Providers** (Provider di identità).
+**Configurazione dell'IDP in AKAMAI EAA**
+
+1. Accedere alla console di **Akamai Enterprise Application Access**.
+1. Nella **console di Akamai EAA** selezionare **Identity** (Identità)  > **Identity Providers** (Provider di identità) e fare clic su **Add Identity Provider** (Aggiungi provider di identità).
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure01.png)
 
-1. Fare clic su **Add Identity Provider** (Aggiungi provider di identità).
+1. In **Create New Identity Provider** (Crea nuovo provider di identità) seguire questa procedura:
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure02.png)
 
     a. Specificare un valore in **Unique Name** (Nome univoco).
-    
+
     b. Scegliere **Third Party SAML** (SAML di terze parti) e fare clic su **Create Identity Provider and Configure** (Crea provider di identità e configura).
 
 ### <a name="general-settings"></a>Impostazioni generali
@@ -165,6 +232,38 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure04.png)
 
+### <a name="session-settings"></a>Impostazioni sessione
+
+Non modificare le impostazioni predefinite.
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/sessionsettings.png)
+
+### <a name="directories"></a>Directory
+
+Ignorare la configurazione della directory.
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/directories.png)
+
+### <a name="customization-ui"></a>Interfaccia utente di personalizzazione
+
+È possibile aggiungere la personalizzazione all'IDP.
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/customizationui.png)
+
+### <a name="advanced-settings"></a>Impostazioni avanzate
+
+Ignorare le impostazioni avanzate. Per altri dettagli, vedere la documentazione di Akamai.
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/advancesettings.png)
+
+### <a name="deployment"></a>Distribuzione
+
+1. Fare clic su Deploy Identity Provider (Distribuisci provider di identità).
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/deployment.png)
+
+2. Verificare se la distribuzione è riuscita
+
 ### <a name="header-based-authentication"></a>Autenticazione basata su intestazione
 
 Autenticazione basata su intestazione di Akamai
@@ -173,21 +272,27 @@ Autenticazione basata su intestazione di Akamai
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure05.png)
 
+2. Immettere un valore in **Application Name** (Nome applicazione) e **Description** (Descrizione).
+
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure06.png)
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure07.png)
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autenticazione
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure09.png)
+1. Selezionare la scheda **Authentication** (Autenticazione).
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure10.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure09.png)
+
+2. Assegnare il **provider di identità**
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure10.png)
 
 #### <a name="services"></a>Servizi
 
-1. Fare clic su Save and Go to Authentication (Salva e passa ad Autenticazione).
+Fare clic su Save and Go to Authentication (Salva e passa ad Autenticazione).
 
 ![Configurazione di Akamai](./media/header-akamai-tutorial/configure11.png)
 
@@ -211,13 +316,25 @@ Autenticazione basata su intestazione di Akamai
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure15.png)
 
-### <a name="kerberos-authentication"></a>Autenticazione Kerberos
+1. Esperienza dell'utente finale.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser01.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser02.png)
+
+1. Accesso condizionale.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess01.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess02.png)
 
 #### <a name="remote-desktop"></a>Desktop remoto
 
 1. Scegliere **RDP** in Add Applications Wizard (Aggiunta guidata applicazioni).
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure16.png)
+
+1. Immettere un valore in **Application Name** (Nome applicazione) e **Description** (Descrizione).
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure17.png)
 
@@ -241,21 +358,37 @@ Fare clic su **Save and go to Advanced Settings** (Salva e passa a Impostazioni 
 
 #### <a name="advanced-settings"></a>Impostazioni avanzate
 
-Fare clic su **Save and go to Deployment** (Salva e passa a Distribuzione).
+1. Fare clic su **Save and go to Deployment** (Salva e passa a Distribuzione).
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure22.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure22.png)
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure23.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure23.png)
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure24.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure24.png)
 
-### <a name="deployment"></a>Distribuzione
+1. Esperienza dell'utente finale
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser02.png)
+
+1. Accesso condizionale
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess05.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess06.png)
+
+1. In alternativa, è anche possibile digitare direttamente l'URL dell'applicazione RDP.
 
 #### <a name="ssh"></a>SSH
 
 1. Passare ad Add Applications (Aggiungi applicazioni) e scegliere **SSH**.
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure25.png)
+
+1. Immettere un valore in **Application Name** (Nome applicazione) e **Description** (Descrizione).
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure26.png)
 
@@ -295,25 +428,165 @@ Fare clic su Save and go to Deployment (Salva e passa a Distribuzione).
 
 #### <a name="deployment"></a>Distribuzione
 
-Fare clic su **Deploy Application** (Distribuisci applicazione).
+1. Fare clic su **Deploy Application** (Distribuisci applicazione).
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure32.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure32.png)
 
-### <a name="kerberos-applications"></a>Applicazioni Kerberos
+1. Esperienza dell'utente finale
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser04.png)
+
+1. Accesso condizionale
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess07.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess08.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess09.png)
+
+### <a name="kerberos-authentication"></a>Autenticazione Kerberos
+
+Nell'esempio seguente si pubblicherà un server Web interno [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) e si abiliterà l'accesso SSO con la delega vincolata Kerberos
+
+#### <a name="general-tab"></a>Scheda Generale
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/generaltab.png)
+
+#### <a name="authentication-tab"></a>Scheda Authentication
+
+Assegnare il provider di identità
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/authenticationtab.png)
+
+#### <a name="services-tab"></a>Scheda Services
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/servicestab.png)
+
+#### <a name="advanced-settings"></a>Impostazioni avanzate
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/advancesettings02.png)
+
+> [!NOTE]
+> Il nome SPN del server Web deve essere specificato nel formato SPN@Domain, ad esempio `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE` per questa demo. Per le altre impostazioni, non modificare i valori predefiniti.
+
+#### <a name="deployment-tab"></a>Scheda Deployment
+
+![Configurazione di Akamai](./media/header-akamai-tutorial/deploymenttab.png)
 
 #### <a name="adding-directory"></a>Aggiunta della directory
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure33.png)
+1. Selezionare **AD** nell'elenco a discesa.
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure34.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure33.png)
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure35.png)
+1. Fornire i dati necessari.
 
-![Configurazione di Akamai](./media/header-akamai-tutorial/configure36.png)
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/configure34.png)
+
+1. Verificare la creazione della directory.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/directorydomain.png)
+
+1. Aggiungere i gruppi o le unità organizzative che richiedono l'accesso.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/addgroup.png)
+
+1. Nella figura seguente il gruppo è denominato EAAGroup e include un membro.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/eaagroup.png)
+
+1. Per aggiungere la directory al provider di identità, fare clic su **Identity** > **Identity Providers** (Identità > Provider di identità), fare clic sulla scheda **Directories** (Directory) e quindi su **Assign directory** (Assegna directory).
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+
+### <a name="configure-kcd-delegation-for-eaa-walkthrough"></a>Procedura dettagliata per la configurazione della delega vincolata Kerberos per EAA
+
+#### <a name="step-1-create-an-account"></a>Passaggio 1: Creare un account 
+
+1. Nell'esempio si userà un account denominato **EAADelegation**. Per eseguire questa operazione, è possibile usare lo snap-in **Utenti e computer di Active Directory**.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+
+    > [!NOTE]
+    > Il nome utente deve essere specificato in un formato basato sul **nome di intercettazione identità**. Nella figura 1 tale nome è **corpapps.login.go.akamai-access.com**
+
+1. Il nome di accesso utente sarà quindi:`HTTP/corpapps.login.go.akamai-access.com`
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/eaadelegation.png)
+
+#### <a name="step-2-configure-the-spn-for-this-account"></a>Passaggio 2: Configurare il nome dell'entità servizio per questo account
+
+1. In base a questo esempio, il nome dell'entità servizio sarà come indicato di seguito.
+
+2. setspn -s **Http/corpapps.login.go.akamai-access.com eaadelegation**
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/spn.png)
+
+#### <a name="step-3-configure-delegation"></a>Passaggio 3: Configurare la delega
+
+1. Per l'account EAADelegation fare clic sulla scheda Delegation (Delega).
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/spn.png)
+
+    * Specificare l'opzione per usare qualsiasi protocollo di autenticazione
+    * Fare clic su Add (Aggiungi) e aggiungere l'account del pool di app per il sito Web Kerberos. Se opportunamente configurato, il nome dell'entità servizio corretto dovrebbe essere risolto automaticamente.
+
+#### <a name="step-4-create-a-keytab-file-for-akamai-eaa"></a>Passaggio 4: Creare un file keytab per AKAMAI EAA
+
+1. Ecco la sintassi generica.
+
+1. ktpass /out ActiveDirectorydomain.keytab  /princ `HTTP/yourloginportalurl@ADDomain.com`  /mapuser serviceaccount@ADdomain.com /pass +rdnPass  /crypto All /ptype KRB5_NT_PRINCIPAL
+
+1. Spiegazione dell'esempio
+
+    | Frammento di codice | Spiegazione |
+    | - | - |
+    | Ktpass /out EAADemo.keytab | // Nome del file keytab di output |
+    | /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
+    | /mapuser eaadelegation@superdemo.live | // Account di delega EAA |
+    | /pass RANDOMPASS | // Password dell'account di delega EAA |
+    | /crypto All ptype KRB5_NT_PRINCIPAL | // vedere la documentazione di Akamai EAA |
+    | | |
+
+1. Ktpass /out EAADemo.keytab  /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live /mapuser eaadelegation@superdemo.live /pass RANDOMPASS /crypto All ptype KRB5_NT_PRINCIPAL
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/administrator.png)
+
+#### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Passaggio 5: Importare il file keytab nella console di AKAMAI EAA
+
+1. Fare clic su **System** > **Keytabs** (Sistema > Keytab).
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/keytabs.png)
+
+1. Per Keytab Type (Tipo di keytab) scegliere **Kerberos Delegation** (Delega Kerberos).
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/keytabdelegation.png)
+
+1. Verificare che il file keytab venga visualizzato come distribuito e verificato.
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/keytabs02.png)
+
+1. Esperienza utente
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/enduser04.png)
+
+1. Accesso condizionale
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess10.png)
+
+    ![Configurazione di Akamai](./media/header-akamai-tutorial/conditionalaccess11.png)
 
 ### <a name="create-akamai-test-user"></a>Creare l'utente di test di Akamai
 
-In questa sezione viene creato un utente di nome B.Simon in Akamai. Collaborare con il  [team di supporto clienti di Akamai](https://www.akamai.com/us/en/contact-us/) per aggiungere gli utenti alla piattaforma Akamai. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome B.Simon in Akamai. Collaborare con il [team di supporto clienti di Akamai](https://www.akamai.com/us/en/contact-us/) per aggiungere gli utenti alla piattaforma Akamai. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

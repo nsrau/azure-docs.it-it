@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 06/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc38f63c5b6361122c236543320b91d22faa70a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 01c239c30b24ad110d71c43b31448a0f5b29574b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72595041"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762549"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BlueJeans for Azure AD
 
@@ -70,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con BlueJeans for Azure AD usand
 Per configurare e testare l'accesso SSO di Azure AD con BlueJeans for Azure AD, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di BlueJeans for Azure AD](#configure-bluejeans-for-azure-ad-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di BlueJeans for Azure AD](#create-bluejeans-for-azure-ad-test-user)** : per avere una controparte di B.Simon in BlueJeans for Azure AD collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -88,10 +87,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.bluejeans.com`
+    a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.bluejeans.com`
+
+    a. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `http://samlsp.bluejeans.com`
+
+    a. Nella casella di testo **URL di risposta** digitare un URL: `https://bluejeans.com/sso/saml2/`
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di BlueJeans for Azure AD](https://support.bluejeans.com/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di BlueJeans for Azure AD](https://support.bluejeans.com/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+
+1. L'applicazione BlueJeans prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
+
+    ![image](common/default-attributes.png)
+
+1. Oltre quelli elencati in precedenza, l'applicazione BlueJeans prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
+
+    | Nome |  Attributo di origine|
+    | ---------| --------- |
+    | Telefono | user.telephonenumber |
+    | title | user. jobtitle |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -228,4 +242,3 @@ Quando si fa clic sul riquadro di BlueJeans for Azure AD nel pannello di accesso
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare BlueJeans for Azure AD con Azure AD](https://aad.portal.azure.com/)
-
