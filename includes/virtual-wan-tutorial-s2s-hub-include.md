@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73488899"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977924"
 ---
 1. Individuare la rete WAN virtuale creata. Nella pagina della rete WAN virtuale selezionare **Hub** nella sezione **Connettività**.
 2. Nella pagina Hub selezionare **+Nuovo hub** per aprire la pagina **Crea hub virtuale**.
@@ -25,7 +25,7 @@ ms.locfileid: "73488899"
 
    * Regione (precedentemente denominata Posizione)
    * Nome
-   * Spazio di indirizzi privato dell'hub. Lo spazio di indirizzi minimo per la creazione di un hub è /24; qualsiasi intervallo compreso tra /25 e /32 genererà pertanto un errore durante la creazione.
+   * Spazio di indirizzi privato dell'hub. Lo spazio di indirizzi minimo per la creazione di un hub è /24; qualsiasi intervallo compreso tra /25 e /32 genererà pertanto un errore durante la creazione. La rete WAN virtuale di Azure è un servizio gestito di Microsoft che crea nell'hub virtuale le subnet appropriate per i diversi gateway/servizi, ad esempio gateway VPN, gateway ExpressRoute, gateway VPN utente/da punto a sito, firewall, routing e così via. Non è necessario che l'utente pianifichi in modo esplicito lo spazio degli indirizzi della subnet per i servizi nell'hub virtuale, poiché Microsoft esegue questa operazione come parte del servizio.
 4. Selezionare **Avanti: Da sito a sito**.
 
     ![Da sito a sito](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Da sito a sito")

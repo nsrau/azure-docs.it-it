@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006457"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977922"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -212,9 +212,14 @@ Un hub virtuale può propagare una route predefinita appresa a una connessione d
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>In che modo l'hub virtuale in una rete WAN virtuale seleziona il percorso migliore per una route da più hub
 
 Se un hub virtuale apprende la stessa route da più hub remoti, l'ordine in cui decide è il seguente:
-1) Route di origine a) Route di rete: prefissi di rete virtuale direttamente appresi dai gateway dell'hub virtuale b) Tabella di route dell'hub (route configurate in modo statico) c) BGP d) Route tra hub
-2)  Metrica di route: La rete WAN virtuale preferisce ExpressRoute rispetto alla VPN. Il peer ExpressRoute prevede una ponderazione più elevata rispetto al peer VPN
-3)  Lunghezza percorso routing asimmetrico
+1. Corrispondenza di prefisso più lungo
+2. Route locali tramite route tra hub
+3. Route statiche tramite il protocollo BGP
+4. ExpressRoute (ER) tramite rete privata virtuale
+5. Lunghezza percorso routing asimmetrico
+
+Il transito tra ER a ER avviene sempre tramite Copertura globale, di conseguenza se la richiesta arriva tramite ER in un solo hub e in un hub remoto sono presenti una rete privata virtuale e un ER, la rete privata virtuale verrà preferita a ER per raggiungere un endpoint connesso tramite rete privata virtuale o ER nell'hub remoto
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>È disponibile il supporto per IPv6 nella rete WAN virtuale?
 

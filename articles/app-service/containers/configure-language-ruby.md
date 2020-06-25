@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8daebba840223d050a14b4b99cb6ae15472ee4f5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 804e6d562322eff20de8eb7e33caae98418ea3fe
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046333"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905681"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 
@@ -55,7 +55,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard [ENV['\<nome-percorso>']](https://ruby-doc.org/core-2.3.3/ENV.html). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. È quindi possibile accedervi usando il formato standard [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -141,7 +141,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Aprire una sessione SSH nel browser
 

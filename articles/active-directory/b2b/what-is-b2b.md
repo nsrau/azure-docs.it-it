@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585827"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905137"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -44,7 +44,7 @@ Con Azure AD B2B il partner usa la propria soluzione di gestione delle identità
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Invitare utenti guest con un semplice processo di invito e riscatto
 
-Gli utenti guest accedono alle app e ai servizi dell'organizzazione con le proprie identità aziendali, dell'istituto di istruzione o di social networking. Se l'utente guest non dispone di un account Microsoft o di un account Azure AD, ne viene creato uno al momento del riscatto dell'invito. 
+Gli utenti guest accedono alle app e ai servizi dell'organizzazione con le proprie identità aziendali, dell'istituto di istruzione o di social networking. Se l'utente guest non ha un account Microsoft o un account Azure AD, ne viene creato uno al momento del riscatto dell'invito. 
 
 - Invitare gli utenti guest usando l'identità di posta elettronica che hanno scelto.
 - Inviare un collegamento diretto a un'app o inviare un invito al pannello di accesso dell'utente guest.
@@ -98,9 +98,12 @@ Azure AD supporta provider di identità esterni come Facebook, account Microsoft
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Aggiungere un flusso utente di iscrizione self-service (anteprima)
 
-Con un flusso utente di iscrizione self-service, è possibile creare un'esperienza di iscrizione per gli utenti esterni che vogliono accedere alle app. Come parte del flusso di iscrizione, è possibile fornire opzioni per diversi provider di identità aziendali o di social networking e raccogliere informazioni sull'utente. Leggere altre informazioni sull'iscrizione self-service e su come configurarla.
+Con un flusso utente di iscrizione self-service, è possibile creare un'esperienza di iscrizione per gli utenti esterni che vogliono accedere alle app. Come parte del flusso di iscrizione, è possibile fornire opzioni per diversi provider di identità aziendali o di social networking e raccogliere informazioni sull'utente. Leggere altre informazioni sull'[iscrizione self-service e su come configurarla](self-service-sign-up-overview.md).
+
+È anche possibile usare [connettori API](api-connectors-overview.md) per integrare i flussi utente di iscrizione self-service con sistemi cloud esterni. È possibile connettersi con flussi di lavoro di approvazione personalizzati, eseguire la verifica dell'identità, convalidare le informazioni fornite dall'utente e altro ancora.
 
 ![Screenshot che mostra la pagina di flussi utente](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

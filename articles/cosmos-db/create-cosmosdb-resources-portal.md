@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Creare risorse di Azure Cosmos DB dal portale di Azure'
-description: Questo argomento di avvio rapido mostra come creare un database, un contenitore ed elementi di Azure Cosmos con il portale di Azure.
+description: Questa guida di avvio rapido mostra come creare un database, un contenitore ed elementi di Azure Cosmos con il portale di Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: 0f7e210c0818bd317f8e69ebed28301fd9b06dc0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a29fb754da90a0b355571499b0b3a369e68c7f14
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263874"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686801"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 
@@ -143,7 +143,7 @@ Se si vuole eliminare solo il database e usare l'account Azure Cosmos in futuro,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
+In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

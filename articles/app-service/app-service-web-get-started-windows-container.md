@@ -4,12 +4,12 @@ description: Distribuire il primo contenitore Windows nel servizio app di Azure.
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047111"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764078"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Eseguire un contenitore Windows personalizzato in Azure (anteprima)
 
@@ -37,13 +37,13 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 1. In **Crea un nuovo progetto** trovare e selezionare **Applicazione Web ASP.NET (.NET Framework)** per C#, quindi selezionare **Avanti**.
 
-1. In **Configura il nuovo progetto** assegnare all'applicazione il nome _myFirstAzureWebApp_ e quindi selezionare **Crea**.
+1. In **Configura il nuovo progetto** assegnare all'applicazione il nome _myfirstazurewebapp_ e quindi selezionare **Crea**.
 
    ![Configurare il progetto di app Web](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
 1. È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida di avvio rapido scegliere il modello **MVC**.
 
-1. Selezionare **Supporto Docker** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Create** (Crea).
+1. Selezionare **Supporto Docker** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Crea**.
 
    ![Creare un'applicazione Web ASP.NET](./media/app-service-web-get-started-windows-container/select-mvc-template-for-container.png)
 
@@ -61,7 +61,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 ## <a name="publish-to-docker-hub"></a>Eseguire la pubblicazione in Hub Docker
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** e scegliere **Pubblica**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** e scegliere **Pubblica**.
 
 1. Scegliere **Servizio app** e quindi selezionare **Pubblica**.
 
@@ -149,7 +149,7 @@ I log trasmessi sono simili al seguente:
    </div>
    ```
 
-1. Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e scegliere **Pubblica**.
+1. Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** in **Esplora soluzioni** e scegliere **Pubblica**.
 
 1. Nella pagina di pubblicazione selezionare **Pubblica** e attendere il completamento della pubblicazione.
 

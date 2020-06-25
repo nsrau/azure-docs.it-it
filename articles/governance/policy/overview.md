@@ -1,14 +1,14 @@
 ---
 title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097371"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944662"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -158,6 +158,8 @@ In questo scenario, per la definizione dei parametri dell'iniziativa **initiativ
 
 Durante la creazione di opzioni di valori in una definizione di iniziativa, non è possibile a immettere un valore diverso durante l'assegnazione dell'iniziativa perché non è incluso nell'elenco.
 
+Per altre informazioni sulle strutture delle definizioni di iniziativa, vedere [Struttura delle definizioni di iniziativa](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Assegnazioni
 
 Un'assegnazione è una definizione di criteri o un'iniziativa che è stata assegnata per l'implementazione in un ambito specifico. L'ambito può spaziare da un [gruppo di gestione](../management-groups/overview.md) a una singola risorsa. Il termine _ambito_ fa riferimento a tutte le risorse, i gruppi di risorse, le sottoscrizioni o i gruppi di gestione a cui è assegnata la definizione. Le assegnazioni vengono ereditate da tutte le risorse figlio. Questo significa che una definizione applicata a un gruppo di risorse viene anche applicata a tutte le risorse presenti nel gruppo. È tuttavia possibile escludere un ambito secondario dall'assegnazione.
@@ -166,7 +168,7 @@ Nell'ambito della sottoscrizione è ad esempio possibile assegnare una definizio
 
 In altri casi, potrebbe essere opportuno assegnare una definizione dell'elenco elementi consentiti per tipo di risorsa a livello di gruppo di gestione. E assegnare quindi un criterio più permissivo, consentendo più tipi di risorse, a un gruppo di gestione figlio o anche direttamente alle sottoscrizioni. Questo esempio tuttavia non funzionerebbe perché Criteri di Azure è un sistema di rifiuto esplicito. È invece necessario escludere il gruppo di gestione figlio o la sottoscrizione dall'assegnazione a livello di gruppo di gestione. Assegnare quindi il criterio più permissivo a livello di gruppo di gestione figlio o di sottoscrizione. Se eventuali assegnazioni provocano il rifiuto di una risorsa, l'unico modo per consentire la risorsa consiste nel modificare l'assegnazione che la rifiuta.
 
-Per altre informazioni sull'impostazione delle assegnazioni tramite il portale, vedere [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure](assign-policy-portal.md). Sono inoltre disponibili i passaggi per [PowerShell](assign-policy-powershell.md) e [Interfaccia della riga di comando di Azure](assign-policy-azurecli.md).
+Per altre informazioni sull'impostazione delle assegnazioni tramite il portale, vedere [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure](./assign-policy-portal.md). Sono inoltre disponibili i passaggi per [PowerShell](./assign-policy-powershell.md) e [Interfaccia della riga di comando di Azure](./assign-policy-azurecli.md). Per informazioni sulla struttura delle assegnazioni, vedere [Struttura delle assegnazioni](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Numero massimo di oggetti di Criteri di Azure
 

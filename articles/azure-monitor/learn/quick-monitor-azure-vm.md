@@ -7,14 +7,14 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79503192"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805111"
 ---
-# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Guida introduttiva: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
+# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Avvio rapido: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle macchine virtuali di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una VM di Azure e come visualizzare tali dati nel portale di Azure. Si abiliterà quindi [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) per la VM per consentire agli agenti nella VM di raccogliere e analizzare i dati del sistema operativo guest, includendo i processi e le relative dipendenze.
 
 Questa guida introduttiva presuppone che esista già una macchina virtuale di Azure. In caso contrario, è possibile creare una [VM Windows](../../virtual-machines/windows/quick-create-portal.md) o una [VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguendo le guide di avvio rapido sulle VM.
@@ -83,7 +83,7 @@ Quando si crea una nuova area di lavoro Log Analytics, è necessario configurarl
 
 ## <a name="view-data-collected"></a>Visualizzare i dati raccolti
 
-7. Fare clic sulla macchina virtuale e quindi selezionare la scheda **Prestazioni**. Verrà visualizzato un gruppo selezionato di contatori delle prestazioni raccolti dal sistema operativo guest della VM. Scorrere verso il basso per visualizzare altri contatori e spostare il puntatore del mouse su un grafico per visualizzare la media e i percentili in momenti diversi.
+7. Fare clic sulla macchina virtuale e quindi selezionare la scheda **Prestazioni** presente nel menu **Monitoraggio** del riquadro **Dati analitici**. Verrà visualizzato un gruppo selezionato di contatori delle prestazioni raccolti dal sistema operativo guest della VM. Scorrere verso il basso per visualizzare altri contatori e spostare il puntatore del mouse su un grafico per visualizzare la media e i percentili in momenti diversi.
 
     ![Prestazioni](media/quick-monitor-azure-vm/performance.png)
 

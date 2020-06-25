@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81311769"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669733"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novità del gateway applicazione di Azure
 
@@ -27,6 +27,7 @@ Il gateway applicazione di Azure viene aggiornato regolarmente. Per rimanere agg
 
 |Funzionalità  |Descrizione  |Data di aggiunta  |
 |---------|---------|---------|
+| Controller di ingresso del gateway applicazione di Azure come componente aggiuntivo del servizio Azure Kubernetes (anteprima) |È ora possibile distribuire Controller di ingresso del gateway applicazione come componente aggiuntivo nativo del servizio Azure Kubernetes su un'unica riga tramite l'interfaccia della riga di comando di Azure. In quanto componente aggiuntivo del servizio Azure Kubernetes, Controller di ingresso del gateway applicazione è un servizio completamente gestito, anche se viene comunque eseguito nel cluster del servizio Azure Kubernetes del cliente. Per altre informazioni, vedere [Differenze del componente aggiuntivo Controller di ingresso del gateway applicazione](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Giugno 2020 |
 | Route definite dall'utente in v2 (anteprima) |Le route definite dall'utente sono ora supportate in alcuni scenari negli SKU del gateway applicazione v2. Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Marzo 2020 |
 |Modifiche ai cookie di affinità |Quando è abilitata l'affinità basata su cookie, oltre al cookie ApplicationGatewayAffinity esistente il gateway applicazione inserisce un altro cookie identico denominato *ApplicationGatewayAffinityCORS*. Ad *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi (*SameSite=None; Secure*) in modo che le sessioni permanenti vengano mantenute anche per richieste effettuate da origini diverse. Per altre informazioni, vedere [Affinità basata su cookie del gateway applicazione](configuration-overview.md#cookie-based-affinity). |Febbraio 2020 |
 |Miglioramenti relativi al probe |Con i miglioramenti apportati ai probe personalizzati nello SKU del gateway applicazione v2, è stata semplificata la [configurazione del probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), sono stati resi più agevoli i [test di integrità del back-end su richiesta](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) e sono state aggiunte [altre informazioni di diagnostica](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) per facilitare la risoluzione dei problemi di integrità del back-end.  |Ottobre 2019 |

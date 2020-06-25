@@ -2,14 +2,14 @@
 title: 'Avvio rapido: Creare un registro - Interfaccia della riga di comando di Azure'
 description: Informazioni su come apprendere rapidamente a creare un registro Docker privato con l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682748"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752456"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Avvio rapido: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,8 @@ In questa guida di avvio rapido viene creato un registro *Basic*, ovvero un'opzi
 Creare un'istanza di Registro Azure Container usando il comando [azure acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 Quando viene creato il registro, l'output è simile al seguente:
@@ -64,14 +65,14 @@ Quando viene creato il registro, l'output è simile al seguente:
 }
 ```
 
-Prendere nota del valore di `loginServer` nell'output, che corrisponde al nome del registro completo (tutto minuscolo). Nella parte restante di questa guida di avvio rapido, `<acrName>` è un segnaposto per il nome del registro contenitori.
+Prendere nota del valore di `loginServer` nell'output, che corrisponde al nome del registro completo (tutto minuscolo). Nella parte restante di questa guida di avvio rapido, `<registry-name>` è un segnaposto per il nome del registro contenitori e `<login-server>` è un segnaposto per il nome del server di accesso del registro.
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
 Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere al registro. A tale scopo usare il comando [az acr login][az-acr-login].
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 Il comando restituisce un messaggio `Login Succeeded` al termine dell'esecuzione.
@@ -83,7 +84,7 @@ Il comando restituisce un messaggio `Login Succeeded` al termine dell'esecuzione
 L'esempio seguente elenca i repository presenti nel registro:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Output:
@@ -97,7 +98,7 @@ hello-world
 L'esempio seguente elenca i tag nel repository **hello-world**.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Output:
@@ -123,7 +124,10 @@ az group delete --name myResourceGroup
 In questa guida di avvio rapido è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e quindi è stato eseguito il pull per eseguire l'immagine dal registro. Per maggiori informazioni su Registro Azure Container, passare alle relative esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Esercitazioni su Registro Azure Container][container-registry-tutorial-quick-task]
+> [Esercitazioni su Registro Azure Container][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Esercitazioni su Attività del Registro Azure Container][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +147,4 @@ In questa guida di avvio rapido è stata creata un'istanza di Registro Azure Con
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

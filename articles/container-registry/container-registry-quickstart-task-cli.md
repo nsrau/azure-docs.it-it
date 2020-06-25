@@ -3,14 +3,14 @@ title: "Avvio rapido: Creare ed eseguire un'immagine del contenitore"
 description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore Docker su richiesta, nel cloud.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680632"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753699"
 ---
-# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Guida introduttiva: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
+# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Avvio rapido: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
 In questa guida di avvio rapido si usano i comandi di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire rapidamente un'immagine del contenitore Docker in modalità nativa all'interno di Azure, che illustra come eseguire l'offload del ciclo di sviluppo di tipo "ciclo interno" nel cloud. [Attività del Registro Azure Container][container-registry-tasks-overview] è un gruppo di funzionalità incluse in Registro Azure Container che consente di gestire e modificare le immagini del contenitore per tutto il ciclo di vita del contenitore. 
 
@@ -37,20 +37,21 @@ az group create --name myResourceGroup --location eastus
 Creare un registro contenitori con il comando [az acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry008*. Aggiornarlo a un valore univoco.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
 In questo esempio viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
 
-## <a name="build-an-image-from-a-dockerfile"></a>Compilare un'immagine da un Dockerfile
+## <a name="build-and-push-image-from-a-dockerfile"></a>Compilare un'immagine da un Dockerfile ed eseguirne il push
 
-A questo punto usare Registro Azure Container per compilare un'immagine. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* con il contenuto seguente. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux, ma è possibile creare il Dockerfile standard personalizzato e compilare immagini per le altre piattaforme. Gli esempi di comandi di questo articolo sono formattati per la shell Bash.
+A questo punto usare Registro Azure Container per compilare un'immagine ed eseguirne il push. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* che contiene la riga seguente: `FROM hello-world`. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux dall'immagine `hello-world` in Docker Hub. È possibile creare un Dockerfile standard personalizzato e compilare immagini per altre piattaforme. Se si sta lavorando con una shell bash, usare il comando seguente per creare il Dockerfile:
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-Eseguire il comando [az acr build][az-acr-build] per compilare l'immagine. Dopo la compilazione viene eseguito il push dell'immagine nel registro. Nell'esempio seguente viene eseguito il push dell'immagine `sample/hello-world:v1`. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.
+Eseguire il comando [az acr build][az-acr-build], che consente di compilare l'immagine e, dopo la corretta compilazione, ne esegue il push nel registro. L'esempio seguente mostra come compilare l'immagine `sample/hello-world:v1` ed eseguirne il push. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
