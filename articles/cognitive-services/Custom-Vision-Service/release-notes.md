@@ -3,19 +3,19 @@ title: Note sulla versione - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
 description: Ottenere le informazioni più recenti sulle nuove versioni dal team di Visione personalizzata.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: anroth
-ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647565"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391707"
 ---
 # <a name="custom-vision-service-release-notes"></a>Note sulla versione di Servizio visione artificiale personalizzato
 
@@ -23,7 +23,7 @@ ms.locfileid: "73647565"
 
 - Correzioni di bug e miglioramenti al back-end
 
-## <a name="may-23-2019"></a>23 maggio, 2019
+## <a name="may-23-2019"></a>23 maggio 2019
 
 - Miglioramento dell'esperienza UX del portale correlato alle sottoscrizioni di Azure, semplificando la selezione delle directory di Azure.
 

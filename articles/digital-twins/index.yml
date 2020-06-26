@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di Gemelli digitali di Azure (anteprima)
-summary: Come annunciato durante l'evento Microsoft Build 2020, è in corso la preparazione di una nuova versione di anteprima pubblica del servizio Gemelli digitali di Azure. La documentazione completa del nuovo servizio e delle relative funzionalità sarà presto disponibile in questa sede. È anche possibile continuare ad accedere alla documentazione della prima versione di Gemelli digitali di Azure dal collegamento seguente.
+summary: Informazioni su come usare Gemelli digitali di Azure per creare una rappresentazione digitale degli asset, degli ambienti e dei sistemi aziendali, per creare soluzioni IoT di prossima generazione che modellano il mondo reale.
 metadata:
   title: Documentazione di Gemelli digitali di Azure (Anteprima) - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   description: Informazioni su come usare Gemelli digitali di Azure per connettere persone, luoghi e oggetti, nonché creare soluzioni IoT con intelligenza spaziale.
@@ -10,16 +10,72 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: c6822c319489eedf1ecdd7d1fddcd19456c35dd9
-  ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+  ms.openlocfilehash: 105a9de63f13a7a6460638ad967be40edd0783a4
+  ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/12/2020
-  ms.locfileid: "84744018"
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85392149"
 landingContent:
-- title: Gemelli digitali di Azure, prima versione
+- title: Informazioni su Gemelli digitali di Azure
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è il servizio Gemelli digitali di Azure?
+      url: overview.md
+- title: Introduzione alle esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Scrivere il codice di un'app client
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: Esplorare le nozioni di base con un'app client di esempio
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: Connettere una soluzione end-to-end
+      url: tutorial-end-to-end.md
+- title: Informazioni
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Modelli personalizzati
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Gemelli digitali e grafo dei gemelli
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: Linguaggio di query
+      url: concepts-query-language.md
+- title: Sviluppo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un'istanza di Gemelli digitali di Azure
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticare un'applicazione client
+      url: how-to-authenticate-client.md
+- title: Informazioni di riferimento sulle API
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Usare le API e gli SDK di Gemelli digitali di Azure
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare SDK personalizzati con AutoRest
+      url: how-to-create-custom-sdks.md
   - linkListType: reference
     links:
-    - text: 'Documentazione delle versioni precedenti: Gemelli digitali di Azure'
-      url: https://docs.microsoft.com/previous-versions/azure/digital-twins/about-digital-twins
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/
