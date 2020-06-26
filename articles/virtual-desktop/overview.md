@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929826"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737020"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -22,7 +22,7 @@ Desktop virtuale Windows è un servizio di virtualizzazione per desktop e app es
 Ecco cosa si può fare quando si esegue Desktop virtuale Windows in Azure:
 
 * Configurare una distribuzione di Windows 10 multisessione che offre una versione completa Windows 10 con scalabilità
-* Virtualizzare Office 365 ProPlus e ottimizzarlo per l'esecuzione in scenari virtuali multiutente
+* Virtualizzare Microsoft 365 Apps for enterprise e ottimizzarlo per l'esecuzione in scenari virtuali multiutente
 * Fornire ai desktop virtuali di Windows 7 aggiornamenti della sicurezza estesi gratuiti
 * Portare i desktop e le app esistenti di Servizi Desktop remoto e Windows Server in qualsiasi computer
 * Virtualizzare sia i desktop che le app
@@ -113,7 +113,7 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |*.events.data.microsoft.com|443|Servizio di telemetria|nessuno|
 |www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|nessuno|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|nessuno|
-|login.windows.net|443|Accesso a Microsoft Online Services, Office 365|nessuno|
+|login.windows.net|443|Accedere a Microsoft Online Services, Office 365|nessuno|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
 

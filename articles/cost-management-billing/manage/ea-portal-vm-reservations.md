@@ -3,16 +3,16 @@ title: Istanze riservate di VM per Azure EA
 description: Questo articolo descrive come risparmiare sui costi della registrazione Enterprise con le prenotazioni di Azure di istanze riservate di VM.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 649766d5daedbf880a3c17a1cb8282b0a9e4f2fe
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299061"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735422"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -28,7 +28,7 @@ I clienti con contratto Enterprise Agreement possono visualizzare i dati relativ
 
 - Ottenere i dati sugli acquisti di prenotazioni.
 - Individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha usato una prenotazione.
-- Effettuare il chargeback per l'utilizzo delle prenotazioni.
+- Chargeback per l'uso della prenotazione.
 - Calcolare il risparmio delle prenotazioni.
 - Ottenere i dati di sottoutilizzo delle prenotazioni.
 - Ammortizzare i costi delle prenotazioni.
@@ -39,21 +39,30 @@ Per informazioni sui prezzi, vedere [Prezzi delle macchine virtuali Linux](https
 
 ## <a name="reserved-instances-api-support"></a>Supporto delle API per le istanze riservate
 
-È possibile usare le API di Azure per ottenere informazioni per l'organizzazione a livello di codice sulle prenotazioni di software o servizi di Azure. Per altre informazioni, vedere [APIs for Azure reservation automation](../reservations/reservation-apis.md) (API per l'automazione della prenotazione in Azure).
+Usare le API di Azure per ottenere informazioni per l'organizzazione a livello di codice sulle prenotazioni di software o servizi di Azure. È ad esempio possibile usare le API per:
+
+- Trovare prenotazioni da acquistare
+- Acquistare una prenotazione
+- Visualizzare le prenotazioni acquistate
+- Visualizzare e gestire l'accesso alle prenotazioni
+- Dividere o unire le prenotazioni
+- Cambiare l'ambito delle prenotazioni
+
+Per altre informazioni, vedere [APIs for Azure reservation automation](../reservations/reservation-apis.md) (API per l'automazione della prenotazione in Azure).
 
 ## <a name="azure-reserved-virtual-machine-instances"></a>Istanze di macchine virtuali riservate di Azure
 
-Le istanze riservate possono ridurre i costi delle macchine virtuali fino al 72% rispetto ai prezzi con pagamento in base al consumo in tutte le macchine virtuali o fino all'82% se le istanze vengono combinate con il vantaggio Azure Hybrid. È possibile classificare meglio in ordine di priorità i carichi di lavoro, il budget e le previsioni con il pagamento anticipato per uno o tre anni. È possibile anche scambiare o annullare prenotazioni in funzione delle esigenze di business.
+Le istanze riservate possono ridurre i costi delle macchine virtuali fino al 72% rispetto ai prezzi con pagamento in base al consumo in tutte le macchine virtuali o fino all'82% se le istanze vengono combinate con il Vantaggio Azure Hybrid. Le istanze riservate contribuiscono migliorare la gestione di carichi di lavoro, budget e previsioni con un pagamento anticipato per un anno o tre anni. È possibile anche scambiare o annullare prenotazioni in funzione delle esigenze di business.
 
 ### <a name="how-to-buy-reserved-virtual-machine-instances"></a>Come acquistare istanze di macchine virtuali riservate
 
-Per acquistare un'istanza di macchina virtuale riservata di Azure, un amministratore delle registrazioni di Enterprise Azure deve abilitare l'opzione di acquisto _Reserve Instance_ (Riserva istanza) nella sezione _Dettagli registrazione_  della scheda _Registrazione_ all'interno del [portale di Azure EA](https://ea.azure.com/).
+Per acquistare un'istanza di macchina virtuale riservata di Azure, un amministratore delle registrazioni Enterprise di Azure deve abilitare l'opzione di acquisto _Reserve Instance_ (Prenota istanza). L'opzione è disponibile nella sezione _Dettagli registrazione_ nella scheda _Registrazione_ di [Azure EA Portal](https://ea.azure.com/).
 
 Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, qualsiasi proprietario di account con una sottoscrizione attiva associata alla registrazione EA può acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Come visualizzare i dettagli di acquisto di un'istanza riservata
 
-È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_. Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione "1 anno" o "3 anni" accanto al nome del servizio, ad esempio: Standard_DS1_v2 eastus 1 anno o Standard_D2s_v3 eastus2 3 anni.
+È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_. Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione `1 year` o `3 years` accanto al nome del servizio, ad esempio: `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Come è possibile modificare la sottoscrizione associata a un'istanza riservata o trasferire i vantaggi di un'istanza riservata a una sottoscrizione con lo stesso account?
 
@@ -66,11 +75,11 @@ Per altre informazioni sulla modifica dell'ambito di una prenotazione, vedere [C
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Come visualizzare i dettagli di utilizzo di un'istanza riservata
 
-È possibile visualizzare i dettagli di utilizzo di un'istanza riservata nel [portale di Azure](https://aka.ms/reservations) o nel [portale di Azure EA](https://ea.azure.com/) (per i clienti di EA che hanno accesso alle informazioni di fatturazione) in _Report_ > _Riepilogo di utilizzo_ > _Charges by Services_ (Addebiti per servizi). Le istanze riservate possono essere identificate come nomi di servizio contenenti il termine "Reservation", ad esempio: Macchina virtuale Reservation-Base o macchine virtuali Reservation-Windows Svr (1 core).
+È possibile visualizzare i dettagli di utilizzo di un'istanza riservata nel [portale di Azure](https://aka.ms/reservations) o nel [portale di Azure EA](https://ea.azure.com/) (per i clienti di EA che hanno accesso alle informazioni di fatturazione) in _Report_ > _Riepilogo di utilizzo_ > _Charges by Services_ (Addebiti per servizi). Le istanze riservate possono essere identificate come nomi di servizio contenenti il termine "Reservation", ad esempio: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
 
 Il file CSV di download con il report avanzato e i dettagli di utilizzo contiene informazioni aggiuntive sull'utilizzo delle istanze riservate. Il campo _Informazioni aggiuntive_ consente di identificare l'utilizzo effettivo di istanze riservate.
 
-Se non è stato usato il vantaggio Azure Hybrid per l'acquisto di istanze di macchine virtuali riservate di Azure, le istanze riservate genereranno due contatori (hardware e software). Se invece è stato usato il vantaggio Azure Hybrid per l'acquisto di un'istanza riservata, nei dettagli di utilizzo dell'istanza riservata non verrà visualizzato il contatore software.
+Se non è stato usato il Vantaggio Azure Hybrid per l'acquisto di istanze di macchine virtuali riservate di Azure, le istanze riservate genereranno due contatori (hardware e software). Quando si usa il Vantaggio Azure Hybrid per l'acquisto di un'istanza riservata, nei dettagli di utilizzo dell'istanza riservata non verrà visualizzato il contatore software.
 
 ### <a name="reserved-instance-billing"></a>Fatturazione di un'istanza riservata
 
@@ -83,6 +92,7 @@ Negli scenari in cui i clienti EA hanno usato tutto il rispettivo impegno moneta
 Si riceveranno notifiche tramite posta elettronica 30 giorni prima della prenotazione e alla scadenza. Al termine della prenotazione, le macchine virtuali distribuite continueranno a essere eseguite e fatturate alla tariffa con pagamento in base al consumo. Per altre informazioni, vedere l'articolo relativo all'[offerta delle istanze di macchina virtuale riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Per altre informazioni sulle prenotazioni di Azure, vedere [Informazioni sulle prenotazioni di Azure](../reservations/save-compute-costs-reservations.md).
 - Per altre informazioni sui costi e l'utilizzo delle prenotazioni Enterprise, vedere [Ottenere i costi e l'utilizzo delle prenotazioni con contratto Enterprise Agreement](../reservations/understand-reserved-instance-usage-ea.md).
 - Per informazioni sui prezzi, vedere [Prezzi delle macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

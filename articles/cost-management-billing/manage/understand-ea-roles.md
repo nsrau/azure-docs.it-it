@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295304"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678019"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
 
@@ -27,6 +27,10 @@ Per gestire l'utilizzo e la spesa per la propria organizzazione, i clienti di Az
 <sup>1</sup> Il contatto per la fatturazione del contratto EA sarà incluso in questo ruolo.
 
 <sup>2</sup> Il contatto per la fatturazione non può essere aggiunto o cambiato in Azure EA Portal e verrà aggiunto alla registrazione EA in base all'utente configurato come contatto per la fatturazione a livello di contratto. Per cambiare il contatto per la fatturazione, è necessario effettuare una richiesta al Centro operativo regionale tramite un partner/software advisor.
+
+Il primo amministratore della registrazione configurato durante il provisioning della registrazione determina il tipo di autenticazione dell'account del contatto per la fatturazione. Quando il contatto per la fatturazione viene aggiunto a EA Portal come amministratore di sola lettura, ottiene l'autenticazione tramite account Microsoft. 
+
+Se ad esempio il tipo di autenticazione iniziale viene impostato su Misto, il contratto Enterprise verrà aggiunto come account Microsoft e il contatto per la fatturazione avrà privilegio di amministratore EA di sola lettura. Se l'amministratore EA non approva l'autorizzazione tramite account Microsoft per un contatto per la fatturazione, l'amministratore EA potrà eliminare l'utente specifico e richiedere al cliente di aggiungere di nuovo l'utente come amministratore di sola lettura con un account aziendale o dell'istituto di istruzione configurato solo a livello di registrazione in EA Portal.
 
 Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 

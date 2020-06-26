@@ -6,16 +6,16 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830311"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686410"
 ---
-# <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Guida introduttiva: Creare un budget con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Avvio rapido: Creare un budget con un modello di Azure Resource Manager
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate le notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi. Questa guida di avvio rapido descrive come creare un budget usando un modello di Azure Resource Manager.
 
@@ -74,7 +74,7 @@ Nel modello è definita una risorsa di Azure:
     * **Soglia**: immettere un valore di soglia per la notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
     * **Contact Emails** (Indirizzi di posta elettronica di contatto): immettere un elenco di indirizzi di posta elettronica a cui inviare la notifica del budget quando viene superata la soglia. Il formato previsto è `["user1@domain.com","user2@domain.com"]`.
     * **Contact Roles** (Ruoli di contatto): immettere l'elenco dei ruoli di contatto a cui inviare la notifica del budget quando viene superata la soglia. I valori predefiniti sono Proprietario, Collaboratore e Lettore. Il formato previsto è `["Owner","Contributor","Reader"]`.
-    * **Contact Groups** (Gruppi di contatto): immettere un elenco di gruppi di azioni a cui inviare la notifica del budget quando viene superata la soglia. Accetta una matrice di stringhe. Il formato previsto è `["Action Group Name1","Action Group Name2"]`. Se non si vuole usare i gruppi di azioni, specificare `[]`.
+    * **Contact Groups** (Gruppi di contatto): immettere un elenco di ID della risorsa di gruppi di azioni, come URI completi delle risorse, a cui inviare la notifica del budget quando viene superata la soglia. Accetta una matrice di stringhe. Il formato previsto è `["action group resource ID1","action group resource ID2"]`. Se non si vuole usare i gruppi di azioni, specificare `[]`.
     * **Resources Filter** (Filtro risorse): immettere un elenco di filtri per le risorse. Il formato previsto è `["Resource Filter Name1","Resource Filter Name2"]`. Se non si vuole applicare un filtro, immettere `[]`. Se si specifica un filtro delle risorse, è anche necessario immettere valori dei **filtri dei contatori**.
     * **Meters Filter** (Filtro contatori): immettere un elenco di filtri per i contatori, obbligatori per la categoria budget **Utilizzo**. Il formato previsto è `["Meter Filter Name1","Meter Filter Name2"]`. Se non è stato immesso un **filtro risorse**, immettere `[]`.
     * **Accetto le condizioni riportate sopra**: selezionare questa casella.

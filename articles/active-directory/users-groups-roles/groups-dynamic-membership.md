@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744684"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728368"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -384,7 +384,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Qualsiasi valore stringa. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personale, Azienda, Sconosciuto | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Profilo di registrazione del dispositivo Apple, registrazione del dispositivo - Identificatori dei dispositivi aziendali (Android - chiosco multimediale) o nome del profilo di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nome del profilo di registrazione dispositivi di Apple (Apple Device Enrollment), nome del profilo di registrazione del dispositivo di proprietà dell'azienda Android Enterprise o nome del profilo di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

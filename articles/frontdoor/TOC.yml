@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Configurare un motore regole
       href: front-door-tutorial-rules-engine.md
+    - name: Aggiungere intestazioni di sicurezza con il motore regole
+      href: front-door-security-headers.md
     - name: Web Application Firewall e Frontdoor
       href: front-door-waf.md
 - name: Esempi

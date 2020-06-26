@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -325,6 +325,8 @@
                     - name: Azure Multi-Factor Authentication
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
+                    - name: Reimpostazione della password self-service di Azure AD
+                      href: aad-sspr-technical-profile.md
                     - name: Trasformazione delle attestazioni
                       href: claims-transformation-technical-profile.md
                     - name: Autorità emittente di token JWT

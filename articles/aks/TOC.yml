@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Usare il contratto di servizio relativo al tempo di attività
           href: uptime-sla.md
+        - name: Usare i gruppi di posizionamento di prossimità (anteprima)
+          href: reduce-latency-ppg.md
         - name: Aggiornare l'immagine del nodo (anteprima)
           href: node-image-upgrade.md
         - name: Elaborare gli aggiornamenti del sistema operativo del nodo

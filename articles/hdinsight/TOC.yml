@@ -167,6 +167,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Ottimizzare Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Riavviare i nodi del cluster
+              href: ./cluster-reboot-vm.md
             - name: Usare l'API REST Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: Eliminazione di un cluster

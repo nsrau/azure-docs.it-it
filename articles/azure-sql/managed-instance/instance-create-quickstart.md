@@ -1,9 +1,9 @@
 ---
-title: "Avvio rapido: Creare un'istanza gestita di SQL di Azure (portale)"
-description: Questa guida di avvio rapido descrive come creare un'istanza gestita di SQL di Azure, un ambiente di rete e una macchina virtuale client per l'accesso usando il portale di Azure.
+title: "Avvio rapido: Creare un'istanza gestita di Istanza gestita di SQL (portale)"
+description: Questa guida di avvio rapido descrive come creare un'istanza gestita, un ambiente di rete e una macchina virtuale client per l'accesso usando il portale di Azure.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,26 +11,26 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: cc3a25992297dd8deb02deb2c561cad4b53e318b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113751"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708893"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di SQL di Azure
+# <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di Istanza gestita di SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Questa guida di avvio rapido illustra come creare un'[istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md) nel portale di Azure.
+Questa guida di avvio rapido illustra come creare un'istanza gestita di [Istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md) nel portale di Azure.
 
 > [!IMPORTANT]
 > Per le limitazioni, vedere [Aree supportate](resource-limits.md#supported-regions) e [Tipi di sottoscrizione supportati](resource-limits.md#supported-subscription-types).
 
-## <a name="create-sql-managed-instance"></a>Creare un'istanza gestita di SQL
+## <a name="create-a-managed-instance"></a>Creare un'istanza gestita
 
-Per creare un'istanza gestita di SQL di Azure, seguire questa procedura: 
+Per creare un'istanza gestita, seguire questa procedura: 
 
-### <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
+### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/).
 
@@ -39,15 +39,15 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 1. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive su un'istanza gestita di SQL di Azure selezionando **Mostra dettagli** nel riquadro **Istanza gestita di SQL**.
 1. Selezionare **Crea**.
 
-   ![Creare un'istanza gestita di SQL](./media/instance-create-quickstart/create-managed-instance.png)
+   ![Creare un'istanza gestita](./media/instance-create-quickstart/create-managed-instance.png)
 
 4. Usare le schede nel modulo di provisioning **Crea Istanza gestita di SQL di Azure** per aggiungere le informazioni obbligatorie e quelle facoltative. Le sezioni seguenti descrivono queste schede.
 
 ### <a name="basics-tab"></a>Scheda Informazioni di base
 
-- Compilare le informazioni nella scheda **Informazioni di base**. Contiene un set minimo di informazioni necessarie per effettuare il provisioning di un'istanza gestita di SQL.
+- Compilare le informazioni nella scheda **Informazioni di base**. Contiene un set minimo di informazioni necessarie per effettuare il provisioning di un'istanza gestita.
 
-   ![Scheda "Informazioni di base" per la creazione di un'istanza gestita di SQL](./media/instance-create-quickstart/mi-create-tab-basics.png)
+   ![Scheda "Informazioni di base" per la creazione di un'istanza gestita](./media/instance-create-quickstart/mi-create-tab-basics.png)
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
@@ -56,7 +56,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
    | **Sottoscrizione** | Sottoscrizione in uso. | Una sottoscrizione che fornisce l'autorizzazione per creare nuove risorse. |
    | **Gruppo di risorse** | Gruppo di risorse nuovo o esistente.|Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
    | **Nome istanza gestita** | Qualsiasi nome valido.|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
-   | **Area** |Area in cui si vuole creare l'istanza gestita di SQL.|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
+   | **Area** |Area in cui si vuole creare l'istanza gestita.|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
    | **Account di accesso amministratore istanza gestita** | Qualsiasi nome utente valido. | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). Non usare "serveradmin" perché è un ruolo a livello di server riservato.|
    | **Password** | Qualsiasi password valida.| La password deve contenere almeno 16 caratteri e soddisfare i [requisiti di complessità definiti](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -70,44 +70,44 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 - Compilare le informazioni facoltative nella scheda **Rete**. Se si omettono queste informazioni, il portale applicherà le impostazioni predefinite.
 
-   ![Scheda "Rete" per la creazione di un'istanza gestita di SQL](./media/instance-create-quickstart/mi-create-tab-networking.png)
+   ![Scheda "Rete" per la creazione di un'istanza gestita](./media/instance-create-quickstart/mi-create-tab-networking.png)
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
    | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
-   | **Rete virtuale** | Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete o una subnet non è disponibile, prima di selezionarla come destinazione per la nuova istanza gestita di SQL, è necessario [modificarla per soddisfare i requisiti di rete](vnet-existing-add-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita di SQL, vedere [Configurare una rete virtuale per un'istanza gestita di SQL](connectivity-architecture-overview.md). |
+   | **Rete virtuale** | Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete o una subnet non è disponibile, prima di selezionarla come destinazione per la nuova istanza gestita, è necessario [modificarla per soddisfare i requisiti di rete](vnet-existing-add-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per Istanza gestita di SQL, vedere [Configurare una rete virtuale per Istanza gestita di SQL](connectivity-architecture-overview.md). |
    | **Tipo di connessione** | Scegliere tra un tipo di connessione proxy e uno con reindirizzamento.|Per altre informazioni sui tipi di connessione, vedere [Tipo di connessione dell'istanza gestita di SQL di Azure](../database/connectivity-architecture.md#connection-policy).|
-   | **Endpoint pubblico**  | Selezionare **Abilita**. | Affinché l'istanza gestita di SQL sia accessibile tramite l'endpoint dati pubblico, è necessario abilitare questa opzione. | 
-   | **Consenti l'accesso da** (se è abilitata l'opzione **Endpoint pubblico**) | Selezionare una delle opzioni disponibili.   |L'esperienza del portale consente di configurare un gruppo di sicurezza con un endpoint pubblico. </br> </br> A seconda dello scenario, selezionare una delle opzioni seguenti: </br> <ul> <li>**Servizi di Azure**: questa opzione è consigliabile in caso di connessione da Power BI o un altro servizio multi-tenant. </li> <li> **Internet**: usare questa opzione a scopo di test quando si vuole creare rapidamente un'istanza gestita di SQL. Non è consigliabile per ambienti di produzione. </li> <li> **Nessun accesso**: questa opzione crea una regola di sicurezza **Nega**. Modificare questa regola per rendere un'istanza gestita di SQL accessibile tramite un endpoint pubblico. </li> </ul> </br> Per altre informazioni sulla sicurezza dell'endpoint pubblico, vedere [Uso sicuro dell'istanza gestita di SQL di Azure con un endpoint pubblico](public-endpoint-overview.md).|
+   | **Endpoint pubblico**  | Selezionare **Abilita**. | Affinché l'istanza gestita sia accessibile tramite l'endpoint dati pubblico, è necessario abilitare questa opzione. | 
+   | **Consenti l'accesso da** (se è abilitata l'opzione **Endpoint pubblico**) | Selezionare una delle opzioni disponibili.   |L'esperienza del portale consente di configurare un gruppo di sicurezza con un endpoint pubblico. </br> </br> A seconda dello scenario, selezionare una delle opzioni seguenti: </br> <ul> <li>**Servizi di Azure**: questa opzione è consigliabile in caso di connessione da Power BI o un altro servizio multi-tenant. </li> <li> **Internet**: usare questa opzione a scopo di test quando si vuole creare rapidamente un'istanza gestita. Non è consigliabile per ambienti di produzione. </li> <li> **Nessun accesso**: questa opzione crea una regola di sicurezza **Nega**. Modificare questa regola per rendere un'istanza gestita accessibile tramite un endpoint pubblico. </li> </ul> </br> Per altre informazioni sulla sicurezza dell'endpoint pubblico, vedere [Uso sicuro dell'istanza gestita di SQL di Azure con un endpoint pubblico](public-endpoint-overview.md).|
 
-- Selezionare **Rivedi e crea** per rivedere le scelte effettuate prima di creare un'istanza gestita di SQL. In alternativa, configurare altre impostazioni personalizzate selezionando **Avanti: Impostazioni aggiuntive**.
+- Selezionare **Rivedi e crea** per rivedere le scelte effettuate prima di creare un'istanza gestita. In alternativa, configurare altre impostazioni personalizzate selezionando **Avanti: Impostazioni aggiuntive**.
 
 ### <a name="additional-settings"></a>Impostazioni aggiuntive
 
 - Compilare le informazioni facoltative nella scheda **Impostazioni aggiuntive**. Se si omettono queste informazioni, il portale applicherà le impostazioni predefinite.
 
-   ![Scheda "Impostazioni aggiuntive" per la creazione di un'istanza gestita di SQL](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
+   ![Scheda "Impostazioni aggiuntive" per la creazione di un'istanza gestita](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
    | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
-   | **Regole di confronto** | Scegliere le regole di confronto da usare per l'istanza gestita di SQL. In caso di migrazione di database da SQL Server, controllare le regole di confronto di origine con `SELECT SERVERPROPERTY(N'Collation')` e usare tale valore.| Per informazioni sulle regole di confronto, vedere [Impostare o modificare le regole di confronto del server](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
-   | **Fuso orario** | Selezionare il fuso orario osservato dall'istanza gestita di SQL.|Per altre informazioni, vedere [Fusi orari](timezones-overview.md).|
-   | **Usa come failover secondario** | Selezionare **Sì**. | Abilitare questa opzione per usare l'istanza gestita di SQL come istanza secondaria del gruppo di failover.|
-   | **Istanza gestita di SQL primaria** (se l'opzione **Usa come failover secondario** è impostata su **Sì**) | Scegliere un'istanza gestita di SQL primaria esistente che verrà aggiunta alla stessa zona DNS dell'istanza gestita di SQL che si sta creando. | Questo passaggio consentirà la configurazione del gruppo di failover dopo la creazione. Per altre informazioni, vedere [Esercitazione: Aggiungere un'istanza gestita di SQL di database SQL a un gruppo di failover](failover-group-add-instance-tutorial.md).|
+   | **Regole di confronto** | Scegliere le regole di confronto da usare per l'istanza gestita. In caso di migrazione di database da SQL Server, controllare le regole di confronto di origine con `SELECT SERVERPROPERTY(N'Collation')` e usare tale valore.| Per informazioni sulle regole di confronto, vedere [Impostare o modificare le regole di confronto del server](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Fuso orario** | Selezionare il fuso orario che verrà osservato dall'istanza gestita.|Per altre informazioni, vedere [Fusi orari](timezones-overview.md).|
+   | **Usa come failover secondario** | Selezionare **Sì**. | Abilitare questa opzione per usare l'istanza gestita come istanza secondaria del gruppo di failover.|
+   | **Istanza gestita di SQL primaria** (se l'opzione **Usa come failover secondario** è impostata su **Sì**) | Scegliere un'istanza gestita primaria esistente che verrà aggiunta alla stessa zona DNS dell'istanza gestita che si sta creando. | Questo passaggio consentirà la configurazione del gruppo di failover dopo la creazione. Per altre informazioni, vedere [Esercitazione: Aggiungere l'istanza gestita a un gruppo di failover](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Rivedi e crea
 
-1. Selezionare la scheda **Rivedi e crea** per rivedere le scelte effettuate prima di creare l'istanza gestita di SQL.
+1. Selezionare la scheda **Rivedi e crea** per rivedere le scelte effettuate prima di creare un'istanza gestita.
 
-   ![Scheda per rivedere e creare un'istanza gestita di SQL](./media/instance-create-quickstart/mi-create-tab-review-create.png)
+   ![Scheda per rivedere e creare un'istanza gestita](./media/instance-create-quickstart/mi-create-tab-review-create.png)
 
-1. Selezionare **Crea** per avviare il provisioning dell'istanza gestita di SQL.
+1. Selezionare **Crea** per avviare il provisioning dell'istanza gestita.
 
 > [!IMPORTANT]
-> La distribuzione di un'istanza gestita di SQL è un'operazione a esecuzione prolungata. La distribuzione della prima istanza nella subnet richiede in genere molto più tempo rispetto alla distribuzione in una subnet contenente istanze gestite di SQL esistenti. Per informazioni sui tempi medi di provisioning, vedere [Operazioni di gestione di istanze gestite di SQL](sql-managed-instance-paas-overview.md#management-operations).
+> La distribuzione di un'istanza gestita è un'operazione di lunga durata. La distribuzione della prima istanza nella subnet richiede in genere molto più tempo rispetto alla distribuzione in una subnet contenente istanze gestite esistenti. Per informazioni sui tempi medi di provisioning, vedere [Operazioni di gestione di istanze gestite di SQL](sql-managed-instance-paas-overview.md#management-operations).
 
 ## <a name="monitor-deployment-progress"></a>Monitorare lo stato di avanzamento della distribuzione
 
@@ -124,14 +124,14 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 > 3. Selezionare l'operazione di distribuzione di istanza gestita di SQL in corso.
 
 > [!IMPORTANT]
-> Per ottenere lo stato della creazione dell'istanza gestita di SQL, è necessario avere **autorizzazioni di lettura** per il gruppo di risorse. Se non si ha questa autorizzazione o la si revoca mentre è in corso la creazione dell'istanza gestita di SQL, è possibile che l'istanza gestita di SQL non sia visibile nell'elenco delle distribuzioni del gruppo di risorse.
+> Per ottenere lo stato della creazione dell'istanza gestita, è necessario avere **autorizzazioni di lettura** per il gruppo di risorse. Se non si ha questa autorizzazione o la si revoca mentre è in corso la creazione dell'istanza gestita, è possibile che l'istanza gestita di SQL non sia visibile nell'elenco delle distribuzioni del gruppo di risorse.
 >
 
 ## <a name="view-resources-created"></a>Visualizzare le risorse create
 
-Al completamento della distribuzione dell'istanza gestita di SQL, per visualizzare le risorse create:
+Al completamento della distribuzione dell'istanza gestita, per visualizzare le risorse create:
 
-1. Aprire il gruppo di risorse per l'istanza gestita di SQL. 
+1. Aprire il gruppo di risorse per l'istanza gestita. 
 
    ![Risorse dell'istanza gestita di SQL](./media/instance-create-quickstart/resources.png)
 
@@ -156,18 +156,18 @@ Per ottimizzare facoltativamente le impostazioni di rete, controllare quanto seg
    ![Regole di sicurezza](./media/instance-create-quickstart/security-rules.png)
 
 > [!IMPORTANT]
-> Se è stato configurato un endpoint pubblico per l'istanza gestita di SQL, è necessario aprire le porte per autorizzare il traffico di rete che consente le connessioni all'istanza gestita di SQL dalla rete Internet pubblica. Per altre informazioni, vedere [Configurare un endpoint pubblico per l'istanza gestita di SQL](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+> Se è stato configurato un endpoint pubblico per Istanza gestita di SQL, è necessario aprire le porte per autorizzare il traffico di rete che consente le connessioni all'istanza gestita di SQL dalla rete Internet pubblica. Per altre informazioni, vedere [Configurare un endpoint pubblico per Istanza gestita di SQL](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 >
 
 ## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Recuperare i dettagli della connessione all'istanza gestita di SQL
 
 Per connettersi all'istanza gestita di SQL, seguire questa procedura per recuperare il nome host e il nome di dominio completo (FQDN):
 
-1. Tornare al gruppo di risorse e selezionare l'istanza gestita di SQL.
+1. Tornare nel gruppo di risorse e selezionare l'istanza gestita.
 
-   ![Istanza gestita di SQL nel gruppo di risorse](./media/instance-create-quickstart/managed-instance.png)
+   ![Istanza gestita nel gruppo di risorse](./media/instance-create-quickstart/managed-instance.png)
 
-2. Nella scheda **Panoramica** individuare la proprietà **Host**. Copiare il nome host per l'istanza gestita di SQL da usare nella guida di avvio rapido successiva.
+2. Nella scheda **Panoramica** individuare la proprietà **Host**. Copiare il nome host per l'istanza gestita da usare nel successivo argomento di avvio rapido.
 
    ![Nome host](./media/instance-create-quickstart/host-name.png)
 
@@ -175,12 +175,12 @@ Per connettersi all'istanza gestita di SQL, seguire questa procedura per recuper
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come connettersi a un'istanza gestita di SQL:
-- Per una panoramica delle opzioni di connessione per le applicazioni, vedere [Connettere le applicazioni a un'istanza gestita di SQL](connect-application-instance.md).
-- Per una guida di avvio rapido che illustra come connettersi a un'istanza gestita di SQL tramite una macchina virtuale di Azure, vedere [Configurare una connessione tramite macchina virtuale di Azure](connect-vm-instance-configure.md).
-- Per una guida di avvio rapido che illustra come connettersi a un'istanza gestita di SQL tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](point-to-site-p2s-configure.md).
+Per informazioni su come connettersi a Istanza gestita di SQL:
+- Per una panoramica delle opzioni di connessione per le applicazioni, vedere [Connettere le applicazioni a Istanza gestita di SQL](connect-application-instance.md).
+- Per una guida di avvio rapido che illustra come connettersi a Istanza gestita di SQL tramite una macchina virtuale di Azure, vedere [Configurare una connessione tramite macchina virtuale di Azure](connect-vm-instance-configure.md).
+- Per una guida di avvio rapido che illustra come connettersi a Istanza gestita di SQL tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](point-to-site-p2s-configure.md).
 
-Per ripristinare un database di SQL Server esistente dall'ambiente locale a un'istanza gestita di SQL: 
+Per ripristinare un database di SQL Server esistente dall'ambiente locale a Istanza gestita di SQL: 
 - Usare il [Servizio Migrazione del database di Azure per la migrazione](../../dms/tutorial-sql-server-to-managed-instance.md) per eseguire il ripristino da un file di backup del database. 
 - Usare il [comando T-SQL RESTORE](restore-sample-database-quickstart.md) per eseguire il ripristino da un file di backup del database.
 

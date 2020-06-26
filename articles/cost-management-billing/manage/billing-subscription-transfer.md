@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745842"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052163"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -100,7 +100,7 @@ Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azu
 
 ## <a name="supported-subscription-types"></a>Tipi di sottoscrizioni supportati
 
-Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tipi di sottoscrizione elencati di seguito. Attualmente il trasferimento non è supportato per le sottoscrizioni della [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tipi di sottoscrizione elencati di seguito. Attualmente il trasferimento non è supportato per le sottoscrizioni della [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Per trasferire altre sottoscrizioni, ad esempio i piani di supporto, [contattare il supporto di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Contratto Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  

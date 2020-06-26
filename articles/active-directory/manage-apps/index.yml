@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione della gestione delle applicazioni
-summary: Azure Active Directory offre un accesso efficiente e sicuro alle applicazioni cloud e locali. Non è necessario gestire le password. Gli utenti finali possono effettuare l'accesso una sola volta per accedere a Office 365 e a migliaia di altre applicazioni. Informazioni su come gestire e distribuire le applicazioni con guide introduttive, esercitazioni e materiale sussidiario.
+summary: Azure Active Directory offre un accesso efficiente e sicuro alle applicazioni cloud e locali. Non è necessario gestire le password. Gli utenti finali possono effettuare l'accesso una sola volta per accedere a Microsoft 365 e a migliaia di altre applicazioni. Informazioni su come gestire e distribuire le applicazioni con guide introduttive, esercitazioni e materiale sussidiario.
 metadata:
   title: Documentazione della gestione delle applicazioni
-  description: Azure Active Directory offre un accesso efficiente e sicuro alle applicazioni cloud e locali. Non è necessario gestire le password. Gli utenti finali possono effettuare l'accesso una sola volta per accedere a Office 365 e a migliaia di altre applicazioni. Informazioni su come gestire e distribuire le applicazioni con guide introduttive, esercitazioni e materiale sussidiario.
+  description: Azure Active Directory offre un accesso efficiente e sicuro alle applicazioni cloud e locali. Non è necessario gestire le password. Gli utenti finali possono effettuare l'accesso una sola volta per accedere a Microsoft 365 e a migliaia di altre applicazioni. Informazioni su come gestire e distribuire le applicazioni con guide introduttive, esercitazioni e materiale sussidiario.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063473"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339193"
 landingContent:
 - title: Informazioni sulla gestione delle applicazioni
   linkLists:

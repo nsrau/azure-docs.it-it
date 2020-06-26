@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194156"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888315"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Esercitazione: Controllare una singola fattura di Azure
 
@@ -100,7 +100,7 @@ La sezione **Addebiti per l'utilizzo** della fattura mostra il valore totale (co
 
 ![Addebiti di utilizzo nella fattura](./media/review-individual-bill/invoice-usage-charges.png)
 
-Nel file di utilizzo CSV filtrare per *MeterName* per la risorsa corrispondente visualizzata nella fattura. Quindi, sommare il valore della colonna *Cost* per gli elementi nella colonna. Di seguito è riportato un esempio.
+Nel file di utilizzo CSV filtrare per *MeterName* per la risorsa corrispondente visualizzata nella fattura. Quindi, sommare il valore della colonna *Cost* per gli elementi nella colonna. Ecco un esempio incentrato sul nome del contatore (dischi P10) che corrisponde alla stessa voce della fattura.
 
 ![Valore sommato del file di utilizzo per MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

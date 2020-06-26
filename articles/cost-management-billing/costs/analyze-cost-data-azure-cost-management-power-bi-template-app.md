@@ -3,16 +3,16 @@ title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461600"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888198"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 
@@ -127,6 +127,27 @@ Per informazioni su come usare il report, vedere la sezione [VM RI Coverage (sha
 ## <a name="troubleshoot-problems"></a>Risolvere i problemi
 
 Se si verificano problemi con l'app Power BI, le informazioni seguenti potrebbero rivelarsi utile per la risoluzione.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Si è verificato un errore durante l'elaborazione dei dati nel set di dati
+
+È possibile che venga visualizzato un messaggio di errore simile a quello seguente:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Verrà visualizzato un nome di tabella invece di `<TableName>`.
+
+#### <a name="cause"></a>Causa
+
+Il valore di **Ambito** predefinito `Enrollment Number` è stato modificato nella connessione a Gestione costi.
+
+#### <a name="solution"></a>Soluzione
+
+Riconnettersi a Gestione costi e impostare il valore di **Ambito** su `Enrollment Number`. Non immettere il numero di registrazione dell'organizzazione. Digitare invece `Enrollment Number` esattamente come mostrato nell'immagine seguente.
+
+![Immettere le informazioni sulla registrazione del contratto Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>Errore di BudgetAmount
 

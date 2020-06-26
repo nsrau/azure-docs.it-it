@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747686"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944968"
 ---
 ::: zone target="docs"
 
@@ -159,7 +159,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
 ### <a name="in-self-managed"></a>[Nella modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
+Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
 
 1. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Seguire le istruzioni visualizzate quando si seleziona **Pianifica ritiro**. Verrà visualizzato un codice di autorizzazione da usare per la consegna dell'ordine.
 

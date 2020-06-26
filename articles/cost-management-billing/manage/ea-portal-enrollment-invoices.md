@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298126"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807788"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -224,7 +224,7 @@ Per i servizi in cui la zona e l'area influiscono sui prezzi, vedere la tabella 
 | Zona 2 | Asia Pacifico orientale <br> Asia Pacifico sud-orientale <br> Giappone orientale <br> Giappone occidentale <br> Australia orientale <br> Australia sud-orientale | Asia Pacifico <br> Giappone <br> America Latina <br> Medio Oriente/Africa <br> Australia orientale <br> Australia sud-orientale |
 | Zona 3 | Brasile meridionale |   |
 
-Non sono previsti addebiti per i dati in uscita tra i servizi ospitati all'interno dello stesso data center. Ad esempio, Office 365 e Azure.
+Non sono previsti addebiti per i dati in uscita tra i servizi ospitati all'interno dello stesso data center. Ad esempio, Microsoft 365 e Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Impegno monetario e utilizzo non fatturato
 

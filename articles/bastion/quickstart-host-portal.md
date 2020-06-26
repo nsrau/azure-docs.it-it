@@ -1,97 +1,97 @@
 ---
-title: 'Guida introduttiva: connettersi a una macchina virtuale usando un indirizzo IP privato: Azure Bastion'
-description: Questo articolo illustra come creare un host Bastion di Azure da una macchina virtuale e connettersi in modo sicuro usando un indirizzo IP privato.
+title: 'Avvio rapido: Connettersi a una macchina virtuale usando un indirizzo IP privato: Azure Bastion'
+description: Questo articolo illustra come creare un host bastion di Azure da una macchina virtuale e connettersi in modo sicuro usando un indirizzo IP privato.
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: a420a3253040fff8b767a81f298ede283c1d214b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619262"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743984"
 ---
-# <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Guida introduttiva: connettersi a una macchina virtuale usando un indirizzo IP privato e Azure Bastion
+# <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Avvio rapido: Connettersi a una macchina virtuale usando un indirizzo IP privato e Azure Bastion
 
-Questo articolo introduttivo illustra come connettersi a una macchina virtuale usando un indirizzo IP privato. Quando ci si connette tramite Bastion, le macchine virtuali non necessitano di un indirizzo IP pubblico. I passaggi descritti in questo articolo consentono di distribuire Bastion alla rete virtuale tramite la macchina virtuale nel portale. Una volta eseguito il provisioning del servizio, l'esperienza RDP/SSH è disponibile per tutte le macchine virtuali nella stessa rete virtuale.
+Questo articolo di avvio rapido mostra come connettersi a una macchina virtuale usando un indirizzo IP privato. Quando ci si connette tramite Bastion, le macchine virtuali non necessitano di un indirizzo IP pubblico. I passaggi descritti in questo articolo consentono di distribuire Bastion nella rete virtuale tramite la macchina virtuale nel portale. Una volta effettuato il provisioning del servizio, l'esperienza RDP/SSH è disponibile per tutte le macchine virtuali nella stessa rete virtuale.
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Prerequisiti
 
 * Una rete virtuale di Azure.
-* Una macchina virtuale di Azure che si trova nella rete virtuale con la porta 3389 aperta.
+* Una macchina virtuale di Azure all'interno della rete virtuale con la porta 3389 aperta.
 
 ### <a name="example-values"></a>Valori di esempio
 
 |**Nome** | **Valore** |
 | --- | --- |
-| Name |  VNet1Bastion |
+| Nome |  VNet1Bastion |
 | Region | eastus |
 | Rete virtuale |  VNet1 |
 | + Nome subnet | AzureBastionSubnet |
-| Indirizzi AzureBastionSubnet |  10.1.254.0/27 |
+| Indirizzi della subnet AzureBastionSubnet |  10.1.254.0/27 |
 | Indirizzo IP pubblico |  Creare un nuovo gruppo di risorse |
 | Nome dell'indirizzo IP pubblico | VNet1BastionPIP  |
 | SKU indirizzo IP pubblico |  Standard  |
 | Assegnazione  | Statico |
 
-## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Creare un host Bastion
+## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Creare un host bastion
 
-Quando si crea un host Bastion nel portale usando una macchina virtuale esistente, per impostazione predefinita le varie impostazioni corrispondono automaticamente alla macchina virtuale e/o alla rete virtuale.
+Quando si crea un host bastion nel portale usando una macchina virtuale esistente, i valori predefiniti di varie impostazioni corrisponderanno automaticamente a quelli della macchina virtuale e/o della rete virtuale.
 
 1. Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale e quindi fare clic su **Connetti**.
 
-   ![impostazioni macchina virtuale](./media/quickstart-host-portal/vm-settings.png)
+   ![impostazioni della macchina virtuale](./media/quickstart-host-portal/vm-settings.png)
 1. Nell'elenco a discesa selezionare **Bastion**.
-1. Nella pagina Connetti selezionare **use Bastion**.
+1. Nella pagina Connetti selezionare **Usa Bastion**.
 
-   ![selezione Bastion](./media/quickstart-host-portal/select-bastion.png)
+   ![selezionare Bastion](./media/quickstart-host-portal/select-bastion.png)
 
 1. Nella pagina Bastion compilare i campi delle impostazioni seguenti:
 
-   * **Nome**: assegnare un nome all'host Bastion
-   * **Subnet**: la subnet all'interno della rete virtuale in cui verrà distribuita la risorsa Bastion. La subnet deve essere creata con il nome **AzureBastionSubnet**. Il nome consente ad Azure di individuare la subnet in cui distribuire la risorsa Bastion. Questa operazione è diversa rispetto a una subnet del gateway. Usare una subnet di almeno/27 o più grande (/27,/26,/25 e così via).
+   * **Name**: nome dell'host bastion
+   * **Subnet**: subnet all'interno della rete virtuale in cui verrà distribuita la risorsa Bastion. È necessario creare la subnet con il nome **AzureBastionSubnet**. Il nome indica ad Azure la subnet in cui distribuire la risorsa Bastion. Questa subnet è diversa rispetto a una subnet del gateway. Usare una subnet con dimensioni di almeno /27 o superiori (/27, /26, /25 e così via).
    
-      * Selezionare **Gestisci configurazione subnet**, quindi selezionare **+ Subnet**.
+      * Selezionare **Gestisci configurazione subnet** e quindi fare clic su **+ subnet**.
       * Nella pagina Aggiungi subnet digitare **AzureBastionSubnet**.
-      * Specificare l'intervallo di indirizzi nella notazione CIDR. Ad esempio, 10.1.254.0/27.
+      * Specificare l'intervallo di indirizzi nella notazione CIDR, ad esempio 10.1.254.0/27.
       * Selezionare **OK** per creare la subnet. Nella parte superiore della pagina tornare a Bastion per completare le altre impostazioni.
 
-         ![passa a impostazioni Bastion](./media/quickstart-host-portal/navigate-bastion.png)
-   * **Indirizzo IP pubblico**: si tratta dell'indirizzo IP pubblico della risorsa Bastion a cui si accederà RDP/SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o utilizzarne uno esistente. L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
-   * **Nome dell'indirizzo IP pubblico**: il nome della risorsa indirizzo IP pubblico.
-1. Nella schermata convalida fare clic su **Crea**. Attendere circa 5 minuti per la creazione e la distribuzione della risorsa Bastion.
+         ![passare alle impostazioni di Bastion](./media/quickstart-host-portal/navigate-bastion.png)
+   * **Indirizzo IP pubblico**: si tratta dell'indirizzo IP pubblico della risorsa Bastion per l'accesso a RDP/SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o usarne uno esistente. L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
+   * **Nome indirizzo IP pubblico**: nome della risorsa indirizzo IP pubblico.
+1. Nella schermata di convalida fare clic su **Crea**. Attendere circa 5 minuti per la creazione e la distribuzione della risorsa Bastion.
 
-   ![crea host Bastion](./media/quickstart-host-portal/bastion-settings.png)
+   ![creare l'host bastion](./media/quickstart-host-portal/bastion-settings.png)
 
-## <a name="connect"></a><a name="connect"></a>Connessione
+## <a name="connect"></a><a name="connect"></a>Connettersi
 
-Dopo che Bastion è stato distribuito nella rete virtuale, la schermata viene modificata nella pagina Connect.
+Al termine della distribuzione della risorsa Bastion nella rete virtuale, la schermata passa alla pagina di connessione.
 
 1. Digitare il nome utente e la password per la macchina virtuale. Selezionare **Connect** (Connetti).
 
-   ![connect](./media/quickstart-host-portal/connect.png)
-1. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nella portale di Azure (su HTML5) usando la porta 443 e il servizio Bastion.
+   ![connessione](./media/quickstart-host-portal/connect.png)
+1. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nel portale di Azure (tramite HTML5) usando la porta 443 e il servizio Bastion.
 
    ![Connessione RDP](./media/quickstart-host-portal/443-rdp.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'uso della rete virtuale e delle macchine virtuali, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
+Quando la rete virtuale e le macchine virtuali non sono più necessarie, rimuovere il gruppo di risorse e tutte le risorse al suo interno:
 
-1. Immettere *TestRG1* nella casella di **ricerca** nella parte superiore del portale e selezionare **TestRG1** nei risultati della ricerca.
+1. Immettere *TestRG1* nella casella **Cerca** nella parte superiore del portale e selezionare **TestRG1** nei risultati della ricerca.
 
 2. Selezionare **Elimina gruppo di risorse**.
 
-3. Immettere *TestRG1* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
+3. Immettere *TestRG1* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato creato un host Bastion per la rete virtuale e quindi si è connessi a una macchina virtuale in modo sicuro tramite l'host Bastion.
+In questa guida di avvio rapido è stato creato un host bastion per la rete virtuale ed è stata stabilita una connessione sicura a una macchina virtuale tramite l'host bastion.
 
-* Per altre informazioni su Azure Bastion, vedere [Panoramica Bastion](bastion-overview.md) e [domande frequenti su Bastion](bastion-faq.md).
-* Per usare i gruppi di sicurezza di rete con la subnet di Azure Bastion, vedere usare [gruppi](bastion-nsg.md).
-* Per istruzioni che contengono spiegazioni delle impostazioni dell'host Bastion di Azure, vedere l' [esercitazione](bastion-create-host-portal.md).
-* Per connettersi a un set di scalabilità di macchine virtuali, vedere [connettersi a un set di scalabilità di macchine virtuali con Azure Bastion](bastion-connect-vm-scale-set.md).
+* Per altre informazioni su Azure Bastion, vedere la [Panoramica di Bastion](bastion-overview.md) e le [Domande frequenti su Bastion](bastion-faq.md).
+* Per usare i gruppi di sicurezza di rete con la subnet di Azure Bastion, vedere [Usare i gruppi di sicurezza di rete](bastion-nsg.md).
+* Per istruzioni contenenti le spiegazioni delle impostazioni dell'host Azure Bastion, vedere l'[esercitazione](bastion-create-host-portal.md).
+* Per connettersi a un set di scalabilità di macchine virtuali, vedere [Connettersi a un set di scalabilità di macchine virtuali con Azure Bastion](bastion-connect-vm-scale-set.md).

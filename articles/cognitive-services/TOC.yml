@@ -17,11 +17,11 @@
       href: cognitive-services-apis-create-account.md
     - name: Creare una nuova risorsa con l'interfaccia della riga di comando di Azure
       href: cognitive-services-apis-create-account-cli.md
-    - name: Registrazione diagnostica
-      href: diagnostic-logging.md
-    - name: Modello ARM
+    - name: Creare una nuova risorsa con un modello di Resource Manager
       displayName: Resource Manager
       href: resource-manager-template.md
+    - name: Registrazione diagnostica
+      href: diagnostic-logging.md
 - name: Esempi
   items:
     - name: Criteri di Azure predefiniti
