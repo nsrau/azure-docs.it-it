@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119026"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790535"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
     Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
 
     > [!NOTE]
-    > Il progettista può eseguire esperimenti di training solo su destinazioni di istanze di calcolo di Azure Machine Learning e dell'ambiente di calcolo di Machine Learning. Altre destinazioni di calcolo non vengono visualizzate.
+    > Il progettista può eseguire esperimenti di training solo nell'ambiente di calcolo di Aure Machine Learning e in istanze di calcolo di Azure Machine Learning, mentre le altre destinazioni di calcolo non verranno visualizzate.
 
 1. Immettere un nome per la risorsa di calcolo.
 

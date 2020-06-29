@@ -15,7 +15,7 @@ ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
 ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2020
 ms.locfileid: "82891652"
@@ -177,15 +177,15 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 
 ## <a name="details"></a>Dettagli
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Type | Descrizione |
 | --- | --- | --- |
-| settings.wmfVersion |string |Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. L'impostazione di questa proprietà su **Latest** installa la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono **4.0**, **5.0**, **5.1** e **latest**. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **più recente**. |
+| settings.wmfVersion |string |Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su **latest** verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono **4.0**, **5.0**, **5.1** e **latest**. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**. |
 | settings.configuration.url |string |Specifica il percorso URL da cui scaricare il file ZIP della configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationUrlSasToken** sul valore del token di firma di accesso condiviso. Questa proprietà è obbligatoria se **settings.configuration.script** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configuration.script |string |Specifica il nome del file di script che contiene la definizione della configurazione DSC. Questo script deve trovarsi nella cartella radice del file con estensione zip che viene scaricato dall'URL specificato dalla proprietà **settings.configuration.url**. Questa proprietà è obbligatoria se **settings.configuration.url** o **settings.configuration.script** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configuration.function |string |Specifica il nome della configurazione DSC. La configurazione indicata deve essere inclusa nello script definito da **settings.configuration.script**. Questa proprietà è obbligatoria se **settings.configuration.url** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà non è crittografata. |
 | settings.configurationData.url |string |Specifica l'URL da cui scaricare il file di dati di configurazione con estensione psd1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationDataUrlSasToken** sul valore del token di firma di accesso condiviso. |
-| settings.privacy.dataCollection |string |Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono **Enable**, **Disable**, **''** o **$null**. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria. Il valore predefinito è **''**. Per altre informazioni, vedere [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure). |
+| settings.privacy.dataCollection |string |Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono **Enable**, **Disable**, **''** o **$null**. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria. Il valore predefinito è **''** . Per altre informazioni, vedere [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure). |
 | settings.advancedOptions.downloadMappings |Raccolta |Definisce i percorsi alternativi da cui scaricare WMF. Per altre informazioni, vedere [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/) (Estensione DSC di Azure 2.8 e come eseguire il mapping dei download delle dipendenze dell'estensione al percorso). |
 | protectedSettings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà è crittografata. |
 | protectedSettings.configurationUrlSasToken |string |Specifica il token di firma di accesso condiviso da usare per accedere all'URL definito da **settings.configuration.url**. Questa proprietà è crittografata. |
@@ -196,7 +196,7 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 Per altre informazioni sui valori seguenti, vedere [Configurazione di Gestione configurazione locale - Impostazioni di base](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 È possibile usare lo script di configurazione predefinito dell'estensione DSC per configurare solo le proprietà di Gestione configurazione locale elencate nella tabella seguente.
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Type | Descrizione |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Proprietà obbligatoria. Specifica la chiave che viene usata per la registrazione di un nodo nel servizio Automazione di Azure come password di un oggetto credenziale di PowerShell. Questo valore può essere individuato automaticamente usando il metodo **listkeys** per l'account di Automazione.  Vedere l'[esempio](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Proprietà obbligatoria. Specifica l'URL dell'endpoint di Automazione in cui il nodo tenta di registrarsi. Questo valore può essere individuato automaticamente usando il metodo **reference** per l'account di Automazione. |
@@ -255,7 +255,7 @@ e vengono passati allo script di configurazione predefinito per impostare i meta
 
 L'esempio seguente è tratto da [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
 Questo esempio usa modelli di Resource Manager anziché i cmdlet per distribuire l'estensione.
-Salvare la configurazione IisInstall. ps1, posizionarla in un file con estensione zip, ad `iisinstall.zip`esempio:, e quindi caricare il file in un URL accessibile.
+Salvare la configurazione di IisInstall.ps1, inserirla in un file ZIP (esempio: `iisinstall.zip`) e quindi caricare il file in un URL accessibile.
 Questo esempio usa l'archiviazione BLOB di Azure, ma è possibile scaricare file ZIP da qualsiasi percorso.
 
 Nel modello di Resource Manager il codice seguente indica alla VM di scaricare il file corretto e quindi eseguire la funzione PowerShell appropriata:
@@ -358,7 +358,7 @@ Gli unici valori possibili sono: ... e "latest".
 
 **Problema**: un valore specificato non è consentito.
 
-**Soluzione**: modificare il valore non valido in un valore valido.
+**Soluzione**: sostituire il valore non valido con un valore valido.
 Per altre informazioni, vedere la tabella in [Dettagli](#details).
 
 ### <a name="invalid-url"></a>URL non valido

@@ -1,25 +1,21 @@
 ---
 title: Definizioni di criteri predefiniti per il servizio Azure Kubernetes
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per il servizio Azure Kubernetes. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d3a0dfa115f622e4ab1160587fa8bbd7ee7d3e2c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f52050ebe587e2fd5281a3441811f8b4f9a54c69
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236237"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945529"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-kubernetes-service"></a>Definizioni di criteri predefiniti di Criteri di Azure per il servizio Azure Kubernetes
+# <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definizioni predefinite di Criteri di Azure per il servizio Azure Kubernetes
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per il servizio Azure Kubernetes. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
-
-## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
-
-[!INCLUDE [azure-policy-samples-rp-aks-kubernetes](../../includes/policy/samples/byrp/microsoft.kubernetes.md)]
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c826b9f813c30a50d8b88b2cca1b188c328465b0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660434"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171651"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Libreria BulkExecutor per Java: informazioni sul download
 
@@ -43,23 +43,23 @@ ms.locfileid: "83660434"
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name="2100"></a><a name="2.10.0"/>2.10.0
+### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
 * Aggiornamento di DocumentAnalyzer.java per la corretta estrazione dei valori delle chiavi di partizione annidate da json.
 
-### <a name="294"></a><a name="2.9.4"/>2.9.4
+### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
 * Aggiunta funzionalità alle operazioni BulkDelete per riprovare in caso di errori specifici e restituire all'utente anche un elenco di errori per i quali può essere eseguito un secondo tentativo.
 
-### <a name="293"></a><a name="2.9.3"/>2.9.3
+### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
 * Aggiornamento per Cosmos SDK versione 2.4.7.
 
-### <a name="292"></a><a name="2.9.2"/>2.9.2
+### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
 * Aggiornamento di "mergeAll" per il proseguimento in corrispondenza di "id" e del valore della chiave di partizione in modo che eventuali proprietà del documento con patch posizionate dopo "id" e il valore della chiave di partizione siano aggiunte all'elenco di elementi aggiornati.
 
-### <a name="291"></a><a name="2.9.1"/>2.9.1
+### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * Aggiornato il grado di concorrenza iniziale a 1 e aggiunti i log di debug per il mini-batch.
 

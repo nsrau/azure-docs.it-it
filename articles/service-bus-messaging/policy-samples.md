@@ -1,24 +1,24 @@
 ---
 title: Definizioni di criteri predefiniti per la messaggistica del bus di servizio di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per la messaggistica del bus di servizio di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7d81625fef2836160d71f8f97cf7ed37456c621e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c67d78a668118b8e8db00b7680956214042150e6
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234210"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888192"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-service-bus-messaging"></a>Definizioni di criteri predefiniti di Criteri di Azure per la messaggistica del bus di servizio di Azure
+# <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Definizioni predefinite di Criteri di Azure per la messaggistica del bus di servizio di Azure
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per la messaggistica del bus di servizio di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-service-bus-messaging"></a>Messaggistica del bus di servizio di Azure
 

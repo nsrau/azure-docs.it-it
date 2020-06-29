@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: storage
 author: tamram
 ms.service: storage
@@ -10,14 +10,14 @@ ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8ca4b1ce6e0470476e9f16ed338b8707d3faf90f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "79129397"
 ---
 ## <a name="resources-for-development-with-net"></a>Risorse per lo sviluppo con .NET
 
-I collegamenti seguenti forniscono risorse utili per gli sviluppatori che usano la libreria client di archiviazione di Azure per .NET.
+I collegamenti seguenti forniscono risorse utili per gli sviluppatori che usano Libreria client di archiviazione di Azure per .NET.
 
 ### <a name="azure-storage-common-apis"></a>API comuni di archiviazione di Azure
 

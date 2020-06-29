@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610494"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670434"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Esercitazione: Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
 Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. 
@@ -28,11 +28,11 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare uno spazio dei nomi del bus di servizio
 > * Preparare un'applicazione di esempio per inviare messaggi
+> * Inviare messaggi all'argomento del bus di servizio
+> * Ricevere messaggi usando App per la logica
 > * Configurare una funzione di test in Azure
 > * Connettere la funzione e lo spazio dei nomi tramite Griglia di eventi
-> * Inviare messaggi all'argomento del bus di servizio
 > * Ricevere messaggi usando Funzioni di Azure
-> * Ricevere messaggi usando App per la logica
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,7 +61,62 @@ Seguire le istruzioni disponibili nell'esercitazione [Avvio rapido: Usare il por
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
+5. Impostare il valore`numberOfMessages` su **5**. 
 5. Compilare ed eseguire il programma per inviare messaggi di test all'argomento del bus di servizio. 
+
+## <a name="receive-messages-by-using-logic-apps"></a>Ricevere messaggi usando App per la logica
+Connettere un'app per la logica al bus di servizio di Azure e a Griglia di eventi di Azure seguendo questa procedura:
+
+1. Creare un'app per la logica nel portale di Azure.
+    1. Selezionare **+ Crea una risorsa**, selezionare **Integrazione** e quindi **App per la logica**. 
+    2. Nella pagina **App per la logica - Crea** immettere un **nome** per l'app per la logica.
+    3. Selezionare la **sottoscrizione**di Azure. 
+    4. Selezionare **Usa esistente** per **Gruppo di risorse** e selezionare il gruppo di risorse usato per le altre risorse create in precedenza, ad esempio funzione di Azure o spazio dei nomi del bus di servizio. 
+    5. Selezionare il **percorso** per l'app per la logica. 
+    6. Fare clic su **Crea** per creare l'app per la logica. 
+2. Nella pagina **Progettazione app per la logica** selezionare **App per la logica vuota** in **Modelli**. 
+3. Nella finestra di progettazione seguire questa procedura:
+    1. Cercare **Griglia di eventi**. 
+    2. Selezionare **Quando si verifica un evento della risorsa - Griglia di eventi di Azure**. 
+
+        ![Progettazione app per la logica - selezione del trigger di Griglia di eventi](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. Selezionare **Accedi**, immettere le credenziali di Azure e selezionare **Consenti accesso**. 
+5. Nella pagina **Quando si verifica un evento della risorsa** seguire questa procedura:
+    1. Selezionare la sottoscrizione di Azure. 
+    2. Per **Tipo di risorsa**, selezionare **Microsoft.ServiceBus.Namespaces**. 
+    3. Per **Nome risorsa** selezionare lo spazio dei nomi del bus di servizio. 
+    4. Selezionare **Aggiungi nuovo parametro** e quindi **Filtro per suffisso**. 
+    5. Per **Filtro per suffisso** immettere il nome della seconda sottoscrizione dell'argomento del bus di servizio. 
+        ![Progettazione app per la logica - configurazione dell'evento](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+6. Selezionare **+ Nuovo passaggio** nella finestra di progettazione e seguire la procedura seguente:
+    1. Cercare **Bus di servizio**.
+    2. Selezionare **Bus di servizio** nell'elenco. 
+    3. Selezionare **Recupera messaggi** nell'elenco **Azioni**. 
+    4. Selezionare **Recupera i messaggi dalla sottoscrizione dell'argomento (blocco visualizzazione)** . 
+
+        ![Progettazione app per la logica - recupero dell'azione per i messaggi](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
+    5. Immettere un **nome per la connessione**. Ad esempio: **Recuperare i messaggi della sottoscrizione dell'argomento** e selezionare lo spazio dei nomi del bus di servizio. 
+
+        ![Progettazione app per la logica - selezione dello spazio dei nomi del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
+    6. Selezionare **RootManageSharedAccessKey** e quindi selezionare **Crea**.
+
+        ![Progettazione app per la logica - selezione della chiave di accesso condiviso](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
+    8. Selezionare l'**argomento** e la **sottoscrizione**. 
+    
+        ![Progettazione app per la logica - selezione dell'argomento e della sottoscrizione del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+7. Selezionare **+ Nuovo passaggio** e seguire la procedura seguente: 
+    1. Selezionare **Bus di servizio**.
+    2. Selezionare **Completa il messaggio in una sottoscrizione dell'argomento** nell'elenco di azioni. 
+    3. Selezionare l'**argomento** del bus di servizio.
+    4. Selezionare la seconda **sottoscrizione** dell'argomento.
+    5. Per **Token di blocco del messaggio** selezionare **Token di blocco** in **Contenuto dinamico**. 
+
+        ![Progettazione app per la logica - selezione dell'argomento e della sottoscrizione del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+8. Per salvare le app per la logica, selezionare **Salva** sulla barra degli strumenti di Progettazione app per la logica. 
+9. Seguire le istruzioni nella sezione [Inviare messaggi all'argomento del bus di servizio](#send-messages-to-the-service-bus-topic) per inviare messaggi all'argomento. 
+10. Passare alla pagina **Panoramica** dell'app per la logica. Le esecuzioni dell'app per la logica sono visualizzate nella **Cronologia esecuzioni** dei messaggi inviati.
+
+    ![Progettazione app per la logica - esecuzioni dell'app per la logica](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="set-up-a-test-function-on-azure"></a>Configurare una funzione di test in Azure 
 Prima di affrontare l'intero scenario, configurare almeno una semplice funzione di test utilizzabile per il debug e per osservare gli eventi che vengono trasmessi. Seguire le istruzioni incluse nell'articolo [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md) per eseguire le attività seguenti: 
@@ -99,9 +154,10 @@ Eseguire la procedura seguente:
             var validationHeaderValue = headerValues.FirstOrDefault();
             if(validationHeaderValue == "SubscriptionValidation")
             {
+                log.LogInformation("Validating the subscription");            
                 var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
                 var code = events[0].Data["validationCode"];
-                log.LogInformation("Validation code: {code}");
+                log.LogInformation($"Validation code: {code}");
                 return (ActionResult) new OkObjectResult(new { validationResponse = code });
             }
         }
@@ -119,18 +175,36 @@ Eseguire la procedura seguente:
         public DateTime EventTime { get; set; }
         public Dictionary<string, string> Data { get; set; }
         public string Topic { get; set; }
-    }
-    
+    }    
     ```
 2. Selezionare **Salva** sulla barra degli strumenti per salvare il codice per la funzione.
 
     ![Salvare il codice della funzione](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
-3. Selezionare **Test/Esegui** sulla barra degli strumenti, immettere un nome nel corpo e selezionare **Esegui**. 
+3. Selezionare **Test/Esegui** sulla barra degli strumenti ed eseguire questa procedura: 
+    1. Immettere il codice JSON seguente nel **corpo**.
 
-    ![Esecuzione dei test](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
-4. Verificare che l'output e i log siano visualizzati come illustrato nell'immagine seguente. 
+        ```json
+        [{
+          "id": "64ba80ae-9f8e-425f-8bd7-d88d2c0ba3e3",
+          "topic": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/spegridsbusrg/providers/Microsoft.ServiceBus/namespaces/spegridsbusns",
+          "subject": "",
+          "data": {
+            "validationCode": "D7D825D4-BD04-4F73-BDE3-70666B149857",
+            "validationUrl": "https://rp-eastus.eventgrid.azure.net:553/eventsubscriptions/spsbusegridsubscription/validate?id=D7D825D4-BD04-4F73-BDE3-70666B149857&t=2020-06-09T18:28:51.5724615Z&apiVersion=2020-04-01-preview&[Hidden Credential]"
+          },
+          "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+          "eventTime": "2020-06-09T18:28:51.5724615Z",
+          "metadataVersion": "1",
+          "dataVersion": "2"
+        }]
+        ```    
+    2. Fare clic su **Aggiungi intestazione** e aggiungere un'intestazione con nome `aeg-event-type` e valore `SubscriptionValidation`. 
+    3. Selezionare **Run** (Esegui). 
 
-    ![Esecuzione dei test - output](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
+        ![Esecuzione dei test](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+    4. Assicurarsi che venga visualizzato il codice di stato restituito **OK** e il codice di convalida nel corpo della risposta. Vedere inoltre le informazioni registrate dalla funzione. 
+
+        ![Esecuzione del test - risposta](./media/service-bus-to-event-grid-integration-example/test-function-response.png)        
 3. Selezionare **Recupera URL della funzione** e prendere nota dell'URL. 
 
     ![Ottenere l'URL della funzione](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -230,9 +304,11 @@ Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa proc
 1. Eseguire l'applicazione .NET C# che invia messaggi all'argomento del bus di servizio. 
 
     ![Output dell'app console](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. Nella pagina dell'app per le funzioni di Azure, espandere **Funzioni**, espandere la **funzione** e selezionare **Monitoraggio**. 
+1. Nella pagina dell'app per le funzioni di Azure passare alla scheda **Monitoraggio** dalla scheda **Codice e test**. Si dovrebbe vedere una voce per ogni messaggio pubblicato nell'argomento del bus di servizio. Se non si vedono, aggiornare la pagina dopo aver atteso alcuni minuti. 
 
     ![Funzione Monitoraggio](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
+
+    È anche possibile usare la scheda **Log** della pagina **Monitoraggio** per visualizzare le informazioni di registrazione durante l'invio dei messaggi. Potrebbe verificarsi un ritardo, quindi attendere alcuni minuti per visualizzare i messaggi registrati. 
 
 ## <a name="receive-messages-by-using-azure-functions"></a>Ricevere messaggi usando Funzioni di Azure
 Nella sezione precedente si è osservato un semplice scenario di test e debug e si è verificato che gli eventi vengano trasmessi. 
@@ -275,65 +351,15 @@ In questa sezione verrà illustrato come ricevere ed elaborare i messaggi dopo a
 
 1. Eliminare la sottoscrizione di Griglia di eventi esistente:
     1. Nella pagina **Spazio dei nomi del bus di servizio** selezionare **Eventi** nel menu a sinistra. 
+    2. Passare alla scheda **Sottoscrizioni di eventi**. 
     2. Selezionare la sottoscrizione di eventi esistente. 
-    3. Nella pagina **Sottoscrizione di eventi** selezionare **Elimina**.
+
+        ![Selezionare la sottoscrizione di eventi](./media/service-bus-to-event-grid-integration-example/select-event-subscription.png)
+    3. Nella pagina **Sottoscrizione di eventi** selezionare **Elimina**. Selezionare **Sì** per confermare l'eliminazione. 
+        ![Pulsante per eliminare una sottoscrizione di eventi](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
 2. Seguire le istruzioni della sezione [Connettere la funzione e lo spazio dei nomi tramite Griglia di eventi](#connect-the-function-and-namespace-via-event-grid) per creare una sottoscrizione di Griglia di eventi usando l'URL della nuova funzione.
 3. Seguire le istruzioni nella sezione [Inviare messaggi all'argomento del bus di servizio](#send-messages-to-the-service-bus-topic) per inviare messaggi all'argomento e monitorare la funzione. 
 
-## <a name="receive-messages-by-using-logic-apps"></a>Ricevere messaggi usando App per la logica
-Connettere un'app per la logica al bus di servizio di Azure e a Griglia di eventi di Azure seguendo questa procedura:
-
-1. Creare un'app per la logica nel portale di Azure.
-    1. Selezionare **+ Crea una risorsa**, selezionare **Integrazione** e quindi **App per la logica**. 
-    2. Nella pagina **App per la logica - Crea** immettere un **nome** per l'app per la logica.
-    3. Selezionare la **sottoscrizione**di Azure. 
-    4. Selezionare **Usa esistente** per **Gruppo di risorse** e selezionare il gruppo di risorse usato per le altre risorse create in precedenza, ad esempio funzione di Azure o spazio dei nomi del bus di servizio. 
-    5. Selezionare il **percorso** per l'app per la logica. 
-    6. Fare clic su **Crea** per creare l'app per la logica. 
-2. Nella pagina **Progettazione app per la logica** selezionare **App per la logica vuota** in **Modelli**. 
-3. Nella finestra di progettazione seguire questa procedura:
-    1. Cercare **Griglia di eventi**. 
-    2. Selezionare **Quando si verifica un evento della risorsa (anteprima) - Griglia di eventi di Azure**. 
-
-        ![Progettazione app per la logica - selezione del trigger di Griglia di eventi](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
-4. Selezionare **Accedi**, immettere le credenziali di Azure e selezionare **Consenti accesso**. 
-5. Nella pagina **Quando si verifica un evento della risorsa** seguire questa procedura:
-    1. Selezionare la sottoscrizione di Azure. 
-    2. Per **Tipo di risorsa**, selezionare **Microsoft.ServiceBus.Namespaces**. 
-    3. Per **Nome risorsa** selezionare lo spazio dei nomi del bus di servizio. 
-    4. Selezionare **Aggiungi nuovo parametro** e quindi **Filtro per suffisso**. 
-    5. Per **Filtro per suffisso** immettere il nome della seconda sottoscrizione dell'argomento del bus di servizio. 
-        ![Progettazione app per la logica - configurazione dell'evento](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. Selezionare **+ Nuovo passaggio** nella finestra di progettazione e seguire la procedura seguente:
-    1. Cercare **Bus di servizio**.
-    2. Selezionare **Bus di servizio** nell'elenco. 
-    3. Selezionare **Recupera messaggi** nell'elenco **Azioni**. 
-    4. Selezionare **Recupera i messaggi dalla sottoscrizione dell'argomento (blocco visualizzazione)** . 
-
-        ![Progettazione app per la logica - recupero dell'azione per i messaggi](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Immettere un **nome per la connessione**. Ad esempio: **Recuperare i messaggi della sottoscrizione dell'argomento** e selezionare lo spazio dei nomi del bus di servizio. 
-
-        ![Progettazione app per la logica - selezione dello spazio dei nomi del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
-    6. Selezionare **RootManageSharedAccessKey**.
-
-        ![Progettazione app per la logica - selezione della chiave di accesso condiviso](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. Selezionare **Crea**. 
-    8. Selezionare l'argomento e la sottoscrizione. 
-    
-        ![Progettazione app per la logica - selezione dell'argomento e della sottoscrizione del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. Selezionare **+ Nuovo passaggio** e seguire la procedura seguente: 
-    1. Selezionare **Bus di servizio**.
-    2. Selezionare **Completa il messaggio in una sottoscrizione dell'argomento** nell'elenco di azioni. 
-    3. Selezionare l'**argomento** del bus di servizio.
-    4. Selezionare la seconda **sottoscrizione** dell'argomento.
-    5. Per **Token di blocco del messaggio** selezionare **Token di blocco** in **Contenuto dinamico**. 
-
-        ![Progettazione app per la logica - selezione dell'argomento e della sottoscrizione del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
-8. Per salvare le app per la logica, selezionare **Salva** sulla barra degli strumenti di Progettazione app per la logica. 
-9. Seguire le istruzioni nella sezione [Inviare messaggi all'argomento del bus di servizio](#send-messages-to-the-service-bus-topic) per inviare messaggi all'argomento. 
-10. Passare alla pagina **Panoramica** dell'app per la logica. Le esecuzioni dell'app per la logica sono visualizzate nella **Cronologia esecuzioni** dei messaggi inviati.
-
-    ![Progettazione app per la logica - esecuzioni dell'app per la logica](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

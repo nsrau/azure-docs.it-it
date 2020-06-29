@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 06/12/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 350bc92193a27b595158f65b6ae54edc1c934e35
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2f650681742b2d91396ad41aeb69505c703cd3ac
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608792"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753046"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: Usare Python e intelligenza artificiale per generare contenuto ricercabile dai BLOB di Azure
 
@@ -92,7 +92,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
    La stringa di connessione è un URL simile all'esempio seguente:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Salvare la stringa di connessione nel Blocco note. Sarà necessaria più avanti durante la configurazione della connessione all'origine dati.
@@ -101,11 +101,11 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 L'arricchimento tramite intelligenza artificiale è supportato dai Servizi cognitivi, ad esempio Analisi del testo e Visione artificiale per l'elaborazione del linguaggio naturale e delle immagini. Se l'obiettivo è quello di completare un prototipo o un progetto effettivo, a questo punto è necessario effettuare il provisioning di Servizi cognitivi (nella stessa area di Ricerca cognitiva di Azure) in modo da poter collegare il servizio alle operazioni di indicizzazione.
 
-Per questo esercizio è tuttavia possibile ignorare il provisioning delle risorse perché Ricerca cognitiva di Azure riesce a connettersi a Servizi cognitivi in background e offre 20 transazioni gratuite per ogni esecuzione dell'indicizzatore. Dal momento che in questa esercitazione vengono usate 7 transazioni, l'allocazione gratuita è sufficiente. Per progetti di dimensioni maggiori, pianificare il provisioning di Servizi cognitivi al livello S0 con pagamento in base al consumo. Per altre informazioni, vedere [Collegare Servizi cognitivi](cognitive-search-attach-cognitive-services.md).
+Poiché questa esercitazione usa solo sette transazioni, è possibile ignorare il provisioning delle risorse in quanto Ricerca cognitiva di Azure può connettersi a Servizi cognitivi per 20 transazioni gratuite per ogni esecuzione dell'indicizzatore. L'allocazione gratuita è quindi sufficiente. Per progetti di dimensioni maggiori, pianificare il provisioning di Servizi cognitivi al livello S0 con pagamento in base al consumo. Per altre informazioni, vedere [Collegare Servizi cognitivi](cognitive-search-attach-cognitive-services.md).
 
 ### <a name="azure-cognitive-search"></a>Ricerca cognitiva di Azure
 
-Il terzo componente è Ricerca cognitiva di Azure, che è [possibile creare nel portale](search-create-service-portal.md). Per completare questa procedura dettagliata, è possibile usare il livello gratuito. 
+Il terzo componente è Ricerca cognitiva di Azure, che è [possibile creare nel portale](search-create-service-portal.md). Per completare questa procedura dettagliata è possibile usare il livello gratuito. 
 
 Come per Archiviazione BLOB di Azure dedicare qualche istante alla raccolta della chiave di accesso. Più avanti, quando si inizierà a strutturare le richieste, sarà necessario specificare l'endpoint e la chiave API di amministrazione usati per autenticare ogni richiesta.
 
@@ -159,7 +159,7 @@ params = {
 
 ## <a name="3---create-the-pipeline"></a>3 - Creare la pipeline
 
-In Ricerca cognitiva di Azure l'elaborazione tramite intelligenza artificiale viene eseguita durante l'indicizzazione o l'inserimento dati. In questa parte della procedura dettagliata vengono creati quattro oggetti: origine dati, definizione dell'indice, set di competenze e indicizzatore. 
+In Ricerca cognitiva di Azure l'elaborazione tramite intelligenza artificiale viene eseguita durante l'indicizzazione o l'inserimento dati. In questa fase della procedura dettagliata vengono creati quattro oggetti: origine dati, definizione dell'indice, set di competenze e indicizzatore. 
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
@@ -220,12 +220,14 @@ skillset_payload = {
             "defaultLanguageCode": "en",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
                 {
-                    "name": "organizations", "targetName": "organizations"
+                    "name": "organizations", 
+                    "targetName": "organizations"
                 }
             ]
         },
@@ -233,7 +235,8 @@ skillset_payload = {
             "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
@@ -269,10 +272,12 @@ skillset_payload = {
             "context": "/document/pages/*",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/pages/*"
+                    "name": "text", 
+                    "source": "/document/pages/*"
                 },
                 {
-                    "name": "languageCode", "source": "/document/languageCode"
+                    "name": "languageCode", 
+                    "source": "/document/languageCode"
                 }
             ],
             "outputs": [
@@ -378,9 +383,9 @@ Un [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-inde
 
 Per unire questi elementi in un indicizzatore, è necessario definire i mapping dei campi.
 
-+ Gli oggetti fieldMappings vengono elaborati prima del set di competenze, eseguendo il mapping dei campi di origine dall'origine dati ai campi di destinazione in un indice. Se i nomi e i tipi di campo sono uguali alle due estremità, non è necessario alcun mapping.
++ Gli oggetti `"fieldMappings"` vengono elaborati prima del set di competenze, eseguendo il mapping dei campi di origine dall'origine dati ai campi di destinazione in un indice. Se i nomi e i tipi di campo sono uguali alle due estremità, non è necessario alcun mapping.
 
-+ Gli oggetti outputFieldMappings vengono elaborati dopo il set di competenze facendo riferimento agli oggetti sourceFieldNames che non esistono fino a quando non vengono creati dall'individuazione o dall'arricchimento dei documenti. L'oggetto targetFieldName è un campo in un indice.
++ Gli oggetti `"outputFieldMappings"` vengono elaborati dopo il set di competenze, facendo riferimento agli oggetti `"sourceFieldNames"` che non esistono fino a quando non vengono creati dall'arricchimento o dal cracking dei documenti. `"targetFieldName"` è un campo di un indice.
 
 Oltre ad associare gli input agli output, è anche possibile usare i mapping dei campi per rendere flat le strutture dei dati. Per altre informazioni, vedere [Come eseguire il mapping dei campi migliorati a un indice ricercabile](cognitive-search-output-field-mapping.md).
 
@@ -465,7 +470,7 @@ r = requests.get(endpoint + "/indexers/" + indexer_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Nella risposta monitorare "lastResult" per "status" ed "endTime". Eseguire periodicamente lo script per verificare lo stato. Quando l'indicizzatore completa l'elaborazione, lo stato verrà impostato su "success", verrà specificato un elemento "endTime" e la risposta includerà gli eventuali errori e avvisi restituiti durante l'arricchimento.
+Nella risposta monitorare i valori `"status"` e `"endTime"` di `"lastResult"`. Eseguire periodicamente lo script per verificare lo stato. Quando l'indicizzatore completa l'elaborazione, lo stato verrà impostato su "success", verrà specificato un elemento "endTime" e la risposta includerà gli eventuali errori e avvisi restituiti durante l'arricchimento.
 
 ![L'indicizzatore è stato creato](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "L'indicizzatore è stato creato")
 
@@ -505,7 +510,7 @@ I risultati saranno simili all'esempio seguente. Lo screenshot mostra solo una p
 
 ![Indice di query per il contenuto delle organizzazioni](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Eseguire una query sull'indice per restituire il contenuto delle organizzazioni")
 
-Ripetere l'operazione per altri campi: content, languageCode, keyPhrases e organizations in questo esercizio. È possibile restituire più campi tramite `$select` usando un elenco delimitato da virgole.
+Ripetere la procedura per i campi `content`, `languageCode`, `keyPhrases` e `organizations` in questo esercizio. È possibile restituire più campi tramite `$select` usando un elenco delimitato da virgole.
 
 È possibile usare GET o POST, in base alla lunghezza e alla complessità della stringa di query. Per altre informazioni, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290549"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659607"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Panoramica - Informazioni su App per la logica di Azure
 
@@ -102,9 +102,9 @@ Ragionando sull'altra direzione, BizTalk Server può connettersi a e comunicare 
 
 ### <a name="access-resources-inside-azure-virtual-networks"></a>Accedere alle risorse all'interno di reti virtuali di Azure
 
-Quando si crea un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), le app per la logica possono accedere a risorse protette, come le macchine virtuali (VM) e altri sistemi o servizi all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Un ISE è un'istanza isolata del servizio App per la logica che usa risorse dedicate e viene eseguita separatamente dal servizio App per la logica "globale" e multi-tenant.
+Quando si crea un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), le app per la logica possono accedere a risorse protette, come le macchine virtuali (VM) e altri sistemi o servizi all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Un ISE è un'istanza dedicata del servizio App per la logica che usa risorse dedicate e viene eseguita separatamente dal servizio App per la logica "globale" e multi-tenant.
 
-L'esecuzione di app per la logica in un'istanza isolata separata consente di ridurre il potenziale impatto degli altri tenant di Azure sulle prestazioni delle app nel cosiddetto [effetto "noisy neighbor"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE offre inoltre questi vantaggi:
+L'esecuzione di app per la logica in un'istanza dedicata separata consente di ridurre il potenziale impatto degli altri tenant di Azure sulle prestazioni delle app nel cosiddetto [effetto "noisy neighbor"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE offre inoltre questi vantaggi:
 
 * Disponibilità di indirizzi IP statici separati dagli indirizzi IP statici condivisi dalle app per la logica nel servizio multi-tenant. È anche possibile configurare un unico indirizzo IP in uscita pubblico, statico e prevedibile per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
 

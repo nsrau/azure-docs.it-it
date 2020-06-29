@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: ee5a12b11e36f3d1e08d1154d21f198c0fd1b76e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 792f968f5d6eadd037043b01fa5764f8c3c9e193
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085227"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905965"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Esercitazione: Creare un'app PHP e MySQL in Azure
 
@@ -156,7 +156,7 @@ In questo passaggio viene creato un database MySQL in [Database di Azure per MyS
 
 In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Nel comando seguente sostituire il segnaposto *\<mysql_server_name>* con un nome di server univoco, *\<admin_user>* con un nome utente e il segnaposto *\<admin_password>* con una password. Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure.
+Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<mysql_server_name>* , con un nome utente il segnaposto *\<admin_user>* e con una password il segnaposto *\<admin_password>* . Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -630,3 +630,8 @@ Passare all'esercitazione successiva per apprendere come eseguire il mapping di 
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-domain.md)
+
+Altre risorse:
+
+> [!div class="nextstepaction"]
+> [Configurare l'app PHP](configure-language-php.md)

@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488121"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771173"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
@@ -58,7 +58,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
    > - Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). I dati generati da Azure Sentinel (ad esempio eventi imprevisti, segnalibri e regole di avviso, che possono contenere dati del cliente originati da tali aree di lavoro), vengono salvati in Europa (per le aree di lavoro che risiedono in Europa), in Australia (per le aree di lavoro che risiedono in Australia) o nell'area Stati Uniti orientali (per le aree di lavoro che risiedono in tutte le altre aree).
 
    >[!IMPORTANT]
-   > - Una volta abilitata la funzionalità Azure Sentinel in un'area di lavoro, il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni non è supportato. Se è necessario spostare l'area di lavoro, contattare il supporto tecnico per assistenza.
+   > - Una volta abilitata la funzionalità Azure Sentinel in un'area di lavoro, il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni non è supportato. Se è necessario spostare l'area di lavoro, contattare [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 1. Selezionare **Aggiungi Azure Sentinel**.
   

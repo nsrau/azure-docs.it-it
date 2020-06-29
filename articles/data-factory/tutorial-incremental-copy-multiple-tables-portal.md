@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 680f8518e5d005aebeffd54fe6d05ae1124c595a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559708"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730102"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure con il portale di Azure
 
@@ -260,9 +260,13 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 Mentre si spostano i dati da un archivio dati di una rete privata (locale) a un archivio dati di Azure, installare un runtime di integrazione self-hosted nell'ambiente locale. Il runtime di integrazione self-hosted sposta i dati tra la rete privata e Azure. 
 
-1. Fare clic su **Connessioni** nella parte inferiore del riquadro sinistro e passare a **Integration Runtimes** (Runtime di integrazione) nella finestra **Connessioni**. 
+1. Nella pagina **Attività iniziali** dell'interfaccia utente di Azure Data Factory selezionare la [scheda Gestisci](https://docs.microsoft.com/azure/data-factory/author-management-hub) nel riquadro all'estrema sinistra.
 
-1. Nella scheda **Integration Runtimes** (Runtime di integrazione) fare clic su **+ Nuovo**. 
+   ![Pulsante Gestisci nella home page](media/doc-common-process/get-started-page-manage-button.png)
+
+1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo**.
+
+   ![Creare un runtime di integrazione](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Nella finestra **Integration Runtime Setup** (Configurazione runtime di integrazione) selezionare **Perform data movement and dispatch activities to external computes** (Eseguire attività di invio e spostamento dati in servizi di calcolo esterni) e fare clic su **Continua**. 
 
@@ -288,6 +292,7 @@ In questo passaggio si collega il database di SQL Server alla data factory.
 
 1. Nella finestra **Connessioni** passare dalla scheda **Integration Runtimes** (Runtime di integrazione) alla scheda **Servizi collegati** e fare clic su **+ Nuovo**.
 
+   ![Nuovo servizio collegato](./media/doc-common-process/new-linked-service.png)
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **SQL Server** e fare clic su **Continua**. 
 
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura:
@@ -349,7 +354,7 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
     1. Fare clic su **Nuovo** nella sezione **Create/update parameters** (Crea/Aggiorna parametri). 
     1. Immettere **SinkTableName** per il **nome** e **Stringa** per il **tipo**. Questo set di dati accetta **SinkTableName** come parametro. Il parametro SinkTableName viene impostato dalla pipeline in modo dinamico in fase di esecuzione. L'attività ForEach nella pipeline esegue l'iterazione di un elenco di nomi di tabella e passa il nome di tabella a questo set di dati in ogni interazione.
    
-    ![Proprietà del set di dati sink](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        ![Proprietà del set di dati sink](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. Passare alla scheda **Connessione** nella finestra Proprietà e selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**. Per la proprietà **Tabella** fare clic su **Aggiungi contenuto dinamico**.   
     
 1. Nella finestra **Aggiungi contenuto dinamico** selezionare **SinkTableName** nella sezione **Parametri**. 
@@ -371,7 +376,7 @@ In questo passaggio si crea un set di dati per l'archiviazione di un valore limi
     1. Selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
     1. Selezionare **[dbo].[watermarktable]** per **Tabella**.
 
-    ![Set di dati limite: connessione](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        ![Set di dati limite: connessione](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività ForEach esegue l'iterazione dell'elenco dei nomi di tabella ed esegue le operazioni seguenti: 
@@ -455,7 +460,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     1. Per la proprietà **Table Type** (Tipo di tabella) immettere `@{item().TableType}`.
     1. Per la proprietà **Table type parameter name** (Nome del parametro di tipo di tabella) immettere `@{item().TABLE_NAME}`.
 
-    ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. Connettere l'attività **Copia** all'attività **Stored procedure**. 
 
 1. Selezionare l'attività **Stored procedure** nella pipeline e immettere **StoredProceduretoWriteWatermarkActivity** per **Nome** nella scheda **Generale** della finestra **Proprietà**. 
@@ -507,10 +512,12 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 
-1. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata l'esecuzione della pipeline attivata dal **trigger manuale**. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco. I collegamenti nella colonna **Azioni** consentono di visualizzare le esecuzioni attività associate all'esecuzione della pipeline e di eseguire di nuovo la pipeline. 
+1. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata l'esecuzione della pipeline attivata dal **trigger manuale**. È possibile usare i collegamenti nella colonna **NOME PIPELINE** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
 
-    ![Esecuzioni di pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-1. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Vengono visualizzate tutte le esecuzioni attività associate all'esecuzione della pipeline. 
+1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento sotto la colonna **NOME PIPELINE**. Per i dettagli sulle esecuzioni di attività, selezionare il collegamento **Dettagli** (icona degli occhiali) sotto la colonna **NOME ATTIVITÀ**. 
+
+1. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare **Tutte le esecuzioni di pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
+
 
 ## <a name="review-the-results"></a>Esaminare i risultati
 In SQL Server Management Studio eseguire queste query sul database SQL di destinazione per verificare che i dati siano stati copiati dalle tabelle di origine alle tabelle di destinazione: 
@@ -605,9 +612,11 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>Monitorare di nuovo la pipeline
 
-1. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata l'esecuzione della pipeline attivata dal **trigger manuale**. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco. I collegamenti nella colonna **Azioni** consentono di visualizzare le esecuzioni attività associate all'esecuzione della pipeline e di eseguire di nuovo la pipeline. 
+1. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata l'esecuzione della pipeline attivata dal **trigger manuale**. È possibile usare i collegamenti nella colonna **NOME PIPELINE** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
 
-1. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Vengono visualizzate tutte le esecuzioni attività associate all'esecuzione della pipeline. 
+1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento sotto la colonna **NOME PIPELINE**. Per i dettagli sulle esecuzioni di attività, selezionare il collegamento **Dettagli** (icona degli occhiali) sotto la colonna **NOME ATTIVITÀ**. 
+
+1. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare **Tutte le esecuzioni di pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
 ## <a name="review-the-final-results"></a>Esaminare i risultati finali
 In SQL Server Management Studio eseguire le query seguenti sul database SQL di destinazione per verificare che i dati nuovi/aggiornati siano stati copiati dalle tabelle di origine alle tabelle di destinazione. 

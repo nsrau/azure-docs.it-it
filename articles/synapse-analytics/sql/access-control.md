@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310258"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765081"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
@@ -169,14 +169,7 @@ Per concedere l'accesso a un utente a **singolo** database SQL, seguire la proce
 > *db_datareader* e *db_datawriter* possono funzionare per le autorizzazioni di lettura/scrittura se non si desidera concedere l'autorizzazione *db_owner*.
 > Per consentire a un utente Spark di leggere e scrivere direttamente da Spark in/da un pool SQL, l'autorizzazione *db_owner* è necessaria.
 
-Dopo aver creato gli utenti, verificare che SQL su richiesta possa eseguire query sull'account di archiviazione:
-
-- Eseguire il comando seguente scegliendo come destinazione il database **master** di SQL su richiesta:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+Dopo aver creato gli utenti, verificare che SQL su richiesta possa eseguire query sull'account di archiviazione.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Controllo di accesso alle esecuzioni di pipeline dell'area di lavoro
 

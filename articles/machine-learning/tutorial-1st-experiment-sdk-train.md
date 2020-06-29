@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558373"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667097"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -138,7 +138,7 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Visualizzare i risultati del training in Studio
 
-Seguendo il **collegamento ad Azure Machine Learning Studio** si passa alla pagina principale dell'esperimento, in cui vengono visualizzate tutte le singole esecuzioni dell'esperimento. Tutti i valori per cui è stata personalizzata la registrazione (in questo caso, `alpha_value` e `rmse`) diventano campi per ogni esecuzione e sono disponibili anche per i grafici e i riquadri nella parte superiore della pagina dell'esperimento. Per aggiungere una metrica registrata a un grafico o un riquadro, passare il puntatore del mouse su di esso, fare clic sul pulsante di modifica e trovare la metrica per cui è stata personalizzata la registrazione.
+Seguendo il **collegamento ad Azure Machine Learning Studio** si passa alla pagina principale dell'esperimento, in cui vengono visualizzate tutte le singole esecuzioni dell'esperimento. Tutti i valori per cui è stata personalizzata la registrazione (in questo caso, `alpha_value` e `rmse`) diventano campi per ogni esecuzione e sono disponibili anche per i grafici. Per tracciare un nuovo grafico con una metrica registrata, fare clic su 'Aggiungi grafico' e selezionare la metrica da tracciare.
 
 In caso di training di modelli su vasta scala, con centinaia e migliaia di esecuzioni separate, questa pagina semplifica la visualizzazione di ogni modello sottoposto a training, in particolare di come è stato eseguito il training e di come le metriche univoche usate sono cambiate nel tempo.
 

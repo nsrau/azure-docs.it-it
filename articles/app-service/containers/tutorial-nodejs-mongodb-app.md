@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085331"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906395"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Creare un'app Node.js e MongoDB nel servizio app di Azure in Linux
 
@@ -122,7 +122,7 @@ In questo passaggio si crea un account database usando l'API di Azure Cosmos DB 
 
 In Cloud Shell creare un account Cosmos DB con il comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-Nel comando seguente sostituire il segnaposto *\<cosmosdb-name>* con un nome Cosmos DB univoco. Poiché questo nome è incluso nell'endpoint Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, è necessario che sia univoco in tutti gli account Cosmos DB in Azure. Il nome deve contenere solo lettere minuscole, numeri e il carattere (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
+Nel comando seguente sostituire il segnaposto *\<cosmosdb-name>* con un nome univoco di Cosmos DB. Poiché questo nome è incluso nell'endpoint Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, è necessario che sia univoco in tutti gli account Cosmos DB in Azure. Il nome deve contenere solo lettere minuscole, numeri e il carattere (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -179,7 +179,7 @@ Copiare il valore di `primaryMasterKey`. Queste informazioni saranno necessarie 
 
 Nella cartella _config/env/_ del repository MEAN.js locale creare un file denominato _local-production.js_. _.gitignore_ è configurato per escludere questo file dal repository.
 
-Copiare nel file il codice seguente. Assicurarsi di sostituire i due segnaposto *\<cosmosdb-name>* con il nome del database Cosmos DB e di sostituire il segnaposto *\<primary-master-key>* con la chiave copiata nel passaggio precedente.
+Copiare nel file il codice seguente. Assicurarsi inoltre di sostituire i due segnaposto *\<cosmosdb-name>* con il nome del database Cosmos DB e il segnaposto *\<primary-master-key>* con la chiave copiata nel passaggio precedente.
 
 ```javascript
 module.exports = {
@@ -444,7 +444,7 @@ Eventuali articoli aggiunti in precedenza sono ancora visibili. I dati esistenti
 
 ## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 

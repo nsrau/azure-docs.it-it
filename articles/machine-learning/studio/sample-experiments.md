@@ -1,29 +1,29 @@
 ---
-title: Esperimenti Kickstart da esempi
+title: Avviare esperimenti da esempi
 titleSuffix: ML Studio (classic) - Azure
-description: Informazioni su come usare gli esperimenti di esempio di machine learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (classico).
+description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (versione classica).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: a8743aeea6278588da308feb37016b679a4f0509
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 79251257e38c9a9b59f759192d3d536185396291
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929265"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706019"
 ---
-# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classico) dagli esempi funzionanti in Azure AI Gallery
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (versione classica) da esempi funzionanti in Azure AI Gallery
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Informazioni su come iniziare a usare gli esperimenti di esempio dalla [raccolta di intelligenza artificiale di Azure](https://gallery.azure.ai/) invece di creare esperimenti di Machine Learning completamente nuovi. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
 
-Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio (classico), oltre ad esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
+Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio (versione classica), oltre a esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
 
 Per informazioni su come usare la raccolta, guardare il video di 3 minuti [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) della serie [Analisi scientifica dei dati per principianti](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -41,7 +41,7 @@ Per esplorare tutti gli esperimenti:
 1. Fare clic su **Browse all** (Esplora tutto) nella parte superiore della pagina.
 2. In **Refine by** (Affina per) a sinistra nella sezione **Categories** (Categorie) selezionare **Experiment** (Esperimento) per visualizzare tutti gli esperimenti nella raccolta.
 3. È possibile trovare esperimenti che soddisfano i requisiti in due modi diversi:
-   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
+   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA: in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
      ![Selezione dei filtri](./media/sample-experiments/choose-an-algorithm.png)
    * **Usare la casella di ricerca.** Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi):<br></br>
      ![Usare la casella di ricerca](./media/sample-experiments/search-for-experiments.png)
@@ -51,12 +51,12 @@ Per esplorare tutti gli esperimenti:
     ![Esperimento di esempio](./media/sample-experiments/example-experiment.png)
 
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Creare un nuovo esperimento usando un esempio come modello
-È anche possibile creare un nuovo esperimento in Machine Learning Studio (classico) usando un esempio di raccolta come modello.
+È anche possibile creare un nuovo esperimento in Machine Learning Studio (versione classica) usando come modello un esempio della raccolta.
 
 1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **Nuovo** per creare un esperimento.
 2. Esplorare il contenuto e fare clic per selezionare un esempio.
 
-Viene creato un nuovo esperimento nell'area di lavoro di Machine Learning Studio (classica) usando l'esperimento di esempio come modello.
+Nell'area di lavoro di Machine Learning Studio (versione classica) verrà creato un nuovo esperimento usando l'esperimento di esempio come modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Importare dati da diverse origini](import-data.md)

@@ -1,5 +1,5 @@
 ---
-title: Connettere MXChip Internet DevKit al monitoraggio remoto dell'hub Internet Azure
+title: Connettere MXChip IoT DevKit a Monitoraggio remoto dell’hub IoT di Azure
 description: In questa esercitazione si apprende come inviare lo stato dei sensori di IoT DevKit AZ3166 all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT.
 author: liydu
 manager: jeffya
@@ -11,7 +11,7 @@ ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258457"
@@ -31,7 +31,7 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di valutazione gratuita di 30 giorni Microsoft Azure account](https://azure.microsoft.com/free/)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
 
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
@@ -135,6 +135,6 @@ Dopo aver appreso come connettere un dispositivo DevKit all'acceleratore di solu
 
 * [Panoramica degli acceleratori di soluzioni Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)
 
 * [Kit per sviluppatori IoT](https://microsoft.github.io/azure-iot-developer-kit/) 

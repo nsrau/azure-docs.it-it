@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898825"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052753"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico di macchine virtuali. Questa guida di avvio rapido illustra come bilanciare il carico delle macchine virtuali con una risorsa Load Balancer pubblica.
 
@@ -162,7 +162,7 @@ Gli SKU degli indirizzi IP pubblici e gli SKU di Load Balancer devono corrispond
     | Zona di disponibilità | 2 |3|
     |IP pubblico| SKU **Standard**|SKU **Standard**|
     | IP pubblico: Zona di disponibilità| **Con ridondanza della zona** |**Con ridondanza della zona**|
-    | Gruppo di sicurezza di rete | Selezionare il gruppo esistente *myNetworkSecurity*| Selezionare il gruppo esistente *myNetworkSecurity*|
+    | Gruppo di sicurezza di rete | Selezionare il gruppo esistente *myNetworkSecurityGroup*| Selezionare il gruppo esistente *myNetworkSecurityGroup*|
 
  ### <a name="create-nsg-rule"></a>Creare una regola del gruppo di sicurezza di rete
 

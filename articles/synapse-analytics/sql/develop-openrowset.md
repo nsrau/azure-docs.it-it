@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f70c14c424e8aaecbdc1138b52fdd6fb1e9fc265
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560864"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051801"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -49,7 +49,7 @@ Si tratta di un modo semplice e rapido per leggere il contenuto dei file senza p
     Questa opzione consente di configurare la posizione dell'account di archiviazione nell'origine dati e di specificare il metodo di autenticazione da usare per accedere all'archiviazione. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` senza `DATA_SOURCE` fornisce un metodo semplice e rapido per accedere ai file di archiviazione, ma offre opzioni di autenticazione limitate. Ad esempio, l'entità di Azure AD può accedere ai file solo usando l'[identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) e non può accedere ai file disponibili pubblicamente. Se sono necessarie opzioni di autenticazione più avanzate, usare l'opzione `DATA_SOURCE` e definire le credenziali da usare per accedere all'archiviazione.
+    > `OPENROWSET` senza `DATA_SOURCE` fornisce un metodo semplice e rapido per accedere ai file di archiviazione, ma offre opzioni di autenticazione limitate. Ad esempio, le entità di Azure AD possono accedere ai file solo usando la rispettiva [identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) e non possono accedere ai file disponibili pubblicamente. Se sono necessarie opzioni di autenticazione più avanzate, usare l'opzione `DATA_SOURCE` e definire le credenziali da usare per accedere all'archiviazione.
 
 
 ## <a name="security"></a>Sicurezza
@@ -60,7 +60,8 @@ L'amministratore dell'archiviazione deve anche consentire a un utente di acceder
 
 `OPENROWSET` usa le regole seguenti per determinare la modalità di autenticazione per l'archiviazione:
 - In `OPENROWSET` senza `DATA_SOURCE` il meccanismo di autenticazione dipende dal tipo di chiamante.
-  - Gli account di accesso di Azure AD possono accedere ai file solo usando la propria [identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se Archiviazione di Azure consente all'utente di Azure AD di accedere ai file sottostanti (ad esempio, se il chiamante ha l'autorizzazione di lettura per l'archiviazione) e se si [abilita l'autenticazione pass-through di Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) nel servizio Synapse SQL.
+  - Qualsiasi utente può usare `OPENROWSET` senza `DATA_SOURCE` per leggere i file disponibili pubblicamente in Archiviazione di Azure.
+  - Gli account di accesso di Azure AD possono accedere ai file protetti usando la rispettiva [identità di Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se Archiviazione di Azure consente all'utente di Azure AD di accedere ai file sottostanti, ad esempio se il chiamante ha l'autorizzazione `Storage Reader` in Archiviazione di Azure.
   - Gli account di accesso di SQL possono anche usare `OPENROWSET` senza `DATA_SOURCE` per accedere ai file disponibili pubblicamente, ai file protetti tramite token di firma di accesso condiviso o all'identità gestita dell'area di lavoro di Synapse. È necessario [creare credenziali con ambito server](develop-storage-files-storage-access-control.md#examples) per consentire l'accesso ai file di archiviazione. 
 - In `OPENROWSET` con `DATA_SOURCE` il meccanismo di autenticazione è definito nelle credenziali con ambito database assegnate all'origine dati a cui viene fatto riferimento. Questa opzione consente di accedere all'archiviazione disponibile pubblicamente o di accedere all'archiviazione tramite token di firma di accesso condiviso, identità gestita dell'area di lavoro oppure [identità di Azure AD del chiamante](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se il chiamante è un'entità di Azure AD). Se `DATA_SOURCE` fa riferimento all'archiviazione di Azure non pubblica, sarà necessario [creare credenziali con ambito database](develop-storage-files-storage-access-control.md#examples) e farvi riferimento in `DATA SOURCE` per consentire l'accesso ai file di archiviazione.
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Se si riceve un messaggio di errore indicante che non è possibile elencare i file, è necessario abilitare l'accesso all'archiviazione pubblica in Synapse SQL su richiesta:
-- Se si usa un account di accesso di SQL, è necessario [creare credenziali con ambito server che consentano l'accesso all'archiviazione pubblica](develop-storage-files-storage-access-control.md#examples).
-- Se si usa un'entità di Azure AD per accedere all'archiviazione pubblica, è necessario[creare credenziali con ambito server che consentano l'accesso all'archiviazione pubblica](develop-storage-files-storage-access-control.md#examples) e disabilitare l'[autenticazione pass-through di Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi, vedere la [guida di avvio rapido sull'esecuzione di query sui dati nell'archiviazione](query-data-storage.md) per informazioni su come usare 'OPENROWSET per leggere i file in formato formati di file [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). È anche possibile acquisire informazioni su come salvare i risultati della query in Archiviazione di Azure con [CETAS](develop-tables-cetas.md).
+Per altri esempi, vedere la [guida di avvio rapido sull'esecuzione di query sui dati nell'archiviazione](query-data-storage.md) per informazioni su come usare `OPENROWSET` per leggere i file in formati di file [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). È anche possibile acquisire informazioni su come salvare i risultati della query in Archiviazione di Azure con [CETAS](develop-tables-cetas.md).

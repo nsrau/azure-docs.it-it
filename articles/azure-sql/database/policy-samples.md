@@ -1,25 +1,25 @@
 ---
 title: Definizioni di criteri predefiniti per il database SQL di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per il database SQL di Azure e Istanza gestita di SQL. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ff131f93df07325aec99e6e3e7aa3a9ddd284e28
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: fc768870e02098e208b55aabd854093d9d66ba1d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231346"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887291"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-sql-database--sql-managed-instance"></a>Definizioni di criteri predefiniti di Criteri di Azure per il database SQL di Azure e Istanza gestita di SQL
+# <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definizioni predefinite di Criteri di Azure per Database SQL di Azure e Istanza gestita di SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per il database SQL di Azure e Istanza gestita di SQL. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-sql-database--sql-managed-instance"></a>Database SQL di Azure e Istanza gestita di SQL 
 

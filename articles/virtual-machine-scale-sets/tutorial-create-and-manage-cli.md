@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198217"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736442"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -166,6 +166,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 Per distribuire un set di scalabilità che usa un'immagine specifica, usare il valore riportato nella colonna *Urn*. Quando si specifica l'immagine, il numero di versione dell'immagine può essere sostituito con *latest* per selezionare l'ultima versione della distribuzione. Nell'esempio seguente, l'argomento `--image` viene usato per specificare l'ultima versione di un'immagine CentOS 7.3.
+
+> [!IMPORTANT]
+> È consigliabile usare la versione *più recente* dell'immagine. Specificare "latest" per usare la versione più recente di un'immagine disponibile in fase di distribuzione. Si noti che, anche se si usa "latest", l'immagine della VM non verrà aggiornata automaticamente dopo la distribuzione anche se si rende disponibile una nuova versione.
 
 Dato che la creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti, non è necessario distribuire il set di scalabilità seguente:
 

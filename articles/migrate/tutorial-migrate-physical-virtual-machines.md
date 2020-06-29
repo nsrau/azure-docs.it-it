@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di computer fi
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535384"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771394"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -45,9 +45,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Prima di iniziare questa esercitazione, è necessario:
 
 [Rivedere](migrate-architecture.md) l'architettura di migrazione.
-
-
-
 
 ## <a name="prepare-azure"></a>Preparare Azure
 
@@ -93,7 +90,9 @@ Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azur
 
 1. [Verificare](migrate-support-matrix-physical-migration.md#physical-server-requirements) i requisiti dei server fisici.
 2. Verificare che le macchine virtuali locali replicate in Azure siano conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-
+3. Prima di eseguire la migrazione delle macchine virtuali ad Azure, è necessario apportarvi alcune modifiche.
+    - Per alcuni sistemi operativi, Azure Migrate apporta automaticamente queste modifiche. 
+    - È importante apportare queste modifiche prima di avviare la migrazione. Se si esegue la migrazione della VM prima di apportare la modifica, la VM potrebbe non avviarsi in Azure. Esaminare le modifiche che è necessario apportare in [Windows](prepare-for-migration.md#windows-machines) e [Linux](prepare-for-migration.md#linux-machines).
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparare un computer per l'appliance di replica
 

@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
-ms.date: 05/20/2020
+ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683250"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888147"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -171,6 +171,9 @@ Per determinare gli alias per una risorsa di Azure, sono disponibili varie opzio
 ### <a name="get-aliases-in-vs-code-extension"></a>Ottenere alias nell'estensione VS Code
 
 L'estensione Criteri di Azure per VS Code semplifica la visualizzazione delle risorse e l'[individuazione di alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
+
+> [!NOTE]
+> L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

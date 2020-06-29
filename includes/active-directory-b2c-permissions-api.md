@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: e37419b5d568b0f60e4c6a0c8fed26eb418f501e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297488"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680306"
 ---
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/) 
 
-1. Selezionare **Registrazioni app (anteprima)** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
+1. Selezionare **Registrazioni app** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
 1. In **Gestisci** selezionare **Autorizzazioni API**.
 1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **Le mie API**.
@@ -26,9 +26,9 @@ ms.locfileid: "84297488"
 1. Selezionare **Sì**.
 1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti.
 
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
-1. Selezionare **Applicazioni** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
+1. Selezionare **Applicazioni (legacy)** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
 1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
 1. Nell'elenco a discesa **Seleziona API** selezionare l'API per cui è necessario concedere l'accesso all'applicazione Web. Ad esempio, *webapi1*.
 1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.

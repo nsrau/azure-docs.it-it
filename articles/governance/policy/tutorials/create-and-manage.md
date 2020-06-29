@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Creare criteri per applicare la conformità'
 description: In questa esercitazione vengono usati i criteri per applicare gli standard, controllare i costi, mantenere la sicurezza e applicare principi di progettazione a livello aziendale.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190827"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781128"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -78,7 +78,7 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
 ## <a name="implement-a-new-custom-policy"></a>Implementare un nuovo criterio personalizzato
 
-Dopo avere assegnato una definizione predefinita del criterio, è possibile eseguire altre operazioni con Criteri di Azure. Creare quindi un nuovo criterio personalizzato per ridurre i costi convalidando che le macchine virtuali create nell'ambiente non siano della serie G. In questo modo, ogni volta che un utente dell'organizzazione prova a creare una macchina virtuale della serie G, la richiesta viene negata.
+Dopo avere assegnato una definizione predefinita del criterio, è possibile eseguire altre operazioni con Criteri di Azure. Creare quindi un nuovo criterio personalizzato per risparmiare sui costi verificando che le macchine virtuali create nell'ambiente non possano essere della serie G. In questo modo, ogni volta che un utente dell'organizzazione prova a creare una macchina virtuale della serie G, la richiesta viene negata.
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
@@ -93,8 +93,8 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
      > [!NOTE]
      > Se si intende applicare questa definizione di criteri a più sottoscrizioni, il percorso deve essere un gruppo di gestione contenente le sottoscrizioni a cui si assegnerà il criterio. Lo stesso vale per una definizione iniziativa.
 
-   - Nome della definizione del criterio - _*_Require VM SKUs smaller than the G series_ (Richiedi SKU di macchina virtuale inferiori rispetto alla serie G)
-   - La descrizione della finalità della definizione del criterio: _questa definizione di criterio fa sì che tutte le macchine virtuali create in questo ambito abbiamo SKU inferiori rispetto alla serie G per ridurre i costi._
+   - Il nome della definizione del criterio: _Richiedi SKU di VM non della serie G_
+   - La descrizione della finalità della definizione del criterio: _questa definizione di criterio fa sì che tutte le macchine virtuali create in questo ambito abbiamo SKU diversi dalla serie G per ridurre i costi._
    - Scegliere una delle opzioni esistenti (ad esempio _Calcolo_) o creare una nuova categoria per questa definizione dei criteri.
    - Copiare il codice JSON seguente e quindi aggiornarlo per adattarlo alle proprie esigenze con:
       - Parametri dei criteri.

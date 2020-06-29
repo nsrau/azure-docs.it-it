@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561160"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661057"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiare più tabelle in blocco con Azure Data Factory nel portale di Azure
 
@@ -108,13 +108,16 @@ In questa esercitazione gli archivi dati del database SQL di Azure, di Azure Syn
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creare il servizio collegato database SQL di Azure di origine
 In questo passaggio viene creato un servizio collegato per collegare il database SQL di Azure alla data factory. 
 
-1. Fare clic su **Connessioni** nella parte inferiore della finestra e quindi fare clic **+ Nuovo** nella barra degli strumenti. Il pulsante **Connessioni** si trova nella parte inferiore della colonna sinistra, in **Factory Resources** (Risorse factory). 
+1. Aprire la scheda [Gestisci](https://docs.microsoft.com/azure/data-factory/author-management-hub) nel riquadro sinistro.
 
+1. Nella pagina Servizi collegati selezionare **+Nuovo** per creare un nuovo servizio collegato.
+
+   ![Nuovo servizio collegato](./media/doc-common-process/new-linked-service.png)
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Database SQL di Azure** e fare clic su **Continua**. 
 1. Nella finestra **New Linked Service (Azure SQL Database)** (Nuovo servizio collegato - Database SQL di Azure), procedere come segue: 
 
     a. Immettere **AzureSqlDatabaseLinkedService** per **Nome**.
-    
+
     b. Selezionare il server per **Nome server**
     
     c. Selezionare il database SQL di Azure per **Nome database**. 
@@ -159,7 +162,6 @@ In questa esercitazione l'archivio BLOB di Azure viene usato come area di stagin
     b. Selezionare l'**Account di archiviazione di Azure** per **Nome account di archiviazione**.
     
     c. Fare clic su **Crea**.
-
 
 ## <a name="create-datasets"></a>Creare set di dati
 In questa esercitazione vengono creati i set di dati di origine e sink, che specificano la posizione in cui vengono archiviati i dati. 
@@ -321,7 +323,7 @@ Questa pipeline esegue due azioni:
 
 ## <a name="trigger-a-pipeline-run"></a>Attivare un'esecuzione della pipeline
 
-1. Passare alla pipeline **GetTableListAndTriggerCopyData**, fare clic su **Add Trigger** (Aggiungi trigger) nella barra degli strumenti superiore della pipeline e quindi su **Trigger Now** (Attiva adesso). 
+1. Passare alla pipeline **GetTableListAndTriggerCopyData**, fare clic su **Aggiungi trigger** sulla barra degli strumenti superiore della pipeline e quindi su **Trigger Now** (Attiva adesso). 
 
 1. Confermare l'esecuzione nella pagina **Esecuzione della pipeline**, quindi selezionare **Fine**.
 

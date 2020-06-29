@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195183"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735354"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -191,6 +191,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> È consigliabile usare la versione *più recente* dell'immagine. Specificare "latest" per usare la versione più recente di un'immagine disponibile in fase di distribuzione. Si noti che, anche se si usa "latest", l'immagine della VM non verrà aggiornata automaticamente dopo la distribuzione anche se si rende disponibile una nuova versione.
 
 ## <a name="understand-vm-instance-sizes"></a>Informazioni sulle dimensioni delle istanze di VM
 Una dimensione di istanza di VM, o *SKU*, determina la quantità di risorse di calcolo, come CPU, GPU e memoria, disponibili per l'istanza di VM. È necessario dimensionare le istanze di VM di un set di scalabilità in modo appropriato per il carico di lavoro previsto.

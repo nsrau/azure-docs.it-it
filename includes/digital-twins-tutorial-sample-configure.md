@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f7b3bf347b15ebad2403f3aa64c0f3fd6c4be052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611793"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737198"
 ---
 ## <a name="configure-the-sample-project"></a>Configurare il progetto di esempio
 
@@ -22,7 +22,7 @@ Una volta all'interno della cartella decompressa, passare a _digital-twins-sampl
 
 In Visual Studio usare il riquadro *Esplora soluzioni* per creare una copia del file _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (è possibile usare i menu di scelta rapida per copiare e incollare). Rinominare la copia *serviceConfig.json*. Questo file verrà usato come file JSON preimpostato con le variabili di configurazione necessarie per eseguire il progetto.
 
-Selezionare il nuovo file per aprirlo nella finestra di modifica. Modificare il valore `tenantId` con l'*ID directory*, `clientId` con l'*ID applicazione* e `instanceUrl` con l'URL del *nome host* dell'istanza di Gemelli digitali di Azure (preceduto da *https://* come illustrato di seguito).
+Selezionare il file *serviceConfig.json* per aprirlo nella finestra di modifica. Modificare il valore `tenantId` con l'*ID directory*, `clientId` con l'*ID applicazione* e `instanceUrl` con l'URL del *nome host* dell'istanza di Gemelli digitali di Azure (preceduto da *https://* come illustrato di seguito).
 
 ```json
 {

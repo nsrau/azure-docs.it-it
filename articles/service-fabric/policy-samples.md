@@ -1,21 +1,21 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Service Fabric
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Service Fabric. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 428efe52e44322bcc02f3af93a46a4a9d9d81b9f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8ae25ff1a48ca757443d5263cb28ac7c5f7bd2f4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234168"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887781"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-service-fabric"></a>Definizioni di criteri predefiniti di Criteri di Azure per Azure Service Fabric
+# <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Definizioni predefinite di Criteri di Azure per Azure Service Fabric
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per Azure Service Fabric. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-service-fabric"></a>Azure Service Fabric
 

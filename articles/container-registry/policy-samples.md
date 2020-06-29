@@ -1,24 +1,24 @@
 ---
 title: Definizioni di criteri predefiniti per Registro Azure Container
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Registro Azure Container. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-samples
-ms.openlocfilehash: fdc379c6ab7545e51ce4efbea0ecfd99cbb553bf
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 654b3a11dec3129118a3bb1137fac29b50389ddb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235678"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888282"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-container-registry"></a>Definizioni di criteri predefiniti di Criteri di Azure per Registro Azure Container
+# <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definizioni predefinite di Criteri di Azure per Registro Azure Container
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per Registro Azure Container. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-container-registry"></a>Registro Azure Container
 

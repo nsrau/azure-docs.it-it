@@ -1,7 +1,7 @@
 ---
-title: Configurare i criteri di WAF per sito usando PowerShell
+title: Configurare i criteri WAF per sito usando PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Informazioni su come configurare i criteri del firewall applicazione Web per sito in un gateway applicazione usando Azure PowerShell.
+description: Informazioni su come configurare i criteri di web application firewall in un gateway applicazione tramite Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -10,18 +10,18 @@ ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682490"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare i criteri di WAF per sito usando Azure PowerShell
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare i criteri WAF per sito usando Azure PowerShell
 
-Le impostazioni di Web Application Firewall (WAF) sono contenute nei criteri di WAF e per modificare la configurazione di WAF si modificano i criteri di WAF.
+Le impostazioni di web application firewall (WAF) sono contenute nei criteri WAF e per modificare la configurazione di WAF è necessario configurare i criteri WAF.
 
-Quando associato al gateway applicazione, i criteri e tutte le impostazioni vengono riflessi a livello globale. Quindi, se si dispone di cinque siti dietro la WAF, tutti e cinque i siti sono protetti dallo stesso criterio WAF. Questo è molto importante se sono necessarie le stesse impostazioni di sicurezza per ogni sito. È anche possibile applicare i criteri WAF ai singoli listener per consentire la configurazione WAF specifica del sito.
+Quando associati al gateway applicazione, i criteri e tutte le impostazioni vengono applicati a livello globale. Pertanto, se si dispone di cinque siti associati al WAF, tutti e cinque i siti sono protetti dagli stessi criteri WAF, una condizione ottimale se è importante applicare le stesse impostazioni di sicurezza per ogni sito. Tuttavia, è possibile anche applicare i criteri WAF ai singoli listener per consentire la configurazione WAF specifica del sito.
 
-Applicando criteri WAF a un listener, è possibile configurare le impostazioni di WAF per i singoli siti senza le modifiche che influiscono su ogni sito. I criteri più specifici assumono la precedenza. Se è presente un criterio globale e un criterio per sito (un criterio WAF associato a un listener), il criterio per sito esegue l'override del criterio WAF globale per il listener. Altri listener senza criteri personalizzati saranno interessati solo dal criterio WAF globale.
+Applicando criteri WAF a un listener, è possibile configurare le impostazioni WAF per i singoli siti senza che le modifiche abbiano impatto su tutti i siti. I criteri più specifici hanno la precedenza. Se è presente un criterio globale e un criterio per sito (un criterio WAF associato a un listener), il criterio per sito esegue l'override del criterio WAF globale per il listener. Altri listener senza criteri personalizzati saranno interessati solo dal criterio WAF globale.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -29,7 +29,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Configurare la rete
 > * Creare un criterio WAF
 > * Creare un gateway applicazione con WAF abilitato
-> * Applicare i criteri di WAF a livello globale, per sito e per URI
+> * Applicare i criteri WAF a livello globale, per sito e per URI
 > * Creare un set di scalabilità di macchine virtuali
 > * Creare un account di archiviazione e configurare la diagnostica
 > * Testare il gateway applicazione
@@ -134,9 +134,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-two-waf-policies"></a>Creare due criteri di WAF
 
-Creare due criteri WAF, uno globale e uno per sito, e aggiungere regole personalizzate. 
+Creare due criteri WAF, uno globale e uno per sito, e aggiungere le regole personalizzate. 
 
-Il criterio per sito limita il limite di caricamento dei file a 5 MB. Tutto il resto è lo stesso.
+Il criterio per sito limita il limite di caricamento dei file a 5 MB. Tutti gli altri elementi rimangono invariati.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Usare quindi questo indirizzo IP per curl (sostituire il 1.1.1.1 mostrato di seguito). 
+Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Usare quindi questo indirizzo IP come cURL (sostituire l’indirizzo 1.1.1.1 mostrato di seguito). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -435,7 +435,7 @@ curl 1.1.1.1/URIAllow?1=1
 
 ![Testare l'URL di base nel gateway applicazione](../media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

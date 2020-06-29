@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417294"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770731"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -29,7 +29,9 @@ Per informazioni su tutti gli scenari attualmente supportati, vedere [qui](sap-h
 
 Prima di configurare i backup, eseguire la procedura seguente:
 
+* Identificare o creare un [insieme di credenziali di Servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area e nella stessa sottoscrizione della macchina virtuale che esegue SAP HANA.
 * Consentire la connettività dalla VM a Internet, in modo che Azure sia raggiungibile, come descritto nella procedura [Configurare la connettività di rete](#set-up-network-connectivity) descritta di seguito.
+* Verificare che la lunghezza combinata del nome della VM server SAP HANA e del nome del gruppo di risorse non superi 84 caratteri per le VM di Azure Resource Manager (ARM_ VM) e 77 caratteri per le VM classiche. Questa limitazione è dovuta al fatto che alcuni caratteri sono riservati dal servizio.
 * È necessario che sia presente una chiave in **hdbuserstore** che soddisfi i criteri seguenti:
   * Deve essere presente in **hdbuserstore** predefinito. Il valore predefinito è l'account `<sid>adm` con cui viene installato SAP HANA.
   * Per MDC, la chiave deve puntare alla porta SQL di **NAMESERVER**. Nel caso di SDC, deve puntare alla porta SQL di **INDEXSERVER**

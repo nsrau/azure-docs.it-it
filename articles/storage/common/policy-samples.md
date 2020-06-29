@@ -1,24 +1,24 @@
 ---
 title: Definizioni di criteri predefiniti per Archiviazione di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Archiviazione di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 3071858bb9745b3f36e52e597e1add63e3a5973e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 39da020530c4911590f1d4411ff0d034448b4ab8
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235951"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888395"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-storage"></a>Definizioni di criteri predefiniti di Criteri di Azure per Archiviazione di Azure
+# <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definizioni predefinite di Criteri di Azure per Archiviazione di Azure
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per Archiviazione di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

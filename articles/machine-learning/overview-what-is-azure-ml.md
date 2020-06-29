@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556825"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738295"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -124,16 +124,11 @@ Azure Machine Learning interagisce con altri servizi nella piattaforma Azure e s
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edizioni Basic ed Enterprise
 
 Azure Machine Learning offre due edizioni personalizzate per le esigenze di Machine Learning:
-+ Basic (disponibile a livello generale)
-+ Enterprise (anteprima)
++ **Basic**: ideale per lo sviluppo open source su scala cloud con un'esperienza code-first.
 
-Queste edizioni determinano quali strumenti di Machine Learning sono disponibili per sviluppatori e data scientist dalla relativa area di lavoro.   
++ **Di livello enterprise**: tutte le funzionalità dell'edizione Basic, oltre a un'interfaccia Web (Studio) e alla gestione completa e sicura del ciclo di vita di ML per tutti i livelli di competenza.
 
-Le aree di lavoro dell'edizione Basic consentono di continuare a usare Azure Machine Learning e pagare solo per le risorse di Azure utilizzate durante il processo di Machine Learning. Per le aree di lavoro dell'edizione Enterprise verrà addebitato solo l'utilizzo di Azure mentre l'edizione è in anteprima. Per altre informazioni sugli strumenti disponibili, vedere la [pagina di panoramica e dei prezzi delle edizioni](https://azure.microsoft.com/pricing/details/machine-learning/) di Azure Machine Learning. 
-
-L'edizione viene assegnata ogni volta che si crea un'area di lavoro. Inoltre, le aree di lavoro già esistenti sono state convertite automaticamente all'edizione Basic. L'edizione Basic include tutte le funzionalità che erano già disponibili a livello generale da ottobre 2019. Tutti gli esperimenti in queste aree di lavoro creati con le funzionalità dell'edizione Enterprise continueranno a essere disponibili in sola lettura finché non si eseguirà l'aggiornamento a Enterprise. Vedere le informazioni su come [aggiornare un'area di lavoro dell'edizione Basic all'edizione Enterprise](how-to-manage-workspace.md#upgrade). 
-
-I clienti sono responsabili dei costi sostenuti per le risorse di calcolo e di altro tipo di Azure durante questo periodo di tempo.
+Per altre informazioni su queste edizioni e sulle funzionalità che offrono, vedere l'articolo ["Edizioni di Azure Machine Learning"](concept-editions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

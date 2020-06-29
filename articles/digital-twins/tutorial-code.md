@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f36a41a1151255e792281ae959d40ce183040cb5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611485"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737139"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Scrivere codice con le API di Gemelli digitali di Azure
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 È comune per gli sviluppatori che usano Gemelli digitali di Azure scrivere un'applicazione client per interagire con la loro istanza del servizio. Questa esercitazione destinata agli sviluppatori offre un'introduzione alla programmazione per il servizio Gemelli digitali di Azure, usando la [libreria client di Gemelli digitali IoT di Azure per .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Viene descritta la procedura dettagliata per scrivere un'app client console in C# a partire da zero.
 
@@ -99,8 +102,8 @@ La prima operazione che dovrà essere eseguita dall'app è l'autenticazione per 
 
 Per eseguire l'autenticazione, sono necessarie tre informazioni:
 * L'*ID directory (tenant)* per la sottoscrizione
-* L'*ID applicazione (client)* creato in precedenza quando è stata creata l'istanza del servizio
-* Il valore di *hostName* dell'istanza del servizio
+* L'*ID applicazione (client)* creato in precedenza quando è stata creata l'istanza di Gemelli digitali di Azure
+* Il *nome host* dell'istanza di Gemelli digitali di Azure
 
 >[!TIP]
 > Se non si conosce l'*ID directory (tenant)* , è possibile ottenerlo eseguendo questo comando in [Azure Cloud Shell](https://shell.azure.com):

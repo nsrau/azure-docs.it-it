@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
+title: 'Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
 titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290449"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709216"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |---|---|
     |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
-    |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Immettere una password a scelta. La password deve essere composta da almeno 12 caratteri e deve soddisfare i requisiti di complessità definiti.|
     |Subscription| Selezionare la propria sottoscrizione.|
     |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
@@ -59,7 +59,7 @@ Per testare la comunicazione di rete con Network Watcher è necessario innanzitu
 
 ### <a name="enable-network-watcher"></a>Abilitare Network Watcher
 
-Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al paragrafo [Usare la verifica del flusso IP](#use-ip-flow-verify).
+Se si ha già un Network Watcher abilitato in almeno un'area, passare al paragrafo [Usare la verifica del flusso IP](#use-ip-flow-verify).
 
 1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Abilitare un Network Watcher nell'area Stati Uniti orientali, poiché questa è l'area in cui è stata distribuita la VM nel passaggio precedente. Selezionare **Area** per espandere e quindi selezionare **...** a destra di **Stati Uniti orientali**, come mostrato nell'immagine seguente:
@@ -98,19 +98,19 @@ Conoscendo le regole di sicurezza che consentono o negano il traffico da o verso
 
 ## <a name="view-details-of-a-security-rule"></a>Visualizzare i dettagli di una regola di sicurezza
 
-1. Per determinare perché le regole nei passaggi 3-5 di [Usare la verifica del flusso IP](#use-ip-flow-verify) consentono o negano la comunicazione, esaminare le regole di sicurezza valide per l'interfaccia di rete nella VM. Nella casella di ricerca nella parte superiore del portale immettere *myvm*. Quando nei risultati della ricerca viene visualizzata l'interfaccia di rete **myvm** (o qualunque sia il nome dell'interfaccia di rete), selezionarla.
+1. Per determinare perché le regole nei passaggi 3-5 di **Usare la verifica del flusso IP** consentono o negano la comunicazione, esaminare le regole di sicurezza valide per l'interfaccia di rete nella VM. Nella casella di ricerca nella parte superiore del portale immettere *myvm*. Quando nei risultati della ricerca viene visualizzata l'interfaccia di rete **myvm** (o qualunque sia il nome dell'interfaccia di rete), selezionarla.
 2. Selezionare **Regole di sicurezza valide** in **SUPPORTO E RISOLUZIONE DEI PROBLEMI**, come illustrato nell'immagine seguente:
 
     ![Regole di sicurezza valide](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    Nel passaggio 3 di [Usare la verifica del flusso IP](#use-ip-flow-verify), si è appreso che la comunicazione è stata consentita dalla regola **AllowInternetOutbound**. È possibile vedere nell'immagine precedente che la **DESTINAZIONE** per la regola è **Internet**. Tuttavia non è chiaro come 13.107.21.200, l'indirizzo testato nel passaggio 3 in [Usare la verifica del flusso IP](#use-ip-flow-verify), sia correlato a **Internet**.
+    Nel passaggio 3 di **Usare la verifica del flusso IP**, si è appreso che la comunicazione è stata consentita dalla regola **AllowInternetOutbound**. È possibile vedere nell'immagine precedente che la **DESTINAZIONE** per la regola è **Internet**. Tuttavia non è chiaro come 13.107.21.200, l'indirizzo testato nel passaggio 3 in **Usare la verifica del flusso IP**, sia correlato a **Internet**.
 3. Selezionare la regola **AllowInternetOutBound** e quindi **Destinazione**, come illustrato nell'immagine seguente:
 
     ![Prefissi della regola di sicurezza](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     Uno dei prefissi nell'elenco è **12.0.0.0/6**, che comprende l'intervallo di indirizzi IP 12.0.0.1-15.255.255.254. Poiché 13.107.21.200 è compreso in tale intervallo di indirizzi, la regola **AllowInternetOutBound** consente il traffico in uscita. Inoltre, nell'output precedente non sono presenti le regole con priorità più alta (numero inferiore) mostrate nella figura nel passaggio 2 che sostituiscono questa regola. Chiudere la casella **Prefissi degli indirizzi**. Per impedire le comunicazioni in uscita verso 13.107.21.200, è possibile aggiungere una regola di sicurezza con una priorità più alta, che neghi l'accesso in uscita dalla porta 80 verso l'indirizzo IP.
-4. Quando è stato eseguito il controllo in uscita verso 172.131.0.100 nel passaggio 4 di [Usare la verifica del flusso IP](#use-ip-flow-verify), si è appreso che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. Tale regola equivale alla regola **DenyAllOutBound** illustrata nell'immagine nel passaggio 2 che specifica **0.0.0.0/0** come **DESTINAZIONE**. La regola nega la comunicazione in uscita verso 172.131.0.100, perché l'indirizzo non rientra nel valore della **DESTINAZIONE** di nessuna delle altre **Regole in uscita** mostrate nell'immagine. Per consentire la comunicazione in uscita, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in uscita sulla porta 80 verso 172.131.0.100.
-5. Quando è stato eseguito il controllo in entrata da 172.131.0.100 nel passaggio 5 di [Usare la verifica del flusso IP](#use-ip-flow-verify), si è appreso che la regola **DefaultInboundDenyAll** ha negato la comunicazione. Tale regola equivale alla regola **DenyAllInBound** illustrato nell'immagine nel passaggio 2. La regola **DenyAllInBound** viene applicata perché non è presente nessun'altra regola di priorità superiore che consente alla porta 80 l'ingresso alla VM da 172.31.0.100. Per consentire la comunicazione in ingresso, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in ingresso sulla porta 80 da 172.31.0.100.
+4. Quando è stato eseguito il controllo in uscita verso 172.131.0.100 nel passaggio 4 di **Usare la verifica del flusso IP**, si è appreso che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. Tale regola equivale alla regola **DenyAllOutBound** illustrata nell'immagine nel passaggio 2 che specifica **0.0.0.0/0** come **DESTINAZIONE**. La regola nega la comunicazione in uscita verso 172.131.0.100, perché l'indirizzo non rientra nel valore della **DESTINAZIONE** di nessuna delle altre **Regole in uscita** mostrate nell'immagine. Per consentire la comunicazione in uscita, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in uscita sulla porta 80 verso 172.131.0.100.
+5. Quando è stato eseguito il controllo in entrata da 172.131.0.100 nel passaggio 5 di **Usare la verifica del flusso IP**, si è appreso che la regola **DefaultInboundDenyAll** ha negato la comunicazione. Tale regola equivale alla regola **DenyAllInBound** illustrato nell'immagine nel passaggio 2. La regola **DenyAllInBound** viene applicata perché non è presente nessun'altra regola di priorità superiore che consente alla porta 80 l'ingresso alla VM da 172.31.0.100. Per consentire la comunicazione in ingresso, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in ingresso sulla porta 80 da 172.31.0.100.
 
 I controlli eseguiti in questa guida introduttiva hanno consentito di testare la configurazione di Azure. Se i controlli hanno restituito i risultati previsti ma sussistono ancora problemi di rete, verificare che non sia presente un firewall tra la macchina virtuale e l'endpoint con cui si sta comunicando e che il sistema operativo nella macchina virtuale non disponga di un firewall che stia consentendo o negando la comunicazione.
 

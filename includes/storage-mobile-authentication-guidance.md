@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "67673389"
@@ -14,8 +14,8 @@ ms.locfileid: "67673389"
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di Azure
 Per autenticare l'applicazione per accedere ai servizi di archiviazione, è possibile procedere in due modi:
 
-* Chiave condivisa: usare la Chiave condivisa solo a scopo di test
-* Firma di accesso condiviso: usare la firma di accesso condiviso per le applicazioni per la produzione
+* Chiave condivisa: usare la chiave condivisa solo a scopo di test
+* Firma di accesso condiviso: usare SAS per le applicazioni di produzione
 
 ### <a name="shared-key"></a>Chiave condivisa
 L'autenticazione con la chiave condivisa implica che l'applicazione userà il nome account e la chiave dell'account per accedere ai servizi di archiviazione. Per mostrare rapidamente come usare questa libreria, in questa guida introduttiva verrà usata l'autenticazione con la chiave condivisa.
@@ -49,5 +49,5 @@ L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per gene
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

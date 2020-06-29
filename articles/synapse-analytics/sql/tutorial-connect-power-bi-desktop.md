@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Connettere SQL su richiesta (anteprima) a Power BI Desktop e creare report'
-description: Questa esercitazione illustra come connettere SQL su richiesta (anteprima) in Azure Synapse Analytics a Power BI Desktop e creare un report demo in base a una visualizzazione.
+title: 'Esercitazione: Connettere SQL su richiesta a Power BI Desktop e creare report'
+description: Questa esercitazione illustra come connettere SQL su richiesta in Azure Synapse Analytics a Power BI Desktop e creare un report demo in base a una vista.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 3f32dc14163df6694c69258be365fcbb1390c926
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258284"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660227"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta (anteprima) con Power BI Desktop e creare un report
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta con Power BI Desktop e creare un report
 
 In questa esercitazione verranno illustrate le procedure per:
 

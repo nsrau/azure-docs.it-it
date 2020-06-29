@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
@@ -10,7 +10,7 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "69558750"
@@ -27,6 +27,6 @@ Configurare i dispositivi in modo che eseguano le azioni in un momento che riduc
 
 In questa esercitazione è stato usato un metodo diretto per attivare un riavvio remoto su un dispositivo. Sono state usate le proprietà segnalate per indicare l'ora dell'ultimo riavvio dal dispositivo ed è stata eseguita una query sul dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo dal cloud.
 
-Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware Air, vedere [come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md).
+Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere [Come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md).
 
-Per informazioni su come estendere la soluzione Internet delle cose e pianificare le chiamate al metodo su più dispositivi, vedere [pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al metodo su più dispositivi, vedere [Pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

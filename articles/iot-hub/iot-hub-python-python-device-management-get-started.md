@@ -11,7 +11,7 @@ ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: f376831175840284fdfd15f367542d33ad9f7177
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759765"
@@ -40,7 +40,7 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -60,13 +60,13 @@ In questa sezione verrà illustrato come:
 
 * Usare le proprietà segnalate per abilitare le query nei dispositivi gemelli in modo da identificare i dispositivi e l'ora dell'ultimo riavvio
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-device**:
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-2. Usando un editor di testo, creare un file denominato **dmpatterns_getstarted_device. py** nella directory di lavoro.
+2. Usando un editor di testo, nella directory di lavoro creare un file denominato **dmpatterns_getstarted_device.py**.
 
 3. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_device.py**.
 
@@ -77,7 +77,7 @@ In questa sezione verrà illustrato come:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Aggiungere la variabile **CONNECTION_STRING** . Sostituire il `{deviceConnectionString}` valore del segnaposto con la stringa di connessione del dispositivo. Questa stringa di connessione è stata copiata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).  
+4. Aggiungere la variabile **CONNECTION_STRING**. Sostituire il segnaposto `{deviceConnectionString}` con la stringa di connessione del dispositivo. Questa stringa di connessione è stata copiata in precedenza in [Registrare un nuovo dispositivo nell’hub IoT](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -143,7 +143,7 @@ In questa sezione verrà illustrato come:
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -153,13 +153,13 @@ In questa sezione verrà illustrato come:
 
 In questa sezione viene creata un'app console Python che attiva un riavvio remoto in un dispositivo usando un metodo diretto. L'app esegue query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione.
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet per l'hub:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub**:
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-2. Usando un editor di testo, creare un file denominato **dmpatterns_getstarted_service. py** nella directory di lavoro.
+2. Usando un editor di testo, nella directory di lavoro creare un file denominato **dmpatterns_getstarted_service.py**.
 
 3. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_service.py**.
 
@@ -170,7 +170,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
     from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
-4. Aggiungere le dichiarazioni di variabili seguenti. Sostituire il `{IoTHubConnectionString}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string). Sostituire il `{deviceId}` valore del segnaposto con l'ID del dispositivo registrato in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub)Internet.
+4. Aggiungere le dichiarazioni di variabili seguenti. Sostituire il valore segnaposto `{IoTHubConnectionString}` con la stringa di connessione dell'hub IoT copiata in precedenza in [Ottenere la stringa di connessione dell’hub IoT](#get-the-iot-hub-connection-string). Sostituire il valore segnaposto `{deviceId}` con l’ID dispositivo registrato in [Registrare un nuovo dispositivo nell’hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -239,7 +239,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-A questo punto si è pronti per eseguire le app.
+A questo punto è possibile eseguire le app.
 
 1. Al prompt dei comandi eseguire il comando seguente per iniziare a stare in ascolto del metodo diretto di riavvio.
 
@@ -257,7 +257,7 @@ A questo punto si è pronti per eseguire le app.
 
    Di seguito viene illustrata la risposta del dispositivo al metodo diretto di riavvio:
 
-   ![Output app dispositivo simulato](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Output dell'app del dispositivo simulato](./media/iot-hub-python-python-device-management-get-started/device.png)
 
    Di seguito viene illustrato il servizio che chiama il metodo diretto di riavvio e il polling del dispositivo gemello per lo stato:
 

@@ -1,21 +1,21 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Resource Manager
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Resource Manager. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 6f355b972e347526180810521a1c188c40144325
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 36e35c32f648642d904cb9b28cbe09244e2601ed
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236109"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886601"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-resource-manager"></a>Definizioni di criteri predefiniti di Criteri di Azure per Azure Resource Manager
+# <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Definizioni predefinite di Criteri di Azure per Azure Resource Manager
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per Azure Resource Manager. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
 
-Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **GitHub** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
+Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

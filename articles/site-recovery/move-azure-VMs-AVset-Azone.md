@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1d771d1e13d1ffd92a18658d08bb948d97e55999
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209010"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699720"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Aree che supportano le zone di disponibilità in Azure](https://docs.microsoft.com/azure/availability-zones/az-region).
@@ -23,7 +23,7 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 - Spostare macchine virtuali in un set di disponibilità nelle zone di disponibilità in un'area di destinazione
 
 > [!IMPORTANT]
-> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra, ma non all'interno della stessa area.
+> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra. Supporta lo spostamento tra zone all'interno di un'area solo in alcune aree. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
 
 ## <a name="check-prerequisites"></a>Verificare i prerequisiti
 

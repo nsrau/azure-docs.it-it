@@ -3,75 +3,74 @@ title: Rilevare il movimento e generare eventi - Azure
 description: Questo avvio rapido illustra come usare Live Video Analytics in IoT Edge per rilevare il movimento e generare eventi mediante la chiamata diretta dei metodi a livello di codice.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 4986ea13bec5382a8e0ef791e75442e4333e4356
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261588"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816699"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Avvio rapido: Rilevare il movimento e generare eventi
 
-Questo avvio rapido illustra la procedura per iniziare a usare Live Video Analytics in IoT Edge. Usa una macchina virtuale di Azure come dispositivo IoT Edge e un flusso video live simulato. Dopo il completamento della procedura di configurazione, sarà possibile eseguire un flusso di video live simulato tramite un grafo multimediale che rileva e segnala eventuali movimenti nel flusso. Il diagramma seguente mostra una rappresentazione grafica del grafo multimediale.
+Questo avvio rapido illustra la procedura per iniziare a usare Live Video Analytics in IoT Edge. Usa una macchina virtuale di Azure come dispositivo IoT Edge e un flusso video live simulato. Dopo aver completato i passaggi di configurazione, sarà possibile eseguire un flusso video live simulato tramite un grafo multimediale che rileva e segnala qualsiasi movimento in tale flusso. Il diagramma seguente mostra una rappresentazione grafica del grafo multimediale.
 
-![La funzionalità Live Video Analytics è basata sul rilevamento del movimento](./media/analyze-live-video/motion-detection.png) 
+![Analisi di video live basata su un rilevamento del movimento](./media/analyze-live-video/motion-detection.png) 
 
 Questo articolo è basato su [codice di esempio](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp) scritto in C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) nel computer dell'utente con le estensioni seguenti:
-    1. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    2. [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installato nel sistema
+* Un account Azure con una sottoscrizione attiva. Se non si ha un account, [crearne uno gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
 
 > [!TIP]
-> È possibile che venga richiesta l'installazione di Docker durante l'installazione dell'estensione Azure IoT Tools. Ignorare la richiesta.
+> È possibile che venga chiesto di installare Docker durante l'installazione dell'estensione Azure IoT Tools. È possibile ignorare questa richiesta.
 
 ## <a name="set-up-azure-resources"></a>Configurare le risorse di Azure
 
-Per questa esercitazione sono necessarie le risorse di Azure seguenti.
+Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 
 * Hub IoT
 * Account di archiviazione
 * Account Servizi multimediali di Azure
 * Macchina virtuale Linux in Azure, con [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installato
 
-Per questo avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse di Azure indicate in precedenza nella sottoscrizione di Azure. A tale scopo, seguire questa procedura:
+Per questo argomento di avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse necessarie nella sottoscrizione di Azure. A questo scopo, attenersi alla procedura seguente:
 
-1. Passare a https://shell.azure.com.
-1. Se si sta usando Cloud Shell per la prima volta, verrà richiesta la selezione di una sottoscrizione per la creazione di un account di archiviazione e una condivisione di File di Microsoft Azure. Selezionare "Create storage" (Crea risorsa di archiviazione) per creare un account di archiviazione per l'archiviazione delle informazioni sulla sessione Cloud Shell. Questo account di archiviazione è distinto da quello che verrà creato dallo script per l'uso con l'account di Servizi multimediali di Azure.
-1. Selezionare "Bash" come ambiente dall'elenco a discesa sul lato sinistro della finestra della shell.
+1. Aprire [Azure Cloud Shell](https://shell.azure.com).
+1. Se si usa Cloud Shell per la prima volta, verrà chiesto di selezionare una sottoscrizione, oltre che di creare un account di archiviazione e una condivisione di File di Microsoft Azure. Selezionare **Crea risorsa di archiviazione** per creare un account di archiviazione per le informazioni della sessione Cloud Shell. Questo account di archiviazione è distinto da quello che verrà creato dallo script per l'uso con l'account di Servizi multimediali di Azure.
+1. Nel menu a discesa sul lato sinistro della finestra di Cloud Shell selezionare **Bash** come ambiente.
 
-    ![Selettore dell'ambiente](./media/quickstarts/env-selector.png)
+    ![Selezione dell'ambiente](./media/quickstarts/env-selector.png)
 
-1. Eseguire il comando seguente
+1. Eseguire il comando seguente.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
-    Se lo script viene completato correttamente, dovrebbero essere visualizzate tutte le risorse indicate in precedenza nella sottoscrizione.
+    Se lo script viene completato correttamente, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
 
-1. Al termine dello script, fare clic sulle parentesi graffe per esporre la struttura di cartelle. Vengono visualizzati alcuni file creati nella directory ~/clouddrive/lva-sample. I file rilevanti per questo avvio rapido sono:
+1. Al termine dello script, selezionare le parentesi graffe per esporre la struttura della cartella. Vengono visualizzati alcuni file nella directory *~/clouddrive/lva-sample*. I file rilevanti per questo avvio rapido sono:
 
-     * ~/clouddrive/lva-sample/edge-deployment/.env - Contiene le proprietà usate da Visual Studio Code per distribuire i moduli in un dispositivo Edge
-     * ~/clouddrive/lva-sample/appsetting.json - Usato da Visual Studio Code per l'esecuzione del codice di esempio
+     * ***~/clouddrive/lva-sample/edge-deployment/.env*** - Questo file contiene le proprietà usate da Visual Studio Code per distribuire i moduli in un dispositivo perimetrale.
+     * ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code usa questo file per l'esecuzione del codice di esempio.
      
-Questi file saranno necessari per aggiornare i file in Visual Studio Code più avanti nell'avvio rapido. È consigliabile copiarli in un file locale per il momento.
-
+Questi file saranno necessari per configurare l'ambiente di sviluppo in Visual Studio Code nella sezione successiva. È consigliabile copiarli in un file locale per il momento.
 
  ![Impostazioni app](./media/quickstarts/clouddrive.png)
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
-1. Clonare il repository da https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
-1. Avviare Visual Studio Code e aprire la cartella in cui è stato scaricato il repository.
-1. In Visual Studio Code passare alla cartella "src/cloud-to-device-console-app" e creare un file denominato "appsettings.json". Questo file conterrà le impostazioni necessarie per eseguire il programma.
-1. Copiare il contenuto dal file ~/clouddrive/lva-sample/appsettings.json generato nella sezione precedente (vedere il Passaggio 5)
+1. Clonare il repository da questo percorso: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
+1. In Visual Studio Code aprire la cartella in cui è stato scaricato il repository.
+1. In Visual Studio Code passare alla cartella *src/cloud-to-device-console-app*. In questa cartella creare un file e assegnargli il nome *appsettings.json*. Questo file conterrà le impostazioni necessarie per eseguire il programma.
+1. Copiare il contenuto dal file *~/clouddrive/lva-sample/appsettings.json* generato in precedenza in questo argomento di avvio rapido.
 
-    Il testo sarà simile al seguente:
+    Il testo sarà simile all'output seguente.
 
     ```
     {  
@@ -80,8 +79,8 @@ Questi file saranno necessari per aggiornare i file in Visual Studio Code più a
         "moduleId" : "lvaEdge"  
     }
     ```
-1. Passare quindi alla cartella "src/edge" e creare un file denominato ".env".
-1. Copiare il contenuto dal file "/clouddrive/lva-sample/edge-deployment/.env. Il testo sarà simile al seguente:
+1. Passare alla cartella *src/edge* e creare un file denominato *.env*.
+1. Copiare il contenuto del file */clouddrive/lva-sample/edge-deployment/.env*. Il testo sarà simile al codice seguente.
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -100,66 +99,74 @@ Questi file saranno necessari per aggiornare i file in Visual Studio Code più a
 
 ## <a name="examine-the-sample-files"></a>Esaminare i file di esempio
 
-1. In Visual Studio Code passare a "src/edge". Verranno visualizzati il file .env creato e alcuni file modello di distribuzione.
+1. In Visual Studio Code passare a *src/edge*. Verranno visualizzati il file *.env* e alcuni file modello di distribuzione.
 
-    Il modello di distribuzione fa riferimento al manifesto della distribuzione per il dispositivo perimetrale con alcuni valori segnaposto. Il file .env include i valori per questa variabili.
-1. Passare quindi alla cartella "src/cloud-to-device-console-app". Verrà visualizzato il file appsettings.json creato insieme ad altri file:
+    Il modello di distribuzione fa riferimento al manifesto della distribuzione per il dispositivo perimetrale, in cui per alcune proprietà vengono usate delle variabili. Il file *.env* contiene i valori per queste variabili.
+1. Passare alla cartella *src/cloud-to-device-console-app*. Sono inclusi il file *appsettings.json* e alcuni altri file:
 
-    * c2d-console-app.csproj: il file di progetto per Visual Studio Code.
-    * operations.json: il file che elenca le diverse operazioni che il programma deve eseguire.
-    * Program.cs: il codice del programma di esempio che esegue le operazioni seguenti:
+    * ***c2d-console-app.csproj***: il file di progetto per Visual Studio Code.
+    * ***operations.json***: un elenco di operazioni che il programma dovrà eseguire.
+    * ***Program.cs***: il codice del programma di esempio. Questo codice:
     
-        * Carica le impostazioni dell'app
-        * Richiama i metodi diretti esposti da Live Video Analytics nel modulo IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](direct-methods.md) 
-        * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra del terminale e gli eventi generati dal modulo nella finestra di output
-        * Richiama i metodi diretti per pulire le risorse   
+      * Carica le impostazioni dell'app.
+      * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](direct-methods.md).
+      * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra **TERMINALE** e gli eventi generati dal modulo nella finestra **OUTPUT**.
+      * Richiama i metodi diretti per pulire le risorse.   
 
-## <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Generare e distribuire il manifesto della distribuzione di IoT Edge
+## <a name="generate-and-deploy-the-deployment-manifest"></a>Generare e distribuire il manifesto della distribuzione
 
-Il manifesto della distribuzione definisce i moduli che vengono distribuiti in un dispositivo Edge e le impostazioni di configurazione dei moduli. Seguire questa procedura per generare il manifesto dal file modello e quindi distribuirlo nel dispositivo Edge.
+Il manifesto della distribuzione definisce i moduli che vengono distribuiti in un dispositivo perimetrale e le impostazioni di configurazione dei moduli. 
 
-1. Aprire Visual Studio Code
-1. Impostare la stringa di connessione dell'hub IoT facendo clic sull'icona "Altre azioni" accanto al riquadro dell'hub IoT di Azure nell'angolo inferiore sinistro. È possibile copiare la stringa dal file src/cloud-to-device-console-app/appsettings.json. 
+Seguire questa procedura per generare il manifesto dal file modello e quindi distribuirlo nel dispositivo perimetrale.
+
+1. Aprire Visual Studio Code.
+1. Accanto al riquadro **HUB IOT DI AZURE** selezionare l'icona **Altre azioni** per impostare la stringa di connessione dell'hub IoT. È possibile copiare la stringa dal file *src/cloud-to-device-console-app/appsettings.json*. 
 
     ![Impostare la stringa di connessione IoT](./media/quickstarts/set-iotconnection-string.png)
-1. Quindi fare clic con il pulsante destro del mouse sul file "src/edge/deployment.template.json" e fare clic su "Generate IoT Edge Deployment Manifest" (Genera manifesto della distribuzione di IoT Edge).
-    ![Generate IoT Edge deployment manifest (Genera manifesto della distribuzione di IoT Edge)](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    Questa operazione crea un file manifesto nella cartella src/edge/config denominato "deployment.amd64.json".
-1. Fare clic con il pulsante destro del mouse su "src/edge/config/deployment.amd64.json", quindi fare clic su "Create Deployment for Single Device" (Crea la distribuzione per un unico dispositivo) e selezionare il nome del dispositivo perimetrale.
+1. Fare clic con il pulsante destro del mouse su **src/edge/deployment.template.json** e scegliere **Generate IoT Edge Deployment Manifest** (Genera manifesto della distribuzione di IoT Edge).
 
-    ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/quickstarts/create-deployment-single-device.png)
-1. Verrà quindi chiesto di selezionare un dispositivo dell'hub IoT. Selezionare lva-sample-device dall'elenco a discesa.
-1. Entro circa 30 secondi, aggiornare l'hub IoT di Azure nella sezione inferiore sinistra. Verrà visualizzato il dispositivo Edge con i moduli seguenti distribuiti:
+    ![Generate IoT Edge Deployment Manifest (Genera manifesto della distribuzione di IoT Edge)](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    * Live Video Analytics in IoT Edge (nome del modulo "lvaEdge")
-    * Simulatore RTSP (nome del modulo "rtspsim")
+    Questa azione crea un file manifesto denominato *deployment.amd64.json* nella cartella *src/edge/config*.
+1. Fare clic con il pulsante destro del mouse su **src/edge/config/deployment.amd64.json**, scegliere **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo) e quindi selezionare il nome del dispositivo perimetrale.
 
-Il modulo Simulatore RTSP simula un flusso video live usando un file video archiviato che è stato copiato nel dispositivo perimetrale quando è stato eseguito lo [script di configurazione delle risorse di Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). In questa fase i moduli sono distribuito ma non sono presenti grafi multimediali attivi.
+    ![Creare una distribuzione per un singolo dispositivo](./media/quickstarts/create-deployment-single-device.png)
 
-## <a name="prepare-for-monitoring-events"></a>Operazioni preliminari al monitoraggio degli eventi
+1. Quando viene chiesto di selezionare un dispositivo hub IoT, scegliere **lva-sample-device** dal menu a discesa.
+1. Dopo circa 30 secondi, nell'angolo in basso a sinistra della finestra aggiornare l'hub IoT di Azure. Il dispositivo perimetrale mostra ora i moduli distribuiti seguenti:
 
-Sarà possibile usare il modulo di Live Video Analytics in IoT Edge per rilevare il movimento nel flusso video live in ingresso e inviare eventi all'Hub IoT. Per visualizzare gli eventi, seguire questa procedura:
+    * Analisi video live in IoT Edge (nome del modulo `lvaEdge`)
+    * Simulatore RTSP (Real-Time Streaming Protocol) (nome del modulo `rtspsim`)
 
-1. Aprire il riquadro Explorer in Visual Studio Code e cercare l'hub IoT di Azure nell'angolo inferiore sinistro.
-1. Espandere il nodo Dispositivi.
-1. Fare clic con il pulsante destro del mouse su lva-sample-device e scegliere l'opzione "Avvia monitoraggio endpoint eventi predefinito".
+Il modulo del simulatore RTSP simula un flusso video live usando un file video copiato nel dispositivo perimetrale quando è stato eseguito lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
+
+A questo punto i moduli sono distribuiti ma non sono disponibili grafi multimediali attivi.
+
+## <a name="prepare-to-monitor-events"></a>Preparare il monitoraggio degli eventi
+
+Si userà il modulo di Analisi video live in IoT Edge per rilevare il movimento nel flusso video live in ingresso e inviare eventi all'hub IoT. Per visualizzare gli eventi, seguire questa procedura:
+
+1. Aprire il riquadro Explorer in Visual Studio Code e cercare Hub IoT di Azure nell'angolo in basso a sinistra.
+1. Espandere il nodo **Dispositivi**.
+1. Fare clic con il pulsante destro del mouse sul file **lva-sample-device** e scegliere **Avvia il monitoraggio endpoint eventi predefinito**.
 
     ![Avvia monitoraggio endpoint eventi predefinito](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-sample-program"></a>Eseguire il programma di esempio
 
-Per eseguire il codice di esempio, seguire questa procedura.
-1. In Visual Studio Code passare a "src/cloud-to-device-console-app/operations.json".
-1. Nel nodo GraphTopologySet, verificare quanto segue:
+Per eseguire il codice di esempio, seguire questa procedura:
 
-    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Nei nodi GraphInstanceSet e GraphTopologyDelete assicurarsi quindi che il valore di topologyName corrisponda al valore della proprietà "name" nella topologia del grafo precedente:
+1. In Visual Studio Code passare a *src/cloud-to-device-console-app/operations.json*.
+1. Nel nodo **GraphTopologySet** assicurarsi che sia impostato il valore seguente:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+1. Nei nodi **GraphInstanceSet** e **GraphTopologyDelete** assicurarsi che il valore di `topologyName` corrisponda al valore della proprietà `name` nella topologia del grafo:
 
     `"topologyName" : "MotionDetection"`
     
-1. Avviare una sessione di debug (premere F5). Verranno visualizzati alcuni messaggi stampati nella finestra del terminale.
-1. Il file operations.json inizia con le chiamate a GraphTopologyList e GraphInstanceList. Se sono state pulite le risorse dopo gli avvii rapidi precedenti, verranno restituiti elenchi vuoti e verrà sospesa l'esecuzione per consentire di premere INVIO.
+1. Avviare una sessione di debug premendo F5. Nella finestra **TERMINALE** verranno visualizzati alcuni messaggi.
+1. Il file *operations.json* verrà avviato con le chiamate a `GraphTopologyList` e `GraphInstanceList`. Se dopo aver completato gli argomenti di avvio rapido precedenti sono state pulite le risorse, questa procedura restituirà elenchi vuoti e quindi verrà sospesa. Per continuare, premere INVIO.
 
     ```
     --------------------------------------------------------------------------
@@ -176,56 +183,58 @@ Per eseguire il codice di esempio, seguire questa procedura.
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. Quando si preme il tasto "INVIO" nella finestra del terminale, viene eseguita la serie successiva di chiamate ai metodi diretti
+
+    La finestra **TERMINALE** mostra il set successivo di chiamate ai metodi diretti:
      
-     * Una chiamata a GraphTopologySet usando il valore topologyUrl precedente
-     * Una chiamata a GraphInstanceSet usando il corpo seguente
+     * Una chiamata a `GraphTopologySet` che usa `topologyUrl` precedente
+     * Una chiamata a `GraphInstanceSet` che usa il corpo seguente:
      
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph",
-       "properties": {
-         "topologyName": "MotionDetection",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph",
+           "properties": {
+             "topologyName": "MotionDetection",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
+               }
+             ]
            }
-         ]
-       }
-     }
-     ```
+         }
+         ```
      
-     * Una chiamata a GraphInstanceActivate per avviare l'istanza del grafo e avviare il flusso di video.
-     * Una seconda chiamata a GraphInstanceList per indicare che l'istanza del grafo è effettivamente nello stato in esecuzione.
-1. L'output nella finestra del terminale verrà sospeso quando viene visualizzato un prompt 'Premere INVIO per continuare'. Non premere "INVIO". È possibile scorrere verso l'alto per visualizzare i payload di risposta JSON per i metodi diretti richiamati
-1. Se ora si passa alla finestra di output in Visual Studio Code, verranno visualizzati i messaggi inviati all'hub IoT dal modulo di Live Video Analytics in IoT Edge.
-     * Questi messaggi sono descritti nella sezione seguente
-1. L'esecuzione del grafo multimediale continuerà e verranno stampati i risultati: il simulatore RTSP continuerà a eseguire il loop del video di origine. Per arrestare il grafo multimediale, tornare alla finestra del terminale e premere "INVIO". Per pulire le risorse vengono eseguite le serie successive di chiamate:
-     * Una chiamata a GraphInstanceDeactivate per disattivare l'istanza del grafo
-     * Una chiamata a GraphInstanceDelete per eliminare l'istanza
-     * Una chiamata a GraphTopologyDelete per eliminare la topologia
-     * Una chiamata finale a GraphTopologyList per indicare che l'elenco è ora vuoto
+     * Una chiamata a `GraphInstanceActivate` che avvia l'istanza del grafo e il flusso di video
+     * Una seconda chiamata a `GraphInstanceList` che mostra che l'istanza del grafo è in esecuzione
+1. L'output della finestra **TERMINALE** viene sospeso in corrispondenza di `Press Enter to continue`. Non premere ancora INVIO. Scorrere in alto per visualizzare i payload della risposta JSON per i metodi diretti richiamati.
+1. Passare alla finestra **OUTPUT** in Visual Studio Code. Vengono visualizzati i messaggi inviati dal modulo Analisi video live in IoT Edge all'hub IoT. La sezione seguente di questo argomento di avvio rapido descrive questi messaggi.
+1. Il grafo multimediale continua a essere eseguito e a visualizzare i risultati. Il simulatore RTSP continua a eseguire il video di origine in un ciclo. Quindi, per arrestare il grafo multimediale, tornare nella finestra **TERMINALE** e premere INVIO. 
+
+    La serie successiva di chiamate pulisce le risorse:
+     * Una chiamata a `GraphInstanceDeactivate` disattiva l'istanza del grafo.
+     * Una chiamata a `GraphInstanceDelete` elimina l'istanza.
+     * Una chiamata a `GraphTopologyDelete` elimina la topologia.
+     * Una chiamata finale a `GraphTopologyList` mostra che l'elenco è vuoto.
 
 ## <a name="interpret-results"></a>Interpretare i risultati
 
-Quando si esegue il grafo multimediale, i risultati dal processo di rilevamento dei movimenti vengono inviati all'Hub IoT tramite il nodo del sink dell'Hub IoT. I messaggi visualizzati nella finestra di output di Visual Studio Code contengono una sezione "body" e una sezione "applicationProperties". Per comprendere cosa rappresentano queste sezioni, leggere [questo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) articolo.
+Quando si esegue il grafo multimediale, i risultati dal nodo del processore di rilevamento dei movimenti vengono inviati all'hub IoT passando attraverso il nodo sink dell'hub IoT. I messaggi visualizzati nella finestra **OUTPUT** di Visual Studio Code contengono una sezione `body` e una sezione `applicationProperties`. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-Nei messaggi seguenti le proprietà dell'applicazione e il contenuto del corpo sono definiti dal modulo di Live Video Analytics.
+Nei messaggi seguenti il modulo Analisi video live definisce le proprietà dell'applicazione e il contenuto del corpo.
 
-## <a name="mediasession-established-event"></a>Evento MediaSessionEstablished
+### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live555. In caso di esito positivo, viene visualizzato questo evento:
+Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live555. Se la connessione riesce, viene visualizzato l'evento seguente.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  
@@ -243,16 +252,19 @@ Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP p
 }
 ```
 
-* Il messaggio è l'evento di diagnostica MediaSessionEstablished che indica che il nodo di origine RTSP (oggetto) è stato in grado di stabilire una connessione con il simulatore RTSP e iniziare a ricevere un feed live (simulato).
-* "subject" in applicationProperties fa riferimento al nodo nella topologia del grafo da cui è stato generato il messaggio. In questo caso il messaggio viene originato dal nodo di origine RTSP.
-* "eventType" in applicationProperties indica che si tratta di un evento di diagnostica.
-* "eventTime" indica l'ora in cui si è verificato l'evento.
-* "body" contiene i dati sull'evento di diagnostica che in questo caso è rappresentato dai dettagli [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
+Nell'output precedente: 
+* Il messaggio è un evento di diagnostica, `MediaSessionEstablished`. Indica che il nodo di origine RTSP (subject) ha stabilito una connessione con il simulatore RTSP e ha iniziato a ricevere un feed live simulato.
+* In `applicationProperties` `subject` fa riferimento al nodo nella topologia del grafo da cui è stato generato il messaggio. In questo caso il messaggio viene originato dal nodo di origine RTSP.
+* In `applicationProperties` `eventType` indica che questo evento è un evento di diagnostica.
+* Il valore `eventTime` indica l'ora in cui si è verificato l'evento.
+* La sezione `body` contiene dati sull'evento di diagnostica. In questo caso, i dati sono costituiti dai dettagli di [SDP (Session Description Protocol)](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 
 
-## <a name="motion-detection-event"></a>Evento di rilevamento movimento
+### <a name="motiondetection-event"></a>Evento MotionDetection
 
-Quando viene rilevato movimento, il modulo di Live Video Analytics in Edge invia un evento di inferenza. Il tipo viene impostato su "motion" per indicare che si tratta di un risultato dal processore di rilevamento movimento ed eventTime indica l'ora (UTC) in cui si è verificato il movimento. Di seguito è riportato un esempio:
+Quando viene rilevato movimento, il modulo Analisi video live in IoT Edge invia un evento di inferenza. `type` è impostato su `motion` per indicare che è un risultato del processore di rilevamento del movimento. Il valore `eventTime` indica quando si è verificato il movimento (in formato UTC). 
+
+Ecco un esempio di questo messaggio:
 
 ```
   {  
@@ -282,12 +294,14 @@ Quando viene rilevato movimento, il modulo di Live Video Analytics in Edge invia
 }  
 ```
 
-* "subject" in applicationProperties fa riferimento al nodo nel grafo multimediale da cui è stato generato il messaggio. In questo caso il messaggio è stato originato dal nodo del processore di rilevamento movimento.
-* "eventType" in applicationProperties indica che si tratta di un evento di analisi.
-* "eventTime" indica l'ora in cui si è verificato l'evento.
-"body" contiene dati sull'evento di analisi. In questo caso si tratta di un evento di inferenza e quindi il corpo contiene dati di tipo "timestamp" e "inferences".
-* I dati di tipo "inferences" indicano che il valore "type" è "motion" e include dati aggiuntivi sull'evento "motion".
-* La sezione "box" contiene le coordinate per un rettangolo delimitatore intorno all'oggetto in movimento. I valori vengono normalizzati per la larghezza e l'altezza del video in pixel (ad esempio, larghezza pari a 1920 e altezza pari a 1080).
+Esempio: 
+
+* In `applicationProperties` `subject` fa riferimento al nodo nel grafo multimediale da cui è stato generato il messaggio. In questo caso il messaggio è originato dal nodo del processore di rilevamento del movimento.
+* In `applicationProperties` `eventType` indica che questo evento è un evento di analisi.
+* Il valore di `eventTime` indica la data e l'ora in cui si è verificato l'evento.
+* Il valore `body` rappresenta i dati sull'evento di analisi. In questo caso si tratta di un evento di inferenza e quindi il corpo contiene dati di tipo `timestamp` e `inferences`.
+* I dati `inferences` indicano che `type` è `motion`. Il valore contiene dati aggiuntivi su tale evento `motion`.
+* La sezione `box` contiene le coordinate per un rettangolo delimitatore intorno all'oggetto in movimento. I valori vengono normalizzati in base alla larghezza e all'altezza del video in pixel. Ad esempio, la larghezza è 1920 e l'altezza è 1080.
 
     ```
     l - distance from left of image
@@ -296,10 +310,10 @@ Quando viene rilevato movimento, il modulo di Live Video Analytics in Edge invia
     h - height of bounding box
     ```
     
-## <a name="cleanup-resources"></a>Risorse di pulizia
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di provare gli altri avvii rapidi, è necessario mantenere le risorse create. In caso contrario, passare al portale di Azure, passare ai gruppi di risorse, selezionare il gruppo di risorse in cui è stato eseguito l'avvio rapido ed eliminare tutte le risorse.
+Se si intende provare gli altri argomenti di avvio rapido, non eliminare le risorse create. In caso contrario, nel portale di Azure passare ai gruppi di risorse, selezionare il gruppo di risorse in cui è stato eseguito questo argomento di avvio rapido e quindi eliminare tutte le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire altri avvii rapidi, ad esempio il rilevamento di un oggetto in un feed video live.        
+Eseguire gli altri argomenti di avvio rapido, ad esempio quello relativo al rilevamento di un oggetto in un feed video live.        

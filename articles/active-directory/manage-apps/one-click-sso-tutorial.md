@@ -3,25 +3,25 @@ title: Configurazione dell'accesso Single Sign-On (SSO) con un clic dell'applica
 description: Procedura per la configurazione dell'accesso SSO con un clic per l'applicazione di Azure Marketplace.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67872434"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763126"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configurazione dell'accesso Single Sign-On con un clic per l'app
 
@@ -37,7 +37,7 @@ La funzionalità di accesso SSO con un clic è progettata in modo da consentire 
 - Configurazione dell'accesso SSO più efficiente e accurata.
 - Nessuna necessità di comunicare con il partner o l'assistenza per completare la configurazione. Interfaccia utente per la configurazione SAML inclusa nell'applicazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione attiva per l'applicazione da configurare con l'accesso SSO. Sono necessarie anche le credenziali dell'amministratore.
 - **Estensione del browser My Apps Secure Sign-in** Microsoft installata nel browser. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
@@ -59,7 +59,7 @@ La funzionalità di accesso SSO con un clic è progettata in modo da consentire 
 
    ![Installare l'estensione del browser per l'accesso sicuro alle app personali](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Dopo aver aggiunto l'estensione al browser, selezionare **Configura \<nome applicazione\>** . Dopo essere stati reindirizzati al portale di amministrazione dell'applicazione, accedere come amministratore.
+6. Dopo aver aggiunto l'estensione al browser, selezionare **Configura \<Application Name\>** . Dopo essere stati reindirizzati al portale di amministrazione dell'applicazione, accedere come amministratore.
 
    ![Configura <Nome applicazione>](./media/one-click-sso-tutorial/setup-sso.png)
 

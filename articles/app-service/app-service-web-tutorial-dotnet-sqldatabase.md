@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013789"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906123"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Esercitazione: Distribuire un'app ASP.NET in Azure con il database SQL di Azure
 
@@ -410,3 +410,8 @@ Passare all'esercitazione successiva per apprendere come migliorare facilmente l
 
 > [!div class="nextstepaction"]
 > [Accedere al database SQL in modo sicuro con identità gestite per risorse di Azure](app-service-web-tutorial-connect-msi.md)
+
+Altre risorse:
+
+> [!div class="nextstepaction"]
+> [Configurare l'app ASP.NET](configure-language-dotnet-framework.md)

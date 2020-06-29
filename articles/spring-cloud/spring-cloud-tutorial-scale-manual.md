@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277484"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792065"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Ridimensionare un'applicazione in Azure Spring Cloud
 
@@ -58,6 +58,9 @@ Assicurarsi selezionare **Salva** per applicare le impostazioni di ridimensionam
 ![Scheda Piano nel portale di Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Dopo alcuni secondi, le modifiche apportate verranno visualizzate nella pagina **Panoramica**, con ulteriori dettagli disponibili nella scheda **Istanze dell'applicazione**. Il ridimensionamento non richiede alcuna modifica del codice o ridistribuzione.
+
+## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
+Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi [limiti](spring-cloud-quotas.md), è possibile eseguire l'aggiornamento al livello Standard. A questo scopo, passare al menu Piano tariffario selezionando la colonna Livello Standard e facendo clic sul pulsante **Aggiorna**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837267"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945291"
 ---
 # <a name="azure-monitor-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
@@ -29,51 +29,51 @@ az login
 
 Dopo aver eseguito questo comando, è necessario eseguire l'accesso tramite le istruzioni visualizzate sullo schermo. Tutti i comandi operano nel contesto della sottoscrizione predefinita.
 
-Per elencare i dettagli della sottoscrizione corrente, usare il comando seguente.
+Visualizzare i dettagli della sottoscrizione corrente.
 
 ```azurecli
 az account show
 ```
 
-Per modificare il contesto di lavoro in una sottoscrizione diversa, usare il comando seguente.
+Cambiare il contesto di lavoro impostandolo su una sottoscrizione diversa.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Per visualizzare un elenco di tutti i comandi di Monitoraggio di Azure supportati, eseguire il comando seguente.
+Visualizzare un elenco di tutti i comandi di Monitoraggio di Azure supportati.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Visualizzare il registro attività di una sottoscrizione
+## <a name="view-activity-log"></a>Visualizzare il log attività
 
-Per visualizzare un elenco degli eventi del log attività, eseguire questo comando.
+Visualizzare un elenco di eventi del log attività.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Per visualizzare tutte le opzioni disponibili, provare a eseguire questo comando.
+Visualizzare tutte le opzioni disponibili.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Ecco un esempio per elencare i log in base a resourceGroup
+Elencare i log in base a un gruppo di risorse.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Esempio per elencare i log in base al chiamante
+Elencare i log in base al chiamante.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Esempio per elencare i log in base al chiamante in un tipo di risorsa, in un intervallo di date
+Elencare i log in base al chiamante o a un tipo di risorsa, entro un intervallo di date.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

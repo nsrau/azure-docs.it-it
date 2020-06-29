@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128851"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982051"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -43,14 +43,13 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 
 ## <a name="view-metrics-of-your-apis"></a>Visualizzare le metriche delle API
 
-Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito è riportato un riepilogo delle metriche disponibili:
+Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito sono riportate le due metriche usate più di frequente. Per un elenco di tutte le metriche disponibili, vedere [Metriche supportate](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
 * Capacità: consente di decidere se eseguire l'aggiornamento o il downgrade dei servizi di Gestione API. La metrica viene emessa ogni minuto e riflette la capacità del gateway nel momento in cui viene eseguito il report. La metrica è compresa tra 0 e 100 e viene calcolata in base alle risorse gateway, come utilizzo della CPU e della memoria.
-* Totale richieste gateway: numero di richieste di API nel periodo. 
-* Richieste gateway riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP con esito positivo, tra cui 304, 307 e qualsiasi valore minore di 301, ad esempio 200.
-* Richieste gateway non riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP con esito negativo, tra cui 400 e qualsiasi valore maggiore di 500.
-* Richieste gateway non autorizzate: numero di richieste di API che hanno ricevuto codici di risposta HTTP tra cui 401, 403 e 429.
-* Altre richieste gateway: numero di richieste di API che hanno ricevuto codici di risposta HTTP che non appartengono a una delle categorie precedenti, ad esempio, 418.
+* Richieste: consente di analizzare il traffico API tramite i servizi di Gestione API. La metrica viene emessa al minuto e segnala il numero di richieste del gateway con dimensioni, inclusi i codici di risposta, la posizione, il nome host e gli errori. 
+
+> [!IMPORTANT]
+> Le metriche seguenti sono deprecate a partire da maggio 2019 e verranno ritirate ad agosto 2023: totale richieste gateway, richieste gateway riuscite, richieste gateway non autorizzate, richieste gateway non riuscite, altre richieste gateway. Eseguire la migrazione alla metrica Richieste che fornisce funzionalità equivalenti.
 
 ![Grafico metriche](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Per accedere alle metriche:
 
     ![Metriche](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste**. 
-1. Il grafico mostra il numero totale di chiamate API.
-1. È possibile filtrare il grafico usando le dimensioni della metrica **Richieste**. Ad esempio, fare clic su **Aggiungi filtro**, scegliere **Backend Response Code** (Codice di risposta back-end) e immettere 500 come valore. Il grafico mostra ora il numero di richieste non riuscite nel back-end dell'API.   
+2. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste**. 
+3. Il grafico mostra il numero totale di chiamate API.
+4. È possibile filtrare il grafico usando le dimensioni della metrica **Richieste**. Ad esempio, fare clic su **Aggiungi filtro**, scegliere **Backend Response Code** (Codice di risposta back-end) e immettere 500 come valore. Il grafico mostra ora il numero di richieste non riuscite nel back-end dell'API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurare una regola di avviso per le richieste non autorizzate
 

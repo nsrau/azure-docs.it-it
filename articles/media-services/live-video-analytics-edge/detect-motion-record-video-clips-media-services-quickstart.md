@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261621"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817309"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -21,9 +21,9 @@ Questo articolo si basa sull'[avvio rapido Introduzione](get-started-detect-moti
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) nel computer in uso con l'[estensione Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Se prima non è stato completato l'[avvio rapido Introduzione](get-started-detect-motion-emit-events-quickstart.md), seguire questa procedura:
-    * Completare la [configurazione delle risorse di Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Configurare le risorse di Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Distribuire i moduli](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Configurare Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Configurare Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Esaminare il video di esempio
 
@@ -37,7 +37,7 @@ Nel corso della procedura descritta di seguito si userà l'analisi di video live
 
 ## <a name="use-direct-methods"></a>Usare metodi diretti
 
-È possibile usare il modulo per analizzare i flussi video live richiamando metodi diretti. Consultare l'articolo sui [metodi diretti per l'analisi di video live in IoT Edge](direct-methods.md) per sapere quali sono i metodi diretti resi disponibili dal modulo. 
+È possibile usare il modulo per analizzare i flussi video live richiamando metodi diretti. Leggere [Metodi diretti per Analisi di video live in IoT Edge](direct-methods.md) per conoscere tutti i metodi diretti forniti dal modulo. 
 
 ### <a name="invoke-graphtopologylist"></a>Richiamare GraphTopologyList
 In questo passaggio vengono enumerate tutte le [topologie del grafo](media-graph-concept.md#media-graph-topologies-and-instances) presenti nel modulo.
@@ -457,7 +457,7 @@ Si notino queste proprietà nel payload della risposta:
 
 ### <a name="invoke-graphinstanceset"></a>Richiamare GraphInstanceSet
 
-Il passaggio successivo è creare un'istanza del grafo che faccia riferimento alla topologia descritta in precedenza. Come descritto [qui](media-graph-concept.md#media-graph-topologies-and-instances), le istanze del grafo consentono di analizzare i flussi di video live provenienti da molte videocamere con la stessa topologia del grafo.
+A questo punto creare un istanza del grafo che faccia riferimento alla topologia del grafo sopra specificata. Come descritto [qui](media-graph-concept.md#media-graph-topologies-and-instances), le istanze del grafo consentono di analizzare i flussi di video live provenienti da molte videocamere con la stessa topologia del grafo.
 
 Richiamare ora il metodo diretto GraphInstanceSet con il payload seguente:
 

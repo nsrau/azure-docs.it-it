@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891493"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052283"
 ---
 # <a name="example-powershell-scripts"></a>Script di Azure PowerShell di esempio
 
@@ -75,6 +75,9 @@ Oltre ai file `.ps1`, è presente un file `arrconfig.json` che è necessario com
 
 > [!CAUTION]
 > Assicurarsi di inserire correttamente le barre rovesciate di escape nel percorso LocalAssetDirectoryPath usando due barre rovesciate, "\\\\", e le barre "/" in tutti gli altri percorsi, come inputFolderPath e inputAssetPath.
+
+> [!CAUTION]
+> È necessario specificare i valori facoltativi oppure rimuovere del tutto la chiave e il valore. Ad esempio, se non si usa il parametro `"outputAssetFileName"`, è necessario eliminare l'intera riga all'interno di `arrconfig.json`.
 
 ### <a name="accountsettings"></a>accountSettings
 

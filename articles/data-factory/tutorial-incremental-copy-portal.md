@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249094"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736511"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da un database SQL di Azure ad archiviazione BLOB di Azure tramite il portale di Azure
 
@@ -277,7 +277,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | string | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Per convalidare le impostazioni della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Per chiudere la finestra del **report di convalida della pipeline** fare clic su >>.   
 
 28. Pubblicare le entità (servizi collegati, set di dati e pipeline) nel servizio Azure Data Factory selezionando il pulsante **Pubblica tutti**. Attendere fino alla visualizzazione del messaggio che informa che la pubblicazione è riuscita.
@@ -290,9 +290,9 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 
-1. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzato lo stato dell'esecuzione della pipeline attivata dal trigger manuale. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco.
+1. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzato lo stato dell'esecuzione della pipeline attivata da un trigger manuale. È possibile usare i collegamenti nella colonna **NOME PIPELINE** per visualizzare i dettagli dell'esecuzione ed eseguire di nuovo la pipeline.
 
-2. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. È possibile tornare alla visualizzazione precedente facendo clic su **Pipeline** in alto. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco.
+2. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento sotto la colonna **NOME PIPELINE**. Per i dettagli sulle esecuzioni di attività, selezionare il collegamento **Dettagli** (icona degli occhiali) sotto la colonna **NOME ATTIVITÀ**. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare **Tutte le esecuzioni di pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
 
 ## <a name="review-the-results"></a>Esaminare i risultati
@@ -355,9 +355,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Monitorare la seconda esecuzione della pipeline
 
-1. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzato lo stato dell'esecuzione della pipeline attivata dal trigger manuale. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco.
+1. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzato lo stato dell'esecuzione della pipeline attivata da un trigger manuale. È possibile usare i collegamenti nella colonna **NOME PIPELINE** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
 
-2. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. È possibile tornare alla visualizzazione precedente facendo clic su **Pipeline** in alto. Fare clic sul pulsante **Aggiorna** per aggiornare l'elenco.
+2. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento sotto la colonna **NOME PIPELINE**. Per i dettagli sulle esecuzioni di attività, selezionare il collegamento **Dettagli** (icona degli occhiali) sotto la colonna **NOME ATTIVITÀ**. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare **Tutte le esecuzioni di pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
 
 ## <a name="verify-the-second-output"></a>Verificare il secondo output

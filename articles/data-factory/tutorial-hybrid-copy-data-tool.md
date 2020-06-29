@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194598"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660932"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -146,18 +146,15 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione**.
 
-
 1. In **Nuovo Servizio collegato** cercare **SQL Server** e quindi selezionare **Continua**.
 
 1. In **Nome** per il **nuovo servizio collegato (SQL Server)** immettere **SqlServerLinkedService**. Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
 
+1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Selezionare quindi **Continua**.
 
-1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Fare quindi clic su **Avanti**.
+   ![Creare il runtime di integrazione](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Creare il runtime di integrazione](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome**. Fare quindi clic su **Avanti**.
-
+1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome**. Selezionare quindi **Crea**.
 
 1. Nella finestra di dialogo **Integration Runtime Setup** selezionare **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). Questa azione installa il runtime di integrazione nel computer e lo registra in Data Factory. In alternativa è possibile usare l'opzione di installazione manuale per scaricare il file di installazione, eseguirlo e usare la chiave per registrare il runtime di integrazione.
 
@@ -216,20 +213,17 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Nella finestra di dialogo **Riepilogo** esaminare i valori di tutte le impostazioni e selezionare **Avanti**.
 
-1. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline o l'attività creata.
+1. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività). 
 
-   ![Pagina Distribuzione](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. Al termine dell'esecuzione della pipeline, è possibile visualizzarne lo stato. 
 
-1. Nella scheda **Monitoraggio** è possibile visualizzare lo stato della pipeline creata. È possibile usare i collegamenti nella colonna **Azioni** per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline ed eseguire di nuovo la pipeline.
+1. Nella pagina Esecuzioni della pipeline selezionare **Aggiorna** per aggiornare l'elenco. Fare clic sul collegamento in **NOME PIPELINE** per visualizzare i dettagli dell'esecuzione dell'attività o eseguire di nuovo la pipeline. 
 
-1. Selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni** per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline), selezionare **Pipeline Runs** in alto.
+1. Nella pagina Esecuzioni attività selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Nome attività** per visualizzare informazioni dettagliate sull'operazione di copia. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare il collegamento **Tutte le esecuzioni della pipeline** nel menu di navigazione. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
 1. Assicurarsi che venga visualizzato il file di output nella cartella **fromonprem** del contenitore **adftutorial**.
 
-
 1. Selezionare la scheda **Modifica** a sinistra per passare alla modalità di modifica. Usando l'editor è possibile aggiornare i servizi collegati, i set di dati e le pipeline creati dallo strumento. Selezionare **Codice** per visualizzare il codice JSON associato all'entità aperta nell'editor. Per informazioni dettagliate sulla modifica di queste entità nell'interfaccia utente di Data Factory, vedere la [versione di questa esercitazione relativa al portale di Azure](tutorial-copy-data-portal.md).
-
-   ![Scheda Modifica](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

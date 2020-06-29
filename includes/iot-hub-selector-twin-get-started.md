@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.openlocfilehash: c412f7f3e20e4d04083e457bfb245b850b65e126
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "70050448"
@@ -17,7 +17,7 @@ ms.locfileid: "70050448"
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-i dispositivi gemelli sono documenti JSON che archiviano informazioni sullo stato dei dispositivi, tra cui metadati, configurazioni e condizioni. L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette.
+I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi, ad esempio metadati, configurazioni e condizioni. L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
@@ -25,17 +25,17 @@ Usare i dispositivi gemelli per:
 
 * Archiviare i metadati dei dispositivi dal back-end della soluzione.
 
-* Segnalare informazioni sullo stato corrente, ad esempio le funzionalità e le condizioni disponibili, ad esempio il metodo di connettività usato dall'app per dispositivi.
+* Segnalare informazioni sullo stato corrente, come funzionalità disponibili e condizioni (ad esempio, il metodo di connettività usato) dall'app per dispositivi.
 
-* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata, ad esempio gli aggiornamenti del firmware e della configurazione, tra un'app per dispositivi e un'app back-end.
+* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata (come gli aggiornamenti del firmware e della configurazione) tra un'app per dispositivi e un'app di back-end.
 
 * Eseguire query sui metadati, la configurazione o lo stato dei dispositivi.
 
 I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Altre informazioni su quando usare i dispositivi gemelli sono reperibili in [Informazioni sui dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-I dispositivi gemelli vengono archiviati in un hub Internet e contengono gli elementi seguenti:
+I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi seguenti:
 
-* **Tag**. Metadati del dispositivo accessibili solo dal back-end della soluzione.
+* **Tag**. Metadati dei dispositivi accessibili solo dal back-end della soluzione.
 
 * **Proprietà desiderate**. Oggetti JSON modificabili dal back-end della soluzione e osservabili dall'app per dispositivi.
 
@@ -43,12 +43,12 @@ I dispositivi gemelli vengono archiviati in un hub Internet e contengono gli ele
 
 I tag e le proprietà non possono contenere matrici, ma gli oggetti possono essere annidati.
 
-Nella figura seguente viene illustrata l'organizzazione del dispositivo gemello:
+Nella figura seguente viene illustrata l'organizzazione di un dispositivo gemello:
 
 ![Immagine che illustra le funzionalità del dispositivo gemello](./media/iot-hub-selector-twin-get-started/twin.png)
 
 Il back-end della soluzione può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
-Per altre informazioni sui dispositivi gemelli, vedere [comprendere i dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md). Per ulteriori informazioni sull'esecuzione di query, vedere il [linguaggio di query dell'hub](../articles/iot-hub/iot-hub-devguide-query-language.md)Internet.
+Per altre informazioni sui dispositivi gemelli, vedere [Informazioni sui dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md). Per altre informazioni sulle query, vedere [Linguaggio di query di hub IoT](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
 
 Questa esercitazione illustra come:

@@ -2,15 +2,15 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235225"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676149"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
@@ -37,6 +37,7 @@ Per distribuire il modello, è necessario usare anche l'interfaccia della riga d
 - [Installare Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows)
 - [Installare l'interfaccia della riga di comando di Azure in Linux](/cli/azure/install-azure-cli-linux)
+- [Installare l'interfaccia della riga di comando di Azure in macOS](/cli/azure/install-azure-cli-macos)
 
 Dopo aver installato Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di accedere per la prima volta. Per informazioni, vedere [Accesso - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Accesso - Interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 

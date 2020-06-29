@@ -2,20 +2,20 @@
 title: 'Esercitazione: Azure Toolkit for IntelliJ (applicazione Spark)'
 description: 'Esercitazione: Usare Azure Toolkit for IntelliJ per sviluppare applicazioni Spark scritte in Scala e inviarle a un pool di Apache Spark (anteprima).'
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608758"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976796"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Esercitazione: Creare applicazioni Apache Spark con IntelliJ usando Azure Synapse Analytics (anteprima delle aree di lavoro)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Esercitazione: Creare un'applicazione Apache Spark con IntelliJ usando un'area di lavoro di Synapse
 
 Questa esercitazione illustra come usare il plug-in Azure Toolkit for IntelliJ per sviluppare applicazioni Apache Spark scritte in [Scala](https://www.scala-lang.org/) e quindi inviarle a un pool di Spark (anteprima) direttamente dall'ambiente di sviluppo integrato (IDE) di IntelliJ. È possibile usare il plug-in in vari modi:
 
@@ -146,7 +146,7 @@ Dopo aver creato un'applicazione Scala, è possibile eseguirla in modalità remo
     |Argomenti della riga di comando|È possibile immettere gli argomenti divisi da uno spazio per la classe principale, se necessario.|
     |Referenced Jars (file JAR di riferimento) e Referenced Files (file di riferimento)|È possibile immettere i percorsi per file e jar di riferimento, se presenti. È anche possibile selezionare i file nel file system virtuale di Azure, che attualmente supporta solo cluster di Azure Data Lake Storage Gen2. Per altre informazioni: [Configurazione di Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Come caricare le risorse nel cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Archivio di caricamento del processo|Espandere per visualizzare le opzioni aggiuntive.|
-    |Tipo di archiviazione|Selezionare **Usare Azure Blob per caricare** nell'elenco a discesa.|
+    |Tipo di archiviazione|Nell'elenco a discesa selezionare **Use Azure Blob to upload** (Usa BLOB di Azure per caricare) o **Use cluster default storage account to upload** (Usa l'account di archiviazione predefinito del cluster per caricare).|
     |Account di archiviazione|Immettere l'account di archiviazione.|
     |Chiave di archiviazione|Immettere la chiave di archiviazione.|
     |Contenitore di archiviazione|Selezionare il contenitore di archiviazione dall'elenco a discesa una volta immessi **Account di archiviazione** e **chiave di archiviazione**.|
@@ -250,6 +250,7 @@ Assicurarsi di aver soddisfatto il prerequisito relativo al file WINUTILS.EXE.
 
     |Proprietà |valore |
     |----|----|
+    |Nome della classe principale| Selezionare il nome della classe principale.| 
     |Pool di Spark|Selezionare i pool di Spark in cui eseguire l'applicazione.|
     ||
 

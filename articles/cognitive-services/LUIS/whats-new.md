@@ -21,7 +21,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 * [Anteprima della creazione di 3,0](luis-migration-authoring-entities.md) SDK
     * Versione 3.2.0-Preview. 3- [.NET-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Versione 4.0.0-Preview. 3- [JS-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
-* Applicazione di procedure DevOps con LUIS
+* Applicazione delle procedure di DevOps con LUIS
     * Concetti
         * [Procedure DevOps per LUIS](luis-concept-devops-sourcecontrol.md)
         * [Flussi di lavoro di integrazione continua e recapito continuo per LUIS DevOps](luis-concept-devops-automation.md)

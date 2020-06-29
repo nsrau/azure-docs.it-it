@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e429dce497411305964cb1ec5298228dc4093b1f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685948"
@@ -33,7 +33,7 @@ Questo articolo presuppone che l'utente abbia:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Caricare i dati in un frame di dati Pandas
 Per esplorare e modificare un set di dati, è necessario innanzitutto scaricarlo dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
-1. Scaricare i dati dal BLOB di Azure con l'esempio di codice Python seguente usando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici:
+1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici:
 
     ```python
     from azure.storage.blob import BlockBlobService
@@ -63,7 +63,7 @@ Per esplorare e modificare un set di dati, è necessario innanzitutto scaricarlo
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Esempi di esplorazione dei dati con Pandas
+## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Esempi di esplorazione dei dati tramite Pandas
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati usando Pandas:
 
 1. Controllare il **numero di righe e colonne**

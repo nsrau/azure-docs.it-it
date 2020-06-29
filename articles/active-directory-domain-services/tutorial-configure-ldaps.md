@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475927"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733943"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare un certificato digitale per l'uso con Azure AD DS
 > * Abilitare LDAP sicuro per Azure AD DS
 > * Configurare LDAP sicuro per l'uso tramite Internet pubblico
-> * Eseguire il binding e il test di LDAP sicuro per un dominio gestito di Azure AD DS
+> * Eseguire il binding e il test di LDAP sicuro per un dominio gestito
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -41,21 +41,21 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Lo strumento *LDP.exe* installato nel computer.
     * Se necessario, [installare gli Strumenti di amministrazione remota del server][rsat] per *Active Directory Domain Services e LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-In questa esercitazione si configura LDAP sicuro per il dominio gestito di Azure AD DS usando il portale di Azure. Per iniziare, accedere prima di tutto al [portale di Azure](https://portal.azure.com).
+In questa esercitazione si configura l'accesso LDAP sicuro per il dominio gestito usando il portale di Azure. Per iniziare, accedere prima di tutto al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-certificate-for-secure-ldap"></a>Creare un certificato per LDAP sicuro
 
-Per LDAP sicuro, viene usato un certificato digitale per crittografare la comunicazione. Questo certificato digitale viene applicato al dominio gestito di Azure AD DS e consente a strumenti come *LDP.exe* di usare una comunicazione crittografata sicura durante l'esecuzione di query sui dati. Esistono due modi per creare un certificato per l'accesso LDAP sicuro al dominio gestito:
+Per LDAP sicuro, viene usato un certificato digitale per crittografare la comunicazione. Questo certificato digitale viene applicato al dominio gestito e consente a strumenti come *LDP.exe* di usare una comunicazione crittografata sicura durante l'esecuzione di query sui dati. Esistono due modi per creare un certificato per l'accesso LDAP sicuro al dominio gestito:
 
 * Un certificato di un'autorità di certificazione (CA) pubblica o globale (enterprise).
     * Se l'organizzazione ottiene i certificati da un'autorità di certificazione pubblica, ottenere il certificato LDAP sicuro dalla stessa autorità. Se si usa un'autorità di certificazione globale (enterprise), ottenere il certificato LDAP sicuro dalla stessa autorità.
-    * Una CA pubblica è adatta solo se si usa un nome DNS personalizzato con il dominio gestito di Azure AD DS. Se il nome di dominio DNS del dominio gestito termina con *.onmicrosoft.com*, non è possibile creare un certificato digitale per proteggere la connessione con tale dominio predefinito. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi una CA pubblica non emetterà un certificato. In questo scenario, creare un certificato autofirmato e usarlo per configurare l'accesso LDAP sicuro.
+    * Una CA pubblica è adatta solo se si usa un nome DNS personalizzato con il dominio gestito. Se il nome di dominio DNS del dominio gestito termina con *.onmicrosoft.com*, non è possibile creare un certificato digitale per proteggere la connessione con tale dominio predefinito. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi una CA pubblica non emetterà un certificato. In questo scenario, creare un certificato autofirmato e usarlo per configurare l'accesso LDAP sicuro.
 * Un certificato autofirmato creato dall'utente.
     * Questo approccio è valido a scopo di test ed è illustrato in questa esercitazione.
 
@@ -71,7 +71,7 @@ Il certificato richiesto o creato deve soddisfare i requisiti seguenti. Il domin
 Sono disponibili diversi strumenti per creare un certificato autofirmato, ad esempio OpenSSL, Keytool, MakeCert, il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] e così via. In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *aaddscontoso.com*:
 
 ```powershell
-# Define your own DNS name used by your Azure AD DS managed domain
+# Define your own DNS name used by your managed domain
 $dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
@@ -101,18 +101,18 @@ Thumbprint                                Subject
 
 Per usare LDAP sicuro, il traffico di rete viene crittografato con l'infrastruttura a chiave pubblica (PKI).
 
-* Al dominio gestito di Azure AD DS viene applicata una chiave **privata**.
-    * Questa chiave privata viene usata per *decrittografare* il traffico LDAP sicuro. La chiave privata deve essere applicata solo al dominio gestito di Azure AD DS e non distribuita su larga scala ai computer client.
+* Al dominio gestito viene applicata una chiave **privata**.
+    * Questa chiave privata viene usata per *decrittografare* il traffico LDAP sicuro. La chiave privata deve essere applicata solo al dominio gestito e non deve essere distribuita su larga scala ai computer client.
     * Un certificato che include la chiave privata usa il formato di file *PFX*.
 * Ai computer client viene applicata una chiave **pubblica**.
     * Questa chiave pubblica viene usata per *crittografare* il traffico LDAP sicuro. La chiave pubblica può essere distribuita ai computer client.
     * I certificati senza la chiave privata usano il formato di file *CER*.
 
-Queste due chiavi, *pubblica* e *privata*, assicurano che solo i computer appropriati possano comunicare correttamente tra loro. Se si usa una CA pubblica o una CA globale (enterprise), viene emesso un certificato che include la chiave privata e che può essere applicato a un dominio gestito di Azure AD DS. La chiave pubblica deve essere già nota e considerata attendibile dai computer client. In questa esercitazione è stato creato un certificato autofirmato con la chiave privata, quindi è necessario esportare i componenti pubblici e privati appropriati.
+Queste due chiavi, *pubblica* e *privata*, assicurano che solo i computer appropriati possano comunicare correttamente tra loro. Se si usa una CA pubblica o una CA globale (enterprise), viene emesso un certificato che include la chiave privata e che può essere applicato a un dominio gestito. La chiave pubblica deve essere già nota e considerata attendibile dai computer client. In questa esercitazione è stato creato un certificato autofirmato con la chiave privata, quindi è necessario esportare i componenti pubblici e privati appropriati.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Esportare un certificato per Azure AD DS
 
-Per poter usare il certificato digitale creato nel passaggio precedente con il dominio gestito di Azure AD DS, è necessario prima esportare il certificato in un file *PFX* che include la chiave privata.
+Per poter usare il certificato digitale creato nel passaggio precedente con il dominio gestito, è necessario prima esportare il certificato in un file *PFX* che include la chiave privata.
 
 1. Per aprire la finestra di dialogo *Esegui*, premere i tasti **WINDOWS** + **R**.
 1. Aprire Microsoft Management Console (MMC) immettendo **mmc** nella finestra di dialogo *Esegui* e quindi fare clic su **OK**.
@@ -133,7 +133,7 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 1. È necessario esportare la chiave privata per il certificato. Se la chiave privata non è inclusa nel certificato esportato, l'azione per abilitare LDAP sicuro per il dominio gestito ha esito negativo.
 
     Nella pagina **Esportazione della chiave privata con il certificato** scegliere **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.
-1. I domini gestiti di Azure AD DS supportano solo il formato di file di certificato *PFX* che include la chiave privata. Non esportare il certificato come formato di file *CER* senza la chiave privata.
+1. I domini gestiti supportano solo il formato di file di certificato *PFX* che include la chiave privata. Non esportare il certificato come formato di file *CER* senza la chiave privata.
 
     Nella pagina **Formato file di esportazione** selezionare **Scambio di informazioni personali - PKCS #12 (.PFX)** come formato di file per il certificato esportato. Selezionare la casella accanto a *Se possibile, includi tutti i certificati nel percorso certificazione*:
 
@@ -141,7 +141,7 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 
 1. Poiché questo certificato viene usato per decrittografare i dati, è consigliabile controllare con attenzione l'accesso. È possibile usare una password per proteggere l'uso del certificato. Senza la password corretta, il certificato non può essere applicato a un servizio.
 
-    Nella pagina **Sicurezza** scegliere l'opzione **Password** per proteggere il file di certificato *PFX*. Immettere e confermare una password, quindi selezionare **Avanti**. Questa password viene usata nella sezione successiva per abilitare LDAP sicuro per il dominio gestito di Azure AD DS.
+    Nella pagina **Sicurezza** scegliere l'opzione **Password** per proteggere il file di certificato *PFX*. Immettere e confermare una password, quindi selezionare **Avanti**. Questa password viene usata nella sezione successiva per abilitare l'accesso LDAP sicuro per il dominio gestito.
 1. Nella pagina **File da esportare** specificare il nome del file e il percorso in cui esportare il certificato, ad esempio *C:\Users\accountname\azure-ad-ds.pfx*. Prendere nota della password e del percorso del file *PFX* in quanto queste informazioni saranno necessarie nei passaggi successivi.
 1. Nella pagina di verifica selezionare **Fine** per esportare il certificato in un file *PFX*. Quando il certificato viene esportato, viene visualizzata una finestra di dialogo di conferma.
 1. Lasciare aperta la console MMC per l'uso nella sezione seguente.
@@ -160,7 +160,7 @@ I computer client devono considerare attendibile l'autorità emittente del certi
 1. Nella pagina **File da esportare** specificare il nome del file e il percorso in cui esportare il certificato, ad esempio *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Nella pagina di verifica selezionare **Fine** per esportare il certificato in un file *CER*. Quando il certificato viene esportato, viene visualizzata una finestra di dialogo di conferma.
 
-Il file di certificato *CER* può ora essere distribuito ai computer client che devono considerare attendibile la connessione LDAP sicura al dominio gestito di Azure AD DS. Installare il certificato nel computer locale.
+Il file di certificato *CER* può ora essere distribuito ai computer client che devono considerare attendibile la connessione LDAP sicura al dominio gestito. Installare il certificato nel computer locale.
 
 1. Aprire Esplora file e passare al percorso in cui è stato salvato il file di certificato *CER*, ad esempio*C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Fare clic con il pulsante destro del mouse sul file di certificato *CER*, quindi scegliere **Installa certificato**.
@@ -174,7 +174,7 @@ Il file di certificato *CER* può ora essere distribuito ai computer client che 
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Abilitare LDAP sicuro per Azure AD DS
 
-Con un certificato digitale creato ed esportato che include la chiave privata e il computer client impostato in modo da considerare attendibile la connessione, è ora possibile abilitare LDAP sicuro nel dominio gestito di Azure AD DS. Per abilitare LDAP sicuro in un dominio gestito di Azure AD DS, seguire questa procedura di configurazione:
+Con un certificato digitale creato ed esportato che include la chiave privata e il computer client impostato in modo da considerare attendibile la connessione, è ora possibile abilitare LDAP sicuro nel dominio gestito. Per abilitare LDAP sicuro in un dominio gestito, seguire questa procedura di configurazione:
 
 1. Nel [portale di Azure](https://portal.azure.com) immettere *servizi di dominio* nella casella **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca.
 1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
@@ -191,7 +191,7 @@ Con un certificato digitale creato ed esportato che include la chiave privata e 
 1. Immettere la **Password per decrittografare il file PFX** impostata in un passaggio precedente quando il certificato è stato esportato in un file *PFX*.
 1. Selezionare **Salva** per abilitare LDAP sicuro.
 
-    ![Abilitare LDAP sicuro per il dominio gestito di Azure AD DS nel portale di Azure](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Abilitare LDAP sicuro per il dominio gestito nel portale di Azure](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 Viene visualizzata una notifica che informa che è in corso la configurazione di LDAP sicuro per il dominio gestito. Finché questa operazione non viene completata, non è possibile modificare altre impostazioni per il dominio gestito.
 
@@ -199,9 +199,9 @@ Per abilitare LDAP sicuro per il dominio gestito sono necessari alcuni minuti. S
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloccare l'accesso LDAP sicuro su Internet
 
-Quando si abilita l'accesso LDAP sicuro al dominio gestito di Azure AD DS tramite Internet, viene creata una minaccia per la sicurezza. Il dominio gestito è raggiungibile da Internet sulla porta TCP 636. È consigliabile limitare l'accesso al dominio gestito a specifici indirizzi IP noti per l'ambiente. È possibile usare una regola del gruppo di sicurezza di rete di Azure per limitare l'accesso a LDAP sicuro.
+Se si abilita l'accesso LDAP sicuro al dominio gestito tramite Internet, viene creata una minaccia per la sicurezza. Il dominio gestito è raggiungibile da Internet sulla porta TCP 636. È consigliabile limitare l'accesso al dominio gestito a specifici indirizzi IP noti per l'ambiente. È possibile usare una regola del gruppo di sicurezza di rete di Azure per limitare l'accesso a LDAP sicuro.
 
-Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta TCP 636 da un set specificato di indirizzi IP. Una regola *DenyAll* predefinita con una priorità più bassa si applica a tutto il traffico in ingresso proveniente da Internet, quindi solo gli indirizzi specificati possono raggiungere il dominio gestito di Azure AD DS tramite il protocollo LDAP sicuro.
+Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta TCP 636 da un set specificato di indirizzi IP. Una regola *DenyAll* predefinita con una priorità più bassa si applica a tutto il traffico in ingresso proveniente da Internet, quindi solo gli indirizzi specificati possono raggiungere il dominio gestito tramite LDAP sicuro.
 
 1. Nel riquadro di spostamento sinistro del portale di Azure selezionare *Gruppi di risorse*.
 1. Scegliere il gruppo di risorse, ad esempio *myResourceGroup* e quindi selezionare il gruppo di sicurezza di rete, ad esempio *aaads-nsg*.
@@ -226,9 +226,9 @@ Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta T
 
 ## <a name="configure-dns-zone-for-external-access"></a>Configurare la zona DNS per l'accesso esterno
 
-Dopo aver abilitato l'accesso LDAP sicuro tramite Internet, aggiornare la zona DNS in modo che i computer client possano trovare il dominio gestito. L'*Indirizzo IP esterno per LDAP sicuro*  è riportato nella scheda **Proprietà** del dominio gestito di Azure AD DS:
+Dopo aver abilitato l'accesso LDAP sicuro tramite Internet, aggiornare la zona DNS in modo che i computer client possano trovare il dominio gestito. L'*Indirizzo IP esterno per LDAP sicuro*  è riportato nella scheda **Proprietà** del dominio gestito:
 
-![Visualizzare l'indirizzo IP esterno per LDAP sicuro per il dominio gestito di Azure AD DS nel portale di Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![Visualizzare l'indirizzo IP esterno per LDAP sicuro per il dominio gestito nel portale di Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
 Configurare il provider DNS esterno per creare un record host, ad esempio *ldaps*, da risolvere in questo indirizzo IP esterno. Per eseguire prima il test in locale nel computer, è possibile creare una voce nel file hosts di Windows. Per modificare correttamente il file hosts nel computer locale, aprire il *Blocco note* come amministratore, quindi aprire il file *C:\Windows\System32\drivers\etc*
 
@@ -240,27 +240,27 @@ La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts lo
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testare le query sul dominio gestito
 
-Per eseguire la connessione e il binding al dominio gestito di Azure Active Directory Domain Services e svolgere ricerche tramite LDAP, si usa lo strumento *LDP.exe*. Questo strumento è incluso nel pacchetto di Strumenti di amministrazione remota del server. Per altre informazioni, vedere [Installare Strumenti di amministrazione remota del server][rsat].
+Per eseguire la connessione e il binding al dominio gestito e svolgere ricerche tramite LDAP, si usa lo strumento *LDP.exe*. Questo strumento è incluso nel pacchetto di Strumenti di amministrazione remota del server. Per altre informazioni, vedere [Installare Strumenti di amministrazione remota del server][rsat].
 
 1. Aprire *LDP.exe* e connettersi al dominio gestito. Selezionare **Connessione **e quindi scegliere** Connetti**.
 1. Immettere il nome di dominio DNS LDAP sicuro del dominio gestito creato nel passaggio precedente, ad esempio *ldaps.aaddscontoso.com*. Per usare LDAP sicuro, impostare **Porta** su *636*, quindi selezionare la casella **SSL**.
 1. Fare clic su **OK** per connettersi al dominio gestito.
 
-Eseguire quindi il binding al dominio gestito di Azure AD DS. Gli utenti e gli account del servizio non possono eseguire binding LDAP semplici se la sincronizzazione degli hash delle password NTLM è stata disabilitata nell'istanza di Azure AD DS. Per altre informazioni sulla disabilitazione della sincronizzazione degli hash delle password NTLM, vedere [Proteggere il dominio gestito di Azure AD DS][secure-domain].
+Eseguire quindi il binding al dominio gestito. Gli utenti e gli account del servizio non possono eseguire binding LDAP semplici se la sincronizzazione degli hash delle password NTLM è stata disabilitata nel dominio gestito. Per altre informazioni sulla disabilitazione della sincronizzazione degli hash delle password NTLM, vedere [Proteggere il dominio gestito][secure-domain].
 
 1. Selezionare l'opzione di menu **Connessione**, quindi scegliere **Associa**.
 1. Fornire le credenziali di un account utente appartenente al gruppo *Amministratori di AAD DC*, ad esempio *contosoadmin*. Immettere la password dell'account utente, quindi immettere il dominio, ad esempio *aaddscontoso.com*.
 1. Per **Tipo di binding** scegliere l'opzione *Binding con credenziali*.
-1. Selezionare **OK** per eseguire il binding al dominio gestito di Azure AD DS.
+1. Selezionare **OK** per eseguire il binding al dominio gestito.
 
-Per visualizzare gli oggetti archiviati nel dominio gestito di Azure AD DS:
+Per visualizzare gli oggetti archiviati nel dominio gestito:
 
 1. Scegliere l'opzione di menu **Visualizza** e quindi scegliere **Albero**.
 1. Lasciare vuoto il campo *BaseDN*, quindi fare clic su **OK**.
 1. Scegliere un contenitore, ad esempio *AADDC Users*, quindi fare clic con il pulsante destro del mouse sul contenitore e scegliere **Cerca**.
 1. Lasciare i campi prepopolati impostati, quindi selezionare **Esegui**. I risultati della query vengono visualizzati nella finestra a destra, come illustrato nell'output di esempio seguente:
 
-    ![Cercare gli oggetti nel dominio gestito di Azure AD DS tramite LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
+    ![Cercare gli oggetti nel dominio gestito tramite LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 Per eseguire direttamente una query su un contenitore specifico, nel menu **Visualizza > Albero** è possibile specificare un oggetto **BaseDN**, ad esempio *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* o *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Per altre informazioni su come formattare e creare query, vedere [Nozioni di base sulle query LDAP][ldap-query-basics].
 
@@ -280,7 +280,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Creare un certificato digitale per l'uso con Azure AD DS
 > * Abilitare LDAP sicuro per Azure AD DS
 > * Configurare LDAP sicuro per l'uso tramite Internet pubblico
-> * Eseguire il binding e il test di LDAP sicuro per un dominio gestito di Azure AD DS
+> * Eseguire il binding e il test di LDAP sicuro per un dominio gestito
 
 > [!div class="nextstepaction"]
 > [Configurare la sincronizzazione dell'hash delle password per un ambiente Azure AD ibrido](tutorial-configure-password-hash-sync.md)

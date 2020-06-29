@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654407"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733671"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Esercitazione: Creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services (anteprima)
 
-Negli ambienti in cui non è possibile sincronizzare gli hash delle password o nei quali gli utenti accedono esclusivamente tramite smart card senza conoscere effettivamente la password, è possibile usare una foresta di risorse in Azure AD Domain Services (AD DS). Una foresta di risorse usa un trust in uscita unidirezionale da Azure AD Domain Services a uno o più ambienti Active Directory Domain Services locali. Questa relazione di trust consente a utenti, applicazioni e computer di eseguire l'autenticazione in un dominio locale dal dominio gestito di Azure AD Domain Services. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
+Negli ambienti in cui non è possibile sincronizzare gli hash delle password o in cui gli utenti accedono esclusivamente tramite smart card senza conoscere effettivamente la password, è possibile usare una foresta di risorse in Azure AD Domain Services (Azure AD DS). Una foresta di risorse usa un trust in uscita unidirezionale da Azure AD Domain Services a uno o più ambienti Active Directory Domain Services locali. Questa relazione di trust consente a utenti, applicazioni e computer di eseguire l'autenticazione in un dominio locale dal dominio gestito di Azure AD Domain Services. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
 
 ![Diagramma del trust tra foreste da Azure AD Domain Services ad Active Directory Domain Services locale](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -42,10 +42,10 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services creato usando una foresta di risorse e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Assicurarsi di creare un dominio gestito di Azure AD Domain Services usando una foresta di *risorse*. L'opzione predefinita crea una foresta di *utenti*. Solo le foreste di risorse possono creare trust per gli ambienti Active Directory Domain Services locali. Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [modificare lo SKU per un dominio gestito di Azure AD Domain Services][howto-change-sku].
+    > Assicurarsi di creare un dominio gestito usando una foresta di *risorse*. L'opzione predefinita crea una foresta di *utenti*. Solo le foreste di risorse possono creare trust per gli ambienti Active Directory Domain Services locali. Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [cambiare lo SKU di un dominio gestito][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -69,16 +69,16 @@ Prima di configurare un trust tra foreste in Azure AD Domain Services, assicurar
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurare il DNS nel dominio locale
 
-Per risolvere correttamente il dominio gestito di Azure AD Domain Services dall'ambiente locale, potrebbe essere necessario aggiungere server d'inoltro ai server DNS esistenti. Se l'ambiente locale non è stato configurato per comunicare con il dominio gestito di Azure AD Domain Services, completare i passaggi seguenti da una workstation di gestione per il dominio Active Directory Domain Services locale:
+Per risolvere correttamente il dominio gestito dall'ambiente locale, può essere necessario aggiungere server d'inoltro ai server DNS esistenti. Se l'ambiente locale non è stato configurato per comunicare con il dominio gestito, completare i passaggi seguenti da una workstation di gestione per il dominio di AD DS locale:
 
 1. Selezionare **Start | Strumenti di amministrazione | DNS**
 1. Fare clic con il pulsante destro del mouse sul server DNS, ad esempio *myAD01* e scegliere **Proprietà**
 1. Scegliere **Server d'inoltro**, quindi **Modifica** per aggiungere altri server d'inoltro.
-1. Aggiungere gli indirizzi IP del dominio gestito di Azure AD Domain Services, ad esempio *10.0.2.4* e *10.0.2.5*.
+1. Aggiungere gli indirizzi IP del dominio gestito, ad esempio *10.0.2.4* e *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creare il trust tra foreste in ingresso nel dominio locale
 
-Il dominio Active Directory Domain Services locale richiede un trust tra foreste in ingresso per il dominio gestito di Azure AD Domain Services. Il trust deve essere creato manualmente nel dominio di Active Directory Domain Services locale e non può essere creato nel portale di Azure.
+Il dominio locale di AD DS richiede un trust tra foreste in ingresso per il dominio gestito. Il trust deve essere creato manualmente nel dominio di Active Directory Domain Services locale e non può essere creato nel portale di Azure.
 
 Per configurare il trust in ingresso nel dominio Active Directory Domain Services locale, completare i passaggi seguenti da una workstation di gestione per il dominio di Active Directory Domain Services locale:
 
@@ -87,22 +87,22 @@ Per configurare il trust in ingresso nel dominio Active Directory Domain Service
 1. Scegliere la scheda **Trust**, quindi **Nuova relazione di trust**
 1. Immettere il nome del dominio Azure AD Domain Services, ad esempio *aaddscontoso.com*, quindi selezionare **Avanti**
 1. Selezionare l'opzione per creare un **Trust tra foreste**, quindi creare un trust **Unidirezionale: in ingresso**.
-1. Scegliere di creare il trust per **Solo questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito di Azure AD Domain Services.
+1. Scegliere di creare il trust per **Solo questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito.
 1. Scegliere di usare l'**Autenticazione estesa a tutta la foresta**, quindi immettere e confermare una password del trust. Questa stessa password verrà anche immessa nel portale di Azure nella sezione successiva.
 1. Per le finestre successive lasciare le opzioni predefinite, quindi scegliere l'opzione **No, non confermare il trust in uscita**.
 1. Selezionare **Finish** (Fine)
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Creare un trust tra foreste in uscita in Azure AD Domain Services
 
-Dopo aver configurato il dominio di Active Directory Domain Services locale per risolvere il dominio gestito di Azure AD Domain Services e creato un trust tra foreste in ingresso, si procederà alla creazione del trust tra foreste in uscita. Questo trust tra foreste in uscita completa la relazione di trust tra il dominio di Active Directory Domain Services locale e il dominio gestito di Azure AD Domain Services.
+Dopo aver configurato il dominio locale di AD DS per risolvere il dominio gestito e un trust tra foreste in ingresso, si procederà alla creazione del trust tra foreste in uscita. Questo trust tra foreste in uscita completa la relazione di trust tra il dominio locale di Active Directory Domain Services e il dominio gestito.
 
-Per creare il trust in uscita per il dominio gestito di Azure AD Domain Services nel portale di Azure, seguire questa procedura:
+Per creare il trust in uscita per il dominio gestito nel portale di Azure, seguire questa procedura:
 
 1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**, quindi selezionare il dominio gestito, ad esempio *aaddscontoso.com*
-1. Dal menu sul lato sinistro del dominio gestito di Azure AD Domain Services selezionare **Trust**, quindi scegliere **+ Aggiungi** un trust.
+1. Nel menu sul lato sinistro del dominio gestito selezionare **Trust**, quindi scegliere **+ Aggiungi** per aggiungere un trust.
 
    > [!NOTE]
-   > Se non viene visualizzata l'opzione di menu **Trust**, verificare le **Proprietà** per *Tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *Utente*, non è possibile creare trust. Attualmente non è possibile modificare il tipo di foresta di un dominio gestito di Azure AD Domain Services. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
+   > Se non viene visualizzata l'opzione di menu **Trust**, verificare le **Proprietà** per *Tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *Utente*, non è possibile creare trust. Attualmente non è possibile cambiare il tipo di foresta di un dominio gestito. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
 
 1. Immettere un nome visualizzato che identifichi il trust, quindi il nome DNS della foresta trusted locale, ad esempio *onprem.contoso.com*
 1. Specificare la stessa password del trust usata durante la configurazione il trust tra foreste in ingresso per il dominio Active Directory Domain Services locale nella sezione precedente.

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676603"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733705"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Esercitazione: Abilitare la sincronizzazione delle password in Azure Active Directory Domain Services per ambienti ibridi
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
     * Se necessario, [abilitare Azure AD Connect per la sincronizzazione degli hash delle password][enable-azure-ad-connect].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Sincronizzazione degli hash delle password con Azure AD Connect
 
@@ -97,7 +97,7 @@ Dopo aver installato e configurato Azure AD Connect per la sincronizzazione con 
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    A seconda delle dimensioni della directory in termini di numero di account e gruppi, la sincronizzazione degli hash delle password legacy con Azure AD potrebbe richiedere molto tempo. Dopo la sincronizzazione con Azure AD, le password vengono quindi sincronizzate con il dominio gestito di Azure Active Directory Domain Services.
+    A seconda delle dimensioni della directory in termini di numero di account e gruppi, la sincronizzazione degli hash delle password legacy con Azure AD potrebbe richiedere molto tempo. Dopo la sincronizzazione con Azure AD, le password vengono quindi sincronizzate con il dominio gestito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
