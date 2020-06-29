@@ -4,12 +4,12 @@ description: Questo articolo descrive come valutare le macchine virtuali Hyper-V
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052434"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106482"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -96,7 +96,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Verificare le versioni più recenti dell'appliance e i valori SHA:
+3.  Verificare le versioni più recenti dell'appliance e i valori hash:
 
     - Per il cloud pubblico di Azure:
 

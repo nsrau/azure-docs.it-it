@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143271"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412584"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
 
@@ -44,7 +44,7 @@ Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endp
 ## <a name="feature-changes"></a>Modifiche apportate alle funzionalità
 
 > [!NOTE] 
-> Attualmente, le [categorie di entità V3](named-entity-types.md) vengono restituite solo con testo in lingua inglese. L'API restituisce i risultati della versione 2,1 per le richieste in altre lingue, purché siano supportate nella versione 2,1.
+> Attualmente, le [categorie di entità V3](named-entity-types.md) vengono restituite solo con testo in lingua inglese e spagnolo. L'API restituisce i risultati della versione 2,1 per le richieste in altre lingue, purché siano supportate nella versione 2,1.
 
 Nella versione 2,1, il API Analisi del testo usa un endpoint per il riconoscimento delle entità denominate (NER) e il collegamento di entità. La versione 3 fornisce il rilevamento esteso delle entità denominate e USA endpoint distinti per le richieste NER e di collegamento di entità. A partire dalla versione 3.1-Preview. 1, NER può rilevare anche `pii` le informazioni personali e di integrità `phi` . 
 
@@ -94,7 +94,7 @@ La funzionalità di estrazione della frase chiave non è stata modificata in V3 
 
 ### <a name="rest-api"></a>API REST
 
-Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'estrazione della frase chiave. ad esempio `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'estrazione della frase chiave. Ad esempio: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -106,6 +106,6 @@ Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endp
 ## <a name="see-also"></a>Vedi anche
 
 * [Riferimento API Analisi del testo V2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
-* [Informazioni sul API Analisi del testo](overview.md)
+* [Informazioni sull'API Analisi del testo](overview.md)
 * [Lingue supportate](language-support.md)
 * [Gestione della versione dei modelli](concepts/model-versioning.md)

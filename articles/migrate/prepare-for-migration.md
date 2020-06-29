@@ -4,12 +4,12 @@ description: Informazioni su come preparare i computer locali per la migrazione 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: a5314e3f06c54921b12c242f884e02073edc773b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769643"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106361"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
@@ -33,7 +33,7 @@ Nella tabella seguente sono riepilogati i limiti per l'individuazione, la valuta
 
 **Scenario** | **Progetto** | **Individuazione e valutazione** | **Migrazione**
 --- | --- | --- | ---
-**VM VMware** | Individuare e valutare fino a 35.000 macchine virtuali in un singolo progetto di Azure Migrate. | Individuare fino a 10.000 macchine virtuali VMware in una singola [appliance Azure Migrate](common-questions-appliance.md) per VMware. | **Migrazione senza agente**: è possibile replicare simultaneamente un massimo di 300 macchine virtuali. Per ottenere prestazioni ottimali, è consigliabile creare più batch di macchine virtuali se sono più di 50.<br/><br/> **Migrazione basata su agente**: è possibile [aumentare](/agent-based-migration-architecture.md#performance-and-scaling) le risorse dell'[appliance di replica](migrate-replication-appliance.md) per replicare un numero elevato di macchine virtuali.<br/><br/> Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.
+**VM VMware** | Individuare e valutare fino a 35.000 macchine virtuali in un singolo progetto di Azure Migrate. | Individuare fino a 10.000 macchine virtuali VMware in una singola [appliance Azure Migrate](common-questions-appliance.md) per VMware. | **Migrazione senza agente**: è possibile replicare simultaneamente un massimo di 300 macchine virtuali. Per ottenere prestazioni ottimali, è consigliabile creare più batch di macchine virtuali se sono più di 50.<br/><br/> **Migrazione basata su agente**: è possibile [aumentare](./agent-based-migration-architecture.md#performance-and-scaling) le risorse dell'[appliance di replica](migrate-replication-appliance.md) per replicare un numero elevato di macchine virtuali.<br/><br/> Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.
 **VM Hyper-V** | Individuare e valutare fino a 35.000 macchine virtuali in un singolo progetto di Azure Migrate. | Individuare fino a 5.000 macchine virtuali Hyper-V con una singola appliance Azure Migrate. | Per la migrazione di Hyper-V non viene usata un'appliance. Il provider di replica Hyper-V viene invece eseguito su ogni host Hyper-V.<br/><br/> La capacità di replica è influenzata da fattori legati alle prestazioni, come la varianza della macchina virtuale, e dalla larghezza di banda per il caricamento dei dati di replica.<br/><br/> Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.
 **Computer fisici** | Individuare e valutare fino a 35.000 computer in un singolo progetto di Azure Migrate. | Individuare fino a 250 server fisici con una singola appliance Azure Migrate per i server fisici. | È possibile [aumentare](/agent-based-migration-architecture.md#performance-and-scaling) le risorse dell'[appliance di replica](migrate-replication-appliance.md) per replicare un numero elevato di server.<br/><br/> Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.
 

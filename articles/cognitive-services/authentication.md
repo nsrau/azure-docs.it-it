@@ -9,21 +9,20 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587681"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445543"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
 Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'intestazione di autenticazione. Questa intestazione viene passata insieme a una chiave di sottoscrizione o un token di connessione, che viene usato per convalidare la sottoscrizione a un servizio o un gruppo di servizi. Questo articolo descrive i tre modi di autenticare una richiesta e i requisiti per ciascun modo.
 
-* [Eseguire l'autenticazione con una chiave di sottoscrizione a servizio singolo](#authenticate-with-a-single-service-subscription-key)
-* [Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio](#authenticate-with-a-multi-service-subscription-key)
-* [Eseguire l'autenticazione con un token](#authenticate-with-an-authentication-token)
-* [Eseguire l'autenticazione con Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Eseguire l'autenticazione con una chiave di sottoscrizione a [servizio singolo](#authenticate-with-a-single-service-subscription-key) o [multiservizio](#authenticate-with-a-multi-service-subscription-key)
+* Eseguire l'autenticazione con un [token](#authenticate-with-an-authentication-token)
+* Eseguire l'autenticazione con [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -161,7 +160,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Che cosa sono i servizi cognitivi?](welcome.md)
 * [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/)

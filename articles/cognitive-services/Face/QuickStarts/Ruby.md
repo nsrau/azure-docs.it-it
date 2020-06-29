@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby"
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà l'API REST Viso con Ruby per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,21 +10,24 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3ec6eb60a7325eb87ca637541c5f4222eab98053
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e355ccdaf89d7f0ff63e3137def50792b171a4cc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403169"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985603"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby
 
 In questa guida di avvio rapido si userà l'API REST Viso di Azure con Ruby per rilevare i visi umani in un'immagine.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
-- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Scrivere lo script
 
