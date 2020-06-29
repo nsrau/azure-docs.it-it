@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: 876379a211038933cf665bd1a4a4daae9c9b2787
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ae4812a69a1e6833224dc4dedf36566167ae4796
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267070"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483415"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Come impostare i criteri dei cookie per il lettore immersivo
 
 Per impostazione predefinita, il lettore immersivo Disabilita l'utilizzo dei cookie. Se si Abilita l'utilizzo dei cookie, il lettore immersivo può utilizzare i cookie per gestire le preferenze dell'utente e tenere traccia dell'utilizzo delle funzionalità. Se si Abilita l'utilizzo dei cookie nel lettore immersivo, prendere in considerazione i requisiti dei criteri di conformità dei cookie UE. È responsabilità dell'applicazione host ottenere il consenso dell'utente necessario in base ai criteri di conformità dei cookie dell'Unione europea.
 
-I criteri dei cookie possono essere impostati tramite le [Opzioni](../reference.md#options)del lettore immersive. Per ulteriori informazioni, vedere [CookiePolicy enum](../reference.md#cookiepolicy-enum) .
+I criteri dei cookie possono essere impostati tramite le [Opzioni](../reference.md#options)del lettore immersive.
 
 ## <a name="enable-cookie-usage"></a>Abilita utilizzo cookie
 

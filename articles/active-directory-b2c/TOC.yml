@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -191,8 +191,12 @@
               displayName: 'ux, input, cors, html, css'
             - name: Personalizzare la lingua
               href: custom-policy-localization.md
-            - name: Posta elettronica personalizzata
-              href: custom-email.md
+            - name: Verifica personalizzata tramite posta elettronica
+              items:
+                - name: Mailjet
+                  href: custom-email-mailjet.md
+                - name: SendGrid
+                  href: custom-email-sendgrid.md
               displayName: verification
             - name: Disabilitare la verifica tramite posta elettronica
               href: custom-policy-disable-email-verification.md
@@ -373,6 +377,8 @@
           href: partner-trusona.md
         - name: Twilio
           href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
     - name: Usare b2clogin.com
       items:
         - name: Panoramica di b2clogin.com

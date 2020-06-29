@@ -8,7 +8,7 @@
       href: overview.md
     - name: Confrontare i servizi di messaggistica
       href: compare-messaging-services.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -242,10 +242,14 @@
           href: enable-diagnostic-logs-topic.md
         - name: Risolvere gli errori
           href: troubleshoot-errors.md
+        - name: Risolvere i problemi di connettività della rete
+          href: troubleshoot-network-connectivity.md
         - name: Risolvere i problemi di convalida della sottoscrizione
           href: troubleshoot-subscription-validation.md
-        - name: Visualizzare metriche e creare avvisi
+        - name: Visualizzare le metriche
           href: monitor-event-delivery.md
+        - name: Creare avvisi
+          href: set-alerts.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

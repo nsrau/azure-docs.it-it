@@ -4,7 +4,7 @@
   items:
     - name: Cos'è lo strumento di lettura immersiva?
       href: Overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Uso della libreria client
@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: Memorizzare il token di autenticazione nella cache
       href: how-to-cache-token.md
+    - name: Configurare la lettura ad alta voce
+      href: how-to-configure-read-aloud.md
+    - name: Configurare la traduzione
+      href: how-to-configure-translation.md
+    - name: Archiviare le preferenze utente
+      href: how-to-store-user-preferences.md
 - name: Informazioni di riferimento
   items:
-    - name: Informazioni di riferimento sugli SDK
+    - name: JavaScript SDK
       href: reference.md
 - name: Risorse
   items:

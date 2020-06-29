@@ -6,14 +6,14 @@
       href: cdn-overview.md
     - name: Confrontare le funzionalità del prodotto
       href: cdn-features.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Integrare un account di archiviazione
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Creare un profilo e un endpoint
       href: cdn-create-new-endpoint.md
-    - name: Creare un profilo con un modello di Azure Resource Manager
-      href: create-profile-resource-manager-template.md
+    - name: Crea un profilo e un endpoint - Modello di Resource Manager
+      href: create-profile-endpoint-template.md
 - name: Esercitazioni
   items:
     - name: Aggiungere la rete CDN di Azure a un'app Web

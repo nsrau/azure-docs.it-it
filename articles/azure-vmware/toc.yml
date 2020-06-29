@@ -30,7 +30,9 @@
       href: concepts-identity.md
     - name: Aggiornamenti di cloud privati
       href: concepts-upgrades.md
-    - name: Gestione API per le VM AVS
+    - name: Integrazione con hub e spoke
+      href: concepts-avs-hub-and-spoke-integration.md
+    - name: Gestione API
       href: concepts-api-management.md
 - name: Guide pratiche
   items:
@@ -40,8 +42,6 @@
       href: manage-dhcp.md
     - name: Ripristino di emergenza
       href: disaster-recovery.md
-    - name: Ottenere assistenza per la distribuzione di AVS o gli errori di provisioning
-      href: fix-deployment-provisioning-failures.md
     - name: Server di Backup di Azure per AVS
       items:
         - name: Configurare il server di Backup di Azure per AVS
@@ -52,5 +52,9 @@
   items: null
 - name: Risorse
   items:
+    - name: Risoluzione dei problemi
+      items:
+        - name: Ottenere assistenza per la distribuzione di AVS o gli errori di provisioning
+          href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
       href: faq.md
