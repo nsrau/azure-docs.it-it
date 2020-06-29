@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307747"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414284"
 ---
-# <a name="set-up-web-endpoints"></a>Configurare gli endpoint Web
+# <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
-Questo articolo illustra come configurare gli endpoint Web in un'applicazione di comandi personalizzata che consente di effettuare richieste HTTP da un'applicazione client. Completare le attività seguenti:
+In questo articolo si apprenderà come configurare gli endpoint Web in un'applicazione di comandi personalizzati che consente di effettuare richieste HTTP da un'applicazione client. Si completeranno le attività seguenti:
 
 - Configurare gli endpoint Web nell'applicazione comandi personalizzati
 - Chiamare endpoint Web nell'applicazione comandi personalizzati
@@ -53,7 +53,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
     > - L'intestazione suggerita è necessaria solo per l'endpoint di esempio
     > - Nel mondo reale, l'endpoint Web può essere l'endpoint per l' [Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) delle cose che gestisce i dispositivi
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="call-web-endpoints"></a>Chiama endpoint Web
 

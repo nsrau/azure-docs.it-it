@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307692"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414361"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Eseguire l'integrazione con un'applicazione client tramite Speech SDK
 
@@ -38,7 +38,7 @@ Sono necessari anche:
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: pubblicare l'applicazione comandi personalizzati
 
-1. Aprire l'applicazione comandi personalizzati creati in precedenza (anteprima) e selezionare **pubblica** .
+1. Aprire l'applicazione comandi personalizzati creati in precedenza e selezionare **pubblica**
 
    > [!div class="mx-imgBorder"]
    > ![Pubblicare l'applicazione](media/custom-commands/setup-speech-sdk-publish-application.png)

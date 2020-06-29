@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 3729e0e0831319b42615c11db1ea9ba20f0a0e74
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906395"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207261"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Creare un'app Node.js e MongoDB nel servizio app di Azure in Linux
 
@@ -367,7 +367,7 @@ Aprire _modules/articles/client/views/view-article.client.view.html_.
 
 Appena sopra il tag di chiusura `</section>` aggiungere la riga seguente per visualizzare `comment` insieme al resto dei dati dell'articolo:
 
-```HTML
+```html
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
@@ -375,7 +375,7 @@ Aprire _modules/articles/client/views/list-articles.client.view.html_.
 
 Appena sopra il tag di chiusura `</a>` aggiungere la riga seguente per visualizzare `comment` insieme al resto dei dati dell'articolo:
 
-```HTML
+```html
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
@@ -383,7 +383,7 @@ Aprire _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 Nell'elemento `<div class="list-group">` sopra il tag di chiusura `</a>` aggiungere la riga seguente per visualizzare `comment` con la parte rimanente dei dati dell'articolo:
 
-```HTML
+```html
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
@@ -391,7 +391,7 @@ Aprire _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Trovare l'elemento `<div class="form-group">` che contiene un pulsante di invio simile al seguente:
 
-```HTML
+```html
 <div class="form-group">
   <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
 </div>
@@ -399,7 +399,7 @@ Trovare l'elemento `<div class="form-group">` che contiene un pulsante di invio 
 
 Sopra il tag aggiungere un altro elemento `<div class="form-group">` che consente agli utenti di modificare il campo `comment`. Il nuovo elemento dovrebbe avere un aspetto simile al seguente:
 
-```HTML
+```html
 <div class="form-group">
   <label class="control-label" for="comment">Comment</label>
   <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
