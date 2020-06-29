@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Architecture
       items:
+        - name: Azure per tecnici di rete
+          href: azure-for-network-engineers.md
         - name: Data center virtuali
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: Routing asimmetrico con più percorsi di rete
@@ -63,7 +65,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 'Connettersi all''ambiente locale: rete dedicata'
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Guida introduttiva
+- name: Avvio rapido
   items:
     - name: Creare la prima rete virtuale
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
