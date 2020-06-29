@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: Attivare e disattivare la live chat
               href: howto-show-hide-chat.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza
