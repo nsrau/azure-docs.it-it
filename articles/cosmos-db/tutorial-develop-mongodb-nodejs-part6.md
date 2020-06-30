@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184776"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118968"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Aggiungere funzioni CRUD all'app
 
@@ -40,7 +40,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
     Si noti che la riga 7 di routes.js chiama la funzione `getHeroes` nella riga 5 di **hero.service.js**.  È necessario creare questa stessa associazione per le funzioni post, put e delete. 
 
-    ![routes.js e hero.service.js in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js e hero.service.js in Visual Studio Code":::
     
     Per iniziare, sarà necessario codificare il servizio hero. 
 
@@ -88,11 +88,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 6. Tornare ora al browser Internet e aprire la scheda Network (Rete) degli strumenti di sviluppo premendo F12 per la maggior parte dei computer. Passare a `http://localhost:3000` per controllare le chiamate eseguite in rete.
 
-    ![Scheda Networking (Rete) in Chrome che mostra l'attività della rete](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete":::
 
 7. Aggiungere un nuovo elemento hero facendo clic sul pulsante **Add New Hero** (Aggiungi nuovo elemento hero). Immettere l'ID "999", il nome "Fred" e il testo "Hello", quindi fare clic su **Save** (Salva). La scheda Networking (Rete) indica che è stata inviata una richiesta POST per un nuovo elemento hero. 
 
-    ![Scheda Networking (Rete) in Chrome che mostra l'attività della rete per le funzioni Get e Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete per le funzioni Get e Post":::
 
     Tornare ora indietro e aggiungere le funzioni Put e Delete all'app.
 
@@ -177,11 +177,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
     È ora possibile selezionare l'ID nella scheda Network (Rete) per visualizzare il payload. Il payload mostra che il testo ora è impostato su "Bye".
 
-    ![App Heroes e scheda Networking (Rete) indicante il payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="App Heroes e scheda Networking (Rete) indicante il payload"::: 
 
     È anche possibile eliminare uno degli elementi hero nell'interfaccia utente e verificare il tempo necessario per completare l'operazione di eliminazione. Per provare, fare clic sul pulsante "Delete" (Elimina) per l'elemento hero denominato "Fred".
 
-    ![App Heroes e scheda Networking (Rete) indicante il tempo necessario per il completamento delle funzioni](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="App Heroes e scheda Networking (Rete) indicante il tempo necessario per il completamento delle funzioni"::: 
 
     Se si aggiorna la pagina, la scheda Network (Rete) indica il tempo necessario per ottenere gli elementi hero. Anche se i tempi sono rapidi, molto dipende dalla posizione geografica dei dati e dalla possibilità di eseguirne la replica geografica in un'area vicina agli utenti. Altre informazioni sulla replica geografica saranno disponibili nella prossima esercitazione, che verrà presto rilasciata.
 

@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791154"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106435"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
-Questo articolo illustra i passaggi di alto livello usati per trasferire le sottoscrizioni di Azure tra i partner di Cloud Solution Provider (CSP) e i clienti.
+Questo articolo illustra i passaggi generali necessari per trasferire le sottoscrizioni di Azure tra i partner Cloud Solution Provider (CSP) e i clienti.
 
-## <a name="transfer-ea-subscriptions"></a>Traferire le sottoscrizioni EA
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 
 I partner con fatturazione diretta CSP certificati come [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) possono richiedere di trasferire le sottoscrizioni di Azure per i clienti che dispongono di un Contratto Enterprise diretto (EA). I trasferimenti di sottoscrizioni sono consentiti solo per i clienti che hanno accettato un Contratto del cliente Microsoft e hanno acquistato un piano Azure.
 
@@ -44,7 +44,7 @@ Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore
     > [!IMPORTANT]
     >  - Il trasferimento di risorse di Azure tra sottoscrizioni può causare tempi di inattività del servizio, in base alle risorse presenti nelle sottoscrizioni.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Tutti i trasferimenti di sottoscrizione da un partner CSP
+## <a name="transfer-csp-subscription-to-other-offer"></a>Trasferire la sottoscrizione CSP a un'altra offerta
 
 Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta di Azure, il sottoscrittore deve spostare le risorse tra le sottoscrizioni CSP di origine e le sottoscrizioni CSP di destinazione.
 

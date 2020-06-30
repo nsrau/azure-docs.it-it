@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652213"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126230"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornire un'autenticazione di Key Vault con un criterio di controllo di accesso
 
@@ -60,10 +60,10 @@ L'objectId per un'applicazione corrisponde all'entità servizio ad essa associat
 
 Esistono due modi per ottenere un objectId per un'applicazione.  Il primo consiste nel registrare l'applicazione con Azure Active Directory. A tale scopo, seguire la procedura illustrata nella guida di avvio rapido [Registrare un'applicazione con Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). Al termine della registrazione, l'objectId verrà mostrato come "ID applicazione (client)".
 
-Il secondo modo prevede la creazione di un'entità servizio in una finestra del terminale. Con l'interfaccia della riga di comando di Azure usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e fornire un nome univoco dell'entità servizio nel flag -n nel formato "http://&lt;my-unique-service-principle-name&gt;".
+Il secondo modo prevede la creazione di un'entità servizio in una finestra del terminale. Con l'interfaccia della riga di comando di Azure usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e fornire un nome univoco dell'entità servizio nel flag -n nel formato "http://&lt;nome-univoco-entità-servizio&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 L'objectId verrà mostrato nell'output come `clientID`.
@@ -72,7 +72,7 @@ Con Azure PowerShell, usare il cmdlet [New-AzADServicePrincipal](/powershell/mod
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 L'objectId verrà mostrato nell'output come `Id` (non `ApplicationId`).

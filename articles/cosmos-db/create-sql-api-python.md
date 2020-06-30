@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Python usando un account API SQL di Azure Cosmos DB"
+title: "Avvio rapido: Creare un'app Python usando un account API SQL di Azure Cosmos DB"
 description: Presenta un esempio di codice Python che permette di connettersi all'API SQL di Azure Cosmos DB ed eseguire query su di essa
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -13,14 +13,14 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - tracking-python
-ms.openlocfilehash: b140371c42fffd55b271fa0215db89ea9d07da0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559823"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116571"
 ---
-# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -52,7 +52,7 @@ In questa guida di avvio rapido si apprenderà a creare e gestire un account API
     
     A destra viene visualizzata l'area **Aggiungi contenitore**. Per vederla potrebbe essere necessario scorrere verso destra.
 
-    ![Esplora dati nel portale di Azure, riquadro Aggiungi contenitore](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
 
 2. Nella pagina **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
 
@@ -108,7 +108,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'**URI** e la **chiave primaria** nel file *cosmos_get_started.py* nel passaggio seguente.
 
-    ![Ottenere una chiave di accesso e un URI nelle impostazioni Chiavi nel portale di Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Ottenere una chiave di accesso e un URI nelle impostazioni delle chiavi nel portale di Azure":::
 
 2. In Visual Studio Code, aprire il file *cosmos_get_started.py* in *git-samples\azure-cosmos-db-python-getting-started*.
 

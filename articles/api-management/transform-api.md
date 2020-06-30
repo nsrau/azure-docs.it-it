@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258746"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100360"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
 
@@ -112,11 +112,8 @@ Per visualizzare la risposta originale:
 2.  Selezionare **Tutte le operazioni**.
 3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 4.  Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>** .
-5.  Posizionare il cursore all'interno dell'elemento **&lt;in uscita&gt;** e fare clic sul pulsante **Inserisci criterio** nell'angolo in alto a destra.
-6.  Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
-7.  Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>** ) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;** e fare clic sul pulsante **Show snippets** (Mostra frammenti) nell'angolo in alto a destra.
+6.  Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **Maschera URL nel contenuto**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Proteggere un'API aggiungendo criteri relativi ai limiti di frequenza (limitazione delle richieste)
 
@@ -130,7 +127,7 @@ Questa sezione illustra come aggiungere la protezione per l'API back-end configu
 4.  Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>** .
 5.  Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;** .
 6.  Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
-7.  Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>** ) con il codice seguente:
+7.  Sostituire il codice **rate-limit-by-key** (nell'elemento **\<inbound\>** ) con il codice seguente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

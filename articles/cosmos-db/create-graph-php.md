@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: API Gremlin con PHP - Azure Cosmos DB'
-description: Questa guida introduttiva illustra come usare l'API Gremlin di Azure Cosmos DB per creare un'applicazione console con il portale di Azure e PHP
+title: 'Avvio rapido: API Gremlin con PHP - Azure Cosmos DB'
+description: Questa guida di avvio rapido illustra come usare l'API Gremlin di Azure Cosmos DB per creare un'applicazione console con il portale di Azure e PHP
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,14 +8,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4a979fd4b3947be62f77bbd6d7c046c6af78466c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68736639"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118305"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -26,7 +26,7 @@ ms.locfileid: "68736639"
 > * [PHP](create-graph-php.md)
 >  
 
-Questa guida introduttiva illustra come usare PHP e l'[API Gremlin](graph-introduction.md) di Azure Cosmos DB per creare un'app console clonando un esempio di GitHub. Questa guida introduttiva illustra anche come creare un account Azure Cosmos DB usando il portale di Azure basato sul Web.   
+Questa guida di avvio rapido illustra come usare PHP e l'[API Gremlin](graph-introduction.md) di Azure Cosmos DB per creare un'app console clonando un esempio di GitHub. Questa guida di avvio rapido illustra anche come creare un account Azure Cosmos DB usando il portale di Azure basato sul Web.   
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.  
 
@@ -106,7 +106,8 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Copiare la prima parte del valore dell'URI.
 
-    ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-php/keys.png)
+    :::image type="content" source="./media/create-graph-php/keys.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+
 2. Aprire il file `connect.php` e alla riga 8 incollare il valore di URI su `your_server_address`.
 
     Il codice di inizializzazione dell'oggetto Connection sarà simile al seguente:
@@ -192,15 +193,15 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 1. Fare clic su **Esplora dati**, espandere **sample-graph**, fare clic su **Grafo** e quindi su **Applica filtro**. 
 
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
 
 2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare sono connessi a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
-   ![Nuovi vertici nel grafo in Esplora dati nel portale di Azure](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuovi vertici nel grafo in Esplora dati nel portale di Azure":::
 
 3. Vengono ora aggiunti alcuni nuovi utenti. Fare clic sul pulsante **New Vertex** (Nuovo vertice) per aggiungere dati al grafo.
 
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
 
 4. Immettere un'etichetta di *persona*.
 
@@ -213,7 +214,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     **tech** | java | 
 
     > [!NOTE]
-    > In questa esercitazione introduttiva si crea una raccolta non partizionata. Se tuttavia si crea una raccolta partizionata specificando una chiave di partizione durante la creazione della raccolta, sarà necessario includere la chiave di partizione come chiave in ogni nuovo vertice. 
+    > In questa guida di avvio rapido viene creata una raccolta non partizionata. Se tuttavia si crea una raccolta partizionata specificando una chiave di partizione durante la creazione della raccolta, sarà necessario includere la chiave di partizione come chiave in ogni nuovo vertice. 
 
 6. Fare clic su **OK**. Potrebbe essere necessario espandere la schermata per vedere il pulsante **OK** nella parte inferiore dello schermo.
 
@@ -237,17 +238,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati**, quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
 
-    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambiare la destinazione di un vertice in un grafo":::
 
 13. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows*, quindi selezionare la casella di controllo.
 
-    ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Aggiungere una connessione tra ashley e rakesh in Esplora dati":::
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-    ![Due vertici connessi in Esplora dati](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Due vertici connessi in Esplora dati":::
 
-    È stata completata la parte relativa alla creazione delle risorse di questa guida introduttiva. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
+    È stata completata la parte relativa alla creazione delle risorse di questa guida di avvio rapido. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

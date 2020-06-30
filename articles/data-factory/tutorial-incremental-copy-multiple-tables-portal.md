@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con il portale di Azure
-description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database SQL di Azure.
+description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia dati delta in modo incrementale da più tabelle di un database di SQL Server a un database di Database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730102"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251149"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure con il portale di Azure
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Caricare dati in modo incrementale da più tabelle di SQL Server in un database di Database SQL di Azure con il portale di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server in un database SQL di Azure.    
+In questa esercitazione viene creata una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server in un database di Database SQL di Azure.    
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -69,7 +69,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **SQL Server**. In questa esercitazione si usa un database di SQL Server come archivio dati di origine. 
-* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno. 
+* **Database SQL di Azure**. Usare un database di Database SQL di Azure come archivio dati sink. Se non si ha un database in Database SQL di Azure, vedere la procedura per crearne uno descritta in [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creare le tabelle di origine nel database di SQL Server
 
@@ -111,12 +111,13 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creare le tabelle di destinazione nel database SQL di Azure
-1. Aprire SQL Server Management Studio e connettersi al database SQL di Azure.
+### <a name="create-destination-tables-in-your-database"></a>Creare le tabelle di destinazione nel database
+
+1. Aprire SQL Server Management Studio e connettersi al database in Database SQL di Azure.
 
 1. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
-1. Eseguire il comando SQL seguente sul database SQL di Azure per creare due tabelle denominate `customer_table` e `project_table`:  
+1. Eseguire il comando SQL seguente sul database per creare le tabelle denominate `customer_table` e `project_table`:  
     
     ```sql
     create table customer_table
@@ -134,8 +135,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore limite massimo
-1. Eseguire il comando SQL seguente sul database SQL di Azure per creare una tabella denominata `watermarktable` per archiviare il valore limite: 
+### <a name="create-another-table-in-your-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database per archiviare il valore del limite massimo
+
+1. Eseguire il comando SQL seguente nel database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
     
     ```sql
     create table watermarktable
@@ -156,9 +158,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creare una stored procedure nel database SQL di Azure 
+### <a name="create-a-stored-procedure-in-your-database"></a>Creare una stored procedure nel database
 
-Eseguire questo comando per creare una stored procedure nel database SQL di Azure. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
+Eseguire il comando seguente per creare una stored procedure nel database. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -174,8 +176,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database SQL di Azure
-Eseguire questa query per creare due stored procedure e due tipi di dati nel database SQL di Azure. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione.
+### <a name="create-data-types-and-additional-stored-procedures-in-your-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database
+
+Eseguire la query seguente per creare due stored procedure e due tipi di dati nel database. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione.
 
 Per semplificare la procedura, si usano direttamente queste stored procedure passando i dati differenziali tramite una variabile di tabella e quindi unendoli nell'archivio di destinazione. Si noti che non è prevista l'archiviazione di un numero di righe delta elevato (più di 100) nella variabile di tabella.  
 
@@ -285,7 +288,7 @@ Mentre si spostano i dati da un archivio dati di una rete privata (locale) a un 
 1. Verificare che **MySelfHostedIR** sia visualizzato nell'elenco di runtime di integrazione.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database SQL di Azure. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database in Database SQL di Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server
 In questo passaggio si collega il database di SQL Server alla data factory.
@@ -308,7 +311,7 @@ In questo passaggio si collega il database di SQL Server alla data factory.
     1. Per salvare il servizio collegato, fare clic su **Fine**.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Creare il servizio collegato Database SQL di Azure
-Nell'ultimo passaggio viene creato un servizio collegato per collegare il database di SQL Server di origine alla data factory. In questo passaggio viene collegato il database SQL di Azure di destinazione/sink alla data factory. 
+Nell'ultimo passaggio viene creato un servizio collegato per collegare il database di SQL Server di origine alla data factory. In questo passaggio viene collegato il database di destinazione/sink alla data factory. 
 
 1. Nella finestra **Connessioni** passare dalla scheda **Integration Runtimes** (Runtime di integrazione) alla scheda **Servizi collegati** e fare clic su **+ Nuovo**.
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Database SQL di Azure** e fare clic su **Continua**. 
@@ -316,8 +319,8 @@ Nell'ultimo passaggio viene creato un servizio collegato per collegare il databa
 
     1. Immettere **AzureSqlDatabaseLinkedService** per **Nome**. 
     1. Per **Nome server** selezionare il nome del server dall'elenco a discesa. 
-    1. Per **Nome database** selezionare il database SQL di Azure in cui sono stati creati customer_table e project_table come parte dei prerequisiti. 
-    1. Per **Nome utente** immettere il nome dell'utente che ha accesso al database SQL di Azure. 
+    1. Per **Nome database** selezionare il database in cui sono state create le tabelle customer_table e project_table come parte dei prerequisiti. 
+    1. Per **Nome utente** immettere il nome dell'utente che ha accesso al database. 
     1. Per **Password** immettere la **password** dell'utente. 
     1. Per testare se Data Factory può connettersi al database di SQL Server, fare clic su **Connessione di test**. Correggere eventuali errori fino a quando la connessione ha esito positivo. 
     1. Per salvare il servizio collegato, fare clic su **Fine**.

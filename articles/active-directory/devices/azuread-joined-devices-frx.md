@@ -1,22 +1,22 @@
 ---
 title: Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione | Microsoft Docs
-description: In che modo gli utenti possono configurare Azure AD join durante l'esperienza predefinita.
+description: Informazioni su come gli utenti possono configurare l'aggiunta ad Azure AD durante l'esperienza predefinita.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da37316724bf6ef166f08faa7208ad196000bb00
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67482089"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253104"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Esercitazione: Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione
 
@@ -37,15 +37,15 @@ In questa esercitazione viene illustrato come aggiungere un dispositivo ad Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [configurare le impostazioni del dispositivo](device-management-azure-portal.md#configure-device-settings).
+Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](device-management-azure-portal.md#configure-device-settings).
 
-Inoltre, se il tenant è federato, il provider di identità DEVE supportare l'endpoint con nome utente/password WS-Trust e WS-Fed. La versione può essere 1.3 o 2005. Questo supporto del protocollo è necessario per aggiungere il dispositivo a Azure AD e accedere al dispositivo con una password.
+Inoltre, se il tenant è federato, il provider di identità DEVE supportare l'endpoint con nome utente/password WS-Trust e WS-Fed. La versione può essere 1.3 o 2005. Il supporto di questo protocollo è necessario per aggiungere il dispositivo ad Azure AD e accedere al dispositivo con una password.
 
 ## <a name="joining-a-device"></a>Aggiunta di un dispositivo
 
 **Per aggiungere un dispositivo Windows 10 ad Azure AD in fase di completamento dell'installazione:**
 
-1. Quando si accende il nuovo dispositivo e si avvia il processo di installazione, verrà visualizzato il **messaggio di preparazione.** Seguire le istruzioni per configurare il dispositivo.
+1. Quando si accende il nuovo dispositivo e viene avviato il processo di installazione, viene visualizzato il messaggio **Preparazione** . Seguire le istruzioni per configurare il dispositivo.
 1. Iniziare personalizzando il paese e la lingua. Quindi accettare le Condizioni di licenza software Microsoft.
  
     ![Personalizzare il paese](./media/azuread-joined-devices-frx/01.png)

@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 2eb52ae24fe17a3e1a161ab132eee862efae9af1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 41841fd51433a18389aa9f5beee063fb30696755
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559653"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251200"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche con PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
+In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database di origine del database SQL di Azure in una risorsa di Archiviazione BLOB di Azure.  
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -47,13 +47,13 @@ Ecco alcuni passaggi del tipico flusso di lavoro end-to-end per caricare dati in
 > Sia il database SQL di Azure sia SQL Server supportano la tecnologia Rilevamento modifiche. Questa esercitazione usa il database SQL di Azure come archivio dati di origine. È anche possibile usare un'istanza di SQL Server.
 
 1. **Caricamento iniziale di dati cronologici** (una sola esecuzione):
-    1. Abilitare la tecnologia Rilevamento modifiche nel database SQL di Azure di origine.
-    2. Ottenere il valore iniziale di SYS_CHANGE_VERSION nel database SQL di Azure come base per acquisire i dati modificati.
-    3. Caricare i dati completi dal database SQL di Azure a una risorsa di archiviazione BLOB di Azure.
+    1. Abilitare la tecnologia Rilevamento modifiche nel database di origine del database SQL di Azure.
+    2. Ottenere il valore iniziale di SYS_CHANGE_VERSION nel database come base per acquisire i dati modificati.
+    3. Caricare i dati completi dal database di origine a una risorsa di Archiviazione BLOB di Azure.
 2. **Caricamento incrementale di dati differenziali in base a una pianificazione** (esecuzione periodica dopo il caricamento iniziale dei dati):
     1. Ottenere i valori precedente e nuovo di SYS_CHANGE_VERSION.
-    3. Caricare i dati differenziali unendo le chiavi primarie delle righe modificate (tra due valori di SYS_CHANGE_VERSION) da **sys.change_tracking_tables** ai dati nella **tabella di origine** e quindi spostare i dati differenziali nella destinazione.
-    4. Aggiornare SYS_CHANGE_VERSION per il successivo caricamento differenziale.
+    2. Caricare i dati differenziali unendo le chiavi primarie delle righe modificate (tra due valori di SYS_CHANGE_VERSION) da **sys.change_tracking_tables** ai dati nella **tabella di origine** e quindi spostare i dati differenziali nella destinazione.
+    3. Aggiornare SYS_CHANGE_VERSION per il successivo caricamento differenziale.
 
 ## <a name="high-level-solution"></a>Soluzione di alto livello
 In questa esercitazione vengono create due pipeline che eseguono le due operazioni seguenti:  
@@ -74,13 +74,14 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Azure PowerShell. Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
+* **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database nel database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creare una tabella di origine dati nel database SQL di Azure
+### <a name="create-a-data-source-table-in-your-database"></a>Creare una tabella di origine dati nel database
+
 1. Avviare **SQL Server Management Studio** e connettersi al database SQL.
 2. In **Esplora server** fare clic con il pulsante destro del mouse sul **database** e scegliere **Nuova query**.
-3. Eseguire questo comando SQL sul database SQL di Azure per creare una tabella denominata `data_source_table` come archivio dell'origine dati.  
+3. Eseguire questo comando SQL sul database per creare una tabella denominata `data_source_table` come archivio dell'origine dati.  
 
     ```sql
     create table data_source_table
@@ -104,7 +105,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 4. Abilitare il meccanismo **Rilevamento modifiche** nel database e nella tabella di origine (data_source_table) eseguendo la query SQL seguente:
 
     > [!NOTE]
-    > - Sostituire &lt;your database name&gt; con il nome del database SQL di Azure che include data_source_table.
+    > - Sostituire &lt;your database name&gt; con il nome del database che include data_source_table.
     > - Nell'esempio corrente i dati modificati vengono mantenuti per due giorni. Se i dati modificati vengono caricati ogni tre giorni o più, alcuni non verranno inclusi.  In questo caso, è necessario modificare il valore di CHANGE_RETENTION impostando un numero maggiore. In alternativa, assicurarsi che il periodo per il caricamento dei dati modificati sia non più di due giorni. Per altre informazioni, vedere [Abilitare il rilevamento delle modifiche per un database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -134,7 +135,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     > [!NOTE]
     > Se i dati non vengono modificati dopo aver abilitato il rilevamento delle modifiche per il database SQL, il valore della versione di rilevamento delle modifiche è 0.
-6. Eseguire la query seguente per creare una stored procedure nel database SQL di Azure. La pipeline richiama questa stored procedure per aggiornare la versione di rilevamento delle modifiche nella tabella creata nel passaggio precedente.
+6. Eseguire la query seguente per creare una stored procedure nel database. La pipeline richiama questa stored procedure per aggiornare la versione di rilevamento delle modifiche nella tabella creata nel passaggio precedente.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -197,7 +198,7 @@ Tenere presente quanto segue:
 
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione si creano servizi collegati all'account di archiviazione di Azure e al database SQL di Azure.
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione si creano servizi collegati all'account di archiviazione di Azure e al database nel database SQL di Azure.
 
 ### <a name="create-azure-storage-linked-service"></a>Creare il servizio collegato Archiviazione di Azure.
 In questo passaggio l'account di archiviazione di Azure viene collegato alla data factory.
@@ -232,7 +233,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure.
-In questo passaggio viene collegato il database SQL di Azure alla data factory.
+In questo passaggio si collega il database alla data factory.
 
 1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con il contenuto seguente: Sostituire **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt;** con il nome del server, il nome del database, l'ID utente e la password prima di salvare il file.
 
@@ -464,7 +465,7 @@ Viene visualizzato un file denominato `incremental-<GUID>.txt` nella cartella `i
 
 ![File di output dalla copia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-Il file conterrà i dati del database SQL di Azure:
+Il file conterrà i dati del database:
 
 ```
 1,aaaa,21
@@ -476,7 +477,7 @@ Il file conterrà i dati del database SQL di Azure:
 
 ## <a name="add-more-data-to-the-source-table"></a>Aggiungere altri dati alla tabella di origine
 
-Eseguire la query seguente sul database SQL di Azure per aggiungere una riga e aggiornare una riga.
+Eseguire la query seguente sul database per aggiungere una riga e aggiornare una riga.
 
 ```sql
 INSERT INTO data_source_table
@@ -642,7 +643,7 @@ Il secondo file viene visualizzato nella cartella `incchgtracking` del contenito
 
 ![File di output dalla copia incrementale](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-Il file conterrà solo i dati differenziali del database SQL di Azure. Il record con `U` è la riga aggiornata nel database e `I` è la riga aggiunta.
+Il file conterrà solo i dati differenziali del database. Il record con `U` è la riga aggiornata nel database e `I` è la riga aggiunta.
 
 ```
 1,update,10,2,U

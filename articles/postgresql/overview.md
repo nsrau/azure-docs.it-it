@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74481671"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213602"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 Il database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori. È basato sulla versione della community del motore di database [PostgreSQL](https://www.postgresql.org/) open source ed è disponibile in due opzioni di distribuzione: Server singolo e Hyperscale (Citus).
@@ -52,6 +52,6 @@ Inoltre, prendere in considerazione questi punti di contatto in base alle specif
 - Per fornire commenti e suggerimenti o richiedere nuove funzionalità, creare una richiesta tramite [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/postgresql/) per confrontare i costi e usare i calcolatori.
+- Vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/postgresql/) per confrontare i costi e usare i calcolatori. Entrambe le opzioni di distribuzione per server singolo e Hyperscale (Citus) offrono anche sconti per le istanze riservate prepagate. Per informazioni dettagliate, vedere le pagine [Prezzi di istanze riservate a server singolo](concept-reserved-pricing.md) e [Prezzi di istanze riservate Hyperscale](concepts-hyperscale-reserved-pricing.md).
 - Per iniziare, creare il primo database di Azure per PostgreSQL tramite [Server singolo](./quickstart-create-server-database-portal.md) o [Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md)
 - Compilare la prima app in Python, PHP, Ruby, C\#, Java, Node.js: [raccolte di connessioni](./concepts-connection-libraries.md)

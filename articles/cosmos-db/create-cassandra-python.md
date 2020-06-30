@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: API Cassandra con Python - Azure Cosmos DB'
-description: Questo argomento di avvio rapido mostra come usare l'API Apache Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Python.
+description: Questa guida introduttiva illustra come usare l'API Apache Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Python.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dc8f00e5764cea856e028acb7adb5aebc070c625
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559841"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118273"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Python SDK e Azure Cosmos DB
 
@@ -137,31 +137,31 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
-    Usare il ![Pulsante Copia](./media/create-cassandra-python/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
+1. Usare il ![Pulsante Copia](./media/create-cassandra-python/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
 
-    ![Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure](./media/create-cassandra-python/keys.png)
+    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure":::
 
-2. Aprire il file *config.py*. 
+1. Aprire il file *config.py*. 
 
-3. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 10.
+1. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 10.
 
     La riga 10 è ora simile alla seguente: 
 
     `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
-4. Copiare il valore di NOME UTENTE dal portale e incollarlo su `<FILLME>` nella riga 6.
+1. Copiare il valore di NOME UTENTE dal portale e incollarlo su `<FILLME>` nella riga 6.
 
     La riga 6 è ora simile alla seguente: 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Copiare il valore di PASSWORD dal portale e incollarlo su `<FILLME>` nella riga 8.
+1. Copiare il valore di PASSWORD dal portale e incollarlo su `<FILLME>` nella riga 8.
 
     La riga 8 è ora simile alla seguente:
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Salvare il file *config.py*.
+1. Salvare il file *config.py*.
     
 ## <a name="use-the-x509-certificate"></a>Usare il certificato X509
 
@@ -196,11 +196,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
 
-    ![Visualizzare e verificare l'output](./media/create-cassandra-python/output.png)
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizzare e verificare l'output":::
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
-    ![Visualizzare i dati in Esplora dati](./media/create-cassandra-python/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

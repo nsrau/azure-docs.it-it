@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: API Tabella con .NET - Azure Cosmos DB'
-description: Questo argomento di avvio rapido mostra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e .NET
+description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e .NET
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: 45c1f9b5425b7e826776dc0f52681c67846bfdc5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2c9af8c0839b56d5512bb17776182b3515a7d544
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218182"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115330"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con .NET SDK e Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ ms.locfileid: "84218182"
 > * [Python](create-table-python.md)
 >  
 
-Questo argomento di avvio rapido mostra come usare .NET e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. Questo argomento di avvio rapido mostra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
+Questa guida introduttiva descrive come usare .NET e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. La guida introduttiva illustra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -73,7 +73,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 1. In Visual Studio scegliere **Apri** dal menu **File**, quindi scegliere **Progetto/Soluzione**. 
 
-   ![Aprire la soluzione](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Aprire la soluzione"::: 
 
 2. Passare alla cartella in cui è stata clonata l'applicazione di esempio e aprire il file TableStorage.sln.
 
@@ -103,7 +103,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione**. Usare il pulsante di copia sul lato destro della finestra per copiare la **STRINGA DI CONNESSIONE PRIMARIA**.
 
-   ![Visualizzare e copiare la STRINGA DI CONNESSIONE PRIMARIA nel riquadro Stringa di connessione](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Visualizzare e copiare la STRINGA DI CONNESSIONE PRIMARIA nel riquadro Stringa di connessione":::
 
 2. Aprire il file **Settings.json** in Visual Studio. 
 
@@ -123,25 +123,25 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples** in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet**. 
 
-   ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Gestisci pacchetti NuGet":::
 
 2. Nella casella **Sfoglia** di NuGet digitare Microsoft.Azure.Cosmos.Table. Verrà trovata la libreria client per l'API Tabelle di Cosmos DB. Si noti che questa libreria è attualmente disponibile per .NET Framework e .NET Standard. 
    
-   ![Scheda Sfoglia di NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="Scheda Sfoglia di NuGet":::
 
 3. Fare clic su **Installa** per installare la libreria **Microsoft.Azure.Cosmos.Table**. Vengono installati il pacchetto dell'API Tabelle di Azure Cosmos DB e tutte le dipendenze.
 
 4. Quando si esegue l'intera app, i dati di esempio vengono inseriti nell'entità tabella ed eliminati al termine, in modo da non visualizzare i dati inseriti se si esegue l'intero esempio. È tuttavia possibile inserire alcuni punti di interruzione per visualizzare i dati. Aprire il file BasicSamples.cs e fare clic con il pulsante destro del mouse sulla riga 52, scegliere **Punto di interruzione**, quindi selezionare **Inserisci punto di interruzione**. Inserire un altro punto di interruzione alla riga 55.
 
-   ![Aggiunta di un punto di interruzione](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Aggiungere un punto di interruzione"::: 
 
 5. Premere F5 per eseguire l'applicazione. La finestra della console mostra il nome del nuovo database della tabella (in questo caso, demoa13b1) in Azure Cosmos DB. 
     
-   ![Output console](media/create-table-dotnet/azure-cosmosdb-console.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Output della console":::
 
    Quando si raggiunge il primo punto di interruzione, tornare a Esplora dati nel portale di Azure. Fare clic sul pulsante **Aggiorna**, espandere la tabella demo* e fare clic su **Entità**. La scheda **Entità** a destra illustra la nuova entità che è stata aggiunta per Walter Harp. Si noti che il numero di telefono per la nuova entità è 425-555-0101.
 
-   ![Nuova entità](media/create-table-dotnet/azure-cosmosdb-entity.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Nuova entità":::
     
    Se viene visualizzato un errore che indica che non è stato trovato il file Settings.json durante l'esecuzione del progetto, è possibile risolvere il problema aggiungendo la voce XML seguente alle impostazioni del progetto. Fare clic con il pulsante destro del mouse su CosmosTableSamples, scegliere il comando di modifica di CosmosTableSamples.csproj e aggiungere l'elemento itemGroup seguente: 
 
@@ -176,7 +176,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
+In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
 
 > [!div class="nextstepaction"]
 > [Importare i dati delle tabelle nell'API Tabelle](table-import.md)

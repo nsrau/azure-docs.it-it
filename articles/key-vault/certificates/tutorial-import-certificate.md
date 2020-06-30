@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82105574"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100931"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Esercitazione: Importare un certificato in Azure Key Vault
 
@@ -26,8 +26,9 @@ L'esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
-> * Importare un certificato nell'insieme di credenziali delle chiavi usando il portale.
-> * Importare un certificato nell'insieme di credenziali delle chiavi usando l'interfaccia della riga di comando.
+> * Importare un certificato in Key Vault con il portale.
+> * Importare un certificato in Key Vault con l'interfaccia della riga di comando.
+> * Importare un certificato in Key Vault con PowerShell.
 
 
 Prima di iniziare, leggere i [concetti di base di Key Vault](../general/basic-concepts.md). 
@@ -102,7 +103,8 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Per altre informazioni sui parametri, vedere [qui](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+Altre informazioni sui [parametri](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
 Dopo aver importato il certificato, è possibile visualizzare il certificato con [Mostra certificato](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
 
@@ -116,13 +118,29 @@ az keyvault certificate show [--id]
                              [--version]
 ```
 
-
-
 A questo punto, è stato creato un insieme di credenziali delle chiavi, è stato importato un certificato e sono state visualizzate le proprietà del certificato.
+
+## <a name="import-a-certificate-using-azure-powershell"></a>Importare un certificato con Azure PowerShell
+
+```
+Import-AzureKeyVaultCertificate
+      [-VaultName] <String>
+      [-Name] <String>
+      -FilePath <String>
+      [-Password <SecureString>]
+      [-Tag <Hashtable>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+Altre informazioni sui [parametri](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide di avvio rapido ed esercitazioni relative a Key Vault si basano su questa guida di avvio rapido. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
 1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.

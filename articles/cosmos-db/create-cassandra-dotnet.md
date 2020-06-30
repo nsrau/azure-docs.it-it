@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: API Cassandra con .NET - Azure Cosmos DB'
-description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET
+description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 author: TheovanKraay
@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: abab57a84a7c630bcce71056b49d73024ae75e9f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310802"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118424"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "84310802"
 > * [Python](create-cassandra-python.md)
 >  
 
-Questo argomento di avvio rapido mostra come usare .NET e l'[API Cassandra](cassandra-introduction.md) di Azure Cosmos DB per creare un'app di profilo clonando un esempio di GitHub. Questo argomento di avvio rapido illustra anche come usare il portale di Azure basato sul Web per creare un account Azure Cosmos DB.
+Questa guida introduttiva mostra come usare .NET e l'[API Cassandra](cassandra-introduction.md) di Azure Cosmos DB per creare un'app di profilo clonando un esempio di GitHub. La guida introduttiva illustra anche come usare il portale di Azure basato sul Web per creare un account Azure Cosmos DB.
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
@@ -120,31 +120,31 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**.
 
-    Usare il ![Pulsante Copia](./media/create-cassandra-dotnet/copy.png) sul lato destro della schermata per copiare il valore NOME UTENTE.
+1. Usare il ![Pulsante Copia](./media/create-cassandra-dotnet/copy.png) sul lato destro della schermata per copiare il valore NOME UTENTE.
 
-    ![Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
 
-2. In Visual Studio aprire il file Program.cs. 
+1. In Visual Studio aprire il file Program.cs. 
 
-3. Incollare il valore di NOME UTENTE dal portale su `<FILLME>` nella riga 13.
+1. Incollare il valore di NOME UTENTE dal portale su `<FILLME>` nella riga 13.
 
     La riga 13 del file Program.cs dovrebbe ora essere simile alla seguente: 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. Tornare al portale e copiare il valore di PASSWORD. Incollare il valore di PASSWORD dal portale su `<FILLME>` nella riga 14.
+1. Tornare al portale e copiare il valore di PASSWORD. Incollare il valore di PASSWORD dal portale su `<FILLME>` nella riga 14.
 
     La riga 14 del file Program.cs dovrebbe ora essere simile alla seguente: 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. Tornare al portale e copiare il valore di PUNTO DI CONTATTO. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 15.
+1. Tornare al portale e copiare il valore di PUNTO DI CONTATTO. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 15.
 
     La riga 15 del file Program.cs dovrebbe ora essere simile alla seguente: 
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-5. Salvare il file Program.cs.
+1. Salvare il file Program.cs.
     
 ## <a name="run-the-net-app"></a>Eseguire l'app .NET
 
@@ -157,13 +157,13 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     ```
 3. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
 
-    ![Visualizzare e verificare l'output](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e verificare l'output":::
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi.
 
-    ![Visualizzare i dati in Esplora dati](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
@@ -175,7 +175,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare un contenitore con Esplora dati e come eseguire un'app Web. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
+In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB, come creare un contenitore con Esplora dati e come eseguire un'app Web. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare i dati di Cassandra in Azure Cosmos DB](cassandra-import-data.md)

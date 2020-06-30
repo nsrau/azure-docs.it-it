@@ -2,19 +2,19 @@
 title: "Avvio rapido: Usare l'SDK per creare e gestire una knowledge base - QnA Maker"
 description: Questo argomento di avvio rapido illustra come creare e gestire una knowledge base usando l'SDK client.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/18/2020
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: f80e791435d4bf9093b07842430e678b93843311
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f158fd0f9bfa6b2580e36b6588626afa05d1c19f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765140"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114536"
 ---
-# <a name="quickstart-qna-maker-client-library-for-net"></a>Avvio rapido: Libreria client di QnA Maker per .NET
+# <a name="quickstart-qna-maker-client-library"></a>Avvio rapido: Libreria client di QnA Maker
 
-Introduzione alla libreria client di QnA Maker per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
+Introduzione alla libreria client di QnA Maker. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]

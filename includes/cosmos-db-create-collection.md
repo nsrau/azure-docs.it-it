@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 9bc5be37f3892186233fac197c08066dbfacb43f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 076afcfc8abf4e90d3ccedbb26653656032e59be
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77780458"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115389"
 ---
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database e un contenitore. 
 
@@ -21,7 +21,7 @@ ms.locfileid: "77780458"
     
     A destra viene visualizzata l'area **Aggiungi contenitore**. Per vederla potrebbe essere necessario scorrere verso destra.
 
-    ![Esplora dati nel portale di Azure, riquadro Aggiungi contenitore](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
 
 2. Nella pagina **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
 

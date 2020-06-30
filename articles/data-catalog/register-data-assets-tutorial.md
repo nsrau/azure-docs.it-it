@@ -6,16 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021603"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255195"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Esercitazione: Registrare gli asset di dati in Azure Data Catalog
 
-Questa esercitazione descrive come usare lo strumento di registrazione per registrare gli asset di dati dell'esempio di database SQL di Azure con il catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dagli asset che contiene e di copia dei metadati nel catalogo. Le origini dati e gli asset di dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
+Questa esercitazione descrive come usare lo strumento di registrazione per registrare gli asset di dati dell'esempio di database con il catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dagli asset che contiene e di copia dei metadati nel catalogo. Le origini dati e gli asset di dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -39,11 +39,11 @@ Per configurare Data Catalog, l'utente deve essere proprietario o comproprietari
 
 ### <a name="register-a-data-source"></a>Registrazione di un'origine dati
 
-Gli asset di dati (tabelle) verranno registrati da un [esempio di database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md), ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati noti e più attinenti al proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
+Gli asset di dati (tabelle) verranno registrati da un [esempio di database](../azure-sql/database/single-database-create-quickstart.md) per il database SQL di Azure, ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati noti e più attinenti al proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
 
-Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
+Il nome del database usato in questa esercitazione è *RLSTest*.
 
-È ora possibile registrare gli asset di dati dall'esempio di database SQL di Azure usando Azure Data Catalog.
+È ora possibile registrare gli asset di dati dall'esempio di database usando Azure Data Catalog.
 
 1. Passare alla [home page di Azure Data Catalog](http://azuredatacatalog.com) e selezionare **Pubblica dati**.
 
@@ -61,13 +61,13 @@ Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
 
     ![Azure Data Catalog - Origini dati](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Immettere le proprietà della connessione a SQL Server per l'esempio di database SQL di Azure e selezionare **CONNETTI**.
+5. Immettere le proprietà della connessione a SQL Server per l'esempio di database nel database SQL di Azure e selezionare **CONNETTI**.
 
    ![Azure Data Catalog - Impostazioni di connessione SQL Server](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Registrare i metadati degli asset di dati. In questo esempio vengono registrati oggetti **Product** dallo spazio dei nomi dell'esempio di database SQL di Azure:
+6. Registrare i metadati degli asset di dati. In questo esempio vengono registrati oggetti **Product** dallo spazio dei nomi dell'esempio:
 
-    1. Nell'albero **Gerarchia server** espandere l'esempio di database SQL di Azure e selezionare **SalesLT**.
+    1. Nell'albero **Gerarchia server** espandere l'esempio di database e selezionare **SalesLT**.
 
     2. Selezionare **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando CTRL+selezione.
 
@@ -85,7 +85,7 @@ Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
 
           ![Esercitazione di Azure Data Catalog - Oggetti da registrare](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Selezionare **REGISTRA**. Nel Catalogo dati di Azure vengono registrati gli oggetti selezionati. In questo esercizio vengono registrati gli oggetti selezionati nell'esempio di database SQL di Azure. Lo strumento di registrazione estrae i metadati dall'asset di dati e li copia nel servizio Azure Data Catalog. I dati non vengono rimossi e rimangono sotto il controllo degli amministratori e dei criteri del sistema di origine.
+    8. Selezionare **REGISTRA**. Nel Catalogo dati di Azure vengono registrati gli oggetti selezionati. In questo esercizio vengono registrati gli oggetti selezionati nell'esempio di database. Lo strumento di registrazione estrae i metadati dall'asset di dati e li copia nel servizio Azure Data Catalog. I dati non vengono rimossi e rimangono sotto il controllo degli amministratori e dei criteri del sistema di origine.
 
           ![Azure Data Catalog - Oggetti registrati](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Il nome del database SQL di Azure usato in questa esercitazione è *RLSTest*.
 
         ![Oggetti nel portale di Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-In questo esercizio sono stati registrati gli oggetti dell'esempio di database SQL di Azure in modo che possano essere facilmente individuati dagli utenti dell'organizzazione.
+In questo esercizio sono stati registrati gli oggetti dell'esempio di database per il database SQL di Azure in modo che possano essere facilmente individuati dagli utenti dell'organizzazione.
 
 Nel prossimo esercizio verrà illustrato come individuare gli asset di dati registrati.
 
@@ -178,7 +178,7 @@ Gli operatori di confronto consentono di usare confronti diversi dall'uguaglianz
 
 3. Premere **INVIO**.
 
-4. Verificare che nei risultati della ricerca siano visibili le tabelle **Product**, **ProductCategory** e **ProductDescription**, oltre al database SQL di Azure registrato.
+4. Verificare che nei risultati della ricerca siano visibili le tabelle **Product**, **ProductCategory** e **ProductDescription**, oltre al database SQL registrato.
 
     ![Azure Data Catalog - Risultati della ricerca di confronto](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790484"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211393"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -95,7 +95,7 @@ Nell'[esercitazione introduttiva](../secrets/quick-create-cli.md), il nome dell'
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a name="enable-logging"></a><a id="enable"></a>Abilitare la registrazione
+## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Abilitare la registrazione con Azure PowerShell
 
 Per abilitare la registrazione per Key Vault, si userà il cmdlet **Set-AzDiagnosticSetting** con le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Inoltre, il flag **-Enabled** verrà impostato su **$true** e la categoria su **AuditEvent**, la sola disponibile per la registrazione di Key Vault:
 
@@ -131,6 +131,25 @@ Informazioni registrate:
   * Creazione, modifica o eliminazione di queste chiavi o segreti.
   * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
 * Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
+
+## <a name="enable-logging-using-azure-cli"></a>Abilitare la registrazione con l'interfaccia della riga di comando di Azure
+
+```azurecli
+az login
+
+az account set --subscription {AZURE SUBSCRIPTION ID}
+
+az provider register -n Microsoft.KeyVault
+
+az monitor diagnostic-settings create  \
+--name KeyVault-Diagnostics \
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault \
+--logs    '[{"category": "AuditEvent","enabled": true}]' \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
 
 ## <a name="access-your-logs"></a><a id="access"></a>Accedere ai log
 
@@ -214,6 +233,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di proce
 * Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare:`Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
+
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Ecco un esempio di voce di registro. 
@@ -269,7 +289,7 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 
 | operationName | Comando API REST |
 | --- | --- |
-| **autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
+| **Autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
 | **VaultGet** |[Ottenere informazioni su un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | **VaultPut** |[Creare o aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | **VaultDelete** |[Eliminare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235054"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255433"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Esercitazione: Sincronizzare i dati da SQL Edge all'archivio BLOB di Azure con Azure Data Factory
 
@@ -25,7 +25,7 @@ In questa esercitazione si userà Azure Data Factory per sincronizzare in modo i
 Se non sono già stati creati un database o una tabella nella distribuzione di SQL Edge di Azure, usare uno dei metodi seguenti per crearli:
 
 * Usare [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) o [Azure Data Studio](/sql/azure-data-studio/download/) per connettersi a SQL Edge. Eseguire uno script SQL per creare il database e la tabella.
-* Creare una tabella e un database SQL tramite [SQLCMD](/sql/tools/sqlcmd-utility/) connettendosi direttamente al modulo di SQL Edge. Per altre informazioni, vedere [Connettersi al motore di database usando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Creare una tabella e un database tramite [SQLCMD](/sql/tools/sqlcmd-utility/) connettendosi direttamente al modulo di SQL Edge. Per altre informazioni, vedere [Connettersi al motore di database usando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 * Usare SqlPackage.exe per distribuire un file del pacchetto di applicazione livello dati nel contenitore di SQL Edge. È possibile automatizzare questo processo specificando l'URI del file SqlPackage come parte della configurazione delle proprietà desiderate del modulo. È anche possibile usare direttamente lo strumento client SqlPackage.exe per distribuire un pacchetto di applicazione livello dati in SQL Edge.
 
     Per informazioni su come scaricare SqlPackage.exe, vedere [Scaricare e installare sqlpackage](/sql/tools/sqlpackage-download/). Di seguito sono riportati alcuni comandi di esempio per SqlPackage.exe. Per altre informazioni, vedere la documentazione di SqlPackage.exe.
@@ -103,7 +103,7 @@ Creare una data factory seguendo le istruzioni di [questa esercitazione](../data
 
     5. Per testare la connessione all'istanza di SQL Edge, selezionare **Test connessione**.
 
-    6. Selezionare **Create** (Crea).
+    6. Selezionare **Crea**.
 
     ![Creare un servizio collegato](media/tutorial-sync-data-factory/create-linked-service.png)
 

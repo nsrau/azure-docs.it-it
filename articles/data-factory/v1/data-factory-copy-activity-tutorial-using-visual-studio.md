@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 013f82c33b149d754e059bbc4c9933f917a2555a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119295"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248630"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Esercitazione: Creare una pipeline con l'attività Copia usando Visual Studio
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "84119295"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere l'[esercitazione sull'attività di copia](../quickstart-create-data-factory-dot-net.md). 
 
-Questo articolo illustra l'uso di Microsoft Visual Studio per creare una data factory con una pipeline che copia i dati da un archivio BLOB di Azure a un database SQL di Azure. Se non si ha familiarità con Azure Data Factory, prima di eseguire questa esercitazione vedere l'articolo [Introduzione ad Azure Data Factory](data-factory-introduction.md).   
+Questo articolo illustra l'uso di Microsoft Visual Studio per creare una data factory con una pipeline che copia i dati da una risorsa di Archiviazione BLOB di Azure al database SQL di Azure. Se non si ha familiarità con Azure Data Factory, prima di eseguire questa esercitazione vedere l'articolo [Introduzione ad Azure Data Factory](data-factory-introduction.md).   
 
 In questa esercitazione si crea una pipeline contenente una sola attività: un'attività di copia. che copia i dati da un archivio dati supportato a un archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
@@ -70,7 +70,7 @@ Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
     Analogamente, il servizio collegato per il database SQL di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi al database SQL di Azure e il set di dati della tabella SQL di output specifica la tabella del database in cui vengono copiati i dati dell'archivio BLOB.
 3. Creare una **pipeline** nella data factory. In questo passaggio viene creata una pipeline con un'attività di copia.   
     
-    L'attività di copia esegue la copia dei dati da un BLOB nell'archivio BLOB di Azure a una tabella nel database SQL di Azure. È possibile usare un'attività di copia in una pipeline per copiare i dati da qualsiasi origine supportata a qualsiasi destinazione supportata. Per un elenco degli archivi dati supportati, vedere l'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+    L'attività di copia esegue la copia dei dati da un BLOB in Archiviazione BLOB di Azure a una tabella nel database SQL di Azure. È possibile usare un'attività di copia in una pipeline per copiare i dati da qualsiasi origine supportata a qualsiasi destinazione supportata. Per un elenco degli archivi dati supportati, vedere l'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 4. Creare una **data factory** di Azure durante la distribuzione delle entità di Data Factory (servizi collegati, set di dati/tabelle e pipeline). 
 
 ## <a name="create-visual-studio-project"></a>Creare un progetto di Visual Studio
@@ -115,7 +115,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 
 ## <a name="create-datasets"></a>Creare set di dati
-Nel passaggio precedente sono stati creati servizi collegati per collegare l'account di archiviazione di Azure e un database SQL di Azure alla data factory. In questo passaggio vengono definiti due set di dati denominati InputDataset e OutputDataset, che rappresentano i dati di input e di output memorizzati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1.
+Nel passaggio precedente sono stati creati servizi collegati per collegare l'account di archiviazione di Azure e il database SQL di Azure alla data factory. In questo passaggio vengono definiti due set di dati denominati InputDataset e OutputDataset, che rappresentano i dati di input e di output memorizzati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1.
 
 Il servizio collegato Archiviazione di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi all'account di archiviazione di Azure. Il set di dati del BLOB di input (InputDataset) specifica il contenitore e la cartella che contiene i dati di input.  
 
@@ -213,7 +213,7 @@ In questo passaggio si crea un set di dati di output denominato **OutputDataset*
 
     | Proprietà | Descrizione |
     |:--- |:--- |
-    | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
+    | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella nel database SQL di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
     | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
     | frequency/interval | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
@@ -363,12 +363,12 @@ Passare alla home page della data factory:
 5. Per monitorare la pipeline e i set di dati creati in questa esercitazione, seguire le istruzioni riportate nella sezione su come [monitorare set di dati e pipeline](data-factory-monitor-manage-pipelines.md). Attualmente, Visual Studio non supporta il monitoraggio delle pipeline di Data Factory. 
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure al database SQL di Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 2. Creare **servizi collegati**:
    1. Un servizio collegato di **Archiviazione di Azure** per collegare l'account di archiviazione di Azure che include i dati di input.     
-   2. Un servizio collegato di **Azure SQL** per collegare il database SQL di Azure che contiene i dati di output. 
+   2. Un servizio collegato di **Azure SQL** per collegare il database che contiene i dati di output. 
 3. Creare **set di dati**che descrivono dati di input e dati di output per le pipeline.
 4. Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink. 
 
@@ -511,7 +511,7 @@ Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione sono stati usati l'archivio BLOB di Azure come archivio dati di origine e un database SQL di Azure come archivio dati di destinazione in un'operazione di copia. La tabella seguente contiene un elenco degli archivi dati supportati come origini e come destinazioni dall'attività di copia: 
+In questa esercitazione sono stati usati Archiviazione BLOB di Azure come archivio dati di origine e il database SQL di Azure come archivio dati di destinazione in un'operazione di copia. La tabella seguente contiene un elenco degli archivi dati supportati come origini e come destinazioni dall'attività di copia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

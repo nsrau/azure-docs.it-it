@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 04/03/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e1773ef81a5b727187a9a69ccc7ce7ad0421fb2c
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80246773"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296203"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 
@@ -117,7 +117,7 @@ Aggiungere poi il codice seguente nel metodo `onCreate()` di `app\java\<PackageN
 
 Infine, aggiungere il metodo `handleTap()` seguente, che collegherà tutti gli elementi tra loro. Viene creata una sfera, che viene posizionata nel punto toccato. Inizialmente la sfera sarà nera, perché `this.recommendedSessionProgress` è impostato su zero per il momento. Questo valore verrà modificato in seguito.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-172,175-183,199-200)]
 
 [Ridistribuire](#trying-it-out) l'app nel dispositivo per verificarla ancora una volta. Questa volta, è possibile muovere il dispositivo per fare in modo che ARCore inizi a riconoscere l'ambiente. Quindi, toccare lo schermo per creare e posizionare la sfera nera sopra la superficie scelta.
 
@@ -169,7 +169,7 @@ Quindi aggiungere le variabili membro seguenti nella classe `MainActivity`:
 
 Aggiungere poi il metodo `initializeSession()` seguente nella classe `mainActivity`. Quando viene chiamato, questo metodo assicura che durante l'avvio dell'app venga creata e inizializzata correttamente una sessione di Ancoraggi nello spazio di Azure.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,147)]
 
 Associare quindi il metodo `initializeSession()` al metodo `onCreate()`. Assicurarsi inoltre che i fotogrammi provenienti dal feed della fotocamera vengano inviati all'SDK di Ancoraggi nello spazio di Azure per l'elaborazione.
 
@@ -177,17 +177,17 @@ Associare quindi il metodo `initializeSession()` al metodo `onCreate()`. Assicur
 
 Infine, aggiungere il codice seguente nel metodo `handleTap()`. Il codice collega un ancoraggio nello spazio di Azure locale alla sfera nera posizionata nel mondo reale.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-183,199-200&highlight=12-13)]
 
 [Ridistribuire](#trying-it-out) ancora una volta l'app. Muovere il dispositivo, toccare lo schermo e posizionare una sfera nera. Questa volta, però, il codice crea e collega un ancoraggio nello spazio di Azure locale alla sfera.
 
-Prima di procedere, sarà necessario creare un identificatore e una chiave dell'account di Ancoraggi nello spazio di Azure, se non è già stato fatto. Per ottenerli, seguire la sezione seguente.
+Prima di procedere, sarà necessario creare un account di Ancoraggi nello spazio di Azure per ottenere l'identificatore, la chiave e il dominio dell'account, se non si hanno già. Per ottenerli, seguire la sezione seguente.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Caricare l'ancoraggio locale nel cloud
 
-Dopo aver ottenuto l'identificatore e la chiave dell'account di Ancoraggi nello spazio di Azure, è possibile tornare in `app\java\<PackageName>\MainActivity` e aggiungervi le istruzioni import seguenti:
+Dopo aver ottenuto l'identificatore, la chiave e il dominio dell'account di Ancoraggi nello spazio di Azure, è possibile tornare in `app\java\<PackageName>\MainActivity` e aggiungervi le istruzioni import seguenti:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
@@ -195,9 +195,9 @@ Quindi aggiungere le variabili membro seguenti nella classe `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-Aggiungere poi il codice seguente nel metodo `initializeSession()`. Questo codice consente prima di tutto all'app di monitorare lo stato di avanzamento dell'SDK Ancoraggi nello spazio di Azure mentre raccoglie i fotogrammi dal feed della fotocamera. Durante questo processo, il colore della sfera inizia a cambiare dal nero originale al grigio. Quindi diventerà bianca quando sarà stato raccolto un numero di fotogrammi sufficiente per inviare l'ancoraggio nel cloud. Il codice fornirà poi le credenziali necessarie per comunicare con il back-end del cloud. Ecco dove configurare l'app per usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
+Aggiungere poi il codice seguente nel metodo `initializeSession()`. Questo codice consente prima di tutto all'app di monitorare lo stato di avanzamento dell'SDK Ancoraggi nello spazio di Azure mentre raccoglie i fotogrammi dal feed della fotocamera. Durante questo processo, il colore della sfera inizia a cambiare dal nero originale al grigio. Quindi diventerà bianca quando sarà stato raccolto un numero di fotogrammi sufficiente per inviare l'ancoraggio nel cloud. Il codice fornirà poi le credenziali necessarie per comunicare con il back-end del cloud. Ecco dove configurare l'app per usare l'identificatore, la chiave e il dominio dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-148&highlight=11-37)]
 
 Aggiungere poi il metodo `uploadCloudAnchorAsync()` seguente nella classe `mainActivity`. Quando viene chiamato, questo metodo aspetta in modo asincrono finché non viene raccolto un numero di fotogrammi sufficiente dal dispositivo. Non appena ciò avviene, trasforma il colore della sfera in giallo e quindi avvia il caricamento dell'ancoraggio nello spazio di Azure locale nel cloud. Al termine del caricamento, il codice restituisce un identificatore di ancoraggio.
 
@@ -205,7 +205,7 @@ Aggiungere poi il metodo `uploadCloudAnchorAsync()` seguente nella classe `mainA
 
 Infine, associare tutti gli elementi tra loro. Aggiungere il codice seguente nel metodo `handleTap()`. Il codice richiama il metodo `uploadCloudAnchorAsync()` non appena verrà creata la sfera. Quando il metodo restituisce il risultato, il codice seguente esegue l'aggiornamento finale della sfera, cambiandone il colore in blu.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-200&highlight=24-37)]
 
 [Ridistribuire](#trying-it-out) ancora una volta l'app. Muovere il dispositivo, toccare lo schermo e posizionare la sfera. Questa volta, però, il colore della sfera cambia dal nero verso il bianco, mentre vengono raccolti i fotogrammi dalla fotocamera. Quando il numero di fotogrammi è sufficiente, la sfera diventerà gialla e verrà avviato il caricamento nel cloud. Al termine del caricamento, la sfera diventerà blu. Facoltativamente, è anche possibile usare la finestra `Logcat` all'interno di Android Studio per monitorare i messaggi di log inviati dall'app, ad esempio lo stato di avanzamento della sessione durante l'acquisizione dei fotogrammi e l'identificatore dell'ancoraggio restituito dal cloud al termine del caricamento.
 

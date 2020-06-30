@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: API Cassandra con Node.js - Azure Cosmos DB'
-description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Node.js
+description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Node.js
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310054"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118356"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Node.js SDK e Azure Cosmos DB
 
@@ -170,31 +170,31 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
-    Usare il ![Pulsante Copia](./media/create-cassandra-nodejs/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
+1. Usare il ![Pulsante Copia](./media/create-cassandra-nodejs/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
 
-    ![Visualizzare e copiare i valori di PUNTO DI CONTATTO, NOME UTENTE e PASSWORD dalla pagina della stringa di connessione del portale di Azure](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Visualizzare e copiare i valori di PUNTO DI CONTATTO, NOME UTENTE e PASSWORD dalla pagina della stringa di connessione del portale di Azure":::
 
-2. Aprire il file `config.js` . 
+1. Aprire il file `config.js` . 
 
-3. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FillMEIN>` nella riga 4.
+1. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FillMEIN>` nella riga 4.
 
     La riga 4 è ora simile alla seguente: 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. Copiare il valore di NOME UTENTE dal portale e incollarlo su `<FillMEIN>` nella riga 2.
+1. Copiare il valore di NOME UTENTE dal portale e incollarlo su `<FillMEIN>` nella riga 2.
 
     La riga 2 è ora simile alla seguente: 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. Copiare il valore di PASSWORD dal portale e incollarlo su `<FillMEIN>` nella riga 3.
+1. Copiare il valore di PASSWORD dal portale e incollarlo su `<FillMEIN>` nella riga 3.
 
     La riga 3 è ora simile alla seguente:
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Salvare il file.`config.js`
+1. Salvare il file.`config.js`
     
 ## <a name="use-the-x509-certificate"></a>Usare il certificato X509
 
@@ -211,11 +211,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 > 
 > Fare doppio clic sul file con estensione crt per aprirlo nella visualizzazione Certificato. 
 >
-> ![Visualizzare e verificare l'output](./media/create-cassandra-nodejs/crtcer1.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Visualizzare e verificare l'output":::
 >
 > Fare clic su Avanti in Esportazione guidata certificati. Selezionare Codificato Base 64 X.509 (.CER) e quindi Avanti.
 >
-> ![Visualizzare e verificare l'output](./media/create-cassandra-nodejs/crtcer2.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Visualizzare e verificare l'output":::
 >
 > Selezionare Sfoglia per individuare una destinazione e digitare un nome file.
 > Selezionare Avanti e quindi Operazione completata.
@@ -236,13 +236,13 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 4. Verificare i risultati previsti dalla riga di comando.
 
-    ![Visualizzare e verificare l'output](./media/create-cassandra-nodejs/output.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Visualizzare e verificare l'output":::
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
 
 5. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
-    ![Visualizzare i dati in Esplora dati](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

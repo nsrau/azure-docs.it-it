@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/22/2020
+ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661057"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251746"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiare più tabelle in blocco con Azure Data Factory nel portale di Azure
 
@@ -58,7 +58,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 **Preparare il database SQL di Azure di origine**:
 
-Creare un database SQL di Azure con i dati dell'esempio Adventure Works LT, seguendo le istruzioni disponibili nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+Creare un database in Database SQL con i dati dell'esempio Adventure Works LT, seguendo l'articolo [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 
 **Preparare l'istanza sink di Azure Synapse Analytics (in precedenza SQL Data Warehouse)** :
 
@@ -106,7 +106,7 @@ Si creano servizi collegati per collegare gli archivi dati e le risorse di calco
 In questa esercitazione gli archivi dati del database SQL di Azure, di Azure Synapse Analytics (in precedenza SQL Data Warehouse) e dell'Archiviazione BLOB di Azure vengono collegati alla data factory. Il database SQL di Azure è l'archivio dati di origine. Azure Synapse Analytics (in precedenza SQL Data Warehouse) è l'archivio dati del sink/di destinazione. L'Archiviazione BLOB di Azure consente di eseguire lo staging dei dati prima del caricamento dei dati in Azure Synapse Analytics (in precedenza SQL Data Warehouse) tramite PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creare il servizio collegato database SQL di Azure di origine
-In questo passaggio viene creato un servizio collegato per collegare il database SQL di Azure alla data factory. 
+In questo passaggio viene creato un servizio per collegare il database in Database SQL di Azure alla data factory. 
 
 1. Aprire la scheda [Gestisci](https://docs.microsoft.com/azure/data-factory/author-management-hub) nel riquadro sinistro.
 
@@ -120,13 +120,13 @@ In questo passaggio viene creato un servizio collegato per collegare il database
 
     b. Selezionare il server per **Nome server**
     
-    c. Selezionare il database SQL di Azure per **Nome database**. 
+    c. Selezionare il database nel campo **Nome database**. 
     
-    d. Immettere il **nome dell'utente** per connettersi al database SQL di Azure. 
+    d. Immettere il **nome dell'utente** da connettere al database. 
     
     e. Immettere la **password** per l'utente. 
 
-    f. Per eseguire il test della connessione al database SQL di Azure con le informazioni specificate, fare clic su **Connessione di test**.
+    f. Per testare la connessione al database con le informazioni specificate, fare clic su **Test connessione**.
   
     g. Fare clic su **Crea** per salvare il servizio collegato.
 
@@ -141,13 +141,13 @@ In questo passaggio viene creato un servizio collegato per collegare il database
      
     b. Selezionare il server per **Nome server**
      
-    c. Selezionare il database SQL di Azure per **Nome database**. 
+    c. Selezionare il database nel campo **Nome database**. 
      
-    d. Immettere il **Nome utente** per connettersi al database SQL di Azure. 
+    d. Immettere il **Nome utente** da connettere al database. 
      
     e. Immettere la **Password** per l'utente. 
      
-    f. Per eseguire il test della connessione al database SQL di Azure con le informazioni specificate, fare clic su **Connessione di test**.
+    f. Per testare la connessione al database con le informazioni specificate, fare clic su **Test connessione**.
      
     g. Fare clic su **Crea**.
 
@@ -181,7 +181,7 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
     
 1. Nella finestra **Imposta proprietà**, in **Nome**, immettere **AzureSqlDatabaseDataset**. In **Servizio collegato** selezionare **AzureSqlDatabaseLinkedService**. Fare quindi clic su **OK**.
 
-1. Passare alla scheda **Connessione** e selezionare una tabella per **Tabella**. Questa è una tabella fittizia. Specificare una query sul set di dati di origine quando si crea una pipeline. La query viene usata per estrarre dati dal database SQL di Azure. In alternativa è possibile selezionare la casella di controllo **Modifica** e immettere **dbo.dummyName** come nome della tabella. 
+1. Passare alla scheda **Connessione** e selezionare una tabella per **Tabella**. Questa è una tabella fittizia. Specificare una query sul set di dati di origine quando si crea una pipeline. La query viene usata per estrarre dati dal database. In alternativa è possibile selezionare la casella di controllo **Modifica** e immettere **dbo.dummyName** come nome della tabella. 
  
 
 ### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Creare un set di dati per l'istanza sink di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
@@ -189,17 +189,18 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
 1. Fare clic su **+ (segno più)** nel riquadro a sinistra e quindi su **Set di dati**. 
 1. Nella finestra **Nuovo set di dati** selezionare **Azure Synapse Analytics (in precedenza SQL Data Warehouse)** e quindi fare clic su **Continua**.
 1. Nella finestra **Imposta proprietà**, in **Nome**, immettere **AzureSqlDWDataset**. In **Servizio collegato** selezionare **AzureSqlDWLinkedService**. Fare quindi clic su **OK**.
-1. Passare alla scheda **Parametri**, fare clic su **+ Nuovo** e immettere **DWTableName** come nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** alla fine di **DWTableName**.
+1. Passare alla scheda **Parametri**, fare clic su **+ Nuovo** e immettere **DWTableName** come nome del parametro. Fare di nuovo clic su **+ Nuovo** e immettere **DWSchema** come nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** dopo *DWTableName* e *DWSchema*. 
 1. Passare alla scheda **Connessione**. 
 
-    a. Per **Tabella** selezionare l'opzione **Modifica**. Immettere **dbo** nella prima casella di input del nome della tabella. Quindi selezionare la seconda casella di input e fare clic sul collegamento **Aggiungi contenuto dinamico** sotto. 
+    1. Per **Tabella** selezionare l'opzione **Modifica**. Selezionare la prima casella di input e fare clic sul collegamento **Aggiungi contenuto dinamico** al di sotto. Nella pagina **Aggiungi contenuto dinamico** fare clic su **DWSchema** in **Parametri** per popolare automaticamente la casella di testo dell'espressione `@dataset().DWSchema` nella parte superiore, quindi fare clic su **Fine**.  
+    
+        ![Nome della tabella nella connessione al set di dati](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    ![Nome della tabella nella connessione al set di dati](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    1. Selezionare la seconda casella di input e fare clic sul collegamento **Aggiungi contenuto dinamico** al di sotto. Nella pagina **Aggiungi contenuto dinamico** fare clic su **DWTAbleName** in **Parametri** per popolare automaticamente la casella di testo dell'espressione `@dataset().DWTableName` nella parte superiore, quindi fare clic su **Fine**. 
+    
+    1. La proprietà **tableName** del set di dati è impostata sui valori passati come argomenti per i parametri **DWSchema** e **DWTableName**. L'attività ForEach esegue l'iterazione di un elenco di tabelle e le passa una alla volta all'attività di copia. 
+    
 
-    b. Nella pagina **Aggiungi contenuto dinamico** fare clic su **DWTAbleName** in **Parametri** per popolare automaticamente la casella di testo dell'espressione `@dataset().DWTableName` nella parte superiore, quindi fare clic su **Fine**. La proprietà **tableName** del set di dati è impostata sul valore passato come argomento per il parametro **DWTableName**. L'attività ForEach esegue l'iterazione di un elenco di tabelle e le passa una alla volta all'attività di copia. 
-
-    ![Generatore di parametri di set di dati](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
- 
 ## <a name="create-pipelines"></a>Creare le pipeline
 In questa esercitazione vengono create due pipeline: **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
 
@@ -257,7 +258,8 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
 1. Passare alla scheda **Sink** e seguire questa procedura: 
 
     1. Selezionare **AzureSqlDWDataset** per **Sink Dataset** (Set di dati sink).
-    1. Fare clic sulla casella di input per il valore del parametro DWTableName -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` come script -> selezionare **Fine**.
+    1. Fare clic sulla casella di input per il valore del parametro DWTableName -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `@item().TABLE_NAME` come script -> selezionare **Fine**.
+    1. Fare clic sulla casella di input per il valore del parametro DWSchema -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `@item().TABLE_SCHEMA` come script -> selezionare **Fine**.
     1. Per metodo di copia selezionare **PolyBase**. 
     1. Deselezionare l'opzione **Use type default** (Tipo di uso predefinito). 
     1. Fare clic sulla casella di input **Pre-copy Script** (Script di pre-copia) -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente come script -> selezionare **Fine**. 
@@ -282,12 +284,12 @@ Questa pipeline esegue due azioni:
 * Attivazione della pipeline "IterateAndCopySQLTables" per l'esecuzione della copia effettiva dei dati.
 
 1. Nel riquadro a sinistra fare clic su **+ (segno più)** e quindi su **Pipeline**.
-1. Nella scheda **Generale** cambiare il nome della pipeline in **GetTableListAndTriggerCopyData**. 
+1. Nella scheda Generale in **Proprietà** cambiare il nome della pipeline in **GetTableListAndTriggerCopyData**. 
 
 1. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare l'attività **Cerca** nell'area di progettazione della pipeline e seguire questa procedura:
 
     1. Immettere **LookupTableList** per **Nome**. 
-    1. Immettere **Retrieve the table list from Azure SQL database** (Recuperare l'elenco di tabelle dal database SQL di Azure) per **Descrizione**.
+    1. Immettere **Retrieve the table list from Azure SQL database** (Recuperare l'elenco di tabelle dal database) per **Descrizione**.
 
 1. Passare alla scheda **Impostazioni** e seguire questa procedura:
 
@@ -310,10 +312,8 @@ Questa pipeline esegue due azioni:
 1. Passare alla scheda **Impostazioni** dell'attività **Execute Pipeline** (Esegui pipeline) e seguire questa procedura: 
 
     1. Selezionare **IterateAndCopySQLTables** per **Invoked pipeline** (Pipeline richiamata). 
-    1. Espandere la sezione **Advanced** (Avanzate) e deselezionare la casella di controllo **wait on complete** (Attesa del completamento).
-    1. Fare clic su **+ Nuovo** nella sezione **Parametri**. 
-    1. Immettere **tableList** per il **Nome** del parametro.
-    1. Fare clic sulla casella di input del VALORE -> selezionare **Aggiungi contenuto dinamico** -> immettere `@activity('LookupTableList').output.value` come valore per il nome della tabella -> selezionare **Fine**. L'elenco dei risultati dall'attività Cerca viene configurato come input per la seconda pipeline. L'elenco dei risultati contiene l'elenco di tabelle i cui dati devono essere copiati nella destinazione. 
+    1. Deselezionare la casella di controllo **Attendi completamento**.
+    1. Nella sezione **Parametri** fare clic sulla casella di input di VALORE -> selezionare **Aggiungi contenuto dinamico** -> immettere `@activity('LookupTableList').output.value` come valore per il nome della tabella -> selezionare **Fine**. L'elenco dei risultati dall'attività Cerca viene configurato come input per la seconda pipeline. L'elenco dei risultati contiene l'elenco di tabelle i cui dati devono essere copiati nella destinazione. 
 
         ![Attività (Esegui pipeline) - Pagina Impostazioni](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325226"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249484"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Caricare dati in modo incrementale dall'istanza gestita di SQL di Azure in Archiviazione di Azure tramite la tecnologia Change Data Capture
 
@@ -55,7 +55,8 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 * **Istanza gestita di database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un'istanza gestita di database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato **raw**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creare una tabella di origine dati nel database SQL di Azure
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Creare una tabella di origine dati nel database SQL di Azure
+
 1. Avviare **SQL Server Management Studio** e connettersi al server delle istanze gestite di SQL di Azure.
 2. In **Esplora server** fare clic con il pulsante destro del mouse sul **database** e scegliere **Nuova query**.
 3. Eseguire questo comando SQL sul database delle istanze gestite di SQL di Azure per creare una tabella denominata `customers` come archivio dell'origine dati.  

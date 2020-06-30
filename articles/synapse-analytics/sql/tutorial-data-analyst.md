@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299537"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213143"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Usare SQL su richiesta (anteprima) per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio (anteprima)
 
@@ -32,7 +32,7 @@ In particolare, si analizza il [set di dati del taxi di New York](https://azure.
 
 ## <a name="automatic-schema-inference"></a>Inferenza automatica dello schema
 
-Poiché i dati vengono archiviati nel formato di file Parquet, è disponibile l'inferenza automatica dello schema. È possibile eseguire facilmente query sui dati senza la necessità di elencare i tipi di dati di tutte le colonne nei file. È anche possibile usare il meccanismo delle colonne virtuali e la funzione filepath per filtrare un determinato sottoinsieme di file.
+Poiché i dati vengono archiviati nel formato di file Parquet, è disponibile l'inferenza automatica dello schema. È possibile eseguire facilmente query sui dati senza elencare i tipi di dati di tutte le colonne nei file. È anche possibile usare il meccanismo delle colonne virtuali e la funzione filepath per filtrare un determinato sottoinsieme di file.
 
 Per acquisire familiarità con i dati dei taxi di New York, eseguire la query seguente:
 

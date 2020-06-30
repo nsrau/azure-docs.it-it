@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75444735"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114385"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Compilare l'interfaccia utente con Angular
 
@@ -32,7 +32,7 @@ La Parte 3 dell'esercitazione è basata sulla [Parte 2](tutorial-develop-mongodb
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) dell'esercitazione.
 
@@ -51,7 +51,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
     La finestra del terminale mostra una conferma dei nuovi componenti.
 
-    ![Installare il componente hero](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="Installazione del componente Hero":::
 
     È possibile esaminare i file creati e aggiornati. 
 
@@ -62,7 +62,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 4. Nella stessa cartella aprire il file **app.module.ts**. Come si può notare, è stato aggiunto `HeroesComponent` alle dichiarazioni alla riga 5 e lo stesso valore è stato importato anche nella riga 10.
 
-    ![Aprire il file app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Aprire il file app-module.ts":::
 
 5. Tornare al file **heroes.component.html** e copiarlo nel codice. Il valore `<div>` indica il contenitore per l'intera pagina. All'interno del contenitore è disponibile un elenco di tutti gli elementi hero da creare. Quando vi si fa clic è quindi possibile selezionarne uno e modificarlo o eliminarlo nell'interfaccia utente. Il codice HTML include alcuni aspetti relativi allo stile, per evidenziare gli elementi selezionati. È disponibile anche un'area di modifica, che consente di aggiungere un nuovo elemento hero o modificarne uno esistente. 
 
@@ -394,7 +394,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
 
 5. Fare clic con il pulsante sinistro del mouse sul termine `Hero`. Visual Studio mostra un'icona a forma di lampadina a sinistra del blocco di codice. 
 
-    ![Lampadina in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Lampadina in Visual Studio Code":::
 
 6. Fare clic sulla lampadina e quindi su **Importa Hero da "/app/hero"** oppure su **Importa Hero da "./hero"** . Il messaggio cambia in base alla configurazione.
 
@@ -490,7 +490,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
 
 3. Aprire un browser Internet e passare a **localhost:3000** per visualizzare l'app in esecuzione in locale.
 
-     ![Applicazione Hero in esecuzione in locale](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Applicazione Hero in esecuzione in locale":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

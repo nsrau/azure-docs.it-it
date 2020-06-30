@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415916"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252662"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -22,9 +22,9 @@ I clienti che si imbarcano in progetti di data warehouse moderno e di analisi ha
 
 Dalla possibilità di eseguire procedure ETL/ELT senza codice alla creazione di una visualizzazione completa dei dati, i miglioramenti di Azure Data Factory consentiranno agli ingegneri dei dati di introdurre una maggiore quantità di dati, e quindi più valore, nell'azienda. Condivisione dati di Azure renderà possibile la condivisione Business to Business in un modo regolamentato.
 
-In questo workshop si userà Azure Data Factory (ADF) per inserire i dati di un database SQL di Azure (DB SQL) in Azure Data Lake Storage Gen2 (ADLS Gen2). Una volta inseriti nel data lake, i dati verranno trasformati tramite flussi di dati per mapping, il servizio di trasformazione nativo della data factory, e acquisiti tramite sink in Azure Synapse Analytics (in precedenza SQL DW). Quindi, la tabella con i dati trasformati, insieme ad alcuni dati aggiuntivi, verrà condivisa tramite Condivisione dati di Azure. 
+In questo workshop si userà Azure Data Factory (ADF) per inserire i dati dal database SQL di Azure in Azure Data Lake Storage Gen2 (ADLS Gen2). Una volta inseriti nel data lake, i dati verranno trasformati tramite flussi di dati per mapping, il servizio di trasformazione nativo della data factory, e acquisiti tramite sink in Azure Synapse Analytics (in precedenza SQL DW). Quindi, la tabella con i dati trasformati, insieme ad alcuni dati aggiuntivi, verrà condivisa tramite Condivisione dati di Azure. 
 
-I dati usati in questo lab sono relativi ai taxi di New York. Per importarli nel database SQL di Azure, scaricare il [file bacpac taxi-data](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
+I dati usati in questo lab sono relativi ai taxi di New York. Per importarli nel database del database SQL di Azure, scaricare il [file bacpac taxi-data](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ Nei servizi collegati di Azure Data Factory definire le informazioni per la conn
 
     ![Portale](media/lab-data-flow-data-share/configure1.png)
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato database SQL di Azure
+### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure
 
 1. La pagina di creazione consente di creare risorse di data factory come pipeline, set di dati, flussi di dati, trigger e servizi collegati. Per creare un servizio collegato, fare clic sul pulsante **Connessioni** nell'angolo in basso a destra.
 
@@ -396,7 +396,7 @@ Dopo aver creato una condivisione di dati, si assumerà il ruolo di *consumer di
 
 1. Selezionare **Pianificazione degli snapshot** e configurare un aggiornamento orario dei dati usando l'elenco a discesa *Ricorrenza*.  
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     A questo punto è disponibile una condivisione dati attiva. Esaminare i contenuti visibili a un provider di dati quando si crea una condivisione dati. 
 

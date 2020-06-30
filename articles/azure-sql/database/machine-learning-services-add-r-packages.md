@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324233"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250724"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Aggiungere un pacchetto R in Machine Learning Services nel database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Questo articolo spiega come aggiungere un pacchetto R in Machine Learning Servic
 
 ## <a name="list-r-packages"></a>Elencare i pacchetti R
 
-Microsoft fornisce diversi pacchetti R preinstallati con Machine Learning Services nel database SQL.
+Microsoft fornisce diversi pacchetti R preinstallati con Machine Learning Services nel database SQL di Azure.
 Per visualizzare l'elenco dei pacchetti R installati, eseguire il comando seguente in Azure Data Studio o SSMS.
 
 1. Aprire Azure Data Studio o SSMS e connettersi al database SQL di Azure.

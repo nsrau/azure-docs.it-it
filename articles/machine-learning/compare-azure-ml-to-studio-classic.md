@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371830"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210372"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning e Machine Learning Studio (versione classica)
 
@@ -29,7 +29,7 @@ Nella tabella seguente sono riepilogate alcune delle differenze principali tra A
 
 | | Machine Learning Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaccia per il trascinamento della selezione | Supportato | Supportato - [Finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) | 
+| Interfaccia per il trascinamento della selezione | Supportato | Supportato - [Finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) <br/>(Richiede l'area di lavoro Enterprise) | 
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
 | Destinazioni di calcolo del training | Destinazione di calcolo proprietaria, solo supporto di CPU | Ampia gamma di [destinazioni di calcolo per il training](concept-compute-target.md#train) personalizzabili. Include il supporto di GPU e CPU | 
 | Destinazioni di calcolo della distribuzione | Formato di servizio Web proprietario, non personalizzabile | Ampia gamma di [destinazioni di calcolo per la distribuzione](concept-compute-target.md#deploy) personalizzabili. Include il supporto di GPU e CPU |

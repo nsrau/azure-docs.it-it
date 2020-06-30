@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532426"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254481"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Esempi di PowerShell per Servizio app di Azure
 
@@ -32,7 +32,7 @@ La tabella seguente include i collegamenti agli script PowerShell compilati tram
 | [Ridimensionare un'app manualmente](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app e la ridimensiona su 2 istanze. |
 | [Ridimensionare un'app a livello globale con un'architettura a disponibilità elevata](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea due app del servizio app in due aree geografiche diverse e le rende disponibili tramite un singolo endpoint usando Gestione traffico di Azure. |
 |**Collegare l'app alle risorse**||
-| [Connettere un'app a un database SQL](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e un database SQL e quindi aggiunge la stringa di connessione del database alle impostazioni dell'app. |
+| [Connettere un'app a un database SQL](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e un database nel database SQL di Azure e quindi aggiunge la stringa di connessione del database alle impostazioni dell'app. |
 | [Connettere un'app a un account di archiviazione](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e un account di archiviazione e quindi aggiunge la stringa di connessione della risorsa di archiviazione alle impostazioni dell'app. |
 |**Eseguire il backup e il ripristino delle app**||
 | [Eseguire il backup di un'app](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app e un backup singolo per essa. |

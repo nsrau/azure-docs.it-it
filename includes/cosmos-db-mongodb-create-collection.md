@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200333"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121304"
 ---
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un’API di Azure Cosmos DB per un database e un contenitore MongoDB. 
 
@@ -21,7 +21,7 @@ ms.locfileid: "84200333"
     
     A destra viene visualizzata l'area **Aggiungi contenitore**. Per vederla potrebbe essere necessario scorrere verso destra.
 
-    ![Esplora dati nel portale di Azure, riquadro Aggiungi contenitore](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
 
 2. Nella pagina **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66242578"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119478"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 
@@ -26,11 +26,11 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione dei dati con AzCopy
 > * Migrazione dall'API Table (anteprima) all'API Table 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva configurata per un singolo contenitore o un set di contenitori. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere Livelli di prestazioni e piani tariffari in Azure Cosmos DB.
 
-* **Creare le risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano le tabelle di Azure Cosmos DB.
+* **Creare risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare tutte le tabelle dal portale di Azure. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano le tabelle di Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Utilità di migrazione dati
 
@@ -68,11 +68,11 @@ Usare le opzioni dell'origine seguenti per definire l'archiviazione tabelle di A
 
 Per recuperare la stringa di connessione di origine durante l'importazione dall'archiviazione tabelle di Azure, aprire il portale di Azure e fare clic su **Account di archiviazione** > **Account** > **Chiavi di accesso**, quindi usare il pulsante Copia per copiare la **stringa di connessione**.
 
-![Schermata di HBase opzioni del codice sorgente](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot delle opzioni relative all'origine per HBase":::
 
 Per recuperare la stringa di connessione di origine durante l'importazione da un account dell'API Table (anteprima) di Azure Cosmos DB, aprire il portale di Azure e fare clic su **Azure Cosmos DB** > **Account** > **Stringa di connessione**, quindi usare il pulsante Copia per copiare la **stringa di connessione**.
 
-![Schermata di HBase opzioni del codice sorgente](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot delle opzioni relative all'origine per HBase":::
 
 [Comando di archiviazione tabelle di Azure di esempio](#azure-table-storage)
 
@@ -99,7 +99,7 @@ Ecco un esempio di riga di comando per importare dall'archiviazione tabelle di A
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando di esempio: l'origine è l'API Table (anteprima) di Azure Cosmos DB
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando di esempio: l'origine è l'API Tabella di Azure Cosmos DB (anteprima)
 
 Ecco un esempio di riga di comando per importare dall'anteprima dell'API Table all'API Table GA:
 

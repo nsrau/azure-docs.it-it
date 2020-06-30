@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: banders
-ms.openlocfilehash: e924c46632e37c6d196fae2db729c17a99bbae3b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765115"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101020"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -20,9 +20,6 @@ Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esi
 La funzionalità di scambio e annullamento self-service non è disponibile per i clienti US Government con Contratto Enterprise. Sono supportati altri tipi di sottoscrizione US Government, inclusi con pagamento in base al consumo e CSP (Cloud Solution Provider).
 
 È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente. È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
-> [!NOTE]
-> Microsoft non applica attualmente addebiti per le penali per risoluzione anticipata per i rimborsi delle prenotazioni. È possibile che tali penali vengano addebitate per i rimborsi effettuati in futuro. Non è attualmente disponibile alcuna data per l'abilitazione di tali penali.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Come scambiare o rimborsare una prenotazione esistente
 
@@ -75,7 +72,7 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 
 **Criteri di rimborso**
 
-- Non viene attualmente applicata alcuna penale per risoluzione anticipata, ma in futuro è possibile che venga applicata una penale del 12% per gli annullamenti.
+- Può essere prevista una penale del 12% di terminazione anticipata per gli annullamenti.
 - L'impegno annullato totale non può essere superiore a 50.000 USD in un periodo continuo di 12 mesi. Esempio: per una prenotazione di tre anni da 100 USD al mese e rimborsata nel 18° mese, l'impegno annullato sarà pari a 1.800 USD. Dopo il rimborso il nuovo limite disponibile per i rimborsi sarà pari a 48.200 USD. Dopo 365 giorni dal rimborso, il limite di 48.200 USD verrà incrementato di 1.800 USD e il nuovo pool sarà pari a 50.000 USD. Eventuali altri annullamenti di prenotazioni esauriranno lo stesso pool e verrà applicata la stessa logica di rifornimento.
 - I rimborsi vengono calcolati in base al prezzo più basso, tra quello di acquisto o quello corrente della prenotazione.
 - Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

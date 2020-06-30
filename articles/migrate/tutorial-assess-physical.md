@@ -3,12 +3,12 @@ title: Valutare i server fisici per la migrazione ad Azure con Valutazione serve
 description: Questo articolo descrive come valutare i server fisici locali per la migrazione ad Azure usando Valutazione server di Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052203"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080774"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Valutare i server fisici con Valutazione server di Azure Migrate
 
@@ -80,7 +80,7 @@ Azure Migrate: Valutazione server esegue un'appliance leggera.
     - Estrarre il contenuto del file compresso. Avviare la console PowerShell con privilegi amministrativi.
     - Eseguire lo script di PowerShell per avviare l'applicazione Web dell'appliance.
     - Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate.
-- È possibile configurare più appliance per un singolo progetto di Azure Migrate. In tutte le appliance è possibile individuare un numero qualsiasi di server fisici. Una singola appliance può individuare fino a 250 server.
+- È possibile configurare più appliance per un singolo progetto di Azure Migrate. In tutte le appliance è possibile individuare un numero qualsiasi di server fisici. Una singola appliance può individuare un massimo di 1000 server.
 
 ### <a name="download-the-installer-script"></a>Scaricare lo script del programma di installazione
 

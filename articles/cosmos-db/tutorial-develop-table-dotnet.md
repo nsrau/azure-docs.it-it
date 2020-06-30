@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693176"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118917"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 
@@ -25,7 +25,7 @@ ms.locfileid: "84693176"
 
 Questa esercitazione descrive un esempio che illustra come usare la [libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con l'API Tabella di Azure Cosmos DB e l'archiviazione tabelle di Azure. È necessario usare la connessione specifica per il servizio di Azure. Questi scenari vengono esaminati usando esempi C# che illustrano come creare tabelle, inserire/aggiornare i dati, eseguire query sui dati ed eliminare le tabelle.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
@@ -49,7 +49,7 @@ In Visual Studio creare una nuova applicazione console .NET. La procedura seguen
 
 1. Nel campo **Nome progetto** immettere un nome per l'applicazione, ad esempio **CosmosTableSamples**. (È possibile immettere un nome diverso in base alle esigenze).
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Tutti gli esempi di codice in questo esempio possono essere aggiunti al metodo Main() del file **Program.cs** dell'applicazione console.
 
@@ -67,7 +67,7 @@ Per ottenere il pacchetto NuGet, seguire questa procedura:
 
 1. Aprire il riquadro **Stringa di connessione** oppure **Chiavi di accesso**. Usare il pulsante di copia sul lato destro della finestra per copiare la **STRINGA DI CONNESSIONE PRIMARIA**.
 
-   ![Visualizzare e copiare la STRINGA DI CONNESSIONE PRIMARIA nel riquadro Stringa di connessione](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Visualizzare e copiare la STRINGA DI CONNESSIONE PRIMARIA nel riquadro Stringa di connessione":::
    
 1. Per configurare la stringa di connessione, in Visual Studio fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**.
 
@@ -422,7 +422,7 @@ namespace CosmosTableSamples
 
 Compilare ora la soluzione e premere F5 per eseguire il progetto. Quando viene eseguito il progetto, nel prompt dei comandi verrà visualizzato l'output seguente:
 
-![Output del prompt dei comandi](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Output del prompt dei comandi":::
 
 Se viene visualizzato un errore che indica che non è stato trovato il file Settings.json durante l'esecuzione del progetto, è possibile risolvere il problema aggiungendo la voce XML seguente alle impostazioni del progetto. Fare clic con il pulsante destro del mouse su CosmosTableSamples, scegliere il comando di modifica di CosmosTableSamples.csproj e aggiungere l'elemento itemGroup seguente: 
 
@@ -435,7 +435,7 @@ Se viene visualizzato un errore che indica che non è stato trovato il file Sett
 ```
 Ora è possibile accedere al portale di Azure e verificare che i dati siano presenti nella tabella. 
 
-![Risultati nel portale](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Risultati nel portale":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

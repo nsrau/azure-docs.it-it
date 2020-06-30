@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con PowerShell
-description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database SQL di Azure.
+description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database del database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 18f004b88a2b79f057ce3bf2fcc4cbe73e2b46da
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736621"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250962"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure con PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure con PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server in un database SQL di Azure.    
+In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server al database SQL di Azure.    
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -70,7 +70,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **SQL Server**. In questa esercitazione si usa un database di SQL Server come archivio dati di origine. 
-* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno. 
+* **Database SQL di Azure**. Usare un database del database SQL di Azure come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database del database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creare le tabelle di origine nel database di SQL Server
 
@@ -117,7 +117,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 2. In **Esplora server (SSMS)** o nel **riquadro Connessioni (Azure Data Studio)** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
-3. Eseguire questo comando SQL sul database SQL per creare le tabelle denominate `customer_table` e `project_table`:  
+3. Eseguire il comando SQL seguente sul database per creare le tabelle denominate `customer_table` e `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore limite massimo
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore del limite massimo
 
-1. Eseguire questo comando SQL sul database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
+1. Eseguire il comando SQL seguente sul database per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creare una stored procedure nel database SQL di Azure 
 
-Eseguire questo comando per creare una stored procedure nel database SQL. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
+Eseguire il comando seguente per creare una stored procedure nel database. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database SQL di Azure
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database SQL di Azure
 
-Eseguire questa query per creare due stored procedure e due tipi di dati nel database SQL. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione. 
+Eseguire la query seguente per creare due stored procedure e due tipi di dati nel database. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione. 
 
 Per semplificare la procedura, si usano direttamente queste stored procedure passando i dati differenziali tramite una variabile di tabella e quindi unendoli nell'archivio di destinazione. Si noti che non è prevista l'archiviazione di un numero di righe differenziali elevato (più di 100) nella variabile di tabella.  
 
@@ -283,13 +283,13 @@ Tenere presente quanto segue:
 
 * Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli collaboratore o proprietario oppure un amministratore della sottoscrizione di Azure.
 
-* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL, Istanza gestita di SQL e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database SQL di Azure. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server e al database nel database SQL di Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server
 

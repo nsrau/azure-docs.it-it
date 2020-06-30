@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 61d47c2f308555265ccabad4d7456026ee9a639c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf3f454296acafcff6fe775b07abeb7a253749b5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78299313"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253529"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Esercitazione: Esaminare la fattura del Contratto Microsoft Partner
 
@@ -69,7 +69,7 @@ Nella pagina Tutte le transazioni vengono visualizzate le informazioni seguenti:
 |Data     | La data della transazione  |
 |ID fattura     | L'identificatore della fattura in cui viene fatturata la transazione. Se si invia una richiesta di supporto, condividere l'ID con il supporto tecnico di Azure per velocizzarne la gestione |
 |Tipo di transazione     |  Il tipo di transazione, ad esempio acquisto, annullamento e addebiti per l'utilizzo  |
-|Famiglia di prodotti     | La categoria del prodotto, ad esempio calcolo per le macchine virtuali o database per il database SQL di Azure|
+|Famiglia di prodotti     | La categoria del prodotto, ad esempio calcolo per le macchine virtuali o database per Database SQL di Azure|
 |SDKU di prodotto     | Un codice univoco che identifica l'istanza del prodotto |
 |Amount     |  L'importo della transazione      |
 |Profilo di fatturazione     | La transazione viene visualizzata nella fattura di questo profilo di fatturazione |

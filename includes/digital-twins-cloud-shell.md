@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 76480959d94b9e2a2e04857c85b7359105e73e4f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 4aa016294f0ef3bd26f7f3ef6fa374e9367b672d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611474"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296968"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
 ### <a name="set-up-cloud-shell-session"></a>Configurare una sessione di Cloud Shell
 
-Dopo aver aperto una finestra di Cloud Shell, la prima cosa da fare è accedere e impostare il contesto della shell sulla sottoscrizione per questa sessione. 
+Dopo aver aperto una finestra di Cloud Shell, la prima cosa da fare è accedere e impostare il contesto della shell sulla sottoscrizione per questa sessione. Eseguire questi comandi nell'istanza di Cloud Shell:
 
 ```azurecli
 az login
@@ -29,16 +29,18 @@ Se è la prima volta che si usa questa sottoscrizione con Gemelli digitali di Az
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Quindi, eseguire il comando seguente nell'istanza di Cloud Shell per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure.
+A questo punto, si aggiungerà l'[**estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) all'istanza di Cloud Shell, per abilitare i comandi per l'interazione con Gemelli digitali di Azure e altri servizi IoT. Usare questo comando per aggiungere l'estensione:
 
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
 
-> [!NOTE]
-> Questo articolo usa la versione più recente dell'estensione Azure IoT, denominata `azure-iot`. La versione legacy viene chiamata `azure-iot-cli-ext`. Deve essere installata solo una versione alla volta. È possibile usare il comando `az extension list` per convalidare le estensioni attualmente installate.
-> Usare `az extension remove --name azure-cli-iot-ext` per rimuovere la versione legacy dell'estensione.
-> Usare `az extension add --name azure-iot` per aggiungere la nuova versione dell'estensione. Per visualizzare le estensioni installate, usare `az extension list`.
+Se l'estensione è stata installata in passato, l'output potrebbe indicare che l'estensione azure-iot è già installata. In tal caso, eseguire il comando seguente per verificare che sia installato l'aggiornamento più recente: 
 
-> [!TIP]
-> È possibile eseguire `az dt -h` per visualizzare i comandi di primo livello di Gemelli digitali di Azure.
+   ```azurecli-interactive
+   az extension update --name azure-iot
+   ```
+
+A questo punto si è pronti per usare Gemelli digitali di Azure in Cloud Shell.
+
+Per verificarlo, è possibile eseguire `az dt -h` in qualsiasi momento per visualizzare un elenco dei comandi di Gemelli digitali di Azure di primo livello disponibili.

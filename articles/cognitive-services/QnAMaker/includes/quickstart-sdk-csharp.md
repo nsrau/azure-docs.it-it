@@ -2,21 +2,23 @@
 title: 'Avvio rapido: Libreria client di QnA Maker per .NET'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 ms.topic: quickstart
-ms.date: 06/11/2020
-ms.openlocfilehash: e487783e506d16006231b07b9a86f93864f51903
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.date: 06/18/2020
+ms.openlocfilehash: 06aaf8861a263711ab3d01e6355bc161538a3311
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765141"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114540"
 ---
 Usare la libreria client di QnA Maker per .NET per:
 
  * Creare una knowledge base
  * Aggiornare una knowledge base
- * Pubblicare una knowledge base, in attesa del completamento della pubblicazione
+ * Pubblicare una knowledge base
  * Ottenere la chiave dell'endpoint di runtime di previsione
+ * Attendere un'attività a esecuzione prolungata
  * Scaricare una knowledge base
+ * Ottenere la risposta
  * Eliminare una knowledge base
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [Esempi C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart)
@@ -27,16 +29,15 @@ Usare la libreria client di QnA Maker per .NET per:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Dopo aver creato la sottoscrizione di Azure, creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) nel portale di Azure per ottenere la chiave di creazione e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
-    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API QnA Maker. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+* Dopo aver creato la sottoscrizione di Azure, creare una [risorsa di QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) nel portale di Azure per ottenere la chiave di creazione e il nome della risorsa. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e il nome della risorsa creata sono necessari per connettere l'applicazione all'API QnA Maker. La chiave e il nome della risorsa verranno incollati nel codice seguente più avanti in questo argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 
-
 #### <a name="visual-studio-ide"></a>[IDE di Visual Studio](#tab/visual-studio)
 
-Usando Visual Studio creare un'applicazione .NET Core e installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `(package-name)`. Selezionare la versione `(version)`, quindi **Installa**.
+Usando Visual Studio creare un'applicazione .NET Core e installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker`. Selezionare la versione `2.0.0-preview.1`, quindi **Installa**.
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -65,7 +66,7 @@ Build succeeded.
 Nella directory dell'applicazione installare la libreria client di QnA Maker per .NET con il comando seguente:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.1.0
+dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 2.0.0-preview.1
 ```
 
 
@@ -78,7 +79,15 @@ Dalla directory del progetto aprire il file *program.cs* e aggiungere le diretti
 
 [!code-csharp[Dependencies](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Dependencies&highlight=1-2)]
 
-Nel metodo `Main` dell'applicazione aggiungere le variabili e il codice, come illustrato nelle sezioni seguenti, per usare le attività comuni di questo argomento di avvio rapido.
+Nel metodo `Main` dell'applicazione aggiungere le variabili e il codice, come illustrato nella sezione seguente, per usare le attività comuni di questo argomento di avvio rapido.
+
+> [!IMPORTANT]
+> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
+> Per creare la knowledge base, è necessaria l'intera chiave. È necessario solo il nome della risorsa dall'endpoint. Il formato è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.
+> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, l'[insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview) fornisce un'archiviazione delle chiavi sicura.
+
+[!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
+
 
 ## <a name="object-models"></a>Modelli a oggetti
 
@@ -86,6 +95,7 @@ QnA Maker usa due modelli a oggetti diversi:
 * **[QnAMakerClient](#qnamakerclient-object-model)** è l'oggetto per creare, gestire, pubblicare e scaricare la knowledge base.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** è l'oggetto per eseguire una query sulla knowledge base con l'API GenerateAnswer e inviare nuove domande suggerite usando l'API Train (come parte dell'[apprendimento attivo](../concepts/active-learning-suggestions.md)).
 
+[!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
 ### <a name="qnamakerclient-object-model"></a>Modello a oggetti QnAMakerClient
 
@@ -98,6 +108,8 @@ Gestire la knowledge base inviando un oggetto JSON. Per le operazioni immediate,
 ### <a name="qnamakerruntimeclient-object-model"></a>Modello a oggetti QnAMakerRuntimeClient
 
 Il client di previsione di QnA Maker è un oggetto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) che esegue l'autenticazione ad Azure con Microsoft.Rest.ServiceClientCredentials, che contiene la chiave di runtime di previsione, restituita dalla chiamata del client di creazione `client.EndpointKeys.GetKeys` dopo la pubblicazione della knowledge base.
+
+Usare il metodo [GenerateAnswer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswer?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_RuntimeExtensions_GenerateAnswer_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IRuntime_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_) per ottenere una risposta dal runtime di query.
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -114,33 +126,11 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 * [Autenticare il client di runtime di query](#authenticate-the-runtime-for-generating-an-answer)
 * [Generare una risposta dalla knowledge base](#generate-an-answer-from-the-knowledge-base)
 
-## <a name="using-this-example-knowledge-base"></a>Utilizzo della knowledge base di esempio
 
-La knowledge base di questo argomento di avvio rapido inizia con due coppie di domande e risposte di conversazione per semplificare l'esempio e per avere ID altamente prevedibili da usare nel metodo Update, associando le richieste di completamento a domande in nuove coppie. Questa operazione è stata pianificata e implementata in un ordine specifico per questo argomento di avvio rapido.
-
-Se si prevede di sviluppare una knowledge base nel tempo con richieste di completamento che dipendono da coppie di domande e risposte esistenti, è possibile scegliere di:
-* Gestire la knowledge base in un editor di testo o in uno strumento TSV che supporti l'automazione e quindi di sostituire completamente la knowledge base con un aggiornamento (per le knowledge base di grandi dimensioni).
-* Gestire le richieste di completamento interamente nel portale di QnA Maker (per le knowledge base di piccole dimensioni).
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Autenticare il client per la creazione della knowledge base
 
-Nel metodo **main** creare una variabile per la chiave di Azure della risorsa e il nome della risorsa. Gli URL di creazione e di previsione usano il nome della risorsa come sottodominio.
-
-[!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
-
-
-> [!IMPORTANT]
-> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
-> Per creare la knowledge base, è necessaria l'intera chiave. È necessario solo il nome della risorsa dall'endpoint. Il formato è ``.
-> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, l'[insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview) fornisce un'archiviazione delle chiavi sicura.
-
-Creare quindi un oggetto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) con la propria chiave e usarlo con l'endpoint per creare un oggetto [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet).
-
-|Variabile|Esempio|
-|--|--|
-|`authoringKey`|La chiave è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina **Chiavi ed endpoint**. Non è la stessa chiave di quella del runtime di previsione.|
-|`resourceName`| Il nome della risorsa viene usato nel formato `https://{resourceName}.cognitiveservices.azure.com`. Non è lo stesso URL usato per eseguire query sul runtime di previsione.|
-||||
+Creare un'istanza di un oggetto client con la chiave e usarla con la risorsa per creare l'endpoint e quindi creare un oggetto [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) con l'endpoint e la chiave. Creare un oggetto [ServicePrincipalCredentials](https://docs.microsoft.com/dotnet/api/microsoft.rest.serviceclientcredentials?view=azure-dotnet).
 
 [!code-csharp[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=AuthorizationAuthor)]
 
@@ -150,14 +140,19 @@ In una knowledge base vengono archiviate le coppie di domande e risposte per l'o
 
 * Per **contenuto editoriale**, usare l'oggetto [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet).
     * Per usare i metadati e le richieste di completamento, usare il contesto editoriale, perché questi dati vengono aggiunti a livello di singola coppia di domande e risposte.
-* Per i **file**, usare l' oggetto [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet).
-* Per gli **URL**, usare un elenco di stringhe.
+* Per i **file**, usare l' oggetto [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet). FileDTO include il nome file e l'URL pubblico per raggiungere il file.
+* Per **URL**, usare un elenco di stringhe per rappresentare gli URL disponibili pubblicamente.
+
+Il passaggio di creazione include anche le proprietà della knowledge base:
+* `defaultAnswerUsedForExtraction`: il risultato restituito quando non si trova nessuna risposta
+* `enableHierarchicalExtraction`: crea automaticamente relazioni di richieste tra coppie di domande e risposte estratte
+* `language`: quando si crea la prima knowledge base di una risorsa, imposta la lingua da usare nell'indice di Ricerca di Azure.
 
 Chiamare il metodo [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet), quindi passare l'ID operazione restituito al metodo [MonitorOperation](#get-status-of-an-operation) per eseguire il polling dello stato.
 
 La riga finale del codice seguente restituisce l'ID knowledge base dalla risposta di MonitorOperation.
 
-[!code-csharp[Create a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=CreateKBMethod&highlight=37-38)]
+[!code-csharp[Create a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=CreateKBMethod&highlight=31)]
 
 Per creare correttamente una knowledge base, assicurarsi di includere la funzione [`MonitorOperation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente.
 
@@ -171,15 +166,17 @@ Per aggiornare correttamente una knowledge base, assicurarsi di includere la fun
 
 ## <a name="download-a-knowledge-base"></a>Scaricare una knowledge base
 
-Usare il metodo [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) per scaricare il database come un elenco di [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Questa operazione _non_ equivale all'esportazione dalla pagina **Settings** (Impostazioni) del portale di QnA Maker perché il risultato di questo metodo non è un file TSV.
+Usare il metodo [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) per scaricare il database come un elenco di [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Questa operazione _non_ equivale all'esportazione dalla pagina **Settings** (Impostazioni) del portale di QnA Maker, perché il risultato di questo metodo non è un file.
 
-[!code-csharp[Download a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=DownloadKB&highlight=3,4)]
+[!code-csharp[Download a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=DownloadKB&highlight=3)]
 
 ## <a name="publish-a-knowledge-base"></a>Pubblicare una knowledge base
 
-Pubblicare la knowledge base con il metodo [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint.
+Pubblicare la knowledge base con il metodo [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint. Questo passaggio è necessario per eseguire query sulla knowledge base.
 
 [!code-csharp[Publish a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=PublishKB&highlight=3)]
+
+
 
 ## <a name="get-query-runtime-key"></a>Ottenere una chiave di runtime di query
 
@@ -191,13 +188,17 @@ Usare una delle proprietà chiave restituite nell'oggetto per eseguire una query
 
 [!code-csharp[Get query runtime key](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=GetQueryEndpointKey&highlight=3)]
 
+Una chiave di runtime è necessaria per eseguire query sulla knowledge base.
+
 ## <a name="authenticate-the-runtime-for-generating-an-answer"></a>Autenticare il runtime per la generazione di una risposta
 
 Creare un oggetto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) per eseguire una query sulla knowledge base e generare una risposta o eseguire il training da apprendimento attivo.
 
 [!code-csharp[Authenticate the runtime](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=AuthorizationQuery)]
 
-Usare QnAMakerRuntimeClient per ottenere una risposta dalla knowledge base o per inviare nuove domande suggerite alla knowledge base per l'[apprendimento attivo](../concepts/active-learning-suggestions.md).
+Usare QnAMakerRuntimeClient per:
+* Ottenere una risposta dalla knowledge base
+* Inviare nuove domande suggerite alla knowledge base per l'[apprendimento attivo](../concepts/active-learning-suggestions.md).
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>Generare una risposta dalla knowledge base
 
@@ -205,7 +206,7 @@ Generare una risposta da una knowledge base pubblicata usando il metodo [Runtime
 
 [!code-csharp[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=GenerateAnswer&highlight=3)]
 
-Si tratta di un semplice esempio in cui viene eseguita una query sulla knowledge base. Per informazioni sugli scenari di query avanzati, vedere [altri esempi di query](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
+Si tratta di un semplice esempio di esecuzione di query sulla knowledge base. Per informazioni sugli scenari di query avanzati, vedere [altri esempi di query](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
 
 ## <a name="delete-a-knowledge-base"></a>Eliminare una knowledge base
 
@@ -225,10 +226,8 @@ Il _ciclo_ e _Task.Delay_ nel blocco di codice seguente vengono usati per simula
 
 Eseguire l'applicazione con il comando `dotnet run` dalla directory dell'applicazione.
 
-Tutti i frammenti di codice in questo articolo sono [disponibili](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) e possono essere eseguiti come singolo file.
-
 ```dotnetcli
 dotnet run
 ```
 
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
+Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).

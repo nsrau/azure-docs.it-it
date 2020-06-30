@@ -1,6 +1,6 @@
 ---
 title: Usare il portale di Azure per creare una pipeline di data factory
-description: Questa esercitazione offre istruzioni dettagliate per l'uso del portale di Azure per creare una data factory con una pipeline. La pipeline usa l'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure.
+description: Questa esercitazione offre istruzioni dettagliate per l'uso del portale di Azure per creare una data factory con una pipeline. La pipeline usa l'attività di copia per copiare i dati da Archiviazione BLOB di Azure al database SQL di Azure.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248618"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253966"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da Archiviazione BLOB di Azure a un database nel database SQL di Azure con Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati dall'archivio BLOB di Azure al database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da Archiviazione BLOB di Azure al database del database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Se non si ha familiarità con Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ In questa esercitazione si segue questa procedura:
 ## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Come archivio dati di *origine* si usa un archivio BLOB. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) per informazioni su come crearne uno.
-* **Database SQL di Azure**. Il database viene usato come archivio dati *sink*. Se non è disponibile un database SQL di Azure, vedere [Creare un database SQL](../azure-sql/database/single-database-create-quickstart.md) per crearne uno.
+* **Database SQL di Azure**. Il database viene usato come archivio dati *sink*. Se non si ha un database nel database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
 
@@ -61,7 +61,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
 
 #### <a name="create-a-sink-sql-table"></a>Creare una tabella SQL sink
 
-1. Usare lo script SQL seguente per creare la tabella **dbo.emp** nel database SQL:
+1. Usare lo script SQL seguente per creare la tabella **dbo.emp** nel database:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -103,7 +103,7 @@ In questo passaggio si crea una data factory e si avvia l'interfaccia utente di 
 
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
-In questo passaggio si crea una pipeline con un'attività di copia nella data factory. L'attività copia i dati dall'archivio BLOB al database SQL. Nell'[Esercitazione introduttiva](quickstart-create-data-factory-portal.md) è stata creata una pipeline con questa procedura:
+In questo passaggio si crea una pipeline con un'attività di copia nella data factory. L'attività copia i dati dall'archivio BLOB al database SQL. Nell'[esercitazione di avvio rapido](quickstart-create-data-factory-portal.md) è stata creata una pipeline con questa procedura:
 
 1. Creazione del servizio collegato.
 1. Creazione dei set di dati di input e di output.
@@ -162,7 +162,7 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
 
     b. In **Nome server** selezionare l'istanza di SQL Server.
 
-    c. In **Nome database** selezionare il database SQL.
+    c. In **Nome database** selezionare il database.
 
     d. In **Nome utente** immettere il nome dell'utente.
 
@@ -209,7 +209,7 @@ In questo passaggio si attiva manualmente la pipeline pubblicata nel passaggio p
 
     [![Monitorare le esecuzioni delle attività](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Verificare l'aggiunta di altre due righe alla tabella **emp** nel database SQL.
+1. Verificare l'aggiunta di altre due righe alla tabella **emp** nel database.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Attivare la pipeline in base a una pianificazione
 In questa pianificazione si crea un trigger di pianificazione per la pipeline. Il trigger esegue la pipeline in base alla pianificazione specificata, ad esempio ogni ora oppure ogni giorno. In questo caso si imposta il trigger per l'esecuzione ogni minuto fino al valore di data e ora di fine specificato.

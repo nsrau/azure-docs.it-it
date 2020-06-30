@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3890b2c2c9434c7970bd969f6f4620e5d235d96
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3553515e2cbae007883ad75960aa1c6991926df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017699"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254549"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo
 
@@ -71,7 +71,7 @@ Si presuppone che sia eseguito un database SQL di quarta generazione nell'area S
 
 ### <a name="statement-section-of-csv-file"></a>Sezione relativa al rendiconto nel file CSV
 
-Filtrare in base al nome di misuratore **Utilizzo istanze riservate** e quindi scegliere **Categoria misuratore** - Database SQL di Azure o Azure Cosmos DB. Il contenuto visualizzato sarà simile allo screenshot seguente:
+Filtrare in base al nome del misuratore **Utilizzo istanze riservate** e quindi scegliere **Categoria misuratore** - Database SQL di Azure o Azure Cosmos DB. Il contenuto visualizzato sarà simile allo screenshot seguente:
 
 ![File CSV per la capacità riservata del database SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

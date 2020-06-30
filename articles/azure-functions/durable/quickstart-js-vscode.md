@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889659"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194468"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
@@ -58,25 +58,6 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 Se necessario, Visual Studio Code installa Azure Functions Core Tools. Crea inoltre un progetto di app per le funzioni in una cartella. Questo progetto contiene i file di configurazione [host.json](../functions-host-json.md) e [local.settings.json](../functions-run-local.md#local-settings-file).
 
 Viene inoltre creato un file package.json nella cartella radice.
-
-### <a name="enable-compatibility-mode"></a>Abilitare la modalità di compatibilità
-
-Attualmente, per Durable Functions in JavaScript è necessario che sia abilitata la modalità di compatibilità per Funzioni di Azure V2.
-
-1. Aprire *local.settings.json* per modificare le impostazioni usate durante l'esecuzione dell'app in locale.
-
-1. Aggiungere un'impostazione denominata `FUNCTIONS_V2_COMPATIBILITY_MODE` con valore `true`.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
 
 ## <a name="install-the-durable-functions-npm-package"></a>Installare il pacchetto npm di Durable Functions
 
@@ -169,7 +150,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
     ![Output locale di Azure](media/quickstart-js-vscode/functions-f5.png)
 
-1. Con uno strumento come [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), inviare una richiesta HTTP POST all'endpoint URL. Sostituire l'ultimo segmento con il nome della funzione dell'agente di orchestrazione (`HelloOrchestrator`). L'URL sarà simile a `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Usare il browser o uno strumento come [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/) per inviare una richiesta HTTP POST all'endpoint URL. Sostituire l'ultimo segmento con il nome della funzione dell'agente di orchestrazione (`HelloOrchestrator`). L'URL sarà simile a `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    La risposta è il risultato iniziale della funzione HTTP che informa che l'orchestrazione durevole è stata avviata correttamente. Non è ancora il risultato finale dell'orchestrazione. La risposta include alcuni URL utili. Per il momento si eseguirà una query relativa allo stato dell'orchestrazione.
 
@@ -202,20 +183,6 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-compatibility-mode"></a>Abilitare la modalità di compatibilità
-
-La stessa compatibilità con Funzioni di Azure v2 che è stata abilitata localmente deve essere abilitata nell'app in Azure.
-
-1. Usando il riquadro comandi cercare e selezionare `Azure Functions: Edit Setting...`.
-
-1. Seguire le istruzioni per individuare l'app per le funzioni nella sottoscrizione di Azure.
-
-1. Selezionare `Create new App Setting...`.
-
-1. Immettere una nuova chiave di impostazione `FUNCTIONS_V2_COMPATIBILITY_MODE`.
-
-1. Immettere il valore di impostazione `true`.
-
 ## <a name="test-your-function-in-azure"></a>Testare la funzione in Azure
 
 1. Copiare l'URL del trigger HTTP dal pannello **Output**. L'URL che chiama la funzione attivata tramite HTTP deve essere nel formato `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
@@ -227,4 +194,4 @@ La stessa compatibilità con Funzioni di Azure v2 che è stata abilitata localme
 Si è usato Visual Studio Code per creare e pubblicare un'app per le funzioni durevoli in JavaScript.
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri di funzione permanente comuni](durable-functions-overview.md#application-patterns)
+> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-overview.md#application-patterns)

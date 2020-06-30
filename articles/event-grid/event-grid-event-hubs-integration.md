@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610818"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212208"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
 [Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un SQL Data Warehouse.
@@ -173,7 +173,7 @@ Creare una tabella nel data warehouse mediante l'esecuzione dello script [Create
 2. Nella pagina del data warehouse SQL, selezionare **Editor di query (anteprima)** nel menu a sinistra. 
 
     ![Pagina del data warehouse di SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Immettere il nome dell'**utente** e la **password** per il server SQL e selezionare **OK**. Per accedere a SQL Server, è necessario che l'indirizzo IP del client sia stato aggiornato nel firewall. 
+2. Immettere il nome dell'**utente** e la **password** per il server SQL e selezionare **OK**. Per accedere a SQL Server, può essere necessario aggiungere l'indirizzo IP del client al firewall. 
 
     ![Autenticazione del server di SQL](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Nella finestra di query, copiare ed eseguire lo script SQL seguente: 

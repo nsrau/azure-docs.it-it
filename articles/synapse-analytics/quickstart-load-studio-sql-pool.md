@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124478"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262617"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Caricamento bulk con Synapse SQL
 
@@ -28,7 +28,7 @@ La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario avere accesso all'area di lavoro con almeno il ruolo Controllo degli accessi in base al ruolo di Collaboratore ai dati dei BLOB di archiviazione per l'account ADLS Gen2.
+- Questa procedura guidata genera un'istruzione COPY che usa il pass-through di AAD per l'autenticazione. È necessario che l'[utente di AAD abbia accesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) all'area di lavoro con almeno il ruolo Controllo degli accessi in base al ruolo di Collaboratore ai dati dei BLOB di archiviazione per l'account ADLS Gen2.
 
 - È necessario avere le [autorizzazioni richieste per l'uso dell'istruzione COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) e le autorizzazioni per la creazione di tabelle, se viene creata una nuova tabella in cui caricare i dati.
 

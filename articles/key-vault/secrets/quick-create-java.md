@@ -7,14 +7,14 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 6351a3d27806d791e478999d04922b961949c46a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982837"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125601"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Guida introduttiva: Libreria client di Azure Key Vault per Java
+# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Avvio rapido: Libreria client di Azure Key Vault per Java
 
 Introduzione alla libreria client di Azure Key Vault per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -121,7 +121,7 @@ Per semplicità, tuttavia, in questo avvio rapido viene creata un'applicazione d
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Questa operazione restituisce una serie di coppie chiave-valore. 

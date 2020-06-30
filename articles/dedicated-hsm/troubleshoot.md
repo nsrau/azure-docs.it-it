@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310105"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209573"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Il servizio HSM dedicato di Azure prevede due aspetti distinti. In primo luogo, la registrazione e la distribuzione in Azure dei dispositivi HSM con i relativi componenti di rete sottostanti. In secondo luogo, la configurazione dei dispositivi HSM in preparazione per l'uso o l'integrazione con un carico di lavoro o un'applicazione specifica. Anche se i dispositivi HSM di Thales Luna Network in Azure sono gli stessi di quelli che si acquistano direttamente da Thales, il fatto che si tratti di una risorsa in Azure impone alcune considerazioni specifiche. Queste considerazioni e le risultanti informazioni dettagliate o procedura consigliata per la risoluzione dei problemi sono documentate in questo articolo per assicurare ampia visibilità e accesso a informazioni critiche. Quando il servizio è in uso, le informazioni definitive sono disponibili tramite richieste di supporto inviate direttamente a Microsoft o a Thales. 
 
 > [!NOTE]
-> Si noti che prima di eseguire qualsiasi configurazione in un dispositivo HSM appena distribuito, è consigliabile aggiornarlo con le patch pertinenti. Una patch necessaria specifica è [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789), disponibile nel portale di supporto di Thales, che risolve un problema di blocco del riavvio.
+> Si noti che prima di eseguire qualsiasi configurazione in un dispositivo HSM appena distribuito, è consigliabile aggiornarlo con le patch pertinenti. Una patch necessaria specifica è [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789), disponibile nel portale di supporto di Thales, che risolve un problema che si verifica quando il sistema non risponde più durante il riavvio.
 
 ## <a name="hsm-registration"></a>Registrazione di HSM
 
@@ -120,7 +120,7 @@ Prestare attenzione quando si configura la rete all'interno dell'HSM.  L'HSM pre
 
 ### <a name="hsm-device-reboot"></a>Riavvio dei dispositivi HSM
 
-Per alcune modifiche di configurazione è necessario che il dispositivo HSM venga spento e riacceso o riavviato. I test svolti da Microsoft sul modulo di protezione hardware in Azure hanno rilevato che in alcuni casi il riavvio potrebbe smettere di rispondere. L'implicazione è che risulta necessario creare una richiesta di supporto nel portale di Azure chiedendo un riavvio a freddo, che potrebbe richiedere fino a 48 ore, considerando che si tratta di un processo manuale eseguito in un data center di Azure.  Per evitare questa situazione, assicurarsi di aver distribuito la patch di riavvio disponibile direttamente presso Thales. Per informazioni sulla patch consigliata per un problema di blocco del riavvio, vedere l'articolo [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nei download dell'HSM Thales Luna Network 7.2. Nota: per il download è necessario aver effettuato la registrazione nel portale di supporto di Thales.
+Per alcune modifiche di configurazione è necessario che il dispositivo HSM venga spento e riacceso o riavviato. I test svolti da Microsoft sul modulo di protezione hardware in Azure hanno rilevato che in alcuni casi il riavvio potrebbe smettere di rispondere. L'implicazione è che risulta necessario creare una richiesta di supporto nel portale di Azure chiedendo un riavvio a freddo, che potrebbe richiedere fino a 48 ore, considerando che si tratta di un processo manuale eseguito in un data center di Azure.  Per evitare questa situazione, assicurarsi di aver distribuito la patch di riavvio disponibile direttamente presso Thales. Per informazioni sulla patch consigliata per un problema che si verifica quando il sistema non risponde più durante il riavvio, vedere l'articolo [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nei download dell'HSM Thales Luna Network 7.2. Nota: per il download è necessario aver effettuato la registrazione nel portale di supporto di Thales.
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificati NTLS non sincronizzati
 Un client potrebbe perdere la connettività a un HSM quando un certificato scade o è stato sovrascritto tramite aggiornamenti della configurazione. La configurazione client dello scambio di certificati dovrà essere riapplicata per ogni HSM.

@@ -8,12 +8,12 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737275"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296985"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creare una soluzione end-to-end
 
@@ -136,6 +136,8 @@ Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visua
 > [!NOTE]
 > È possibile che venga visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: credenziali di pubblicazione" border="false":::
 > In questo caso, selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva**.
+>
+> Se viene visualizzato l'avviso *Your version of the functions runtime does not match the version running in Azure* (La versione del runtime di Funzioni non corrisponde alla versione in esecuzione in Azure), seguire le istruzioni per eseguire l'aggiornamento alla versione più recente del runtime di Funzioni di Azure. Questo problema può verificarsi se si usa una versione di Visual Studio meno recente rispetto a quella consigliata nella sezione *Prerequisiti* all'inizio di questa esercitazione.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
 

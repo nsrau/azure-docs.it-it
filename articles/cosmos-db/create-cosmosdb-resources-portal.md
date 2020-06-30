@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a29fb754da90a0b355571499b0b3a369e68c7f14
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d169c638869cd9488605117552c9017dfd10c911
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686801"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118322"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 
@@ -42,7 +42,7 @@ Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 
 Passare al [portale di Azure](https://portal.azure.com/) per creare un account Azure Cosmos DB. Cercare e selezionare **Azure Cosmos DB**.
 
-   ![Riquadro Database nel portale di Azure](./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Riquadro Database nel portale di Azure":::
 
 1. Selezionare **Aggiungi**.
 1. Nella pagina **Crea account Cosmos DB** immettere le impostazioni base per il nuovo account Azure Cosmos. 
@@ -64,17 +64,17 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
 > [!NOTE]
 > È possibile avere fino a un account Azure Cosmos DB del livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente durante la creazione dell'account. Se l'opzione per l'applicazione dello sconto per il livello gratuito non è visualizzata, un altro account nella sottoscrizione è già stato abilitato per il livello gratuito.
    
-   ![Pagina del nuovo account per Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
 
 1. Selezionare **Rivedi e crea**. È possibile ignorare le sezioni **Rete** e **Tag**.
 
 1. Esaminare le impostazioni dell'account e quindi selezionare **Crea**. La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata**. 
 
-    ![Riquadro Notifiche del portale di Azure](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Riquadro Notifiche del portale di Azure":::
 
 1. Selezionare **Vai alla risorsa** per passare alla pagina dell'account Azure Cosmos DB. 
 
-    ![Pagina dell'account Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Pagina dell'account Azure Cosmos DB":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Aggiungere un database e un contenitore 
@@ -85,7 +85,7 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     
     Può essere necessario scorrere verso destra per visualizzare la finestra **Aggiungi contenitore**.
     
-    ![Esplora dati nel portale di Azure, riquadro Aggiungi contenitore](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
     
 1.  Nel riquadro **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
     
@@ -107,7 +107,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 
 1. In **Esplora dati** espandere il database **ToDoList** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi **Nuovo elemento**. 
    
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
    
 1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti**:
 
@@ -123,7 +123,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 
 1. Selezionare **Salva**.
    
-   ![Copiare i dati JSON e selezionare Salva in Esplora dati nel portale di Azure](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copiare i dati JSON e selezionare Salva in Esplora dati nel portale di Azure":::
    
 1. Selezionare **Nuovo documento** e creare e salvare un altro documento con un `id` univoco ed eventuali altri valori e proprietà desiderati. I documenti possono avere qualsiasi struttura perché Azure Cosmos DB non impone alcuno schema ai dati.
 
@@ -143,7 +143,7 @@ Se si vuole eliminare solo il database e usare l'account Azure Cosmos in futuro,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
+In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB e come creare un database e un contenitore con Esplora dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

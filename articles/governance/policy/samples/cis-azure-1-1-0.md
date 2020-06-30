@@ -1,23 +1,25 @@
 ---
 title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1e3c2baec1186e29da45c6395123e2f5aab9165a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 214d50c790f9976b96bf29906d4db64a111e859f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736833"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299025"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
 
-L'articolo seguente definisce il mapping dell'iniziativa incorporata di conformità con le normative di Criteri di Azure ai **domini di conformità** e ai **controlli** a CIS Microsoft Azure Foundations Benchmark.
+L'articolo seguente definisce il mapping dell'iniziativa predefinita di conformità alle normative di Criteri di Azure ai **domini di conformità** e ai **controlli** di CIS Microsoft Azure Foundations Benchmark.
 Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
 I mapping seguenti riguardano i controlli di **CIS Microsoft Azure Foundations Benchmark**. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
 Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+
+Questa iniziativa predefinita viene distribuita come parte dell'[esempio di progetto CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -606,7 +608,6 @@ Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conf
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[È consigliabile selezionare il piano tariffario Standard del Centro sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |Il piano tariffario Standard consente il rilevamento delle minacce per reti e macchine virtuali e fornisce informazioni sulle minacce, rilevamento delle anomalie e analisi del comportamento nel Centro sicurezza di Azure |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ## <a name="storage-accounts"></a>Account di archiviazione
 

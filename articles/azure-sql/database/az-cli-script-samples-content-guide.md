@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658176"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251521"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Esempi dell'interfaccia della riga di comando di Azure per Database SQL di Azure e Istanza gestita di SQL 
  
@@ -39,15 +39,15 @@ La tabella seguente contiene collegamenti a esempi di script dell'interfaccia de
 |---|---|
 |**Creare database nel database SQL di Azure**||
 | [Creare un database singolo e configurare una regola del firewall](scripts/create-and-configure-database-cli.md) | Crea un database SQL e configura una regola del firewall a livello di server. |
-| [Creare pool elastici e spostare i database in pool](scripts/move-database-between-elastic-pools-cli.md) | Crea pool elastici, sposta i database SQL in pool e modifica le dimensioni di calcolo. |
+| [Creare pool elastici e spostare i database in pool](scripts/move-database-between-elastic-pools-cli.md) | Crea pool elastici, sposta i database in pool e modifica le dimensioni di calcolo. |
 |**Dimensionare i database nel database SQL di Azure**||
 | [Ridimensionare un database singolo](scripts/monitor-and-scale-database-cli.md) | Dimensiona un database nel database SQL di Azure impostandolo su dimensioni di calcolo diverse dopo aver recuperato le informazioni sulle dimensioni del database tramite query. |
 | [Ridimensionare un pool elastico](scripts/scale-pool-cli.md) | Dimensiona un pool elastico SQL impostando dimensioni di calcolo diverse. |
 |**Configurare la replica geografica ed eseguire il failover**||
 | [Aggiungere un database singolo a un gruppo di failover](scripts/add-database-to-failover-group-cli.md)| Crea un database, un gruppo di failover, aggiunge il database al gruppo di failover e testa il failover nel server secondario. |
 | [Configurare un gruppo di failover per un pool elastico](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Crea un database, lo aggiunge a un pool elastico, aggiunge il pool elastico al gruppo di failover e testa il failover nel server secondario. |
-| [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura la replica geografica attiva per un database SQL di Azure e ne esegue il failover nella replica secondaria. |
-| [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura la replica geografica attiva per un database SQL di Azure in un pool elastico SQL e ne esegue il failover nella replica secondaria. |
+| [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura la replica geografica attiva per un database nel database SQL di Azure e ne esegue il failover nella replica secondaria. |
+| [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura la replica geografica attiva per un database in un pool elastico e ne esegue il failover nella replica secondaria. |
 | **Controllo e rilevamento delle minacce** |
 | [Configurare il controllo e il rilevamento delle minacce](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configura i criteri di controllo e rilevamento delle minacce per un database nel database SQL di Azure. |
 | **Eseguire il backup, il ripristino, la copia e l'importazione di un database**||

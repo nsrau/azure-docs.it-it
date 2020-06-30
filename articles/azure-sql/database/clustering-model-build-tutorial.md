@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7d0bc787f1ae4444849a1483d6323f8a098ae1e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 115688eeccab3a48bf4234f00124bcd6bc950853
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024131"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251438"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Creare un modello di clustering in R con Machine Learning Services del database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Nella seconda parte di questa serie di esercitazioni in tre parti verrà creato un modello K-means in R per eseguire il clustering. Nella parte successiva di questa serie questo modello verrà distribuito in un database SQL con Machine Learning Services di Database SQL di Azure (anteprima).
+Nella seconda parte di questa serie di esercitazioni in tre parti verrà creato un modello K-means in R per eseguire il clustering. Nella parte successiva di questa serie questo modello verrà distribuito in un database del database SQL di Azure con Machine Learning Services del database SQL di Azure (anteprima).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -36,9 +36,9 @@ In questo articolo si apprenderà come:
 > * Eseguire il clustering
 > * Analizzare i risultati
 
-Nella [prima parte](clustering-model-prepare-data-tutorial.md) si è appreso come preparare i dati di un database SQL di Azure per eseguire il clustering.
+Nella [prima parte](clustering-model-prepare-data-tutorial.md) si è appreso come preparare i dati di un database per il clustering.
 
-Nella [terza parte](clustering-model-deploy-tutorial.md) si apprenderà come creare una stored procedure in un database SQL di Azure in grado di eseguire il clustering in base ai nuovi dati.
+Nella [terza parte](clustering-model-deploy-tutorial.md) si apprenderà come creare una stored procedure in grado di eseguire il clustering in base ai nuovi dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

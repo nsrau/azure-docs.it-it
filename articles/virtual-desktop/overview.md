@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737020"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125805"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -113,7 +113,7 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |*.events.data.microsoft.com|443|Servizio di telemetria|nessuno|
 |www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|nessuno|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|nessuno|
-|login.windows.net|443|Accedere a Microsoft Online Services, Office 365|nessuno|
+|login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|nessuno|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
 

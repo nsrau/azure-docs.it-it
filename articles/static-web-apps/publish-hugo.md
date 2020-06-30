@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669903"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297942"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Hugo in App Web statiche di Azure (anteprima)
 
-Questo articolo illustra come creare e distribuire un'applicazione Web [Hugo](https://gohugo.io/) in [App Web statiche di Azure](overview.md). Il risultato finale è una nuova risorsa di App Web statiche di Azure che include le azioni di GitHub Actions associate per controllare la creazione e la pubblicazione dell'app.
+Questo articolo illustra come creare e distribuire un'applicazione Web [Hugo](https://gohugo.io/) in [App Web statiche di Azure](overview.md). Il risultato finale è una nuova istanza di App Web statiche di Azure che include azioni di GitHub Actions associate per controllare la creazione e la pubblicazione dell'app.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -144,42 +144,6 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 1. Fare clic sul pulsante **Rivedi e crea** per verificare che tutti i dettagli siano corretti.
 
 1. Fare clic su **Crea** per avviare la creazione della risorsa di App Web statiche di Azure ed effettuare il provisioning di un'azione di GitHub Actions per la distribuzione.
-
-1. Al termine della distribuzione, passare al terminale ed eseguire il pull del commit nel computer con l'azione di GitHub Actions.
-
-   ```bash
-   git pull
-   ```
-
-1. Aprire l'app Hugo in un editor di testo e aprire il file _.github/workflows/azure-pages-<NOME_FLUSSO_DI_LAVORO>.yml_.
-
-1. Sostituire la riga `- uses: actions/checkout@v2` (riga 18) con la seguente per compilare l'applicazione Hugo. Se è necessario Hugo Extended, rimuovere il commento `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   Per altre informazioni sull'installazione di Hugo nello strumento di esecuzione di GitHub Actions, vedere [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Eseguire il commit del flusso di lavoro aggiornato ed effettuare il push in GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Attendere il completamento dell'azione di GitHub Actions.
 

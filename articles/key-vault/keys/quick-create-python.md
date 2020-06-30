@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 830866880c1fc86bbc7510290a50df7fc86b9d1e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555960"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125177"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Guida introduttiva: libreria client di Azure Key Vault per Python
+# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Avvio rapido: libreria client di Azure Key Vault per Python
 
 Introduzione alla libreria client di Azure Key Vault per Python Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -27,7 +27,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Semplificare e automatizzare le attività per i certificati TLS/SSL.
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
-[Documentazione di riferimento delle API](/python/api/overview/azure/key-vault?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Pacchetto (Indice dei pacchetti Python)](https://pypi.org/project/azure-keyvault/)
+[Documentazione di riferimento delle API](/python/api/overview/azure/keyvault-keys-readme?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Pacchetto (Indice dei pacchetti Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,7 +75,7 @@ Per semplicità, tuttavia, in questo avvio rapido viene creata un'applicazione d
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Questa operazione restituisce una serie di coppie chiave-valore. 

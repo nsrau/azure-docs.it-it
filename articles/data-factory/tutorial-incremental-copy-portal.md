@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736511"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249172"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da un database SQL di Azure ad archiviazione BLOB di Azure tramite il portale di Azure
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da Database SQL di Azure ad Archiviazione BLOB di Azure con il portale di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure.
+In questa esercitazione viene creata una data factory di Azure con una pipeline che carica dati delta da una tabella di Database SQL di Azure in Archiviazione BLOB di Azure.
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -65,7 +65,7 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md) per crearne uno.
+* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non si ha un database in Database SQL di Azure, vedere la procedura per crearne uno descritta in [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creare una tabella di origine dati nel database SQL
@@ -103,6 +103,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL per archiviare il valore del limite massimo
+
 1. Eseguire questo comando SQL sul database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite:  
 
     ```sql
@@ -169,7 +170,7 @@ END
          
         Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 6. Selezionare **V2** per **version**.
-7. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+7. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, Database SQL di Azure, Istanza gestita di SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 8. Fare clic su **Crea**.      
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
 
@@ -322,7 +323,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
 ## <a name="add-more-data-to-source"></a>Aggiungere altri dati all'origine
 
-Inserire nuovi dati nel database SQL (archivio dell'origine dati).
+Inserire nuovi dati nel database (archivio dell'origine dati).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-I dati aggiornati nel database SQL sono i seguenti:
+I dati aggiornati nel database sono i seguenti:
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Attivare un'altra esecuzione della pipeline
+
 1. Passare alla scheda **Modifica**. Fare clic sulla pipeline nella visualizzazione albero, se non è aperta nella finestra di progettazione.
 
 2. Fare clic su **Aggiungi trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso).
@@ -398,7 +399,7 @@ In questa esercitazione sono stati eseguiti i passaggi seguenti:
 > * Monitorare la seconda esecuzione della pipeline
 > * Esaminare i risultati della seconda esecuzione.
 
-In questa esercitazione, la pipeline ha copiato dati da una singola tabella di un database SQL a un archivio BLOB. Passare all'esercitazione successiva per informazioni sulla copia di dati da più tabelle di un database di SQL Server a un database SQL.
+In questa esercitazione la pipeline ha copiato dati da una singola tabella di Database SQL ad Archiviazione BLOB. Passare all'esercitazione successiva per informazioni sulla copia di dati da più tabelle di un database di SQL Server a un database SQL.
 
 > [!div class="nextstepaction"]
 >[Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure](tutorial-incremental-copy-multiple-tables-portal.md)

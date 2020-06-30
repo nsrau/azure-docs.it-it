@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 25a93377c1594fd1f45229ed2d837f02e9c0a46b
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062055"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118295"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Guida introduttiva: Creare un database a grafo con Java SDK e l'API Gremlin di Azure Cosmos DB
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Avvio rapido: Creare un database a grafo con Java SDK e l'API Gremlin di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -104,7 +104,8 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Copiare la prima parte del valore dell'URI.
 
-    ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-java/copy-access-key-azure-portal.png)
+    :::image type="content" source="./media/create-graph-java/copy-access-key-azure-portal.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+
 2. Aprire il file *src/remote.yaml* e incollare il valore di ID univoco sopra `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
     La riga 1 del file *remote.yaml* si presenta ora nel modo seguente: 
@@ -168,15 +169,15 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 1. Nell'account Azure Cosmos DB nel portale di Azure, selezionare **Esplora dati**, espandere **sample-graph**, selezionare **Grafo** e quindi **Applica filtro**. 
 
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
 
 2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare, l'utente è connesso a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
-   ![Nuovi vertici nel grafo in Esplora dati nel portale di Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuovi vertici nel grafo in Esplora dati nel portale di Azure":::
 
 3. Vengono ora aggiunti alcuni nuovi utenti. Selezionare **Nuovo vertice** per aggiungere dati al grafo.
 
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
 
 4. Nella casella dell'etichetta immettere *person*.
 
@@ -189,7 +190,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     tech | java | 
 
     > [!NOTE]
-    > In questa esercitazione introduttiva si crea una raccolta non partizionata. Se tuttavia si crea una raccolta partizionata specificando una chiave di partizione durante la creazione della raccolta, sarà necessario includere la chiave di partizione come chiave in ogni nuovo vertice. 
+    > In questa guida di avvio rapido viene creata una raccolta non partizionata. Se tuttavia si crea una raccolta partizionata specificando una chiave di partizione durante la creazione della raccolta, sarà necessario includere la chiave di partizione come chiave in ogni nuovo vertice. 
 
 6. Selezionare **OK**. Potrebbe essere necessario espandere la schermata per vedere il pulsante **OK** nella parte inferiore dello schermo.
 
@@ -211,17 +212,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Quando si aggiungono altri dati, è possibile usare i filtri per limitare i risultati visualizzati. Per impostazione predefinita, Esplora dati usa `g.V()` per recuperare tutti i vertici di un grafo. È possibile modificarlo in un'altra [query di grafo](tutorial-query-graph.md), ad esempio `g.V().count()`, per restituire un conteggio di tutti i vertici del grafo in formato JSON. Se è stato modificato il filtro, reimpostarlo su `g.V()` e selezionare **Applica filtro** per visualizzare di nuovo tutti i risultati.
 
-12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi selezionare ![Modificare la destinazione di un vertice in un grafo](./media/create-graph-java/edit-pencil-button.png) accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
+12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi selezionare :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Modificare la destinazione di un vertice in un grafo"::: accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
 
-    ![Cambiare la destinazione di un vertice in un grafo - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambiare la destinazione di un vertice in un grafo - Azure CosmosDB":::
 
 13. Nella casella **Destinazione** immettere *rakesh* e nella casella **Etichetta arco** immettere *knows* e quindi selezionare la casella di controllo.
 
-    ![Aggiungere una connessione in Esplora dati - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Aggiungere una connessione in Esplora dati - Azure CosmosDB":::
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-    ![Due vertici connessi in Esplora dati - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Due vertici connessi in Esplora dati - Azure CosmosDB":::
 
 È stata completata la parte relativa alla creazione delle risorse di questa esercitazione. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561071"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100757"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Informazioni su Azure Data Box Gateway
 
@@ -69,10 +69,10 @@ Il dispositivo virtuale Data Box Gateway presenta le specifiche seguenti:
 | Processori virtuali (core)   | Minimo 4 |
 | Memoria  |Minimo 8 GB|
 | Disponibilità|Nodo singolo|
-| Dischi|Disco del sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
+| Dischi|Disco sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
 | Interfacce di rete |1 o più interfacce di rete virtuali|
 | Protocolli di condivisione file nativi|SMB e NFS  |
-| Security|Autenticazione per sbloccare l'accesso al dispositivo e ai dati <br> Dati in movimento crittografati mediante crittografia AES a 256 bit|
+| Sicurezza|Autenticazione per sbloccare l'accesso al dispositivo e ai dati <br> Dati in movimento crittografati mediante crittografia AES a 256 bit|
 | Gestione|Interfaccia utente Web locale: configurazione iniziale, diagnostica e risparmio energia del dispositivo <br> Portale di Azure: gestione quotidiana dei dispositivi Data Box Gateway       |
 
 ## <a name="components"></a>Componenti
@@ -89,7 +89,7 @@ La soluzione Data Box Gateway è costituita dalla risorsa Data Box Gateway, dal 
 
 Il dispositivo fisico Data Box Gateway, la risorsa di Azure e l'account di archiviazione di destinazione in cui si trasferiscono i dati non devono necessariamente trovarsi tutti nella stessa area.
 
-- **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
+- **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Data Box Gateway è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure.
 

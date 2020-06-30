@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3a7c9f61af0124c656f98b64ba9295bc659c572a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737198"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262346"
 ---
 ## <a name="configure-the-sample-project"></a>Configurare il progetto di esempio
 
-Configurare quindi un'applicazione client di esempio che interagirà con l'istanza di Gemelli digitali di Azure. Se il progetto di esempio non è ancora stato scaricato, procedere ora [scaricando il repository di esempi di Gemelli digitali di Azure come file ZIP](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
+Configurare quindi un'applicazione client di esempio che interagirà con l'istanza di Gemelli digitali di Azure. Se non è già stato fatto, scaricare il progetto di esempio dalla pagina di destinazione degli [esempi di Gemelli digitali di Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) selezionando il pulsante *Scarica ZIP* sotto il titolo.
 
 Passare al file scaricato nel computer e decomprimerlo.
 
-Una volta all'interno della cartella decompressa, passare a _digital-twins-samples-master/AdtSampleApp/_ . Aprire _**AdtE2ESample.sln**_ in Visual Studio 2019. 
+Dall'interno della cartella decompressa, passare a _AdtSampleApp/_ . Aprire _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 
 In Visual Studio usare il riquadro *Esplora soluzioni* per creare una copia del file _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (è possibile usare i menu di scelta rapida per copiare e incollare). Rinominare la copia *serviceConfig.json*. Questo file verrà usato come file JSON preimpostato con le variabili di configurazione necessarie per eseguire il progetto.
 

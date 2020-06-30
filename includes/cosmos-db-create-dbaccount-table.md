@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 2001d0621a340cbdb04c0bb5eea1166ce8b88eab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5015371afc67574a214097f8d3eef661df29c22f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212665"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115040"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Nel menu a sinistra selezionare **Crea una risorsa**.
    
-   ![Creare una risorsa nel portale di Azure](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png" alt-text="Creare una risorsa nel portale di Azure":::
    
 3. Nella pagina **Nuovo** selezionare **Database** > **Azure Cosmos DB**.
    
-   ![Riquadro Database nel portale di Azure](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="Riquadro Database nel portale di Azure":::
    
 3. Nella pagina **Crea account Azure Cosmos DB** immettere le impostazioni per il nuovo account Azure Cosmos DB. 
  
@@ -39,9 +39,9 @@ ms.locfileid: "77212665"
 
 5. Selezionare **Rivedi+Crea**. Dopo aver completato la convalida, selezionare **Crea** per creare l'account. 
  
-   ![Pagina del nuovo account per Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
 
 6. La creazione dell'account richiede alcuni minuti. Verrà visualizzato il messaggio **La distribuzione è in corso**. Attendere il completamento della distribuzione e quindi selezionare **Vai alla risorsa**.
 
-    ![Riquadro Notifiche del portale di Azure](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="Riquadro Notifiche del portale di Azure":::
 

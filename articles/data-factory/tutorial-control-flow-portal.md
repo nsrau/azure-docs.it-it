@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560497"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253665"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Diramazione e concatenamento delle attività in una pipeline di Azure Data Factory con il portale di Azure
 
@@ -38,13 +38,13 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Avviare un'esecuzione della pipeline
 > * Monitorare le esecuzioni di pipeline e attività
 
-Questa esercitazione usa il portale di Azure. È possibile usare altri meccanismi per interagire con Azure Data Factory. Vedere "Guide introduttive" nel sommario.
+Questa esercitazione usa il portale di Azure. È possibile usare altri meccanismi per interagire con Azure Data Factory. Vedere "Guide di avvio rapido" nel sommario.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno.
-* **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
+* **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database nel database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-blob-table"></a>Creare la tabella BLOB
 
@@ -206,6 +206,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
 13. Passare alla scheda **pipeline** oppure fare clic sulla visualizzazione albero. Assicurarsi che **SourceBlobDataset** sia selezionato per **Source Dataset** (Set di dati di origine).
 
     ![Set di dati di origine](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. Nella finestra delle proprietà passare alla scheda **Sink** e fare clic su **+ Nuovo** per **Sink Dataset** (Set di dati sink). In questo passaggio viene creato un set di dati sink per l'attività di copia con una procedura simile a quella per il set di dati di origine.
 
     ![Pulsante per il nuovo set di dati sink](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

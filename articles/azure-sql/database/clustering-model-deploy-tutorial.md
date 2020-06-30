@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5227fc89d99257f3390820d4930c3d57b63f03d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2a90003c9de2cf0e942b518c6d4e9c3569039caf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024109"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251421"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Distribuire un modello di clustering in R con Machine Learning Services del database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Nella terza parte di questa serie di esercitazioni in tre parti verrà distribuito un modello di clustering, sviluppato in R, in un database SQL usando Machine Learning Services di Database SQL di Azure (anteprima).
+Nella terza parte di questa serie di esercitazioni in tre parti verrà distribuito un modello di clustering, sviluppato in R, in un database SQL del database SQL di Azure usando Machine Learning Services del database SQL di Azure (anteprima).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ In questo articolo si apprenderà come:
 > * Eseguire il clustering nel database SQL
 > * Usare le informazioni sul clustering
 
-Nella [prima parte](clustering-model-prepare-data-tutorial.md) si è appreso come preparare i dati di un database SQL di Azure per eseguire il clustering.
+Nella [prima parte](clustering-model-prepare-data-tutorial.md) si è appreso come preparare i dati di un database per il clustering.
 
 Nella [seconda parte](clustering-model-build-tutorial.md) si è appreso come creare ed eseguire il training di un modello di clustering K-means in R.
 

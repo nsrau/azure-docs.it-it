@@ -4,15 +4,16 @@ description: Articolo che illustra gli endpoint privati gestiti in Azure Synapse
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83645313"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193652"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Endpoint privati gestiti di Synapse (anteprima)
 
@@ -48,7 +49,7 @@ Quando si crea un'area di lavoro, Azure Synapse crea due endpoint privati gestit
 
 Questi due endpoint privati gestiti sono elencati in Azure Synapse Studio. Selezionare **Gestisci** nel riquadro di spostamento a sinistra e quindi selezionare **Managed Virtual Networks** (Reti virtuali gestite) per visualizzarle in Studio.
 
-L'endpoint privato gestito destinato al pool SQL è denominato *synapse-ws-sql--\<nome_area_di_lavoro\>* , mentre quello destinato a SQL su richiesta è denominato *synapse-ws-sqlOnDemand--\<nome_area_di_lavoro\>* .
+L'endpoint privato gestito destinato al pool SQL è denominato *synapse-ws-sql--\<workspacename\>* , mentre quello destinato a SQL su richiesta è denominato *synapse-ws-sqlOnDemand--\<workspacename\>* .
 ![Endpoint privati gestiti per pool SQL e SQL su richiesta](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Questi due endpoint privati gestiti vengono creati automaticamente quando si crea l'area di lavoro di Azure Synapse. I costi correlati a questi due endpoint privati gestiti non vengono addebitati.

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bfea79fe232fbb6f1b39c03a5cc8e9fe06bee867
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258369"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204940"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL
 
@@ -90,7 +90,7 @@ Questi parametri aggiuntivi sono stati introdotti per l'uso di file CSV (testo d
 ```
 
 - ESCAPE_CHAR = 'char' - Specifica il carattere nel file usato per l'escape di se stesso e per tutti i valori dei delimitatori del file. Se seguito da un valore diverso da se stesso o da uno qualsiasi dei valori dei delimitatori, il carattere di escape viene eliminato durante la lettura del valore.
-Il parametro ESCAPE_CHAR verrà applicato se FIELDQUOTE è o non è abilitato. Non verrà usato per l'escape del carattere virgolette singole. L'escape del carattere virgolette singole viene eseguito con le virgolette doppie, in linea con il comportamento dei file CSV di Excel.
+Il parametro ESCAPE_CHAR verrà applicato se FIELDQUOTE è o non è abilitato. Non verrà usato per l'escape del carattere virgolette singole. Il carattere di virgolette deve essere impostato come escape con un altro carattere di virgolette. Il carattere di virgolette può essere visualizzato all'interno del valore della colonna solo se il valore è incapsulato con caratteri di virgolette.
 - FIELDTERMINATOR ='field_terminator' - Specifica il carattere di terminazione del campo da usare. Il carattere di terminazione del campo predefinito è la virgola (" **,** ")
 - ROWTERMINATOR ='row_terminator' - Specifica il carattere di terminazione della riga da usare. Il carattere di terminazione della riga predefinito è  **\r\n**.
 

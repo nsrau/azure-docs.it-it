@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629610"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212013"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -176,7 +176,10 @@ Dopo avere eseguito il training di un modello di Machine Learning sui dati etich
 
 ## <a name="initialize-the-labeling-project"></a>Inizializzare il progetto di etichettatura
 
-Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non saranno modificabili. Non è possibile cambiare il tipo di attività o il set di dati. È invece *possibile* modificare le etichette e l'URL per la descrizione dell'attività. Esaminare attentamente le impostazioni prima di creare il progetto. Dopo aver inviato il progetto, si tornerà nella pagina iniziale **Etichettatura dei dati** in cui verrà mostrato il progetto con lo stato **Inizializzazione**. Questa pagina non viene aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
+Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non saranno modificabili. Non è possibile cambiare il tipo di attività o il set di dati. È invece *possibile* modificare le etichette e l'URL per la descrizione dell'attività. Esaminare attentamente le impostazioni prima di creare il progetto. Dopo aver inviato il progetto, si tornerà nella pagina iniziale **Etichettatura dei dati** in cui verrà mostrato il progetto con lo stato **Inizializzazione**.
+
+> [!NOTE]
+> È possibile che questa pagina non venga aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
 
 ## <a name="run-and-monitor-the-project"></a>Eseguire e monitorare il progetto
 

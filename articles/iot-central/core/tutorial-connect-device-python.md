@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5555c176adfb5be78ea73f17bfa01ba87766acc1
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607211"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100403"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central (Python)
 
@@ -38,7 +38,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-* Un'applicazione Azure IoT Central creata usando il modello **Applicazione personalizzata**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+* Un'applicazione Azure IoT Central creata usando il modello **Applicazione personalizzata**. Per altre informazioni, vedere la [guida di avvio rapido per la creazione di un'applicazione](quick-deploy-iot-central.md).
 * Un computer di sviluppo con [Python](https://www.python.org/) versione 3.7 o successiva installato. Per controllare la versione, è possibile eseguire `python3 --version` nella riga di comando. Python è disponibile per un'ampia gamma di sistemi operativi. Le istruzioni riportate in questa esercitazione presuppongono che il comando **python3** venga eseguito al prompt dei comandi di Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -306,7 +306,7 @@ python3 environmental_sensor.py
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
+A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Python, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
 
 * Articolo procedurale [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](./howto-connect-devkit.md) per informazioni su come connettere un dispositivo reale a IoT Central.
 * Vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md) per altre informazioni sul ruolo dei modelli di dispositivo durante l'implementazione del codice del dispositivo.

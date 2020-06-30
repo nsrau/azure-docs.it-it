@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023977"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253818"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Distribuire un modello predittivo in R con Machine Learning Services del database SQL di Azure (anteprima)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Nella terza parte di questa esercitazione in tre parti verrà distribuito un modello predittivo, sviluppato in R, in un database SQL usando Machine Learning Services di Database SQL di Azure (anteprima).
+Nella terza parte di questa esercitazione in tre parti verrà distribuito un modello predittivo, sviluppato in R, in un database nel database SQL di Azure usando Machine Learning Services del database SQL di Azure (anteprima).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Si creerà una stored procedure con uno script R incorporato che esegue le stime usando il modello. Poiché il modello viene eseguito nel database SQL di Azure, è possibile eseguire facilmente il training con i dati archiviati nel database.
+Si creerà una stored procedure con uno script R incorporato che esegue le stime usando il modello. Poiché il modello viene eseguito nel database, può essere facilmente sottoposto a training in base ai dati archiviati nel database.
 
 In questo articolo, usando gli script R sviluppati nella prima e nella seconda parte, verrà descritto come:
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-È stato creato, eseguito il training e distribuito correttamente un modello nel database SQL di Azure. Il modello è stato quindi usato in una stored procedure per stimare i valori in base ai nuovi dati.
+È stato creato, eseguito il training e distribuito correttamente un modello in un database del database SQL di Azure. Il modello è stato quindi usato in una stored procedure per stimare i valori in base ai nuovi dati.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

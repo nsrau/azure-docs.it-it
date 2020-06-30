@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: c150972c2804b12ac436a0dd10cdf13f92f43478
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: b1601bf095b5898de965d42a16e63f278499a9bf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561000"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251512"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiare più tabelle in blocco con Azure Data Factory e PowerShell
 
@@ -34,7 +34,7 @@ A livello generale, questa esercitazione prevede la procedura seguente:
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-In questa esercitazione viene usato Azure PowerShell. Per informazioni sull'uso di altri strumenti/SDK per creare una data factory, vedere le [Guide introduttive](quickstart-create-data-factory-dot-net.md). 
+In questa esercitazione viene usato Azure PowerShell. Per informazioni sull'uso di altri strumenti/SDK per creare una data factory, vedere [Avvii rapidi](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
 In questo scenario il database SQL di Azure include alcune tabelle da copiare in SQL Data Warehouse. Ecco la sequenza logica di passaggi nel flusso di lavoro che si verifica nelle pipeline:
@@ -59,7 +59,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 **Preparare il database SQL di Azure di origine**:
 
-Creare un database SQL di Azure con i dati dell'esempio Adventure Works LT, seguendo le istruzioni disponibili nell'articolo [Creare un database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di SQL Data Warehouse.
+Creare un database con i dati dell'esempio Adventure Works LT nel database SQL, seguendo l'articolo [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di SQL Data Warehouse.
 
 **Preparare l'istanza sink di Azure SQL Data Warehouse**:
 
@@ -334,7 +334,7 @@ Questa pipeline accetta l'elenco di tabelle come parametro. Per ogni tabella del
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {
