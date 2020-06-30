@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con il server di Ba
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657280"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234797"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con il server di Backup di Microsoft Azure
 
@@ -68,10 +68,9 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
     * Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le autorizzazioni seguenti sul server front-end Web:
 
-        * Concedere il controllo completo del gruppo WSS\_Admin\_WPG per la cartella del server di Backup di Microsoft Azure \(%Programmi%\\Data Protection Manager\\DPM\).
-            -A
+        * Concedere al gruppo **WSS_Admin_WPG** il controllo completo sulla cartella del Server di Backup di Microsoft Azure (`%Program Files%\Data Protection Manager\DPM\`).
 
-        * Concedere l'accesso in lettura al gruppo WSS\_Admin\_WPG per la chiave del Registro di sistema del server di Backup di Microsoft Azure \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
+        * Concedere al gruppo **WSS_Admin_WPG** l'accesso in lettura alla chiave del Registro di sistema del Server di Backup di Microsoft Azure (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
         Dopo aver eseguito ConfigureSharePoint.exe, è necessario ripetere l'operazione se si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
 

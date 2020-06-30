@@ -1,6 +1,6 @@
 ---
-title: Aggiungere la diagnostica del & di monitoraggio a una macchina virtuale di Azure
-description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione diagnostica di Azure.
+title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure
+description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mimckitt
@@ -17,7 +17,7 @@ ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258831"
@@ -159,24 +159,24 @@ La configurazione precedente relativa a Metrics consente di generare tabelle nel
 
 * **WADMetrics**: prefisso standard per tutte le tabelle WADMetrics
 * **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati per un periodo pari a un'ora o un minuto
-* **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui la tabella ha iniziato a raccogliere i dati
+* **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui ha iniziato a raccogliere i dati
 * **V2S**: costante di tipo stringa
-* **yyyymmdd**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati
+* **aaaammgg**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati
 
-Esempio: *WADMetricsPT1HP10DV2S20151108* include i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 nov 2015    
+Esempio: *WADMetricsPT1HP10DV2S20151108* include i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 novembre 2015    
 
 Ogni tabella WADMetrics include le colonne seguenti:
 
-* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID* per identificare in modo univoco la risorsa di macchina virtuale, ad esempio `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID*, in modo che la risorsa macchina virtuale sia identificabile in modo univoco. Ad esempio: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: usa il formato `<Descending time tick>:<Performance Counter Name>`. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Ad esempio, se il periodo di campionamento è stato avviato il 10 novembre 2015 alle 00:00 UTC, il calcolo sarebbe: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Per il contatore delle prestazioni dei byte di memoria disponibili, la chiave di riga avrà un aspetto simile al seguente: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
 * **Maximum**: valore massimo del contatore delle prestazioni nel periodo di aggregazione.
-* **Minimum**: valore minimo del contatore delle prestazioni nel periodo di aggregazione.
+* **Minimo**: valore minimo del contatore delle prestazioni nel periodo di aggregazione.
 * **Total**: somma di tutti i valori del contatore delle prestazioni rilevati nel periodo di aggregazione.
-* **Count**: numero totale di valori rilevati per il contatore delle prestazioni.
+* **Numero**: numero totale di valori rilevati per il contatore delle prestazioni.
 * **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un modello di esempio completo di una macchina virtuale Windows con estensione diagnostica, vedere [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuire il modello di Azure Resource Manager con [Azure PowerShell](../windows/ps-template.md) o la [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md)
+* Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../../resource-group-authoring-templates.md)

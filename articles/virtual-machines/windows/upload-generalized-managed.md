@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale da un disco rigido virtuale generalizzato caricato
+title: Creare una macchina virtuale da un disco rigido virtuale generalizzato precedentemente caricato
 description: Caricare un disco rigido virtuale generalizzato in Azure e usarlo per creare nuove macchine virtuali nel modello di distribuzione Azure Resource Manager.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,7 +9,7 @@ ms.date: 12/12/2019
 ms.author: cynthn
 ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82096410"
@@ -28,7 +28,7 @@ Per uno script di esempio, vedere [Script di esempio per caricare un disco rigid
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizzare la macchina virtuale di origine con Sysprep
 
-Se non è già stato fatto, è necessario eseguire Sysprep nella macchina virtuale prima di caricare il disco rigido virtuale in Azure. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per i dettagli su Sysprep, vedere [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
+Se necessario, eseguire Sysprep nella macchina virtuale prima di caricare il disco rigido virtuale in Azure. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per i dettagli su Sysprep, vedere [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
 
 Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -49,20 +49,20 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 
 ## <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale 
 
-È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per le istruzioni, vedere [Caricare un disco rigido virtuale su Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 
-Una volta caricato il disco rigido virtuale nel disco gestito, è necessario usare [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) per ottenere il disco gestito.
+Dopo aver caricato il disco rigido virtuale nel disco gestito, è necessario usare [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) per ottenere il disco gestito.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
 ## <a name="create-the-image"></a>Creare l'immagine
-Creare un'immagine gestita dal disco gestito generalizzato del sistema operativo. Sostituire i valori seguenti con le informazioni personali.
+Creare un'immagine gestita dal disco gestito del sistema operativo generalizzato. Sostituire i valori seguenti con le informazioni personali.
 
-Impostare innanzitutto alcune variabili:
+Impostare prima alcune variabili:
 
 ```powershell
 $location = 'East US'

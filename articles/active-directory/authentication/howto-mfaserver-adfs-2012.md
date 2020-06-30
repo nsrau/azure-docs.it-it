@@ -1,5 +1,5 @@
 ---
-title: Server di autenticazione a più fattori di Azure con AD FS in Windows Server-Azure Active Directory
+title: Server Azure MFA con AD FS in Windows Server - Azure Active Directory
 description: Questo articolo offre una guida introduttiva ad Azure Multi-Factor Authentication e AD FS in Windows Server 2012 R2 e 2016.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653361"
@@ -25,7 +25,7 @@ Se l'organizzazione usa Active Directory Federation Services (ADFS), per protegg
 Questo articolo illustra l'uso del server Azure Multi-Factor Authentication con AD FS in Windows Server 2012 R2 o Windows Server 2016. Per altre informazioni, vedere [Proteggere le risorse del cloud e locali mediante il server Azure Multi-Factor Authentication con AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Proteggere AD FS per Windows Server con il server Azure Multi-Factor Authentication
 
@@ -49,7 +49,7 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 3. Selezionare eventuali opzioni aggiuntive per l'organizzazione.
 4. Fare clic su **Installa scheda ADFS**.
 
-   ![Installare la scheda ADFS dalla console del server di autenticazione a più fattori](./media/howto-mfaserver-adfs-2012/server.png)
+   ![Installare la scheda AD FS dalla console del server Multi-Factor Authentication](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. L'eventuale visualizzazione della finestra di Active Directory significa due cose. Il computer è unito a un dominio e la configurazione di Active Directory per proteggere la comunicazione tra la scheda ADFS e il servizio Multi-Factor Authentication è incompleta. Fare clic su **Avanti** per completare automaticamente la configurazione o selezionare la casella di controllo **Ignora la configurazione automatica di Active Directory e configura le impostazioni manualmente**. Fare clic su **Avanti**.
 6. L'eventuale visualizzazione delle finestre Gruppo locale significa due cose. Il computer non è unito a un dominio e la configurazione del gruppo locale per proteggere la comunicazione tra la scheda ADFS e il servizio Multi-Factor Authentication è incompleta. Fare clic su **Avanti** per completare automaticamente la configurazione o selezionare la casella di controllo **Ignora la configurazione automatica di Gruppo locale e configura le impostazioni manualmente**. Fare clic su **Avanti**.
@@ -61,9 +61,9 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
 
-12. Modificare i criteri di autenticazione globali in ADFS per usare la scheda appena registrata. Nella console di gestione di AD FS, passare al nodo **Criteri di autenticazione** . Nella sezione **Multi-factor Authentication** fare clic sul collegamento **Modifica** accanto alla sezione **Impostazioni globali**. Nella finestra **Modifica criteri di autenticazione globali** selezionare **Autenticazione a più fattori** come metodo di autenticazione aggiuntivo e quindi fare clic su **OK**. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS per rendere effettiva la registrazione.
+12. Modificare i criteri di autenticazione globali in ADFS per usare la scheda appena registrata. Nella console di gestione di AD FS, passare al nodo **Criteri di autenticazione** . Nella sezione **Multi-factor Authentication** fare clic sul collegamento **Modifica** accanto alla sezione **Impostazioni globali**. Nella finestra di dialogo **Modifica criteri di autenticazione globali** selezionare **Multi-Factor Authentication** come metodo di autenticazione aggiuntivo e fare clic su **OK**. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS per rendere effettiva la registrazione.
 
-![Modificare i criteri di autenticazione globali](./media/howto-mfaserver-adfs-2012/global.png)
+![Modifica criteri di autenticazione globali](./media/howto-mfaserver-adfs-2012/global.png)
 
 A questo punto, il server Multi-Factor Authentication è configurato per essere un provider di autenticazione aggiuntivo per l'uso con AD FS.
 
@@ -84,8 +84,8 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 Per modificare il file MultiFactorAuthenticationAdfsAdapter.config, seguire questa procedura:
 
 1. Impostare il nodo **UseWebServiceSdk** su **true**.  
-2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https:\/\/contoso.com/\<certificate>/multifactorauthwebservicesdk/pfwssdk.asmx*, dove * \<certificate>* è il nome del certificato.  
-3. Modificare lo script Register-multifactorauthenticationadfsadapter. ps1 aggiungendo `-ConfigurationFilePath &lt;path&gt;` alla fine del `Register-AdfsAuthenticationProvider` comando, dove * &lt;Path&gt; * è il percorso completo del file file multifactorauthenticationadfsadapter. config.
+2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https:\/\/contoso.com/\<nomecertificato>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *\<nomecertificato>* è il nome del certificato.  
+3. Modificare lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 aggiungendo alla fine del comando `Register-AdfsAuthenticationProvider``-ConfigurationFilePath &lt;path&gt;`, dove *&lt;path&gt;* è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurare l'SDK del servizio Web con un nome utente e una password
 
@@ -108,7 +108,7 @@ Se si preferisce non usare un nome utente e una password, seguire questa procedu
 8. Impostare enabled su **true**.  
 9. Impostare oneToOneCertificateMappingsEnabled su **true**.  
 10. Fare clic sul pulsante **...** accanto a oneToOneMappings e sul collegamento **Aggiungi**.  
-11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
+11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
 12. Impostare certificate sulla stringa copiata nel passaggio precedente.  
 13. Impostare enabled su **true**.  
 14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
@@ -134,15 +134,15 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 2. A sinistra selezionare **Attendibilità componente**.
 3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...**
 
-   ![Modificare le regole attestazione nella console ADFS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Modifica delle regole di attestazione nella console AD FS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
-4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.**
+4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 
-   ![Modificare le regole di trasformazione nella console ADFS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Modifica delle regole di trasformazione nella console AD FS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
 
-   ![Aggiunta guidata regola attestazione di trasformazione](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Assegnare un nome alla regola.
 7. Selezionare **Riferimenti dei metodi di autenticazione** come Tipo di attestazione in ingresso.

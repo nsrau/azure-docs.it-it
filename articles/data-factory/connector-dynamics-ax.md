@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Dynamics AX
+title: Copiare dati da Dynamics NAV
 description: Informazioni su come copiare dati da Dynamics AX in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 4dd82eea0a80ef81a0f972d1964a62e6c17a80c0
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417373"
 ---
-# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiare dati da Dynamics AX usando Azure Data Factory
+# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiare dati da Dynamics AX tramite Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -29,12 +29,12 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore Dynamics AX è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Dynamics AX in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-In particolare, questo connettore Dynamics AX supporta la copia dei dati da Dynamics AX utilizzando il protocollo **OData ** con l’**autenticazione basata su entità servizio**.
+In particolare, questo connettore Dynamics AX supporta la copia dei dati da Dynamics AX utilizzando il protocollo **OData**  con l’**autenticazione basata su entità servizio**.
 
 >[!TIP]
 >Per copiare dati da **Dynamics 365 for Finance and Operations**, è possibile usare questo connettore. Fare riferimento al [supporto per OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) di Dynamics 365 e al [metodo di autenticazione](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
@@ -137,7 +137,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX come origine
 
-Per copiare dati da Dynamics AX, impostare il tipo di **origine** nell'attività di copia su **DynamicsAXSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Dynamics AX, impostare il tipo di **origine** nell'attività di copia su **DynamicsAXSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -177,9 +177,9 @@ Per copiare dati da Dynamics AX, impostare il tipo di **origine** nell'attività
 ```
 
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

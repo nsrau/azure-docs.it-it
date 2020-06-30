@@ -7,7 +7,7 @@ ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: a5497300f6b0cbf3a073681bac41adc583d869ef
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82733397"
@@ -16,7 +16,7 @@ ms.locfileid: "82733397"
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# (*.csx*).
+Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# ( *.csx*).
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per materiale sussidiario sull'[uso di C# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [Informazioni di riferimento per sviluppatori C#](functions-dotnet-class-library.md).
 
@@ -24,7 +24,7 @@ Questo articolo presuppone che l'utente abbia già letto il [Manuale dello svilu
 
 ## <a name="how-csx-works"></a>Funzionamento di CSX
 
-L'esperienza di script C# per funzioni di Azure si basa su [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in un file `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
+L'esperienza con gli script C# per Funzioni di Azure si basa su [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in un file `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
 
 Il formato *.csx* consente di scrivere meno "boilerplate" e di concentrarsi solo sulla scrittura della funzione C#. Anziché eseguire il wrapping di tutti gli elementi in un spazio dei nomi e classe, definire semplicemente un metodo `Run`. Includere tutti i riferimenti ad assembly e gli spazi dei nomi all'inizio del file come di consueto.
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione csx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di binding richieste nella [versione 2. x e versioni successive](functions-versions.md) del runtime di funzioni sono definite nel `extensions.csproj` file, con i file di libreria effettivi `bin` nella cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di binding richieste nella [versione 2.x e successive](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 
@@ -224,7 +224,7 @@ Usare il valore restituito solo se la corretta esecuzione di una funzione restit
 
 ## <a name="writing-multiple-output-values"></a>Scrittura di più valori di output
 
-Per scrivere più valori in un'associazione di output o se una chiamata di funzione corretta potrebbe non comportare il passaggio all'associazione di output, usare i [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) tipi [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) o. Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
+Per scrivere più valori in un'associazione di output o se una chiamata corretta alla funzione potrebbe non restituire alcun valore da passare all'associazione di output, usare i tipi [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
 
 Questo esempio scrive più messaggi in coda nella stessa coda usando `ICollector`:
 
@@ -370,7 +370,7 @@ Per informazioni su come caricare i file nella cartella della funzione, vedere l
 La directory che contiene il file di script della funzione viene controllata automaticamente per le modifiche agli assembly. Per controllare le modifiche agli assembly in altre directory, aggiungerle all'elenco `watchDirectories` in [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso dei pacchetti NuGet
-Per usare i pacchetti NuGet in una funzione C# 2. x e successive, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
+Per usare i pacchetti NuGet in una funzione C# 2.x o versione successiva, caricare un file *function.proj* nella cartella della funzione nel file system dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,9 +387,9 @@ Per usare i pacchetti NuGet in una funzione C# 2. x e successive, caricare un fi
 Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet).
 
 > [!NOTE]
-> Nelle funzioni C# 1. x, ai pacchetti NuGet viene fatto riferimento con un file *Project. JSON* anziché con un file *Function. proj* .
+> Nella versione 1.x di funzioni C#, si fa riferimento ai pacchetti NuGet con un file *project.json* anziché un file *function.proj*.
 
-Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è riportato un esempio di file *Project. JSON* :
+Per le funzioni 1.x, è necessario quindi usare un file *project.json*. Di seguito è riportato un file *project.json* di esempio.
 
 ```json
 {
@@ -403,11 +403,11 @@ Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è ripor
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Uso di un file function. proj
+### <a name="using-a-functionproj-file"></a>Uso di un file function.proj
 
 1. Aprire la funzione nel portale di Azure. La scheda dei log mostra l'output di installazione del pacchetto.
-2. Per caricare un file *Function. proj* , usare uno dei metodi descritti nell'argomento [come aggiornare i file dell'app](functions-reference.md#fileupdate) per le funzioni nell'argomento di riferimento per gli sviluppatori di funzioni di Azure.
-3. Dopo il caricamento del file *Function. proj* , viene visualizzato un output simile all'esempio seguente nel log in streaming della funzione:
+2. Per caricare un file *function.proj*, usare uno dei metodi descritti nella sezione [Come aggiornare i file delle app per le funzioni](functions-reference.md#fileupdate) dell'argomento Guida di riferimento per gli sviluppatori di Funzioni di Azure.
+3. Dopo il caricamento del file *function.proj*, l'output visualizzato nel log in streaming della funzione sarà simile all'esempio seguente:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -449,7 +449,7 @@ In C# e altri linguaggi .NET, è possibile usare un metodo di associazione [impe
 Definire un'associazione imperativa, come segue:
 
 - **Non** includere una voce in *function.json* per le associazioni imperative da eseguire.
-- Passare un parametro [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) di input o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Passare un parametro di input [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
 - Usare il seguente modello C# per eseguire l'associazione dati.
 
 ```cs
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) solo `T` [\<ICollector T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o per.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

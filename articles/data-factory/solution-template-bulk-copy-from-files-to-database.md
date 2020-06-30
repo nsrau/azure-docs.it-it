@@ -1,6 +1,6 @@
 ---
 title: Copia bulk da file nel database
-description: Informazioni su come usare un modello di soluzione per copiare i dati in blocco da Azure Data Lake Storage Gen2 ad Azure sinapsi Analytics/database SQL di Azure.
+description: Informazioni su come usare un modello di soluzione per copiare i dati in blocco da Azure Data Lake Storage Gen2 ad Azure Synapse Analytics/database SQL di Azure.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 468bd838237e076aacb9dee0ccacfdcc1ea940af
 ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/01/2020
 ms.locfileid: "82629117"
@@ -19,32 +19,32 @@ ms.locfileid: "82629117"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questo articolo descrive un modello di soluzione che è possibile usare per copiare i dati in blocco da Azure Data Lake Storage Gen2 ad Azure sinapsi Analytics/database SQL di Azure.
+Questo articolo descrive un modello di soluzione che è possibile usare per copiare i dati in blocco da Azure Data Lake Storage Gen2 ad Azure Synapse Analytics/database SQL di Azure.
 
 ## <a name="about-this-solution-template"></a>Informazioni sul modello di soluzione
 
-Questo modello recupera i file dall'origine Azure Data Lake Storage Gen2. Esegue quindi l'iterazione di ogni file nell'origine e copia il file nell'archivio dati di destinazione. 
+Questo modello recupera i file dall'origine Azure Data Lake Storage Gen2. Esegue quindi l'iterazione su ogni file nell'origine e copia i file nell'archivio dati di destinazione. 
 
-Attualmente questo modello supporta solo la copia di dati in formato **DelimitedText** . I file in altri formati di dati possono anche essere recuperati dall'archivio dati di origine, ma non possono essere copiati nell'archivio dati di destinazione.  
+Attualmente questo modello supporta solo la copia di dati in formato **DelimitedText**. È possibile recuperare anche i file in altri formati di dati dall'archivio dati di origine, ma non è possibile copiarli nell'archivio dati di destinazione.  
 
 Il modello contiene tre attività:
-- **Get Metadata** Activity recupera i file da Azure Data Lake storage Gen2 e li passa all'attività *foreach* successiva.
-- L'attività **foreach** ottiene i file dall'attività *Recupera metadati* e scorre ogni file nell'attività di *copia* .
-- L'attività di **copia** risiede nell'attività *foreach* per copiare ogni file dall'archivio dati di origine all'archivio dati di destinazione.
+- L'attività **Get Metadata** recupera i file da Azure Data Lake Storage Gen2 e li passa all'attività *ForEach* successiva.
+- L'attività **ForEach** ottiene i file dall'attività *Get Metadata* ed esegue l'iterazione di ogni file all'attività *Copy*.
+- L'attività **Copy** risiede nell'attività *ForEach* per copiare ogni file dall'archivio dati di origine all'archivio dati di destinazione.
 
 Il modello definisce i due parametri seguenti:
-- *SourceContainer* è il percorso del contenitore radice in cui vengono copiati i dati nel Azure Data Lake storage Gen2. 
-- *SourceDirectory* è il percorso della directory sotto il contenitore radice in cui vengono copiati i dati nel Azure Data Lake storage Gen2.
+- *SourceContainer* è il percorso del contenitore radice in cui i dati vengono copiati in Azure Data Lake Storage Gen2. 
+- *SourceDirectory* è il percorso della directory nel contenitore radice da cui i dati vengono copiati in Azure Data Lake Storage Gen2.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Passare al modello di **copia bulk da file a database** . Creare una **nuova** connessione all'archivio Gen2 di origine. Tenere presente che "GetMetadataDataset" e "SourceDataset" sono riferimenti alla stessa connessione dell'archivio file di origine.
+1. Passare al modello **Copia bulk dai file al database**. Creare una **nuova** connessione all'archivio Gen2 di origine. Tenere presente che "GetMetadataDataset" e "SourceDataset" sono riferimenti alla stessa connessione dell'archivio del file di origine.
 
-    ![Crea una nuova connessione all'archivio dati di origine](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
+    ![Creare una nuova connessione all'archivio dati di origine](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
 
-2. Creare una **nuova** connessione all'archivio dati sink in cui vengono copiati i dati.
+2. Creare una **nuova** connessione all'archivio dati di sink in cui si stanno copiando i dati.
 
-    ![Crea una nuova connessione all'archivio dati sink](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
+    ![Creare una nuova connessione all'archivio dati di sink](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
     
 3. Selezionare **Usa questo modello**.
 
@@ -55,19 +55,19 @@ Il modello definisce i due parametri seguenti:
     ![Esaminare la pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se si sceglie **Azure sinapsi Analytics (in precedenza SQL DW)** come destinazione dei dati nel **passaggio 2** indicato in precedenza, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto dalla SQL data warehouse di base. Come illustrato nello screenshot seguente, il modello genererà automaticamente un *percorso di archiviazione* per l'archivio BLOB. Controllare se il contenitore è stato creato dopo l'esecuzione della pipeline.
+    > Se si è scelto **Azure Synapse Analytics (in precedenza SQL DW)** come destinazione dei dati nel **passaggio 2** illustrato in precedenza, è necessario immettere una connessione ad Archiviazione BLOB di Azure per la gestione temporanea, come richiesto da SQL Data Warehouse Polybase. Come illustrato nello screenshot seguente, il modello genererà automaticamente un *percorso di archiviazione* per l'archiviazione BLOB. Controllare che il contenitore sia stato creato dopo l'esecuzione della pipeline.
         
     ![Impostazione di PolyBase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
-5. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+5. Selezionare **Debug**, immettere i valori in **Parametri** e quindi selezionare **Fine**.
 
-    ![Fare clic su * * debug * *](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
+    ![Fare clic su **Debug **](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
 
-6. Quando l'esecuzione della pipeline viene completata correttamente, verranno visualizzati risultati simili a quelli dell'esempio seguente:
+6. Al termine dell'esecuzione della pipeline, verranno visualizzati risultati simili a quelli dell'esempio seguente:
 
     ![Esaminare il risultato](media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png)
 
        
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione a Data factory di Azure](introduction.md)
+- [Introduzione al servizio Azure Data Factory](introduction.md)

@@ -13,7 +13,7 @@ ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414094"
@@ -80,7 +80,7 @@ Lo screenshot seguente mostra una query SQL usata per filtrare i dati.
 ![Filtrare i dati in un database](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrare i dati in una cartella BLOB di Azure
-Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}**, **{month}**, **{day}**, **{hour}** e **{minute}**. Ad esempio: inputfolder/{year}/{month}/{day}. 
+Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}** , **{month}** , **{day}** , **{hour}** e **{minute}** . Ad esempio: inputfolder/{year}/{month}/{day}. 
 
 Si supponga di avere cartelle di input nel formato seguente: 
 
@@ -93,7 +93,7 @@ Si supponga di avere cartelle di input nel formato seguente:
 
 Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato 2016/03/01/02. 
 
-Sostituire quindi **2016** con **{year}**, **03** con **{month}**, **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Sostituire quindi **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 
 ![Filtrare un file o una cartella](./media/copy-data-tool/filter-file-or-folder.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Monitorare gli eventi pianificati per le macchine virtuali Windows in Azure
-description: Informazioni su come monitorare le macchine virtuali di Azure per gli eventi pianificati.
+description: Informazioni su come monitorare gli eventi pianificati delle macchine virtuali di Azure.
 author: mysarn
 ms.service: virtual-machines-windows
 ms.subservice: monitoring
@@ -9,37 +9,37 @@ ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099598"
 ---
-# <a name="monitoring-scheduled-events"></a>Eventi pianificati di monitoraggio
+# <a name="monitoring-scheduled-events"></a>Monitoraggio di Eventi pianificati
 
-Gli aggiornamenti vengono applicati a diverse parti di Azure ogni giorno, per garantire la sicurezza e l'aggiornamento dei servizi. Oltre agli aggiornamenti pianificati, possono verificarsi anche eventi non pianificati. Se, ad esempio, viene rilevato un calo o un errore hardware, i servizi di Azure potrebbero dover eseguire una manutenzione non pianificata. Usando la migrazione in tempo reale, gli aggiornamenti con mantenimento della memoria e che in genere mantengono una rigida barra sull'effetto degli aggiornamenti, nella maggior parte dei casi questi eventi sono quasi trasparenti per i clienti e non hanno alcun effetto o al massimo provocano pochi secondi di blocco della macchina virtuale. Tuttavia, per alcune applicazioni, anche alcuni secondi di blocco della macchina virtuale possono causare un certo effetto. Conoscere in anticipo la prossima manutenzione di Azure è importante per garantire la migliore esperienza per tali applicazioni. [Eventi pianificati servizio](scheduled-events.md) fornisce un'interfaccia a livello di codice per ricevere notifiche sulla manutenzione imminente e consente di gestire correttamente la manutenzione. 
+Ogni giorno, vengono applicati aggiornamenti a diverse parti di Azure per mantenere i servizi in esecuzione sempre sicuri e aggiornati. Oltre agli aggiornamenti pianificati, possono verificarsi anche eventi non pianificati. Ad esempio, se vengono rilevati errori o riduzioni nelle prestazioni hardware, i servizi di Azure potrebbero eseguire una manutenzione non pianificata. Usando la migrazione in tempo reale, con utilizzo limitato di memoria da parte degli aggiornamenti e in generare limitandone l'impatto, nella maggior parte dei casi questi eventi sono quasi trasparenti e non hanno alcun effetto per i clienti o, al massimo causano, alcuni secondi di blocco della macchina virtuale. Tuttavia, per alcune applicazioni, anche alcuni secondi di blocco della macchina virtuale potrebbero avere un impatto negativo. Per garantire la migliore esperienza per le applicazioni, è utile conoscere con anticipo la tempistica delle operazioni di manutenzione previste. Il [servizio Eventi pianificati](scheduled-events.md) offre un'interfaccia programmatica che consente di ricevere notifiche sugli eventi di manutenzione imminenti e consente di gestirli in modo appropriato. 
 
-Questo articolo illustra come è possibile usare gli eventi pianificati per ricevere notifiche sugli eventi di manutenzione che potrebbero influire sulle VM e creare un'automazione di base che può essere utile per il monitoraggio e l'analisi.
+Questo articolo illustra come usare il servizio Eventi pianificati per ricevere notifiche sugli eventi di manutenzione che potrebbero influire sulle macchine virtuali e per creare un'automazione di base utile per il monitoraggio e l'analisi.
 
 
-## <a name="routing-scheduled-events-to-log-analytics"></a>Routing degli eventi pianificati a Log Analytics
+## <a name="routing-scheduled-events-to-log-analytics"></a>Routing di Eventi pianificati a Log Analytics
 
-Eventi pianificati è disponibile come parte del [servizio metadati dell'istanza di Azure](instance-metadata-service.md), disponibile in ogni macchina virtuale di Azure. I clienti possono scrivere l'automazione per eseguire query sull'endpoint delle proprie macchine virtuali per individuare le notifiche di manutenzione pianificate ed eseguire le mitigazioni, ad esempio il salvataggio dello stato e l'uscita dalla rotazione della macchina virtuale. Si consiglia di creare l'automazione per registrare il Eventi pianificati in modo che sia possibile avere un log di controllo degli eventi di manutenzione di Azure. 
+Eventi pianificati è disponibile come parte del [servizio metadati dell'istanza di Azure](instance-metadata-service.md), presente in ogni macchina virtuale di Azure. I clienti possono scrivere l'automazione per eseguire query sull'endpoint delle macchine virtuali, individuare le notifiche di manutenzione pianificata e impostare delle mitigazioni, ad esempio il salvataggio dello stato o l'esclusione della macchina virtuale. È consigliabile creare l'automazione per registrare gli eventi pianificati in modo da disporre di un log di controllo degli eventi di manutenzione di Azure. 
 
-In questo articolo verrà illustrato come acquisire Eventi pianificati di manutenzione per Log Analytics. Si attiveranno quindi alcune azioni di notifica di base, ad esempio l'invio di un messaggio di posta elettronica al team e l'acquisizione di una visualizzazione cronologica di tutti gli eventi che hanno interessato le macchine virtuali. Per l'aggregazione e l'automazione degli eventi si userà [log Analytics](/azure/azure-monitor/learn/quick-create-workspace), ma è possibile usare qualsiasi soluzione di monitoraggio per raccogliere questi log e attivare l'automazione.
+In questo articolo verrà illustrato come acquisire gli eventi pianificati di manutenzione per Log Analytics. Quindi, verranno attivate alcune azioni di notifica di base, come l'invio di email al team e la visualizzazione cronologica di tutti gli eventi che hanno interessato le macchine virtuali. Per l'aggregazione e l'automazione degli eventi viene usato [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace), ma è possibile usare qualsiasi soluzione di monitoraggio per la raccolta dei log e attivazione dell'automazione.
 
 ![Diagramma che mostra il ciclo di vita dell'evento](./media/notifications/events.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo esempio, sarà necessario creare una [macchina virtuale Windows in un set di disponibilità](tutorial-availability-sets.md). Eventi pianificati forniscono notifiche sulle modifiche che possono influire su qualsiasi macchina virtuale nel set di disponibilità, nel servizio cloud, nel set di scalabilità di macchine virtuali o nelle VM autonome. Verrà eseguito un [servizio](https://github.com/microsoft/AzureScheduledEventsService) che esegue il polling degli eventi pianificati in una delle macchine virtuali che fungeranno da agente di raccolta, per ottenere gli eventi per tutte le altre macchine virtuali nel set di disponibilità.    
+Ai fini di questo esempio è necessario creare una [macchina virtuale Windows in un set di disponibilità](tutorial-availability-sets.md). Eventi pianificati fornisce notifiche sulle modifiche che possono influire su qualsiasi macchina virtuale in set di disponibilità, servizio cloud, set di scalabilità di macchine virtuali o in macchine virtuali autonome. Nell'esempio, viene eseguito un [servizio](https://github.com/microsoft/AzureScheduledEventsService) per il polling degli eventi pianificati in una delle macchine virtuali che opera come agente di raccolta per ottenere gli eventi per tutte le altre macchine virtuali del set di disponibilità.    
 
-Non eliminare il gruppo di risorse gruppo alla fine dell'esercitazione.
+Non eliminare il gruppo di risorse di gruppo alla fine dell'esercitazione.
 
-Sarà inoltre necessario [creare un'area di lavoro log Analytics](/azure/azure-monitor/learn/quick-create-workspace) che si utilizzerà per aggregare le informazioni dalle macchine virtuali nel set di disponibilità.
+Sarà anche necessario [creare un'area di lavoro di Log Analytics](/azure/azure-monitor/learn/quick-create-workspace) da usare per aggregare le informazioni delle macchine virtuali del set di disponibilità.
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
 
-A questo punto dovrebbero essere presenti 2 macchine virtuali iniziali in un set di disponibilità. A questo punto è necessario creare una terza macchina virtuale, denominata myCollectorVM, nello stesso set di disponibilità. 
+A questo punto dovrebbero essere presenti due macchine virtuali iniziali in un set di disponibilità. Ora è necessario creare nello stesso set di disponibilità una terza macchina virtuale denominata myCollectorVM. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -58,7 +58,7 @@ New-AzVm `
 
 Scaricare il file zip di installazione del progetto da [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Connettersi a **myCollectorVM** e copiare il file con estensione zip nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella contenente `SchService.ps1`, ad esempio `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, e configurare il servizio.
+Connettersi a **myCollectorVM**, copiare il file ZIP nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella contenente `SchService.ps1`, ad esempio `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, e configurare il servizio.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -70,7 +70,7 @@ Avviare il servizio.
 .\SchService.ps1 -Start
 ```
 
-Il servizio avvierà ora il polling ogni 10 secondi per tutti gli eventi pianificati e approverà gli eventi per velocizzare la manutenzione.  I blocchi, il riavvio, la ridistribuzione e l'interruzione sono gli eventi acquisiti dagli eventi di pianificazione.   Si noti che è possibile estendere lo script per attivare alcune attenuazioni prima di approvare l'evento.
+A questo punto, il servizio avvia il polling ogni 10 secondi per tutti gli eventi pianificati e approva gli eventi per velocizzare la manutenzione.  Blocchi, riavvii, ridistribuzioni e interruzioni sono gli eventi acquisiti da Eventi pianificati.   Si noti che è possibile estendere lo script per attivare alcune mitigazioni prima di approvare l'evento.
 
 Convalidare lo stato del servizio e verificare che sia in esecuzione.
 
@@ -78,63 +78,63 @@ Convalidare lo stato del servizio e verificare che sia in esecuzione.
 .\SchService.ps1 -status  
 ```
 
-Questa operazione dovrebbe `Running`restituire.
+Il valore restituito dovrebbe essere `Running`.
 
-Il servizio avvierà ora il polling ogni 10 secondi per tutti gli eventi pianificati e approverà gli eventi per velocizzare la manutenzione.  Il blocco, il riavvio, la ridistribuzione e l'interruzione sono gli eventi acquisiti dagli eventi di pianificazione. È possibile estendere lo script per attivare alcune attenuazioni prima di approvare l'evento.
+A questo punto, il servizio avvia il polling ogni 10 secondi per tutti gli eventi pianificati e approva gli eventi per velocizzare la manutenzione.  Blocchi, riavvii, ridistribuzioni e interruzioni sono gli eventi acquisiti da Eventi pianificati. È possibile estendere lo script per attivare alcune mitigazioni prima di approvare l'evento.
 
-Quando uno qualsiasi degli eventi precedenti viene acquisito tramite Pianifica servizio eventi, viene registrato nello stato dell'evento del registro eventi dell'applicazione, nel tipo di evento, nelle risorse (nomi di macchine virtuali) e in NotBefore (periodo di preavviso minimo). È possibile individuare gli eventi con ID 1234 nel registro eventi dell'applicazione.
+Quando uno qualsiasi degli eventi di cui sopra viene acquisito dal servizio Eventi pianificati, viene registrato nel log eventi dell'applicazione con informazioni su stato, tipo di evento, risorse (nomi delle macchine virtuali) e valore NotBefore (periodo di preavviso minimo). Nel log eventi dell'applicazione gli eventi, è possibile individuare con ID 1234.
 
-Una volta configurato e avviato il servizio, gli eventi vengono registrati nei registri applicazioni di Windows.   Per verificarne il funzionamento, riavviare una delle macchine virtuali nel set di disponibilità. verrà visualizzato un evento registrato nel Visualizzatore eventi nei registri di Windows > registro applicazioni che mostra la macchina virtuale riavviata. 
+Una volta configurato e avviato il servizio, gli eventi vengono registrati nel registro applicazioni di Windows.   Per verificarne il funzionamento, riavviare una delle macchine virtuali del set di disponibilità. Nel Visualizzatore eventi, si dovrebbe visualizzare la registrazione di un evento nei registri di Windows > Registro applicazioni che mostra la macchina virtuale riavviata. 
 
 ![Screenshot del Visualizzatore eventi.](./media/notifications/event-viewer.png)
 
-Quando gli eventi vengono acquisiti dal servizio eventi Schedule, verranno registrati nell'applicazione anche log con lo stato dell'evento, il tipo di evento, le risorse (nome della macchina virtuale) e NotBefore (periodo di preavviso minimo). È possibile individuare gli eventi con ID 1234 nel registro eventi dell'applicazione.
+Quando gli eventi vengono acquisiti dal servizio Eventi pianificati, vengono registrati nel log eventi dell'applicazione con informazioni su stato, tipo di evento, risorse (nomi delle macchine virtuali) e valore NotBefore (periodo di preavviso minimo). Nel log eventi dell'applicazione gli eventi, è possibile individuare con ID 1234.
 
 > [!NOTE] 
-> In questo esempio, le macchine virtuali si trovano in un set di disponibilità, che ci ha consentito di designare una singola macchina virtuale come agente di raccolta per ascoltare e indirizzare gli eventi pianificati allo spazio di lavoro di log Analytics. Se si dispone di macchine virtuali autonome, è possibile eseguire il servizio in ogni macchina virtuale e quindi connetterle singolarmente all'area di lavoro di log Analytics.
+> In questo esempio, le macchine virtuali si trovano in un set di disponibilità, questo ha consentito di designare una singola macchina virtuale come agente di raccolta per ascoltare ed effettuare il routing degli eventi pianificati all'area di lavoro Log Analytics. Se si dispone di macchine virtuali autonome, è possibile eseguire il servizio in ogni macchina virtuale e quindi connetterle singolarmente all'area di lavoro Log Analytics.
 >
-> Per la nostra configurazione, abbiamo scelto Windows, ma è possibile progettare una soluzione simile in Linux.
+> Per la configurazione di esempio, è stato scelto Windows, ma è possibile progettare una soluzione simile in Linux.
 
-In qualsiasi momento è possibile arrestare/rimuovere il servizio eventi pianificato utilizzando le opzioni `–stop` e `–remove`.
+È possibile arrestare/rimuovere il servizio Eventi pianificati in qualsiasi momento usando le opzioni `–stop` e `–remove`.
 
 ## <a name="connect-to-the-workspace"></a>Connettersi all'area di lavoro
 
 
-A questo punto si vuole connettere un'area di lavoro Log Analytics alla macchina virtuale dell'agente di raccolta. L'area di lavoro Log Analytics funge da repository e la raccolta dei log eventi viene configurata per acquisire i registri applicazioni dalla macchina virtuale dell'agente di raccolta. 
+A questo punto si connette un'area di lavoro Log Analytics alla macchina virtuale dell'agente di raccolta. L'area di lavoro Log Analytics opera come repository e verrà configurata la raccolta dei registri eventi per acquisire i registri applicazioni dalla macchina virtuale dell'agente di raccolta. 
 
- Per instradare il Eventi pianificati al log eventi, che verrà salvato come registro applicazioni dal servizio, sarà necessario connettere la macchina virtuale all'area di lavoro di Log Analytics.  
+ Per il routing di Eventi pianificati al registro eventi, che viene salvato come registro applicazioni dal servizio, è necessario connettere la macchina virtuale all'area di lavoro Log Analytics.  
  
-1. Aprire la pagina per l'area di lavoro creata.
-1. In **Connetti a un'origine dati** selezionare **macchine virtuali (VM) di Azure**.
+1. Aprire la pagina dell'area di lavoro creata.
+1. In **Connettersi a un'origine dati** selezionare **macchine virtuali di Azure**.
 
     ![Connettersi a una macchina virtuale come origine dati](./media/notifications/connect-to-data-source.png)
 
 1. Cercare e selezionare **myCollectorVM**. 
-1. Nella pagina nuova per **myCollectorVM**selezionare **Connetti**.
+1. Nella nuova pagina **myCollectorVM** selezionare **Connetti**.
 
-Verrà installato [Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows) nella macchina virtuale. La connessione della macchina virtuale all'area di lavoro e l'installazione dell'estensione sono necessari alcuni minuti. 
+Viene installato [Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows) nella macchina virtuale. La connessione della macchina virtuale all'area di lavoro e l'installazione dell'estensione richiedono alcuni minuti. 
 
 ## <a name="configure-the-workspace"></a>Configurare l'area di lavoro
 
-1. Aprire la pagina per l'area di lavoro e selezionare **Impostazioni avanzate**.
-1. Selezionare **dati** dal menu a sinistra, quindi selezionare **registri eventi di Windows**.
-1. In **Raccogli dai registri eventi seguenti**, iniziare a digitare *applicazione* , quindi selezionare **applicazione** nell'elenco.
+1. Aprire la pagina per l'area di lavoro e selezionare le **impostazioni avanzate**.
+1. Selezionare **Dati** e quindi selezionare **Log eventi Windows** dal menu a sinistra.
+1. In **Raccogli eventi dai log eventi** seguenti iniziare a digitare *applicazione* e quindi selezionare **Applicazione** dall'elenco.
 
     ![Selezionare le impostazioni avanzate](./media/notifications/advanced.png)
 
-1. Lasciare selezionata l'opzione **errore**, **avviso**e **informazioni** , quindi selezionare **Salva** per salvare le impostazioni.
+1. Lasciare selezionati **ERRORE**, **AVVISO** e **INFORMAZIONI** e quindi selezionare **Salva** per salvare le impostazioni.
 
 
 > [!NOTE]
-> Si verifica un ritardo e potrebbero essere necessari fino a 10 minuti prima che il log sia disponibile. 
+> Si verificherà un ritardo e potrebbero essere necessari fino a 10 minuti prima che il log sia disponibile. 
 
 
-## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creazione di una regola di avviso con monitoraggio di Azure 
+## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creare di una regola di avviso con Monitoraggio di Azure 
 
 
-Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire la [query](/azure/azure-monitor/log-query/get-started-portal) seguente per cercare gli eventi di pianificazione.
+Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire questa [query](/azure/azure-monitor/log-query/get-started-portal) per cercare gli eventi di pianificazione.
 
-1. Nella parte superiore della pagina selezionare **logs** e incollare il codice seguente nella casella di testo:
+1. Nella parte superiore della pagina selezionare **Log** e incollare il codice seguente nella casella di testo:
 
     ```
     Event
@@ -150,28 +150,28 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Selezionare **Save (Salva**) e quindi digitare *logQuery* per nome, lasciare **query** come tipo, digitare *VMLogs* come **Category**e quindi selezionare Save ( **Salva**). 
+1. Selezionare **Salva**, quindi digitare *logQuery* per il nome, lasciare **query** come tipo, digitare *VMLogs* come **categoria** e selezionare **Salva**. 
 
     ![Salvare la query](./media/notifications/save-query.png)
 
 1. Selezionare **Nuova regola di avviso**. 
 1. Nella pagina **Crea regola** lasciare `collectorworkspace` come **risorsa**.
-1. In **condizione**selezionare la voce *ogni volta che la ricerca nei log <login undefined>del cliente è *. Viene visualizzata la pagina **Configura logica di segnalazione** .
-1. In **valore soglia**immettere *0* e quindi fare clic su **fine**.
-1. In **azioni**selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azioni** .
-1. Digitare *myActionGroup*in **nome gruppo di azioni**.
-1. In **nome breve**digitare **myActionGroup**.
-1. In **gruppo di risorse**selezionare **myResourceGroupAvailability**.
-1. In azioni, in **nome azione** digitare **posta elettronica**, quindi selezionare **posta elettronica/SMS/push/voce**. Viene visualizzata la pagina **posta elettronica/SMS/push/Voice** .
-1. Selezionare **e-mail**, digitare l'indirizzo di posta elettronica, quindi fare clic su **OK**.
-1. Nella pagina **Aggiungi gruppo di azione** fare clic su **OK**. 
-1. Nella pagina **Crea regola** , in **Dettagli avviso**, digitare *avviso* per **Nome regola di avviso**, quindi digitare regola di *avviso posta elettronica* per la **Descrizione**.
-1. Al termine, selezionare **Crea regola di avviso**.
-1. Riavviare una delle macchine virtuali nel set di disponibilità. Entro pochi minuti, si riceverà un messaggio di posta elettronica in cui è stato attivato l'avviso.
+1. In **Condizione** selezionare la voce *Ogni volta che la ricerca log del cliente è <login undefined>* . Viene visualizzata la pagina **Configura logica dei segnali**.
+1. In **Valore soglia** immettere *0* e quindi selezionare **Operazione completata**.
+1. Da **Azioni** selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azione**.
+1. In **Nome gruppo di azioni** digitare *myActionGroup*.
+1. In **Nome breve** digitare **myActionGroup**.
+1. In **Gruppo di risorse** selezionare **myResourceGroupAvailability**.
+1. In Azioni digitare **Email** per **NOME AZIONE** quindi selezionare **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce). Viene visualizzata la pagina **Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce)** .
+1. Selezionare **Email**, digitare l'indirizzo di posta elettronica, quindi selezionare **OK**.
+1. Nella pagina **Aggiungi gruppo di azioni** selezionare **OK**. 
+1. Nella pagina **Crea regola** in **DETTAGLI AVVISO** digitare *myAlert* come **Nome regola di avviso**, quindi digitare *regola di avviso posta elettronica*come **descrizione**.
+1. Al termine selezionare **Crea regola di avviso**.
+1. Riavviare una delle macchine virtuali nel set di disponibilità. Entro pochi minuti, si dovrebbe ricevere un messaggio di posta elettronica in cui è stato attivato l'avviso.
 
-Per gestire le regole di avviso, passare al gruppo di risorse, selezionare **avvisi** dal menu a sinistra e quindi selezionare **Gestisci regole di avviso** nella parte superiore della pagina.
+Per gestire le regole di avviso, passare al gruppo di risorse, selezionare **Avvisi** dal menu a sinistra e quindi **Gestisci regole di avviso** nella parte superiore della pagina.
 
      
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere la pagina del [servizio eventi pianificati](https://github.com/microsoft/AzureScheduledEventsService) su GitHub.
+Per altre informazioni, vedere la pagina relativa al [servizio Eventi pianificati](https://github.com/microsoft/AzureScheduledEventsService) su GitHub.

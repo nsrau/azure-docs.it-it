@@ -1,5 +1,5 @@
 ---
-title: Scollegare un disco dati da una macchina virtuale Windows-Azure
+title: Scollegare un disco dati da una macchina virtuale Windows - Azure
 description: Scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -10,7 +10,7 @@ ms.date: 01/08/2020
 ms.author: cynthn
 ms.openlocfilehash: c93bb5fd3e92c6a947fe997b58207b87b2717fd5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082765"
@@ -48,14 +48,14 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 
-È possibile rimuovere a *caldo* un disco dati, ma assicurarsi che non venga usato attivamente il disco prima di scollegarlo dalla macchina virtuale.
+Non è possibile rimuovere *a caldo* un disco dati, ma è possibile accertarsi che nessuno stia usando il disco prima di scollegarlo dalla macchina virtuale.
 
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
-1. Selezionare la macchina virtuale con il disco dati che si desidera scollegare.
+1. Selezionare la macchina virtuale con il disco dati da scollegare.
 1. In **Impostazioni** selezionare **Dischi**.
 1. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
-1. Nell'estremità destra del disco dati che si desidera scollegare nel riquadro **dischi** selezionare **Disconnetti**.
-1. Selezionare **Save (Salva** ) nella parte superiore della pagina per salvare le modifiche.
+1. Nel riquadro **Dischi** selezionare **Scollega** nella parte più a destra del disco dati da scollegare.
+1. Fare clic su **Salva** nella parte superiore di questa pagina per salvare le modifiche.
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 

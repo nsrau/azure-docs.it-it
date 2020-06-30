@@ -9,7 +9,7 @@ ms.date: 09/13/2017
 ms.author: mimckitt
 ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261636"
@@ -24,7 +24,7 @@ Microsoft Corporation sta creando immagini di FreeBSD disponibili in Azure con l
 
 - [FreeBSD 10.4 in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 - [FreeBSD 11.2 in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
-- [FreeBSD 12,0 in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
+- [FreeBSD 12.0 in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
 
 L'agente è responsabile della comunicazione tra la VM FreeBSD e l'infrastruttura di Azure per operazioni quali il provisioning della VM al primo uso (nome utente, password o chiave SSH, nome host e così via) e l'abilitazione di funzionalità per estensioni di VM selettive.
 

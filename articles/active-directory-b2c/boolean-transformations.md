@@ -1,7 +1,7 @@
 ---
 title: Esempi di trasformazione di attestazioni booleane per criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione di attestazioni booleane per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione di attestazioni booleane per lo schema IEF (Identity Experience Framework) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529191"
@@ -22,13 +22,13 @@ ms.locfileid: "80529191"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni booleane dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni booleane dello schema Identity Experience Framework di Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
 Esegue un'operazione And con due inputClaims booleani e imposta l'outputClaim con il risultato dell'operazione.
 
-| Item  | TransformationClaimType  | Tipo di dati  | Note |
+| Elemento  | TransformationClaimType  | Tipo di dati  | Note |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | Il primo ClaimType da valutare. |
 | InputClaim | inputClaim2  | boolean | Il secondo ClaimType da valutare. |
@@ -61,12 +61,12 @@ La trasformazione delle attestazioni seguente mostra come usare due ClaimType bo
 
 Verifica che i valori booleani di due attestazioni siano uguali e genera un'eccezione se non lo sono.
 
-| Item | TransformationClaimType  | Tipo di dati  | Note |
+| Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 
-La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente. È possibile [localizzare](localization-string-ids.md#claims-transformations-error-messages)i messaggi di errore.
+La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente. I messaggi di errore possono essere [localizzati](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
@@ -116,16 +116,16 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica che il valore booleano di un'attestazione `true` sia `false`uguale a o e restituisca il risultato della compressione.
+Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false` e restituisca il risultato della compressione.
 
-| Item | TransformationClaimType  | Tipo di dati  | Note |
+| Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 | OutputClaim | compareResult | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 
-La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore `IsAgeOver21Years` di ClaimType è uguale a `true`, la trasformazione delle attestazioni `true`restituisce; `false`in caso contrario,.
+La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore del ClaimType `IsAgeOver21Years` è uguale a `true`, la trasformazione delle attestazioni restituisce `true`, in caso contrario `false`.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
@@ -148,7 +148,7 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 - Parametri di input:
     - **valueToCompareTo**: true
 - Attestazioni di output:
-    - **CompareResult**: false
+    - **compareResult**: false
 
 
 
@@ -156,7 +156,7 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 
 Esegue un'operazione Not dell'inputClaim booleano e imposta l'outputClaim con il risultato dell'operazione.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | L'attestazione da usare. |
 | OutputClaim | outputClaim | boolean | I ClaimType generati dopo che ClaimsTransformation è stato richiamato (true o false). |
@@ -185,7 +185,7 @@ Usare questa trasformazione delle attestazioni per eseguire la negazione logica 
 
 Calcola un'operazione Or di due inputClaims booleani e imposta l'outputClaim con il risultato dell'operazione.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | Il primo ClaimType da valutare. |
 | InputClaim | inputClaim2 | boolean | Il secondo ClaimType da valutare. |

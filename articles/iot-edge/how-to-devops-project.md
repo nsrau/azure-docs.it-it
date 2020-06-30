@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130985"
@@ -36,7 +36,7 @@ DevOps Projects crea una pipeline CI/CD in Azure DevOps. È possibile creare una
 
    ![Selezionare un linguaggio di programmazione per creare una nuova applicazione](./media/how-to-devops-project/select-language.png)
 
-2. Selezionare **Simple** molto come Framework applicazione, quindi fare clic su **Avanti**.
+2. Selezionare **IoT semplice** come framework applicazione e quindi selezionare **Avanti**.
 
    ![Selezionare il framework IoT semplice](media/how-to-devops-project/select-iot.png)
 
@@ -64,7 +64,7 @@ DevOps Projects crea una pipeline CI/CD in Azure DevOps. È possibile creare una
 
 Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Selezionare il nome del progetto per visualizzare lo stato di avanzamento. Potrebbe essere necessario aggiornare la pagina. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
 
-   ![Visualizza applicazione in portale di Azure](./media/how-to-devops-project/devops-portal.png)
+   ![Visualizzare l'applicazione nel portale di Azure](./media/how-to-devops-project/devops-portal.png)
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 
@@ -76,15 +76,15 @@ DevOps Projects ha creato un repository Git per il progetto in Azure Repos. In q
 
 2. I passaggi seguenti descrivono come usare il Web browser per apportare modifiche al codice. Se si preferisce clonare il repository in locale, selezionare **Clona** nella parte superiore destra della finestra. Usare l'URL fornito per clonare il repository Git in Visual Studio Code o nel proprio strumento di sviluppo preferito.
 
-3. Il repository contiene già il codice per un modulo denominato **FilterModule** in base alla lingua dell'applicazione scelta durante il processo di creazione. Aprire il file modules **/FilterModule/Module. JSON** .
+3. Il repository contiene già il codice per un modulo denominato **FilterModule** basato sulla lingua dell'applicazione che si è scelta nel processo di creazione. Aprire il file **modules/FilterModule/module.json**.
 
    ![Aprire il file module.json in Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Si noti che questo file usa le [variabili di compilazione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) nel parametro **Version** . Questa configurazione garantisce che venga creata una nuova versione del modulo ogni volta che viene eseguita una nuova compilazione.
+4. Tenere presente che questo file usa le [variabili di compilazione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) nel parametro **Versione**. Questa configurazione garantisce che venga creata una nuova versione del modulo ogni volta che viene eseguita una nuova compilazione.
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 
-Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente una pipeline CI/CD completa per l'applicazione IoT Edge. Ora è possibile esplorare e personalizzare la pipeline in base alle esigenze. Usare la procedura seguente per acquisire familiarità con le pipeline di compilazione e rilascio di Azure DevOps.
+Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente una pipeline CI/CD completa per l'applicazione IoT Edge. Ora è possibile esplorare e personalizzare la pipeline in base alle esigenze. Seguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps.
 
 1. Per visualizzare le pipeline di compilazione nel progetto DevOps, selezionare **Pipeline di compilazione** nel menu del dashboard del progetto. Questo collegamento apre una scheda del browser e la pipeline di compilazione di Azure DevOps per il nuovo progetto.
 
@@ -102,7 +102,7 @@ Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente u
 
 5. Selezionare **Salva e accoda** e quindi **Salva**.
 
-6. Selezionare **trigger** dal menu pipeline di compilazione. DevOps Projects ha creato automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+6. Selezionare **Trigger** nel menu della pipeline di compilazione. DevOps Projects ha creato automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 7. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
@@ -124,9 +124,9 @@ Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente u
 
 14. Selezionare il nome di una versione per visualizzare altre informazioni su di essa.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità di **eliminazione** nel dashboard DevOps Projects.
+Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità **Elimina** nel dashboard di DevOps Projects.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

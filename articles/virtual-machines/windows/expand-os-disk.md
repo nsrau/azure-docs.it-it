@@ -11,7 +11,7 @@ ms.author: mimckitt
 ms.subservice: disks
 ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869697"
@@ -162,7 +162,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo della macchina virtuale, lo script può comunque essere usato per l'espansione dei dischi dati collegati alla macchina virtuale. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto `OSDisk` di `StorageProfile` con la matrice `DataDisks` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
 
-**Disco gestito**
+**Dischi gestiti**
 
 ```powershell
 $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
@@ -170,7 +170,7 @@ $disk.DiskSizeGB = 1023
 ```
 
 
-**Disco non gestito**
+**Dischi non gestiti**
 
 ```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
@@ -181,13 +181,13 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 Analogamente è possibile fare riferimento agli altri dischi dati collegati alla macchina virtuale, usando un indice come quello illustrato in precedenza oppure la proprietà **Name** del disco:
 
 
-**Disco gestito**
+**Dischi gestiti**
 
 ```powershell
 (Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
-**Disco non gestito**
+**Dischi non gestiti**
 
 ```powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
@@ -201,11 +201,11 @@ Dopo aver espanso il disco della macchina virtuale è necessario passare nel sis
 
 2.  Aprire il prompt dei comandi e digitare **diskpart**.
 
-2.  Al prompt **DISKPART** digita `list volume`. Prendere nota del volume da estendere.
+2.  Al prompt di **DISKPART** digitare `list volume`. Prendere nota del volume da estendere.
 
-3.  Al prompt **DISKPART** digita `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
+3.  Al prompt di **DISKPART** digitare `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
 
-4.  Al prompt **DISKPART** digita `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
+4.  Al prompt di **DISKPART** digitare `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

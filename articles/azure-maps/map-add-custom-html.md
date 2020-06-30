@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un marcatore HTML alla mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come aggiungere un marcatore HTML a una mappa usando il Microsoft Azure Maps Web SDK.
+title: Aggiungere un indicatore HTML in Mappe | Mappe di Microsoft Azure
+description: In questo articolo viene spiegato come aggiungere un indicatore HTML a una mappa usando Microsoft Azure Maps Web SDK.
 author: Philmea
 ms.author: philmea
 ms.date: 07/29/2019
@@ -11,7 +11,7 @@ manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83119286"
@@ -24,13 +24,13 @@ Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esemp
 > Gli indicatore HTML non si connettono alle origini dati. Le informazioni sulla posizione sono invece aggiunte direttamente all'indicatore, il quale viene aggiunto alla proprietà `markers` delle mappe, un [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, maggiore è il numero di marcatori HTML aggiunti a una pagina, più sono gli elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
+> A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, più si aggiungono indicatori HTML a una pagina, più saranno disponibili elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
 
 ## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
 
-La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe marcatore HTML è un modello SVG che include un `{color}` `{text}` segnaposto e. Impostare le proprietà colore e testo nelle opzioni del marcatore HTML per una personalizzazione rapida. 
+La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe HtmlMarker è un modello SVG con un segnaposto `{color}` e `{text}`. Configurare le proprietà di colore e testo nelle opzioni dell'indicatore HTML per una rapida personalizzazione. 
 
-Il codice seguente crea un marcatore HTML e imposta la proprietà Color su "DodgerBlue" e la proprietà Text su "10". Un popup viene collegato al marcatore e l' `click` evento viene usato per impostare la visibilità del popup.
+Il codice seguente crea un indicatore HTML e imposta la proprietà del colore su "DodgerBlue" e la proprietà del testo su "10". All'indicatore viene associato un popup e, per attivare la visibilità del popup, viene usato l'evento `click`.
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -52,7 +52,7 @@ map.events.add('click',marker, () => {
 });
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -69,7 +69,7 @@ Il valore predefinito `htmlContent` di un indicatore Html è un modello di SVG c
 </iframe>
 
 > [!TIP]
-> Azure Maps Web SDK fornisce diversi modelli di immagini SVG che possono essere usati con marcatori HTML. Per altre informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
+> Azure Maps Web SDK offre vari modelli di immagini SVG che possono essere usati con indicatori HTML. Per altre informazioni, vedere il documento [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md).
 
 ## <a name="add-a-css-styled-html-marker"></a>Aggiungere un indicatore HTML in stile CSS
 
@@ -82,7 +82,7 @@ Uno dei vantaggi degli indicatori HTML è la presenza di diverse eccezionali per
 
 ## <a name="draggable-html-markers"></a>Indicatori HTML trascinabili
 
-Questo esempio mostra come rendere trascinabile un indicatore HTML. I marcatori HTML supportano `drag` `dragstart` `dragend` gli eventi, e.
+Questo esempio mostra come rendere trascinabile un indicatore HTML. Gli indicatori HTML supportano gli eventi `drag`, `dragstart` e `dragend`.
 
 <br/>
 
@@ -117,7 +117,7 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](./map-add-pin.md)
+> [Aggiungere un livello per i simboli](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello Bubble](./map-add-bubble-layer.md)
+> [Aggiungere un livello per le bolle](./map-add-bubble-layer.md)

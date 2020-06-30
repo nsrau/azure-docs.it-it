@@ -9,7 +9,7 @@ ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82734825"
@@ -42,13 +42,13 @@ La [versione canary](https://martinfowler.com/bliki/CanaryRelease.html) è una s
 
 ## <a name="set-up-vamp"></a>Configurare Vamp
 
-Ora che si dispone di un cluster DC/OS in esecuzione, è possibile installare vamp dall'interfaccia utente di DC/OS\/(http:/localhost: 80). 
+Ora che si dispone di un cluster DC/OS in esecuzione, è possibile installare Vamp dall'interfaccia utente DC/OS (http:\///localhost:80). 
 
 ![Interfaccia utente di DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
 L'installazione viene eseguita in due fasi:
 
-1. **Distribuire elasticsearch**.
+1. **Distribuire Elasticsearch**.
 
 2. Quindi **distribuire Vamp** installando il pacchetto Universo DC/OS di Vamp.
 
@@ -197,7 +197,7 @@ Per unire il nuovo servizio sava 1.1 con la distribuzione in esecuzione:
 
 1. Nell'interfaccia utente di Vamp fare clic su **Blueprints** (Progetti).
 
-2. Fare clic su **Add** (Aggiungi) e incollare il seguente progetto YAML: questo progetto descrive una nuova variante di servizio, sava: 1.1.0, da distribuire nel cluster esistente, sava_cluster.
+2. Fare clic su **Add** (Aggiungi) e incollare il progetto YAML seguente: questo progetto descrive una nuova variante di servizio, sava:1.1.0, da distribuire nel cluster esistente, sava_cluster.
 
    ```YAML
    name: sava:1.1.0      # blueprint name

@@ -1,5 +1,5 @@
 ---
-title: Configurare parametri del server-interfaccia della riga di comando di Azure-database di Azure per MariaDB
+title: Configurare i parametri del server - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB
 description: Questo articolo descrive come configurare i parametri del servizio in Database di Azure per MariaDB usando l'utilità dell'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632309"
@@ -69,7 +69,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'[interfaccia della riga di comando](howto-restart-server-cli.md).
 
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 

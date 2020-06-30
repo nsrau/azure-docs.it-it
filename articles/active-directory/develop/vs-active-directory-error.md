@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare gli errori con Azure AD servizio connesso (Visual Studio)
+title: Diagnosticare gli errori con il servizio connesso di Azure AD (Visual Studio)
 description: Il servizio connesso di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 author: ghogen
 manager: jillfra
@@ -12,24 +12,24 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 4b39aa77ea3895a606ad34a3bc9b70dba924a23f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886093"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 
-Durante il rilevamento del codice di autenticazione precedente, il servizio Azure Active Directory connesso ha rilevato un tipo di autenticazione incompatibile.
+Durante il rilevamento del codice di autenticazione precedente, il servizio connesso di Azure Active Directory ha rilevato un tipo di autenticazione non compatibile.
 
-Per rilevare correttamente il codice di autenticazione precedente in un progetto, è necessario ricompilare il progetto. Se viene visualizzato questo errore e non si dispone di un codice di autenticazione precedente nel progetto, ricompilare e riprovare.
+Per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia ricompilato. Se si verifica questo errore e non si ha il precedente codice di autenticazione del progetto, ricompilare e riprovare.
 
 ## <a name="project-types"></a>Tipi di progetto
 
-Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva `ApiController` da, il progetto viene considerato un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
+Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva da `ApiController`, il progetto verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
 
 ## <a name="compatible-authentication-code"></a>Codice di autenticazione compatibile
 
-Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, questo viene considerato un caso rientrante e il servizio connesso viene visualizzato per visualizzare le impostazioni.  Se sono presenti solo alcune impostazioni, viene considerato un caso di errore.
+Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, viene considerato come caso rientrante. Il servizio connesso verrà aperto e visualizzerà le impostazioni.  Se sono presenti solo alcune impostazioni, verrà considerato come caso di errore.
 
 In un progetto MVC il servizio connesso cerca le impostazioni seguenti che derivano da usi precedenti del servizio:
 
@@ -38,7 +38,7 @@ In un progetto MVC il servizio connesso cerca le impostazioni seguenti che deriv
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Il servizio connesso controlla anche la presenza di una qualsiasi delle impostazioni seguenti in un progetto API Web, risultante dall'uso precedente del servizio:
+Il servizio connesso cerca inoltre le impostazioni seguenti di un progetto API Web che derivano da usi precedenti del servizio:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

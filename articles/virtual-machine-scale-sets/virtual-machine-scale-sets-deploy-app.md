@@ -11,7 +11,7 @@ ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124925"
@@ -31,7 +31,7 @@ Per ridurre la gestione della configurazione e il tempo per eseguire il provisio
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
-L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione di script personalizzata, vedere le esercitazioni seguenti:
+L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione dello script personalizzata, vedere le esercitazioni seguenti:
 
 - [Interfaccia della riga di comando di Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
@@ -43,7 +43,7 @@ L'estensione script personalizzata scarica ed esegue gli script sulle macchine v
 
 L'estensione PowerShell DSC consente di personalizzare le istanze di macchine virtuali in un set di scalabilità con PowerShell. L'esempio seguente:
 
-- Indica alle istanze di macchine virtuali di scaricare un pacchetto DSC da GitHub-*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Indica alle istanze di macchine virtuali di scaricare un pacchetto DSC da GitHub: *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Imposta l'estensione in modo da eseguire uno script di installazione: `configure-http.ps1`
 - Ottiene informazioni su un set di scalabilità con [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Applica l'estensione alle istanze di macchine virtuali con [Update-AzVmss](/powershell/module/az.compute/update-azvmss)

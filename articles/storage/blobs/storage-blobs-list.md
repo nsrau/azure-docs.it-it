@@ -1,6 +1,6 @@
 ---
-title: Elencare BLOB con .NET-archiviazione di Azure
-description: Informazioni su come elencare i BLOB in un contenitore nell'account di archiviazione di Azure usando la libreria client .NET. Gli esempi di codice illustrano come elencare i BLOB in un elenco semplice o come elencare i BLOB in modo gerarchico, come se fossero organizzati in directory o cartelle.
+title: Elencare i BLOB con .NET - Archiviazione di Azure
+description: Informazioni su come elencare i BLOB in un contenitore nell'account di Archiviazione di Azure usando la libreria client .NET. Gli esempi di codice illustrano come elencare i BLOB in un elenco semplice oppure in modo gerarchico, come se fossero organizzati in directory o cartelle.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,62 +10,62 @@ ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 76142838d1ec138b75fb6c594414b2ff5d8cd939
 ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2020
 ms.locfileid: "82883295"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
-Quando si elencano i BLOB dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. È possibile specificare il numero di risultati da restituire in ogni set di risultati, quindi recuperare i set successivi. È possibile specificare un prefisso per restituire i BLOB i cui nomi iniziano con tale carattere o stringa. Ed è possibile elencare i BLOB in una struttura di elenco semplice o gerarchicamente. Un elenco gerarchico restituisce i BLOB come se fossero organizzati in cartelle. 
+Quando si elencano i BLOB tramite il codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'Archiviazione di Azure. È possibile specificare il numero di risultati da restituire in ogni set di risultati e quindi recuperare i set successivi. È possibile specificare un prefisso per restituire i BLOB i cui nomi iniziano con tale carattere o stringa. Ed è possibile elencare i BLOB in una struttura elenco semplice o gerarchica. Un elenco gerarchico restituisce i BLOB come se fossero organizzati in cartelle. 
 
-Questo articolo illustra come elencare i BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
+Questo articolo illustra come elencare i BLOB usando la [libreria client di Archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-blob-listing-options"></a>Informazioni sulle opzioni per l'elenco di BLOB
 
 Per elencare i BLOB in un account di archiviazione, chiamare uno dei metodi seguenti:
 
-- [CloudBlobClient. ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
-- [CloudBlobClient. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
-- [CloudBlobClient. ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync)
+- [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
+- [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
+- [CloudBlobClient.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync)
 
 Per elencare i BLOB in un contenitore, chiamare uno dei metodi seguenti:
 
-- [CloudBlobContainer. ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs)
-- [CloudBlobContainer. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
-- [CloudBlobContainer. ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
+- [CloudBlobContainer.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs)
+- [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
+- [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-Gli overload di questi metodi forniscono opzioni aggiuntive per la gestione del modo in cui i BLOB vengono restituiti dall'operazione di elenco. Queste opzioni sono descritte nelle sezioni riportate di seguito.
+Gli overload di questi metodi offrono opzioni aggiuntive per la gestione del modo in cui i BLOB vengono restituiti dall'operazione di elencazione. Le opzioni disponibili sono descritte nelle sezioni seguenti.
 
 ### <a name="manage-how-many-results-are-returned"></a>Gestire il numero di risultati restituiti
 
-Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero `maxresults` per il parametro quando si chiama uno dei metodi **ListBlobs** .
+Per impostazione predefinita, un'operazione di elenco restituisce fino a 5.000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero per il parametro `maxresults` quando si chiama uno dei metodi **ListBlobs**.
 
-Se un'operazione di elenco restituisce più di 5000 BLOB o se è stato specificato un valore in `maxresults` modo che l'operazione di elenco restituisca un subset di contenitori nell'account di archiviazione, archiviazione di Azure restituisce un *token di continuazione* con l'elenco di BLOB. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set successivo di risultati dall'archiviazione di Azure.
+Se un'operazione di elenco restituisce più di 5.000 BLOB o se è stato specificato un valore per `maxresults` in modo che l'operazione di elenco restituisca un subset di contenitori nell'account di archiviazione, Archiviazione di Azure restituisce un *token di continuazione* con l'elenco di BLOB. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.
 
-Nel codice, controllare il valore del token di continuazione per determinare se è null. Quando il token di continuazione è null, il set di risultati è completo. Se il token di continuazione non è null, chiamare di nuovo l'operazione di listato, passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non è null.
+Nel codice, controllare il valore del token di continuazione per determinare se è di Null. Se il token di continuazione è Null, il set di risultati è completo. Se il token di continuazione non è Null, chiamare di nuovo l'operazione di elenco, passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non diventa Null.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrare i risultati con un prefisso
 
-Per filtrare l'elenco dei contenitori, specificare una stringa per il `prefix` parametro. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce quindi solo i BLOB i cui nomi iniziano con tale prefisso.
+Per filtrare l'elenco dei contenitori, specificare una stringa per il parametro `prefix`. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce solo i BLOB i cui nomi iniziano con tale prefisso.
 
-### <a name="return-metadata"></a>Restituisci metadati
+### <a name="return-metadata"></a>Restituire i metadati
 
-Per restituire i metadati dei BLOB con i risultati, specificare il valore **dei metadati** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Archiviazione di Azure include metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati del BLOB.
+Per restituire i metadati dei BLOB con i risultati, specificare il valore **Metadata** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Archiviazione di Azure include i metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati dei BLOB.
 
-### <a name="flat-listing-versus-hierarchical-listing"></a>Elenco semplice rispetto alla lista gerarchica
+### <a name="flat-listing-versus-hierarchical-listing"></a>Confronto tra elenco semplice e gerarchico
 
-I BLOB in archiviazione di Azure sono organizzati in un paradigma semplice, anziché in un paradigma gerarchico (ad esempio un file system classico). Tuttavia, è possibile organizzare i BLOB in *directory virtuali* per simulare una struttura di cartelle. Una directory virtuale fa parte del nome del BLOB ed è indicata dal carattere delimitatore.
+I BLOB in Archiviazione di Azure sono organizzati secondo un paradigma semplice, anziché gerarchico (come un file system classico). Tuttavia, è possibile organizzare i BLOB in *directory virtuali* per simulare una struttura di cartelle. Una directory virtuale costituisce parte del nome del BLOB ed è indicata dal carattere di delimitazione.
 
-Per organizzare i BLOB in directory virtuali, usare un carattere delimitatore nel nome del BLOB. Il carattere delimitatore predefinito è una barra (/), ma è possibile specificare qualsiasi carattere come delimitatore.
+Per organizzare i BLOB in directory virtuali, usare un carattere di delimitazione nel nome del BLOB. Il delimitatore predefinito è la barra (/), ma è possibile specificare qualsiasi carattere.
 
-Se i BLOB vengono denominati usando un delimitatore, è possibile scegliere di elencare i BLOB in modo gerarchico. Per un'operazione di elenco gerarchico, archiviazione di Azure restituisce le directory virtuali e i BLOB sotto l'oggetto padre. È possibile chiamare l'operazione di elenco in modo ricorsivo per attraversare la gerarchia, in modo analogo a come si attraversa un file system classico a livello di codice.
+Se i BLOB vengono denominati usando un delimitatore, è possibile scegliere un elenco gerarchico. In un'operazione di elenco gerarchico, Archiviazione di Azure restituisce le directory virtuali e i BLOB sotto l'oggetto padre. È possibile chiamare l'operazione di elenco in modo ricorsivo per attraversare la gerarchia in modo analogo a come si attraverserebbe un file system classico a livello di codice.
 
 ## <a name="use-a-flat-listing"></a>Usare un elenco semplice
 
-Per impostazione predefinita, un'operazione di elenco restituisce BLOB in un elenco semplice. In un elenco semplice, i BLOB non sono organizzati in base alla directory virtuale.
+Per impostazione predefinita, un'operazione di elenco restituisce i BLOB in un elenco semplice. In un elenco semplice, i BLOB non sono organizzati in base alla directory virtuale.
 
-Nell'esempio seguente vengono elencati i BLOB nel contenitore specificato utilizzando un elenco semplice, con una dimensione di segmento facoltativa specificata, e il nome del BLOB viene scritto in una finestra della console.
+Nell'esempio seguente vengono elencati i BLOB nel contenitore specificato utilizzando un elenco semplice, con una dimensione di segmento facoltativa specificata. Il nome del BLOB viene scritto in una finestra della console.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -108,7 +108,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
-L'output di esempio è simile al seguente:
+L'output è simile al seguente:
 
 ```
 Blob name: FolderA/blob1.txt
@@ -122,13 +122,13 @@ Blob name: FolderA/FolderB/FolderC/blob2.txt
 Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
-## <a name="use-a-hierarchical-listing"></a>Usa un elenco gerarchico
+## <a name="use-a-hierarchical-listing"></a>Usare un elenco gerarchico
 
-Quando si chiama un'operazione di elenco gerarchicamente, archiviazione di Azure restituisce le directory virtuali e i BLOB al primo livello della gerarchia. La proprietà [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) di ogni directory virtuale è impostata in modo che sia possibile passare il prefisso in una chiamata ricorsiva per recuperare la directory successiva.
+Quando si chiama un'operazione di elenco gerarchico, Archiviazione di Azure restituisce le directory virtuali e i BLOB del primo livello della gerarchia. Il [prefisso](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) proprietà di ogni directory virtuale è impostato in modo che sia possibile passare il prefisso in una chiamata ricorsiva per recuperare la directory successiva.
 
-Per elencare i BLOB in modo gerarchico, impostare il `useFlatBlobListing` parametro del metodo di elenco su **false**.
+Per elencare i BLOB in modo gerarchico, impostare il parametro `useFlatBlobListing` del metodo di elenco su **false**.
 
-Nell'esempio seguente vengono elencati i BLOB nel contenitore specificato utilizzando un elenco semplice, con una dimensione di segmento facoltativa specificata, e il nome del BLOB viene scritto nella finestra della console.
+Nell'esempio seguente vengono elencati i BLOB nel contenitore specificato utilizzando un elenco semplice, con una dimensione di segmento facoltativa specificata. Il nome del BLOB viene scritto nella finestra della console.
 
 ```csharp
 private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer container, string prefix)
@@ -183,7 +183,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
-L'output di esempio è simile al seguente:
+L'output è simile al seguente:
 
 ```
 Virtual directory prefix: FolderA/
@@ -203,7 +203,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> Non è possibile elencare gli snapshot BLOB in un'operazione di elenco gerarchico.
+> In un'operazione di elenco gerarchico non è possibile elencare gli snapshot BLOB.
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

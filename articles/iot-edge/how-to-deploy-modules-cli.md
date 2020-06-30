@@ -1,6 +1,6 @@
 ---
-title: Distribuire i moduli dalla riga di comando dell'interfaccia della riga di comando di Azure-Azure IoT Edge
-description: Usare l'interfaccia della riga di comando di Azure con l'estensione Azure per eseguire il push di un modulo di IoT Edge dall'hub Internet al dispositivo IoT Edge, come configurato da un manifesto della distribuzione.
+title: Distribuire moduli dall'interfaccia della riga di comando di Azure - Azure IoT Edge
+description: Usare l'interfaccia della riga di comando di Azure con l'estensione Azure IoT per eseguire il push di un modulo di IoT Edge dall'hub IoT al dispositivo IoT Edge, come configurato da un manifesto della distribuzione.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133935"
@@ -26,10 +26,10 @@ Questo articolo illustra come creare un manifesto della distribuzione JSON e qui
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [Hub](../iot-hub/iot-hub-create-using-cli.md) Internet delle cose nella sottoscrizione di Azure.
+* Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device.md#register-with-the-azure-cli) con il runtime di IoT Edge installato.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
-* Estensione Internet per l'interfaccia della riga [di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -120,7 +120,7 @@ Per applicare la configurazione a un dispositivo IoT Edge usare il comando segue
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-Il parametro ID dispositivo distingue tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato.
+Per il parametro ID dispositivo viene fatta distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -134,7 +134,7 @@ Visualizzare i moduli nel dispositivo IoT Edge:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-Il parametro ID dispositivo distingue tra maiuscole e minuscole.
+Per il parametro ID dispositivo viene fatta distinzione tra maiuscole e minuscole.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 

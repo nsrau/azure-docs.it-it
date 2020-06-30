@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: distribuire l'app ASP.NET e il codice del database SQL di Azure usando Azure DevOps Starter"
-description: DevOps Starter consente di iniziare a usare Azure in modo semplice. Con DevOps Starter è possibile distribuire l'app ASP.NET e il codice del database SQL di Azure in pochi passaggi rapidi.
+title: "Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Starter"
+description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con DevOps Starter è possibile distribuire l'app ASP.NET e il codice di un database SQL di Azure in pochi rapidi passaggi.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -10,16 +10,16 @@ ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82233704"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Esercitazione: distribuire l'app ASP.NET e il codice del database SQL di Azure usando Azure DevOps Starter
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Starter
 
-Azure DevOps Starter presenta un'esperienza semplificata in cui è possibile importare il codice esistente e il repository git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua e recapito continuo (CD) in Azure. 
+Azure DevOps Starter offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) in Azure. 
 
-DevOps Starter anche:
+DevOps Starter consente inoltre di effettuare le seguenti operazioni:
 * Creare automaticamente risorse di Azure, ad esempio un database SQL di Azure.
 * Creare e configurare una pipeline di versione in Azure Pipelines che includa una pipeline di compilazione per CI.
 * Configurare una pipeline di versione per CD. 
@@ -28,7 +28,7 @@ DevOps Starter anche:
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare l'utilità di avvio di Azure DevOps per distribuire l'app ASP.NET e il codice del database SQL di Azure
+> * Usare Azure DevOps Starter per distribuire l'app ASP.NET e il codice del database SQL di Azure
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
 > * Esaminare la pipeline di integrazione continua
 > * Esaminare la pipeline di distribuzione continua
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Connettersi al database SQL di Azure 
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -46,9 +46,9 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova.
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selezionare **.NET**, quindi **Avanti**.
 
@@ -66,15 +66,15 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 1. Selezionare i servizi della sottoscrizione di Azure. Facoltativamente, per visualizzare impostazioni di configurazione di Azure aggiuntive e identificare il nome utente nella sezione **Dettagli di accesso a server di database**, selezionare **Modifica**. Archiviare il nome utente per i passaggi successivi di questa esercitazione. Se si esegue questo passaggio facoltativo, chiudere l'area di configurazione di Azure prima di selezionare **Fine**.
  
-1. Selezionare **Operazione completata**. Dopo alcuni minuti, il processo viene completato e viene aperto il dashboard di avvio DevOps nel portale di Azure. È anche possibile passare al dashboard direttamente da **Tutte le risorse** nel portale di Azure. A destra, selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
+1. Selezionare **Operazione completata**. Dopo pochi minuti, il processo viene completato e il dashboard di DevOps Starter viene visualizzato nel portale di Azure. È anche possibile passare al dashboard direttamente da **Tutte le risorse** nel portale di Azure. A destra, selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
     
 ## <a name="examine-the-ci-pipeline"></a>Esaminare la pipeline di integrazione continua
 
-DevOps Starter configura automaticamente una pipeline di integrazione continua/recapito continuo completa in Azure Repos. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità con la pipeline di compilazione di Azure DevOps, eseguire questa procedura:
+DevOps Starter configura automaticamente una pipeline CI/CD completa in Azure Repos. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità con la pipeline di compilazione di Azure DevOps, eseguire questa procedura:
 
-1. Nella parte superiore del Dashboard Starter di DevOps selezionare **pipeline di compilazione**. In una scheda del browser viene visualizzata la pipeline di compilazione per il nuovo progetto.
+1. Selezionare **Pipeline di compilazione** nella parte superiore del dashboard di DevOps Starter. In una scheda del browser viene visualizzata la pipeline di compilazione per il nuovo progetto.
 
-1. Puntare al campo **stato** , quindi selezionare i puntini di sospensione (...). Un menu Visualizza diverse opzioni, ad esempio Accodamento di una nuova compilazione, sospensione di una compilazione e modifica della pipeline di compilazione.
+1. Puntare al campo **Stato** e quindi selezionare i puntini di sospensione (...). Un menu mostra diverse opzioni, ad esempio accodare una nuova compilazione, sospendere una compilazione e modificare la pipeline di compilazione.
 
 1. Selezionare **Modifica**.
 
@@ -82,19 +82,19 @@ DevOps Starter configura automaticamente una pipeline di integrazione continua/r
 
 1. Nella parte superiore della pipeline di compilazione selezionare il nome della pipeline di compilazione.
 
-1. Modificare il nome della pipeline di compilazione con un nome più descrittivo, selezionare **salva & coda**, quindi selezionare **Salva**.
+1. Modificare il nome della pipeline di compilazione scegliendo un testo più descrittivo, selezionare **Salva e accoda**, quindi selezionare **Salva**.
 
 1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**. Questo riquadro mostra un log di controllo delle modifiche recenti per la compilazione. Azure Pipelines tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
-1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger CI e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger di integrazione continua e a ogni commit nel repository viene avviata una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
 ## <a name="examine-the-cd-pipeline"></a>Esaminare la pipeline di distribuzione continua
 
-DevOps Starter crea e configura automaticamente i passaggi necessari per eseguire la distribuzione dall'organizzazione DevOps di Azure alla sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline CD, che fornisce la distribuzione continua nella macchina virtuale di Azure. Per altre informazioni sulla pipeline CD di Azure DevOps, eseguire le operazioni seguenti:
+DevOps Starter crea e configura automaticamente i passaggi necessari per la distribuzione dall'organizzazione di Azure DevOps alla sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline CD, che fornisce la distribuzione continua nella macchina virtuale di Azure. Per altre informazioni sulla pipeline CD di Azure DevOps, eseguire le operazioni seguenti:
 
-1. Selezionare **Compilazione e versione** e quindi **Versioni**. DevOps Starter crea una pipeline di versione per gestire le distribuzioni in Azure.
+1. Selezionare **Compilazione e versione** e quindi **Versioni**. DevOps Starter crea una pipeline di versione per gestire le distribuzioni per Azure.
 
 1. Selezionare i puntini di sospensione (...) accanto alla pipeline di versione e quindi scegliere **Modifica**. La pipeline di versione contiene una *pipeline* che definisce il processo per la versione.
 
@@ -102,7 +102,7 @@ DevOps Starter crea e configura automaticamente i passaggi necessari per eseguir
 
 1. A destra dell'icona **Elimina** selezionare **Trigger di distribuzione continua**. Questa pipeline di versione ha un trigger di distribuzione continua abilitato, che esegue una distribuzione ogni volta che è disponibile un nuovo artefatto di compilazione. Facoltativamente, è possibile disabilitare il trigger, in modo che le distribuzioni richiedano l'esecuzione manuale. 
 
-    DevOps Starter configura una password SQL casuale e la usa per la pipeline di rilascio.
+    DevOps Starter configura una password SQL casuale e la usa per la pipeline di versione.
     
 1. A sinistra selezionare **Variabili**. 
 
@@ -121,7 +121,7 @@ DevOps Starter crea e configura automaticamente i passaggi necessari per eseguir
 
 1. Selezionare **Commit**. Questa visualizzazione mostra i commit di codice associati a questa distribuzione. È possibile confrontare le versioni per visualizzare le differenze di commit tra le distribuzioni.
 
-1. Selezionare **log**. I log contengono informazioni utili sul processo di distribuzione. È possibile visualizzarli durante e dopo le distribuzioni.
+1. Selezionare **Log**. I log contengono informazioni utili sul processo di distribuzione. È possibile visualizzarli durante e dopo le distribuzioni.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Eseguire il commit delle modifiche in Azure Repos e la distribuzione automatica in Azure 
 
@@ -136,7 +136,7 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 1. Apportare una modifica al file, ad esempio aggiungere del testo all'interno di uno dei tag div. 
 
-1. In alto a destra, selezionare **Commit**, quindi selezionare **Commit** nuovamente per eseguire il push della modifica. Dopo alcuni istanti verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato di compilazione nel dashboard iniziale di DevOps o nel browser con l'organizzazione DevOps di Azure.
+1. In alto a destra, selezionare **Commit**, quindi selezionare **Commit** nuovamente per eseguire il push della modifica. Dopo alcuni istanti verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato della compilazione nel dashboard di DevOps Starter oppure nel browser con l'organizzazione di Azure DevOps.
 
 1. Quando la versione sarà completa, aggiornare l'applicazione per verificare le modifiche.
 
@@ -144,7 +144,7 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 Per connettersi al database SQL di Azure, sono necessarie le autorizzazioni appropriate.
 
-1. Nel dashboard di DevOps Starter selezionare **database SQL** per passare alla pagina di gestione del database SQL.
+1. Nel dashboard di DevOps Starter selezionare **Database SQL** per passare alla pagina di gestione per il database SQL.
    
 1. Selezionare **Imposta firewall server** e quindi **Aggiungi IP client**. 
 
@@ -161,16 +161,16 @@ Per connettersi al database SQL di Azure, sono necessarie le autorizzazioni appr
     Se il nome utente del database non è stato modificato durante la configurazione iniziale di DevOps Projects, il nome utente è la parte locale dell'indirizzo di posta elettronica. Se, ad esempio, l'indirizzo di posta elettronica è *johndoe\@microsoft.com*, il nome utente è *johndoe*.
 
    > [!NOTE]
-   > Se si modifica la password per l'account di accesso SQL, è necessario modificare la password nella variabile della pipeline di rilascio, come descritto nella sezione [esaminare la pipeline CD](#examine-the-cd-pipeline) .
+   > Se si modifica la password per l'accesso SQL, è necessario modificare la password nella variabile della pipeline di versione, come descritto nella sezione [Esaminare la pipeline di distribuzione continua](#examine-the-cd-pipeline).
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il database SQL di Azure e le risorse correlate create in questa esercitazione. A tale scopo, usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il database SQL di Azure e le risorse correlate create in questa esercitazione. A tale scopo, usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 > [!IMPORTANT]
-> La procedura seguente elimina definitivamente le risorse. La funzionalità di *eliminazione* Elimina i dati creati dal progetto in DevOps Starter sia in Azure che in Azure DevOps e non sarà possibile recuperarli. Usare questa procedura solo dopo aver letto attentamente le istruzioni visualizzate.
+> La procedura seguente elimina definitivamente le risorse. La funzionalità *Elimina* cancella definitivamente i dati creati dal progetto in DevOps Starter sia in Azure che in Azure DevOps e non sarà più possibile recuperarli. Usare questa procedura solo dopo aver letto attentamente le istruzioni visualizzate.
 
-1. Nel portale di Azure passare al dashboard di avvio di DevOps.
+1. Nel portale di Azure passare al dashboard di DevOps Starter.
 2. In alto a destra selezionare **Elimina**. 
 3. Al prompt, selezionare **Sì** per *eliminare definitivamente* le risorse.
 
@@ -179,13 +179,13 @@ Se si stanno eseguendo test, è possibile pulire le risorse per evitare che veng
 Facoltativamente, è possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Usare l'utilità di avvio di Azure DevOps per distribuire l'app ASP.NET e il codice del database SQL di Azure
+> * Usare Azure DevOps Starter per distribuire l'app ASP.NET e il codice del database SQL di Azure
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
 > * Esaminare la pipeline di integrazione continua
 > * Esaminare la pipeline di distribuzione continua
 > * Eseguire il commit delle modifiche in Azure Repos e la distribuzione automatica in Azure
 > * Connettersi al database SQL di Azure 
-> * Pulizia delle risorse
+> * Pulire le risorse
 
 Per altre informazioni sulla pipeline CI/CD, vedere:
 

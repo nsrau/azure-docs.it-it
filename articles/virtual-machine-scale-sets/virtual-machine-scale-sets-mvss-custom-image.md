@@ -11,7 +11,7 @@ ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124908"
@@ -21,7 +21,7 @@ ms.locfileid: "83124908"
 Questo articolo illustra come modificare il [modello di set di scalabilità di base](virtual-machine-scale-sets-mvss-start.md) per la distribuzione da un'immagine personalizzata.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
-In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
+In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. Il modello creato verrà ora modificato in modo da realizzare un modello per distribuire un set di scalabilità da un'immagine personalizzata.  
 
 ### <a name="creating-a-managed-disk-image"></a>Creazione dell'immagine di un disco gestito
 

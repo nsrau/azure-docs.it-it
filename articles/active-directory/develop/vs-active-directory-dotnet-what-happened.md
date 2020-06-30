@@ -12,7 +12,7 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: d42d905bf35c015213e76bc50c4bc339a5c4a062
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886110"
@@ -21,15 +21,15 @@ ms.locfileid: "80886110"
 
 > [!div class="op_single_selector"]
 > - [Per iniziare](vs-active-directory-dotnet-getting-started.md)
-> - [Cos'è successo](vs-active-directory-dotnet-what-happened.md)
+> - [Risultati](vs-active-directory-dotnet-what-happened.md)
 
-Questo articolo identifica le modifiche esatte apportate a un progetto MVC ASP.NET quando si aggiunge il [Azure Active Directory servizio connesso usando Visual Studio](vs-active-directory-add-connected-service.md).
+Questo articolo identifica le modifiche esatte apportate a un progetto MVC ASP.NET quando si aggiunge il servizio connesso [Azure Active Directory tramite Visual Studio](vs-active-directory-add-connected-service.md).
 
 Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Riferimenti aggiunti
 
-Influiscono sul file di progetto (riferimenti *. NET `packages.config` ) e sui riferimenti a NuGet.
+Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
 | Type | Informazioni di riferimento |
 | --- | --- |
@@ -142,7 +142,7 @@ Modifiche aggiuntive se è stata selezionata l'opzione **Lettura dati directory*
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup di file (Visual Studio 2015)
 
-Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei file modificati e rimossi. Tutti i file interessati vengono salvati nella cartella `Backup/AzureAD`. Visual Studio 2017 e versioni successive non crea backup.
+Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei file modificati e rimossi. Tutti i file interessati vengono salvati nella cartella `Backup/AzureAD`. Visual Studio 2017 e versioni successive non creano backup.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82612946"
@@ -22,11 +22,11 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
 ## <a name="default-settings"></a>Impostazioni predefinite
 
-Quando si distribuisce la soluzione di monitoraggio remoto per la prima volta, sono disponibili due ruoli: **Admin** e **Sola lettura**.
+Quando si distribuisce la soluzione di monitoraggio remoto per la prima volta, sono disponibili due ruoli: **Amministratore** e **Sola lettura**.
 
 Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse le autorizzazioni seguenti, mentre gli utenti con il ruolo **Sola lettura** possono accedere solo per visualizzare la soluzione.
 
-| Autorizzazione            | Amministratore | Sola lettura |
+| Autorizzazione            | Amministrativi | Sola lettura |
 |----------------       |-------|-----------|
 | Visualizza soluzione         | Sì   | Sì       |
 | Aggiornare avvisi         | Sì   | No        |
@@ -248,7 +248,7 @@ In questo articolo si è appreso come viene implementato il controllo degli acce
 
 Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 
-Per informazioni più concettuali su Remote Monitoring Solution Accelerator, vedere [Remote Monitoring Architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
 <!-- Next tutorials in the sequence -->

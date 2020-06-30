@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 01/17/2018
 ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415855"
@@ -28,8 +28,8 @@ Azure Data Factory è un servizio di integrazione dei dati completamente gestito
 
 Azure Data Factory offre i vantaggi seguenti per il caricamento di dati in Azure Data Lake Storage Gen1:
 
-* **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
-* **Supporto per gli archivi dati avanzati**: supporto incorporato per un set completo di archivi dati locali e basati sul cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Facilità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
+* **Supporto completo per archivi dati**: supporto integrato per una vasta gamma di archivi dati locali e basati su cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute. La presenza di un servizio globale garantisce che i dati non oltrepassino mai il confine geografico.
 * **Prestazioni elevate**: fino a 1 GB/s di velocità di caricamento dati in Azure Data Lake Storage Gen1. Per informazioni, vedere [Prestazioni dell'attività di copia](copy-activity-performance.md).
 
@@ -40,13 +40,13 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Account Azure Data Lake Storage Gen1: se non si dispone di un account Azure Data Lake Storage Gen1, vedere le istruzioni in [Creare un account Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
-* Amazon S3: in questo articolo viene illustrato come copiare i dati da Amazon S3. È possibile usare altri archivi dati seguendo una procedura simile.
+* Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Account Data Lake Storage Gen1: se non si dispone di un account Azure Data Lake Storage Gen1, vedere le istruzioni in [Creare un account Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
+* Amazon S3: In questo articolo viene illustrato come copiare i dati da Amazon S3. È possibile usare altri archivi dati seguendo una procedura simile.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa** > **analisi** > **Data Factory**:
+1. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**:
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -54,11 +54,11 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
       
    ![Pagina Nuova data factory](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSG1Demo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
-    * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
+    * **Name**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSG1Demo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    * **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
     * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
     * **Versione**: selezionare **V2**.
-    * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Data Lake Storage Gen1, Archiviazione di Azure, il database SQL di Azure e così via.
+    * **Località**: Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Data Lake Storage Gen1, Archiviazione di Azure, il database SQL di Azure e così via.
 
 3. Selezionare **Crea**.
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente: 
@@ -129,7 +129,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 12. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività):
 
     ![Pagina Distribuzione](./media/load-data-into-azure-data-lake-store/deployment-page.png)
-13. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. Nella colonna **azioni** sono inclusi collegamenti per visualizzare i dettagli dell'esecuzione dell'attività e per eseguire di nuovo la pipeline:
+13. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. La colonna **Azioni** contiene collegamenti per visualizzare i dettagli delle esecuzioni dell'attività ed eseguire di nuovo la pipeline:
 
     ![Monitorare le esecuzioni di pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 14. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Dato che la pipeline contiene una sola attività (attività di copia), viene visualizzata una sola voce. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **Pipeline** in alto. Selezionare **Aggiorna** per aggiornare l'elenco. 

@@ -1,7 +1,7 @@
 ---
 title: Informazioni di riferimento sul portale di registrazione delle app | Azure
 titleSuffix: Microsoft identity platform
-description: Descrizione delle funzionalità nel portale di registrazione delle app Microsoft.
+description: Descrizione delle funzionalità disponibili nel portale di registrazione delle app di Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,26 +15,26 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885634"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 
-Questo documento fornisce il contesto e le descrizioni delle varie funzionalità disponibili nell' [registrazioni app](https://aka.ms/appregistrations) esperienza nel portale di Azure.
+Questo documento fornisce il contesto e le descrizioni di varie funzionalità disponibili nell'esperienza [Registrazioni app](https://aka.ms/appregistrations) del portale di Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Applicazioni personali o con convergenza
 
-Questo elenco contiene tutte le applicazioni registrate per l'uso con l'endpoint della piattaforma Microsoft Identity Platform (v 2.0). Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per ulteriori informazioni sull'endpoint della piattaforma di identità, vedere la [panoramica sulla versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
+Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Microsoft Identity Platform (v2.0). Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint di Identity Platform, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Solo applicazioni Azure AD
 
-Questo elenco include tutte le applicazioni registrate per essere usate con l'endpoint Azure AD v1.0. A tali possono accedere solo gli utenti con account aziendale o dell'istituto di istruzione di Azure Active Directory. Questo elenco include le applicazioni registrate con l'esperienza **registrazioni app** nel [portale di Azure](https://portal.azure.com).
+Questo elenco include tutte le applicazioni registrate per essere usate con l'endpoint Azure AD v1.0. A tali possono accedere solo gli utenti con account aziendale o dell'istituto di istruzione di Azure Active Directory. L'elenco include le applicazioni che sono state registrate usando l'esperienza di **Registrazioni app** nel [portale di Azure](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Applicazioni Live SDK
 
-Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni precedentemente eseguite in `https://account.live.com/developers/applications` possono ora essere eseguite in [registrazioni app](https://aka.ms/appregistrations).
+Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications` ora possono essere eseguite in [Registrazioni app](https://aka.ms/appregistrations).
 
 ## <a name="application-secrets"></a>Segreti applicazione
 
@@ -51,8 +51,8 @@ Al momento nel portale di registrazione delle app sono consentiti solo due tipi 
 
 ## <a name="live-sdk-support"></a>Supporto Live SDK
 
-Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione può integrarsi direttamente con il servizio account Microsoft (login.live.com). Se si vuole creare un'app usando direttamente un account Microsoft (invece di usare l'endpoint 2.0), è necessario assicurarsi che il supporto Live SDK sia abilitato.
+Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione può integrarsi direttamente con il servizio account Microsoft (login.live.com). Se si vuole compilare un'app usando direttamente l'account Microsoft, anziché l'endpoint v2.0, assicurarsi che il supporto Live SDK sia abilitato.
 
 Disabilitando il supporto Live SDK, il segreto applicazione viene scritto unicamente nell'archivio dati di Azure AD. L'archivio dati di Azure AD incorpora normative di livello aziendale che permettono di soddisfare determinati standard, ad esempio la conformità FISMA. Se si abilita il supporto Live SDK, l'applicazione potrebbe non essere conforme in base ad alcuni di questi standard.
 
-Se si prevede di usare solo l'endpoint v 2.0, è possibile disabilitare il supporto Live SDK.
+Se si intende usare solo l'endpoint v2.0, è possibile disabilitare il supporto Live SDK.

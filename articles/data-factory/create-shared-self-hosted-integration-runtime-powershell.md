@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 10/31/2018
 ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106628"
@@ -24,9 +24,9 @@ ms.locfileid: "82106628"
 
 Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted condiviso usando l'interfaccia utente di Azure Data Factory
 
-Per creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente, è possibile seguire questa procedura:
+Per creare un runtime di integrazione self-hosted condiviso usando l'interfaccia utente di Azure Data Factory, è possibile seguire questa procedura:
 
 1. Nel runtime di integrazione self-hosted da condividere concedere l'autorizzazione alla data factory in cui si intende creare il runtime di integrazione collegato.
       

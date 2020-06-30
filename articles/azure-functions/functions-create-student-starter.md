@@ -8,14 +8,14 @@ ms.date: 04/29/2020
 ms.author: alkarche
 ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83122854"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
 
-In questa esercitazione verrà creata una funzione HTTP "Hello World" in una sottoscrizione di Starter per Azure per studenti. Verranno anche illustrate le funzionalità disponibili in Funzioni di Azure in questo tipo di sottoscrizione.
+In questa esercitazione si creerà una funzione HTTP "hello world" in una sottoscrizione di Azure for Students Starter. Verranno anche illustrate le funzionalità disponibili in Funzioni di Azure in questo tipo di sottoscrizione.
 
 Microsoft *Azure for Students Starter* permette di iniziare a usare i prodotti di Azure che servono per sviluppare sul cloud gratuitamente. [Altre informazioni su questa offerta.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -25,7 +25,7 @@ Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](h
 
 ## <a name="create-a-function"></a>Creare una funzione
 
- In questo articolo viene illustrato come usare funzioni di Azure per creare una funzione trigger HTTP "Hello World" nel portale di Azure.
+ Questo articolo illustra come usare Funzioni di Azure per creare una funzione "hello world" attivata tramite HTTP nel portale di Azure.
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
@@ -41,31 +41,31 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
 Si creerà ora una funzione nella nuova app per le funzioni.
 
-## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creare una funzione trigger HTTP
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creare una funzione Trigger HTTP
 
-1. Dal menu a sinistra della finestra **funzioni** selezionare **funzioni**, quindi scegliere **Aggiungi** dal menu in alto. 
+1. Selezionare **Funzioni** nel menu a sinistra della finestra **Funzioni** e quindi **Aggiungi** nel menu in alto. 
  
-1. Dalla finestra **nuova funzione** selezionare **trigger http**.
+1. Nella finestra **Nuova funzione**, selezionare **Trigger HTTP**.
 
-    ![Scegliere la funzione trigger HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
+    ![Scegliere la funzione Trigger HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. Nella finestra **nuova funzione** accettare il nome predefinito per la **nuova funzione**oppure immettere un nuovo nome. 
+1. Nella finestra **Nuova funzione**, accettare il nome predefinito per la **nuova funzione** oppure immettere un nuovo nome. 
 
-1. Scegliere **Anonimo** dall'elenco a discesa **livello di autorizzazione** e quindi selezionare **Crea funzione**.
+1. Scegliere **Anonimo** nell'elenco a discesa **Livello di autorizzazione**, quindi selezionare **Crea funzione**.
 
-    Azure crea la funzione trigger HTTP. Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
+    A questo punto Azure crea la funzione Trigger HTTP. Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Nella nuova funzione trigger HTTP selezionare **codice + test** dal menu a sinistra, quindi selezionare **Ottieni URL funzione** dal menu in alto.
+1. Nella nuova funzione Trigger HTTP, selezionare **Codice + test** dal menu a sinistra, quindi selezionare **Ottieni URL funzione** dal menu in alto.
 
     ![Selezionare Ottieni URL funzione](./media/functions-create-student-starter/function-app-select-get-function-url.png)
 
-1. Nella finestra di dialogo **Ottieni URL funzione** selezionare **predefinito** dall'elenco a discesa, quindi selezionare l'icona **copia negli Appunti** . 
+1. Nella finestra di dialogo **Ottieni URL funzione**, selezionare **Predefinito** dall'elenco a discesa, quindi l'icona **Copia negli Appunti**. 
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
-1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa `?name=<your_name>` di query alla fine dell'URL e premere INVIO per eseguire la richiesta. 
+1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa di query `?name=<your_name>` alla fine dell'URL e premere INVIO per eseguire la richiesta. 
 
     L'esempio seguente mostra la risposta nel browser:
 
@@ -73,7 +73,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     L'URL della richiesta include una chiave necessaria per impostazione predefinita per accedere a una funzione tramite HTTP.
 
-1. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia, tornare alla pagina **codice + test** nel portale ed espandere la freccia **log** nella parte inferiore della pagina.
+1. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia, tornare alla pagina **Codice + test** nel portale ed espandere la freccia **Log** nella parte inferiore della pagina.
 
    ![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-student-starter/function-view-logs.png)
 
@@ -83,7 +83,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Funzionalità supportate in Azure for Students Starter
 
-In Azure for students Starter è possibile accedere alla maggior parte delle funzionalità del runtime di funzioni di Azure, con diverse limitazioni chiave elencate di seguito:
+Azure for Students Starter offre l'accesso alla maggior parte delle funzionalità del runtime di Funzioni di Azure, ma con diverse limitazioni chiave, elencate di seguito:
 
 * Il trigger HTTP è l'unico tipo di trigger supportato.
     * Sono supportati tutti i binding di input e output. [L'elenco completo è disponibile qui.](functions-triggers-bindings.md)
@@ -93,13 +93,13 @@ In Azure for students Starter è possibile accedere alla maggior parte delle fun
     * F# (.NET Core 2)
     * [Linguaggi supportati nei piani superiori](supported-languages.md)
 * Windows è l'unico sistema operativo supportato.
-* Il ridimensionamento è limitato a [una sola istanza di livello gratuito](https://azure.microsoft.com/pricing/details/app-service/windows/) eseguita per un massimo di 60 minuti al giorno. Serverlessly la scalabilità da 0 a 1 istanza automaticamente quando viene ricevuto il traffico HTTP, ma non più.
+* Il ridimensionamento è limitato a [una sola istanza di livello gratuito](https://azure.microsoft.com/pricing/details/app-service/windows/) eseguita per un massimo di 60 minuti al giorno. È possibile ridimensionare automaticamente in modalità serverless da 0 a 1 istanza quando si riceve traffico HTTP, ma non oltre.
 * Sono supportate solo la [versione 2.x e successive](functions-versions.md) del runtime di Funzioni.
-* Sono supportati tutti gli strumenti di sviluppo per la modifica e la pubblicazione di funzioni, inclusi VS Code, Visual Studio, l'interfaccia della riga di comando di Azure e il portale di Azure. Se si vuole usare un valore diverso da quello del portale, è necessario creare prima un'app nel portale e quindi scegliere tale app come destinazione di distribuzione nello strumento preferito.
+* Sono supportati tutti gli strumenti di sviluppo per la modifica e la pubblicazione di funzioni, inclusi VS Code, Visual Studio, l'interfaccia della riga di comando di Azure e il portale di Azure. Se non si vuole usare il portale, occorre prima creare un'app nel portale e quindi selezionarla come destinazione della distribuzione nello strumento che si preferisce.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è stata completata la creazione di un'app per le funzioni con una semplice funzione trigger HTTP. Successivamente, è possibile esplorare gli strumenti locali, altri linguaggi, monitoraggio e integrazioni.
+È stata completata la creazione di un'app per le funzioni con una funzione Trigger HTTP semplice. È possibile ora esplorare gli strumenti locali, altri linguaggi, funzionalità di monitoraggio e integrazioni.
 
  * [Creare la prima funzione con Visual Studio](./functions-create-your-first-function-visual-studio.md)
  * [Creare la prima funzione con Visual Studio Code](./functions-create-first-function-vs-code.md)

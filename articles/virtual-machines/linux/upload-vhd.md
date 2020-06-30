@@ -1,5 +1,5 @@
 ---
-title: Caricare o copiare una VM Linux personalizzata con l'interfaccia della riga di comando di Azure
+title: Caricare o copiare una macchina virtuale Linux personalizzata con l'interfaccia della riga di comando di Azure
 description: Caricare o copiare una macchina virtuale personalizzata usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460427"
@@ -50,7 +50,7 @@ Per completare la procedura seguente, è necessario:
 
 - Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite [az login](/cli/azure/reference-index#az-login).
 
-Negli esempi seguenti sostituire i nomi dei parametri di esempio con i propri valori, ad `myResourceGroup`esempio `mystorageaccount`, e `mydisks`.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati, ad esempio `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
 <a id="prepimage"> </a>
 
@@ -64,26 +64,26 @@ Azure supporta svariate distribuzioni di Linux (vedere la sezione [Distribuzioni
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Altre: distribuzioni non approvate](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Altro: Distribuzioni non approvate](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Vedere anche le [Note generali sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes) per suggerimenti più generali sulla preparazione di immagini Linux per Azure.
+Vedere anche le [Note sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes) per suggerimenti più generali sulla preparazione di immagini Linux per Azure.
 
 > [!NOTE]
 > Il [contratto di Servizio per la piattaforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) è applicabile alle macchine virtuali che eseguono Linux solo quando una distribuzione approvata viene usata con i dettagli di configurazione specificati nella sezione "Versioni e distribuzioni supportate" in [Distribuzioni di Linux supportate da Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Opzione 1: caricare un disco rigido virtuale
+## <a name="option-1-upload-a-vhd"></a>Opzione 1: Caricare il VHD
 
-È ora possibile caricare VHD direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure tramite l'interfaccia della riga di comando di Azure](disks-upload-vhd-to-managed-disk-cli.md).
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per le istruzioni, vedere [Caricare un disco rigido virtuale su Azure usando l'interfaccia della riga di comando di Azure](disks-upload-vhd-to-managed-disk-cli.md).
 
-## <a name="option-2-copy-an-existing-vm"></a>Opzione 2: copiare una macchina virtuale esistente
+## <a name="option-2-copy-an-existing-vm"></a>Opzione 2: Copiare una VM esistente
 
 È anche possibile creare una macchina virtuale personalizzata in Azure, copiare il disco del sistema operativo e quindi collegarlo a una nuova macchina virtuale per crearne un'altra copia. Questa è l'operazione corretta per il test, ma se si vuole usare una macchina virtuale di Azure esistente come modello per più macchine virtuali nuove, creare invece un'*immagine*. Per altre informazioni sulla creazione di un'immagine da una macchina virtuale di Azure esistente, vedere [Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando](tutorial-custom-images.md).
 
-Se si vuole copiare una macchina virtuale esistente in un'altra area, potrebbe essere necessario usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
+Se si vuole copiare una macchina virtuale esistente in un'altra area, è consigliabile usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
 
-In caso contrario, è necessario eseguire uno snapshot della macchina virtuale e quindi creare un nuovo VHD del sistema operativo dallo snapshot.
+In caso contrario, è necessario eseguire uno snapshot della macchina virtuale e quindi creare dallo snapshot un nuovo disco rigido virtuale del sistema operativo.
 
 ### <a name="create-a-snapshot"></a>Creare uno snapshot
 

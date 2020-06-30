@@ -11,7 +11,7 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124870"
@@ -86,7 +86,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Riavviare le macchine virtuali in un set di scalabilità
-Per riavviare una o più macchine virtuali in un set di scalabilità, usare [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le macchine virtuali del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
+Per riavviare una o più VM in un set di scalabilità, usare [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le macchine virtuali del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente riavvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
