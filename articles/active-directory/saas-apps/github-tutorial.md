@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456862"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253741"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
 
@@ -58,7 +58,6 @@ Per configurare l'integrazione di GitHub in Azure AD, è necessario aggiungere G
 1. Nella sezione **Aggiungi dalla raccolta** digitare **GitHub** nella casella di ricerca.
 1. Selezionare **GitHub** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per GitHub
 
 Configurare e testare l'accesso SSO di Azure AD con GitHub usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in GitHub.
@@ -84,14 +83,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-   a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://github.com/orgs/<entity-id>/sso`
+   a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://github.com/orgs/<entity-id>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://github.com/orgs/<Organization ID>`
+
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://github.com/orgs/<Organization ID>/saml/consume`
+
 
     > [!NOTE]
-    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Passare alla sezione Admin di GitHub per recuperare questi valori.
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Passare alla sezione Admin di GitHub per recuperare questi valori.
 
-5. L'applicazione GitHub prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione GitHub prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
+5. L'applicazione GitHub prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti in cui **Identificatore utente univoco (ID nome)** è associato a **user.userprincipalname**. L'applicazione GitHub prevede che **Identificatore utente univoco (ID nome)** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping dell'attributo.
 
     ![image](common/edit-attribute.png)
 
@@ -107,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -147,9 +149,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Impostazioni](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Selezionare la casella **Enable SAML authentication** (Abilita autenticazione SAML) mostrando i campi di configurazione dell'accesso Single Sign-On. Usare quindi il valore URL di Single Sign-On per aggiornare l'URL di Single Sign-On nella configurazione di Azure AD.
+3. Selezionare la casella **Enable SAML authentication** (Abilita autenticazione SAML) mostrando i campi di configurazione dell'accesso Single Sign-On. Seguire questa procedura:
 
     ![Impostazioni](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Copiare il valore di **Single sign-on URL** (URL di accesso SSO) e incollarlo nella casella di testo **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
+    
+    b. Copiare il valore di **Assertion Consumer Service URL** (URL del servizio consumer di asserzione) e incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
 
 4. Configurare i campi seguenti:
 
@@ -174,7 +180,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 6. Fare clic su **Save** (Salva).
 
 > [!NOTE]
-> L'accesso Single Sign-On in GitHub esegue l'autenticazione in un'organizzazione specifica in GitHub e non sostituisce l'autenticazione di GitHub. Pertanto, se la sessione github.com dell'utente è scaduta, potrebbe essere richiesto di eseguire l'autenticazione con l'ID/la password GitHub durante il processo di accesso Single Sign-On.
+> L'accesso Single Sign-On in GitHub esegue l'autenticazione in un'organizzazione specifica in GitHub e non sostituisce l'autenticazione di GitHub. Se quindi la sessione github.com dell'utente è scaduta, potrebbe essere richiesto di eseguire l'autenticazione con l'ID/la password GitHub durante il processo di accesso Single Sign-On.
 
 ### <a name="create-github-test-user"></a>Creare l'utente di test di GitHub
 
@@ -184,23 +190,23 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. G
 
 1. Accedere al sito aziendale di GitHub come amministratore.
 
-2. Fare clic su **Persone**.
+2. Fare clic su **People** (Persone).
 
-    ![People](./media/github-tutorial/tutorial_github_config_github_08.png "Persone")
+    ![People](./media/github-tutorial/tutorial_github_config_github_08.png "People")
 
 3. Fare clic su **Invite member** (Invita membro).
 
-    ![Invitare gli utenti](./media/github-tutorial/tutorial_github_config_github_09.png "Invite Users")
+    ![Invitare gli utenti](./media/github-tutorial/tutorial_github_config_github_09.png "Invitare gli utenti")
 
 4. Nella finestra di dialogo **Invite member** (Invita membro) seguire questa procedura:
 
     a. Nella casella di testo **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica dell'account di Britta Simon.
 
-    ![Invitare persone](./media/github-tutorial/tutorial_github_config_github_10.png "Invita persone")
+    ![Invitare persone](./media/github-tutorial/tutorial_github_config_github_10.png "Invitare persone")
 
     b. Fare clic su **Send Invitation** (Invia invito).
 
-    ![Invitare persone](./media/github-tutorial/tutorial_github_config_github_11.png "Invita persone")
+    ![Invitare persone](./media/github-tutorial/tutorial_github_config_github_11.png "Invitare persone")
 
     > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.

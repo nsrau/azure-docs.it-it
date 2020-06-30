@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94dcd06e1b3c201a10e656b6752cfa60c0c7d39c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765248"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099671"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IBM Digital Business Automation on Cloud
 
@@ -81,7 +81,21 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati del provider di servizi**, seguire questa procedura:
+    
+    a. Fare clic su **Carica il file di metadati**.
+
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Carica**.
+
+    c. In seguito al corretto caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella casella di testo della sezione relativa a IBM Digital Business Automation on Cloud:
+
+    > [!Note]
+    > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle esigenze.
+
+    > [!Note]
+    > I clienti possono richiedere il file di metadati per la sottoscrizione cloud al [team DevOps di DBAoC](mailto:supportbpmoncloud@us.ibm.com).
+
+1. Se non si dispone di un **file di metadati del provider di servizi** nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
 
