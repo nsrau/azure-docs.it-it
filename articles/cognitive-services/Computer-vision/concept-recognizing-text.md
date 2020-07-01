@@ -11,25 +11,24 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414041"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560808"
 ---
-# <a name="read-text-from-images-and-documents"></a>Leggi il testo da immagini e documenti
+# <a name="read-text-from-images-and-documents"></a>Leggere testo da immagini e documenti
 
 Visione artificiale include nuove funzionalità di riconoscimento ottico dei caratteri (OCR) basate sull'apprendimento avanzato che estraggono testo stampato o scritto a mano da immagini e documenti PDF. Visione artificiale estrae il testo da documenti analoghi (immagini, documenti digitalizzati) e documenti digitalizzati. È possibile estrarre il testo dalle immagini in modo selvaggio, ad esempio foto di targhe o contenitori di licenze con numeri di serie, nonché da documenti-fatture, fatture, rapporti finanziari, articoli e altro ancora. Questa funzionalità OCR è disponibile come parte del servizio gestito nel cloud o in locale (contenitori). Supporta inoltre reti virtuali ed endpoint privati per soddisfare le esigenze di conformità e privacy di livello aziendale.
 
 ## <a name="read-api"></a>API di lettura 
 
-L' [API di lettura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) di visione artificiale è la tecnologia OCR più recente di Microsoft che estrae testo stampato, testo scritto a mano (solo in inglese), cifre e simboli di valuta da immagini e documenti PDF. È ottimizzato per estrarre il testo dalle immagini in modo naturale, immagini con rumori visivi, documenti PDF digitali o analizzati e immagini con testo elevato. Supporta testo stampato e scritto a mano (Inglese) e lingue miste nella stessa immagine o documento. L'elenco completo delle lingue supportate è disponibile nella pagina [supporto del linguaggio per visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
-
+L' [API di lettura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) di visione artificiale è la tecnologia OCR più recente di Microsoft che estrae testo stampato (sette lingue), testo scritto a mano (solo in inglese), cifre e simboli di valuta da immagini e documenti PDF a più pagine. È ottimizzato per estrarre il testo dalle immagini in formato testo intenso e da documenti PDF a più pagine con lingue miste. Supporta il rilevamento di testo stampato e scritto a mano (solo in inglese) nella stessa immagine o documento. L'elenco completo delle lingue supportate è disponibile nella pagina [supporto del linguaggio per visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
 
 ### <a name="how-it-works"></a>Funzionamento
 
-L' [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) è asincrona. Il primo passaggio consiste nel chiamare l'operazione di lettura. L'operazione di lettura accetta un'immagine o un documento PDF come input e restituisce un ID operazione. 
+L' [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supporta documenti di grandi quantità di testo fino a 2000 pagine e pertanto viene eseguita in modo asincrono. Il primo passaggio consiste nel chiamare l'operazione di lettura. L'operazione di lettura accetta un'immagine o un documento PDF come input e restituisce un ID operazione. 
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Questa operazione accetta l'ID operazione creato dall'operazione di lettura. Restituisce quindi il contenuto di testo estratto dall'immagine o dal documento sotto forma di JSON. La risposta JSON gestisce i raggruppamenti di righe originali delle parole riconosciute. Sono incluse le righe di testo estratte e le relative coordinate del rettangolo di delimitazione. Ogni riga di testo include tutte le parole estratte con le relative coordinate e i punteggi di confidenza.
 
@@ -90,7 +89,7 @@ Read è disponibile anche come contenitore Docker (anteprima) per consentire la 
 
 ## <a name="ocr-api"></a>API OCR
 
-L' [API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) usa un modello di riconoscimento precedente. Supporta solo le immagini singole, non i file PDF e restituisce una risposta immediata. Supporta [più lingue](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) rispetto all'API Read.
+L' [API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) usa un modello di riconoscimento precedente, supporta solo le immagini e viene eseguito in modo sincrono, restituendo immediatamente il testo rilevato. Supporta [più lingue](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) rispetto all'API Read.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

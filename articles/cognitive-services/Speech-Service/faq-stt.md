@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168454"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561572"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -100,7 +100,7 @@ Per aumentare la concorrenza per un ***modello personalizzato***, sono necessari
   - Accedi (se necessario),
   - Selezionare il progetto e la distribuzione,
   - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
-  - Copiare il `Endpoint ID`.
+  - Copiare il `Endpoint ID` .
 
 Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
 
@@ -110,14 +110,17 @@ e uno
 
 - un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-o
+oppure
 
 - ID risorsa per la sottoscrizione:
   - Passare alla [portale di Azure](https://portal.azure.com),
   - Selezionare `Cognitive Services` nella casella di ricerca.
   - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
   - visualizzare `Properties` per questo servizio.
-  - copiare l'oggetto `Resource ID`completo.
+  - copiare l'oggetto completo `Resource ID` .
+  
+>[!NOTE]
+>I [contenitori](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) non richiedono aumenti ai limiti di concorrenza, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.
 
 ## <a name="importing-data"></a>Importazione di dati
 

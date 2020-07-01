@@ -7,7 +7,11 @@
 - name: Avvi rapidi
   items:
     - name: Configurare gli avvisi per gli eventi di Integrità dei servizi
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Portale di Azure
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Modello ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Concetti
   items:
     - name: Pagina relativa allo stato di Azure

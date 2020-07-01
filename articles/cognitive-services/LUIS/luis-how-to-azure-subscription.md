@@ -3,25 +3,148 @@ title: Come usare le chiavi di creazione e di runtime-LUIS
 description: Quando si usa per la prima volta Language Understanding (LUIS), non è necessario creare una chiave di creazione. Quando si intende pubblicare l'app, usare l'endpoint di runtime, è necessario creare e assegnare la chiave di runtime all'app.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/26/2020
+ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344459"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560434"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
-Le risorse di creazione e di runtime forniscono l'autenticazione per l'app LUIS e l'endpoint di stima.
+Le risorse di creazione e di runtime di query di stima forniscono l'autenticazione per l'app LUIS e l'endpoint di stima.
 
-<a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
-Quando si accede al portale LUIS, è possibile scegliere di continuare con:
+## <a name="luis-resources"></a>Risorse LUIS
 
-* una [chiave di valutazione](#trial-key) gratuita, che fornisce la creazione e alcune query sugli endpoint di stima.
-* una risorsa di creazione di Azure [Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) .
+LUIS consente tre tipi di risorse di Azure e una risorsa non di Azure:
+
+|Chiave|Scopo|Servizio cognitivo`kind`|Servizio cognitivo`type`|
+|--|--|--|--|
+|Chiave di creazione|Accesso e gestione dei dati dell'applicazione con la creazione, il training, la pubblicazione e il test. Creare una chiave LUIS authoring se si prevede di creare a livello di codice le app LUIS.<br><br>Lo scopo della `LUIS.Authoring` chiave è consentire di:<br>* gestione a livello di codice di app e modelli di Language Understanding, tra cui formazione e pubblicazione<br> * controllare le autorizzazioni per la risorsa di creazione assegnando gli utenti al [ruolo Collaboratore](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|Chiave di stima query| Richieste endpoint di stima query. Creare una chiave di stima LUIS prima che l'app client richieda stime oltre le richieste 1.000 fornite dalla risorsa iniziale. |`LUIS`|`Cognitive Services`|
+|[Chiave di risorsa multiservizio di servizi cognitivi](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Richieste di endpoint di stima delle query condivise con LUIS e altri servizi cognitivi supportati.|`CognitiveServices`|`Cognitive Services`|
+|Starter|Creazione gratuita (senza controllo degli accessi in base al ruolo) tramite il portale LUIS o le API (compresi gli SDK), 1.000 richieste di endpoint di stima gratuite al mese tramite un browser, un'API o un SDK|-|Non è una risorsa di Azure|
+
+Al termine del processo di creazione delle risorse di Azure, [assegnare la chiave](#assign-a-resource-to-an-app) all'app nel portale Luis.
+
+È importante creare app LUIS in [aree](luis-reference-regions.md#publishing-regions) in cui si desidera pubblicare ed eseguire query.
+
+## <a name="resource-ownership"></a>Proprietà delle risorse
+
+Una risorsa di Azure, ad esempio LUIS, appartiene alla sottoscrizione che contiene la risorsa.
+
+Per trasferire la proprietà di una risorsa, ou può effettuare una delle operazioni seguenti:
+* Trasferire la [Proprietà](../../cost-management-billing/manage/billing-subscription-transfer.md) della sottoscrizione
+* Esportare l'app LUIS come file e quindi importare l'app in una sottoscrizione diversa. L'esportazione è disponibile nella pagina **app personali** del portale Luis.
+
+
+## <a name="resource-limits"></a>Limiti delle risorse
+
+### <a name="authoring-key-creation-limits"></a>Creazione di limiti per la creazione di chiavi
+
+È possibile creare fino a 10 chiavi di creazione per ogni area per sottoscrizione.
+
+Vedere [limiti chiave](luis-limits.md#key-limits) e [aree di Azure](luis-reference-regions.md).
+
+Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi di creare un'app nell'area di creazione corrispondente all'area di pubblicazione in cui si vuole che venga individuata l'applicazione client.
+
+### <a name="key-usage-limit-errors"></a>Errori limite utilizzo chiave
+
+I limiti di utilizzo sono basati sul piano tariffario.
+
+Se si supera la quota transazioni al secondo (TPS), viene visualizzato un errore HTTP 429. Se si supera la quota di transazioni per mese (TPS), viene visualizzato un errore HTTP 403.
+
+
+### <a name="reset-authoring-key"></a>Reimpostare la chiave di creazione
+
+Per la creazione di app [migrate delle risorse](luis-migration-authoring.md) : se la chiave di creazione è compromessa, reimpostare la chiave nella portale di Azure nella pagina **chiavi** della risorsa di creazione.
+
+Per le app che non sono ancora state migrate: la chiave viene reimpostata su tutte le app nel portale LUIS. Se si creano le app tramite le API di creazione, è necessario modificare il valore di OCP-gestione API-Subscription-Key nella nuova chiave.
+
+### <a name="regenerate-azure-key"></a>Rigenera chiave di Azure
+
+Rigenerare le chiavi di Azure dalla portale di Azure, nella pagina **chiavi** .
+
+
+## <a name="app-ownership-access-and-security"></a>Proprietà, accesso e sicurezza dell'app
+
+Un'app è definita dalle risorse di Azure, che è determinata dalla sottoscrizione del proprietario.
+
+È possibile spostare l'app LUIS. Usare le risorse di documentazione seguenti nell'portale di Azure o nell'interfaccia della riga di comando di Azure:
+
+* [Spostare l'app tra le risorse di authoring LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Spostare una risorsa in un nuovo gruppo di risorse o sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Spostare una risorsa all'interno della stessa sottoscrizione o tra sottoscrizioni](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+
+### <a name="contributions-from-other-authors"></a>Contributi di altri autori
+
+Per la creazione di app [migrate delle risorse](luis-migration-authoring.md) : i _collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Informazioni [su come aggiungere un utente](luis-how-to-collaborate.md), usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ .
+
+Per le app che non sono state ancora migrate: tutti i _collaboratori_ vengono gestiti nel portale Luis dalla pagina **manage-> collaboratori** .
+
+### <a name="query-prediction-access-for-private-and-public-apps"></a>Accesso alla stima delle query per le app private e pubbliche
+
+Per un'app **privata** , l'accesso al runtime di stima delle query è disponibile per i proprietari e i collaboratori. Per un'app **pubblica** , l'accesso in fase di esecuzione è disponibile per tutti gli utenti che dispongono del proprio [servizio cognitivo](../cognitive-services-apis-create-account.md) di Azure o della risorsa di runtime [Luis](#create-resources-in-the-azure-portal) e l'ID dell'app pubblica.
+
+Attualmente non è disponibile un catalogo di app pubbliche.
+
+### <a name="authoring-permissions-and-access"></a>Creazione di autorizzazioni e accesso
+L'accesso all'app dal portale [Luis](luis-reference-regions.md#luis-website) o dalle [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087) è controllato dalla risorsa di creazione di Azure.
+
+Il proprietario e tutti i collaboratori possono accedere per creare l'app.
+
+|L'accesso in creazione include|Note|
+|--|--|
+|Aggiungere o rimuovere chiavi endpoint||
+|Esportare una versione||
+|Esportare i log di endpoint||
+|Importare una versione||
+|Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
+|Modificare il modello|
+|Pubblica|
+|Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
+|Eseguire il training|
+
+<a name="prediction-endpoint-runtime-key"></a>
+
+### <a name="prediction-endpoint-runtime-access"></a>Accesso al runtime dell'endpoint di stima
+
+L'accesso per eseguire query sull'endpoint di stima è controllato da un'impostazione nella pagina **informazioni sull'applicazione** nella sezione **Gestisci** .
+
+|[Endpoint privato](#runtime-security-for-private-apps)|[Endpoint pubblico](#runtime-security-for-public-apps)|
+|:--|:--|
+|Disponibile per proprietari e collaboratori|Disponibile per proprietario, collaboratori e altri utenti che conoscono l'ID app|
+
+È possibile controllare chi vede la chiave del runtime di LUIS chiamandola in un ambiente da server a server. Se si utilizza LUIS da un bot, la connessione tra il bot e LUIS è già protetta. Se si chiama direttamente l'endpoint LUIS, è necessario creare un'API lato server, ad esempio una [funzione](https://azure.microsoft.com/services/functions/) di Azure, con accesso controllato, ad esempio [AAD](https://azure.microsoft.com/services/active-directory/). Quando l'API lato server viene chiamata e autenticata e viene verificata l'autorizzazione, passare la chiamata a LUIS. Anche se questa strategia non impedisce gli attacchi man-in-the-Middle, offusca la chiave e l'URL dell'endpoint dagli utenti, consente di tenere traccia dell'accesso e consente di aggiungere la registrazione delle risposte degli endpoint, ad esempio [Application Insights](https://azure.microsoft.com/services/application-insights/).
+
+### <a name="runtime-security-for-private-apps"></a>Sicurezza del runtime per le app private
+
+Il runtime di un'app privata è disponibile solo per gli elementi seguenti:
+
+|Chiave e utente|Spiegazione|
+|--|--|
+|Chiave di creazione del proprietario| Fino a 1000 accessi endpoint|
+|Chiavi di collaborazione collaboratore/collaboratore| Fino a 1000 accessi endpoint|
+|Qualsiasi chiave assegnata a LUIS da un autore o collaboratore/collaboratore|Basato sul livello di uso della chiave|
+
+### <a name="runtime-security-for-public-apps"></a>Sicurezza del runtime per le app pubbliche
+
+Dopo che un'app è stata configurata come pubblica, _qualsiasi_ chiave di creazione LUIS o chiave endpoint LUIS valida può eseguire una query nell'app, purché la chiave non abbia usato l'intera quota endpoint.
+
+Un utente che non è un proprietario o un collaboratore può accedere al runtime di un'app pubblica solo se è stato specificato l'ID app. LUIS non ha un _mercato_ pubblico o un altro modo per cercare un'app pubblica.
+
+Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con una chiave di risorsa LUIS basata su regione possa accedere all'app in qualsiasi regione associata la chiave di risorsa.
+
+
+### <a name="securing-the-query-prediction-endpoint"></a>Protezione dell'endpoint di stima della query
+
+È possibile controllare chi può visualizzare la chiave dell'endpoint di runtime di previsione LUIS chiamandola in un ambiente da server a server. Se si utilizza LUIS da un bot, la connessione tra il bot e LUIS è già protetta. Se si chiama direttamente l'endpoint LUIS, è necessario creare un'API lato server, ad esempio una [funzione](https://azure.microsoft.com/services/functions/) di Azure, con accesso controllato, ad esempio [AAD](https://azure.microsoft.com/services/active-directory/). Quando viene chiamata l'API lato server e vengono verificate l'autenticazione e l'autorizzazione, passare la chiamata a LUIS. Se da un lato questa strategia non impedisce gli attacchi man-in-the-middle, dall'altro offusca l'endpoint dagli utenti, consente di seguire l'accesso e di aggiungere la registrazione delle risposte endpoint, ad esempio [Application Insights](https://azure.microsoft.com/services/application-insights/).
 
 <a name="starter-key"></a>
 
@@ -34,20 +157,14 @@ Quando si accede al portale LUIS, è possibile scegliere di continuare con:
 
 1. Al termine del processo di selezione delle risorse, [creare una nuova app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
-## <a name="trial-key"></a>Chiave di valutazione
 
-La chiave di prova (Starter) viene fornita. Viene usato come chiave di autenticazione per eseguire una query sul runtime dell'endpoint di stima, fino a 1000 query al mese.
-
-È visibile nella pagina **impostazioni utente** e nelle pagine di **gestione delle risorse di Azure >** nel portale Luis.
-
-Quando si è pronti per pubblicare l'endpoint di stima, [creare](#create-luis-resources) e [assegnare](#assign-a-resource-to-an-app) chiavi di runtime di creazione e di stima per sostituire la funzionalità della chiave di avvio.
+## <a name="create-azure-resources"></a>Creare le risorse di Azure
 
 <a name="create-resources-in-the-azure-portal"></a>
 
+[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
-
-## <a name="create-resources-in-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
+### <a name="create-resources-in-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
 
 Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente.
 
@@ -79,7 +196,9 @@ Risorsa `kind` :
     > [!Note]
     > Queste chiavi **non** vengono usate dal portale Luis fino a quando non vengono assegnate nel portale Luis sulle **risorse di Azure manage->**.
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Assegnare una risorsa di creazione nel portale LUIS per tutte le app
+<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
+
+### <a name="assign-resource-in-the-luis-portal"></a>Assegnare una risorsa nel portale LUIS
 
 È possibile assegnare una risorsa di creazione per una singola app o per tutte le app in LUIS. La procedura seguente consente di assegnare tutte le app a una singola risorsa di creazione.
 
@@ -89,7 +208,7 @@ Risorsa `kind` :
 
 ## <a name="assign-a-resource-to-an-app"></a>Assegnare una risorsa a un'app
 
-È possibile assegnare un'unica risorsa, la creazione o la fase di esecuzione di un endpoint di stima a un'app con la procedura seguente.
+È possibile assegnare un a un'app con la procedura riportata di seguito.
 
 1. Accedere al [portale Luis](https://www.luis.ai), quindi selezionare un'app dall'elenco **app personali** .
 1. Passare alla pagina **Gestisci-> risorse di Azure** .
@@ -99,7 +218,7 @@ Risorsa `kind` :
 1. Selezionare la scheda stima o Crea risorsa e quindi selezionare il pulsante **Aggiungi risorsa di stima** o **Aggiungi risorsa di creazione** .
 1. Selezionare i campi nel modulo per trovare la risorsa corretta, quindi selezionare **Salva**.
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Assegnare la risorsa di runtime senza usare il portale LUIS
+### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Assegnare una risorsa di runtime di stima query senza usare il portale LUIS
 
 Per scopi di automazione, ad esempio una pipeline di integrazione continua/recapito continuo, è possibile automatizzare l'assegnazione di una risorsa di runtime LUIS a un'app LUIS. Per farlo, è necessario seguire questa procedura:
 
@@ -124,9 +243,9 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     |Type|Impostazione|Valore|
     |--|--|--|
-    |Header|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
-    |Header|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
-    |Header|`Content-type`|`application/json`|
+    |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
+    |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
+    |Intestazione|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
@@ -140,15 +259,6 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
 Quando si annulla l'assegnazione di una risorsa, questa non viene eliminata da Azure. Viene soltanto scollegata da LUIS.
 
-## <a name="reset-authoring-key"></a>Reimpostare la chiave di creazione
-
-**Per la creazione di app [migrate delle risorse](luis-migration-authoring.md) **: se la chiave di creazione è compromessa, reimpostare la chiave nella portale di Azure nella pagina **chiavi** della risorsa di creazione.
-
-**Per le app che non sono ancora state migrate**: la chiave viene reimpostata su tutte le app nel portale Luis. Se si creano le app tramite le API di creazione, è necessario modificare il valore di OCP-gestione API-Subscription-Key nella nuova chiave.
-
-## <a name="regenerate-azure-key"></a>Rigenera chiave di Azure
-
-Rigenerare le chiavi di Azure dalla portale di Azure, nella pagina **chiavi** .
 
 ## <a name="delete-account"></a>Elimina l'account
 
@@ -192,6 +302,4 @@ Aggiungi un avviso di metrica per la metrica **Totale chiamate** riferito a un d
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni [su come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
-* Comprendere i concetti che includono la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
-* Informazioni [su come creare risorse di](luis-how-to-azure-subscription.md) creazione e di runtime
 * Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md)

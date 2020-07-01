@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589194"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560172"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
 Alcune funzionalità di Visione artificiale supportano più lingue; le funzionalità non indicate in questo documento supportano solo l'inglese.
 
-## <a name="text-recognition"></a>Riconoscimento di testo
+## <a name="text-detection-ocr"></a>Rilevamento del testo (OCR)
 
-Visione artificiale possibile riconoscere il testo in molte lingue. Per le API OCR e Read non è necessario specificare un codice di lingua. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) .
+Visione artificiale possibile rilevare il testo in molte lingue. Per le API Read e OCR non è necessario specificare un codice di lingua. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [leggere testo da immagini e documenti](concept-recognizing-text.md) .
 
 |Linguaggio| Codice lingua | API OCR | API di lettura |
 |:-----|:----:|:-----:|:---:|

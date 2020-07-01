@@ -161,6 +161,10 @@
               href: concepts-read-replicas.md
             - name: Decodifica logica
               href: concepts-logical.md
+        - name: Spostamento tra aree
+          items:
+            - name: Portale di Azure
+              href: howto-move-regions-portal.md
     - name: Hyperscale (Citus)
       items:
         - name: Nodi
