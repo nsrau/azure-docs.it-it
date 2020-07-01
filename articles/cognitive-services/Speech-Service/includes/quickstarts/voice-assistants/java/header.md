@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Java - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

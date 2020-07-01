@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Java (Android) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, Java (Android) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Java in Android con Speech SDK
 services: cognitive-services

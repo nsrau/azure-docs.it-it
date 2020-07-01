@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ ms.locfileid: "82188868"
 ---
 [Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Pacchetto (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org) e npm.

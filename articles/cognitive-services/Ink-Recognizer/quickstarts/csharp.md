@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
+title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371386"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
 Usare questo avvio rapido per iniziare a inviare tratti input penna all'API Riconoscimento input penna. Questa applicazione C# invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 

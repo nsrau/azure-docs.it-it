@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un assistente vocale personalizzato - Servizio Voce'
+title: 'Avvio rapido: Creare un assistente vocale personalizzato - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: trrwilson

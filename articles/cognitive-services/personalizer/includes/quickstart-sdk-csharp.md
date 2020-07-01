@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ ms.locfileid: "82188867"
 ---
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)

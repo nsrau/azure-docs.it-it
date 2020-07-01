@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ ms.locfileid: "82188869"
 ---
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Pacchetto (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

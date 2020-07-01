@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare la libreria client di Suggerimenti automatici Bing'
+title: 'Avvio rapido: Usare la libreria client di Suggerimenti automatici Bing'
 titleSuffix: Azure Cognitive Services
 description: L'API Suggerimenti automatici offre librerie client che semplificano l'integrazione di funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887380"
 ---
-# <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Guida introduttiva: Usare la libreria client di Suggerimenti automatici Bing
+# <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Avvio rapido: Usare la libreria client di Suggerimenti automatici Bing
 
 ::: zone pivot="programming-language-csharp"
 
