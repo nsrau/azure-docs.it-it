@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72177053"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983466"
 ---
 # <a name="call-the-computer-vision-api"></a>Chiamare l'API Visione artificiale
 
@@ -25,14 +25,6 @@ Questo articolo illustra come chiamare l'API Visione artificiale usando l'API RE
 - Ottenere tag, una descrizione e le categorie
 - Ottenere informazioni specifiche del dominio ("celebrities")
 
-## <a name="prerequisites"></a>Prerequisiti
-
-- Un URL o un percorso di un'immagine archiviata in locale
-- Metodi di input supportati: un file binario dell'immagine RAW di tipo application/octet-stream o un URL dell'immagine
-- Formati di immagine supportati: JPEG, PNG, GIF e BMP
-- Dimensioni file di immagine: massimo 4 MB
-- Dimensioni delle immagini: 50 &times; 50 pixel o superiori
-  
 Gli esempi di questo articolo dimostrano le funzionalità seguenti:
 
 * Analisi di un'immagine per restituire una matrice di tag e una descrizione
@@ -42,14 +34,22 @@ Le funzionalità offrono le opzioni seguenti:
 
 - **Opzione 1**: Analisi con ambito - Analisi di un uno solo modello specificato
 - **Opzione 2**: Analisi avanzata - Analisi per ottenere dettagli aggiuntivi tramite [86 categorie di tassonomia](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="creare una risorsa Visione artificiale"  target="_blank">creare una risorsa Visione artificiale <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione al servizio Visione artificiale. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* Un URL o un percorso di un'immagine archiviata in locale
+* Metodi di input supportati: un file binario dell'immagine RAW di tipo application/octet-stream o un URL dell'immagine
+* Formati di immagine supportati: JPEG, PNG, GIF e BMP
+* Dimensioni file di immagine: massimo 4 MB
+* Dimensioni delle immagini: 50 &times; 50 pixel o superiori
   
 ## <a name="authorize-the-api-call"></a>Autorizzare la chiamata API
 
 Per ogni chiamata all'API Visione artificiale è richiesta una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o specificata nell'intestazione della richiesta.
-
-Per ottenere una chiave di valutazione gratuita, eseguire una delle operazioni seguenti:
-* Accedere alla pagina [Prova dei servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). 
-* Passare alla pagina per [creare un account di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) e sottoscrivere Visione artificiale.
 
 Per passare la chiave della sottoscrizione, è possibile eseguire una delle operazioni seguenti:
 
@@ -180,12 +180,12 @@ Ad esempio:
 Campo | Type | Contenuto
 ------|------|------|
 Tag  | `object` | L'oggetto di primo livello per una matrice di tag.
-tags[].Name | `string`  | La parola chiave del classificatore di tag.
-tags[].Score    | `number`  | Il punteggio di attendibilità, compreso tra 0 e 1.
-description  | `object` | L'oggetto di primo livello per una descrizione.
+tags[].Name | `string`    | La parola chiave del classificatore di tag.
+tags[].Score    | `number`    | Il punteggio di attendibilità, compreso tra 0 e 1.
+description     | `object`    | L'oggetto di primo livello per una descrizione.
 description.tags[] |    `string`    | L'elenco di tag.  Se l'attendibilità nella capacità di produrre una didascalia non è sufficiente, i tag potrebbero essere l'unica informazione disponibile per il chiamante.
-description.captions[].text | `string`  | Frase che descrive l'immagine.
-description.captions[].confidence   | `number`  | Il punteggio di attendibilità per la frase.
+description.captions[].text    | `string`    | Frase che descrive l'immagine.
+description.captions[].confidence    | `number`    | Il punteggio di attendibilità per la frase.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperare e interpretare l'output JSON per i modelli specifici del dominio
 
@@ -239,12 +239,12 @@ Per i modelli specifici del dominio che usano l'opzione 2 (analisi avanzata), il
 
 Il campo categories è un elenco di una o più delle [86 categorie](../Category-Taxonomy.md) della tassonomia originale. Le categorie che terminano con un carattere di sottolineatura corrisponderanno alla categoria in oggetto e ai relativi elementi figlio (ad esempio, "people_" o "people_group" per il modello celebrities).
 
-Campo   | Type  | Contenuto
+Campo    | Type    | Contenuto
 ------|------|------|
-Categorie | `object`   | L'oggetto di primo livello.
-categories[].name    | `string` | Il nome dell'elenco delle 86 categorie di tassonomia.
-categories[].score  | `number`  | Il punteggio di attendibilità, compreso tra 0 e 1.
-categories[].detail  | `object?`      | (Facoltativo) L'oggetto dettagli.
+Categorie | `object`    | L'oggetto di primo livello.
+categories[].name     | `string`    | Il nome dell'elenco delle 86 categorie di tassonomia.
+categories[].score    | `number`    | Il punteggio di attendibilità, compreso tra 0 e 1.
+categories[].detail     | `object?`      | (Facoltativo) L'oggetto dettagli.
 
 In caso di corrispondenza di più categorie (ad esempio, il classificatore delle 86 categorie restituisce un punteggio sia per "people_" che per "people_young" quando il modello è celebrities), i dettagli vengono associati alla corrispondenza di livello più generale ("people_" in questo esempio).
 

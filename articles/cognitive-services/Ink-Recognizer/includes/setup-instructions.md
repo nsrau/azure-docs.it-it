@@ -4,19 +4,17 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/20/2019
-ms.openlocfilehash: 942bcc6b150f990f9a9acab0d4ef68bfb6125c1b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c202ba1d7363af9791daa801f0c447c49a80859b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71996846"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378508"
 ---
 >[!NOTE]
 > Gli endpoint per le risorse create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per il riconoscimento input penna usando il [portale Azure](../../cognitive-services-apis-create-account.md). 
-
-* È anche possibile ottenere un [codice di valutazione](https://azure.microsoft.com/try/cognitive-services/#decision) gratuito valido per sette giorni. Dopo aver eseguito l'iscrizione, questo codice e un endpoint saranno disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per il riconoscimento input penna usando il [portale Azure](../../cognitive-services-apis-create-account.md).
 
 Dopo aver creato una risorsa, ottenere l'endpoint e il codice aprendo la risorsa nel [portale di Azure](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) e facendo clic su **Avvio rapido**.
 

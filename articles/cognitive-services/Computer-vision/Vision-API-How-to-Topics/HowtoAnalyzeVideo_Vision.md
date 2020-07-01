@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 700c53c8fee61ce6e3c9a65bc3815fabfc5b2baa
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166838"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983505"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analizzare i video quasi in tempo reale
 
@@ -230,12 +230,12 @@ Con questo approccio, è possibile visualizzare immediatamente il viso rilevato.
 
 Per iniziare a usare questo esempio, procedere come segue:
 
-1. Ottenere le chiavi API per le API Visione da [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). Per l'analisi dei fotogrammi video, i servizi applicabili sono:
-    - [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Viso](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Clonare il repository di GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
-
-3. Aprire l'esempio in Visual Studio 2015 o versione successiva, quindi compilare ed eseguire le applicazioni di esempio:
+1. Creare un [account Azure](https://azure.microsoft.com/free/cognitive-services/). Se ne è già presente uno, è possibile passare al passaggio successivo.
+2. Creare risorse per Visione artificiale e Viso nel portale di Azure per ottenere la chiave e l'endpoint. Assicurarsi di selezionare il livello gratuito (F0) durante la configurazione.
+   - [Visione artificiale](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Viso](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Dopo la distribuzione delle risorse, fare clic su **Vai alla risorsa** per raccogliere la chiave e l'endpoint per ogni risorsa. 
+3. Clonare il repository di GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+4. Aprire l'esempio in Visual Studio 2015 o versione successiva, quindi compilare ed eseguire le applicazioni di esempio:
     - Per BasicConsoleSample, la chiave di Viso è hardcoded direttamente in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Per LiveCameraSample, immettere le chiavi nel riquadro **Impostazioni** dell'app. Queste chiavi saranno persistenti tra le sessioni come dati utente.
 
@@ -245,7 +245,7 @@ Le funzionalità di riconoscimento delle immagini, della voce, dei video o del t
 
 ## <a name="summary"></a>Summary
 
-In questo articolo si è appreso come eseguire analisi quasi in tempo reale di video in diretta streaming usando i servizi Viso e Visione artificiale. Si è anche appreso come usare il codice di esempio per iniziare. Per iniziare a creare la propria app con chiavi API gratuite, passare alla [pagina di iscrizione a Servizi cognitivi di Azure](https://azure.microsoft.com/try/cognitive-services/).
+In questo articolo si è appreso come eseguire analisi quasi in tempo reale di video in diretta streaming usando i servizi Viso e Visione artificiale. Si è anche appreso come usare il codice di esempio per iniziare.
 
 Inviare feedback e suggerimenti nel [repository di GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Per fornire un feedback più ampio sulle API, visitare il [sito UserVoice](https://cognitive.uservoice.com/).
 

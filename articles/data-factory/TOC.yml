@@ -26,7 +26,7 @@
     - name: Creare una data factory - Modello di Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Sicurezza - Abilitare la crittografia della chiave gestita dal cliente
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: Creare un flusso di dati
       href: data-flow-create.md
 - name: Esercitazioni
@@ -576,7 +576,7 @@
         - name: Identità gestita per Data Factory
           href: data-factory-service-identity.md
         - name: Crittografia con chiavi gestite dal cliente
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Monitorare e gestire
       items:
         - name: Monitorare visivamente

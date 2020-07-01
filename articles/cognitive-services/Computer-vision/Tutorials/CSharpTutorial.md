@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76168872"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983621"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
@@ -33,7 +33,10 @@ Esaminare un'applicazione Windows di base che usa Visione artificiale per esegui
 Prima di esplorare l'app di esempio, verificare che i prerequisiti seguenti siano soddisfatti:
 
 * È necessario avere [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versione successiva.
-* È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Prendere nota anche dell'URL dell'endpoint servizio.
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="creare una risorsa Visione artificiale"  target="_blank">creare una risorsa Visione artificiale <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione al servizio Visione artificiale. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
@@ -80,7 +83,6 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
    ![Pagina di gestione delle chiavi di sottoscrizione](../Images/Vision_UI_Subscription.PNG)  
 1. Immettere la chiave di sottoscrizione in **Subscription Key** (Chiave di sottoscrizione).
 1. Immettere l'URL dell'endpoint in **Endpoint**.  
-   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente: `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Per evitare di immettere nuovamente la chiave di sottoscrizione e l'URL dell'endpoint alla successiva esecuzione dell'app di esempio, scegliere **Save Setting** (Salva impostazione) per salvare la chiave di sottoscrizione e l'URL dell'endpoint nel computer. Se si vuole eliminare la chiave di sottoscrizione e l'URL dell'endpoint salvati in precedenza, scegliere **Delete Setting** (Elimina impostazione).
 

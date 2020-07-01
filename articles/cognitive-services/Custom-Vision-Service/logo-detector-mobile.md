@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403662"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987861"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
@@ -28,7 +28,7 @@ In questa esercitazione verranno illustrate le attività seguenti:
 > - Connettere l'app a Visione artificiale e Visione personalizzata di Azure.
 > - Creare un account dell'entità servizio di Azure per distribuire i servizi di Azure dall'app.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -175,7 +175,7 @@ Per eseguire l'app, procedere come segue:
 
 Se sono stati seguiti tutti i passaggi di questo scenario ed è stata usata l'app per distribuire i servizi di Azure nell'account, passare al [portale di Azure](https://ms.portal.azure.com/) per annullare i servizi che non si vogliono usare.
 
-Se si prevede di creare un progetto personalizzato di rilevamento di oggetti con Visione personalizzata, è consigliabile eliminare il progetto di rilevamento di logo creato in questa esercitazione. La versione di valutazione gratuita di Visione personalizzata consente di creare solo due progetti. Per eliminare il progetto di rilevamento di logo, nel [sito Web di Visione personalizzata](https://customvision.ai) aprire **Projects** (Progetti) e selezionare l'icona del cestino in **My New Project** (Mio nuovo progetto).
+Se si prevede di creare un progetto personalizzato di rilevamento di oggetti con Visione personalizzata, è consigliabile eliminare il progetto di rilevamento di logo creato in questa esercitazione. Una sottoscrizione gratuita di Visione personalizzata consente di creare solo due progetti. Per eliminare il progetto di rilevamento di logo, nel [sito Web di Visione personalizzata](https://customvision.ai) aprire **Projects** (Progetti) e selezionare l'icona del cestino in **My New Project** (Mio nuovo progetto).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

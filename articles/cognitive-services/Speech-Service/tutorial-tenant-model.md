@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77469018"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391214"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Esercitazione: Creare un modello di tenant (anteprima)
 
@@ -24,7 +24,7 @@ Il modello di tenant (Riconoscimento vocale con dati di Office 365) è un serviz
 > [!IMPORTANT]
 > Se l'organizzazione si registra usando il servizio del modello di tenant, il servizio Voce potrebbe accedere al suo modello linguistico. Il modello viene generato dai messaggi di posta elettronica e dai documenti dei gruppi pubblici di Office 365, che sono visibili a chiunque nell'organizzazione. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione di Office 365.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire la registrazione nel modello di tenant tramite l'interfaccia di amministrazione di Microsoft 365
@@ -62,7 +62,7 @@ Per usare il modello di tenant con Speech SDK, è necessario avere una risorsa V
 1. Seguire le istruzioni visualizzate per creare la risorsa. Assicurarsi che:
    * L'opzione **Località** deve essere impostata su **eastus** o **westus**.
    * L'opzione **Piano tariffario** deve essere impostata su **S0**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
    Dopo alcuni minuti, la risorsa viene creata. La chiave di sottoscrizione è disponibile nella sezione **Panoramica** relativa alla risorsa.
 

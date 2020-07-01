@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, Swift - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale, Swift - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in Swift in iOS con Speech SDK
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 5fd7f125037777c55b748b45df49f8f5cd2d0409
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8ce7d963e1d4a3514a0e60435634ba4f4a9cb009
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975891"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391282"
 ---
-# <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Sintesi vocale in Swift in iOS con Speech SDK
+# <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Avvio rapido: Sintesi vocale in Swift in iOS con Speech SDK
 
 Questo articolo spiega come creare un'app iOS in Swift usando Speech SDK di Servizi cognitivi per eseguire la sintesi vocale.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587801"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073268"
 ---
 Introduzione alla libreria client di Viso per Go. Seguire questa procedura per installare la libreria e provare gli esempi di attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -30,66 +30,14 @@ Installare la libreria client del servizio Viso per Go per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
 * Versione più recente di [Go](https://golang.org/dl/)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* Dopo aver ottenuto una chiave e un endpoint, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 
-## <a name="set-up"></a>Configurare
-
-### <a name="create-a-face-azure-resource"></a>Creare una risorsa di Azure Viso 
-
-Per iniziare a usare il servizio Viso, creare una risorsa di Azure. Scegliere il tipo di risorsa più adatto alle proprie esigenze:
-
-* Una [risorsa di valutazione](https://azure.microsoft.com/try/cognitive-services/#decision) (non richiede una sottoscrizione di Azure): 
-    * è gratuita e valida sette giorni. Dopo aver eseguito l'iscrizione, una chiave di valutazione e un endpoint saranno disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * Si tratta di un'ottima soluzione se si vuole provare il servizio Viso ma non si ha una sottoscrizione di Azure.
-* Una [risorsa del servizio Viso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.
-    * Usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* Una [risorsa multi-servizio](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.  
-    * Usare la stessa chiave e lo stesso endpoint per le applicazioni in più servizi cognitivi.
-
-### <a name="create-an-environment-variable"></a>Creare una variabile di ambiente
-
->[!NOTE]
-> Gli endpoint per le risorse non di valutazione create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambiente per l'autenticazione:
-* `FACE_SUBSCRIPTION_KEY`: la chiave della risorsa per l'autenticazione delle richieste.
-* `FACE_ENDPOINT`: l'endpoint della risorsa per l'invio delle richieste API. L'aspetto sarà simile al seguente: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Usare le istruzioni per il sistema operativo in uso.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Modificare `.bash_profile` e aggiungere la variabile di ambiente:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` dalla finestra della console per rendere effettive le modifiche.
-***
+## <a name="setting-up"></a>Configurazione
 
 ### <a name="create-a-go-project-directory"></a>Creare una directory di progetto Go
 
@@ -301,13 +249,13 @@ Il codice seguente confronta ognuna delle immagini di origine con l'immagine di 
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Creare uno snapshot per la migrazione dei dati
 
-La funzionalità Snapshot consente di spostare i dati sui visi salvati, ad esempio un **PersonGroup** sottoposto a training, in una sottoscrizione diversa dell'API Viso di Servizi cognitivi di Azure. Si potrebbe usare questa funzionalità se, ad esempio, è stato creato un oggetto **PersonGroup** usando una sottoscrizione di valutazione gratuita e ora se ne vuole eseguire la migrazione a una sottoscrizione a pagamento. Per un'ampia panoramica della funzionalità Snapshot, vedere [Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa](../../Face-API-How-to-Topics/how-to-migrate-face-data.md).
+La funzionalità Snapshot consente di spostare i dati sui visi salvati, ad esempio un **PersonGroup** sottoposto a training, in una sottoscrizione diversa dell'API Viso di Servizi cognitivi di Azure. Si potrebbe usare questa funzionalità se, ad esempio, è stato creato un oggetto **PersonGroup** usando una sottoscrizione gratuita e ora se ne vuole eseguire la migrazione a una sottoscrizione a pagamento. Per un'ampia panoramica della funzionalità Snapshot, vedere [Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa](../../Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 In questo esempio si eseguirà la migrazione dell'oggetto **PersonGroup** creato in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group). È possibile completare prima quella sezione o usare i propri costrutti di dati sui visi.
 
 ### <a name="set-up-target-subscription"></a>Configurare la sottoscrizione di destinazione
 
-Prima di tutto, è necessario avere una seconda sottoscrizione di Azure con una risorsa Viso. A tale scopo, ripetere la procedura descritta nella sezione [Configurazione](#set-up). 
+Prima di tutto, è necessario avere una seconda sottoscrizione di Azure con una risorsa Viso. A tale scopo, ripetere la procedura descritta nella sezione [Configurazione](#setting-up). 
 
 Quindi, creare le variabili seguenti quasi all'inizio del metodo **main**. Sarà anche necessario creare nuove variabili di ambiente per l'ID sottoscrizione dell'account Azure, oltre alla chiave, all'endpoint e all'ID sottoscrizione del nuovo account (di destinazione).
 
