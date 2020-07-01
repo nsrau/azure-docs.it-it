@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Node.js"
+title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Node.js"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448135"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e JavaScript
 
 Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione JavaScript # invia una richiesta API contenenti i dati del tratto input penna in formato JSON e visualizza la risposta.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in voce, Python - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in voce, Python - Servizio Voce'
 description: TBD
 services: cognitive-services
 author: chlandsi

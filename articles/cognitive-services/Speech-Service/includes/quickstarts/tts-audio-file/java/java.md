@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale in un file audio, Java - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale in un file audio, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

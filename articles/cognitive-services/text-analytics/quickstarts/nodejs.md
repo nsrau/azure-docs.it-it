@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Usare Node.js per chiamare l'API REST Analisi del testo"
+title: "Avvio rapido: Usare Node.js per chiamare l'API REST Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378790"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Usare Node.js per chiamare il servizio cognitivo Analisi del testo  
+# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Usare Node.js per chiamare il servizio cognitivo Analisi del testo  
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Node.JS.

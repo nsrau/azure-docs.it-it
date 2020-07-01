@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in testo, Python - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in testo, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

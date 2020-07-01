@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in più lingue, Java - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in più lingue, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

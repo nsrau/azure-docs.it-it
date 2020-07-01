@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento della voce archiviata in archiviazione BLOB, Java - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento della voce archiviata in archiviazione BLOB, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
