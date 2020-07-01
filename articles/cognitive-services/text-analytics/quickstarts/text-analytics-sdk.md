@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: be9b82b411d8ba76f0b592cb25e7ff70917b934f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605477"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735559"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
 
@@ -33,7 +33,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
+> * L'ultima versione stabile dell'API Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 
@@ -44,7 +44,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
+> * L'ultima versione stabile dell'API Analisi del testo è `3.0`.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -54,7 +54,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
+> * L'ultima versione stabile dell'API Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 > * È anche possibile eseguire questa versione della libreria client di Analisi del testo [nel browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -66,7 +66,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * L'ultima versione stabile della libreria client di Analisi del testo è `3.0`.
+> * L'ultima versione stabile dell'API Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito. 
 

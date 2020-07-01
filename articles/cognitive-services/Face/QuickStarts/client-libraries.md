@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Usare la libreria client dell'API Viso"
+title: "Avvio rapido: Usare la libreria client dell'API Viso"
 titleSuffix: Azure Cognitive Services
 description: L'API Viso offre librerie client che semplificano il rilevamento, la ricerca di visi simili, l'identificazione, la verifica e altro ancora.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 06/09/2020
 ms.locfileid: "84610927"
 ---
-# <a name="quickstart-use-the-face-client-library"></a>Guida introduttiva: Usare la libreria client dell'API Viso
+# <a name="quickstart-use-the-face-client-library"></a>Avvio rapido: Usare la libreria client dell'API Viso
 
 ::: zone pivot="programming-language-csharp"
 
