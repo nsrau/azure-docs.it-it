@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e PHP"
+title: "Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e PHP"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando PHP e ricevere risposte JSON.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83118870"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e PHP
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e PHP
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e ricevere una risposta JSON. La semplice applicazione in questo articolo invia una query di ricerca e visualizza i risultati non elaborati.
 

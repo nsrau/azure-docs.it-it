@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Ruby"
+title: "Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Ruby"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando Ruby e ricevere risposte JSON.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83118725"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Ruby
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Ruby
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e ricevere una risposta JSON. Questa semplice applicazione Ruby invia una query di ricerca all'API e visualizza i risultati non elaborati.
 

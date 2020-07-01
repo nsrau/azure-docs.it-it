@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Analisi del testo per Go | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Analisi del testo per Go | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento avvio rapido si rileva la lingua usando la libreria client di Analisi del testo per Go di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83701620"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Guida introduttiva: Usare la libreria client di Analisi del testo per Go
+# <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Avvio rapido: Usare la libreria client di Analisi del testo per Go
 
 [Documentazione di riferimento](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-go/blob/090dc0ee4d8d2d60e2a9525774d967a4111a2b0c/services/cognitiveservices/v2.1/textanalytics/client.go) | [Pacchetto (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
