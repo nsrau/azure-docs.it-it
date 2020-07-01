@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882789"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609470"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Aggiungere analisi al API di ricerca Bing
 
 Statistiche Bing offre analisi per la API di ricerca Bing. Queste analisi includono il volume delle chiamate, le stringhe di query più frequenti, la distribuzione geografica e altro ancora. È possibile abilitare le statistiche Bing nella [portale di Azure](https://ms.portal.azure.com) passando alla risorsa di Azure e facendo clic su **Abilita statistiche Bing**.
 
 > [!IMPORTANT]
-> * Statistiche Bing non è disponibile con le sottoscrizioni di valutazione gratuite o con `F0` risorse per il piano tariffario gratuito.
+> * Statistiche Bing non è disponibile con le risorse sul piano `F0` tariffario gratuito.
 > * Non è possibile usare i dati disponibili tramite il dashboard di Bing Statistics per creare applicazioni per la distribuzione a terze parti.
 > * L'abilitazione delle statistiche Bing aumenta leggermente la frequenza delle sottoscrizioni. Per informazioni dettagliate, vedere [prezzi](https://aka.ms/bingstatisticspricing) .
 
@@ -46,7 +46,7 @@ Per impostazione predefinita, i grafici e i grafici visualizzano tutte le metric
 
 - **ID risorsa**: l'ID risorsa univoco che identifica la sottoscrizione di Azure. Se si effettua la sottoscrizione a più di un livello dell'API di ricerca Bing, l'elenco contiene più ID. Per impostazione predefinita, sono selezionate tutte le risorse.  
   
-- **Mercati**: i mercati da cui provengono i risultati. Ad esempio, en-us (inglese, Stati Uniti). Per impostazione predefinita, sono selezionati tutti i mercati. Il `en-WW` mercato è il mercato usato da Bing se la chiamata non specifica un mercato e Bing non è in grado di determinare il mercato dell'utente.  
+- **Mercati**: i mercati da cui provengono i risultati. Ad esempio, en-us (inglese, Stati Uniti). Per impostazione predefinita, sono selezionati tutti i mercati. Il mercato `en-WW` è il mercato usato da Bing se la chiamata non specifica un mercato e Bing non è in grado di determinare il mercato dell'utente.  
   
 - **Endpoint**: gli endpoint dell'API di ricerca Bing. L'elenco contiene tutti gli endpoint per cui si dispone di una sottoscrizione a pagamento. Per impostazione predefinita, sono selezionati tutti gli endpoint.  
 

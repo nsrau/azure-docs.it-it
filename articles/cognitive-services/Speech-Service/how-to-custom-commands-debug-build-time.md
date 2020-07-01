@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307738"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604693"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Errori di debug durante la creazione di un'applicazione di comandi personalizzati
 
@@ -26,7 +26,7 @@ I comandi personalizzati consentono inoltre di creare un'applicazione in [Luis](
 
 [Luis limita le applicazioni 500 per ogni risorsa di creazione](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). La creazione di un'applicazione LUIS potrebbe non riuscire se si usa una risorsa di creazione che ha già 500 applicazioni. 
 
-Verificare che la risorsa di authoring LUIS selezionata sia inferiore a 500. In caso contrario, è possibile creare una nuova risorsa LUIS authoring, passare a un'altra oppure provare a pulire le applicazioni LUIS.  
+Verificare che la risorsa di authoring LUIS selezionata disponga di meno di 500 di applicazioni. In caso contrario, è possibile creare una nuova risorsa LUIS authoring, passare a un'altra oppure provare a pulire le applicazioni LUIS.  
 
 ## <a name="errors-when-deleting-an-application"></a>Errori durante l'eliminazione di un'applicazione
 ### <a name="cant-delete-luis-application"></a>Non è possibile eliminare l'applicazione LUIS
@@ -48,8 +48,8 @@ Non è possibile eliminare un parametro quando viene usato. Rimuovere qualsiasi 
 Non è possibile eliminare un endpoint Web quando viene usato. Rimuovere qualsiasi azione dell' **endpoint Web di chiamata** che usa questo endpoint Web prima di rimuovere un endpoint Web.
 
 ## <a name="errors-when-training-an-application"></a>Errori durante il training di un'applicazione
-### <a name="build-in-intents"></a>Compilazione in Intent
-LUIS dispone di un Intent di compilazione Sì/No. La presenza di frasi di esempio con solo "Yes", "No" potrebbe non riuscire a eseguire il training. 
+### <a name="built-in-intents"></a>Intent predefiniti
+LUIS ha incorporato Sì/No Intent. La presenza di frasi di esempio con solo "Yes", "No" potrebbe non riuscire a eseguire il training. 
 
 | Parola chiave | Variazioni | 
 | ------- | --------- | 
@@ -72,7 +72,7 @@ Uno o più parametri vengono utilizzati nelle frasi di esempio ma non definiti.
 ### <a name="training-takes-too-long"></a>Il training richiede troppo tempo
 LUIS Training è concepito per imparare rapidamente con meno esempi. Non aggiungere troppe frasi di esempio. 
 
-Se sono presenti molte frasi di esempio simili, definire un parametro, astrarre le frasi in un modello e aggiungerle alle frasi di esempio.
+Se sono presenti molte frasi di esempio simili, definire un parametro, estrarle in un modello e aggiungerle alle frasi di esempio.
 
 Ad esempio, è possibile definire un parametro {Vehicle} per le frasi di esempio seguenti e aggiungere "Book a {Vehicle}" alle frasi di esempio.
 

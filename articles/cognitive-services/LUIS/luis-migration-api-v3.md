@@ -2,14 +2,14 @@
 title: Modifiche all'endpoint di stima nell'API V3
 description: Le API di query PREDICTION endpoint V3 sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3.
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338193"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610881"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -86,17 +86,7 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 
 ### <a name="query-string-changes"></a>Modifiche della stringa di query
 
-L'API V3 ha parametri di stringa di query diversi.
-
-|Nome param|Type|Versione|Predefinito|Scopo|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Archivia query nel file di log. Il valore predefinito è False.|
-|`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
-|`show-all-intents`|boolean|Solo V3|false|Restituisce tutti gli Intent con il punteggio corrispondente nell'oggetto **PREDICTION. Intent** . Gli Intent vengono restituiti come oggetti in un `intents` oggetto padre. Questo consente l'accesso a livello di codice senza la necessità di trovare l'intento in una matrice: `prediction.intents.give` . Nella versione V2 questi sono stati restituiti in una matrice. |
-|`verbose`|boolean|V2 & V3|false|**Nella versione V2**, quando è impostato su true, vengono restituiti tutti gli Intent stimati. Se sono necessari tutti gli intenti previsti, usare il parametro V3 di `show-all-intents` .<br><br>**In V3**, questo parametro fornisce solo i dettagli relativi ai metadati dell'entità della stima delle entità.  |
-|`timezoneOffset`|string|V2|-|Fuso orario applicato alle entità datetimeV2.|
-|`datetimeReference`|string|V3|-|[Fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applicato alle entità datetimeV2. Sostituisce `timezoneOffset` dalla versione V2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>Corpo POST V3
 
@@ -217,7 +207,7 @@ Nella versione V2 la `entities` matrice ha restituito tutte le entità stimate c
 
 Nell'esempio seguente: si consideri un enunciato che include il testo `Yellow Bird Lane` . Questo testo viene stimato come il `Location` ruolo di un'entità personalizzata di `Destination` .
 
-|Testo enunciato|Nome dell'entità|Nome ruolo|
+|Testo enunciato|Nome dell'entità|Nome del ruolo|
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 

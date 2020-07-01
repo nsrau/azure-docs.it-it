@@ -48,6 +48,8 @@
       href: reference-custom-providers-csharp-endpoint.md
     - name: REST
       href: /rest/api/customproviders/
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/custom-providers/custom-providers/
 - name: Risorse
   items:
     - name: Roadmap per Azure
