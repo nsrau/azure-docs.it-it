@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4cbf79abaf915e7f6e055f5bcb0d8f09de026ad5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477477"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604863"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Informazioni sull'API Ricerca Web Bing
 
@@ -42,7 +42,7 @@ Ricerca Web Bing non consente solo di accedere a risposte istantanee, ma offre a
 
 L'API Ricerca Web Bing è facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare risposte JSON. Il servizio è accessibile tramite [API REST](quickstarts/python.md) o [Librerie client di Ricerca Web Bing](./quickstarts/client-libraries.md).
 
-1. [Creare una risorsa di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per le API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. [Creare una risorsa di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per le API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/).  
 2. Inviare una [richiesta all'API Ricerca Web Bing](quickstarts/python.md).
 3. Analizzare la risposta JSON.
 

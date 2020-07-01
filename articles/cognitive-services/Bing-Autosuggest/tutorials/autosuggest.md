@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 04f4c91ece77f7476cbe3bb27236ecdc2b5c60e7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943155"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603163"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Esercitazione: Ottenere risultati di suggerimenti automatici in una pagina Web
 
@@ -29,7 +29,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Suggerimenti automatici Bing. Se non se ne possiede una, [creare una risorsa Suggerimenti automatici Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) nel portale di Azure. È anche possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/).
+Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Suggerimenti automatici Bing. Se non se ne possiede una, [creare una risorsa Suggerimenti automatici Bing](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) nel portale di Azure.
 
 ## <a name="create-a-new-web-page"></a>Creare una nuova pagina Web
 

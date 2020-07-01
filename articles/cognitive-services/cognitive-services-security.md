@@ -3,19 +3,19 @@ title: Sicurezza
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulle diverse considerazioni sulla sicurezza per l'utilizzo di servizi cognitivi.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608452"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611408"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -113,7 +113,7 @@ Per ottenere una variabile di ambiente, è necessario leggerla in memoria. A sec
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Per altre informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Per altre informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per altre informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Per altre informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -205,7 +205,7 @@ Customer Lockbox è disponibile per questo servizio cognitivo:
 
 Per Language Understanding, i tecnici Microsoft non accederanno ai dati dei clienti nello SKU di E0. Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata per l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
-Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. Tuttavia, i dati dei clienti possono essere archiviati usando BYOS, consentendo di ottenere controlli dati simili per [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). Tenere presente che i dati del servizio vocale rimangono e vengono elaborati nell'area in cui è stata creata la risorsa di riconoscimento vocale. Questo vale per tutti i dati inattivi e i dati in transito. Quando si usano le funzionalità di personalizzazione, come Riconoscimento vocale personalizzato e la voce personalizzata, tutti i dati dei clienti vengono trasferiti, archiviati ed elaborati nella stessa area in cui risiedono le risorse di BYOS (se usate) e del servizio di riconoscimento vocale.
+Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. Tuttavia, i dati dei clienti possono essere archiviati usando BYOS ("Bring your own storage"), consentendo di ottenere controlli dati simili per [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). Tenere presente che i dati del servizio vocale rimangono e vengono elaborati nell'area in cui è stata creata la risorsa di riconoscimento vocale. Questo vale per tutti i dati inattivi e i dati in transito. Quando si usano le funzionalità di personalizzazione, come Riconoscimento vocale personalizzato e la voce personalizzata, tutti i dati dei clienti vengono trasferiti, archiviati ed elaborati nella stessa area in cui risiedono le risorse di BYOS (se usate) e del servizio di riconoscimento vocale.
 
 > [!IMPORTANT]
 > Microsoft **non** usa i dati dei clienti per migliorare i propri modelli di riconoscimento vocale. Inoltre, se la registrazione dell'endpoint è disabilitata e non vengono utilizzate personalizzazioni, non vengono archiviati dati del cliente. 

@@ -3,12 +3,12 @@ title: Etichettare un'entità in un'espressione di esempio
 description: Informazioni su come etichettare un'entità di Machine Learning con sottoentità in un enunciato di esempio in una pagina di dettagli Intent del portale LUIS.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722644"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610490"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etichettare un'entità di Machine Learning in un enunciato di esempio
 
@@ -16,13 +16,13 @@ L'etichettatura di un'entità in un'espressione di esempio fornisce a LUIS un es
 
 È possibile etichettare entità e sottoentità apprese dal computer.
 
-Poiché non è possibile etichettare espressioni regolari, elenchi o entità predefinite, creare un'entità o una sottoentità, quindi aggiungere queste entità sono funzionalità, quando applicabili, all'entità o alla sottoentità.
+Poiché non è possibile assegnare etichette a espressioni regolari, elenchi o entità predefinite, creare un'entità o una sottoentità, quindi aggiungere queste entità come funzionalità, quando applicabile, all'entità o all'entità secondaria.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etichetta espressioni di esempio dalla pagina Dettagli Intent
 
 Per etichettare esempi di entità all'interno dell'espressione, selezionare lo scopo dell'espressione.
 
-1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Selezionare lo scopo che include le espressioni di esempio che si vuole etichettare per l'estrazione con un'entità.
 1. Selezionare il testo che si vuole etichettare, quindi selezionare l'entità.

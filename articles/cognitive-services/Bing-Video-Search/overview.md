@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382719"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601939"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
 
@@ -35,7 +35,7 @@ L'API Ricerca video Bing semplifica l'aggiunta di funzionalità di ricerca video
 
 L'API Ricerca video Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'[API REST](csharp.md) o il [Software Development Kit](video-search-sdk-quickstart.md).
 
-1. Creare un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuito.
+1. Creare un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/free/cognitive-services/) gratuito.
 2. Inviare una richiesta all'API con una query di ricerca valida.
 3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
@@ -43,8 +43,6 @@ L'API Ricerca video Bing è un servizio Web RESTful, facile da chiamare da quals
 ## <a name="next-steps"></a>Passaggi successivi
 
 La [demo interattiva](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) dell'API Ricerca video Bing mostra come personalizzare una query di ricerca e cercare video nel Web.
-
-Quando si è pronti per chiamare l'API, creare un [account API servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuito.
 
 Usare la [guida introduttiva](csharp.md) per eseguire rapidamente la prima richiesta API.
 

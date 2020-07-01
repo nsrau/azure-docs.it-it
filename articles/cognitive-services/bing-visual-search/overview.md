@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446665"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611510"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
@@ -48,7 +48,7 @@ I risultati di Ricerca visiva Bing includono anche rettangoli di selezione per l
 
 L'API Ricerca visiva Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'API REST o l'SDK.
 
-1. Creare un [account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/). È possibile ottenere la chiave di sottoscrizione dal [portale di Azure](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account oppure il [sito Web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) dopo l'attivazione di una versione di valutazione gratuita.
+1. Creare un [account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/).
 2. Inviare una richiesta all'API con una query di ricerca valida.
 3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
