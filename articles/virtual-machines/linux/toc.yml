@@ -947,6 +947,8 @@
           items:
             - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
               href: migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Eseguire la conversione alla crittografia lato server
+              href: disks-ade-sse-conversion-cli.md
             - name: Eseguire la conversione in Managed Disks
               href: convert-unmanaged-to-managed-disks.md
             - name: Convertire il disco tra archiviazione Standard e Premium

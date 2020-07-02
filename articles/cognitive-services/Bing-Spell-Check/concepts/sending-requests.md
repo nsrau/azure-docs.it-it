@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 893317b8f46415b1df540d67ebf28b65c5ba6d32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f79e3d8d8d32bb577e8c6c6f6f6c247de13c58a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68883442"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801241"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Invio di richieste all'API Controllo ortografico Bing
 
@@ -46,15 +46,18 @@ Per risolvere il problema, è possibile inviare la richiesta all'API Controllo o
 
 Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](../tutorials/spellcheck.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Modificare quindi l'endpoint dell'API Controllo ortografico Bing nel file HTML come segue:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
+Modificare quindi l'endpoint dell'API Controllo ortografico Bing nel file HTML in: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/`
 
 Infine avviare il proxy CORS con il comando seguente:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione espandibile delle intestazioni HTTP sotto i risultati della ricerca viene ora visualizzata, tra le altre, l'intestazione `X-MSEdge-ClientID`. Verificare che sia la stessa per ogni richiesta.
 

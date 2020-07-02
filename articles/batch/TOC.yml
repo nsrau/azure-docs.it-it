@@ -135,6 +135,8 @@
           href: batch-virtual-network.md
         - name: Creare un pool con indirizzi IP pubblici
           href: create-pool-public-ip.md
+        - name: Creare un pool senza indirizzi IP pubblici
+          href: batch-pool-no-public-ip-address.md
         - name: Montare un file system virtuale
           href: virtual-file-mount.md
         - name: Montare una condivisione file di Azure

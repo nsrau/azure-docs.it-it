@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
-  ms.openlocfilehash: d3a25af9f7d8e16fbb008fd84aff6e29c57680da
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.date: 06/29/2020
+  ms.openlocfilehash: c066c3a7cc5b8208a61962ce4f51f7eef4be192b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85321948"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549946"
 landingContent:
 - title: Informazioni su Criteri di Azure
   linkLists:
@@ -39,11 +39,11 @@ landingContent:
     links:
     - text: Assegnare un criterio (portale)
       url: ./assign-policy-portal.md
-    - text: Assegnare un criterio (PowerShell)
-      url: ./assign-policy-powershell.md
     - text: Assegnare un criterio (interfaccia della riga di comando di Azure)
       url: ./assign-policy-azurecli.md
-    - text: Assegnare un criterio (modello)
+    - text: Assegnare un criterio (Azure PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Assegnare un criterio (modello di Resource Manager)
       url: ./assign-policy-template.md
   - linkListType: tutorial
     links:

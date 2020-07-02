@@ -3,20 +3,14 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni sulla gestione di app cloud e sull'accesso Single Sign-On
+    - name: Cos'è la gestione delle applicazioni?
       href: what-is-application-management.md
-    - name: Informazioni sul proxy dell'applicazione per app locali
-      href: what-is-application-proxy.md
-    - name: Scenari di gestione comuni per le app
-      href: common-scenarios.md
-    - name: Che cos'è il provisioning di applicazioni?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Avvi rapidi
   items:
-    - name: Aggiungere un'app cloud dalla raccolta
-      href: add-application-portal.md
     - name: Visualizzare le applicazioni aziendali
       href: view-applications-portal.md
+    - name: Aggiungere un'app cloud dalla raccolta
+      href: add-application-portal.md
 - name: Esercitazioni
   items:
     - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +26,8 @@
   items:
     - name: Procedure consigliate per la gestione delle app
       href: application-management-fundamentals.md
+    - name: Scenari comuni di gestione delle app
+      href: common-scenarios.md
     - name: App cloud e Single Sign-On
       items:
         - name: Pianificazione dell'integrazione di app cloud
@@ -80,6 +76,8 @@
       items:
         - name: Proxy dell'applicazione
           href: application-proxy.md
+        - name: Che cos'è il proxy dell'applicazione per app locali?
+          href: what-is-application-proxy.md
         - name: Pianificazione di una distribuzione del proxy dell'applicazione
           href: application-proxy-deployment-plan.md
         - name: Connettori

@@ -8,7 +8,7 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Eseguire la prima query - Portale di Azure
+    - name: Eseguire la prima query - Portale
       displayName: 'portal, resource, graph, explorer'
       href: ./first-query-portal.md
     - name: Eseguire la prima query - Interfaccia della riga di comando di Azure
@@ -26,6 +26,9 @@
     - name: Eseguire la prima query - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Creare una query condivisa - Interfaccia della riga di comando di Azure
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Distribuire una query condivisa - Modello di Resource Manager
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md

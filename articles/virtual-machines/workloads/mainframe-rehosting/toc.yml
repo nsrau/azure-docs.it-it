@@ -18,6 +18,8 @@
           href: microfocus/get-started.md
         - name: Installare Enterprise Server
           href: microfocus/set-up-micro-focus-azure.md
+        - name: Distribuire Enterprise Server nel servizio Azure Kubernetes
+          href: microfocus/deploy-micro-focus-enterprise-server.md
         - name: Eseguire CICS BankDemo
           href: microfocus/demo.md
         - name: Enterprise Server in contenitori

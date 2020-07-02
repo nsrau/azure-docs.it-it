@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561035"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800092"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
 
@@ -36,13 +36,15 @@ La risposta del servizio include le informazioni seguenti:
 
 Se l'API rileva eventuali termini volgari in una qualsiasi delle [lingue supportate](Text-Moderation-API-Languages.md), tali termini vengono inclusi nella risposta. La risposta contiene inoltre la loro posizione (`Index`) nel testo originale. Il `ListId` nell'esempio di JSON seguente fa riferimento a termini trovati negli [elenchi di termini personalizzati](try-terms-list-api.md), se disponibili.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > Per il parametro **language** assegnare `eng` o lasciarlo vuoto per vedere la risposta alla **classificazione** automatica (funzionalità di anteprima). **Questa funzionalità supporta solo la lingua inglese**.
@@ -55,18 +57,20 @@ La funzionalità di classificazione del **testo** assistita da computer content 
 
 L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>Spiegazione
 
@@ -127,11 +131,11 @@ L'esempio seguente riporta una risposta di esempio:
 
 Si supponga che il testo di input sia (' lzay ' è f0x ' siano intenzionali):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> Il f0x di qu! CK Brown salta il cane lzay.
 
 Se si richiede la correzione automatica, la risposta conterrà la versione corretta del testo:
 
-    The quick brown fox jumps over the lazy dog.
+> Il Quick Brown Fox salta il Lazy Dog.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Creazione e gestione di elenchi di termini personalizzati
 
@@ -143,13 +147,15 @@ Sebbene l'elenco globale dei termini predefinito funzioni alla perfezione nella 
 
 L'esempio illustra l'ID elenco corrispondente:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator fornisce un'[API per elenchi di termini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) con operazioni per gestire elenchi di termini personalizzati. Iniziare con la [Console dell'API per elenchi di termini](try-terms-list-api.md) e usare gli esempi di codice API REST. Estrarre anche l'[Avvio rapido per gli elenchi di termini in .NET](term-lists-quickstart-dotnet.md) se si ha familiarità con Visual Studio e C#.
 

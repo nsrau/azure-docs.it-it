@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808938"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565425"
 landingContent:
 - title: Informazioni su Rendering remoto di Azure
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: configurazione di un progetto da zero'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: uso di entità remote'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: Cambiare ambiente e materiali'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: Panoramica
+      url: tutorials/unity/tutorial-landing.md
+    - text: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: Caricamento di modelli personalizzati
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: Manipolazione dei modelli
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: Perfezionamento di materiali, illuminazione ed effetti
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
+      url: tutorials/unity/security/security.md
+    - text: Creazione di un'applicazione di Rendering remoto di Azure pronta per la commercializzazione
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: "C++ nativo: Integrare Rendering remoto in un'app olografica HoloLens"
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

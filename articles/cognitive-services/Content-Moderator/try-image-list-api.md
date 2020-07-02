@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72757199"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800149"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderare le immagini con elenchi personalizzati nella console dell'API
 
@@ -77,19 +77,21 @@ Dopo avere modificato un elenco di immagini, è necessario aggiornarne l'indice 
 
 6. Usare i segnaposto della coppia chiave-valore per assegnare metadati più descrittivi all'elenco.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
             "Category": "Competitors",
             "Type": "Exclude"
-          }
-       }
+        }
+    }
+    ```
 
    Aggiungere i metadati dell'elenco come coppie chiave-valore e non le immagini effettive.
  
-7. Selezionare **Invia**. L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di immagini.
+7. Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di immagini.
 
    ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Image Lists - Create (Elenchi di immagini - Crea)](images/try-terms-list-create-2.png)
  
@@ -109,7 +111,7 @@ Dopo avere modificato un elenco di immagini, è necessario aggiornarne l'indice 
 
     Viene visualizzata la console dell'API **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine).
   
-12. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Invia**.
+12. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Send** (Invia).
 
     ![Elenco delle immagini specificate nella casella del contenuto della risposta nella console Image - Get All Image Ids (Immagine - Ottieni tutti gli ID immagine)](images/try-image-list-create-11.png)
  

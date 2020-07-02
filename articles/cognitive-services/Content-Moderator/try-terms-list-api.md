@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75382124"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800041"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 
@@ -77,19 +77,21 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
 5. Usare i segnaposto della coppia chiave-valore per assegnare metadati più descrittivi all'elenco.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
-             "Category": "Competitors",
-             "Type": "Exclude"
-          }
-       }
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
+            "Category": "Competitors",
+            "Type": "Exclude"
+        }
+    }
+    ```
 
    Aggiungere i metadati dell'elenco come coppie chiave-valore e non i termini effettivi.
  
-6. Selezionare **Invia**. L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
+6. Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
 
    ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Term Lists - Create (Elenchi di termini - Crea)](images/try-terms-list-create-2.png)
  
@@ -111,7 +113,7 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
     Viene visualizzata la console dell'API **Term - Get All Terms** (Termine - Ottieni tutti i termini).
 
-11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Invia**.
+11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Send** (Invia).
 
 12. Nella casella **Response content** (Contenuto della risposta) verificare i termini specificati.
 

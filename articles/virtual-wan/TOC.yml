@@ -36,6 +36,30 @@
           href: virtual-wan-locations-partners.md
         - name: Linee guida sull'automazione per i partner
           href: virtual-wan-configure-automation-providers.md
+    - name: Concetti relativi ai prezzi
+      href: pricing-concepts.md
+    - name: Routing
+      items:
+        - name: Informazioni sul routing dell'hub virtuale
+          href: about-virtual-hub-routing.md
+        - name: Scenari
+          items:
+            - name: Any-to-any
+              href: scenario-any-to-any.md
+            - name: Isolare reti virtuali
+              href: scenario-isolate-vnets.md
+            - name: Isolare reti virtuali - personalizzato
+              href: scenario-isolate-vnets-custom.md
+            - name: Reti virtuali di servizi condivisi
+              href: scenario-shared-services-vnet.md
+            - name: Routing tramite appliance virtuale di rete
+              href: scenario-route-through-nva.md
+            - name: Routing tramite appliance virtuale di dispositivo - personalizzato (anteprima)
+              href: scenario-route-through-nvas-custom.md
+            - name: Firewall di Azure - Tra hub (anteprima)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Firewall di Azure - personalizzato
+              href: scenario-route-between-vnets-firewall.md
     - name: Da sito a sito
       items:
         - name: Informazioni sui criteri IPsec
@@ -44,8 +68,6 @@
           href: path-selection-multiple-links.md
 - name: Guide pratiche
   items:
-    - name: Configurare il peering di reti virtuali globale
-      href: global-peering-vnet.md
     - name: Aggiornare uno SKU di rete WAN virtuale
       href: upgrade-virtual-wan.md
     - name: ExpressRoute
@@ -88,15 +110,11 @@
           href: openvpn-azure-ad-client.md
         - name: Configurare l'autenticazione multi-applicazione di Azure AD
           href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Routing.
+    - name: Routing
       items:
-        - name: Indirizzare il traffico da un hub virtuale a un'appliance virtuale di rete
-          items:
-            - name: Portale di Azure
-              href: virtual-wan-route-table-portal.md
-            - name: Azure PowerShell
-              href: virtual-wan-route-table.md
-        - name: Visualizzare le route effettive dell'hub virtuale
+        - name: Come configurare il routing dell'hub virtuale
+          href: how-to-virtual-hub-routing.md
+        - name: Come visualizzare le route effettive dell'hub virtuale
           href: effective-routes-virtual-hub.md
     - name: Sicurezza
       items:

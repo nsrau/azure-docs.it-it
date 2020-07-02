@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: e181f5cb94dc33765b6fceb81cc98832a3b800ce
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79479774"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85554302"
 landingContent:
 - title: Informazioni sulla rete CDN di Azure
   linkLists:
@@ -68,3 +68,13 @@ landingContent:
       url: cdn-verizon-custom-reports.md
     - text: Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
       url: cdn-advanced-http-reports.md
+- title: Premium Verizon
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Motore di regole Premium Verizon
+      url: cdn-verizon-premium-rules-engine-reference.md
+    - text: Espressioni condizionali del motore regole
+      url: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
+    - text: Funzionalità del motore regole
+      url: cdn-verizon-premium-rules-engine-reference-features.md

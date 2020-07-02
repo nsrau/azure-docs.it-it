@@ -30,7 +30,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Distribuire con CI/CD in Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 - Eseguire una funzione definita dall''utente in C#'
+    - name: 4 - Eseguire una funzione definita dall'utente in C#
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 - Creare un deserializzatore .NET personalizzato
       href: custom-deserializer.md
@@ -49,6 +49,10 @@
       href: feature-comparison.md
     - name: Sviluppare in locale
       href: develop-locally.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Tipi di input per un processo
       items:
         - name: Panoramica degli input
@@ -78,10 +82,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: UDA JavaScript
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'Funzione definita dall''utente in C#'
+        - name: Funzione definita dall'utente in C#
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: Funzione definita dall'utente di Machine Learning
           href: machine-learning-udf.md
+        - name: Eseguire il debug di funzioni definite dall'utente e aggiornamenti
+          href: debug-user-defined-functions.md
     - name: Ottimizzare il processo di Analisi di flusso
       items:
         - name: Informazioni sulle unità di flusso e su come modificarle
@@ -224,6 +230,8 @@
           href: visual-studio-code-local-run.md
         - name: Testare in locale con dati reali
           href: visual-studio-code-local-run-live-input.md
+        - name: Eseguire il debug delle query con il diagramma del processo
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: Configurare una pipeline di integrazione continua/recapito continuo
           href: setup-cicd-vs-code.md
         - name: Esplorare i processi

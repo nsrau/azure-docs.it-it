@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La macchina virtuale non risponde durante l'applicazione di criteri di sicurezza
           href: unresponsive-vm-apply-security-policy.md
+        - name: Errore di arresto di Windows - Memoria esaurita
+          href: troubleshoot-windows-stop-error.md
 - name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP

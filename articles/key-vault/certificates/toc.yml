@@ -36,6 +36,10 @@
       href: create-certificate.md
     - name: Creazione di una richiesta di firma del certificato
       href: create-certificate-signing-request.md
+- name: Esempi
+  items:
+    - name: Esempi di codice di Key Vault
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: Guide pratiche
   items:
     - name: Integrazione di Key Vault con l'autorità di certificazione DigiCert

@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881706"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800024"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Domande frequenti sull'API Ricerca immagini Bing
 
@@ -39,15 +39,18 @@ Per poter accedere alle intestazioni, è possibile effettuare la richiesta dell'
 
 Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](tutorial-bing-image-search-single-page-app.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Modificare quindi l'endpoint dell'API Ricerca immagini Bing nel file HTML come segue:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Modificare quindi l'endpoint API Ricerca immagini Bing nel file HTML in: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Infine avviare il proxy CORS con il comando seguente:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
 
