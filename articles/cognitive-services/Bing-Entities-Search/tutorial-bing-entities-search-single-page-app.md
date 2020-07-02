@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943128"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608569"
 ---
-# <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a pagina singola
+# <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 
 L'API Ricerca entità Bing consente di cercare informazioni su *entità* e *località* nel Web. È possibile richiedere un tipo di risultato, oppure entrambi, in una determinata query. Di seguito vengono fornite le definizioni di località ed entità.
 
@@ -56,9 +56,14 @@ Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice s
 > [!NOTE]
 > Questa esercitazione è essenzialmente simile all'[esercitazione su Ricerca Web Bing in un'app a pagina singola](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ma gestisce solo i risultati delle ricerche di entità.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing e l'API Bing Maps. Se non si possiedono le chiavi, è possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e una [chiave di Bing Maps di base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing e l'API Bing Maps. 
+
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver ottenuto la sottoscrizione di Azure:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">Creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Creare una risorsa di Visione artificiale"  target="_blank">Creare una risorsa di Mappe di Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
 ## <a name="app-components"></a>Componenti dell'app
 
@@ -86,7 +91,7 @@ Il codice HTML contiene anche le divisioni, ovvero tag HTML `<div>`, in cui veng
 ## <a name="managing-subscription-keys"></a>Gestione delle chiavi di sottoscrizione
 
 > [!NOTE]
-> Questa app richiede chiavi di sottoscrizione per l'API di ricerca Bing e l'API di Bing Mappe. È possibile usare una [chiave di Ricerca Bing di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e una [chiave di Bing Mappe di base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Questa app richiede chiavi di sottoscrizione per l'API di ricerca Bing e l'API di Bing Mappe.
 
 Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing e dell'API di Bing Mappe nel codice, viene usata l'archiviazione permanente del browser per archiviare le chiavi. Se una chiave non è stata archiviata, verrà richiesto di archiviarla per un uso futuro. Se in un secondo momento la chiave viene rifiutata dall'API, viene invalidata la chiave archiviata in modo che l'utente riceverà nuovamente la richiesta alla ricerca successiva.
 
@@ -394,7 +399,7 @@ Gli errori vengono gestiti chiamando `renderErrorMessage()` con tutti i dettagli
 
 ## <a name="displaying-search-results"></a>Visualizzazione dei risultati della ricerca
 
-L'API Ricerca entità Bing [richiede di visualizzare i risultati in un ordine specifico](use-display-requirements.md). Poiché l'API può restituire due diversi tipi di risposte, non è sufficiente eseguire l'iterazione alla raccolta `Entities` o `Places` di primo livello nella risposta JSON e visualizzare i risultati. Per ricevere un solo tipo di risultato, usare il parametro di query `responseFilter`.
+L'API Ricerca entità Bing [richiede di visualizzare i risultati in un ordine specifico](use-display-requirements.md). Poiché l'API può restituire due diversi tipi di risposte, non è sufficiente scorrere la raccolta `Entities` o `Places` di livello superiore nella risposta JSON e visualizzare i risultati. Per ricevere un solo tipo di risultato, usare il parametro di query `responseFilter`.
 
 Viene invece usata la raccolta `rankingResponse` nei risultati della ricerca per ordinare i risultati per la visualizzazione. Questo oggetto fa riferimento a elementi nelle raccolte `Entitiess` e/o `Places`.
 
@@ -520,7 +525,7 @@ La funzione renderer dell'entità:
 
 Le risposte dalle API di ricerca Bing potrebbero includere un'intestazione `X-MSEdge-ClientID` che deve essere inviata all'API con le richieste successive. Se vengono usate più API di ricerca Bing, usare se possibile lo stesso ID client con tutte le API.
 
-Fornire l'intestazione `X-MSEdge-ClientID` consente alle API Bing di associare tutte le ricerche di un utente, cosa che presenta due vantaggi importanti.
+Fornendo l'intestazione `X-MSEdge-ClientID`, le API Bing possono associare tutte le ricerche di un utente, con due importanti vantaggi.
 
 Innanzitutto, consente al motore di ricerca Bing di applicare un contesto passato alle ricerche per trovare i risultati che meglio soddisfano l'utente. Se un utente ha cercato in precedenza termini correlati alla navigazione, ad esempio, una successiva ricerca di "moli" potrebbe restituire preferibilmente informazioni sulle località con moli per una barca a vela.
 
@@ -531,7 +536,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 > [!NOTE]
 > In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
-A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che elenca le intestazioni di risposta e le rende disponibili a JavaScript.
 
 È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Digitare quindi il comando seguente in una finestra di comando:
 

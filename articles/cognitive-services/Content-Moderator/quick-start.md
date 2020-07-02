@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Provare Content Moderator sul Web - Content Moderator'
+title: 'Avvio rapido: Provare Content Moderator sul Web - Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido si userà lo strumento di revisione di Content Moderator online per testare le funzionalità di base di Content Moderator senza dover scrivere codice.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203567"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563282"
 ---
-# <a name="quickstart-try-content-moderator-on-the-web"></a>Guida introduttiva: Provare Content Moderator sul Web
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Avvio rapido: Provare Content Moderator sul Web
 
 Questa guida di avvio rapido mostra come usare lo strumento di revisione di Content Moderator online per testare le funzionalità di base di Content Moderator senza dover scrivere codice. Se si vuole integrare questo servizio nell'app più rapidamente, vedere le altre guide introduttive elencate nella sezione [Passaggi successivi](#next-steps).
 
@@ -32,7 +32,7 @@ Lo strumento di revisione di Content Moderator è uno strumento basato sul Web c
 
 ## <a name="create-a-review-team"></a>Creare un team di revisione
 
-A questo punto, creare un team di revisione. In uno scenario operativo si tratta del gruppo di persone che esaminerà manualmente le decisioni di moderazione del servizio. Per creare un team, è necessario selezionare un'opzione per **Area** e specificare i valori per **Nome team** e **ID team**. Se si intende invitare i colleghi a partecipare al team, immettere in questa finestra i relativi indirizzi di posta elettronica.
+A questo punto, creare un team di revisione. In uno scenario operativo si tratta del gruppo di persone che esamina manualmente le decisioni di moderazione del servizio. Per creare un team, è necessario selezionare un'opzione per **Area** e specificare i valori per **Nome team** e **ID team**. Se si intende invitare i colleghi a partecipare al team, immettere in questa finestra i relativi indirizzi di posta elettronica.
 
 > [!NOTE]
 > **Nome team** è un nome descrittivo per il team di revisione. Si tratta del nome visualizzato nel portale di Azure. **ID team** è quello usato per identificare il team di revisione a livello di codice.

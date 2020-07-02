@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117526"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554399"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -48,11 +48,9 @@ Visione artificiale può ottimizzare molti scenari di gestione delle risorse dig
 |**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
 |**[Ottenere l'area di interesse](concept-generating-thumbnails.md#area-of-interest)**|Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area di interesse*. Invece di ritagliare l'immagine e generare un'anteprima, Visione artificiale restituisce le coordinate del rettangolo di selezione dell'area, in modo che l'applicazione chiamante possa modificare l'immagine originale in base alle esigenze.|
 
-## <a name="extract-text-from-images"></a>Estrarre testo dalle immagini
+## <a name="detect-text-from-images"></a>Rilevare il testo nelle immagini
 
-È possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente funziona per sette lingue diverse. Vedere [Lingue supportate](./language-support.md).
-
-È anche possibile usare l'API di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) per estrarre testo stampato in diverse lingue. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
+È possibile usare l'[API di rilevamento del testo](concept-recognizing-text.md) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di rilevamento del testo supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 

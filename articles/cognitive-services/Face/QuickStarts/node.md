@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Node.js"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e Node.js"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con Node.js per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b88959d1dd936df0315d7365513ab0c0c5b7df17
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2ca95731cc2d85675545591d8ef38e461484c6e9
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81402930"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368023"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e Node.js
 
 In questa guida di avvio rapido si userà l'API REST Viso di Azure con Node.js per rilevare i visi umani in un'immagine.
 
@@ -25,70 +25,82 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Configurare l'ambiente Node
 
-Passare alla cartella in cui si vuole creare il progetto e creare un nuovo file denominato *facedetection.js*. Installare quindi il modulo `requests` nel progetto. Questo consente agli script di effettuare richieste HTTP.
+Passare alla cartella in cui si vuole creare il progetto e creare un nuovo file denominato *facedetection.js*. Installare quindi il modulo `axios` nel progetto. Questo consente agli script di effettuare richieste HTTP.
 
 ```shell
-npm install request --save
+npm install axios --save
 ```
 
 ## <a name="write-the-nodejs-script"></a>Scrivere lo script Node.js
 
-Incollare il codice seguente in *facedetection.js*. Questi campi specificano come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta. Potrebbe essere opportuno modificare il campo `imageUrl` per puntare alla propria immagine di input.
+Incollare il codice seguente in *facedetection.js*. Questi campi specificano come connettersi al servizio Viso e dove ottenere i dati di input. [Creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) e aggiungervi l'endpoint e la chiave di sottoscrizione di Viso. Potrebbe essere opportuno modificare il campo `imageUrl` per puntare alla propria immagine di input.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';
 
-const request = require('request');
+const axios = require('axios').default;
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+// Add a valid subscription key and endpoint to your environment variables.
+let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY']
+let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
-
-const imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+// Optionally, replace with your own image URL (for example a .jpg or .png URL).
+let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
 ```
 
 Aggiungere quindi il codice seguente per chiamare l'API Viso e ottenere i dati degli attributi del viso dall'immagine di input. Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
 
 
 ```javascript
-// Request parameters.
-const params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-};
-
-const options = {
-    uri: uriBase,
-    qs: params,
-    body: '{"url": ' + '"' + imageUrl + '"}',
-    headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key' : subscriptionKey
-    }
-};
-
-request.post(options, (error, response, body) => {
-  if (error) {
-    console.log('Error: ', error);
-    return;
-  }
-  let jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
-  console.log('JSON Response\n');
-  console.log(jsonResponse);
+// Send a POST request
+axios({
+    method: 'post',
+    url: endpoint,
+    params : {
+        returnFaceId: true,
+        returnFaceLandmarks: false,
+        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
+    },
+    data: {
+        url: imageUrl,
+    },
+    headers: { 'Ocp-Apim-Subscription-Key': subscriptionKey }
+}).then(function (response) {
+    console.log('Status text: ' + response.status)
+    console.log('Status text: ' + response.statusText)
+    console.log()
+    //console.log(response.data)
+    response.data.forEach((face) => {
+      console.log('Face ID: ' + face.faceId)
+      console.log('Face rectangle: ' + face.faceRectangle.top + ', ' + face.faceRectangle.left + ', ' + face.faceRectangle.width + ', ' + face.faceRectangle.height)
+      console.log('Smile: ' + face.faceAttributes.smile)
+      console.log('Head pose: ' + JSON.stringify(face.faceAttributes.headPose))
+      console.log('Gender: ' + face.faceAttributes.gender)
+      console.log('Age: ' + face.faceAttributes.age)
+      console.log('Facial hair: ' + JSON.stringify(face.faceAttributes.facialHair))
+      console.log('Glasses: ' + face.faceAttributes.glasses)
+      console.log('Smile: ' + face.faceAttributes.smile)
+      console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion))
+      console.log('Blur: ' + JSON.stringify(face.faceAttributes.blur))
+      console.log('Exposure: ' + JSON.stringify(face.faceAttributes.exposure))
+      console.log('Noise: ' + JSON.stringify(face.faceAttributes.noise))
+      console.log('Makeup: ' + JSON.stringify(face.faceAttributes.makeup))
+      console.log('Accessories: ' + JSON.stringify(face.faceAttributes.accessories))
+      console.log('Hair: ' + JSON.stringify(face.faceAttributes.hair))
+      console.log()
+    });
+}).catch(function (error) {
+    console.log(error)
 });
 ```
 
@@ -100,7 +112,7 @@ Dopo aver apportato le modifiche, aprire un prompt dei comandi ed eseguire il fi
 node facedetection.js
 ```
 
-Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio:
+Ecco i dati JSON completi di `response.data`. Ad esempio:
 
 ```json
 [

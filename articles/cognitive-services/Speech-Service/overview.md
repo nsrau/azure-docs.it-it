@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417226"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391639"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -55,7 +55,7 @@ Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più di
 > [!NOTE]
 > Per il riconoscimento vocale e la sintesi vocale sono disponibili anche endpoint REST e guide di avvio rapido associate.
 
-Dopo aver usato il servizio Voce, provare l'esercitazione che illustra come riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS.
+Dopo avere avuto la possibilità di usare il servizio Voce, provare le esercitazioni che illustrano come risolvere diversi scenari.
 
 - [Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS per C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Esercitazione: Abilitare il servizio voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)

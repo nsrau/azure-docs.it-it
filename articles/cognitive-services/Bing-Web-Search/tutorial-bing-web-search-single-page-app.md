@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943884"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603588"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app a singola pagina con l'API Ricerca Web Bing
 
 Questa app di una pagina offre una dimostrazione su come recuperare, analizzare e visualizzare i risultati della ricerca dall'API Ricerca Web Bing. L'esercitazione usa codice HTML e CSS boilerplate ed è incentrata sul codice JavaScript. I file HTML, CSS e JS sono disponibili su [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) insieme a istruzioni di avvio rapido.
 
@@ -30,15 +30,16 @@ Questa app di esempio può:
 > * Gestire le chiavi di sottoscrizione
 > * Gestire gli errori
 
-Per usare questa app è necessario un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) per ottenere una chiave di sottoscrizione.
+Per usare questa app è necessario un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire l'app occorre:
 
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+
 * Node.js 8 o versione successiva
-* Una chiave di sottoscrizione per l'API Ricerca Bing. Se non se ne possiede una, [creare una risorsa Ricerca Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). È anche possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## <a name="get-the-source-code-and-install-dependencies"></a>Ottenere il codice sorgente e installare le dipendenze
 
 Il primo passaggio consiste nel clonare il repository con il codice sorgente dell'app.
 

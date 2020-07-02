@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943107"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602789"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Esercitazione: Creare app Web a pagina singola
 
@@ -43,8 +43,10 @@ La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o fi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing. Se non si possiedono le chiavi, è possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e una [chiave di Bing Maps di base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing. Se non sono disponibile, sarà necessario crearle.
 
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
 ## <a name="app-components"></a>Componenti dell'app
 Come qualsiasi applicazione Web a pagina singola, questa applicazione di esercitazione include tre parti:
@@ -352,7 +354,7 @@ Una funzione renderer può accettare i parametri seguenti:
 
 I parametri `index` e `count` possono essere usati per numerare i risultati, per generare codice HTML speciale per l'inizio o la fine di una raccolta, per inserire le interruzioni di riga dopo un certo numero di elementi e così via. Se un renderer non necessita di questa funzionalità, non è necessario che accetti questi due parametri.
 
-Il renderer `news` viene mostrato nell'estratto di codice javascript seguente:
+Il renderer `news` è mostrato nell'estratto di codice JavaScript seguente:
 ```javascript
     // render news story
     news: function (item) {

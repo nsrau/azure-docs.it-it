@@ -10,14 +10,14 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 812061bf161a33e4151b7b23265196895e039414
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873124"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611238"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search in C#
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Avvio rapido: Inviare una query all'API Bing Local Business Search in C#
 
 Usare questo argomento di avvio rapido per informazioni su come inviare richieste all'API Ricerca attività commerciali locali Bing, un servizio cognitivo di Azure. Anche se questa semplice applicazione è scritta in C#, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare codice JSON.
 
@@ -25,9 +25,10 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per u
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
-* Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Ricerca Bing. Per questo argomento di avvio rapido è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Salvare la chiave API fornita quando si attiva la versione di valutazione gratuita. Per altre informazioni, vedere [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
 ## <a name="create-the-request"></a>Creare la richiesta 
 

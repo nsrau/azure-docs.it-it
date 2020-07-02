@@ -3,12 +3,12 @@ title: "Esercitazione: Estrarre dati strutturati con un'entità basata su Machin
 description: Estrarre dati strutturati da un'espressione usando l'entità basata su Machine Learning. Per aumentare l'accuratezza dell'estrazione, aggiungere sottoentità con funzionalità.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676181"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611017"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -98,7 +98,7 @@ I passaggi precedenti creano l'entità e la sottoentità. Per migliorare l'estra
 
 1. Selezionare **Create new phrase list** (Crea nuovo elenco frasi) nel menu a discesa.
 
-1. Nella casella **Create new phrase list** (Crea nuovo elenco frasi) immettere il nome `SizePhraselist` e quindi i valori `small`, `medium` e `large`. Quando viene compilata la casella **Suggestions** (Suggerimenti), selezionare `extra large` e `xl`. Selezionare **Done** (Fine) per creare il nuovo elenco frasi.
+1. Nella casella **Create new phrase list** (Crea nuovo elenco frasi) immettere il nome `SizePhraselist` e quindi i valori `small`, `medium` e `large`. Quando viene compilata la casella **Suggestions** (Suggerimenti), selezionare `extra large` e `xl`. Selezionare **Crea** per creare il nuovo elenco di frasi.
 
     Questa funzionalità dell'elenco frasi consente alla sottoentità `Size` di individuare le parole correlate alla dimensione fornendo parole di esempio. Questo elenco di frasi non deve includere ogni parola dimensione ma deve includere parole che dovrebbero indicare le dimensioni.
 
@@ -114,9 +114,9 @@ L'aggiunta di un elenco di dimensioni note riconosciute dall'applicazione client
 
     |Valore normalizzato|Sinonimi|
     |--|--|
-    |Small|sm, sml, tiny, smallest|
-    |Medium|md, mdm, regular, average, middle|
-    |Large|lg, lrg, big|
+    |Piccolo|sm, sml, tiny, smallest|
+    |Media|md, mdm, regular, average, middle|
+    |large|lg, lrg, big|
     |XLarge|xl, biggest, giant|
 
 
@@ -131,7 +131,7 @@ L'aggiunta di un elenco di dimensioni note riconosciute dall'applicazione client
 
 1. Nella scheda **Schema and features** (Schema e funzionalità) selezionare l'entità **Size** (Dimensioni) e quindi selezionare **+ Add feature** (Aggiungi funzionalità).
 
-1. Selezionare **@ SizeList** nell'elenco a discesa.
+1. Selezionare **@ SizeListentity** nell'elenco a discesa.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

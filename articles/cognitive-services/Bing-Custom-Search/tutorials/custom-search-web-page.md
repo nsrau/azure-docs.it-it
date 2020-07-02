@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943919"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603350"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -34,7 +34,7 @@ Sono descritte queste attività:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, [Creare una risorsa Ricerca personalizzata Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) nel portale di Azure. è anche possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services).
+- Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, [Creare una risorsa Ricerca personalizzata Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) nel portale di Azure.
 - Se Visual Studio 2017 o versione successiva non è ancora installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creare un'istanza di Ricerca personalizzata
@@ -116,7 +116,7 @@ Ricerca personalizzata fornisce un'interfaccia utente ospitata per eseguire il r
 
    ![Screenshot del passaggio di configurazioni avanzate dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Selezionare le chiavi della sottoscrizione negli elenchi a discesa. In alternativa, è possibile immettere manualmente la chiave della sottoscrizione. Per informazioni su come ottenere le chiavi, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Selezionare le chiavi della sottoscrizione negli elenchi a discesa. In alternativa, è possibile immettere manualmente la chiave della sottoscrizione.
   
    ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ L'interfaccia utente ospitata può essere usata in due modi.
 - Opzione 1: integrare il frammento di codice JavaScript fornito nell'applicazione.
 - Opzione 2: usare l'endpoint HTML fornito.
 
-La parte restante di questa esercitazione illustra l'**opzione 1: frammento di codice Javascript**.  
+La parte restante di questa esercitazione illustra l'**opzione 1: Frammento di codice JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurare la soluzione di Visual Studio
 

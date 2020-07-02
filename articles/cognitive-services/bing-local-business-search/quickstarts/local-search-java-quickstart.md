@@ -10,14 +10,14 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: c50222c645926a6e48995e6c66d7844adc02699f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: eb236c77fb9b5e2d5da16ff980693d1c9fce3d8d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873010"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611218"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Avvio rapido: Inviare una query all'API di ricerca di attività locali Bing mediante Java
 
 Usare questo argomento di avvio rapido per informazioni su come inviare richieste all'API Ricerca attività commerciali locali Bing, un servizio cognitivo di Azure. Anche se questa semplice applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare codice JSON.
 
@@ -25,9 +25,9 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per u
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Ricerca Bing. Per questo argomento di avvio rapido è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Salvare la chiave API fornita quando si attiva la versione di valutazione gratuita. Per altre informazioni, vedere [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
 ## <a name="create-the-request"></a>Creare la richiesta 
 

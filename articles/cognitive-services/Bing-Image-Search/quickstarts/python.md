@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, tracking-python
-ms.openlocfilehash: c913e6a8f1acf6603fad7a0b93758e5a7678f9a5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f818030f5fa7c562b4041543cb702d9673648dee
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609200"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603333"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Python
 
@@ -151,7 +151,6 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
 > [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
 
 * [Che cos'è l'API Ricerca immagini Bing?](../overview.md)  
-* [Dettagli sui prezzi delle API Ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api). 
-* [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services).
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Dettagli sui prezzi delle API Ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

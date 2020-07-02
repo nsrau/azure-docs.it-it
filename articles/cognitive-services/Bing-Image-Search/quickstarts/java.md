@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Java"
+title: "Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Java"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando Java e ricevere risposte JSON.
 services: cognitive-services
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6032478dfc45d3d4ca1488913356718ab188e057
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a41a448a344325c2e3820a891017a078ae1532c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872031"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603418"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Guida introduttiva: Cercare immagini con l'API Ricerca immagini Bing e Java 
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Avvio rapido: Cercare immagini con l'API Ricerca immagini Bing e Java 
 
 Usare questo argomento di avvio rapido per informazioni su come inviare richieste di ricerca all'API Ricerca immagini Bing in Servizi cognitivi di Azure. Questa applicazione Java invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -162,8 +162,7 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
 ## <a name="see-also"></a>Vedere anche
 
 * [Che cos'è l'API Ricerca immagini Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [Dettagli sui prezzi delle API Ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services).
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Dettagli sui prezzi delle API Ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

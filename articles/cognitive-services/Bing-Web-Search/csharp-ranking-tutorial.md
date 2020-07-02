@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75382328"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609436"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -27,12 +27,13 @@ Questa esercitazione illustra come:
 - Eseguire una semplice query per l'API Ricerca Web Bing
 - Visualizzare i risultati della query in un ordine classificato
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con l'esercitazione è necessario:
 
-- Visual Studio. Se non è disponibile, [scaricare e installare la versione gratuita di Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- Una chiave di sottoscrizione per l'API Ricerca Web Bing. Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* L'[IDE di Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Creare un nuovo progetto di app console
 
@@ -42,14 +43,14 @@ Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Desktop c
 
 Assegnare all'applicazione il nome **MyConsoleSearchApp** e fare clic su **OK**.
 
-## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Aggiungere il pacchetto NuGet di JSON.net al progetto
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Aggiungere il pacchetto NuGet JSON.net al progetto
 
 JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiungere il pacchetto NuGet al progetto:
 
 - In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 - Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
 - Fare clic su **OK** nella finestra **Rivedi modifiche**.
-- Chiudere la scheda di Visual Studio intitolata **NuGet: MyConsoleSearchApp**.
+- Chiudere la scheda di Visual Studio denominata **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Aggiungere un riferimento a System.Web
 
@@ -224,8 +225,8 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
-- `mainline`: i risultati di ricerca da visualizzare nella riga principale.
-- `sidebar`: i risultati di ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
+- `mainline`: I risultati della ricerca da visualizzare nella riga principale.
+- `sidebar`: I risultati della ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
 
 La risposta classificata JSON può includere uno o più gruppi.
 

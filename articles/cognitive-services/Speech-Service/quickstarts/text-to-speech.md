@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale in un altoparlante - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale in un altoparlante - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si userà Speech SDK per convertire il testo in sintesi vocale e riprodurre l'output in un altoparlante.
+description: In questo argomento di avvio rapido si usa Speech SDK per convertire il testo in sintesi vocale e riprodurre l'output in un altoparlante.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 03d564242748fa52c176aaaa5341ede4449477fb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 45822c431725ea5ef900f5f1ff39beae76699fbb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715241"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391401"
 ---
-# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Guida introduttiva: Sintetizzare la voce in un altoparlante
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Avvio rapido: Sintetizzare la voce in un altoparlante
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
