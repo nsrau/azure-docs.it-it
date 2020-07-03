@@ -7,12 +7,13 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
-ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: references_regions
+ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194326"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -72,9 +73,9 @@ No. I clienti possono sfruttare i servizi di Azure per progettare un servizio re
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
 | Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
-| Enti pubblici Stati Uniti |US Gov Arizona |US Gov Texas |
-| Enti pubblici Stati Uniti |US Gov Iowa |US Gov Virginia |
-| Enti pubblici Stati Uniti |US Gov Virginia |US Gov Texas |
+| US Gov |US Gov Arizona |US Gov Texas |
+| US Gov |US Gov Iowa |US Gov Virginia |
+| US Gov |US Gov Virginia |US Gov Texas |
 
 > [!Important]
 > - L'India occidentale viene abbinata solo in una direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.
