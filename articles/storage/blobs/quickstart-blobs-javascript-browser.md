@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria di Archiviazione BLOB di Azure v12 per JavaScript in un browser'
+title: 'Avvio rapido: Libreria di Archiviazione BLOB di Azure v12 per JavaScript in un browser'
 description: In questa guida di avvio rapido verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per JavaScript in un browser. Verrà creato un contenitore e un oggetto nell'archivio BLOB. Successivamente, verranno elencati tutti i BLOB in un contenitore. Infine, verrà illustrato come eliminare i BLOB ed eliminare un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,16 +7,16 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634079"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833418"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-a-browser"></a>Guida introduttiva: Gestire i BLOB con JavaScript v12 SDK in un browser
+# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-a-browser"></a>Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in un browser
 
 Il servizio Archiviazione BLOB di Azure è ottimizzato per archiviare grandi quantità di dati non strutturati. I BLOB sono oggetti che possono contenere dati di testo o binari, tra cui immagini, documenti, flussi multimediali in streaming e dati di archivio. In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando JavaScript in un browser. Verranno caricati ed elencati i BLOB e verranno creati ed eliminati i contenitori.
 
@@ -285,7 +285,7 @@ Per verificare i risultati delle chiamate API nel [portale di Azure](https://por
 #### <a name="step-4---delete-the-container"></a>Passaggio 4: Eliminare il contenitore
 
 1. Nell'app Web selezionare **Elimina contenitore**. Questo stato indica che il contenitore è stato eliminato.
-2. Nel portale di Azure selezionare il collegamento **\<nome-account\> | Contenitori** nella parte superiore sinistra del riquadro del portale.
+2. Nel portale di Azure selezionare il collegamento **\<account-name\> | Contenitori** in alto a sinistra nel riquadro del portale.
 3. Selezionare **Aggiorna**. Il nuovo contenitore non sarà più visualizzato.
 4. Chiudere l'app Web.
 
@@ -302,7 +302,7 @@ In questa guida di avvio rapido si è appreso come caricare, elencare ed elimina
 Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 
 > [!div class="nextstepaction"]
-> [Documentazione di Azure per JavaScript](/azure/javascript/)
+> [Documentazione di Azure per JavaScript](/azure/developer/javascript/)
 
 * Per altre informazioni, vedere la [libreria client di Archiviazione BLOB di Azure per JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * Per altre app di esempio su Archiviazione BLOB di Azure, continuare con gli [esempi della libreria client di Archiviazione BLOB di Azure v12 per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
