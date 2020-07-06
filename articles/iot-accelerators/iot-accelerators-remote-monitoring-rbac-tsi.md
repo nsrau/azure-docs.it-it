@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65827266"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurare i controlli di accesso per i dati di telemetria di Time Series Insights Explorer
@@ -58,7 +58,7 @@ Eseguire la procedura seguente per concedere l'accesso ai dati per un'entità ut
 
 In questo articolo è stato illustrato come vengono concessi i controlli di accesso per Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 
-Per informazioni più concettuali su Remote Monitoring Solution Accelerator, vedere [Remote Monitoring Architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
 <!-- Next tutorials in the sequence -->

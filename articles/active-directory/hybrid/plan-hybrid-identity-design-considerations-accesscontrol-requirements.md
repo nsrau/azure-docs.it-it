@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60295144"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
@@ -60,7 +60,7 @@ Il modello adottato da ogni azienda dipenderà dalle rispettive esigenze. È imp
 * L'azienda usa un accesso di tipo Single Sign-On per le app installate in locale o nel cloud?
   * In caso affermativo, l'adozione di un modello di identità ibrida può avere ripercussioni su questo processo?
 
-## <a name="access-control"></a>Controllo dell’accesso
+## <a name="access-control"></a>Controllo di accesso
 Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali per consentire l'accesso ai dati aziendali tramite la convalida degli utenti, è altrettanto importante controllare il livello di accesso assegnato agli utenti, nonché il livello di accesso di cui dispongono gli amministratori sulle risorse che devono gestire. Per questo motivo, le soluzioni di identità ibrida devono essere in grado di fornire un accesso granulare alle risorse, funzioni di delega e opzioni di controllo degli accessi in base al ruolo. Assicurarsi che venga fornita una risposta alle domande seguenti relative al controllo di accesso:
 
 * Nell'azienda è presente più di utente con privilegi elevati per la gestione del sistema di identità?
@@ -81,6 +81,6 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di risposta agli eventi imprevisti](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

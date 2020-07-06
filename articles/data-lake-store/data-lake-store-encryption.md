@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60878452"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
@@ -74,7 +74,7 @@ Fatta eccezione per questa differenza, ovvero chi gestisce la chiave di crittogr
 
 Nella progettazione della crittografia dei dati vengono usati tre tipi di chiavi. La tabella seguente contiene un riepilogo:
 
-| Chiave                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | Type       | Note                                                                                                   |
+| Codice                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | Type       | Note                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chiave di crittografia master | MEK          | Un account Data Lake Storage Gen1 | Key Vault                              | Asimmetrica | Può essere gestita da Data Lake Storage Gen1 o dall'utente.                                                              |
 | Chiave di crittografia dei dati   | DEK          | Un account Data Lake Storage Gen1 | Risorsa di archiviazione persistente, gestita dal servizio Data Lake Storage Gen1 | Simmetrica  | La chiave di crittografia dei dati viene crittografata dalla chiave di crittografia master. È la chiave di crittografia dei dati crittografata a essere archiviata nei supporti persistenti. |

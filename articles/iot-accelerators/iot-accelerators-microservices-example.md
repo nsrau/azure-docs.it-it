@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447625"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
@@ -148,7 +148,7 @@ Completare la ridistribuzione di un'istanza locale della soluzione di monitoragg
 
 ![Messaggio Postman New Edits Made Here (Nuove modifiche apportate qui)](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere i problemi
 
 Se si verificano problemi, provare a rimuovere le immagini e i contenitori Docker nel computer locale.
 

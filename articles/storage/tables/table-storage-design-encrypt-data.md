@@ -9,10 +9,10 @@ ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60326004"
 ---
 # <a name="encrypt-table-data"></a>Crittografare i dati delle tabelle
@@ -24,11 +24,11 @@ Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare
 
 L’unione non è attualmente supportata. Poiché un subset di proprietà potrebbe essere stato crittografato in precedenza usando una chiave diversa, la semplice unione delle nuove proprietà e l'aggiornamento dei metadati comportano la perdita di dati. L'unione richiede chiamate a servizi aggiuntivi per la lettura dell’entità preesistente dal servizio o l’utilizzo di una nuova chiave per ogni proprietà, entrambe operazioni non idonee per motivi di prestazioni.     
 
-Per informazioni sulla crittografia dei dati di tabella, vedere [Crittografia lato client e insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md).  
+Per informazioni sulla crittografia dei dati della tabella, vedere [crittografia lato client e Azure Key Vault per archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabelle](table-storage-design-patterns.md)
+- [Modelli di progettazione tabella](table-storage-design-patterns.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

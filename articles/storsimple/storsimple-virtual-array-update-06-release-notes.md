@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
 ms.openlocfilehash: e984531feced2d61332e4c399848c12cd245a34a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60870707"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Note sulla versione dell'aggiornamento 0.6 per l'array virtuale StorSimple
@@ -42,7 +42,7 @@ L'aggiornamento 0.6 è un aggiornamento importante e deve essere distribuito imm
 
 - **Correzioni per la sicurezza di Windows**: questa versione contiene **importanti aggiornamenti della sicurezza di Windows**. Per altre informazioni sui problemi di sicurezza e le correzioni associate rivedere gli aggiornamenti di sicurezza seguenti:
     - [Dicembre 2016 qualità di protezione solo l'aggiornamento per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
-    - [March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23) (Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2)
+    - [Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
     - [9 maggio 2017: KB4019213 (aggiornamento solo della sicurezza)](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
 
 - **Ripristino della correzione**: nelle versioni precedenti si è verificato un bug che potrebbe impedire il completamento del ripristino. Tale bug è stato risolto in questa versione.

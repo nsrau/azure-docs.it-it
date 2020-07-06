@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761805"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata-REST
@@ -135,7 +135,7 @@ In questo esempio viene innanzitutto aggiunto un livello l'elemento aacaudio per
 
 In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario innanzitutto usare [Get](https://docs.microsoft.com/rest/api/media/transforms/get) per verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. 
 
-Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi**->**Crea o aggiorna trasformazione**.
+Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi** -> **Crea o aggiorna trasformazione**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -145,7 +145,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 Selezionare la scheda **Body (corpo** ) e sostituire il corpo con il codice JSON definito in [precedenza](#define-a-custom-preset). Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione.
 
-Selezionare **Invia**. 
+Selezionare **Send** (Invia). 
 
 Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione. Per un esempio completo in cui viene illustrato come inviare un processo in una trasformazione, vedere [esercitazione: eseguire il flusso di file video-Rest](stream-files-tutorial-with-rest.md).
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457267"
 ---
 # <a name="storage-explorer-accessibility"></a>Accessibilità di Storage Explorer
@@ -55,7 +55,7 @@ L'impostazione del tema cambia il colore della maggior parte degli elementi dell
 
 ### <a name="window-commands"></a>Comandi della finestra
 
-Comando       | Tasto di scelta rapida
+Comando       | Tasti di scelta rapida
 --------------|--------------------
 Nuova finestra    | **CTRL+MAIUSC+N**
 Chiudi editor  | **CTRL+F4**
@@ -63,12 +63,12 @@ Esci          | **CTRL+MAIUSC+W**
 
 ### <a name="navigation-commands"></a>Comandi di spostamento
 
-Comando                | Tasto di scelta rapida
+Comando                | Tasti di scelta rapida
 -----------------------|----------------------
 Sposta stato attivo sul pannello successivo       | **F6**
 Sposta stato attivo sul pannello precedente   | **MAIUSC+F6**
 Explorer               | **CTRL+MAIUSC+E**
-Gestione degli account     | **CTRL+MAIUSC+A**
+Gestione account     | **CTRL+MAIUSC+A**
 Attiva/Disattiva barra laterale        | **CTRL+B**
 Log attività           | **CTRL+MAIUSC+L**
 Azioni e proprietà | **CTRL+MAIUSC+P**
@@ -78,14 +78,14 @@ Editor precedente        | **CTRL+PGSU**
 
 ### <a name="zoom-commands"></a>Comandi zoom
 
-Comando  | Tasto di scelta rapida
+Comando  | Tasti di scelta rapida
 ---------|------------------
 Zoom avanti  | **CTRL + =**
 Zoom indietro | **CTRL +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandi dell'editor per BLOB e condivisione file
 
-Comando | Tasto di scelta rapida
+Comando | Tasti di scelta rapida
 --------|--------------------
 Indietro    | **ALT + freccia sinistra**
 Avanti | **ALT + freccia destra**
@@ -93,16 +93,16 @@ Su      | **ALT+freccia SU**
 
 ### <a name="editor-commands"></a>Comandi dell'editor
 
-Comando | Tasto di scelta rapida
+Comando | Tasti di scelta rapida
 --------|------------------
-Copiare    | **CTRL+C**
+Copia    | **CTRL+C**
 Taglia     | **CTRL+X**
 Incolla   | **CTRL+V**
 Aggiorna  | **CTRL+R**
 
 ### <a name="other-commands"></a>Altri comandi
 
-Comando                | Tasto di scelta rapida
+Comando                | Tasti di scelta rapida
 -----------------------|------------------
 Attiva/Disattiva strumenti di sviluppo | **F12**
 Ricarica                 | **ALT + CTRL + R**

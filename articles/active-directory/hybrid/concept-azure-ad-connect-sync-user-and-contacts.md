@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245485"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti
@@ -51,9 +51,9 @@ Aspetti importanti da tenere presenti durante la sincronizzazione dei gruppi di 
     
       * Un gruppo di Active Directory il cui attributo proxyAddress ha il valore *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* non sarà abilitato per la posta elettronica in Azure AD. Non dispone di un indirizzo SMTP.
       
-      * Un gruppo Active Directory il cui attributo proxyAddress ha valori *{"X500:/0 = contoso. com/ou = Users/CN = TestGroup", "SMTP\@: johndoe contoso.com"}* sarà abilitato per la posta elettronica nel Azure ad.
+      * Un gruppo Active Directory il cui attributo proxyAddress ha valori *{"X500:/0 = contoso. com/ou = Users/CN = TestGroup", "SMTP: johndoe \@ contoso.com"}* sarà abilitato per la posta elettronica nel Azure ad.
       
-      * Un gruppo Active Directory il cui attributo proxyAddress ha valori *{"X500:/0 = contoso. com/ou = Users/CN = TestGroup", "SMTP\@: johndoe contoso.com"}* sarà abilitato per la posta elettronica anche nel Azure ad.
+      * Un gruppo Active Directory il cui attributo proxyAddress ha valori *{"X500:/0 = contoso. com/ou = Users/CN = TestGroup", "SMTP: johndoe \@ contoso.com"}* sarà abilitato per la posta elettronica anche nel Azure ad.
 
 ## <a name="contacts"></a>Contatti
 I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore User a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.

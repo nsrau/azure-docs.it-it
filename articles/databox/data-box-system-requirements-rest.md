@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61436495"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisiti di archiviazione BLOB di Azure Data Box
@@ -57,7 +57,7 @@ Per l'archiviazione BLOB di Azure Data Box sono disponibili librerie client spec
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Pacchetto NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Versione di GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    file app.config                 |
 |    Java                |    7.0.0                                           |    Pacchetto Maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configurazione della stringa di connessione         |
-|    Node.js             |    2.8.3                                           |    Collegamento NPM: https://www.npmjs.com/package/azure-storage (esecuzione: `npm install azure-storage@2.7.0`)   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dichiarazione istanza del servizio    |
+|    Node.js             |    2.8.3                                           |    Collegamento NPM: https://www.npmjs.com/package/azure-storage (esecuzione: `npm install azure-storage@2.7.0` )   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dichiarazione istanza del servizio    |
 |    C++                 |    5.2.0                                           |    Pacchetto NuGet:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configurazione della stringa di connessione         |
 |    PHP                 |    1.2.0                                           |    Versione di GitHub:<br>Comuni: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installazione tramite Composer (per altre informazioni, vedere i dettagli sotto).                                                                                                             |    Configurazione della stringa di connessione         |
 |    Python              |    1.1.0                                           |    Versione di GitHub:<br>Comuni:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Dichiarazione istanza del servizio    |
@@ -83,7 +83,7 @@ Per l'installazione tramite Composer: (prendere BLOB come esempio).
 
 ### <a name="endpoint-declaration"></a>Dichiarazione dell'endpoint
 
-Un endpoint di archiviazione BLOB di Azure Data Box include due parti: il nome di un'area e il dominio di Data Box. In Data Box BLOB Storage SDK, l'endpoint predefinito è `\<serial no. of the device>.microsoftdatabox.com`.  Per altre informazioni sull'endpoint di servizio BLOB, consultare [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Connettersi tramite l'archiviazione BLOB di Azure Data Box).
+Un endpoint di archiviazione BLOB di Azure Data Box include due parti: il nome di un'area e il dominio di Data Box. In Data Box BLOB Storage SDK, l'endpoint predefinito è `\<serial no. of the device>.microsoftdatabox.com` .  Per altre informazioni sull'endpoint di servizio BLOB, consultare [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Connettersi tramite l'archiviazione BLOB di Azure Data Box).
  
 ## <a name="examples"></a>Esempi
 

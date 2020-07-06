@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61440234"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Come aggiornare l'hub IoT
@@ -51,7 +51,7 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 
 L'hub IoT viene ora regolato e le configurazioni rimangono invariate.
 
-Il limite massimo di partizioni per l'hub delle cose di livello Basic e l'hub delle cose di livello standard è 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
+Il limite massimo di partizioni per hub IoT di livello basic e di livello standard è 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

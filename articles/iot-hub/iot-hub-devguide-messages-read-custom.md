@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61244345"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usare endpoint personalizzati e il routing dei messaggi per i messaggi da dispositivo a cloud
@@ -24,7 +24,7 @@ Il [Routing dei messaggi](iot-hub-devguide-routing-query-syntax.md) di hub IoT c
 | Proprietà      | Descrizione |
 | ------------- | ----------- |
 | **Nome**      | Il nome univoco che identifica la query. |
-| **origine**    | L'origine del flusso dati su cui intervenire. Ad esempio, i dati di telemetria del dispositivo. |
+| **Origine**    | L'origine del flusso dati su cui intervenire. Ad esempio, i dati di telemetria del dispositivo. |
 | **Condizione** | L'espressione di query per la query di routing che si oppone alle proprietà del messaggio dell'applicazione, alle proprietà di sistema, al corpo del messaggio, ai tag del dispositivo gemello e alle proprietà del dispositivo gemello per determinare se costituisce una corrispondenza per l'endpoint. Per altre informazioni sulla creazione di una query, vedere la [sintassi della query di routing del messaggio](iot-hub-devguide-routing-query-syntax.md) |
 | **Endpoint**  | Il nome dell'endpoint in cui l'hub IoT invia i messaggi corrispondenti alla query. È consigliabile scegliere un endpoint nella stessa area dell'hub IoT. |
 

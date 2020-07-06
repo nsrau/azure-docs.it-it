@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60531002"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
@@ -67,10 +67,10 @@ La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornament
 | No. | Funzionalità | Problema | Risolto nell'aggiornamento | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell per StorSimple  |Quando un utente accede in remoto al dispositivo StorSimple tramite Windows PowerShell per StorSimple e poi avvia l'installazione guidata, si verifica un arresto anomalo non appena si inserisce l'IP Data 0. Nell'aggiornamento 1, questo bug è stato corretto. |Update 1 |Sì |Sì |
-| 2 |Ripristino delle impostazioni predefinite |In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple si blocca e l’utente visualizza il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C durante l'esecuzione del cmdlet. Il bug è stato corretto. |Update 1 |Sì |No |
-| 3 |Ripristino delle impostazioni predefinite |In caso di ripristino non riuscito delle impostazioni predefinite del controller doppio, era possibile procedere con la registrazione del dispositivo. Ciò determinava una configurazione di sistema non supportata. Nell'aggiornamento 1, viene visualizzato un messaggio di errore e la registrazione è bloccata su un dispositivo in cui il ripristino delle impostazioni predefinite non è riuscito. |Update 1 |Sì |No |
-| 4 |Ripristino delle impostazioni predefinite |In alcuni casi, sono stati generati avvisi falsi positivi di mancata corrispondenza. Sui dispositivi che eseguono l'aggiornamento 1 non verranno più generati avvisi di mancata corrispondenza non corretti. |Update 1 |Sì |No |
-| 5 |Ripristino delle impostazioni predefinite |Se un ripristino delle impostazioni di fabbrica veniva interrotto prima del completamento, il dispositivo entrava in modalità di ripristino e non consentiva l'accesso a Windows PowerShell per StorSimple. Il bug è stato corretto. |Update 1 |Sì |No |
+| 2 |Ripristino delle impostazioni di fabbrica |In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple si blocca e l’utente visualizza il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C durante l'esecuzione del cmdlet. Il bug è stato corretto. |Update 1 |Sì |No |
+| 3 |Ripristino delle impostazioni di fabbrica |In caso di ripristino non riuscito delle impostazioni predefinite del controller doppio, era possibile procedere con la registrazione del dispositivo. Ciò determinava una configurazione di sistema non supportata. Nell'aggiornamento 1, viene visualizzato un messaggio di errore e la registrazione è bloccata su un dispositivo in cui il ripristino delle impostazioni predefinite non è riuscito. |Update 1 |Sì |No |
+| 4 |Ripristino delle impostazioni di fabbrica |In alcuni casi, sono stati generati avvisi falsi positivi di mancata corrispondenza. Sui dispositivi che eseguono l'aggiornamento 1 non verranno più generati avvisi di mancata corrispondenza non corretti. |Update 1 |Sì |No |
+| 5 |Ripristino delle impostazioni di fabbrica |Se un ripristino delle impostazioni di fabbrica veniva interrotto prima del completamento, il dispositivo entrava in modalità di ripristino e non consentiva l'accesso a Windows PowerShell per StorSimple. Il bug è stato corretto. |Update 1 |Sì |No |
 | 6 |Ripristino di emergenza |È stato corretto un bug che impediva il ripristino d'emergenza durante l'individuazione di backup nel dispositivo di destinazione. |Update 1 |Sì |Sì |
 | 7 |LED di monitoraggio |In alcuni casi, i LED di monitoraggio posti nella parte posteriore dell’appliance non indicavano lo stato corretto. Il LED blu è stato disattivato. I LED DATA 0 e 1 lampeggiavano anche quando le interfacce non erano configurate. Il problema è stato risolto e i LED di monitoraggio indicano lo stato corretto. |Update 1 |Sì |No |
 | 8 |LED di monitoraggio |In alcuni casi, dopo aver applicato l'aggiornamento 1, la luce blu sul controller attivo si disattiva rendendo difficile identificare il controller attivo. Questo problema è stato risolto in questa versione patch. |Aggiornamento 1.2 |Sì |No |
