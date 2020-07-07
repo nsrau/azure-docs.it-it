@@ -1,21 +1,25 @@
 ---
 title: Elenco di definizioni di criteri predefiniti
 description: Elenco di definizioni di criteri predefiniti per Criteri di Azure. Le categorie includono Tag, Conformità alle normative, Key Vault, Kubernetes, Configurazione guest e altro ancora.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709429"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313519"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definizioni di criteri predefiniti di Criteri di Azure
 
 Questa pagina è un indice delle definizioni di criteri predefiniti di Criteri di Azure.
 
 Il nome di ogni criterio predefinito include un collegamento all'origine della definizione di criterio nel portale di Azure. Usare il collegamento nella colonna **Origine** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy). Le definizioni predefinite sono raggruppate in base alla proprietà **categoria** nei **metadati**. Per passare a una **categoria** specifica, usare il menu sul lato destro della pagina. Altrimenti, premere <kbd>CTRL</kbd>-<kbd>F</kbd> per usare la funzionalità di ricerca del browser.
+
+## <a name="api-for-fhir"></a>API per FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
 ## <a name="api-management"></a>Gestione API
 
