@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82787125"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
@@ -24,12 +24,12 @@ Un problema in fase di scrittura di un servizio per gestire la scalabilità è c
 
 È possibile creare un'entità servizio con i passaggi seguenti:
 
-1. Accedere all'interfaccia della riga di comando`az login`di Azure () come utente con accesso al set di scalabilità di macchine virtuali
+1. Accedere all'interfaccia della riga di comando di Azure ( `az login` ) come utente con accesso al set di scalabilità di macchine virtuali
 2. Creare l'entità servizio con `az ad sp create-for-rbac`
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
     2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
-La libreria di calcolo Fluent può accedere usando queste credenziali come indicato di seguito (si noti che i tipi di `IAzure` Azure Fluent principali come sono nel pacchetto [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
+La libreria di calcolo Fluent può accedere usando queste credenziali come indicato di seguito (si noti che i tipi di Azure Fluent principali come `IAzure` sono nel pacchetto [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)può recuperare l'oggetto del set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo aver modificato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) aggiornato con il comando.
+In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)può recuperare l'oggetto del set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo aver modificato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) comando.
 
 Quando si aggiunge manualmente un nodo, l'aggiunta di un'istanza del set di scalabilità dovrebbe essere sufficiente per avviare un nuovo nodo Service Fabric in quanto il modello del set di scalabilità include le estensioni per aggiungere automaticamente nuove istanze al cluster Service Fabric. 
 

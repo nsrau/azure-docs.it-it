@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382910"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
@@ -23,7 +23,7 @@ Microsoft Azure Red Hat OpenShift richiede le autorizzazioni per eseguire attivi
 
 Nella [portale di Azure](https://portal.azure.com)verificare che il tenant sia visualizzato sotto il nome utente in alto a destra nel portale:
 
-![Screenshot del portale con tenant elencato in alto a](./media/howto-create-tenant/tenant-callout.png) destra se viene visualizzato il tenant errato, fare clic sul nome utente in alto a destra, quindi fare clic su **Cambia directory**e selezionare il tenant corretto dall'elenco **tutte le directory** .
+![Screenshot del portale con tenant elencato in alto a destra ](./media/howto-create-tenant/tenant-callout.png) se viene visualizzato il tenant errato, fare clic sul nome utente in alto a destra, quindi fare clic su **Cambia directory**e selezionare il tenant corretto dall'elenco **tutte le directory** .
 
 Creare un nuovo utente Azure Active Directory ' proprietario ' per accedere al cluster Azure Red Hat OpenShift.
 
@@ -35,7 +35,7 @@ Creare un nuovo utente Azure Active Directory ' proprietario ' per accedere al c
 6. Nel riquadro **utente** fare clic su **Mostra password** e registrare la password temporanea. Dopo aver eseguito l'accesso per la prima volta, verrà richiesto di reimpostarlo.
 7. Nella parte inferiore del riquadro fare clic su **Crea** per creare l'utente.
 
-## <a name="create-an-azure-ad-security-group"></a>Creare un gruppo di sicurezza Azure AD
+## <a name="create-an-azure-ad-security-group"></a>Creare un gruppo di sicurezza di Azure AD
 
 Per concedere l'accesso amministratore del cluster, le appartenenze in un gruppo di sicurezza Azure AD vengono sincronizzate nel gruppo OpenShift "osa-Customer-Admins". Se non è specificato, non verrà concesso alcun accesso amministrativo al cluster.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82778261"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
@@ -46,7 +46,7 @@ Consentire il traffico dagli indirizzi IP elencati per i servizi di gestione e i
 > [!IMPORTANT]  
 > Se l'area di Azure in uso non è inclusa nell'elenco, usare la funzionalità [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete.
 
-| Country | Region | Indirizzi IP di origine consentiti | Destinazione consentita | Direction |
+| Paese | Region | Indirizzi IP di origine consentiti | Destinazione consentita | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | Asia | Asia orientale | 23.102.235.122</br>52.175.38.134 | \*: 443 | In ingresso |
 | &nbsp; | Asia sud-orientale | 13.76.245.160</br>13.76.136.249 | \*: 443 | In ingresso |

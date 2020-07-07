@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673408"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378609"
 ---
 ## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
@@ -21,7 +21,7 @@ Nel computer locale creare una cartella denominata `environmental-sensor`.
 
 Scaricare il file JSON del [Modello di funzionalità sensore ambientale](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) e salvarlo nella cartella `environmental-sensor`.
 
-Usare un editor di testo e sostituire le due istanze di `{YOUR_COMPANY_NAME_HERE}` con il nome dell'azienda nel file `EnvironmentalSensorInline.capabilitymodel.json` scaricato.
+Usare un editor di testo e sostituire le due istanze di `{YOUR_COMPANY_NAME_HERE}` con il nome dell'azienda nel file `EnvironmentalSensorInline.capabilitymodel.json` scaricato. Usare solo i caratteri a-z, A-Z, 0-9 e il carattere di sottolineatura.
 
 Nell'applicazione Azure IoT Central creare un modello di dispositivo denominato *sensore ambientale* importando il file del modello di funzionalità di dispositivo `EnvironmentalSensorInline.capabilitymodel.json`:
 
@@ -29,7 +29,7 @@ Nell'applicazione Azure IoT Central creare un modello di dispositivo denominato 
 
 Il modello di funzionalità di dispositivo include due interfacce: l'interfaccia **Informazioni sul dispositivo** standard e l'interfaccia **Sensore ambientale** personalizzata. L'interfaccia **Sensore ambientale** definisce le funzionalità seguenti:
 
-| Tipo | Nome visualizzato | Descrizione |
+| Type | Nome visualizzato | Descrizione |
 | ---- | ------------ | ----------- |
 | Proprietà | Stato del dispositivo     | Stato del dispositivo. Sono disponibili due stati, online/offline. |
 | Proprietà (scrivibile) | Nome del cliente    | Nome del cliente che attualmente gestisce il dispositivo. |

@@ -4,10 +4,10 @@ description: Informazioni sulle opzioni di blocco nei progetti di Azure per prot
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383600"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
@@ -47,7 +47,7 @@ Per assegnare il progetto a un gruppo di gestione invece che a una sottoscrizion
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-Il gruppo di gestione definito `{assignmentMG}` da deve essere all'interno della gerarchia del gruppo di gestione o essere lo stesso gruppo di gestione in cui viene salvata la definizione del progetto.
+Il gruppo di gestione definito da `{assignmentMG}` deve essere all'interno della gerarchia del gruppo di gestione o essere lo stesso gruppo di gestione in cui viene salvata la definizione del progetto.
 
 Il corpo della richiesta dell'assegnazione del progetto ha un aspetto simile al seguente:
 
@@ -85,7 +85,7 @@ Il corpo della richiesta dell'assegnazione del progetto ha un aspetto simile al 
 }
 ```
 
-La differenza principale tra questo corpo della richiesta e l'altra da assegnare a una sottoscrizione `properties.scope` è la proprietà. Questa proprietà obbligatoria deve essere impostata sulla sottoscrizione a cui si applica l'assegnazione del progetto. La sottoscrizione deve essere un figlio diretto della gerarchia del gruppo di gestione in cui è archiviata l'assegnazione del progetto.
+La differenza principale tra questo corpo della richiesta e l'altra da assegnare a una sottoscrizione è la `properties.scope` Proprietà. Questa proprietà obbligatoria deve essere impostata sulla sottoscrizione a cui si applica l'assegnazione del progetto. La sottoscrizione deve essere un figlio diretto della gerarchia del gruppo di gestione in cui è archiviata l'assegnazione del progetto.
 
 > [!NOTE]
 > Un progetto assegnato all'ambito del gruppo di gestione funziona ancora come assegnazione di progetto a livello di sottoscrizione. L'unica differenza è rappresentata dalla posizione in cui viene archiviata l'assegnazione del progetto per impedire ai proprietari della sottoscrizione di rimuovere l'assegnazione e i blocchi associati.

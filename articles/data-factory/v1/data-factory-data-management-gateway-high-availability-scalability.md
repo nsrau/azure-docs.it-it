@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065198"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
@@ -42,7 +42,7 @@ Questo articolo consente di configurare una soluzione di disponibilità elevata 
 
 Usando il portale di Azure, è possibile monitorare lo stato di questi nodi, per poter decidere se aggiungere o rimuovere un nodo dal gateway logico. 
 
-## <a name="architecture"></a>Architecture 
+## <a name="architecture"></a>Architettura 
 Il diagramma seguente offre una panoramica dell'architettura della funzionalità di scalabilità e disponibilità del gateway di gestione dati: 
 
 ![Gateway di gestione dati: disponibilità elevata e scalabilità](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -187,7 +187,7 @@ Proprietà monitoraggio | Descrizione
 :------------------ | :---------- 
 Nome | Nome del gateway logico e nodi associati al gateway.  
 Stato | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) . 
-Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
+Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
@@ -206,7 +206,7 @@ Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
 Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
-Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
+Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
 
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
@@ -227,7 +227,7 @@ Il portale di Azure offre un'esperienza di monitoraggio della pipeline con detta
 
 ## <a name="scale-considerations"></a>Considerazioni sulla scalabilità
 
-### <a name="scale-out"></a>Scalabilità orizzontale
+### <a name="scale-out"></a>Aumentare il numero di istanze
 Quando la **memoria disponibile non è sufficiente** e l'**utilizzo della CPU è elevato**, l'aggiunta di un nuovo nodo consente di aumentare il carico nei computer. Se le attività hanno esito negativo perché si verifica un timeout o il nodo del gateway è offline, è utile aggiungere un nodo al gateway.
  
 ### <a name="scale-up"></a>Aumentare le prestazioni
@@ -238,9 +238,9 @@ Quando la memoria disponibile e la CPU non vengono utilizzate correttamente, ma 
 
 ## <a name="known-issuesbreaking-changes"></a>Problemi noti/modifiche significative
 
-- È attualmente possibile avere fino a quattro nodi fisici per ogni gateway logico. Se sono necessari più di quattro nodi per motivi di prestazioni, inviare un messaggio [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)di posta elettronica a.
+- È attualmente possibile avere fino a quattro nodi fisici per ogni gateway logico. Se sono necessari più di quattro nodi per motivi di prestazioni, inviare un messaggio di posta elettronica a [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com) .
 - Non è possibile ripetere la registrazione di un nodo del gateway con la chiave di autenticazione da un altro gateway logico per eseguire il passaggio dal gateway logico corrente. Per ripetere la registrazione, disinstallare il gateway dal nodo, reinstallare il gateway e registrarlo con la chiave di autenticazione dell'altro gateway logico. 
-- Se il proxy HTTP è necessario per tutti i nodi del gateway, impostare il proxy in diahost. exe. config e diawp. exe. config e usare Server Manager per assicurarsi che tutti i nodi abbiano lo stesso diahost. exe. config e diawip. exe. config. Per informazioni dettagliate, vedere la sezione [configurare le impostazioni proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) . 
+- Se il proxy HTTP è necessario per tutti i nodi del gateway, impostare il proxy in diahost.exe.config e diawp.exe.config e usare Server Manager per assicurarsi che tutti i nodi abbiano lo stesso diahost.exe.config e diawip.exe.config. Per informazioni dettagliate, vedere la sezione [configurare le impostazioni proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) . 
 - Per modificare la modalità di crittografia per la comunicazione tra nodi in Gateway di gestione dati, eliminare tutti i nodi nel portale tranne uno, quindi aggiungerli di nuovo dopo avere modificato la modalità di crittografia.
 - Usare un certificato TLS ufficiale se si sceglie di crittografare il canale di comunicazione da nodo a nodo. Un certificato autofirmato può causare problemi di connettività perché lo stesso certificato potrebbe non essere considerato attendibile nell'elenco delle autorità di certificazione di altri computer. 
 - Non è possibile registrare un nodo del gateway in un gateway logico quando la versione del nodo è precedente alla versione del gateway logico. Eliminare tutti i nodi del gateway logico dal portale per poter registrare un nodo con una versione precedente (effettuarne il downgrade). Se si eliminano tutti i nodi di un gateway logico, installare manualmente e registrare i nuovi nodi per tale gateway logico. In questo caso l'installazione rapida non è supportata.

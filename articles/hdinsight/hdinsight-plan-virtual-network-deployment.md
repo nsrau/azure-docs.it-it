@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82786615"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
@@ -207,7 +207,7 @@ Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per esempi di codice ed esempi di creazione di reti virtuali di Azure, vedere [creare reti virtuali per i cluster HDInsight](hdinsight-create-virtual-network.md)di Azure.
+* Per esempi di codice ed esempi di creazione di reti virtuali di Azure, vedere [Creare reti virtuali per i cluster di Azure HDInsight](hdinsight-create-virtual-network.md).
 * Per un esempio completo di configurazione di HDInsight per la connessione a una rete locale, vedere [Connettere HDInsight alla rete locale](./connect-on-premises-network.md).
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).

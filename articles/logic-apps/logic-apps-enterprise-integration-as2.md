@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82115500"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -20,7 +20,7 @@ ms.locfileid: "82115500"
 > [!IMPORTANT]
 > Il connettore AS2 originale viene deprecato, quindi assicurarsi di usare il connettore **AS2 (v2)** . Questa versione offre le stesse funzionalità della versione originale, è nativa per il runtime di app per la logica e offre miglioramenti significativi delle prestazioni in termini di velocità effettiva e dimensione dei messaggi. Inoltre, il connettore nativo V2 non richiede la creazione di una connessione all'account di integrazione. Al contrario, come descritto nei prerequisiti, assicurarsi di collegare l'account di integrazione all'app per la logica in cui si prevede di usare il connettore.
 
-Per lavorare con i messaggi AS2 in app per la logica di Azure, è possibile usare il connettore AS2, che fornisce trigger e azioni per la gestione della comunicazione AS2. Ad esempio, per stabilire sicurezza e affidabilità durante la trasmissione dei messaggi, è possibile usare le azioni seguenti:
+Per gestire i messaggi AS2 in App per la logica di Azure è possibile usare il connettore AS2, che fornisce trigger e azioni per la gestione della comunicazione AS2. Ad esempio, per stabilire sicurezza e affidabilità durante la trasmissione dei messaggi, è possibile usare le azioni seguenti:
 
 * [Azione di **codifica AS2** ](#encode) per fornire la crittografia, la firma digitale e i riconoscimenti tramite notifiche sulla disposizione dei messaggi (MDN), che supportano il non ripudio. Questa azione, ad esempio, applica le intestazioni AS2/HTTP ed esegue queste attività quando viene configurata:
 
@@ -53,9 +53,9 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, [registrarsi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica da cui si vuole usare il connettore AS2 e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore AS2 fornisce solo azioni, non trigger. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* App per la logica da cui si vuole usare il connettore AS2 e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore AS2 fornisce solo azioni, non trigger. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e collegato all'app per la logica in cui si prevede di usare il connettore AS2. Sia l'app per la logica che l'account di integrazione devono esistere nella stessa località o nell'area di Azure.
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e collegato all'app per la logica in cui si prevede di usare il connettore AS2. Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
 
 * Almeno due [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione utilizzando il qualificatore di identità AS2.
 
@@ -122,7 +122,7 @@ Per distribuire un'app per la logica completamente operativa e uno scenario AS2 
 Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/as2/). 
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore usa i [limiti dei messaggi B2B per ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
+> Per le app per la logica in un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa i [limiti dei messaggi B2B per ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 5527a27ab94c350a345bb916206057069c3d16da
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82723168"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
@@ -123,4 +123,4 @@ Selezionando un raggruppamento di gravità (ad esempio, il valore di gravità **
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Disponibilità dei cluster - Apache Ambari](./hdinsight-cluster-availability.md)
-* [Usare i log di Monitoraggio di Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+* [Usare i log di monitoraggio di Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)

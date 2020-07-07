@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311524"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione dell'agente di sicurezza
@@ -57,13 +57,13 @@ Per informazioni sulla configurazione, vedere [parametri di installazione dell'a
 Quando si [distribuisce un agente sicurezza](how-to-deploy-agent.md), i dettagli di autenticazione devono essere specificati come argomenti.
 Questi argomenti sono documentati nella tabella seguente.
 
-|Nome parametro Linux | Nome parametro Windows | Parametro abbreviato |Descrizione|Options|
+|Nome parametro Linux | Nome parametro Windows | Parametro abbreviato |Descrizione|Opzioni|
 |---------------------|---------------|---------|---------------|---------------|
 |autenticazione-identità|AuthenticationIdentity|AUI|Identità di autenticazione| **SecurityModule** o **dispositivo**|
 |authentication-method|AuthenticationMethod|Aum|Metodo di autenticazione|**SymmetricKey** **SelfSignedCertificate**|
 |percorso file|FilePath|f|Percorso completo assoluto per il file che contiene il certificato o la chiave simmetrica| |
 |nome-host|HostName|HN|FQDN dell'hub Internet delle cose|Esempio: ContosoIotHub.azure-devices.net|
-|ID dispositivo|DeviceId|inserimento delle dipendenze|ID dispositivo|Esempio: MyDevice1|
+|ID dispositivo|deviceId|inserimento delle dipendenze|ID dispositivo|Esempio: MyDevice1|
 |tipo di certificato-location|CertificateLocationKind|CL|Percorso di archiviazione certificati|**LocalFile** o **Store**|
 |
 
@@ -77,7 +77,7 @@ Per modificare i metodi di autenticazione dopo la distribuzione, è necessario m
 
 ### <a name="c-based-security-agent"></a>Agente sicurezza basato su C#
 
-Modificare _Authentication. config_ con i parametri seguenti:
+Modificare _Authentication.config_ con i parametri seguenti:
 
 ```xml
 <Authentication>
@@ -92,7 +92,7 @@ Modificare _Authentication. config_ con i parametri seguenti:
 
 ### <a name="c-based-security-agent"></a>Agente sicurezza basato su C
 
-Modificare _LocalConfiguration. JSON_ con i parametri seguenti:
+Modificare _LocalConfiguration.json_ con i parametri seguenti:
 
 ```json
 "Authentication" : {

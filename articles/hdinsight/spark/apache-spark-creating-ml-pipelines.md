@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494659"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creare una pipeline di apprendimento automatico di Apache Spark
 
-La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark è un set di API di alto livello basate su dataframe. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
+La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) è un set di API di alto livello basate su dataframe. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
 
 Una pipeline di Machine Learning è un flusso di lavoro completo che combina più algoritmi di Machine Learning. Possono essere molti i passaggi richiesti per elaborare i dati e apprendere da essi, che richiedono una sequenza di algoritmi. Le pipeline definiscono le fasi e l'ordinamento di un processo di Machine Learning. In MLlib, le fasi di una pipeline sono rappresentate da una sequenza specifica di PipelineStages, in cui vengono eseguite attività da un trasformatore e da un estimatore.
 

@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82779043"
 ---
 # <a name="localization"></a>Localizzazione #
@@ -26,12 +26,12 @@ Il supporto di più lingue consente agli utenti di impostazioni locali diverse d
 
 Azure Media Player supporta attualmente le lingue seguenti con i codici di lingua corrispondenti:
 
-| Lingua            | Codice | Lingua                | Codice   | Lingua                | Codice         |
+| Linguaggio            | Codice | Linguaggio                | Codice   | Linguaggio                | Codice         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
 | Italian {default}   | en   | Croato                | hr     | Rumeno                | ro           |
 | Arabo              | ar   | Ungherese               | hu     | Slovacco                  | sk           |
 | Bulgaro           | bg   | Indonesiano              | id     | Sloveno                 | sl           |
-| Catalano             | CA   | Islandese               | is     | Serbo - Alfabeto cirillico      | Sr-Cyrl-CS   |
+| Catalano             | ca   | Islandese               | is     | Serbo - Alfabeto cirillico      | Sr-Cyrl-CS   |
 | Ceco               | cs   | Italiano                 | it     | Serbo - Alfabeto latino         | sr-latn-rs   |
 | Danese              | da   | Giapponese                | ja     | Russo                 | ru           |
 | Tedesco              | de   | Kazako                  | kk     | Svedese                 | sv           |

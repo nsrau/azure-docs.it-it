@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738066"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
@@ -29,7 +29,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 
 ## <a name="reprotect-a-vm"></a>Riproteggere una macchina virtuale
 
-1. In insieme di credenziali**elementi replicati**fare **clic con il**pulsante destro del mouse sulla macchina virtuale sottoposta a failover e selezionare **riproteggi.** >  La direzione della riprotezione deve essere da area secondaria ad area primaria.
+1. In **insieme**di credenziali  >  **elementi replicati**fare clic con il pulsante destro del mouse sulla macchina virtuale sottoposta a failover e selezionare **riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria.
 
    ![Riproteggere](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -50,7 +50,7 @@ Durante la riprotezione è possibile personalizzare le proprietà seguenti della
 |Rete virtuale di destinazione | Durante il processo di riprotezione, la rete di destinazione non può essere modificata. Per modificare la rete, ripetere il mapping di rete. |
 |Archiviazione di destinazione (la VM secondaria non usa Managed Disks) | È possibile modificare l'account di archiviazione usato dalla macchina virtuale dopo il failover. |
 |Dischi gestiti di replica (la VM secondaria usa dischi gestiti) | Site Recovery crea dischi gestiti di replica nell'area primaria per eseguire il mirroring dei dischi gestiti della VM secondaria. |
-|Archiviazione cache | È possibile specificare un account di archiviazione della cache da usare durante la replica. Per impostazione predefinita, viene creato un nuovo account di archiviazione della cache, se non esiste. |
+|Archiviazione nella cache | È possibile specificare un account di archiviazione della cache da usare durante la replica. Per impostazione predefinita, viene creato un nuovo account di archiviazione della cache, se non esiste. |
 |Set di disponibilità | Se la macchina virtuale nell'area secondaria fa parte di un set di disponibilità, è possibile scegliere un set di disponibilità per la macchina virtuale di destinazione nell'area primaria. Per impostazione predefinita, Site Recovery tenta di trovare e usare il set di disponibilità esistente nell'area primaria. Durante la personalizzazione, è possibile specificare un nuovo set di disponibilità. |
 
 ### <a name="what-happens-during-reprotection"></a>Cosa accade durante la riprotezione?
@@ -58,7 +58,7 @@ Durante la riprotezione è possibile personalizzare le proprietà seguenti della
 Per impostazione predefinita, si verifica quanto segue:
 
 1. Viene creato un nuovo account di archiviazione della cache nell'area in cui è in esecuzione la macchina virtuale del failover.
-1. Se l'account di archiviazione di destinazione (l'account di archiviazione originario nell'area primaria) non esiste, ne viene creato uno nuovo. Il nome dell'account di archiviazione assegnato è il nome dell'account di archiviazione usato dalla macchina virtuale secondaria, con `asr`suffisso.
+1. Se l'account di archiviazione di destinazione (l'account di archiviazione originario nell'area primaria) non esiste, ne viene creato uno nuovo. Il nome dell'account di archiviazione assegnato è il nome dell'account di archiviazione usato dalla macchina virtuale secondaria, con suffisso `asr` .
 1. Se la VM usa dischi gestiti, nell'area primaria vengono creati dischi gestiti di replica per archiviare i dati replicati dai dischi della VM secondaria.
 1. Se il set di disponibilità di destinazione non esiste, ne viene creato uno nuovo come parte del processo di riprotezione, se necessario. Se le impostazioni di riprotezione sono state personalizzate, viene usato il set selezionato.
 
@@ -72,7 +72,7 @@ Quando si attiva un processo di riprotezione e la macchina virtuale di destinazi
 
 Quando si attiva un processo di riprotezione e la macchina virtuale e i dischi di destinazione non esistono, si verifica quanto segue:
 
-1. Se la macchina virtuale usa dischi gestiti, i dischi di replica vengono `-ASRReplica` creati con il suffisso. Le `-ASRReplica` copie vengono utilizzate per la replica.
+1. Se la macchina virtuale usa dischi gestiti, i dischi di replica vengono creati con il `-ASRReplica` suffisso. Le `-ASRReplica` copie vengono utilizzate per la replica.
 1. Se la macchina virtuale usa dischi non gestiti, i dischi della replica vengono creati nell'account di archiviazione di destinazione.
 1. I dischi interi vengono copiati dall'area sottoposta a failover nella nuova area di destinazione.
 1. Al termine della sincronizzazione, inizia il delta replication e viene creato un punto di ripristino in linea con i criteri di replica.

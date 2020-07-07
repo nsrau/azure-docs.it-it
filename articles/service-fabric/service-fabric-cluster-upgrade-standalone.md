@@ -4,10 +4,10 @@ description: Informazioni sull'aggiornamento della versione o della configurazio
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790644"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Aggiornamento di un cluster autonomo di Service Fabric

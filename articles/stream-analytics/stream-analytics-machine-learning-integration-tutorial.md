@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067083"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Eseguire l'analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (versione classica)
@@ -20,7 +20,7 @@ ms.locfileid: "80067083"
 Questo articolo descrive come configurare rapidamente un semplice processo di analisi di flusso di Azure che integra Azure Machine Learning Studio (classico). Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
 
 > [!TIP]
-> Per migliorare le prestazioni e l'affidabilità, è consigliabile usare [Azure Machine Learning](machine-learning-udf.md) udf anziché Azure Machine Learning Studio UDF (classico).
+> Per migliorare le prestazioni e l'affidabilità, è consigliabile usare [funzioni definite dall'utente di Azure Machine Learning](machine-learning-udf.md) anziché le funzioni definite dall'utente di Azure Machine Learning Studio (versione classica).
 
 È possibile applicare le informazioni apprese in questo articolo a scenari come i seguenti:
 
@@ -55,7 +55,7 @@ In generale, per completare le attività illustrate in questo articolo, è neces
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Creare un contenitore di archiviazione e caricare il file di input CSV
 Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello disponibile da GitHub.
 
-1. Nella portale di Azure fare clic su **Crea una risorsa** > **archiviazione** > **account di archiviazione**.
+1. Nella portale di Azure fare clic su **Crea una risorsa**  >  **archiviazione**  >  **account di archiviazione**.
 
 2. Specificare un nome (`samldemo` nell'esempio). Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
 
@@ -63,7 +63,7 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello d
 
     ![specificare i dettagli dell'account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. Selezionare l'account di archiviazione nel portale di Azure. Nel pannello account di archiviazione fare clic su **contenitori** e quindi su ** + &nbsp;contenitore** per creare un archivio BLOB.
+4. Selezionare l'account di archiviazione nel portale di Azure. Nel pannello account di archiviazione fare clic su **contenitori** e quindi su ** + &nbsp; contenitore** per creare un archivio BLOB.
 
     ![Creare un contenitore di archiviazione BLOB per l'input](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -122,7 +122,7 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
 
-2. Fare clic su **Crea una risorsa** > **Internet delle cose** > **processo di analisi di flusso**. 
+2. Fare clic su **Crea una risorsa**  >  **Internet delle cose**  >  **processo di analisi di flusso**. 
 
 3. Assegnare il nome `azure-sa-ml-demo` al processo, specificare una sottoscrizione, specificare un gruppo di risorse esistente o crearne uno nuovo e selezionare il percorso per il processo.
 
@@ -139,7 +139,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
    
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    |**Alias di input** | Usare il nome `datainput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -159,7 +159,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    |**Alias di output** | Usare il nome `datamloutput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -178,15 +178,15 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
 
 1. Assicurarsi di avere a disposizione l'URL del servizio Web e la chiave API scaricati in precedenza nella cartella di lavoro di Excel.
 
-2. Passare al pannello del processo > **funzioni** > **+ Aggiungi** > **AzureML**
+2. Passare al pannello del processo > **funzioni**  >  **+ Aggiungi**  >  **AzureML**
 
 3. Completare il pannello **Funzione di Azure Machine Learning** con questi valori:
 
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    | **Alias di funzione** | Usare il nome `sentiment` e selezionare l'opzione **Specificare le impostazioni della funzione di Azure Machine Learning manualmente** che consente di immettere l'URL e la chiave.      |
    | **URL**| Incollare l'URL del servizio Web.|
-   |**Codice** | Incollare la chiave API. |
+   |**Chiave** | Incollare la chiave API. |
   
    ![Impostazioni per aggiungere la funzione Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
@@ -255,7 +255,7 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066772"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
@@ -28,7 +28,7 @@ Tutte le distribuzioni in esecuzione in Azure devono soddisfare alcuni prerequis
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Questo articolo è incentrato sulle linee guida generali per l'esecuzione della distribuzione Linux in Azure.
@@ -64,7 +64,7 @@ Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda 
 ### <a name="resizing-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 MB.  In genere i dischi rigidi virtuali creati tramite Hyper-V sono già allineati correttamente.  Se il disco rigido virtuale non è allineato correttamente, è possibile che venga visualizzato un messaggio di errore simile al seguente quando si tenta di creare un'immagine dal disco rigido virtuale.
 
-* Il disco rigido virtuale\//\<http: mystorageaccount>. blob.Core.Windows.NET/vhds/MyLinuxVM.vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
+* Il disco rigido virtuale http: \/ / \<mystorageaccount> . blob.Core.Windows.NET/vhds/MyLinuxVM.vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
 
 In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
 

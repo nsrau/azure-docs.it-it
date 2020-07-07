@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82690856"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -213,7 +213,7 @@ Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID 
 #### <a name="enqueue"></a>Accodare
 Poiché le code di archiviazione di Azure supportano l'API HTTP, tutte le operazioni con la coda vengono automaticamente registrate da Application Insights. In molti casi, questa strumentazione dovrebbe essere sufficiente. Per correlare le tracce sul lato consumer con le tracce del producer, è necessario passare parte del contesto di correlazione in modo simile a quanto avviene nel protocollo HTTP per la correlazione. 
 
-Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. È possibile scegliere:
+Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. È possibile:
 
  - **Correlare gli eventuali tentativi**, che hanno tutti un'operazione padre comune, ovvero `Enqueue`. In caso contrario, vengono registrati come elementi figlio della richiesta in ingresso. Se sono presenti più richieste logiche per la coda, potrebbe risultare difficile trovare la chiamata che ha restituito i tentativi.
  - **Correlare i log di archiviazione (se e quando necessario)** con i dati di telemetria di Application Insights.
@@ -300,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 
 Nell'esempio seguente un messaggio in arrivo viene verificato in maniera simile a quanto avviene per una richiesta HTTP in ingresso:
 
@@ -346,7 +346,7 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
-Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti di `DependencyTelemetry` che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`per le code di archiviazione di Azure
 - `Azure Event Hubs`per hub eventi di Azure
 - `Azure Service Bus`per il bus di servizio di Azure
@@ -469,11 +469,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operazioni ApplicationInsights rispetto a System. Diagnostics. Activity
-`System.Diagnostics.Activity`rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce `System.Diagnostics.DiagnosticSource` con: il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
+`System.Diagnostics.Activity`rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce con `System.Diagnostics.DiagnosticSource` : il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
 
-Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la `DiagnosticSource` raccolta di richieste si basa in modo significativo su di essi insieme agli eventi. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
+Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la raccolta di richieste si basa in modo significativo su di essi insieme agli `DiagnosticSource` eventi. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
 
-Ogni operazione di Application Insights (richiesta o dipendenza) `Activity` implica- `StartOperation` quando viene chiamato, crea un'attività sottostante. `StartOperation`è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
+Ogni operazione di Application Insights (richiesta o dipendenza) implica `Activity` -quando `StartOperation` viene chiamato, crea un'attività sottostante. `StartOperation`è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

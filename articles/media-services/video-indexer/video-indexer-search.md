@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127918"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Cerca i momenti esatti nei video con Video Indexer
@@ -50,11 +50,11 @@ In questo argomento vengono illustrate le opzioni di ricerca che consentono di c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando si trova il momento esatto del video che si vuole usare, è possibile continuare a elaborare il video. Per altre informazioni, vedere i seguenti argomenti:
+Quando si trova il momento esatto del video che si vuole usare, è possibile continuare a elaborare il video. Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Usare le informazioni dettagliate approfondite dei video](use-editor-create-project.md)
-- [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)
-- [Embed visual widgets in your application](video-indexer-embed-widgets.md) (Incorporare i widget visivi nell'applicazione)
+- [Elaborare il contenuto con Video Indexer API REST](video-indexer-use-apis.md)
+- [Incorporare i widget visivi nell'applicazione](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Vedere anche
 

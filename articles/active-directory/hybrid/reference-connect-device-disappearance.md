@@ -11,18 +11,18 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176034"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Informazioni Azure AD Connect 1.4. XX. x e la scomparsa del dispositivo
-Con la versione 1.4. XX. x di Azure AD Connect, alcuni clienti potrebbero visualizzare alcuni o tutti i dispositivi Windows scomparsi da Azure AD. Questo non è un problema, poiché queste identità dei dispositivi non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. Questa modifica non eliminerà i dispositivi Windows registrati correttamente con Azure AD per Aggiunta ad Azure AD ibrido.
+Con la versione 1.4. XX. x di Azure AD Connect, alcuni clienti potrebbero visualizzare alcuni o tutti i dispositivi Windows scomparsi da Azure AD. Questo non è un problema, perché queste identità di dispositivo non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. Questa modifica non eliminerà i dispositivi Windows registrati correttamente con Azure AD per Aggiunta ad Azure AD ibrido.
 
 Se viene visualizzata l'eliminazione degli oggetti dispositivo in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile che il cliente consenta il passaggio delle eliminazioni. [Procedura: consentire la propagazione delle eliminazioni quando superano la soglia di eliminazione](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Background
 I dispositivi Windows registrati come Azure AD ibrido Uniti sono rappresentati in Azure AD come oggetti dispositivo. Questi oggetti dispositivo possono essere utilizzati per l'accesso condizionale. I dispositivi Windows 10 vengono sincronizzati con il cloud tramite Azure AD Connect, i dispositivi Windows di livello inferiore vengono registrati direttamente usando AD FS o Single Sign-On Seamless.
 
 ## <a name="windows-10-devices"></a>Dispositivi Windows 10

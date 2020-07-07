@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: e017e082472e7a4a2fab6a2845e52d3dc7acc460
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80123356"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installazione di SAP HANA in macchine virtuali di Azure
@@ -94,7 +94,7 @@ Per SAP HANA configurazioni con scalabilità orizzontale usando dischi collegati
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>Risorse aggiuntive per il backup SAP HANA
 Per informazioni su come eseguire il backup di SAP HANA database in macchine virtuali di Azure, vedere:
-* [Guida del backup di SAP HANA in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+* [Guida al backup per SAP HANA in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 * [Backup di SAP HANA di Azure a livello di file](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 
 ## <a name="next-steps"></a>Passaggi successivi

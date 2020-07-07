@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
 ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791111"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
@@ -45,7 +45,7 @@ Copiare il codice seguente nel file run. CSX (verrà sostituito il codice preesi
 >![Run. CSX della funzione di Azure in portale di Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Per l'indirizzo endpoint da usare: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. A meno che la risorsa non si trovi in un'area come Azure per enti pubblici o Azure Cina, in questo caso consultare questo articolo sull' [override degli endpoint predefiniti](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selezionare l'endpoint del canale di telemetria appropriato per la propria area.
+> Per l'indirizzo endpoint da usare: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A meno che la risorsa non si trovi in un'area come Azure per enti pubblici o Azure Cina, in questo caso consultare questo articolo sull' [override degli endpoint predefiniti](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selezionare l'endpoint del canale di telemetria appropriato per la propria area.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -160,7 +160,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Per assicurarsi che tutto funzioni, è possibile esaminare il grafico nella scheda disponibilità della risorsa Application Insights.
 
 > [!NOTE]
-> Se è stata implementata la logica di business personalizzata in runAvailabilityTest. CSX, i risultati visualizzati come negli screenshot riportati di seguito, se non sono stati visualizzati, si otterranno risultati non riusciti. I test creati `TrackAvailability()` con verranno visualizzati con **Custom** accanto al nome del test.
+> Se è stata implementata la logica di business personalizzata in runAvailabilityTest. CSX, i risultati visualizzati come negli screenshot riportati di seguito, se non sono stati visualizzati, si otterranno risultati non riusciti. I test creati con `TrackAvailability()` verranno visualizzati con **Custom** accanto al nome del test.
 
 >[!div class="mx-imgBorder"]
 >![Scheda disponibilità con risultati riusciti](media/availability-azure-functions/availability-custom.png)

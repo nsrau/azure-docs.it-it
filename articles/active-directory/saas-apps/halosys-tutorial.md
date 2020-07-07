@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d224f8fa5d696cd55b4f214111280d9210f836e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f7cdc8dce8a4b30b543c4e332207354697a9e0d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159108"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Esercitazione: Integrazione di Azure Active Directory con Halosys
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Halosys, seguire questa
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Halosys](https://halosys.com/halosys#contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Halosys](https://www.sonata-software.com/form/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Halosys, seguire questa
 
 ### <a name="configure-halosys-single-sign-on"></a>Configurare l'accesso Single Sign-On per Halosys
 
-Per configurare l'accesso Single Sign-On sul lato **Halosys**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Halosys](https://halosys.com/halosys#contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Halosys**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Halosys](https://www.sonata-software.com/form/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-halosys-test-user"></a>Creare l'utente di test di Halosys
 
-In questa sezione viene creato un utente chiamato Britta Simon in Halosys. Collaborare con il  [team di supporto di Halosys](https://halosys.com/halosys#contact) per aggiungere gli utenti alla piattaforma Halosys. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Halosys. Collaborare con il  [team di supporto di Halosys](https://www.sonata-software.com/form/contact) per aggiungere gli utenti alla piattaforma Halosys. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

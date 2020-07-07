@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945648"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367377"
 ---
 # <a name="secure-access-to-application-data"></a>Proteggere l'accesso ai dati delle applicazioni
 
@@ -39,7 +39,7 @@ Per completare questa esercitazione è necessario aver completato l'esercitazion
 
 In questa parte della serie di esercitazioni si usano i token di firma di accesso condiviso per l'accesso alle anteprime. In questo passaggio si imposta l'accesso pubblico del contenitore *thumbnails* su `off`.
 
-```azurecli-interactive 
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
@@ -52,6 +52,19 @@ az storage container set-permission \
     --public-access off
 ```
 
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
+
+az storage container set-permission `
+    --account-name $blobStorageAccount `
+    --account-key $blobStorageAccountKey `
+    --name thumbnails `
+    --public-access off
+```
+
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurare i token di firma di accesso condiviso per le anteprime
 
 Nella prima parte di questa serie di esercitazioni l'applicazione Web visualizzava immagini di un contenitore pubblico. In questa parte della serie si usano token di firma di accesso condiviso per recuperare le immagini di anteprima. I token di firma di accesso condiviso consentono di garantire l'accesso limitato a un contenitore o un BLOB in base all'IP, al protocollo, all'intervallo di tempo o ai diritti concessi. Per altre informazioni sulla firma di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).
@@ -60,11 +73,19 @@ In questo esempio il repository di codice sorgente usa il ramo `sasTokens`, che 
 
 Nel comando seguente `<web-app>` è il nome dell'app Web.
 
-```azurecli-interactive 
+```bash
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
     --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
+```powershell
+az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
+
+az webapp deployment source config --name <web_app> `
+    --resource-group myResourceGroup --branch sasTokens --manual-integration `
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 

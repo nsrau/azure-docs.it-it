@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780394"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Impostazione dei parametri per i flussi di dati di mapping
@@ -64,14 +64,14 @@ Quando si assegna un parametro dell'espressione della pipeline di tipo String, p
 
 ![Impostazione di un parametro del flusso di dati](media/data-flow/string-parameter.png "Impostazione di un parametro del flusso di dati")
 
-Se il parametro `stringParam` del flusso di dati fa riferimento a `upper(column1)`un parametro della pipeline con valore. 
+Se il parametro del flusso `stringParam` di dati fa riferimento a un parametro della pipeline con valore `upper(column1)` . 
 
-- Se l'espressione è selezionata `$stringParam` , restituisce il valore di Column1 all maiuscole.
+- Se l'espressione è selezionata, `$stringParam` restituisce il valore di Column1 all maiuscole.
 - Se Expression non è selezionato (comportamento predefinito), `$stringParam` restituisce`'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Passaggio di timestamp
 
-Nel linguaggio delle espressioni della pipeline, le variabili di `pipeline().TriggerTime` sistema come le `utcNow()` funzioni e come i timestamp restituiti come stringhe nel formato ' aaaa-\'mm\'-GG T HH: mm: SS. SSSSSSZ'. Per convertirli in parametri del flusso di dati di tipo timestamp, usare l'interpolazione di stringhe per includere `toTimestamp()` il timestamp desiderato in una funzione. Ad esempio, per convertire l'ora del trigger della pipeline in un parametro del flusso di dati `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`, è possibile usare. 
+Nel linguaggio delle espressioni della pipeline, le variabili di sistema come le `pipeline().TriggerTime` funzioni e come i `utcNow()` timestamp restituiti come stringhe nel formato ' aaaa-mm-gg \' T \' hh: mm: SS. SSSSSSZ'. Per convertirli in parametri del flusso di dati di tipo timestamp, usare l'interpolazione di stringhe per includere il timestamp desiderato in una `toTimestamp()` funzione. Ad esempio, per convertire l'ora del trigger della pipeline in un parametro del flusso di dati, è possibile usare `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
 ![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-timestamp.png "Impostazione di un parametro del flusso di dati")
 
@@ -80,7 +80,7 @@ Nel linguaggio delle espressioni della pipeline, le variabili di `pipeline().Tri
 
 #### <a name="pipeline-parameter-example"></a>Esempio di parametro pipeline
 
-Supponiamo di avere un parametro `intParam` integer che fa riferimento a un parametro della pipeline di `@pipeline.parameters.pipelineParam`tipo String,. 
+Supponiamo di avere un parametro integer `intParam` che fa riferimento a un parametro della pipeline di tipo String, `@pipeline.parameters.pipelineParam` . 
 
 ![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-2.png "Impostazione di un parametro del flusso di dati")
 
@@ -88,7 +88,7 @@ Supponiamo di avere un parametro `intParam` integer che fa riferimento a un para
 
 ![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-4.png "Impostazione di un parametro del flusso di dati")
 
-Quando `$intParam` si fa riferimento a un oggetto in un'espressione, ad esempio una colonna derivata `abs(1)` , `1`viene valutato return. 
+Quando `$intParam` si fa riferimento a un oggetto in un'espressione, ad esempio una colonna derivata, viene valutato `abs(1)` return `1` . 
 
 ![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-3.png "Impostazione di un parametro del flusso di dati")
 
@@ -102,9 +102,9 @@ Seleziona **espressione flusso di dati** consente di aprire il generatore di esp
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>Passaggio di un nome di colonna come parametro
 
-Un modello comune consiste nel passare un nome di colonna come valore di parametro. Se la colonna è definita nello schema del flusso di dati, è possibile farvi riferimento direttamente come espressione stringa. Se la colonna non è definita nello schema, utilizzare la `byName()` funzione. Ricordarsi di eseguire il cast della colonna al tipo appropriato con una funzione di `toString()`cast, ad esempio.
+Un modello comune consiste nel passare un nome di colonna come valore di parametro. Se la colonna è definita nello schema del flusso di dati, è possibile farvi riferimento direttamente come espressione stringa. Se la colonna non è definita nello schema, utilizzare la `byName()` funzione. Ricordarsi di eseguire il cast della colonna al tipo appropriato con una funzione di cast, ad esempio `toString()` .
 
-Se ad esempio si desidera eseguire il mapping di una colonna di stringa basata su `columnName`un parametro, è possibile aggiungere una trasformazione colonna derivata `toString(byName($columnName))`uguale a.
+Se ad esempio si desidera eseguire il mapping di una colonna di stringa basata su un parametro `columnName` , è possibile aggiungere una trasformazione colonna derivata uguale a `toString(byName($columnName))` .
 
 ![Passaggio di un nome di colonna come parametro](media/data-flow/parameterize-column-name.png "Passaggio di un nome di colonna come parametro")
 

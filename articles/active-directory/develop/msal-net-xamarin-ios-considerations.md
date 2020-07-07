@@ -14,16 +14,16 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652663"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerazioni sull'uso di Novell iOS con MSAL.NET
 Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS, è necessario: 
 
-- Eseguire l'override e `OpenUrl` implementare la `AppDelegate`funzione in.
+- Eseguire l'override e implementare la `OpenUrl` funzione in `AppDelegate` .
 - Abilitare i gruppi di portachiavi.
 - Abilitare la condivisione della cache del token.
 - Abilitare l'accesso keychain.
@@ -31,7 +31,7 @@ Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS
 
 ## <a name="implement-openurl"></a>Implementare OpenUrl
 
-Eseguire l' `OpenUrl` override del metodo `FormsApplicationDelegate` della classe derivata e `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`chiamare. Ad esempio:
+Eseguire l'override del `OpenUrl` metodo della `FormsApplicationDelegate` classe derivata e chiamare `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Ad esempio:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -72,7 +72,7 @@ Abilitare anche l'accesso a keychain nel `Entitlements.plist` file. Usare il gru
 </dict>
 ```
 
-Quando si usa l' `WithIosKeychainSecurityGroup()` API, MSAL aggiunge automaticamente il gruppo di sicurezza alla fine dell' *ID team* dell'applicazione (`AppIdentifierPrefix`). MSAL aggiunge il gruppo di sicurezza perché, quando si compila l'applicazione in Xcode, eseguirà la stessa operazione. Questo è il motivo per cui i diritti nel `Entitlements.plist` file devono includere `$(AppIdentifierPrefix)` prima del gruppo di accesso a keychain.
+Quando si usa l' `WithIosKeychainSecurityGroup()` API, MSAL aggiunge automaticamente il gruppo di sicurezza alla fine dell' *ID team* dell'applicazione ( `AppIdentifierPrefix` ). MSAL aggiunge il gruppo di sicurezza perché, quando si compila l'applicazione in Xcode, eseguirà la stessa operazione. Questo è il motivo per cui i diritti nel `Entitlements.plist` file devono includere `$(AppIdentifierPrefix)` prima del gruppo di accesso a keychain.
 
 Per ulteriori informazioni, vedere la [documentazione relativa ai diritti iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
 
@@ -82,16 +82,16 @@ A partire da MSAL 2. x, è possibile specificare un gruppo di accesso a Keychain
 
 Condividendo la cache dei token si consente la Single Sign-On (SSO) tra tutte le applicazioni che usano lo stesso gruppo di accesso a keychain.
 
-Per abilitare questa condivisione della cache, usare `WithIosKeychainSecurityGroup()` il metodo per impostare il gruppo di accesso a keychain sullo stesso valore in tutte le applicazioni che condividono la stessa cache. Il primo esempio di codice in questo articolo illustra come usare il metodo.
+Per abilitare questa condivisione della cache, usare il `WithIosKeychainSecurityGroup()` metodo per impostare il gruppo di accesso a keychain sullo stesso valore in tutte le applicazioni che condividono la stessa cache. Il primo esempio di codice in questo articolo illustra come usare il metodo.
 
-In precedenza in questo articolo si è appreso che `$(AppIdentifierPrefix)` MSAL aggiunge ogni volta `WithIosKeychainSecurityGroup()` che si usa l'API. MSAL aggiunge questo elemento perché l'ID `AppIdentifierPrefix` team garantisce che solo le applicazioni eseguite dallo stesso server di pubblicazione possano condividere l'accesso keychain.
+In precedenza in questo articolo si è appreso che MSAL aggiunge `$(AppIdentifierPrefix)` ogni volta che si usa l' `WithIosKeychainSecurityGroup()` API. MSAL aggiunge questo elemento perché l'ID Team `AppIdentifierPrefix` garantisce che solo le applicazioni eseguite dallo stesso server di pubblicazione possano condividere l'accesso keychain.
 
 > [!NOTE]
 > La `KeychainSecurityGroup` proprietà è deprecata.
 > 
-> A partire da MSAL 2. x, gli sviluppatori erano costretti a `TeamId` includere il prefisso quando usavano `KeychainSecurityGroup` la proprietà. Tuttavia, a partire da MSAL 2.7. x, quando si usa `iOSKeychainSecurityGroup` la nuova proprietà, MSAL risolve il `TeamId` prefisso durante il Runtime. Quando si usa questa proprietà, non includere il `TeamId` prefisso nel valore. Il prefisso non è obbligatorio.
+> A partire da MSAL 2. x, gli sviluppatori erano costretti a includere il `TeamId` prefisso quando usavano la `KeychainSecurityGroup` Proprietà. Tuttavia, a partire da MSAL 2.7. x, quando si usa la nuova `iOSKeychainSecurityGroup` proprietà, MSAL risolve il `TeamId` prefisso durante il Runtime. Quando si usa questa proprietà, non includere il `TeamId` prefisso nel valore. Il prefisso non è obbligatorio.
 >
-> Poiché la `KeychainSecurityGroup` proprietà è obsoleta, utilizzare `iOSKeychainSecurityGroup` la proprietà.
+> Poiché la `KeychainSecurityGroup` proprietà è obsoleta, utilizzare la `iOSKeychainSecurityGroup` Proprietà.
 
 ### <a name="use-microsoft-authenticator"></a>USA Microsoft Authenticator
 

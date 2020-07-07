@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131316"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
@@ -67,7 +67,7 @@ Windows:
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-Sono necessari entrambi i certificati nel dispositivo IoT Edge. Se si prevede di usare la registrazione singola in DPS, si caricherà il file. cert. pem. Se si intende usare la registrazione di gruppo in DPS, è necessario anche un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità da caricare. Se si usano i certificati demo, usare il certificato `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` per la registrazione di gruppo.
+Sono necessari entrambi i certificati nel dispositivo IoT Edge. Se si prevede di usare la registrazione singola in DPS, si caricherà il file. cert. pem. Se si intende usare la registrazione di gruppo in DPS, è necessario anche un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità da caricare. Se si usano i certificati demo, usare il `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificato per la registrazione di gruppo.
 
 ## <a name="create-a-dps-individual-enrollment"></a>Creare una registrazione singola DPS
 
@@ -241,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Sostituire i valori segnaposto `scope_id`per `identity_cert`, `identity_pk` , con l'ID ambito dall'istanza di DPS e gli URI alla catena di certificati e i percorsi dei file di chiave nel dispositivo. Fornire un `registration_id` per il dispositivo, se si vuole, oppure lasciare la riga impostata come commento per registrare il dispositivo con il nome CN del certificato di identità.
+Sostituire i valori segnaposto per `scope_id` , `identity_cert` , `identity_pk` con l'ID ambito dall'istanza di DPS e gli URI alla catena di certificati e i percorsi dei file di chiave nel dispositivo. Fornire un `registration_id` per il dispositivo, se si vuole, oppure lasciare la riga impostata come commento per registrare il dispositivo con il nome CN del certificato di identità.
 
 Riavviare sempre il daemon di sicurezza dopo aver aggiornato il file config. yaml.
 
@@ -266,9 +266,9 @@ Per informazioni più dettagliate sull'installazione di IoT Edge in Windows, inc
 
 1. A questo punto, i dispositivi core per le cose possono riavviarsi automaticamente. Altri dispositivi Windows 10 o Windows Server possono richiedere il riavvio. In tal caso, riavviare il dispositivo ora. Quando il dispositivo è pronto, eseguire di nuovo PowerShell come amministratore.
 
-1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale, a `-Dps` meno che non si usi il flag per usare il provisioning automatico.
+1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale, a meno che non si usi il `-Dps` flag per usare il provisioning automatico.
 
-   Sostituire i valori segnaposto `{scope_id}`per `{identity cert chain path}`, e `{identity key path}` con i valori appropriati dall'istanza di DPS e i percorsi dei file nel dispositivo. Se si vuole specificare l'ID registrazione, includere `-RegistrationId {registration_id}` anche il segnaposto, sostituendo il segnaposto in base alle esigenze.
+   Sostituire i valori segnaposto per `{scope_id}` , `{identity cert chain path}` e `{identity key path}` con i valori appropriati dall'istanza di DPS e i percorsi dei file nel dispositivo. Se si vuole specificare l'ID registrazione, includere anche `-RegistrationId {registration_id}` il segnaposto, sostituendo il segnaposto in base alle esigenze.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

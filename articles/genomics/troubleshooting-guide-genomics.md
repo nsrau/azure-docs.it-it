@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100907"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
@@ -81,7 +81,7 @@ Per un flusso di lavoro con ID 1001 e un file config.txt presente nello stesso p
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. esaminare il contenuto di StandardOutput. txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. esaminare il contenuto di standardoutput.txt 
 Individuare il contenitore di output per il flusso di lavoro in questione. MSGEN crea una cartella `[workflowfilename].logs.zip` dopo ogni esecuzione del flusso di lavoro. Decomprimere la cartella per visualizzarne il contenuto:
 
 * outputFileList.txt - Elenco dei file di output generati durante il flusso di lavoro
@@ -113,7 +113,7 @@ Un errore interno del servizio non può essere corretto dall'utente. È possibil
 
 Questi errori possono essere corretti dall'utente. A seconda del tipo di file e del codice di errore, il servizio Genomica di Microsoft restituisce codici di errore distinti. Seguire le procedure consigliate per la risoluzione dei problemi elencate di seguito.
 
-| Tipo di file | Codice errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
+| Tipo di file | Codice di errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'. (Non è possibile leggere il file '[nomeFile]'.)                                                                                       | Controllare il formato del file BAM. Inviare nuovamente il flusso di lavoro con un file nel formato corretto.                                                                           |
