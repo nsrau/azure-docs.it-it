@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82116843"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
@@ -33,7 +33,7 @@ Per i dettagli sulle modifiche apportate da Servizi connessi al progetto per abi
 
 Prima di iniziare, verificare di avere eseguito l'accesso a Visual Studio. Accedere con lo stesso account usato per la sottoscrizione di Azure. Aprire quindi un progetto Web ASP.NET 4.7.1 o versione successiva o ASP.NET Core 2,0 e seguire questa procedura:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto a cui si desidera aggiungere il supporto Key Vault e scegliere **Aggiungi** > **servizio connesso**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto a cui si desidera aggiungere il supporto Key Vault e scegliere **Aggiungi**  >  **servizio connesso**.
    Nella pagina Servizio connesso visualizzata sono elencati i servizi che è possibile aggiungere al progetto.
 1. Nel menu dei servizi disponibili scegliere **Proteggi i segreti con Azure Key Vault**.
 
@@ -146,7 +146,7 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
        }
        ```
 
-   1. Per confermare il valore in fase di esecuzione, aggiungere il `ViewData["Message"]` codice da visualizzare nel file con *estensione cshtml* per visualizzare il segreto in un messaggio.
+   1. Per confermare il valore in fase di esecuzione, aggiungere il codice da visualizzare `ViewData["Message"]` nel file con *estensione cshtml* per visualizzare il segreto in un messaggio.
 
       ```cshtml
           <p>@ViewData["Message"]</p>
@@ -156,9 +156,9 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
 
 ## <a name="access-your-secrets-aspnet"></a>Accedere ai segreti (ASP.NET)
 
-È possibile configurare la configurazione in modo che il file Web. config includa un valore fittizio `appSettings` nell'elemento sostituito dal valore true in fase di esecuzione. È quindi possibile accedere a questo oggetto `ConfigurationManager.AppSettings` tramite la struttura dei dati.
+È possibile configurare la configurazione in modo che il file di web.config disponga di un valore fittizio nell' `appSettings` elemento sostituito dal valore true in fase di esecuzione. È quindi possibile accedere a questo oggetto tramite la `ConfigurationManager.AppSettings` struttura dei dati.
 
-1. Modificare il file Web. config.  Trovare il tag appSettings, aggiungere un attributo `configBuilders="AzureKeyVault"`e aggiungere una riga:
+1. Modificare il file di web.config.  Trovare il tag appSettings, aggiungere un attributo `configBuilders="AzureKeyVault"` e aggiungere una riga:
 
    ```xml
       <add key="mysecret" value="dummy"/>
@@ -174,7 +174,7 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
    ```
 1. Eseguire l'app localmente sotto il debugger, passare alla scheda **About** e verificare che venga visualizzato il valore della Key Vault.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non è più necessario, eliminare il gruppo di risorse. In questo modo vengono eliminati l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
@@ -190,10 +190,10 @@ Se il Key Vault è in esecuzione in un account Microsoft diverso da quello con c
 
 1. Scegliere **criteri di accesso**, quindi **Aggiungi criteri di accesso**e scegliere l'account con cui si è connessi come entità.
 
-1. In Visual Studio scegliere **file** > **Impostazioni account**.
+1. In Visual Studio scegliere **file**  >  **Impostazioni account**.
 Selezionare **Aggiungi un account** dalla sezione **tutti gli account** . Accedere con l'account scelto come principale dei criteri di accesso.
 
-1. Scegliere **strumenti** > **Opzioni**e cercare autenticazione dei **servizi di Azure**. Selezionare quindi l'account appena aggiunto a Visual Studio.
+1. Scegliere **strumenti**  >  **Opzioni**e cercare autenticazione dei **servizi di Azure**. Selezionare quindi l'account appena aggiunto a Visual Studio.
 
 A questo punto, quando si esegue il debug dell'applicazione, Visual Studio si connette all'account in cui si trova il Key Vault.
 
@@ -205,7 +205,7 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 Influiscono sul file di progetto riferimenti .NET e sui riferimenti ai pacchetti NuGet.
 
-| Tipo | Informazioni di riferimento |
+| Type | Informazioni di riferimento |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -215,9 +215,9 @@ Influiscono sul file di progetto riferimenti .NET e sui riferimenti ai pacchetti
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Modifiche al file di progetto per ASP.NET Core
 
-- Aggiunta del Servizi connessi ItemGroup e `ConnectedServices.json` del file.
+- Aggiunta del Servizi connessi ItemGroup e del `ConnectedServices.json` file.
 
-### <a name="launchsettingsjson-changes-for-aspnet-core"></a>modifiche di launchsettings. JSON per ASP.NET Core
+### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings.jsmodifiche per ASP.NET Core
 
 - Aggiungere le seguenti voci di variabili di ambiente sia al profilo IIS Express sia al profilo che corrisponde al nome del progetto Web:
 
@@ -239,9 +239,9 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 ### <a name="added-references-for-aspnet-framework"></a>Aggiunta di riferimenti per ASP.NET Framework
 
-Influiscono sul file di progetto .NET `packages.config` References e (riferimenti a NuGet).
+Influiscono sul file di progetto .NET References e `packages.config` (riferimenti a NuGet).
 
-| Tipo | Informazioni di riferimento |
+| Type | Informazioni di riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

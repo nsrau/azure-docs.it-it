@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691891"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Eseguire la migrazione dello schema del database normalizzato dal database SQL di Azure al contenitore denormalizzato di Azure CosmosDB
@@ -23,7 +23,7 @@ Gli schemi SQL vengono in genere modellati utilizzando la terza forma normale, o
 
 Utilizzando Azure Data Factory, verrà compilata una pipeline che utilizza un singolo flusso di dati di mapping per leggere da due tabelle normalizzate del database SQL di Azure che contengono chiavi primarie ed esterne come relazione tra entità. ADF unirà tali tabelle in un singolo flusso usando il motore di Spark del flusso di dati, raccoglie le righe unite in join in matrici e genera singoli documenti puliti da inserire in un nuovo contenitore di Azure CosmosDB.
 
-In questa guida verrà creato un nuovo contenitore in tempo reale denominato "Orders" che ```SalesOrderHeader``` utilizzerà ```SalesOrderDetail``` le tabelle e del database di esempio standard SQL Server AdventureWorks. Tali tabelle rappresentano le transazioni di vendita ```SalesOrderID```unite da. Ogni record di dettaglio univoco ha una propria chiave primaria ```SalesOrderDetailID```di. La relazione tra l'intestazione e il ```1:M```dettaglio è. Si aggiungerà ad ```SalesOrderID``` ADF e quindi si eseguirà il Rolling di ogni record dei dettagli correlati in una matrice denominata "Detail".
+In questa guida verrà creato un nuovo contenitore in tempo reale denominato "Orders" che utilizzerà le ```SalesOrderHeader``` tabelle e del ```SalesOrderDetail``` database di esempio standard SQL Server AdventureWorks. Tali tabelle rappresentano le transazioni di vendita unite da ```SalesOrderID``` . Ogni record di dettaglio univoco ha una propria chiave primaria di ```SalesOrderDetailID``` . La relazione tra l'intestazione e il dettaglio è ```1:M``` . Si aggiungerà ```SalesOrderID``` ad ADF e quindi si eseguirà il Rolling di ogni record dei dettagli correlati in una matrice denominata "Detail".
 
 La query SQL rappresentativa per questa guida è la seguente:
 
@@ -56,19 +56,19 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 ![Grafico del flusso di dati](media/data-flow/cosmosb1.png)
 
-5. Definire l'origine per "SourceOrderDetails". Per set di dati, creare un nuovo set di dati del ```SalesOrderDetail``` database SQL di Azure che punti alla tabella.
+5. Definire l'origine per "SourceOrderDetails". Per set di dati, creare un nuovo set di dati del database SQL di Azure che punti alla ```SalesOrderDetail``` tabella.
 
-6. Definire l'origine per "SourceOrderHeader". Per set di dati, creare un nuovo set di dati del ```SalesOrderHeader``` database SQL di Azure che punti alla tabella.
+6. Definire l'origine per "SourceOrderHeader". Per set di dati, creare un nuovo set di dati del database SQL di Azure che punti alla ```SalesOrderHeader``` tabella.
 
-7. Nell'origine principale aggiungere una trasformazione colonna derivata dopo "SourceOrderDetails". Chiamare la nuova trasformazione "TypeCast". È necessario arrotondare la ```UnitPrice``` colonna ed eseguirne il cast a un tipo di dati Double per CosmosDB. Impostare la formula su: ```toDouble(round(UnitPrice,2))```.
+7. Nell'origine principale aggiungere una trasformazione colonna derivata dopo "SourceOrderDetails". Chiamare la nuova trasformazione "TypeCast". È necessario arrotondare la ```UnitPrice``` colonna ed eseguirne il cast a un tipo di dati Double per CosmosDB. Impostare la formula su: ```toDouble(round(UnitPrice,2))``` .
 
-8. Aggiungere un'altra colonna derivata e denominarla "MakeStruct". Qui verrà creata una struttura gerarchica che conterrà i valori della tabella details. Tenere presente che i dettagli ```M:1``` sono una relazione con l'intestazione. Assegnare un nome alla ```orderdetailsstruct``` nuova struttura e creare la gerarchia in questo modo, impostando ogni sottocolonna sul nome della colonna in ingresso:
+8. Aggiungere un'altra colonna derivata e denominarla "MakeStruct". Qui verrà creata una struttura gerarchica che conterrà i valori della tabella details. Tenere presente che i dettagli sono una ```M:1``` relazione con l'intestazione. Assegnare un nome alla nuova struttura ```orderdetailsstruct``` e creare la gerarchia in questo modo, impostando ogni sottocolonna sul nome della colonna in ingresso:
 
 ![Create Structure](media/data-flow/cosmosb9.png)
 
 9. A questo punto, passiamo all'origine dell'intestazione Sales. Aggiungere una trasformazione join. Per il lato destro selezionare "MakeStruct". Lasciare impostato su inner join e scegliere ```SalesOrderID``` entrambi i lati della condizione di join.
 
-10. Fare clic sulla scheda Anteprima dati nel nuovo join aggiunto per poter visualizzare i risultati fino a questo punto. Verranno visualizzate tutte le righe di intestazione unite con le righe di dettaglio. Questo è il risultato del join creato da ```SalesOrderID```. Verranno quindi combinati i dettagli delle righe comuni nello struct dei dettagli e verranno aggregate le righe comuni.
+10. Fare clic sulla scheda Anteprima dati nel nuovo join aggiunto per poter visualizzare i risultati fino a questo punto. Verranno visualizzate tutte le righe di intestazione unite con le righe di dettaglio. Questo è il risultato del join creato da ```SalesOrderID``` . Verranno quindi combinati i dettagli delle righe comuni nello struct dei dettagli e verranno aggregate le righe comuni.
 
 ![Join](media/data-flow/cosmosb4.png)
 
@@ -78,11 +78,11 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 ![Scrubber colonne](media/data-flow/cosmosb5.png)
 
-13. A questo punto è possibile eseguire il cast di una colonna ```TotalDue```di valuta. Come è stato fatto in precedenza nel passaggio 7, impostare la formula ```toDouble(round(TotalDue,2))```su:.
+13. A questo punto è possibile eseguire il cast di una colonna di valuta ```TotalDue``` . Come è stato fatto in precedenza nel passaggio 7, impostare la formula su: ```toDouble(round(TotalDue,2))``` .
 
-14. Qui è possibile denormalizzare le righe raggruppando in base alla chiave ```SalesOrderID```comune. Aggiungere una trasformazione aggregazione e impostare il raggruppamento su ```SalesOrderID```.
+14. Qui è possibile denormalizzare le righe raggruppando in base alla chiave comune ```SalesOrderID``` . Aggiungere una trasformazione aggregazione e impostare il raggruppamento su ```SalesOrderID``` .
 
-15. Nella formula aggregate aggiungere una nuova colonna denominata "Details" e usare questa formula per raccogliere i valori nella struttura creata in precedenza denominata ```orderdetailsstruct```:. ```collect(orderdetailsstruct)```
+15. Nella formula aggregate aggiungere una nuova colonna denominata "Details" e usare questa formula per raccogliere i valori nella struttura creata in precedenza denominata ```orderdetailsstruct``` : ```collect(orderdetailsstruct)``` .
 
 16. La trasformazione aggregazione restituirà solo le colonne che fanno parte delle formule aggregate o Group by. Quindi, è necessario includere anche le colonne dell'intestazione Sales. A tale scopo, aggiungere un modello di colonna nella stessa trasformazione di aggregazione. Questo modello includerà tutte le altre colonne nell'output:
 
@@ -94,7 +94,7 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 18. È ora possibile completare il flusso di migrazione aggiungendo una trasformazione del sink. Fare clic su "nuovo" accanto a DataSet e aggiungere un set di dati CosmosDB che punti al database CosmosDB. Per la raccolta, chiameremo "Orders" (ordini) e non sarà disponibile alcuno schema e nessun documento perché verrà creato in tempo reale.
 
-19. In impostazioni sink, chiave di ```\SalesOrderID``` partizione e azione di raccolta su "ricrea". Assicurarsi che la scheda mapping abbia un aspetto simile al seguente:
+19. In impostazioni sink, chiave di partizione ```\SalesOrderID``` e azione di raccolta su "ricrea". Assicurarsi che la scheda mapping abbia un aspetto simile al seguente:
 
 ![Impostazioni sink](media/data-flow/cosmosb7.png)
 

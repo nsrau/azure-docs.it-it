@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058160"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
@@ -43,7 +43,7 @@ Dopo avere completato questi passaggi, riprovare a eliminare l'account di archiv
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Scenario 1: eliminazione di un BLOB - identificare la macchina virtuale collegata
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Dal menu Hub scegliere **Tutte le risorse**. Passare all'account di archiviazione, in **Servizio BLOB** selezionare **Contenitori** e andare al BLOB da eliminare.
+2. Scegliere **Tutte le risorse** dal menu Hub. Passare all'account di archiviazione, in **Servizio BLOB** selezionare **Contenitori** e andare al BLOB da eliminare.
 3. Se **Stato lease** del BLOB è **Con lease** fare clic con il pulsante destro del mouse e scegliere **Modifica metadati** per aprire il riquadro Metadati BLOB. 
 
     ![Screenshot del portale, con evidenziati i BLOB dell'account di archiviazione e l'opzione clic con il pulsante destro del mouse > "Modifica metadati"](./media/troubleshoot-vhds/utd-edit-metadata-sm.png)
@@ -60,7 +60,7 @@ Dopo avere completato questi passaggi, riprovare a eliminare l'account di archiv
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scenario 2: eliminazione di un contenitore - identificare tutti i BLOB all'interno del contenitore collegati alle macchine virtuali
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Dal menu Hub scegliere **Tutte le risorse**. Passare all'account di archiviazione, in **servizio BLOB** selezionare **contenitori**e individuare il contenitore da eliminare.
+2. Scegliere **Tutte le risorse** dal menu Hub. Passare all'account di archiviazione, in **servizio BLOB** selezionare **contenitori**e individuare il contenitore da eliminare.
 3. Fare clic per aprire il contenitore e visualizzare l'elenco di BLOB in esso contenuti. Identificare tutti i BLOB con Tipo BLOB = **BLOB di pagine** e Stato lease = **Con lease** da questo elenco. Seguire lo Scenario 1 per identificare la macchina virtuale associata a ognuno di questi BLOB.
 
     ![Schermata del portale, con evidenziati i BLOB dell'account di archiviazione e lo "Stato lease" con "Con lease"](./media/troubleshoot-vhds/utd-disks-sm.png)
@@ -69,7 +69,7 @@ Dopo avere completato questi passaggi, riprovare a eliminare l'account di archiv
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: eliminazione di un account di archiviazione: identificare tutti i BLOB nell'account di archiviazione collegati alle macchine virtuali
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Dal menu Hub scegliere **Tutte le risorse**. Passare all'account di archiviazione e in **Servizio BLOB** selezionare **Blob**.
+2. Scegliere **Tutte le risorse** dal menu Hub. Passare all'account di archiviazione e in **Servizio BLOB** selezionare **Blob**.
 3. Nel riquadro **Contenitori** identificare tutti i contenitori in cui **Stato lease** corrisponde a **Con lease** e seguire lo [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) per ogni contenitore **Con lease**.
 4. Seguire il [Passaggio 2](#step-2-delete-vm-to-detach-os-disk) e il [Passaggio 3](#step-3-detach-data-disk-from-the-vm) per eliminare le macchine virtuali con **OSDisk** e scollegare **DataDisk**. 
 

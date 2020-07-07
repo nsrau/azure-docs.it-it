@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: tisande
 ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063564"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatori in Azure Cosmos DB
@@ -21,19 +21,19 @@ Questo articolo illustra in dettaglio i vari operatori supportati da Azure Cosmo
 
 La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
-| **Op** | **Non definito** | **Null** | **Boolean** | **Numero** | **Stringa** | **Oggetto** | **Matrice** |
+| **Op** | **Non definito** | **Null** | **Boolean** | **Number** | **Stringa** | **Object** | **Matrice** |
 |---|---|---|---|---|---|---|---|
 | **Non definito** | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito |
 | **Null** | Non definito | **Ok** | Non definito | Non definito | Non definito | Non definito | Non definito |
 | **Boolean** | Non definito | Non definito | **Ok** | Non definito | Non definito | Non definito | Non definito |
-| **Numero** | Non definito | Non definito | Non definito | **Ok** | Non definito | Non definito | Non definito |
+| **Number** | Non definito | Non definito | Non definito | **Ok** | Non definito | Non definito | Non definito |
 | **Stringa** | Non definito | Non definito | Non definito | Non definito | **Ok** | Non definito | Non definito |
-| **Oggetto** | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** | Non definito |
+| **Object** | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** | Non definito |
 | **Matrice** | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** |
 
-Per gli operatori di confronto `>`, `>=`ad `!=`esempio `<`,, `<=`, e, il confronto tra i tipi o tra due oggetti `Undefined`o matrici produce.  
+Per gli operatori di confronto, ad esempio `>` ,, `>=` `!=` , `<` e, il confronto tra i `<=` tipi o tra due oggetti o matrici produce `Undefined` .  
 
-Se il risultato dell'espressione scalare è `Undefined`, l'elemento non è incluso nel risultato, perché `Undefined` non è `true`uguale a.
+Se il risultato dell'espressione scalare è `Undefined` , l'elemento non è incluso nel risultato, perché `Undefined` non è uguale a `true` .
 
 ## <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 
@@ -41,7 +41,7 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 **Operatore OR**
 
-Restituisce `true` quando una delle condizioni è `true`.
+Restituisce `true` quando una delle condizioni è `true` .
 
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
@@ -51,7 +51,7 @@ Restituisce `true` quando una delle condizioni è `true`.
 
 **Operatore AND**
 
-Restituisce `true` quando entrambe le espressioni `true`sono.
+Restituisce `true` quando entrambe le espressioni sono `true` .
 
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
@@ -63,21 +63,21 @@ Restituisce `true` quando entrambe le espressioni `true`sono.
 
 Inverte il valore di qualsiasi espressione booleana.
 
-|  | **NOT** |
+|  | **NON** |
 | --- | --- |
 | **True** |False |
 | **False** |True |
 | **Non definito** |Non definito |
 
-**Ordine di precedenza degli operatori**
+**Precedenza tra gli operatori**
 
-Gli operatori `OR`logici `AND`, e `NOT` hanno il livello di precedenza riportato di seguito:
+Gli operatori logici `OR` , `AND` e `NOT` hanno il livello di precedenza riportato di seguito:
 
 | **Operatore** | **Priority** |
 | --- | --- |
-| **NOT** |1 |
+| **NON** |1 |
 | **E** |2 |
-| **O** |3 |
+| **OR** |3 |
 
 ## <a name="-operator"></a>* (operatore)
 
@@ -87,7 +87,7 @@ L'operatore speciale * proietta l'intero elemento così com'è. Quando usato, de
 
 È possibile usare gli operatori ternari (?) e COALESCE (??) per compilare espressioni condizionali, come nei linguaggi di programmazione come C# e JavaScript.
 
-È possibile utilizzare il ? operatore per costruire nuove proprietà JSON in tempo reale. Ad esempio, la query seguente classifica i livelli di livello `elementary` in `other`o:
+È possibile utilizzare il ? operatore per costruire nuove proprietà JSON in tempo reale. Ad esempio, la query seguente classifica i livelli di livello in `elementary` o `other` :
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel

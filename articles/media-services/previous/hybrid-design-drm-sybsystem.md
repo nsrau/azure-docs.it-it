@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159404"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM 
@@ -93,7 +93,7 @@ La configurazione di criteri di distribuzione di un asset permette di controllar
 
 ## <a name="scenarios-and-samples"></a>Scenari ed esempi
 
-In base alle spiegazioni della sezione precedente, i cinque scenari ibridi seguenti usano le rispettive combinazioni di configurazione dei**criteri di distribuzione degli asset** della **chiave**-simmetrica (gli esempi indicati nell'ultima colonna seguono la tabella):
+In base alle spiegazioni della sezione precedente, i cinque scenari ibridi seguenti usano le rispettive combinazioni di configurazione dei criteri di distribuzione degli asset della **chiave**simmetrica - **Asset delivery policy** (gli esempi indicati nell'ultima colonna seguono la tabella):
 
 |**Hosting e origine del contenuto**|**Crittografia DRM**|**Distribuzione di licenze DRM**|**Configurare la chiave simmetrica**|**Configurare i criteri di distribuzione dell'asset**|**Esempio**|
 |---|---|---|---|---|---|
@@ -131,7 +131,7 @@ Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Strea
 
 * Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In sintesi, i componenti DRM di Servizi multimediali di Azure sono flessibili ed è possibile usarli in uno scenario ibrido configurando correttamente la chiave simmetrica e i criteri di distribuzione della licenza, come descritto in questo articolo.
 
@@ -140,6 +140,6 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

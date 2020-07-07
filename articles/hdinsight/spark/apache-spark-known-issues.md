@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494534"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
@@ -32,7 +32,7 @@ Seguire questa procedura per risolvere il problema:
 
         yarn application –list
 
-    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del `remotesparkmagics_*`processo inizia con.
+    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del processo inizia con `remotesparkmagics_*` .
 
 3. Eseguire il comando seguente per terminare questi processi.
 
@@ -81,7 +81,7 @@ Non usare caratteri non ASCII nei nomi di file dei notebook Jupyter. Se tramite 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Errore durante il caricamento di notebook di maggiori dimensioni
 
-Quando si caricano notebook **`Error loading notebook`** di dimensioni maggiori, potrebbe essere visualizzato un errore.  
+**`Error loading notebook`** Quando si caricano notebook di dimensioni maggiori, potrebbe essere visualizzato un errore.  
 
 **Mitigazione**
 
@@ -91,7 +91,7 @@ Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare 
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
-* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  Si tratta di una procedura consigliata con Jupyter in generale per `.collect()` evitare l'esecuzione su RDD o frame di frame di grandi dimensioni. Se invece si desidera visualizzare il contenuto di un RDD, provare a eseguire o `.take()` `.sample()` in modo che l'output non sia troppo grande.
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  Si tratta di una procedura consigliata con Jupyter in generale per evitare l'esecuzione `.collect()` su RDD o frame di frame di grandi dimensioni. Se invece si vuole visualizzare il contenuto di un RDD, provare a eseguire `.take()` o in `.sample()` modo che l'output non sia troppo grande.
 * Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>L'avvio iniziale del notebook richiede più tempo del previsto
@@ -117,7 +117,7 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: fe8e4c1b08f96e5f6b2fc7649f7a4361616b7c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311308"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Connetti i tuoi dati dal centro sicurezza di Azure per le cose a Sentinel di Azure (anteprima)
@@ -52,7 +52,7 @@ Connetti gli avvisi dal centro sicurezza di Azure per le cose e trasmettili dire
 1. Nella parte inferiore del riquadro destro fare clic su **Apri pagina connettore**.
 1. Fare clic su **Connetti**accanto a ogni sottoscrizione dell'hub Internet con avvisi e avvisi del dispositivo che si vuole trasmettere in Azure Sentinel.
     - Se il Centro sicurezza di Azure non è abilitato nell'hub, verrà visualizzato un messaggio di avviso di abilitazione. Fare clic sul collegamento **Enable (Abilita** ) per avviare e abilitare il servizio.
-1. È possibile decidere se si desidera che gli avvisi del Centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **Abilita** per abilitare la regola per la creazione automatica degli eventi imprevisti dagli avvisi generati.  Questa regola può essere modificata o modificata in **analisi** > regole**attive** .
+1. È possibile decidere se si desidera che gli avvisi del Centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **Abilita** per abilitare la regola per la creazione automatica degli eventi imprevisti dagli avvisi generati.  Questa regola può essere modificata o modificata in **analisi**  >  regole**attive** .
 
 > [!NOTE]
 >Per aggiornare l'elenco di hub dopo aver apportato le modifiche alla connessione, può essere necessario più di 10 secondi.
@@ -61,7 +61,7 @@ Connetti gli avvisi dal centro sicurezza di Azure per le cose e trasmettili dire
 
 Per usare lo schema pertinente in Log Analytics per visualizzare il Centro sicurezza di Azure per gli avvisi relativi agli elementi Internet:
 
-1. Aprire **logs** > **SecurityInsights** > **SecurityAlert**o cercare **SecurityAlert**.
+1. Aprire **logs**  >  **SecurityInsights**  >  **SecurityAlert**o cercare **SecurityAlert**.
 1. Filtrare per visualizzare solo il Centro sicurezza di Azure per gli avvisi generati dagli elementi con il seguente filtro KQL:
 
 ```kusto

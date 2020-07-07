@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242459"
 ---
 # <a name="event-schemas"></a>Schemi degli eventi
@@ -63,7 +63,7 @@ Tutti gli eventi hanno i dati di primo livello seguenti:
 | ID | stringa | No | Identificatore univoco dell'evento. |
 | data | object | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
 | dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| metadataVersion | string | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 ### <a name="example--eventgrid-schema-event"></a>Esempio: evento dello schema EventGrid
 

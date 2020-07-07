@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733772"
 ---
 # <a name="understand-azure-deny-assignments"></a>Informazioni sulle assegnazioni di rifiuto di Azure
@@ -82,7 +82,7 @@ Principals              : {
                           }
 ```
 
-Tutte le entità possono essere combinate `ExcludePrincipals` con per negare l'accesso a tutte le entità ad eccezione di alcuni utenti. Per tutte le entità sono presenti i vincoli seguenti:
+Tutte le entità possono essere combinate con `ExcludePrincipals` per negare l'accesso a tutte le entità ad eccezione di alcuni utenti. Per tutte le entità sono presenti i vincoli seguenti:
 
 - Può essere usata solo con `Principals` e non può essere usata con `ExcludePrincipals`.
 - `Principals[i].Type` deve essere impostato su `SystemDefined`.

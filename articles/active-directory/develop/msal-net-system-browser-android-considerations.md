@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652708"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Novell Android System Browser considerazioni sull'uso di MSAL.NET
@@ -45,7 +45,7 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 | Dispositivo | Browser     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/uno + | Chrome\* | Pass|
-| Huawei/uno + | Bordo\* | Pass|
+| Huawei/uno + | Microsoft Edge\* | Pass|
 | Huawei/uno + | Firefox\* | Pass|
 | Huawei/uno + | Incredibile\* | Pass|
 | Uno + | Ecosia\* | Pass|
@@ -64,10 +64,10 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 
 ## <a name="known-issues"></a>Problemi noti
 
-Se per l'utente non è abilitato alcun browser sul dispositivo, MSAL.NET genererà `AndroidActivityNotFound` un'eccezione.  
+Se per l'utente non è abilitato alcun browser sul dispositivo, MSAL.NET genererà un' `AndroidActivityNotFound` eccezione.  
   - **Mitigazione**: richiedere all'utente di abilitare un browser sul dispositivo. Consigliare un browser che supporti schede personalizzate.
 
-Se l'autenticazione ha esito negativo, ad esempio se l'autenticazione viene avviata con `AuthenticationCanceled MsalClientException`DuckDuckGo, MSAL.NET restituirà. 
+Se l'autenticazione ha esito negativo, ad esempio se l'autenticazione viene avviata con DuckDuckGo, MSAL.NET restituirà `AuthenticationCanceled MsalClientException` . 
   - **Problema principale**: un browser che supporta le schede personalizzate non è stato abilitato nel dispositivo. Autenticazione avviata con un browser che non è stato in grado di completare l'autenticazione. 
   - **Mitigazione**: richiedere all'utente di abilitare un browser sul dispositivo. Consigliare un browser che supporti schede personalizzate.
 

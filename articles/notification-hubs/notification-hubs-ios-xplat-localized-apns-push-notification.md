@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72385648"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push localizzate a iOS usando hub di notifica di Azure
@@ -82,7 +82,7 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
 
 In questa sezione l'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] viene modificata in modo da inviare notizie localizzate mediante modelli.
 
-`MainStoryboard_iPhone.storyboard`In aggiungere un controllo segmentato con le tre lingue seguenti: inglese, francese e mandarino.
+In `MainStoryboard_iPhone.storyboard` aggiungere un controllo segmentato con le tre lingue seguenti: inglese, francese e mandarino.
 
 ![Creazione di storyboard dell'interfaccia utente iOS][13]
 
@@ -92,7 +92,7 @@ Assicurarsi quindi di aggiungere un elemento IBOutlet in ViewController.h come i
 
 ## <a name="build-the-ios-app"></a>Compilare l'app iOS
 
-1. `Notification.h`In aggiungere il `retrieveLocale` metodo e modificare i metodi di archiviazione e sottoscrizione come illustrato nel codice seguente:
+1. In `Notification.h` aggiungere il `retrieveLocale` metodo e modificare i metodi di archiviazione e sottoscrizione come illustrato nel codice seguente:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
 ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82735301"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
@@ -52,20 +52,20 @@ Quando si modifica uno dei trigger, l'infrastruttura di funzioni deve essere in 
 
 * Riavviare l'app per le funzioni nella portale di Azure
 * Inviare una richiesta HTTP POST all' `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` utilizzo della [chiave master](functions-bindings-http-webhook-trigger.md#authorization-keys).
-* Inviare una richiesta HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app per le funzioni.
+* Inviare una richiesta HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01` . Sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app per le funzioni.
 
 ### <a name="remote-build"></a>Compilazione remota
 
 Funzioni di Azure può eseguire automaticamente le compilazioni sul codice ricevuto dopo le distribuzioni zip. Queste compilazioni hanno un comportamento leggermente diverso a seconda che l'app sia in esecuzione in Windows o Linux. Le compilazioni remote non vengono eseguite quando un'app è stata impostata in precedenza per l'esecuzione in modalità di [esecuzione del pacchetto](run-functions-from-deployment-package.md) . Per informazioni su come usare la compilazione remota, passare a [zip deploy](#zip-deploy).
 
 > [!NOTE]
-> Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app per le funzioni `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` o a eseguire per aggiornare l'app per le funzioni. Questo comando può richiedere due tentativi di esito positivo.
+> Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` per le funzioni o a eseguire per aggiornare l'app per le funzioni. Questo comando può richiedere due tentativi di esito positivo.
 
 #### <a name="remote-build-on-windows"></a>Compilazione remota in Windows
 
 Tutte le app per le funzioni in esecuzione in Windows hanno una piccola app di gestione, il sito SCM (o [Kudu](https://github.com/projectkudu/kudu)). Questo sito gestisce gran parte della logica di distribuzione e compilazione per funzioni di Azure.
 
-Quando un'app viene distribuita in Windows, vengono eseguiti i comandi specifici `dotnet restore` della lingua, ad `npm install` esempio (C#) o (JavaScript).
+Quando un'app viene distribuita in Windows, vengono eseguiti i comandi specifici della lingua, ad esempio `dotnet restore` (C#) o `npm install` (JavaScript).
 
 #### <a name="remote-build-on-linux"></a>Compilazione remota in Linux
 
@@ -106,7 +106,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 
 >__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)o dalla riga di comando usando il [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Per impostazione predefinita, questi strumenti usano la distribuzione zip ed [eseguono il pacchetto da](run-functions-from-deployment-package.md). Gli strumenti di base e l'estensione Visual Studio Code consentono entrambe le [compilazioni Remote](#remote-build) durante la distribuzione in Linux. Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il `WEBSITE_RUN_FROM_PACKAGE` valore dell'impostazione dell' `1`applicazione su. Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure. 
+>Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il `WEBSITE_RUN_FROM_PACKAGE` valore dell'impostazione dell'applicazione su `1` . Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure. 
 
 >__Quando utilizzarlo:__ Zip Deploy è la tecnologia di distribuzione consigliata per funzioni di Azure.
 
@@ -169,7 +169,7 @@ Usare la sincronizzazione cloud per sincronizzare il contenuto da Dropbox e OneD
 
 Nell'editor basato su portale è possibile modificare direttamente i file presenti nell'app per le funzioni (essenzialmente distribuendo ogni volta che si salvano le modifiche).
 
->__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](functions-create-first-azure-function.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di `Read/Write` modifica e rimuovere le impostazioni dell'applicazione relative alla distribuzione ( `WEBSITE_RUN_FROM_PACKAGE`ad esempio). 
+>__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](functions-create-first-azure-function.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione (ad esempio `WEBSITE_RUN_FROM_PACKAGE` ). 
 
 >__Quando utilizzarlo:__ Il portale è un modo efficace per iniziare a usare funzioni di Azure. Per un lavoro di sviluppo più intenso, è consigliabile usare uno degli strumenti client seguenti:
 >
@@ -188,7 +188,7 @@ Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che sup
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (anteprima) | | | | | | |
 | PowerShell (anteprima) |✔|✔|✔| | | |
-| TypeScript (node. js) | | | | | | |
+| TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup>La modifica del portale è abilitata solo per i trigger HTTP e timer per le funzioni in Linux con piani Premium e dedicati.
 

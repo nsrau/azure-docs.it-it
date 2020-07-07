@@ -4,13 +4,13 @@ description: Informazioni su come usare Azure Data Box per inizializzare i dati 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160956"
 ---
-# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di backup di Azure tramite Azure Data Box
+# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
 
 È possibile usare [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) per eseguire il seeding dei backup iniziali di servizi di ripristino di Microsoft Azure (Mars) in modalità offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero utilizzati per lo trasferimento di grandi quantità di dati di backup online su una rete ad alta latenza. Questa funzionalità avanzata è attualmente in fase di anteprima. Il backup offline basato su Azure Data Box offre due vantaggi distinti rispetto [al backup offline basato sul servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare Azure Data Box per inizializzare i dati di b
 
 Il processo per eseguire il seeding dei dati dall'agente MARS usando Azure Data Box è supportato negli SKU di Windows seguenti.
 
-| **OS**                                 | **SKU**                                                      |
+| **Sistema operativo**                                 | **SKU**                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
 | **Workstation**                        |                                                              |
 | Windows 10 a 64 bit                     | Enterprise, Pro, Home                                       |
@@ -51,7 +51,7 @@ Il processo per eseguire il seeding dei dati dall'agente MARS usando Azure Data 
 | >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
 * I normali tassi di compressione variano tra il 10% e il 20%. <br>
-* * Se si prevede di avere più di 80 TB di dati di backup iniziali per un singolo server MARS, [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)contattare.
+* * Se si prevede di avere più di 80 TB di dati di backup iniziali per un singolo server MARS, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 >[!IMPORTANT]
 >I dati di backup iniziali da un singolo server devono essere contenuti in una singola istanza di Azure Data Box o Azure Data Box disco e non possono essere condivisi tra più dispositivi dello stesso o di SKU diversi. Un dispositivo Azure Data Box può tuttavia contenere backup iniziali da più server.
@@ -124,7 +124,7 @@ Il processo di backup offline che usa MARS e Azure Data Box richiede che i dispo
 
 1. Assicurarsi di disinstallare le installazioni precedenti dell'agente MARS.
 1. Scaricare la versione più recente dell'agente MARS dal [sito Web](https://aka.ms/azurebackup_agent).
-1. Eseguire *MARSAgentInstaller. exe*e seguire *solo* i passaggi per [installare e registrare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
+1. Eseguire *MARSAgentInstaller.exe*ed eseguire *solo* i passaggi per [installare e registrare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
 
    > [!NOTE]
    > L'insieme di credenziali di servizi di ripristino deve trovarsi nella stessa sottoscrizione del processo di Azure Data Box.
@@ -154,7 +154,7 @@ Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema l
 
 1. Abilitare il client per la funzionalità NFS in Windows Server in cui è installato l'agente MARS. Specificare il file WIM di origine alternativo *: D: \sources\install.wim: 4*.
 1. Scaricare PSExec da <https://download.sysinternals.com/files/PSTools.zip> al server in cui è installato l'agente Mars.
-1. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente con la directory che contiene *psexec. exe* come directory corrente.
+1. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente con la directory che contiene *PSExec.exe* come directory corrente.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
@@ -212,7 +212,7 @@ Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema l
     >
     >![Directory radice del disco Azure Data Box](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >Ad esempio `\\mydomain\myserver\disk1\` , se il percorso del disco è e *disk1* contiene una directory denominata *PageBlob*, il percorso immesso nella pagina della procedura guidata dell'agente Mars `\\mydomain\myserver\disk1\`è.
+    >Ad esempio, se il percorso del disco è `\\mydomain\myserver\disk1\` e *disk1* contiene una directory denominata *PageBlob*, il percorso immesso nella pagina della procedura guidata dell'agente Mars è `\\mydomain\myserver\disk1\` .
     >
     >Se si [configura un dispositivo Azure Data Box 100 TB](#set-up-azure-data-box-devices), immettere `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` come percorso di rete per il dispositivo.
 
@@ -269,7 +269,7 @@ Verificare se il messaggio di errore seguente viene visualizzato nella console M
 
 1. Aprire la cartella **Temp** nel percorso di installazione. Il percorso predefinito della cartella temporanea è *C:\Programmi\Microsoft Azure Recovery Services Agent\Temp*. Cercare il file *CBUICurr* e aprire il file.
 
-1. Nel file *CBUICurr* scorrere fino all'ultima riga e verificare se il problema è identico a quello di questo messaggio di errore: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`.
+1. Nel file *CBUICurr* scorrere fino all'ultima riga e verificare se il problema è identico a quello di questo messaggio di errore: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed` .
 
 ### <a name="workaround"></a>Soluzione alternativa
 
@@ -281,10 +281,10 @@ Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usan
 
 #### <a name="step-2"></a>Passaggio 2
 
-Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure** > **Azure Active Directory** > **registrazioni app**Azure Active Directory.
+Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >  **Azure Active Directory**  >  **registrazioni app**Azure Active Directory.
 
 >[!NOTE]
-> Verificare se nell' `AzureOfflineBackup_<Azure User Id>` applicazione non sono configurati altri seeding offline e anche se nessun altro server dipende da questa applicazione. Passare a **Impostazioni** > **chiavi** nella sezione **chiavi pubbliche** . Non devono essere aggiunte altre chiavi pubbliche. Per informazioni di riferimento, vedere la schermata seguente.
+> Verificare se nell' `AzureOfflineBackup_<Azure User Id>` applicazione non sono configurati altri seeding offline e anche se nessun altro server dipende da questa applicazione. Passare a **Impostazioni**  >  **chiavi** nella sezione **chiavi pubbliche** . Non devono essere aggiunte altre chiavi pubbliche. Per informazioni di riferimento, vedere la schermata seguente.
 >
 >![Chiavi pubbliche](./media/offline-backup-azure-data-box/public-keys.png)
 
@@ -292,25 +292,25 @@ Se nessun altro server dispone di un seeding offline configurato e nessun altro 
 
 Dal server che si sta tentando di configurare per il backup offline, eseguire le azioni seguenti.
 
-1. Passare alla scheda **Gestisci applicazione** > certificato computer**personale** e cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Passare alla scheda **Gestisci applicazione certificato computer**  >  **personale** e cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
 2. Selezionare il certificato, fare clic con il pulsante destro del mouse su **tutte le attività**e selezionare **Esporta** senza una chiave privata nel formato CER.
 
-3. Passare all'applicazione di backup offline di Azure citata nel passaggio 2. Selezionare **Impostazioni** > **chiavi** > **carica chiave pubblica**. Caricare il certificato esportato nel passaggio precedente.
+3. Passare all'applicazione di backup offline di Azure citata nel passaggio 2. Selezionare **Impostazioni**  >  **chiavi**  >  **carica chiave pubblica**. Caricare il certificato esportato nel passaggio precedente.
 
     ![Carica chiave pubblica](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. Nel server aprire il registro di sistema immettendo **Regedit** nella finestra Esegui.
 
-5. Accedere al computer del registro di sistema *\ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo `AzureADAppCertThumbprint_<Azure User Id>`valore stringa con il nome.
+5. Accedere al computer del registro di sistema *\ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Per ottenere l'ID utente di Azure, eseguire una delle operazioni seguenti:
     >
     >- Da PowerShell connesso ad Azure, eseguire il `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` comando.
-    > - Passare al percorso `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` del registro di sistema con il nome *CurrentUserId*.
+    > - Passare al percorso del registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` di sistema con il nome *CurrentUserId*.
 
-6. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 2. Fare clic su **OK**.
+6. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 2. Selezionare **OK**.
 
 7. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale**e copiare il valore.
 
@@ -318,4 +318,4 @@ Dal server che si sta tentando di configurare per il backup offline, eseguire le
 
 ## <a name="questions"></a>Domande
 
-Per eventuali domande o chiarimenti sui problemi riscontrati, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Per eventuali domande o chiarimenti sui problemi riscontrati, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .

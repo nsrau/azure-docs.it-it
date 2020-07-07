@@ -6,7 +6,7 @@ ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: 52c2768605fa50f82029511b50bfd313fe325026
 ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2020
 ms.locfileid: "73471966"

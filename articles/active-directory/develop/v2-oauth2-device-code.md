@@ -14,17 +14,17 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82689771"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform e il flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0
 
 La piattaforma Microsoft Identity supporta la [concessione di autorizzazioni](https://tools.ietf.org/html/rfc8628)per i dispositivi, che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante.  Per abilitare questo flusso, il dispositivo richiede all'utente di visitare una pagina Web nel browser di un altro dispositivo per eseguire l'accesso.  Dopo che l'utente ha eseguito l'accesso, il dispositivo è in grado di ottenere i token di accesso e i token di aggiornamento in base alle esigenze.
 
-Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare invece le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Esaminare anche le [app di esempio che usano MSAL](sample-v2-code.md).
+Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
 ## <a name="protocol-diagram"></a>Diagramma del protocollo
 
@@ -38,7 +38,7 @@ Il client deve prima cercare con il server di autenticazione un dispositivo e un
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
-> [![Provare a eseguire la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Provare a eseguire la richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -51,11 +51,11 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parametro | Condizione | Descrizione |
+| Parametro | Condizione | Description |
 | --- | --- | --- |
 | `tenant` | Necessario | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
-| `client_id` | Necessario | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
-| `scope` | Consigliato | Elenco di [ambiti](v2-permissions-and-consent.md) separati da spazi a cui si desidera che l'utente acconsente.  |
+| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `scope` | Implementazione consigliata | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione per il dispositivo
 
@@ -71,11 +71,11 @@ Una risposta di esito positivo sarà un oggetto JSON contenente le informazioni 
 | `message`        | string | Stringa leggibile con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 > [!NOTE]
-> Il `verification_uri_complete` campo della risposta non è incluso né supportato in questo momento.  Questa operazione `verification_uri_complete` viene citata perché, se si legge lo [standard](https://tools.ietf.org/html/rfc8628) , viene elencato come parte facoltativa dello standard del flusso del codice del dispositivo.
+> Il `verification_uri_complete` campo della risposta non è incluso né supportato in questo momento.  Questa operazione viene citata perché, se [standard](https://tools.ietf.org/html/rfc8628) si legge lo standard `verification_uri_complete` , viene elencato come parte facoltativa dello standard del flusso del codice del dispositivo.
 
 ## <a name="authenticating-the-user"></a>Autenticazione dell'utente
 
-Dopo aver ricevuto `user_code` e `verification_uri`, il client li visualizza all'utente, indicando loro di eseguire l'accesso con il telefono cellulare o il browser del PC.
+Dopo aver ricevuto `user_code` e `verification_uri` , il client li visualizza all'utente, indicando loro di eseguire l'accesso con il telefono cellulare o il browser del PC.
 
 Se l'utente esegue l'autenticazione con un account personale (in/Common o/consumers), verrà richiesto di eseguire di nuovo l'accesso per trasferire lo stato di autenticazione al dispositivo.  Verrà inoltre richiesto di fornire il consenso per assicurarsi che siano consapevoli delle autorizzazioni concesse.  Questa operazione non si applica agli account aziendali o dell'Istituto di istruzione usati per l'autenticazione.
 
@@ -90,7 +90,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parametro | Obbligatoria | Description|
+| Parametro | Obbligatorio | Description|
 | -------- | -------- | ---------- |
 | `tenant`  | Necessario | Stesso alias tenant o tenant usato nella richiesta iniziale. |
 | `grant_type` | Necessario | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
@@ -128,7 +128,7 @@ Una risposta di token di esito positivo sarà simile alla seguente:
 | `token_type` | string| Sempre "Bearer. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali è valido il token di accesso. |
 | `expires_in`| INT | Numero di secondi durante i quali è valido il token di accesso incluso. |
-| `access_token`| Stringa opaca | Rilasciato per gli [ambiti](v2-permissions-and-consent.md) richiesti.  |
+| `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |
 | `id_token`   | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`.  |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`.  |
 

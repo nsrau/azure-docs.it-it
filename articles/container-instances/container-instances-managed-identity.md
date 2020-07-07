@@ -4,10 +4,10 @@ description: Informazioni su come abilitare un'identità gestita in istanze di c
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82115721"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
@@ -121,7 +121,7 @@ Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Abilitare l'identità assegnata dall'utente in un gruppo di contenitori
 
-Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine `azure-cli` di Microsoft. Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. In questa sezione viene usato solo il sistema operativo di base. Per un esempio di uso dell'interfaccia della riga di comando di Azure nel contenitore, vedere [abilitare l'identità assegnata dal sistema in un gruppo di contenitori](#enable-system-assigned-identity-on-a-container-group). 
+Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. In questa sezione viene usato solo il sistema operativo di base. Per un esempio di uso dell'interfaccia della riga di comando di Azure nel contenitore, vedere [abilitare l'identità assegnata dal sistema in un gruppo di contenitori](#enable-system-assigned-identity-on-a-container-group). 
 
 Il parametro `--assign-identity` passa al gruppo l'identità gestita assegnata dall'utente. Il comando con esecuzione prolungata mantiene in esecuzione il contenitore. Questo esempio usa lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi, ma è possibile specificarne uno diverso.
 
@@ -190,7 +190,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Usare ora il token di accesso per l'autenticazione nell'insieme di credenziali delle chiavi e la lettura di un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https:\//mykeyvault.Vault.Azure.NET/...*):
+Usare ora il token di accesso per l'autenticazione nell'insieme di credenziali delle chiavi e la lettura di un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https: \/ /mykeyvault.Vault.Azure.NET/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -206,7 +206,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Abilitare l'identità assegnata dal sistema in un gruppo di contenitori
 
-Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine `azure-cli` di Microsoft. Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. 
+Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. 
 
 Il parametro `--assign-identity` senza valori aggiuntivi abilita un'identità gestita assegnata dal sistema nel gruppo. L'ambito dell'identità è il gruppo di risorse del gruppo di contenitori. Il comando con esecuzione prolungata mantiene in esecuzione il contenitore. Questo esempio usa lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi, che rientra nell'ambito dell'identità.
 
@@ -298,7 +298,7 @@ Viene recuperato il valore del segreto:
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Abilitare l'identità gestita con un modello di Resource Manager
 
-Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare un minimo `apiVersion` di `2018-10-01`.
+Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare un minimo `apiVersion` di `2018-10-01` .
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 
@@ -346,7 +346,7 @@ In un gruppo di contenitori è possibile abilitare sia un'identità assegnata da
 ## <a name="enable-managed-identity-using-yaml-file"></a>Abilitare l'identità gestita usando un file YAML
 
 Per abilitare un'identità gestita in un gruppo di contenitori distribuiti usando un [file YAML](container-instances-multi-container-yaml.md), includere il codice YAML seguente.
-Specificare un minimo `apiVersion` di `2018-10-01`.
+Specificare un minimo `apiVersion` di `2018-10-01` .
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 

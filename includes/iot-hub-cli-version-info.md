@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d522d8dd20fb8e1e781f0b13ccdbc4fd98f1727c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 7ebc3cf8e131efbd8d315942c42325c3720586ae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80321677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85853222"
 ---
 > [!NOTE]
-> Questo articolo usa la versione più recente dell'estensione Azure IoT, denominata `azure-iot`. La versione legacy viene chiamata `azure-iot-cli-ext`. Deve essere installata solo una versione alla volta. È possibile usare il comando `az extension list` per convalidare le estensioni attualmente installate.
+> Questo articolo usa la versione più recente dell'estensione Azure IoT, denominata `azure-iot`. La versione legacy viene chiamata `azure-cli-iot-ext`. Deve essere installata solo una versione alla volta. È possibile usare il comando `az extension list` per convalidare le estensioni attualmente installate.
 >
 > Usare `az extension remove --name azure-cli-iot-ext` per rimuovere la versione legacy dell'estensione.
 >

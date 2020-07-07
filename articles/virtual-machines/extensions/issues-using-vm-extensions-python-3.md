@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82120782"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemi di utilizzo delle estensioni VM in Python 3-sistemi di macchine virtuali di Azure abilitati per Linux
@@ -31,21 +31,21 @@ ms.locfileid: "82120782"
 Alcune distribuzioni di Linux sono passate a Python 3,8 e hanno rimosso il `/usr/bin/python` EntryPoint legacy per Python. Questa transizione influisca sulla distribuzione automatica predefinita di determinate estensioni di macchina virtuale (VM) con le condizioni seguenti:
 
 - Estensioni ancora in fase di transizione al supporto per Python 3. x
-- Estensioni che usano il EntryPoint `/usr/bin/python` legacy
+- Estensioni che usano il `/usr/bin/python` EntryPoint legacy
 
-Gli utenti della distribuzione Linux che hanno eseguito la transizione a **Python 3. x** devono `/usr/bin/python` assicurarsi che il EntryPoint legacy esista prima di provare a distribuire tali estensioni alle macchine virtuali. In caso contrario, la distribuzione dell'estensione potrebbe non riuscire. 
+Gli utenti della distribuzione Linux che hanno eseguito la transizione a **Python 3. x** devono assicurarsi che il `/usr/bin/python` EntryPoint legacy esista prima di provare a distribuire tali estensioni alle macchine virtuali. In caso contrario, la distribuzione dell'estensione potrebbe non riuscire. 
 
 - Le distribuzioni di Linux approvate interessate includono **Ubuntu Server 20,04 LTS** e **Ubuntu Pro 20,04 LTS**.
 
 - Le estensioni di VM interessate includono **crittografia dischi di Azure**, **log Analytics**, **l'accesso alla macchina virtuale** (usato per la reimpostazione della password) e la **diagnostica Guest** (usata per contatori di prestazioni aggiuntivi).
 
-Gli aggiornamenti sul posto, ad esempio l'aggiornamento da **ubuntu 18,04 LTS** a **Ubuntu 20,04 LTS**, devono mantenere `/usr/bin/python` il collegamento simbolico e rimanere inalterati.
+Gli aggiornamenti sul posto, ad esempio l'aggiornamento da **ubuntu 18,04 LTS** a **Ubuntu 20,04 LTS**, devono mantenere il `/usr/bin/python` collegamento simbolico e rimanere inalterati.
 
 ## <a name="resolution"></a>Soluzione
 
 Prima di distribuire le estensioni negli scenari di interesse noto descritti in precedenza nel riepilogo, prendere in considerazione i consigli generali seguenti:
 
-1.  Prima di distribuire l'estensione, ripristinare `/usr/bin/python` il collegamento simbolico usando il metodo fornito dal fornitore di distribuzioni Linux.
+1.  Prima di distribuire l'estensione, ripristinare il `/usr/bin/python` collegamento simbolico usando il metodo fornito dal fornitore di distribuzioni Linux.
 
     - Per **Python 2,7**, ad esempio, usare:`sudo apt update && sudo apt install python-is-python2`
 
