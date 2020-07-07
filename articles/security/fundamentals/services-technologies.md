@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80549197"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
@@ -70,21 +70,21 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Controllo degli accessi&nbsp;in base&nbsp;al ruolo&nbsp;di Azure](/azure/active-directory/role-based-access-control-configure)|Funzionalità di controllo di accesso progettata per consentire agli utenti di accedere solo alle risorse necessarie in base ai rispettivi ruoli all'interno dell'organizzazione.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |
 | [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview)|Servizio di gestione delle identità che consente di controllare il modo in cui i clienti si iscrivono, accedono e gestiscono i rispettivi profili durante l'uso delle applicazioni basate su Azure.   |
-| [Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
+| [Servizi di dominio Azure Active Directory](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)| Infrastruttura di sicurezza che si avvale di diverse forme di autenticazione e verifica prima di consentire l'accesso a informazioni protette. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
 |Service|Descrizione|
 |------|--------|
-| [Backup&nbsp;di Azure](/azure/backup/backup-introduction-to-azure-backup)| Servizio basato su Azure usato per eseguire il backup e il ripristino dei dati nel cloud di Azure. |
-| [Azure&nbsp;site&nbsp;Recovery](/azure/site-recovery/site-recovery-overview)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
+| [Backup di Azure &nbsp;](/azure/backup/backup-introduction-to-azure-backup)| Servizio basato su Azure usato per eseguire il backup e il ripristino dei dati nel cloud di Azure. |
+| [Azure &nbsp; site &nbsp; Recovery](/azure/site-recovery/site-recovery-overview)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
 
 ## <a name="networking"></a>Rete
 |Service|Descrizione|
 |------|--------|
-| [Gruppi&nbsp;di&nbsp;sicurezza di rete](/azure/virtual-network/virtual-networks-nsg)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
+| [&nbsp;Gruppi di sicurezza di rete &nbsp;](/azure/virtual-network/virtual-networks-nsg)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
 | [Gateway VPN di Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Dispositivo di rete usato come endpoint VPN per consentire l'accesso cross-premise alle reti virtuali di Azure.  |
-| [Gateway applicazione Azure](/azure/application-gateway/application-gateway-introduction)|Servizio di bilanciamento del carico avanzato per applicazioni Web, in grado di eseguire il routing in base a URL e che supporta l'offload SSL. |
+| [Gateway applicazione di Azure](/azure/application-gateway/application-gateway-introduction)|Servizio di bilanciamento del carico avanzato per applicazioni Web, in grado di eseguire il routing in base a URL e che supporta l'offload SSL. |
 |[Web Application Firewall](/azure/frontdoor/waf-overview) (WAF)|Funzionalità del gateway applicazione che offre protezione centralizzata da exploit e vulnerabilità comuni per le applicazioni Web|
 | [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)|Servizio di bilanciamento del carico di rete per applicazioni TCP/UDP. |
 | [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Collegamento WAN dedicato tra reti locali e reti virtuali di Azure. |

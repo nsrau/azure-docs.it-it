@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300979"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Errore di avvio: questo non è un disco di avvio
@@ -44,32 +44,32 @@ Questo messaggio di errore indica che il processo di avvio del sistema operativo
 1. Creare e accedere a una macchina virtuale di ripristino.
 2. Impostare stato partizione su attivo.
 3. Correggere la partizione del disco.
-4. **Scelta consigliata**: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale.
+4. **Consigliato**: prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria.
 5. Ricompilare la VM originale.
 
    > [!NOTE]
-   > Quando si verifica questo errore di avvio, il sistema operativo guest non è operativo. Per risolvere il problema, è necessario eseguire la risoluzione dei problemi in modalità offline.
+   > Quando si verifica questo errore di avvio, il sistema operativo guest non è operativo. Questo problema sarà risolto in modalità offline.
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi 1-3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
-2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+2. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="set-partition-status-to-active"></a>Imposta lo stato della partizione su attivo
 
 Le macchine virtuali di prima generazione devono prima verificare che la partizione del sistema operativo, che include l'archivio BCD, sia contrassegnata come *attiva*. Se si dispone di una macchina virtuale di seconda generazione, andare avanti per [correggere la partizione del disco](#fix-the-disk-partition), perché il flag di *stato* è stato deprecato nella generazione successiva.
 
-1. Aprire un prompt dei comandi con privilegi elevati *(cmd. exe)*.
-2. Immettere *DiskPart* per avviare lo strumento Diskpart.
+1. Aprire un prompt dei comandi con privilegi elevati *(cmd.exe)*.
+2. Immettere *diskpart* per avviare lo strumento DISKPART.
 3. Immettere il *disco elenco* per elencare i dischi del sistema e identificare il VHD del sistema operativo collegato.
-4. Una volta individuato il VHD del sistema operativo collegato, immettere *SEL disk #* per selezionare il disco.  Vedere la figura 2, dove il disco 1 è il VHD del sistema operativo collegato.
+4. Dopo aver individuato il disco rigido virtuale del sistema operativo collegato, immettere *sel disk #* per selezionare il disco.  Vedere la figura 2, dove il disco 1 è il VHD del sistema operativo collegato.
 
    Figura 2
 
    ![Nella figura 2 è illustrata la finestra * DISKPART * che mostra l'output del comando list disk, disk 0 e Disk 1 visualizzati nella tabella.  Mostra anche l'output del comando SEL Disk 1, il disco 1 è il disco selezionato](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. Una volta selezionato il disco, immettere *List Partition* per elencare le partizioni del disco selezionato.
-6. Una volta identificata la partizione di avvio, immettere *SEL Partition #* per selezionare la partizione.  In genere, la partizione di avvio avrà dimensioni di circa 350 MB.  Vedere la figura 3, dove partition 1 è la partizione di avvio.
+5. Dopo aver selezionato il disco, immettere *list partition* per elencare le partizioni del disco selezionato.
+6. Dopo aver identificato la partizione di avvio, immettere *sel partition #* per selezionare la partizione.  In genere, la partizione di avvio avrà dimensioni di circa 350 MB.  Vedere la figura 3, dove partition 1 è la partizione di avvio.
 
    Figura 3
 
@@ -92,11 +92,11 @@ Le macchine virtuali di prima generazione devono prima verificare che la partizi
 
    ![Nella figura 6 viene illustrata la finestra DiskPart con l'output del comando * detail partition *, quando la partizione 1 è impostata su * Active: Yes *](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. Immettere *Exit* per chiudere lo strumento DiskPart e salvare le modifiche alla configurazione.
+10. Immettere *exit* per chiudere lo strumento DISKPART e salvare le modifiche di configurazione.
 
 ### <a name="fix-the-disk-partition"></a>Correggere la partizione del disco
 
-1. Aprire un prompt dei comandi con privilegi elevati (cmd. exe).
+1. Aprire un prompt dei comandi con privilegi elevati (cmd.exe).
 2. Usare il comando seguente per eseguire *chkdsk* sui dischi e correggere gli errori:
 
    `chkdsk <DRIVE LETTER>: /f`
@@ -122,11 +122,11 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configurazione consigliata per abilitare il dump del sistema operativo
 
-**Carica disco del sistema operativo danneggiato**:
+**Caricare disco del sistema operativo non funzionante**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Abilita in ControlSet001:**
+**Abilitare su ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -134,7 +134,7 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Abilita in ControlSet002:**
+**Abilitare su ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -142,10 +142,10 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Scarica disco del sistema operativo danneggiato:**
+**Scaricare il disco del sistema operativo non funzionante:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.

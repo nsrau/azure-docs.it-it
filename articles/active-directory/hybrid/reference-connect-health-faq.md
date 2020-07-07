@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331086"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
@@ -107,7 +107,7 @@ Altre informazioni sulla [configurazione del proxy HTTP per gli agenti di integr
 
 Se è necessario configurare un proxy durante la registrazione dell'agente, modificare prima di tutto le impostazioni del proxy di Internet Explorer.
 
-1. Aprire Internet Explorer > **Impostazioni** > **Opzioni** > Internet**connessioni** > **Impostazioni LAN**.
+1. Aprire Internet Explorer > **Impostazioni**  >  **Opzioni Internet**  >  **connessioni**  >  **Impostazioni LAN**.
 2. Selezionare **Usa un server proxy per la rete LAN**.
 3. Selezionare **Avanzate** se sono presenti porte proxy diverse per http e HTTPS/protetto.
 
@@ -139,7 +139,7 @@ Le possibili cause per cui un agente per l'integrità non riesce a eseguire la r
 
 **D: viene generato un avviso che indica che "i dati Servizio integrità non sono aggiornati". Ricerca per categorie risolvere il problema?**
 
-Azure AD Connect Health genera l'avviso quando non riceve tutti i punti dati dal server nelle ultime due ore. [Altre](how-to-connect-health-data-freshness.md)informazioni.
+Azure AD Connect Health genera l'avviso quando non riceve tutti i punti dati dal server nelle ultime due ore. [Altre informazioni](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Domande sulle operazioni
 **D: è necessario abilitare il controllo nei server proxy applicazione Web?**
@@ -198,7 +198,7 @@ Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicura
 La certificazione dell'agente verrà rinnovata automaticamente **6 mesi** prima della data di scadenza. Se non viene rinnovato, verificare che la connessione di rete dell'agente sia stabile. È possibile risolvere il problema anche riavviare i servizi dell'agente o eseguire l'aggiornamento alla versione più recente.
 
 
-## <a name="related-links"></a>Link correlati
+## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installazione agente Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](how-to-connect-health-operations.md)

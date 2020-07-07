@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: 23094ec71dac5780def10e16b90de0b818ef3c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80284892"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Esecuzione di query sui dati in Azure Time Series Insights anteprima
@@ -38,7 +38,7 @@ Sono supportate le API principali seguenti.
 ## <a name="environment-apis"></a>API di ambiente
 
 * [Get environments API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): restituisce l'elenco di ambienti a cui il chiamante è autorizzato ad accedere.
-* [Get environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): restituisce la distribuzione del numero di eventi sul timestamp `$ts`dell'evento. Questa API consente di determinare se sono presenti eventi nell'ambiente restituendo il numero di eventi suddivisi in intervalli di tempo, se presenti.
+* [Get environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): restituisce la distribuzione del numero di eventi sul timestamp dell'evento `$ts` . Questa API consente di determinare se sono presenti eventi nell'ambiente restituendo il numero di eventi suddivisi in intervalli di tempo, se presenti.
 * [Get Event schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): restituisce i metadati dello schema dell'evento per un intervallo di ricerca specificato. Tale API consente di recuperare tutti i metadati e le proprietà disponibili nello schema per l'intervallo di ricerca specificato.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)

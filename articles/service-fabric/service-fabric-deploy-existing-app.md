@@ -4,10 +4,10 @@ description: Informazioni su come creare il pacchetto di un'applicazione esisten
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520493"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
@@ -22,7 +22,7 @@ Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](s
 
 Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric.
 
-1. Scegliere **file** > **nuovo progetto**e creare un'applicazione Service Fabric.
+1. Scegliere **file**  >  **nuovo progetto**e creare un'applicazione Service Fabric.
 2. Scegliere **Eseguibile guest** come modello di servizio.
 3. Fare clic su **Sfoglia** per selezionare la cartella con il file eseguibile e compilare i restanti parametri per creare il servizio.
    * *Comportamento del pacchetto di codice*. È possibile impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Questa scelta si rivela utile se il file eseguibile non viene modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella. Se si crea il progetto di applicazione in Visual Studio è possibile usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione di origine. Gli aggiornamenti diventano parte del pacchetto dell'applicazione in fase di compilazione.

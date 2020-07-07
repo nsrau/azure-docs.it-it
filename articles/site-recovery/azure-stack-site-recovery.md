@@ -4,10 +4,10 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478507"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
@@ -34,9 +34,9 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Architettura](./media/azure-stack-site-recovery/architecture.png)
 
 **Posizione** | **Componente** |**Dettagli**
 --- | --- | ---
@@ -101,7 +101,7 @@ In tutte le macchine virtuali da replicare deve essere installato il servizio Mo
         - Impostare il valore su 1.
         - Per eseguire questa operazione al prompt dei comandi, digitare **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - In Windows Firewall nella macchina virtuale da replicare consentire la condivisione di file e stampanti e WMI.
-    - A tale scopo, eseguire **wf.msc** per aprire la console di Windows Firewall. Fare clic con il pulsante destro del mouse su **regole** > in ingresso**nuova regola** Selezionare **Predefinita** e quindi scegliere **Condivisione file e stampanti** nell'elenco. Completare la procedura guidata, selezionare le opzioni per consentire la connessione e quindi fare clic su **Fine**.
+    - A tale scopo, eseguire **wf.msc** per aprire la console di Windows Firewall. Fare clic con il pulsante destro del mouse su **regole in ingresso**  >  **nuova regola** Selezionare **Predefinita** e quindi scegliere **Condivisione file e stampanti** nell'elenco. Completare la procedura guidata, selezionare le opzioni per consentire la connessione e quindi fare clic su **Fine**.
     - Per i computer di dominio, per eseguire questa operazione è possibile usare un oggetto Criteri di gruppo.
 
 
@@ -137,21 +137,21 @@ Per ogni computer da replicare, trovare l'indirizzo IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Passaggio 2: Creare un insieme di credenziali e selezionare un obiettivo di replica
 
-1. Nella portale di Azure selezionare **Crea una risorsa** > **strumenti** > di gestione**backup e Site Recovery**.
+1. Nella portale di Azure selezionare **Crea una risorsa**  >  **strumenti di gestione**  >  **backup e Site Recovery**.
 2. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali.
 3. In **Gruppo di risorse** creare o selezionare un gruppo di risorse. Viene usato il gruppo **contosoRG**.
 4. In **Località** immettere l'area di Azure. Viene usato **Europa occidentale**.
-5. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
+5. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard**  >  **Crea**.
 
    ![Creare un nuovo insieme di credenziali](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **tutte le risorse**e nella pagina insiemi di credenziali **dei servizi di ripristino** principale.
+   Il nuovo insieme di credenziali viene visualizzato in **Dashboard**  >  **tutte le risorse**e nella pagina insiemi di credenziali **dei servizi di ripristino** principale.
 
 ### <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
 1. In **Insiemi di credenziali dei servizi di ripristino** specificare un nome per l'insieme di credenziali. Viene usato **ContosoVMVault**.
 2. In **Attività iniziali** selezionare su Site Recovery. Selezionare quindi **Preparare l'infrastruttura**.
-3. In **obiettivo** > di protezione in**cui si trovano i computer**, selezionare **locale**.
+3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
 4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
 5. In **I computer sono virtualizzati** selezionare **Non virtualizzato/Altro**. Selezionare **OK**.
 
@@ -161,7 +161,7 @@ Per ogni computer da replicare, trovare l'indirizzo IP:
 
 Impostare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le macchine virtuali da replicare.
 
-1. Fare clic su **preparare l'infrastruttura** > **origine**.
+1. Fare clic su **Preparare l'infrastruttura** > **Origine**.
 2. In **Prepara origine** fare clic su **+Server di configurazione**.
 
     ![Impostare l'origine](./media/azure-stack-site-recovery/plus-config-srv.png)
@@ -186,13 +186,13 @@ Installare il server di configurazione:
 > [!NOTE]
 > Il server di configurazione può essere installato anche dalla riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line)
 >
-> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per eseguire immediatamente l'aggiornamento, selezionare server di **configurazione** > ***nome*** > server**Aggiorna server**.
+> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per aggiornarlo immediatamente, selezionare **Server di configurazione** > ***nome del server*** > **Aggiorna server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passaggio 4: Configurare l'ambiente di destinazione
 
 Selezionare e verificare le risorse di destinazione.
 
-1. In **preparare l'infrastruttura** > **destinazione**selezionare la sottoscrizione di Azure che si vuole usare.
+1. In **preparare l'infrastruttura**  >  **destinazione**selezionare la sottoscrizione di Azure che si vuole usare.
 2. Specificare il modello di distribuzione di destinazione.
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Se non li trova, per completare la procedura guidata è necessario creare almeno un account di archiviazione e una rete virtuale.
 
@@ -201,7 +201,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Fare clic su **preparare l'infrastruttura** > **impostazioni di replica**.
+1. Fare clic su **preparare l'infrastruttura**  >  **impostazioni di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO).
     - I punti di ripristino per i dati replicati vengono creati in conformità con il tempo stabilito.
@@ -224,7 +224,7 @@ Selezionare e verificare le risorse di destinazione.
 
 Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare il computer](#step-1-prepare-azure-stack-vms). Abilitare la replica nel modo indicato di seguito:
 
-1. Selezionare **replica** > **origine**applicazione.
+1. Selezionare **Eseguire la replica dell'applicazione** > **Origine**.
 2. In **Origine** selezionare il server di configurazione.
 3. In **tipo di computer**selezionare **computer fisici**.
 4. Selezionare il server di elaborazione (server di configurazione). Fare quindi clic su **OK**.
@@ -237,17 +237,17 @@ Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare il 
     - Usare l'indirizzo IP interno del computer.
     - Se si specifica l'indirizzo IP pubblico, la replica potrebbe non funzionare come previsto.
 
-10. In **Proprietà** > **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
-11. In **Impostazioni** > replica**configurare le impostazioni di replica**verificare che siano selezionati i criteri di replica corretti.
+10. In **Proprietà**  >  **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. In **Impostazioni replica**  >  **configurare le impostazioni di replica**verificare che siano selezionati i criteri di replica corretti.
 12. Fare clic su **Abilita replica**.
-13. Tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni** > **processi** > **Site Recovery processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+13. Tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni**  >  **processi**  >  **Site Recovery processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 > [!NOTE]
 > Quando viene abilitata la replica per una macchina virtuale, Site Recovery installa il servizio Mobility.
 >
 > Le modifiche diventeranno effettive e verranno visualizzate nel portale dopo 15 minuti o più.
 >
-> Per monitorare le VM aggiunte, controllare l'ora dell'ultima individuazione delle macchine virtuali nei **Server** > di configurazione**ultimo contatto all'indirizzo**. Per aggiungere macchine virtuali senza attendere l'individuazione pianificata, evidenziare il server di configurazione senza selezionarlo e quindi selezionare **Aggiorna**.
+> Per eseguire il monitoraggio delle macchine virtuali aggiunte, è possibile controllare l'ora dell'ultima individuazione di macchine virtuali in **Server di configurazione** > **Ora ultimo contatto**. Per aggiungere macchine virtuali senza attendere l'individuazione pianificata, evidenziare il server di configurazione senza selezionarlo e quindi selezionare **Aggiorna**.
 
 
 ## <a name="step-6-run-a-disaster-recovery-drill"></a>Passaggio 6: Eseguire un'analisi del ripristino di emergenza
@@ -282,7 +282,7 @@ Quando si esegue un failover di test, si verifica quanto segue:
 
 Eseguire un failover di test per una macchina virtuale come indicato di seguito:
 
-1. In **Impostazioni** > **elementi replicati**fare clic sulla macchina virtuale > **+ failover di test**.
+1. In **Impostazioni**  >  **elementi replicati**fare clic sulla macchina virtuale > **+ failover di test**.
 2. Per questa procedura dettagliata, viene scelto di usare il punto di ripristino con valore **Elaborato più recente**.
 3. In **Failover di test** selezionare la rete Azure di destinazione.
 4. Fare clic su **OK** per iniziare il failover.
@@ -300,7 +300,7 @@ Prima di eseguire un failover, se si intende connettersi al computer in Azure do
 Eseguire quindi un failover come indicato di seguito:
 
 
-1. In **Impostazioni** > **elementi replicati**fare clic sul computer > **failover**.
+1. In **Impostazioni**  >  **elementi replicati**fare clic sul computer > **failover**.
 2. Selezionare il punto di ripristino da utilizzare.
 3. In **Failover di test** selezionare la rete Azure di destinazione.
 4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Con questa impostazione, Site Recovery tenta di arrestare la macchina di origine prima di avviare il failover. Il failover tuttavia continua anche se l'arresto ha esito negativo.

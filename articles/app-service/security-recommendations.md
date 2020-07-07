@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546708"
 ---
 # <a name="security-recommendations-for-app-service"></a>Raccomandazioni sulla sicurezza per il servizio app
@@ -33,7 +33,7 @@ Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azu
 | Proteggere le risorse back-end con l'accesso autenticato | È possibile usare l'identità dell'utente o usare un'identità dell'applicazione per eseguire l'autenticazione a una risorsa back-end. Quando si sceglie di usare un'identità dell'applicazione, usare un' [identità gestita](overview-managed-identity.md).
 | Richiedi autenticazione del certificato client | L'autenticazione del certificato client migliora la sicurezza consentendo solo connessioni da client che possono eseguire l'autenticazione tramite certificati forniti dall'utente. |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Recommendation | Commenti |
 |-|-|
@@ -60,4 +60,4 @@ Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Rivolgersi al provider di applicazioni per verificare se sono presenti requisiti di sicurezza aggiuntivi. Per ulteriori informazioni sullo sviluppo di applicazioni sicure, vedere la [documentazione sullo sviluppo protetto](../security/fundamentals/abstract-develop-secure-apps.md).
+Verificare con il provider di applicazioni l'eventuale necessità di soddisfare requisiti di sicurezza aggiuntivi. Per altre informazioni sullo sviluppo di applicazioni sicure, vedere [Documentazione sullo sviluppo sicuro](../security/fundamentals/abstract-develop-secure-apps.md).

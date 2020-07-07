@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582683"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
@@ -24,11 +24,11 @@ Per rendere i video nell'asset di output disponibili per la riproduzione da part
 
 Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo aver effettuato le chiamate all'API e dura fino a quando non viene eliminato, a meno che non si configuri l'ora di inizio e di fine facoltativa. 
 
-Quando si crea un **localizzatore di streaming**, è necessario specificare un nome di **Asset** e un nome di **criterio di flusso** . Per altre informazioni, vedere i seguenti argomenti:
+Quando si crea un **localizzatore di streaming**, è necessario specificare un nome di **Asset** e un nome di **criterio di flusso** . Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
-* [Criteri di chiave simmetrica](content-key-policy-concept.md)
+* [Criteri chiave simmetrica](content-key-policy-concept.md)
 
 È anche possibile specificare l'ora di inizio e di fine nel localizzatore di streaming, che consente all'utente di riprodurre il contenuto tra questi orari, ad esempio tra 5/1/2019 e 5/5/2019.  
 
@@ -102,7 +102,7 @@ Per ottenere i localizzatori di streaming in base al nome dell'asset associato, 
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
-* [Criteri di chiave simmetrica](content-key-policy-concept.md)
+* [Criteri chiave simmetrica](content-key-policy-concept.md)
 * [Esercitazione: caricare, codificare e trasmettere in streaming video con .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

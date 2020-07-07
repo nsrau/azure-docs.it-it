@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80421341"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
@@ -53,7 +53,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
     Dopo aver selezionato questa opzione, la verifica coerenza dei backup verrà eseguita su MAB per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
 
    > [!NOTE]
-   > Per utilizzare questa opzione, è necessario copiare i file ESE. dll e Eseutil. exe nella directory C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin nel server MAB. In caso contrario, viene generato l'errore seguente:   
+   > Per usare questa opzione, è necessario copiare i file di Ese.dll e di Eseutil.exe nella directory c:\Programmi\Microsoft Azure Backup\DPM\DPM\bin nel server MAB. In caso contrario, viene generato l'errore seguente:   
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -86,7 +86,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
     ![Specificare i criteri di mantenimento online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Verificare le impostazioni e quindi fare clic su **Crea gruppo**.
-19. Fare clic su **Chiudi**.
+19. Fare clic su **Close**.
 
 ## <a name="recover-the-exchange-database"></a>Ripristinare il database di Exchange
 

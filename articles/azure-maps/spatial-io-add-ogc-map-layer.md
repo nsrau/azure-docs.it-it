@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334292"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Aggiungere un livello mappa dal Open Geospatial Consortium (OGC)
@@ -23,23 +23,23 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 
 **Servizio mappa Web (WMS)**
 
-- Versioni supportate: `1.0.0`, `1.1.0` `1.1.1`, e`1.3.0`
+- Versioni supportate: `1.0.0` , `1.1.0` , `1.1.1` e`1.3.0`
 - Il servizio deve supportare il `EPSG:3857` sistema di proiezione o gestire le proiezioni.
-- GetFeatureInfo richiede il supporto `EPSG:4326` o la gestione delle proiezioni da parte del servizio. 
+- GetFeatureInfo richiede il supporto o la gestione delle proiezioni da parte del servizio `EPSG:4326` . 
 - Operazioni supportate:
 
     | | |
     | :-- | :-- |
     | GetCapabilities | Recupera i metadati relativi al servizio con le funzionalità supportate |
     | GetMap | Recupera un'immagine mappa per un'area specificata |
-    | GetFeatureInfo | Recupera `feature_info`, che contiene i dati sottostanti relativi alla funzionalità |
+    | GetFeatureInfo | Recupera `feature_info` , che contiene i dati sottostanti relativi alla funzionalità |
 
 **Servizio tessera della mappa Web (WMTS)**
 
 - Versioni supportate:`1.0.0`
-- I riquadri devono essere quadrati, `TileWidth == TileHeight`ad esempio.
+- I riquadri devono essere quadrati, ad esempio `TileWidth == TileHeight` .
 - CRS supportato: `EPSG:3857` o`GoogleMapsCompatible` 
-- L'identificatore TileMatrix deve essere un valore intero corrispondente a un livello di zoom sulla mappa. In una mappa di Azure, il livello di zoom è un `"0"` valore `"22"`compreso tra e. Pertanto, `"0"` è supportato, ma `"00"` non è supportato.
+- L'identificatore TileMatrix deve essere un valore intero corrispondente a un livello di zoom sulla mappa. In una mappa di Azure, il livello di zoom è un valore compreso tra `"0"` e `"22"` . Pertanto, `"0"` è supportato, ma `"00"` non è supportato.
 - Operazioni supportate:
 
     | | |
@@ -49,13 +49,13 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 
 ## <a name="overlay-an-ogc-map-layer"></a>Sovrapposizione di un livello mappa OGC
 
-`url` Può essere l'URL di base per il servizio o un URL completo con la query per ottenere le funzionalità del servizio. A seconda dei dettagli forniti, il client WFS può provare diversi formati di URL standard per determinare come accedere inizialmente al servizio.
+`url`Può essere l'URL di base per il servizio o un URL completo con la query per ottenere le funzionalità del servizio. A seconda dei dettagli forniti, il client WFS può provare diversi formati di URL standard per determinare come accedere inizialmente al servizio.
 
 Nel codice seguente viene illustrato come sovrapporre un livello mappa OGC sulla mappa.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Esempio di livello mappa OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l' <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>esempio di livello mappa</a> di Pen OGC di Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Esempio di livello mappa OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l' <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>esempio di livello mappa</a> di Pen OGC di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-map-layer-options"></a>Opzioni del livello mappa OGC
@@ -64,7 +64,7 @@ Nell'esempio seguente vengono illustrate le diverse opzioni del livello mappa OG
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opzioni del livello mappa OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni sulle <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>Opzioni del livello mappa</a> di Pen OGC,<a href='https://codepen.io/azuremaps'>@azuremaps</a>vedere mappe di Azure () in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opzioni del livello mappa OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni sulle <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>Opzioni del livello mappa</a> di Pen OGC, vedere mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-web-map-service-explorer"></a>Esplora servizi di mappe Web OGC
@@ -73,7 +73,7 @@ Lo strumento seguente sovrappone le immagini dei servizi Web Map Services (WMS) 
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Esplora servizi di mappe Web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni su <a href='https://codepen.io'>CodePen</a>, vedere la pagina relativa a <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Esplora servizi mappa Web</a> di Pen OGC di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>).
+<iframe height='750' style='width: 100%;' scrolling='no' title='Esplora servizi di mappe Web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni su CodePen, vedere la pagina relativa a <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Esplora servizi mappa Web</a> di Pen OGC di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ). <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 È anche possibile specificare le impostazioni della mappa per usare un servizio proxy. Il servizio proxy consente di caricare le risorse ospitate in domini per i quali non è abilitato CORS.
@@ -97,4 +97,4 @@ Vedere gli articoli seguenti, che contengono esempi di codice che è possibile a
 > [Sfruttare le operazioni principali](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)

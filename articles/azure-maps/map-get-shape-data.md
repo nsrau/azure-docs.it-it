@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 88db018575f92e777223f383c65cd6db51ba515a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334403"
 ---
 # <a name="get-shape-data"></a>Ottenere i dati della forma
@@ -36,13 +36,13 @@ Di seguito è riportato l'esempio di codice completo in esecuzione, in cui è po
 
 <br/>
 
-<iframe height="686" title="Ottenere i dati della forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>dati di forma</a> di penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>Get di Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="686" title="Ottenere i dati della forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>dati di forma</a> di penna Get di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
+Vedere le informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
 > [Reagire agli eventi di disegno](drawing-tools-events.md)

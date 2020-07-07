@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550266"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modalità dispositivo condiviso per dispositivi Android
@@ -35,8 +35,8 @@ La modalità dispositivo condiviso fornisce anche la gestione di Microsoft Ident
 
 Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amministratori di dispositivi cloud interagiscono tra loro:
 
-- Gli sviluppatori scrivono un'app con un solo account (le app con più account non sono supportate in modalità dispositivo condiviso `"shared_device_mode_supported": true` ), aggiungono alla configurazione dell'app e scrivono il codice per gestire elementi come la disconnessione dei dispositivi condivisi.
-- Gli amministratori di dispositivi preparano la condivisione del dispositivo mediante l'installazione dell'app Authenticator e l'impostazione del dispositivo sulla modalità condivisa tramite l'app Authenticator. Solo gli utenti che appartengono al ruolo di [amministratore del dispositivo cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) possono impostare un dispositivo in modalità condivisa usando l' [app Authenticator](../user-help/user-help-auth-app-overview.md). È possibile configurare l'appartenenza dei ruoli aziendali nel portale di Azure tramite: **Azure Active Directory** > **ruoli e amministratori** > del**dispositivo cloud amministratore**.
+- Gli sviluppatori scrivono un'app con un solo account (le app con più account non sono supportate in modalità dispositivo condiviso), aggiungono `"shared_device_mode_supported": true` alla configurazione dell'app e scrivono il codice per gestire elementi come la disconnessione dei dispositivi condivisi.
+- Gli amministratori di dispositivi preparano la condivisione del dispositivo mediante l'installazione dell'app Authenticator e l'impostazione del dispositivo sulla modalità condivisa tramite l'app Authenticator. Solo gli utenti che appartengono al ruolo di [amministratore del dispositivo cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) possono impostare un dispositivo in modalità condivisa usando l' [app Authenticator](../user-help/user-help-auth-app-overview.md). È possibile configurare l'appartenenza dei ruoli aziendali nel portale di Azure tramite: **Azure Active Directory**  >  **ruoli e amministratori**del  >  **dispositivo cloud amministratore**.
 
  Questo articolo è incentrato principalmente sugli elementi da considerare per gli sviluppatori.
 
@@ -63,7 +63,7 @@ Il modello a oggetti seguente illustra il tipo di oggetto che è possibile ricev
 
 ![modello di ereditarietà di applicazioni client pubbliche](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-Quando si ottiene l' `PublicClientApplication` oggetto, è necessario eseguire un controllo del tipo ed eseguire il cast all'interfaccia appropriata. Il codice seguente consente di controllare la modalità più account o l'account singolo e di eseguire il cast dell'oggetto applicazione in modo appropriato:
+Quando si ottiene l'oggetto, è necessario eseguire un controllo del tipo ed eseguire il cast all'interfaccia appropriata `PublicClientApplication` . Il codice seguente consente di controllare la modalità più account o l'account singolo e di eseguire il cast dell'oggetto applicazione in modo appropriato:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -84,8 +84,8 @@ Le differenze seguenti si applicano a seconda che l'app sia in esecuzione su un 
 |  | Dispositivo in modalità condivisa  | Dispositivo personale |
 |---------|---------|---------|
 | **Account**     | Account singolo | Più account |
-| **Accesso** | Global | Global |
-| **Disconnessione** | Global | Ogni applicazione può controllare se la disconnessione è locale per l'app o per la famiglia di applicazioni. |
+| **Accesso** | Globale | Globale |
+| **Disconnessione** | Globale | Ogni applicazione può controllare se la disconnessione è locale per l'app o per la famiglia di applicazioni. |
 | **Tipi di account supportati** | Solo account di lavoro | Account personali e di lavoro supportati  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Perché è consigliabile supportare solo la modalità account singolo

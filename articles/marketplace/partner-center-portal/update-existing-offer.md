@@ -8,13 +8,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80285147"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel marketplace commerciale
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
 
 È possibile visualizzare le offerte esistenti nella scheda **Panoramica** del portale del [Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) nel centro per i partner.
 

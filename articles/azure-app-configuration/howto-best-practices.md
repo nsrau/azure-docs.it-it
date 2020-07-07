@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348671"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
@@ -32,7 +32,7 @@ La configurazione dell'app offre due opzioni per organizzare le chiavi:
 
 È possibile usare una o entrambe le opzioni per raggruppare le chiavi.
 
-I *prefissi di chiave* sono le parti iniziali delle chiavi. È possibile raggruppare logicamente un set di chiavi usando lo stesso prefisso nei rispettivi nomi. I prefissi possono contenere più componenti connessi da un delimitatore, ad `/`esempio, in modo simile a un percorso URL, per formare uno spazio dei nomi. Queste gerarchie sono utili quando si archiviano chiavi per molte applicazioni, Servizi componenti e ambienti in un archivio di configurazione dell'app.
+I *prefissi di chiave* sono le parti iniziali delle chiavi. È possibile raggruppare logicamente un set di chiavi usando lo stesso prefisso nei rispettivi nomi. I prefissi possono contenere più componenti connessi da un delimitatore, ad esempio, in modo `/` simile a un percorso URL, per formare uno spazio dei nomi. Queste gerarchie sono utili quando si archiviano chiavi per molte applicazioni, Servizi componenti e ambienti in un archivio di configurazione dell'app.
 
 Un aspetto importante da tenere presente è che le chiavi sono i riferimenti del codice dell'applicazione per recuperare i valori delle impostazioni corrispondenti. Le chiavi non devono essere modificate, altrimenti sarà necessario modificare il codice ogni volta che si verifica.
 
@@ -62,7 +62,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Per accedere a un archivio di configurazione dell'app, è possibile usare la relativa stringa di connessione, disponibile nel portale di Azure. Poiché le stringhe di connessione contengono informazioni sulle credenziali, sono considerate segreti. Questi segreti devono essere archiviati in Azure Key Vault e il codice deve eseguire l'autenticazione a Key Vault per recuperarli.
 
-Un'opzione migliore consiste nell'usare la funzionalità identità gestite in Azure Active Directory. Con le identità gestite è necessario solo l'URL dell'endpoint di configurazione dell'app per avviare l'accesso all'archivio di configurazione dell'app. È possibile incorporare l'URL nel codice dell'applicazione, ad esempio nel file *appSettings. JSON* . Per informazioni dettagliate, vedere l' [integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md) .
+Un'opzione migliore consiste nell'usare la funzionalità identità gestite in Azure Active Directory. Con le identità gestite è necessario solo l'URL dell'endpoint di configurazione dell'app per avviare l'accesso all'archivio di configurazione dell'app. È possibile incorporare l'URL nel codice dell'applicazione (ad esempio, nella *appsettings.jssu* file). Per informazioni dettagliate, vedere l' [integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md) .
 
 ## <a name="app-or-function-access-to-app-configuration"></a>Accesso all'app o alla funzione per la configurazione dell'app
 
@@ -77,7 +77,7 @@ Un'opzione migliore consiste nell'usare la funzionalità identità gestite in Az
 
 Richieste eccessive alla configurazione dell'app possono comportare una limitazione o addebiti in eccedenza. Per ridurre il numero di richieste effettuate:
 
-* Aumentare il timeout di aggiornamento, soprattutto se i valori di configurazione non cambiano di frequente. Specificare un nuovo timeout di aggiornamento usando il [ `SetCacheExpiration` metodo](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Aumentare il timeout di aggiornamento, soprattutto se i valori di configurazione non cambiano di frequente. Specificare un nuovo timeout di aggiornamento usando il [ `SetCacheExpiration` Metodo](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
 * Osservare una singola *chiave Sentinel*, anziché osservare le singole chiavi. Aggiornare tutte le configurazioni solo se la chiave Sentinel viene modificata. Per un esempio, vedere [usare la configurazione dinamica in un'app ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) .
 

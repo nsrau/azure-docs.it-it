@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333516"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Windows 
@@ -20,7 +20,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
 * I clienti che usufruiscono dei vantaggi del supporto tecnico Premier possono aprire una richiesta di supporto con [Premier](https://premier.microsoft.com/).
 * I clienti con un contratto di supporto tecnico di Azure possono aprire una richiesta di supporto nel [portale di Azure](https://manage.windowsazure.com/?getsupport=true).
-* Visitare la pagina di feedback Log Analytics per esaminare le idee e [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) i bug inviati o per inviarne uno nuovo. 
+* Visitare la pagina di feedback Log Analytics per esaminare le idee e i bug inviati o per inviarne uno [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) nuovo. 
 
 ## <a name="important-troubleshooting-sources"></a>Principali origini per la risoluzione dei problemi
 
@@ -38,7 +38,7 @@ Verificare che il firewall o il proxy sia configurato per consentire le porte e 
 |*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
 
-Per informazioni sul firewall richieste per Azure per enti pubblici, vedere [gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se si prevede di usare il ruolo di lavoro ibrido per Runbook di automazione di Azure per connettersi e registrarsi al servizio di automazione per usare manuali operativi o soluzioni di gestione nell'ambiente, deve avere accesso al numero di porta e agli URL descritti in [configurare la rete per il ruolo di lavoro ibrido per Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook o le soluzioni di gestione nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Esistono diversi modi per verificare se l'agente è in grado di comunicare correttamente con monitoraggio di Azure.
 
@@ -58,7 +58,7 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
 
     ![Risultati dell'esecuzione dello strumento TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtrare il registro eventi *Operations Manager* per **origini** - evento*servizio integrità moduli*, *HealthService*e *connettore del servizio* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
+- Filtrare il registro eventi *Operations Manager* per **origini evento**  -  *servizio integrità moduli*, *HealthService*e *connettore del servizio* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
 
     |ID evento |Source (Sorgente) |Descrizione |Soluzione |
     |---------|-------|------------|-----------|
@@ -68,7 +68,7 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
     |2127 |Moduli del servizio integrità |Errore durante l'invio di dati. codice di errore ricevuto |Se si verifica solo periodicamente durante il giorno, potrebbe essere semplicemente un'anomalia casuale che può essere ignorata. Monitorare per comprendere la frequenza con cui si verifica. Se si verifica spesso nel corso della giornata, verificare prima di tutto la configurazione di rete e le impostazioni del proxy. Se la descrizione include il codice di errore HTTP 404 ed è la prima volta che l'agente tenta di inviare dati al servizio, verrà incluso un errore 500 con un codice di errore 404 interno. 404 indica che non è stato trovato, che indica che è ancora in corso il provisioning dell'area di archiviazione per la nuova area di lavoro. Al successivo tentativo, i dati vengono scritti correttamente nell'area di lavoro come previsto. Un errore HTTP 403 potrebbe indicare un problema di autorizzazione o di credenziali. Per risolvere il problema, sono disponibili altre informazioni con l'errore 403.|
     |4000 |Connettore di servizi |Risoluzione del nome DNS non riuscita |Il computer non è riuscito a risolvere l'indirizzo Internet usato durante l'invio di dati al servizio. Potrebbe trattarsi di impostazioni del resolver DNS nel computer, impostazioni proxy non corrette o problemi DNS temporanei con il provider. Se il problema si verifica periodicamente, potrebbe essere causato da un problema temporaneo relativo alla rete.|
     |4001 |Connettore di servizi |Connessione al servizio non riuscita. |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
-    |4002 |Connettore di servizi |Il servizio ha restituito il codice di stato HTTP 403 in risposta a una query. Rivolgersi all'amministratore del servizio per l'integrità del servizio. L'esecuzione della query verrà tentata di nuovo in seguito. |Questo errore viene scritto durante la fase di registrazione iniziale dell'agente. verrà visualizzato un URL simile al seguente: *https://\<workspaceID>. OMS.opinsights.Azure.com/agentservice.svc/AgentTopologyRequest*. Il codice di errore 403 indica non consentito e può essere causato da un ID o una chiave dell'area di lavoro tipizzata in modo errato oppure che i dati e l'ora non sono corretti nel computer. Se l'ora è sfasata di +/- 15 minuti rispetto all'ora corrente, l'onboarding ha esito negativo. Per risolvere il problema, aggiornare la data e/o il fuso orario del computer Windows.|
+    |4002 |Connettore di servizi |Il servizio ha restituito il codice di stato HTTP 403 in risposta a una query. Rivolgersi all'amministratore del servizio per l'integrità del servizio. L'esecuzione della query verrà tentata di nuovo in seguito. |Questo errore viene scritto durante la fase di registrazione iniziale dell'agente. verrà visualizzato un URL simile al seguente: *https:// \<workspaceID> . OMS.opinsights.Azure.com/agentservice.svc/AgentTopologyRequest*. Il codice di errore 403 indica non consentito e può essere causato da un ID o una chiave dell'area di lavoro tipizzata in modo errato oppure che i dati e l'ora non sono corretti nel computer. Se l'ora è sfasata di +/- 15 minuti rispetto all'ora corrente, l'onboarding ha esito negativo. Per risolvere il problema, aggiornare la data e/o il fuso orario del computer Windows.|
 
 ## <a name="data-collection-issues"></a>Problemi di raccolta dati
 
@@ -91,7 +91,7 @@ Heartbeat
 
 Se la query restituisce risultati, è necessario determinare se un particolare tipo di dati non viene raccolto e inviato al servizio. Questo problema potrebbe essere causato dall'agente che non riceve la configurazione aggiornata dal servizio o da un altro sintomo che impedisce il funzionamento normale dell'agente. Per ulteriori risoluzione dei problemi, attenersi alla procedura riportata di seguito.
 
-1. Aprire un prompt dei comandi con privilegi elevati nel computer e riavviare il servizio Agent `net stop healthservice && net start healthservice`digitando.
+1. Aprire un prompt dei comandi con privilegi elevati nel computer e riavviare il servizio Agent digitando `net stop healthservice && net start healthservice` .
 2. Aprire il registro eventi *Operations Manager* e cercare gli **ID evento** *7023, 7024, 7025, 7028* e *1210* dall' **origine evento** *HealthService*.  Questi eventi indicano che l'agente riceve correttamente la configurazione da monitoraggio di Azure e che sta monitorando attivamente il computer. La descrizione dell'evento dell'ID evento 1210 specifica anche sull'ultima riga tutte le soluzioni e informazioni incluse nell'ambito del monitoraggio sull'agente.  
 
     ![Descrizione ID evento 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)

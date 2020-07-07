@@ -1,6 +1,6 @@
 ---
 title: Creare un ambiente del servizio app V1
-description: Descrizione del flusso di creazione per un ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Descrizione del flusso di creazione per un ambiente del servizio app V1. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: ccompy
 ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80477789"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Come creare un ambiente del servizio app (versione 1) 
@@ -26,7 +26,7 @@ L'ambiente del servizio app è un'opzione di servizio Premium del servizio app d
 ### <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app
 È importante notare che alcuni elementi non possono essere modificati. Dopo la creazione dell'ambiente del servizio app non è possibile modificare questi elementi:
 
-* Percorso
+* Posizione
 * Subscription
 * Gruppo di risorse
 * Rete virtuale usata
@@ -66,7 +66,7 @@ Per informazioni sulla scalabilità automatica, vedere la guida su [come configu
 
 Sono inoltre presenti altre dipendenze non disponibili per la personalizzazione, ad esempio il database e l'archiviazione. Questi sono gestiti da Azure e sono inclusi nel sistema. Il servizio di archiviazione del sistema supporta fino a 500 GB per l'intero ambiente del servizio app e il database viene rettificato da Azure in base alle esigenze, tramite il ridimensionamento del sistema.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare l'ambiente del servizio app (versione 1), vedere [Introduzione all'ambiente del servizio app (versione 1)][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

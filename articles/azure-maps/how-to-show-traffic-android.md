@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335387"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
@@ -25,13 +25,13 @@ Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un ac
 
 ## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti 
 
-Per chiamare `setTraffic` e `incidents`è necessario importare le librerie seguenti:
+Per chiamare e è necessario importare le librerie seguenti `setTraffic` `incidents` :
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- Il frammento di codice seguente illustra come visualizzare i dati sul traffico sulla mappa. Si passa un valore booleano al `incidents` metodo e lo `setTraffic` si passa al metodo. 
+ Il frammento di codice seguente illustra come visualizzare i dati sul traffico sulla mappa. Si passa un valore booleano al `incidents` metodo e lo si passa al `setTraffic` metodo. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Flussi di dati sul traffico
 
-Prima di tutto è necessario importare le librerie seguenti per chiamare `setTraffic` e `flow`:
+Prima di tutto è necessario importare le librerie seguenti per chiamare `setTraffic` e `flow` :
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice della sezione precedente, il valore restituito del `flow` metodo viene passato al `setTraffic` metodo. Sono disponibili quattro valori che è possibile passare a `flow`e ogni valore attiverà `flow` per restituire il rispettivo valore. Il valore restituito di `flow` verrà quindi passato come argomento a `setTraffic`. Vedere la tabella seguente per questi quattro valori:
+Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice della sezione precedente, il valore restituito del metodo viene passato `flow` al `setTraffic` metodo. Sono disponibili quattro valori che è possibile passare a `flow` e ogni valore attiverà `flow` per restituire il rispettivo valore. Il valore restituito di `flow` verrà quindi passato come argomento a `setTraffic` . Vedere la tabella seguente per questi quattro valori:
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile usare il codice seguente. Quando si fa clic su una funzionalità, la logica del codice verifica la presenza di eventi imprevisti e compila un messaggio sull'evento imprevisto. Viene visualizzato un messaggio nella parte inferiore della schermata con i dettagli.
 
-1. In primo luogo, è necessario modificare il **layout res > > activity_main. XML**, in modo che appaia come quello riportato di seguito. È possibile sostituire `mapcontrol_centerLat`, `mapcontrol_centerLng`e `mapcontrol_zoom` con i valori desiderati. Si ricordi che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a un singolo riquadro.
+1. Prima di tutto, è necessario modificare il **layout res > > activity_main.xml**, in modo che appaia come quello riportato di seguito. È possibile sostituire `mapcontrol_centerLat` , `mapcontrol_centerLng` e con i `mapcontrol_zoom` valori desiderati. Si ricordi che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a un singolo riquadro.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile
    }
    ```
 
-3. Una volta incorporato il codice precedente nell'applicazione, sarà possibile fare clic su una funzionalità e visualizzare i dettagli relativi agli eventi imprevisti del traffico. A seconda della latitudine, della longitudine e dei valori del livello di zoom usati nel file **activity_main. XML** , verranno visualizzati risultati simili all'immagine seguente:
+3. Una volta incorporato il codice precedente nell'applicazione, sarà possibile fare clic su una funzionalità e visualizzare i dettagli relativi agli eventi imprevisti del traffico. A seconda della latitudine, della longitudine e dei valori del livello di zoom usati nel file di **activity_main.xml** , verranno visualizzati risultati simili all'immagine seguente:
 
    <center>
 
@@ -234,7 +234,7 @@ Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile
 Per informazioni su come aggiungere altri dati alla mappa, vedere le guide seguenti:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](how-to-add-symbol-to-android-map.md)
+> [Aggiungere un livello per i simboli](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i riquadri](how-to-add-tile-layer-android-map.md)

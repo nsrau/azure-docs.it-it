@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 05effb7d2e64c5f27acabad4b086ba27d6849cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348827"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
@@ -84,39 +84,39 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede un server NFS. Il
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-suse/ha-suse.png)
 
-Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
+Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
 
 ### <a name="ascs"></a>(A)SCS
 
 * Configurazione front-end
   * Indirizzo IP 10.0.0.7
 * Porta probe
-  * Porta 620<strong>&lt;Nr&gt;</strong>
+  * Porta 620<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguenti
-    * 32<strong>&lt;Nr&gt; </strong> TCP
-    * 36<strong>&lt;Nr&gt; </strong> TCP
-    * 39<strong>&lt;Nr&gt; </strong> TCP
-    * 81<strong>&lt;Nr&gt; </strong> TCP
-    * 5<strong>&lt;Nr&gt;</strong>13 TCP
-    * 5<strong>&lt;Nr&gt;</strong>14 TCP
-    * 5<strong>&lt;Nr&gt;</strong>16 TCP
+  * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
+  * Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Configurazione front-end
   * Indirizzo IP 10.0.0.8
 * Porta probe
-  * Porta 621<strong>&lt;Nr&gt;</strong>
+  * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguenti
-    * 32<strong>&lt;Nr&gt; </strong> TCP
-    * 33<strong>&lt;Nr&gt; </strong> TCP
-    * 5<strong>&lt;Nr&gt;</strong>13 TCP
-    * 5<strong>&lt;Nr&gt;</strong>14 TCP
-    * 5<strong>&lt;Nr&gt;</strong>16 TCP
+  * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
+  * Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 * Configurazione back-end
   * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
@@ -149,18 +149,18 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
       Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare SLES 12 BYOS
    6. Tipo di database  
       Selezionare HANA
-   7. Dimensioni del sistema SAP.  
+   7. Sap System Size.  
       Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
    8. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
    9. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    10. Subnet ID  
-   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come**&lt;ID&gt;sottoscrizione**/subscriptions//resourceGroups/**&lt;nome&gt;gruppo di risorse**/Providers/Microsoft.Network/virtualNetworks/**&lt;nome&gt;rete virtuale**/Subnets/**&lt;nome subnet&gt; **
+   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
-Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Successivamente, si creerà un servizio di bilanciamento del carico e si useranno le macchine virtuali nel pool back-end.
+Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Creare quindi un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
 1. Creare un gruppo di risorse
 1. Creare una rete virtuale
@@ -176,7 +176,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere almeno un disco dati a entrambe le macchine virtuali  
    I dischi dati vengono usati per la directory /usr/sap/`<SAPSID`>
-1. Creare un servizio di bilanciamento del carico (interno, standard):  
+1. Creare un bilanciamento del carico (interno, standard).  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 10.0.0.7 per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -190,7 +190,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
       1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
       1. Fare clic su Aggiungi una macchina virtuale.
       1. Seleziona macchina virtuale
-      1. Selezionare le macchine virtuali del cluster (A) SCS e i relativi indirizzi IP.
+      1. Selezionare le macchine virtuali del cluster (A)SCS e il rispettivo indirizzo IP.
       1. Fare clic su Aggiungi.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
@@ -205,12 +205,12 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb-ASC**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **NW1-ASC-frontend**, **NW1-backend** e **NW1-ASC-HP**)
-         1. Selezionare le **porte a disponibilità elevata**
+         1. Selezionare **Porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **NW1-lb-ERS**
-1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
+1. In alternativa, se lo scenario richiede Load Balancer Basic (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 10.0.0.7 per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -249,10 +249,10 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          * Ripetere i passaggi precedenti per le porte 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP per ASCS ERS
 
 > [!Note]
-> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -262,13 +262,13 @@ Seguire i passaggi descritti in [Configurazione di Pacemaker su SUSE Linux Enter
 
 Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tutti i nodi, **[1]** - applicabile solo al nodo 1 o **[2]** - applicabile solo al nodo 2.
 
-1. **[A] ** Installare il connettore SUSE
+1. **[A]**  Installare il connettore SUSE
 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
 
    > [!NOTE]
-   > Il problema noto relativo all'uso di un trattino nei nomi host è corretto con la versione **3.1.1** del pacchetto **SAP-SUSE-cluster-Connector**. Assicurarsi di usare almeno la versione 3.1.1 del pacchetto SAP-SUSE-cluster-Connector, se si usano nodi del cluster con Dash nel nome host. In caso contrario, il cluster non funzionerà. 
+   > Il problema noto relativo all'uso di un trattino nei nomi host è stato risolto con la versione **3.1.1** del pacchetto **sap-suse-cluster-connector**. Verificare di usare almeno la versione 3.1.1 del pacchetto sap-suse-cluster-connector, se si usano nodi del cluster con un trattino nel nome host. In caso contrario, il cluster non funzionerà. 
 
    Verificare di aver installato la nuova versione del connettore del cluster SAP SUSE. La versione precedente era denominata sap_suse_cluster_connector mentre la nuova è denominata **sap-suse-cluster-connector**.
 
@@ -290,7 +290,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    Summary        : SUSE High Availability Setup for SAP Products
    ```
 
-1. **[A] ** Aggiornare gli agenti delle risorse SAP  
+1. **[A]**  Aggiornare gli agenti delle risorse SAP  
    
    È necessaria una patch per il pacchetto degli agenti delle risorse per usare la nuova configurazione descritta in questo articolo. È possibile verificare se la patch è già installata con il comando seguente
 
@@ -372,7 +372,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo service autofs restart
    </code></pre>
 
-1. **[A] ** Configurare il file SWAP
+1. **[A]**  Configurare il file SWAP
 
    <pre><code>sudo vi /etc/waagent.conf
    
@@ -394,16 +394,16 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Installazione di SAP NetWeaver ASCS/ERS
 
-1. **[1] ** Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
+1. **[1]**  Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
 
    > [!IMPORTANT]
-   > Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
-   > Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat in passato. Attualmente è consigliabile usare l'agente di risorse di Azure-lb, che fa parte degli agenti di risorse del pacchetto, con i seguenti requisiti di versione del pacchetto:
-   > - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
-   > - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+   > Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di essere in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+   > Per i cluster Pacemaker esistenti, in passato era consigliabile sostituire netcat con socat. Attualmente è consigliabile usare l'agente di risorse azure-lb, che fa parte degli agenti di risorse del pacchetto, con i requisiti di versione del pacchetto seguenti:
+   > - Per SLES 12 SP4/SP5 la versione deve essere almeno resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Per SLES 15/15 SP1 la versione deve essere almeno resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Si noti che la modifica richiederà un breve tempo di inattività.  
-   > Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat come descritto in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure, non è necessario passare immediatamente all'agente di risorse Azure-lb.
+   > Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat, come descritto in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) (Protezione avanzata dei rilevamenti del servizio di bilanciamento del carico di Azure), non è necessario passare immediatamente all'agente delle risorse azure-lb.
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
@@ -511,7 +511,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
 
-1. **[1] ** Adattare i profili di istanza ASCS/SCS e ERS
+1. **[1]**  Adattare i profili di istanza ASCS/SCS e ERS
  
    * Profilo ASCS/SCS
 
@@ -545,7 +545,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    # Autostart = 1
    </code></pre>
 
-1. **[A] ** Configurare keep-alive
+1. **[A]**  Configurare keep-alive
 
    Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
 
@@ -571,7 +571,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Creare le risorse del cluster SAP
 
-Se si usa l'architettura di Accodamento server 1 (ENSA1), definire le risorse nel modo seguente:
+Se si usa l'architettura del server di accodamento 1 (ENSA1), definire le risorse nel modo seguente:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -599,8 +599,8 @@ Se si usa l'architettura di Accodamento server 1 (ENSA1), definire le risorse ne
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  SAP ha introdotto il supporto per l'accodamento del server 2, inclusa la replica, a partire da SAP NW 7,52. A partire dalla piattaforma ABAP 1809, il server di Accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di Accodamento 2.
-Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definire le risorse nel modo seguente:
+  SAP ha introdotto il supporto per il server di accodamento 2, inclusa la replica, a partire da SAP NW 7.52. A partire dalla piattaforma ABAP 1809, il server di accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di accodamento 2.
+Se si usa l'architettura del server di accodamento 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definire le risorse nel modo seguente:
 
 <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -626,7 +626,7 @@ Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/v
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Se si esegue l'aggiornamento da una versione precedente e si passa al server di Accodamento 2, vedere la nota SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Se si esegue l'aggiornamento da una versione precedente e si passa al server di accodamento 2, vedere la nota SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 
@@ -745,7 +745,7 @@ I passaggi seguenti presuppongono che il server applicazioni venga installato in
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [Disponibilità elevata di SAP HANA in macchine virtuali di Azure (VM)][sap-hana-ha]. Per un elenco dei database supportati, vedere la [Nota SAP 1928533][1928533].
+In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [Disponibilità elevata di SAP HANA in macchine virtuali di Azure (VM)][sap-hana-ha]. Per un elenco dei database supportati, vedere la [nota SAP 1928533][1928533].
 
 1. Eseguire l'installazione dell'istanza del database SAP
 
@@ -803,7 +803,7 @@ I test seguenti sono una copia dei test case contenuti nelle guide alle procedur
 
 1. Test HAGetFailoverConfig, HACheckConfig e HACheckFailoverConfig
 
-   Eseguire i comandi seguenti come \<sapsid>adm nel nodo di cui è in esecuzione l'istanza di ASCS. Se i comandi hanno esito negativo con errore: memoria insufficiente, ciò potrebbe essere causato dalla presenza di trattini nel nome host. Si tratta di un problema noto, che verrà risolto da SUSE nel pacchetto sap-suse-cluster-connector.
+   Eseguire questi comandi come \<sapsid>adm nel nodo di cui è in esecuzione l'istanza di ASCS. Se i comandi hanno esito negativo con ERRORE: memoria insufficiente, la causa potrebbe essere la presenza di trattini nel nome host. Si tratta di un problema noto, che verrà risolto da SUSE nel pacchetto sap-suse-cluster-connector.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -915,7 +915,7 @@ I test seguenti sono una copia dei test case contenuti nelle guide alle procedur
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Eseguire i comandi seguenti come \<sapsid>adm per la migrazione dell'istanza ASCS.
+   Eseguire questi comandi come \<sapsid>adm per la migrazione dell'istanza ASCS.
 
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
@@ -1034,7 +1034,7 @@ I test seguenti sono una copia dei test case contenuti nelle guide alle procedur
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Creare un blocco di accodamento, ad esempio modificando un utente nella transazione su01. Eseguire i comandi seguenti come \<sapsid>adm nel nodo di cui è in esecuzione l'istanza di ASCS. I comandi interromperanno l'istanza ASCS per poi riavviarla. Se si utilizza l'architettura di Accodamento server 1, il blocco di Accodamento dovrebbe andare perduto in questo test. Se si usa l'architettura del server 2 di Accodamento, l'Accodamento verrà mantenuto. 
+   Creare un blocco di accodamento, ad esempio modificando un utente nella transazione su01. Eseguire i comandi seguenti come \<sapsid> adm nel nodo in cui è in esecuzione l'istanza di ASC. I comandi interromperanno l'istanza ASCS per poi riavviarla. Se si usa l'architettura del server di accodamento 1, in questo test è prevista la perdita del blocco di accodamento. Se si usa l'architettura del server di accodamento 2, l'accodamento verrà mantenuto. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1234,8 +1234,8 @@ I test seguenti sono una copia dei test case contenuti nelle guide alle procedur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES per applicazioni SAP guida a più SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) (Guida a più SID per la disponibilità elevata per SAP NW in macchine virtuali di Azure su SLES per applicazioni SAP)
+* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha]

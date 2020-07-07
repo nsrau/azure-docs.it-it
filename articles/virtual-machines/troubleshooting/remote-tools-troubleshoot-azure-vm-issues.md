@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422611"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usare gli strumenti remoti per risolvere i problemi delle macchine virtuali di Azure
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* Il comando deve essere eseguito in un computer che si trova nella stessa rete virtuale.
->* È possibile utilizzare DIP o HostName per sostituire \<> computer.
+>* È possibile usare DIP o HostName per sostituire \<computer>.
 >* Il parametro -s assicura che il comando venga richiamato mediante l'account di sistema (autorizzazioni di amministratore).
 >* PsExec usa le porte TCP 135 e 445. Di conseguenza, le due porte devono essere aperte sul firewall.
 
@@ -212,9 +212,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >Per le macchine virtuali RDFE è necessario un endpoint con la porta privata 5986 e una porta pubblica. È anche necessario aprire la porta pubblica sul NSG.
 
-1. Da un'altra VM nella stessa rete virtuale, aprire l'editor del registro di sistema (Regedit. exe).
+1. Da un'altra VM nella stessa rete virtuale, aprire l'editor del registro di sistema (regedit.exe).
 
-2. Selezionare **file** > **Connetti registro di rete**.
+2. Selezionare **file**  >  **Connetti registro di rete**.
 
    ![Editor del registro di sistema](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 

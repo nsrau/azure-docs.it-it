@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295467"
 ---
 # <a name="url-redirect"></a>Reindirizzamento URL
@@ -40,13 +40,13 @@ Un tipo di reindirizzamento imposta il codice di stato della risposta per i clie
 - **Richiesta di corrispondenza**: questa opzione mantiene il protocollo usato dalla richiesta in ingresso. Pertanto, una richiesta HTTP rimane HTTP e una richiesta HTTPS rimane il reindirizzamento post HTTPS.
 
 ## <a name="destination-host"></a>Host di destinazione
-Come parte della configurazione di un routing di reindirizzamento, è anche possibile modificare il nome host o il dominio per la richiesta di reindirizzamento. È possibile impostare questo campo per modificare il nome host nell'URL per il reindirizzamento oppure mantenere il nome host dalla richiesta in ingresso. Quindi, usando questo campo è possibile reindirizzare tutte le `https://www.contoso.com/*` richieste `https://www.fabrikam.com/*`inviate a.
+Come parte della configurazione di un routing di reindirizzamento, è anche possibile modificare il nome host o il dominio per la richiesta di reindirizzamento. È possibile impostare questo campo per modificare il nome host nell'URL per il reindirizzamento oppure mantenere il nome host dalla richiesta in ingresso. Quindi, usando questo campo è possibile reindirizzare tutte le richieste inviate `https://www.contoso.com/*` a `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Percorso di destinazione
-Per i casi in cui si desidera sostituire il segmento di percorso di un URL come parte del reindirizzamento, è possibile impostare questo campo con il nuovo valore del percorso. In caso contrario, è possibile scegliere di mantenere il valore del percorso come parte del reindirizzamento. Quindi, usando questo campo, è possibile reindirizzare tutte le `https://www.contoso.com/\*` richieste `https://www.contoso.com/redirected-site`inviate a a.
+Per i casi in cui si desidera sostituire il segmento di percorso di un URL come parte del reindirizzamento, è possibile impostare questo campo con il nuovo valore del percorso. In caso contrario, è possibile scegliere di mantenere il valore del percorso come parte del reindirizzamento. Quindi, usando questo campo, è possibile reindirizzare tutte le richieste inviate a `https://www.contoso.com/\*` a `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parametri della stringa di query
-È anche possibile sostituire i parametri della stringa di query nell'URL reindirizzato. Per sostituire una stringa di query esistente dall'URL della richiesta in ingresso, impostare questo campo su' Sostituisci ' e quindi impostare il valore appropriato. In caso contrario, è possibile mantenere il set originale di stringhe di query impostando il campo su' preserve '. Ad esempio, usando questo campo, è possibile reindirizzare tutto il traffico `https://www.contoso.com/foo/bar` inviato `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`a. 
+È anche possibile sostituire i parametri della stringa di query nell'URL reindirizzato. Per sostituire una stringa di query esistente dall'URL della richiesta in ingresso, impostare questo campo su' Sostituisci ' e quindi impostare il valore appropriato. In caso contrario, è possibile mantenere il set originale di stringhe di query impostando il campo su' preserve '. Ad esempio, usando questo campo, è possibile reindirizzare tutto il traffico inviato a `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 
 
 ## <a name="destination-fragment"></a>Frammento di destinazione
 Il frammento di destinazione è la parte dell'URL dopo ' #', normalmente usata dai browser per la destinazione di una sezione specifica in una pagina. È possibile impostare questo campo per aggiungere un frammento all'URL di reindirizzamento.

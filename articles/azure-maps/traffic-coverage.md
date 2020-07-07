@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333955"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
@@ -68,13 +68,13 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Bosnia ed Erzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Croazia     |✓         |✓         |
-|Repubblica ceca     |✓         |✓         |
+|Repubblica Ceca     |✓         |✓         |
 |Danimarca     |✓         |✓         |
 |Estonia     |         | ✓        |
 |Finlandia     |✓         |✓         |
 |+Isole Åland      |✓         |✓         |
 |Francia     |✓         |✓         |
-|Principato di Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Germania     |✓         |✓         |
 |Grecia     |✓         |✓         |
 |Ungheria     |✓         |✓         |
@@ -88,7 +88,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Lituania     |✓         |✓         |
 |Lussemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Principato di Monaco   |✓         |✓         |
+|Monaco   |✓         |✓         |
 |Paesi Bassi     |✓         |✓         |
 |Norvegia     |✓         |✓         |
 |Polonia     |✓         |✓         |
@@ -119,7 +119,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 |Paese/Area geografica |Eventi imprevisti  |Flusso  |
 |---------|:---------:|:---------:|
-|Bahrain     |✓         |✓         |
+|Bahrein     |✓         |✓         |
 |Egitto     |✓         |✓         |
 |Israele     |✓         |✓         |
 |Kenya     |✓         |✓         |
@@ -130,7 +130,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Oman     |✓         |✓         |
 |Qatar     |✓         |✓         |
 |Arabia Saudita     |✓         |✓         |
-|Sud Africa     |✓         |✓         |
+|Sudafrica     |✓         |✓         |
 |Emirati Arabi Uniti  |✓         |✓         |
 
 ## <a name="next-steps"></a>Passaggi successivi

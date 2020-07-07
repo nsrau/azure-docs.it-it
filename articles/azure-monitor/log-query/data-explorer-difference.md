@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585707"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
@@ -29,11 +29,11 @@ Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che no
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funzioni non supportate in Monitoraggio di Azure
 
-* [cluster ()](/azure/kusto/query/clusterfunction)
+* [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database ()](/azure/kusto/query/databasefunction)
+* [database()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
@@ -45,7 +45,7 @@ Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che no
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-in non supportati in Monitoraggio di Azure
 
 * [Plug-in Python](/azure/kusto/query/pythonplugin)
-* [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
+* [Plug-in sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Operatori aggiuntivi in Monitoraggio di Azure

@@ -13,17 +13,17 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80586001"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
 Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
 
-Per specificare le opzioni di crittografia nel flusso, è necessario creare un [criterio di flusso](streaming-policy-concept.md) e associarlo al [localizzatore di streaming](streaming-locators-concept.md). I criteri della [chiave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) simmetrica vengono creati per configurare il modo in cui la chiave simmetrica (che fornisce l'accesso sicuro agli [Asset](assets-concept.md)) viene fornita ai client finali. È necessario impostare i requisiti (restrizioni) per i criteri della chiave simmetrica che devono essere soddisfatti per poter recapitare le chiavi con la configurazione specificata ai client. I criteri della chiave simmetrica non sono necessari per cancellare lo streaming o il download. 
+Per specificare le opzioni di crittografia nel flusso, è necessario creare un [criterio di flusso](streaming-policy-concept.md) e associarlo al [localizzatore di streaming](streaming-locators-concept.md). I criteri della [chiave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) simmetrica vengono creati per configurare il modo in cui la chiave simmetrica (che fornisce l'accesso sicuro agli [Asset](assets-concept.md)) viene fornita ai client finali. È necessario impostare i requisiti (restrizioni) per i criteri della chiave simmetrica che devono essere soddisfatti per poter recapitare le chiavi con la configurazione specificata ai client. I criteri chiave simmetrica non sono necessari per lo streaming non crittografato o il download. 
 
 In genere, i criteri della chiave simmetrica vengono associati al [localizzatore di streaming](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri della chiave simmetrica in un [criterio di flusso](streaming-policy-concept.md) , quando si creano criteri di flusso personalizzati per gli scenari avanzati. 
 
@@ -47,7 +47,7 @@ In genere, i criteri della chiave simmetrica vengono associati al [localizzatore
 
 ## <a name="example"></a>Esempio
 
-Per ottenere la chiave, usare `GetPolicyPropertiesWithSecretsAsync`, come illustrato nell'esempio [ottenere una chiave di firma da un criterio esistente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Per ottenere la chiave, usare `GetPolicyPropertiesWithSecretsAsync` , come illustrato nell'esempio [ottenere una chiave di firma da un criterio esistente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 

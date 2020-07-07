@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80283855"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilizzare la funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali per comprendere i componenti dell'applicazione
@@ -101,7 +101,7 @@ Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si de
 
 Per accedere Monitoraggio di Azure per le macchine virtuali direttamente da un set di scalabilità di macchine virtuali:
 
-1. Nella portale di Azure selezionare set di **scalabilità di macchine virtuali**.
+1. Nel portale di Azure selezionare **Set di scalabilità di macchine virtuali**.
 2. Dall'elenco scegliere una macchina virtuale. Quindi, nella sezione **monitoraggio** scegliere **Insights (informazioni dettagliate**).  
 3. Selezionare la scheda **Mappa**.
 
@@ -114,13 +114,13 @@ Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si de
 ![Panoramica di mappe direttamente da macchina virtuale](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->È anche possibile accedere a una mappa per un'istanza specifica dalla visualizzazione **istanze** per il set di scalabilità di macchine virtuali. Nella sezione **Impostazioni** passare a **istanze** > **Insights**.
+>È anche possibile accedere a una mappa per un'istanza specifica dalla visualizzazione **istanze** per il set di scalabilità di macchine virtuali. Nella sezione **Impostazioni** passare a **istanze**  >  **Insights**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visualizzare una mappa da monitoraggio di Azure
 
 In monitoraggio di Azure, la funzionalità mappa fornisce una visualizzazione globale delle VM e delle relative dipendenze. Per accedere alla funzionalità mappa in monitoraggio di Azure:
 
-1. Nella portale di Azure selezionare **monitoraggio**. 
+1. Nel portale di Azure selezionare **Monitoraggio**. 
 2. Nella sezione **Insights** scegliere **macchine virtuali**.
 3. Selezionare la scheda **Mappa**.
 

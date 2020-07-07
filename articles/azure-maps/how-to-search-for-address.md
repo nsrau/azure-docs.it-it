@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335437"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
@@ -39,7 +39,7 @@ In questo esempio viene usata l'API per la [ricerca dell'indirizzo di ricerca](h
 
 Se è presente un set di indirizzi per la geocodifica, è possibile usare l' [API batch di indirizzi di ricerca post](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) per inviare un batch di query in una singola chiamata API.
 
-1. In post, fare clic su **nuova richiesta** | **Get request** e denominarla **Address Search**.
+1. In post, fare clic su **nuova richiesta**  |  **Get request** e denominarla **Address Search**.
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET**, immettere l'URL della richiesta per l'endpoint API e selezionare il protocollo di autorizzazione, se necessario.
 
@@ -55,10 +55,10 @@ Se è presente un set di indirizzi per la geocodifica, è possibile usare l' [AP
 
 ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png) 
 
-| Chiave | valore | 
+| Chiave | Valore | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| subscription-key | \<la chiave di Mappe di Azure\> | 
+| subscription-key | \<your Azure Maps key\> | 
 | query | 400 Broad St, Seattle, WA 98109 | 
 
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 
@@ -73,7 +73,7 @@ In questo caso, è stata specificata una query di indirizzo completo ed è stato
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**: 
 
-| Chiave | valore | 
+| Chiave | Valore | 
 |-----|------------| 
 | typeahead | true | 
 
@@ -105,10 +105,10 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la chiave di Mappe di Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | pizza |
 
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta.
@@ -119,9 +119,9 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |------------------|-------------------------|
-    | countrySet | Stati Uniti |
+    | countrySet | US |
   
     I risultati sono ora limitati dall'indicativo paese e la query restituisce le pizzerie negli Stati Uniti.
   
@@ -131,7 +131,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chiave | valore |
+    | Chiave | Valore |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -143,7 +143,7 @@ L' [API di ricerca dell'indirizzo di ricerca]( https://docs.microsoft.com/rest/a
 Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa, è possibile usare l' [API batch inversa dell'indirizzo di ricerca post](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) per inviare un batch di query in una singola chiamata API.
 
 
-1. In postazione fare clic su **nuova richiesta** | **Get request** e denominarla **Reverse Address Search**.
+1. In postazione fare clic su **nuova richiesta**  |  **Get request** e denominarla **Reverse Address Search**.
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET** e immettere l'URI della richiesta per l'endpoint API.
   
@@ -159,10 +159,10 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
     ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chiave | valore |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la chiave di Mappe di Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | 47.591180,-122.332700 |
   
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta.
@@ -171,7 +171,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |-----|------------|
     | d'acquisto | true |
 
@@ -179,7 +179,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -187,7 +187,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -195,7 +195,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |-----|------------|
     | roadUse | true |
 
@@ -203,7 +203,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 ## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Cercare Cross Street usando la ricerca di indirizzi inversi tra le vie
 
-1. In postazione fare clic su **nuova richiesta** | **Get request** e denominarla **inversa Address Cross Street Search**.
+1. In postazione fare clic su **nuova richiesta**  |  **Get request** e denominarla **inversa Address Cross Street Search**.
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET** e immettere l'URI della richiesta per l'endpoint API.
   
@@ -217,10 +217,10 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    | Chiave | valore |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la chiave di Mappe di Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | 47.591180,-122.332700 |
   
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta.

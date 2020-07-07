@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335580"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere un livello di simbolo a una mappa usando Azure Maps Android SDK
@@ -27,7 +27,7 @@ Per completare i passaggi descritti in questo articolo, è necessario installare
 
 Per aggiungere un marcatore sulla mappa utilizzando il livello di simboli, attenersi alla procedura seguente:
 
-1. Modificare il**layout** >  **res** > **activity_main. XML** in modo che abbia un aspetto simile al codice XML seguente:
+1. Modificare **res**  >  il**layout** res  >  **activity_main.xml** in modo che abbia un aspetto simile al codice XML seguente:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -74,7 +74,7 @@ Per aggiungere un marcatore sulla mappa utilizzando il livello di simboli, atten
     
     Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Viene quindi aggiunta una **funzionalità** contenente una geometria puntiforme. Un'immagine del marcatore rosso viene quindi impostata come icona per il simbolo. Un **livello di simbolo** usa il testo o le icone per eseguire il rendering dei dati basati su punti racchiusi nell'origine dati come simbolo sulla mappa. Viene quindi creato un livello di simboli e l'origine dati viene passata al rendering e viene quindi aggiunta ai livelli della mappa.
     
-    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
+    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
     
     ```Java
     package com.example.myapplication;

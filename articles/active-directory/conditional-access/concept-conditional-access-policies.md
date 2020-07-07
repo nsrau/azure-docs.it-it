@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295319"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
@@ -26,7 +26,7 @@ In che modo un'organizzazione crea questi criteri? Cosa è necessario?
 
 ![Accesso condizionale (segnali + decisioni + applicazione = criteri)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-## <a name="assignments"></a>Assegnazioni
+## <a name="assignments"></a>Assignments
 
 La parte relativa alle assegnazioni controlla gli utenti, gli elementi e i criteri di accesso condizionale.
 
@@ -46,7 +46,7 @@ Un criterio può contenere più [condizioni](concept-conditional-access-conditio
 
 Per le organizzazioni con [Azure ad Identity Protection](../identity-protection/overview.md), i rilevamenti dei rischi generati possono influenzare i criteri di accesso condizionale.
 
-#### <a name="device-platforms"></a>Piattaforme del dispositivo
+#### <a name="device-platforms"></a>Piattaforme per dispositivi
 
 Le organizzazioni con più piattaforme del sistema operativo per dispositivi potrebbero voler applicare criteri specifici su piattaforme diverse. 
 
@@ -85,7 +85,7 @@ Il controllo Grant può attivare l'applicazione di uno o più controlli.
 - Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)
 - Richiedi che il dispositivo sia contrassegnato come conforme (Intune)
 - Richiedi dispositivo aggiunto ad Azure AD ibrido
-- Richiedi app client approvata
+- Richiedere app client approvata
 - Richiedere criteri di protezione dell'app
 
 Gli amministratori possono scegliere di richiedere uno dei controlli precedenti o tutti i controlli selezionati usando le opzioni seguenti. Il valore predefinito per più controlli consiste nel richiedere all.
@@ -100,7 +100,7 @@ I [controlli della sessione](concept-conditional-access-session.md) possono limi
 - Usa restrizioni imposte dalle app
    - Attualmente funziona solo con Exchange Online e SharePoint Online.
       - Passa informazioni sul dispositivo per consentire il controllo dell'esperienza di concessione di accesso completo o limitato.
-- Usa Controllo app per l'accesso condizionale
+- Usare il controllo app per l'accesso condizionale
    - USA i segnali di Microsoft Cloud App Security per eseguire operazioni come: 
       - Blocca il download, il taglio, la copia e la stampa di documenti riservati.
       - Monitorare il comportamento della sessione rischiosa.
@@ -127,7 +127,7 @@ L'articolo [criteri di accesso condizionale comuni](concept-conditional-access-p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
+[Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
 [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md)
 

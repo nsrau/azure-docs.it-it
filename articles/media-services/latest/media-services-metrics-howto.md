@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382937"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
@@ -28,7 +28,7 @@ Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di servizi multimediali](create-account-cli-how-to.md)
+- [Creare un account di Servizi multimediali di Azure.](create-account-cli-how-to.md)
 - Esaminare [le metriche dei servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Visualizzare le metriche in portale di Azure
@@ -40,7 +40,7 @@ Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui
     Nella parte destra della finestra **selezionare una risorsa** verrà visualizzato l'elenco delle risorse disponibili. In questo caso, viene visualizzato quanto segue:
 
     * &lt;Nome dell'account di servizi multimediali&gt;
-    * &lt;Nome dell'endpoint di&gt;/&lt;streaming del nome dell'account di servizi multimediali&gt;
+    * &lt;Nome dell'endpoint di &gt; / &lt; streaming del nome dell'account di servizi multimediali&gt;
     * &lt;nome dell'account di archiviazione&gt;
 
     Selezionare la risorsa e fare clic su **applica**. Per informazioni dettagliate sulle risorse e sulle metriche supportate, vedere [monitorare le metriche di servizi multimediali](media-services-metrics-diagnostic-logs.md).
@@ -57,7 +57,7 @@ Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui
 
 ## <a name="view-metrics-with-azure-cli"></a>Visualizzare le metriche con l'interfaccia della riga di comando di Azure
 
-Per ottenere metriche "in uscita" con l'interfaccia della riga di comando di Azure `az monitor metrics` , eseguire il comando seguente:
+Per ottenere metriche "in uscita" con l'interfaccia della riga di comando di Azure, eseguire il `az monitor metrics` comando seguente:
 
 ```azurecli-interactive
 az monitor metrics list --resource \
@@ -69,7 +69,7 @@ Per ottenere altre metriche, sostituire "in uscita" con il nome della metrica a 
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
+* [Metriche di Monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
 * [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

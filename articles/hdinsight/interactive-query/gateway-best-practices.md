@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80586977"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Approfondimenti sul gateway e procedure consigliate per Apache Hive in Azure HDInsight
@@ -30,9 +30,9 @@ Il diagramma seguente fornisce un'illustrazione approssimativa del modo in cui i
 
 La motivazione per l'inserimento di un gateway davanti ai cluster HDInsight è fornire un'interfaccia per l'individuazione dei servizi e l'autenticazione utente. I meccanismi di autenticazione forniti dal gateway sono particolarmente rilevanti per i cluster abilitati per ESP.
 
-Per l'individuazione dei servizi, il vantaggio del gateway è che è possibile accedere a ogni componente all'interno del cluster come endpoint diverso nel sito `clustername.azurehdinsight.net/hive2`Web del gateway (), a differenza di `host:port` numerose associazioni.
+Per l'individuazione dei servizi, il vantaggio del gateway è che è possibile accedere a ogni componente all'interno del cluster come endpoint diverso nel sito Web del gateway ( `clustername.azurehdinsight.net/hive2` ), a differenza di numerose `host:port` associazioni.
 
-Per l'autenticazione, il gateway consente agli utenti di eseguire l' `username:password` autenticazione usando una coppia di credenziali. Per i cluster abilitati per ESP, questa credenziale corrisponde al nome utente e alla password del dominio dell'utente. Per l'autenticazione per i cluster HDInsight tramite il gateway non è necessario che il client acquisisca un ticket Kerberos. Poiché il gateway accetta `username:password` le credenziali e acquisisce il ticket Kerberos dell'utente per conto dell'utente, è possibile stabilire connessioni sicure al gateway da qualsiasi host client, inclusi i client aggiunti a diversi domini AA-DDS rispetto al cluster (ESP).
+Per l'autenticazione, il gateway consente agli utenti di eseguire l'autenticazione usando una `username:password` coppia di credenziali. Per i cluster abilitati per ESP, questa credenziale corrisponde al nome utente e alla password del dominio dell'utente. Per l'autenticazione per i cluster HDInsight tramite il gateway non è necessario che il client acquisisca un ticket Kerberos. Poiché il gateway accetta le `username:password` credenziali e acquisisce il ticket Kerberos dell'utente per conto dell'utente, è possibile stabilire connessioni sicure al gateway da qualsiasi host client, inclusi i client aggiunti a diversi domini AA-DDS rispetto al cluster (ESP).
 
 ## <a name="best-practices"></a>Procedure consigliate
 
@@ -54,7 +54,7 @@ Nei cluster Enterprise Security Pack abilitati, i criteri di Apache Ranger suffi
 
 Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni soddisfatti come parte del comportamento precedente. Usare l'elenco di controllo seguente quando si verifica un calo delle prestazioni delle query sul gateway HDInsight:
 
-* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable`. Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y**.
+* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y**.
 
 * Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché l'uso di **Select \* **. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
 
@@ -66,17 +66,17 @@ Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni
 
 * Se si usa un Metastore hive esterno, verificare che il database SQL di Azure DTU per il Metastore hive non abbia raggiunto il limite. Se il DTU si avvicina al limite, è necessario aumentare le dimensioni del database.
 
-* Assicurarsi che gli strumenti di terze parti, ad esempio PBI o Tableau, utilizzino l'impaginazione per visualizzare tabelle o database. Per assistenza sulla paginazione, consultare i partner di supporto per questi strumenti. Lo strumento principale usato per la paginazione è `fetchSize` il parametro JDBC. Una dimensione di recupero ridotta può comportare un peggioramento delle prestazioni del gateway, ma una dimensione di recupero troppo grande può causare un timeout del gateway. L'ottimizzazione delle dimensioni del recupero deve essere eseguita in base a un carico di lavoro.
+* Assicurarsi che gli strumenti di terze parti, ad esempio PBI o Tableau, utilizzino l'impaginazione per visualizzare tabelle o database. Per assistenza sulla paginazione, consultare i partner di supporto per questi strumenti. Lo strumento principale usato per la paginazione è il `fetchSize` parametro JDBC. Una dimensione di recupero ridotta può comportare un peggioramento delle prestazioni del gateway, ma una dimensione di recupero troppo grande può causare un timeout del gateway. L'ottimizzazione delle dimensioni del recupero deve essere eseguita in base a un carico di lavoro.
 
 * Se la pipeline di dati prevede la lettura di grandi quantità di dati dall'archiviazione sottostante del cluster HDInsight, è consigliabile usare uno strumento che interfacce direttamente con archiviazione di Azure, ad esempio Azure Data Factory
 
 * Si consiglia di usare Apache Hive LLAP durante l'esecuzione di carichi di lavoro interattivi, perché LLAP può offrire un'esperienza più uniforme per restituire rapidamente i risultati delle query
 
-* Provare ad aumentare il numero di thread disponibili per il servizio Metastore hive `hive.server2.thrift.max.worker.threads`usando. Questa impostazione è particolarmente importante quando un numero elevato di utenti simultanei invia query al cluster
+* Provare ad aumentare il numero di thread disponibili per il servizio Metastore hive usando `hive.server2.thrift.max.worker.threads` . Questa impostazione è particolarmente importante quando un numero elevato di utenti simultanei invia query al cluster
 
 * Ridurre il numero di tentativi usati per raggiungere il gateway da qualsiasi strumento esterno. Se vengono usati più tentativi, valutare la possibilità di seguire i criteri di ripetizione dei tentativi di backup esponenziale
 
-* Prendere in considerazione l'abilitazione di `hive.exec.compress.output` Compression `hive.exec.compress.intermediate`hive usando le configurazioni e.
+* Prendere in considerazione l'abilitazione di Compression hive usando le configurazioni `hive.exec.compress.output` e `hive.exec.compress.intermediate` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

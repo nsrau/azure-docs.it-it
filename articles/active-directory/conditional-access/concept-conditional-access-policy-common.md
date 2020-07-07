@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295297"
 ---
 # <a name="common-conditional-access-policies"></a>Criteri comuni di accesso condizionale
@@ -44,7 +44,7 @@ Altre informazioni sugli account di accesso di emergenza e sul motivo per cui so
 
 * [Accesso condizionale basato sul rischio (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori](howto-conditional-access-policy-registration.md)
-* [Bloccare l'accesso in base alla località](howto-conditional-access-policy-location.md)
+* [Blocca l'accesso in base alla località](howto-conditional-access-policy-location.md)
 * [Richiedere un dispositivo conforme](howto-conditional-access-policy-compliant-device.md)
 * [Blocca l'accesso eccetto app specifiche](howto-conditional-access-policy-block-access.md)
 

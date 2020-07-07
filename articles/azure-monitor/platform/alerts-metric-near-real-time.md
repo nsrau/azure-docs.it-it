@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
 ms.openlocfilehash: c036fa3708d718d6199d27989e60b11015a1227e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585862"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
@@ -31,7 +31,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Tipo di risorsa  |Dimensioni supportate |Avvisi per più risorse| Metriche disponibili|
 |---------|---------|-----|----------|
 |Microsoft.ApiManagement/service | Sì| No | [Gestione API](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
-|Microsoft. AppPlatform/Spring |No| Sì|
+|Microsoft.AppPlatform/Spring |No| Sì|
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/D| No | [Account Batch](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis|Sì| No |[Cache Redis di Azure](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
@@ -45,30 +45,30 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.Compute/virtualMachineScaleSets |N/D | Sì |[Set di scalabilità di macchine virtuali](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Sì| No | [Gruppi di contenitori](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Sì | No | [Cluster gestiti](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
-|Microsoft. DataBoxEdge/dataBoxEdgeDevices | Sì | Sì | |
+|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sì | Sì | |
 |Microsoft.DataFactory/datafactories| Sì| No | [Data factory V1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories |Sì | No |[Data factory V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
-|Microsoft. DataShare/accounts |No| Sì|
+|Microsoft.DataShare/accounts |No| Sì|
 |Microsoft.DBforMySQL/servers |N/D| No |[Database per MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers |N/D | No | [Database per PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.Devices/IotHubs | N/D | No |[Metriche dell'hub Internet](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
 |Microsoft.Devices/provisioningServices| Sì | No |[Metriche DPS](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
-|Microsoft. EventGrid/domini|No|Sì| |
-|Microsoft.EventGrid/topics |Sì | No |[Argomenti di griglia di eventi](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
+|Microsoft.EventGrid/domains|No|Sì| |
+|Microsoft.EventGrid/topics |Sì | No |[Argomenti di Griglia di eventi](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
 |Microsoft.EventHub/clusters |Sì| No |[Cluster di hub eventi](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
 |Microsoft.EventHub/namespaces |Sì| No |[Hub eventi](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| No |No |[Volte](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows |N/D | No |[App per la logica](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces|Sì| No | [Machine Learning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.NetApp/netAppAccounts/capacityPools |Sì| No | [Pool di capacità di Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
-|Microsoft. NetApp/netAppAccounts/capacityPools/volumes |Sì| No | [Volumi di Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
+|Microsoft.NetApp/netAppAccounts/capacityPools/volumes |Sì| No | [Volumi di Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways|N/D| No |  |
 |Microsoft.Network/dnsZones | N/D| No | [Zone DNS](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | N/D | No |[Circuiti ExpressRoute](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/loadBalancers (solo per SKU Standard)| Sì| No | [Bilanciamento del carico](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways|No|Sì|
 |Microsoft. Network/privateEndpoints|No|Sì|
-|Microsoft. Network/privateLinkServices|No|Sì|
+|Microsoft.Network/privateLinkServices|No|Sì|
 |Microsoft.Network/publicipaddresses |N/D | No |[Indirizzi IP pubblici](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Sì | No | [Profili di gestione traffico](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Sì | No | [Aree di lavoro di Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|

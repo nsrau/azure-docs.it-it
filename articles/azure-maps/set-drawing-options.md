@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334302"
 ---
 # <a name="use-the-drawing-tools-module"></a>Usare il modulo Strumenti di disegno
@@ -23,7 +23,7 @@ Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo c
 
 1. Creare un nuovo file HTML e [implementare la mappa come di consueto](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 2. Caricare il modulo Azure Maps Drawing Tools. È possibile caricarlo in uno dei due modi seguenti:
-    - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento al foglio di stile CSS e JavaScript `<head>` nell'elemento del file:
+    - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento al foglio di stile CSS e JavaScript nell' `<head>` elemento del file:
 
         ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
@@ -43,7 +43,7 @@ Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo c
 
 ## <a name="use-the-drawing-manager-directly"></a>Usare direttamente gestione disegno
 
-Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o `drawingManager.setOptions()` usare la funzione in alternativa.
+Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o usare la funzione in alternativa `drawingManager.setOptions()` .
 
 ### <a name="set-the-drawing-mode"></a>Impostare la modalità di disegno
 
@@ -61,7 +61,7 @@ Il codice seguente è un esempio completo in cui viene illustrato come impostare
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Creare un poligono" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere le informazioni su come <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>creare un poligono</a> per<a href='https://codepen.io/azuremaps'>@azuremaps</a>mappe di Azure () in <a href='https://codepen.io'>CodePen</a>.
+Vedere le informazioni su come <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>creare un poligono</a> per mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -73,7 +73,7 @@ Il gestore del disegno supporta tre diverse modalità di interazione con la mapp
 * `freehand `-Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa. 
 * `hybrid`-Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
 
-Il codice seguente abilita la modalità di disegno Polygon e imposta il tipo di interazione del disegno a `freehand`cui deve aderire il gestore del disegno. 
+Il codice seguente abilita la modalità di disegno Polygon e imposta il tipo di interazione del disegno a cui deve aderire il gestore del disegno `freehand` . 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -88,7 +88,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Disegno a mano libera" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>disegno a mano libera</a> di Pen di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>disegno a mano libera</a> di Pen di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -98,13 +98,13 @@ Negli esempi precedenti è stato illustrato come personalizzare le opzioni di di
 
 <br/>
 
-<iframe height="685" title="Personalizzare gestione disegno" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>dati di forma</a> di penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>Get di Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="685" title="Personalizzare gestione disegno" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>dati di forma</a> di penna Get di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
+Vedere le informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
 > [Aggiungere la barra degli strumenti di disegno](map-add-drawing-toolbar.md)

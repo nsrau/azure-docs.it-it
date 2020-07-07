@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 094dc9fd01ec71f378a173a2b4fa64cc672d7c97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334570"
 ---
 # <a name="add-controls-to-a-map"></a>Aggiungere controlli a una mappa
@@ -30,7 +30,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -48,7 +48,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -104,10 +104,10 @@ Ecco uno strumento che consente di testare le varie opzioni per la personalizzaz
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opzioni di controllo di navigazione" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere le <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opzioni di controllo di navigazione</a> per le penne da mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere le <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opzioni di controllo di navigazione</a> per le penne da mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Se si desidera creare controlli di navigazione personalizzati, creare una classe che si estende dalla `atlas.Control` classe oppure creare un elemento HTML e posizionarlo sopra il div della mappa. Fare in modo che il controllo dell' `setCamera` interfaccia utente chiami la funzione Maps per spostare la mappa. 
+Se si desidera creare controlli di navigazione personalizzati, creare una classe che si estende dalla `atlas.Control` classe oppure creare un elemento HTML e posizionarlo sopra il div della mappa. Fare in modo che il controllo dell'interfaccia utente chiami la `setCamera` funzione Maps per spostare la mappa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -140,5 +140,5 @@ Per il codice completo, vedere gli articoli seguenti:
 > [Aggiungere un livello per i poligoni](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello Bubble](map-add-bubble-layer.md)
+> [Aggiungere un livello per le bolle](map-add-bubble-layer.md)
 

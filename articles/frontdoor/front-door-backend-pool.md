@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293459"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end e pool back-end in Azure front door
@@ -43,7 +43,7 @@ I backend front door fanno riferimento al nome host o all'indirizzo IP pubblico 
 
 Le richieste inviate dalla porta anteriore a un back-end includono un campo di intestazione host usato dal back-end per recuperare la risorsa di destinazione. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta.
 
-Ad esempio, una richiesta effettuata per `www.contoso.com` avrà l'intestazione host www.contoso.com. Se si usa portale di Azure per configurare il back-end, il valore predefinito per questo campo è il nome host del back-end. Se il back-end è contoso-westus.azurewebsites.net, nella portale di Azure il valore popolato automaticamente per l'intestazione dell'host back-end sarà contoso-westus.azurewebsites.net. Tuttavia, se si usano Azure Resource Manager modelli o un altro metodo senza impostare in modo esplicito questo campo, lo sportello anteriore invierà il nome host in ingresso come valore per l'intestazione host. Se la richiesta è stata effettuata per\.contoso.com www e il back-end è contoso-westus.azurewebsites.NET che include un campo di intestazione vuoto, la porta anteriore imposta l'intestazione\.host come www contoso.com.
+Ad esempio, una richiesta effettuata per `www.contoso.com` avrà l'intestazione host www.contoso.com. Se si usa portale di Azure per configurare il back-end, il valore predefinito per questo campo è il nome host del back-end. Se il back-end è contoso-westus.azurewebsites.net, nella portale di Azure il valore popolato automaticamente per l'intestazione dell'host back-end sarà contoso-westus.azurewebsites.net. Tuttavia, se si usano Azure Resource Manager modelli o un altro metodo senza impostare in modo esplicito questo campo, lo sportello anteriore invierà il nome host in ingresso come valore per l'intestazione host. Se la richiesta è stata effettuata per \. contoso.com www e il back-end è contoso-westus.azurewebsites.NET che include un campo di intestazione vuoto, la porta anteriore imposta l'intestazione host come www \. contoso.com.
 
 La maggior parte dei back-end dell'app (app Web di Azure, archiviazione BLOB e servizi cloud) richiede che l'intestazione host corrisponda al dominio del back-end. Tuttavia, l'host front-end che viene indirizzato al back-end utilizzerà un nome host diverso, ad esempio www.contoso.net.
 
@@ -67,7 +67,7 @@ Un pool back-end definisce la modalità di valutazione dei diversi back-end tram
 ### <a name="health-probes"></a>Probe di integrità
 Il portello anteriore invia richieste di probe HTTP/HTTPS periodiche a ognuno dei backend configurati. Le richieste di probe determinano la vicinanza e l'integrità di ogni back-end per il bilanciamento del carico delle richieste degli utenti finali. Le impostazioni del probe di integrità per un pool back-end definiscono come viene eseguito il polling dello stato di integrità dei back-end Per la configurazione del bilanciamento del carico sono disponibili le impostazioni seguenti:
 
-- **Path**: URL usato per le richieste di probe per tutti i back-end nel pool back-end. Ad esempio, se uno dei backend è contoso-westus.azurewebsites.net e il percorso è impostato su/probe/test.aspx, quindi gli ambienti front-end, supponendo che il protocollo sia impostato su HTTP, invierà le richieste di\:Probe di integrità a http//contoso-westus.azurewebsites.NET/probe/test.aspx.
+- **Path**: URL usato per le richieste di probe per tutti i back-end nel pool back-end. Ad esempio, se uno dei backend è contoso-westus.azurewebsites.net e il percorso è impostato su/probe/test.aspx, quindi gli ambienti front-end, supponendo che il protocollo sia impostato su HTTP, invierà le richieste di probe di integrità a http \: //Contoso-westus.azurewebsites.NET/probe/test.aspx.
 
 - **Protocollo**: definisce se inviare le richieste di probe di integrità dalla porta anteriore ai backend con il protocollo http o HTTPS.
 

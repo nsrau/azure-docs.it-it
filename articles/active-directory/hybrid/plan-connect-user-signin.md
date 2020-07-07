@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331257"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -28,9 +28,9 @@ Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle 
 
 Se si è già acquisita familiarità con il modello di identità di Azure AD e si desiderano altre informazioni su un metodo specifico, fare clic sul collegamento appropriato:
 
-* [Sincronizzazione dell'hash delle password](#password-hash-synchronization) con [accesso Single Sign-On facile](how-to-connect-sso.md)
-* [Autenticazione pass-through](how-to-connect-pta.md) con [accesso Single Sign-On facile](how-to-connect-sso.md)
-* [SSO federato (con Active Directory Federation Services, AD FS)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Sincronizzazione dell'hash delle password](#password-hash-synchronization) con l'[accesso Single Sign-On facile](how-to-connect-sso.md)
+* [Autenticazione pass-through](how-to-connect-pta.md) con l'[accesso Single Sign-On facile](how-to-connect-sso.md)
+* [SSO federato (con Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 * [Federazione con PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
@@ -68,7 +68,7 @@ L'autenticazione pass-through usa un agente semplice in un computer aggiunto al 
 È possibile abilitare l'accesso Single Sign-On anche per utenti di computer aggiunti al dominio presenti nella rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo solo un nome utente.
 ![Autenticazione pass-through](./media/plan-connect-user-signin/pta.png)
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Single Sign-On](how-to-connect-sso.md)
 

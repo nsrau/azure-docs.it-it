@@ -14,10 +14,10 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584523"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
@@ -26,7 +26,7 @@ Questo argomento illustra le opzioni di query OData e il supporto per l'impagina
 
 ## <a name="considerations"></a>Considerazioni
 
-* Le `Datetime` proprietà delle entità di tipo sono sempre in formato UTC.
+* Le proprietà delle entità di `Datetime` tipo sono sempre in formato UTC.
 * Gli spazi vuoti nella stringa di query devono essere codificati in URL prima di inviare una richiesta.
 
 ## <a name="comparison-operators"></a>Operatori di confronto
@@ -45,11 +45,11 @@ Operatori di intervallo:
 - `ge`: Verificare se un campo è *maggiore o uguale a* un valore costante.
 - `le`: Verificare se un campo è *minore o uguale a* un valore costante.
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtra
 
 Usare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
 
-Nell'esempio REST seguente viene filtrato `alternateId` il valore di un asset:
+Nell'esempio REST seguente viene filtrato il `alternateId` valore di un asset:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -74,18 +74,18 @@ Per ordinare i risultati in ordine crescente o decrescente, aggiungere `asc` o `
 
 ## <a name="skip-token"></a>Ignora token
 
-Se una risposta alla query contiene molti elementi, il servizio restituisce `$skiptoken` un`@odata.nextLink`valore () usato per ottenere la pagina di risultati successiva. Utilizzarlo per eseguire il paging dell'intero set di risultati.
+Se una risposta alla query contiene molti elementi, il servizio restituisce `$skiptoken` un `@odata.nextLink` valore () usato per ottenere la pagina di risultati successiva. Utilizzarlo per eseguire il paging dell'intero set di risultati.
 
 In servizi multimediali V3 non è possibile configurare le dimensioni della pagina. Le dimensioni della pagina variano in base al tipo di entità. Leggere le singole sezioni che seguono per informazioni dettagliate.
 
 Se le entità vengono create o eliminate durante il paging della raccolta, le modifiche vengono riflesse nei risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata).
 
 > [!TIP]
-> Usare `nextLink` sempre per enumerare la raccolta e non dipendere da una particolare dimensione della pagina.
+> Usare sempre `nextLink` per enumerare la raccolta e non dipendere da una particolare dimensione della pagina.
 >
 > Il `nextLink` valore sarà presente solo se è presente più di una pagina di entità.
 
-Si consideri l'esempio `$skiptoken` seguente di Where is used. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
+Si consideri l'esempio seguente di Where `$skiptoken` is used. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
 
 Se si richiede un elenco di asset come il seguente:
 
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a entità diverse:
 
-|Nome dell'entità|Nome proprietà|Filtro|JSON|
+|Nome dell'entità|Nome proprietà|Filtra|JSON|
 |---|---|---|---|
 |[Asset](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||

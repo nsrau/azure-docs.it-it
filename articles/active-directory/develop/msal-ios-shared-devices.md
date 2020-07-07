@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550253"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modalità dispositivo condiviso per dispositivi iOS
@@ -45,7 +45,7 @@ Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amm
 
 1. [**Obbligatorio durante l'anteprima pubblica**] Un utente con ruolo di [amministratore del dispositivo cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
 
-    Per configurare l'appartenenza dei ruoli aziendali nel portale di Azure: **Azure Active Directory** > **ruoli e amministratori** > **amministratore del dispositivo cloud**
+    Per configurare l'appartenenza dei ruoli aziendali nel portale di Azure: **Azure Active Directory**  >  **ruoli e amministratori**  >  **amministratore del dispositivo cloud**
 
 Le sezioni seguenti consentono di aggiornare l'applicazione per supportare la modalità dispositivo condiviso.
 
@@ -180,7 +180,7 @@ Il codice seguente rimuove l'account connesso e cancella i token memorizzati nel
 > [!NOTE]
 > Il passaggio seguente è necessario solo durante l'anteprima pubblica.
 
-In questa versione di anteprima pubblica, il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) Cancella lo stato solo per le applicazioni. Non cancella lo stato nel browser Safari. Si consiglia di cancellare manualmente la sessione del browser per assicurarsi che non venga lasciata alcuna traccia dello stato utente. È possibile utilizzare la proprietà `signoutFromBrowser` facoltativa riportata di seguito per cancellare eventuali cookie. In questo modo il browser si avvierà brevemente sul dispositivo.
+In questa versione di anteprima pubblica, il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) Cancella lo stato solo per le applicazioni. Non cancella lo stato nel browser Safari. Si consiglia di cancellare manualmente la sessione del browser per assicurarsi che non venga lasciata alcuna traccia dello stato utente. È possibile utilizzare la proprietà facoltativa `signoutFromBrowser` riportata di seguito per cancellare eventuali cookie. In questo modo il browser si avvierà brevemente sul dispositivo.
 
 #### <a name="swift"></a>Swift
 

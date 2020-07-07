@@ -1,5 +1,5 @@
 ---
-title: Aggiungere una barra degli strumenti di disegno a una mappa | Mappe Microsoft Azure
+title: Aggiungere una barra degli strumenti di disegno a una mappa | Mappe di Microsoft Azure
 description: Come aggiungere una barra degli strumenti di disegno a una mappa usando Azure Maps Web SDK
 author: philmea
 ms.author: philmea
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334490"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Aggiungere una barra degli strumenti di disegno a una mappa
@@ -38,7 +38,7 @@ Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzi
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere la barra degli strumenti di disegno" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra degli strumenti Aggiungi disegno</a> di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
+Vedere la <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra degli strumenti Aggiungi disegno</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -62,13 +62,13 @@ Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzi
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere uno strumento di disegno poligono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la penna <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>aggiungere uno strumento di disegno poligono</a> da mappe<a href='https://codepen.io/azuremaps'>@azuremaps</a>di Azure () in <a href='https://codepen.io'>CodePen</a>.
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>aggiungere uno strumento di disegno poligono</a> da mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="change-drawing-rendering-style"></a>Modificare lo stile di rendering del disegno
 
-Lo stile delle forme disegnate può essere personalizzato recuperando i livelli sottostanti del gestore di disegno utilizzando la `drawingManager.getLayers()` funzione e quindi impostando le opzioni sui singoli livelli. Gli handle di trascinamento visualizzati per le coordinate quando si modifica una forma sono marcatori HTML. Lo stile degli handle di trascinamento può essere personalizzato passando le opzioni del marcatore HTML nelle opzioni `dragHandleStyle` e `secondaryDragHandleStyle` del gestore del disegno.  
+Lo stile delle forme disegnate può essere personalizzato recuperando i livelli sottostanti del gestore di disegno utilizzando la `drawingManager.getLayers()` funzione e quindi impostando le opzioni sui singoli livelli. Gli handle di trascinamento visualizzati per le coordinate quando si modifica una forma sono marcatori HTML. Lo stile degli handle di trascinamento può essere personalizzato passando le opzioni del marcatore HTML nelle `dragHandleStyle` `secondaryDragHandleStyle` Opzioni e del gestore del disegno.  
 
 Il codice seguente ottiene i livelli di rendering dal gestore del disegno e modifica le opzioni per modificare lo stile di rendering per il disegno. In questo caso, verrà eseguito il rendering dei punti con un'icona del marcatore blu. Le linee saranno di colore rosso e di quattro pixel. I poligoni avranno un colore di riempimento verde e un contorno arancione. Modifica quindi gli stili dei quadratini di trascinamento in modo che siano icone quadrate. 
 
@@ -122,13 +122,13 @@ Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzi
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Modificare lo stile di rendering del disegno" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere lo <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>stile di rendering del disegno di modifica</a> della penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>di Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
+Vedere lo <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>stile di rendering del disegno di modifica</a> della penna di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
+Vedere le informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
 > [Ottenere i dati della forma](map-get-shape-data.md)

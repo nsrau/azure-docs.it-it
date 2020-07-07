@@ -1,20 +1,20 @@
 ---
-title: File CreateUiDefinition. JSON per il riquadro del portale
+title: CreateUiDefinition.jssul file per il riquadro del portale
 description: Viene descritto come creare definizioni dell'interfaccia utente per la portale di Azure. Usato durante la definizione di applicazioni gestite di Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294901"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
 
-Questo documento introduce i concetti di base del file **createUiDefinition. JSON** che portale di Azure usa per definire l'interfaccia utente durante la creazione di un'applicazione gestita.
+In questo documento vengono introdotti i concetti di base del **createUiDefinition.jssu** file che portale di Azure utilizza per definire l'interfaccia utente durante la creazione di un'applicazione gestita.
 
 Il modello è il seguente:
 
@@ -35,10 +35,10 @@ Il modello è il seguente:
 CreateUiDefinition contiene sempre tre proprietà: 
 
 * gestore
-* Versione
+* version
 * parametri
 
-Il gestore deve essere `Microsoft.Azure.CreateUIDef`sempre e la versione supportata più recente è `0.1.2-preview`.
+Il gestore deve essere sempre `Microsoft.Azure.CreateUIDef` e la versione supportata più recente è `0.1.2-preview` .
 
 Lo schema della proprietà parameters dipende dalla combinazione delle proprietà handler e version specificate. Per le applicazioni gestite sono supportate le proprietà `basics`, `steps` e `outputs`. Le proprietà basics e steps contengono [elementi](create-uidefinition-elements.md), ad esempio caselle di testo ed elenchi a discesa, da visualizzare nel portale di Azure. La proprietà outputs viene usata per il mapping dei valori di output degli elementi specificati ai parametri del modello di distribuzione Azure Resource Manager.
 
@@ -70,7 +70,7 @@ Per impostare il nome della risorsa applicazione gestita, è necessario includer
 }
 ```
 
-## <a name="resource-types"></a>Tipi di risorse
+## <a name="resource-types"></a>Tipi di risorsa
 
 Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di risorse da distribuire, fornire una matrice di tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituiti solo i percorsi che supportano tutti i tipi di risorsa. Questa proprietà è facoltativa.
 

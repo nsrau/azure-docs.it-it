@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519937"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso di Google
@@ -25,8 +25,8 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Registrare l'applicazione con Google
 
 1. Per creare un ID client e un segreto client, seguire la documentazione di Google relativa all' [accesso a Google per le app sul lato server](https://developers.google.com/identity/sign-in/web/server-side-flow) . Non è necessario apportare modifiche al codice. Usare semplicemente le seguenti informazioni:
-    - Per le **origini JavaScript autorizzate**, usare `https://<app-name>.azurewebsites.net` con il nome dell'app in * \<nome app>*.
-    - Per l' **URI di reindirizzamento autorizzato**, usare `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
+    - Per le **origini JavaScript autorizzate**, usare `https://<app-name>.azurewebsites.net` con il nome dell'app in *\<app-name>* .
+    - Per l' **URI di reindirizzamento autorizzato**, usare `https://<app-name>.azurewebsites.net/.auth/login/google/callback` .
 1. Copiare i valori di ID app e segreto app.
 
     > [!IMPORTANT]
@@ -35,7 +35,7 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Aggiungere le informazioni di Google all'applicazione
 
 1. Nel [portale di Azure]passare all'app del servizio app.
-1. Selezionare **Impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
+1. Selezionare **Impostazioni** > **Autenticazione/Autorizzazione** e assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
 1. Selezionare **Google**, quindi incollare i valori di ID app e segreto app ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
 1. Selezionare **OK**.
 
@@ -44,7 +44,7 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 1. Opzionale Per limitare l'accesso al sito solo agli utenti autenticati da Google, impostare **azione da eseguire quando la richiesta non è autenticata** su **Google**. Quando si imposta questa funzionalità, l'app richiede che tutte le richieste vengano autenticate. Reindirizza anche tutte le richieste non autenticate a Google per l'autenticazione.
 
     > [!CAUTION]
-    > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere utili per le app con un home page disponibile pubblicamente, come in molte applicazioni a singola pagina. Per queste applicazioni, **consentire le richieste anonime (nessuna azione)** potrebbe essere preferibile, in modo che l'app avvii manualmente l'autenticazione. Per altre informazioni, vedere [flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
+    > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, il che potrebbe non essere opportuno per le app dotate di una home page disponibile pubblicamente, come nel caso di molte applicazioni a pagina singola. Per queste applicazioni, potrebbe essere preferibile scegliere **Consenti richieste anonime (nessuna azione)** in modo che l'app possa avviare l'autenticazione manualmente in autonomia. Per altre informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
 1. Selezionare **Salva**.
 

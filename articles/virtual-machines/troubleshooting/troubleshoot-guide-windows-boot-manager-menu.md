@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373349"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Impossibile avviare la macchina virtuale Windows a causa di Windows Boot Manager
@@ -41,13 +41,13 @@ L'errore è dovuto a un flag BCD *DISPLAYBOOTMENU* in Gestione avvio Windows. Qu
 
 ## <a name="solution"></a>Soluzione
 
-Panoramica processo:
+Panoramica del processo:
 
 1. Configurare per tempi di avvio più rapidi tramite la console seriale.
 2. Creare e accedere a una macchina virtuale di ripristino.
 3. Configurare per tempi di avvio più rapidi in una macchina virtuale di ripristino.
-4. **Scelta consigliata**: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale.
-5. Ricompilare la macchina virtuale.
+4. **Consigliato**: prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria.
+5. Ricreare la macchina virtuale.
 
 ### <a name="configure-for-faster-boot-time-using-serial-console"></a>Configurare per tempi di avvio più rapidi tramite la console seriale
 
@@ -77,12 +77,12 @@ Se si ha accesso alla console seriale, è possibile ottenere tempi di avvio più
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare [i passaggi 1-3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
 2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurare per tempi di avvio più rapidi in una macchina virtuale di ripristino
 
-1. Apri una finestra del prompt dei comandi con privilegi elevati.
+1. Aprire un prompt dei comandi con privilegi elevati.
 2. Immettere quanto segue per abilitare DisplayBootMenu:
 
    Usare questo comando per le **macchine virtuali di prima generazione**:
@@ -128,11 +128,11 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configurazione consigliata per abilitare il dump del sistema operativo
 
-**Carica disco del sistema operativo danneggiato**:
+**Caricare disco del sistema operativo non funzionante**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Abilita in ControlSet001:**
+**Abilitare su ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -140,7 +140,7 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Abilita in ControlSet002:**
+**Abilitare su ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -148,10 +148,10 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Scarica disco del sistema operativo danneggiato:**
+**Scaricare il disco del sistema operativo non funzionante:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334212"
 ---
 # <a name="connect-to-a-wfs-service"></a>Connettersi a un servizio WFS
@@ -21,8 +21,8 @@ Un servizio funzionalità Web (WFS) è un servizio Web per l'esecuzione di query
 
 Le funzionalità seguenti sono supportate dalla `WfsClient` classe:
 
-- Versioni supportate: `1.0.0`, `1.1.0`e`2.0.0`
-- Operatori di filtro supportati: confronti binari, logica, matematica, valore `bbox`e.
+- Versioni supportate: `1.0.0` , `1.1.0` e`2.0.0`
+- Operatori di filtro supportati: confronti binari, logica, matematica, valore e `bbox` .
 - Le richieste vengono effettuate `HTTP GET` solo utilizzando.
 - Operazioni supportate:
 
@@ -40,12 +40,12 @@ Il codice seguente esegue una query su un servizio WFS ed esegue il rendering de
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Esempio di WFS semplice' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l' <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>esempio Pen Simple WFS</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Esempio di WFS semplice' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l' <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>esempio Pen Simple WFS</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>Filtri supportati
 
-La specifica per lo standard WFS usa i filtri OGC. I filtri seguenti sono supportati dal client WFS, supponendo che il servizio chiamato supporti anche questi filtri. Le stringhe di filtro personalizzate possono essere passate `CustomFilter` alla classe.
+La specifica per lo standard WFS usa i filtri OGC. I filtri seguenti sono supportati dal client WFS, supponendo che il servizio chiamato supporti anche questi filtri. Le stringhe di filtro personalizzate possono essere passate alla `CustomFilter` classe.
 
 **Operatori logici**
 
@@ -82,7 +82,7 @@ Nel codice seguente viene illustrato l'utilizzo di filtri diversi con il client 
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'Esempi di filtro WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere gli <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>esempi di filtri Pen WFS</a> di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= 'Esempi di filtro WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere gli <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>esempi di filtri Pen WFS</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>Esplora servizi WFS
@@ -91,10 +91,10 @@ Il codice seguente usa il client WFS per esplorare i servizi di WFS. Selezionare
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'Esplora servizi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS Service Explorer</a> da Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'Esplora servizi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS Service Explorer</a> da Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Per accedere ai servizi WFS ospitati in endpoint non CORS abilitati, è possibile passare un servizio proxy abilitato per CORS `proxyService` nell'opzione del client WFS, come illustrato di seguito. 
+Per accedere ai servizi WFS ospitati in endpoint non CORS abilitati, è possibile passare un servizio proxy abilitato per CORS nell' `proxyService` opzione del client WFS, come illustrato di seguito. 
 
 ```JavaScript
 //Create the WFS client to access the service and use the proxy service settings
@@ -120,4 +120,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Sfruttare le operazioni principali](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)

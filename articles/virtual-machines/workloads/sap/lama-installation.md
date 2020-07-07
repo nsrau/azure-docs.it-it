@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293938"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
@@ -124,7 +124,7 @@ Nella configurazione del connettore di Azure per SAP LaMa selezionare "Usa ident
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>Creare un nuovo connettore in SAP LaMa
 
-Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le informazioni seguenti:
+Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le seguenti informazioni:
 
 * Label (Etichetta): scegliere un nome per l'istanza del connettore
 * Nome utente: ID dell'applicazione dell'entità servizio o ID dell'identità assegnata all'utente della macchina virtuale. Per ulteriori informazioni, vedere [utilizzo di un'identità assegnata a un sistema o a un utente]
@@ -153,7 +153,7 @@ nella parte inferiore del sito Web.
 > [!NOTE]
 > Se possibile, rimuovere tutte le estensioni di macchina virtuale perché possono causare runtime prolungati per lo scollegamento dei dischi da una macchina virtuale.
 
-Assicurarsi che l'utente \<hanasid>adm, \<sapsid>adm e il gruppo sapsys siano definiti nel computer di destinazione con gli stessi ID e GID oppure usare LDAP. Abilitare e avviare il server NFS sulle macchine virtuali da usare per l'esecuzione di SAP NetWeaver (A)SCS.
+Assicurarsi che l'utente \<hanasid> adm, \<sapsid> adm e il gruppo sapsys esistano nel computer di destinazione con lo stesso ID e GID oppure usare LDAP. Abilitare e avviare il server NFS sulle macchine virtuali da usare per l'esecuzione di SAP NetWeaver (A)SCS.
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -163,7 +163,7 @@ SAP LaMa comunica con la macchina virtuale tramite SAP Host Agent. Se si distrib
 
 Creare una nuova macchina virtuale con uno dei sistemi operativi supportati elencati nella nota SAP [2343511]. Aggiungere altre configurazioni IP per le istanze SAP. Ogni istanza richiede almeno un indirizzo IP e deve essere installata usando un nome host virtuale.
 
-L'istanza di SAP NetWeaver ASCS richiede dischi per /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans e /usr/sap/\<sapsid>adm. I server applicazioni SAP NetWeaver non richiedono dischi aggiuntivi. Tutti gli elementi correlati all'istanza SAP devono essere archiviati nell'istanza di ASCS ed esportati tramite NFS, altrimenti non è attualmente possibile aggiungere altri server applicazioni usando SAP LaMa.
+L'istanza di SAP NetWeaver ASC richiede dischi per/sapmnt/ \<SAPSID> ,/usr/SAP/ \<SAPSID> ,/usr/sap/trans e/usr/SAP/ \<sapsid> adm. I server applicazioni SAP NetWeaver non richiedono dischi aggiuntivi. Tutti gli elementi correlati all'istanza SAP devono essere archiviati nell'istanza di ASCS ed esportati tramite NFS, altrimenti non è attualmente possibile aggiungere altri server applicazioni usando SAP LaMa.
 
 ![SAP NetWeaver ASCS su Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -212,7 +212,7 @@ I componenti sono necessari per distribuire il modello. Il modo più semplice pe
 
 I modelli sono associati ai parametri seguenti:
 
-* sapSystemId: ID del sistema SAP. Viene usato per creare il layout del disco, ad esempio /usr/SAP/\<sapsid>.
+* sapSystemId: ID del sistema SAP. Viene usato per creare il layout del disco, ad esempio/usr/SAP/ \<sapsid> .
 
 * computerName: nome computer della nuova macchina virtuale. Questo parametro viene usato anche da SAP LaMa. Quando si usa questo modello per effettuare il provisioning di una nuova macchina virtuale come parte di una copia di sistema, SAP LaMa attende finché l'host con questo nome computer non è raggiungibile.
 
@@ -319,7 +319,7 @@ Nell'account NetApp il pool di capacità specifica le dimensioni e il tipo di di
 
 ![Pool di capacità NetApp di SAP LaMa creato ](media/lama/sap-lama-capacitypool-list.png)
 
-È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i seguenti montaggi: */sapmnt/\<\>SID*, */usr/SAP/\<SID\>* e */Home/\<SID\>ADM*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
+È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i montaggi seguenti: */sapmnt/ \<SID\> *, */usr/SAP/ \<SID\> *e */Home/ \<sid\> adm*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
 
 > [!NOTE]
 > Durante la fase BETA il nome dei volumi deve essere univoco all'interno della sottoscrizione.
@@ -366,7 +366,7 @@ Una volta completata l'installazione, il sistema deve essere individuato all'int
 
 I punti di montaggio dovrebbero avere un aspetto simile al seguente per ASC e l'istanza AS:
 
-![Punti di montaggio di SAP LaMa ](media/lama/sap-lama-ascs.png) in lama (questo è un esempio. Gli indirizzi IP e il percorso di esportazione sono diversi da quelli usati in precedenza.
+![Punti di montaggio di SAP LaMa in LaMa ](media/lama/sap-lama-ascs.png) (questo è un esempio. Gli indirizzi IP e il percorso di esportazione sono diversi da quelli usati in precedenza.
 
 
 #### <a name="install-sap-hana"></a>Installare SAP HANA
@@ -545,12 +545,12 @@ Usare *as1-di-0* per *PAS Instance Host Name* (Nome host istanza PAS) nella fine
     Per risolvere questo problema, impostare il parametro OS_UNICODE=uc nel profilo predefinito del sistema SAP.
 
 * Errore durante l'esecuzione del passaggio SAPinst: dCheckGivenServer
-  * Errore durante l'esecuzione del passaggio SAPinst: dCheckGivenServer" versione="1.0" ERRORE: (Ultimo errore segnalato dal passaggio: \<p> Installation was canceled by user. \</p> (Installazione annullata dall'utente.)
+  * Errore durante l'esecuzione del passaggio SAPinst: dCheckGivenServer "Version =" 1.0 "errore: (ultimo errore segnalato dal passaggio: l' \<p> installazione è stata annullata dall'utente. \</p>
   * Soluzione  
     Verificare che SWPM sia in esecuzione con un utente che ha accesso al profilo. L'utente può essere configurato nella procedura guidata di installazione del server applicazioni.
 
 * Errore durante l'esecuzione del passaggio SAPinst: checkClient
-  * Errore durante l'esecuzione del passaggio SAPinst: checkClient" versionr="1.0" ERRORE: (Ultimo errore segnalato dal passaggio: \<p> Installation was canceled by user. \</p>) (Installazione annullata dall'utente.)
+  * Errore durante l'esecuzione del passaggio SAPinst: checkClient "Version =" 1.0 "errore: (ultimo errore segnalato dal passaggio: l' \<p> installazione è stata annullata dall'utente. \</p>)
   * Soluzione  
     Verificare che Microsoft ODBC Driver for SQL Server sia installato nella macchina virtuale in cui si vuole installare il server applicazioni.
 
@@ -593,6 +593,6 @@ Usare *as1-di-0* per *PAS Instance Host Name* (Nome host istanza PAS) nella fine
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Guida operativa a SAP HANA in Azure][hana-ops-guide]
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]

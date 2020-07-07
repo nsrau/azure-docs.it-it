@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473996"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Guida introduttiva: gestire i BLOB con Java V8 SDK
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-L'applicazione di esempio crea un file di test nella directory predefinita (*C:\Utenti\<utente>\AppData\Local\Temp* per gli utenti di Windows), lo carica nell'archivio BLOB, elenca i BLOB nel contenitore, quindi scarica il file con un nuovo nome, così da poter confrontare i file nuovi e quelli vecchi.
+Questa applicazione di esempio crea un file di test nella directory predefinita (*C:\Users \<user> \AppData\Local\Temp*, per gli utenti di Windows), lo carica nell'archivio BLOB, elenca i BLOB nel contenitore, quindi Scarica il file con un nuovo nome in modo da poter confrontare i vecchi e i nuovi file.
 
 Eseguire l'esempio usando Maven nella riga di comando. Aprire una shell e passare a **blobAzureApp** nella directory clonata. Immettere quindi `mvn compile exec:java`.
 
@@ -72,7 +72,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Prima di continuare controllare nella directory predefinita (*C:\Utenti\<utente>\AppData\Local\Temp* per gli utenti di Windows) se è presente il file di esempio. Copiare l'URL per il BLOB nella finestra della console e incollarlo in un browser per visualizzare il contenuto del file nell'archiviazione BLOB. Se si confronta il file di esempio nella directory con il contenuto archiviato nell'archivio Blob, si noterà che sono uguali.
+Prima di continuare, controllare la directory predefinita (*C:\Users \<user> \AppData\Local\Temp*, per gli utenti di Windows) per il file di esempio. Copiare l'URL per il BLOB nella finestra della console e incollarlo in un browser per visualizzare il contenuto del file nell'archiviazione BLOB. Se si confronta il file di esempio nella directory con il contenuto archiviato nell'archivio Blob, si noterà che sono uguali.
 
   >[!NOTE]
   >È anche possibile usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione.
@@ -171,7 +171,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 Se i BLOB caricati non sono più necessari, è possibile eliminare l'intero contenitore usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Questo metodo elimina anche i file nel contenitore.
 
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 In questo articolo è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Java. Per altre informazioni sull'uso di Java, passare al repository di codice sorgente GitHub.
 
 > [!div class="nextstepaction"]
-> [Java API Reference](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [Esempi di codice di riferimento all'API Java per Java](../common/storage-samples-java.md)
+> Informazioni di [riferimento](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy) 
+>  sulle API Java [Esempi di codice per Java](../common/storage-samples-java.md)

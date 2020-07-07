@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80347101"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
@@ -46,7 +46,7 @@ Seguire questa procedura per caricare un nuovo certificato client. Se non è anc
 3. Fare clic sul pulsante **+ Aggiungi**.
     ![Aggiungere certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Selezionare il certificato, quindi specificarne ID e password.
-5. Scegliere **Crea**.
+5. Fare clic su **Crea**.
 
 > [!NOTE]
 > Il certificato deve essere nel formato **.pfx** . Sono consentiti i certificati autofirmati.
@@ -86,7 +86,7 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 ## <a name="self-signed-certificates"></a>Certificati autofirmati
 
-Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché il servizio Gestione API possa comunicare con il sistema back-end. In caso contrario, verrà restituito un codice di Errore 500. Per configurarlo, è possibile usare [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) i cmdlet di PowerShell (per il [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) nuovo back-end) o (per il back-end `-SkipCertificateChainValidation` esistente) `True`e impostare il parametro su.
+Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché il servizio Gestione API possa comunicare con il sistema back-end. In caso contrario, verrà restituito un codice di Errore 500. Per configurarlo, è possibile usare i [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet di PowerShell (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il `-SkipCertificateChainValidation` parametro su `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298813"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -36,7 +36,7 @@ Le informazioni sui requisiti di sistema StorSimple pubblicate in questo articol
 I requisiti software includono le informazioni su Web browser supportati, versioni SMB, piattaforme di virtualizzazione e i requisiti minimi del dispositivo virtuale.
 
 ### <a name="supported-virtualization-platforms"></a>Piattaforme di virtualizzazione supportate
-| **Hypervisor** | **Versione** |
+| **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
@@ -58,7 +58,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 <sup>2</sup>: i requisiti di rete possono variare a seconda della frequenza di modifica dei dati giornaliera. Ad esempio, se un dispositivo deve eseguire il backup di 10 GB o di più modifiche durante la giornata, il backup giornaliero con una connessione da 5 Mbps potrebbe richiedere fino a 4,25 ore (se i dati non possono essere compressi o deduplicati).
 
 ### <a name="supported-web-browsers"></a>Web browser supportati
-| **Componente** | **Versione** | **Requisiti aggiuntivi/note** |
+| **Componente** | **Version** | **Requisiti aggiuntivi/note** |
 | --- | --- | --- |
 | Microsoft Edge |Versione più recente | |
 | Internet Explorer |Versione più recente |Testato con Internet Explorer 11 |
@@ -95,9 +95,9 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 | TCP 443 (HTTPS) |In uscita |WAN |Sì |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
 | UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. <br></br> Nota: se si distribuisce un file server, si consiglia l'uso del server DNS locale. |
 | UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet.<br></br> Nota: se si distribuisce un file server, si consiglia di sincronizzare l'ora con i controller di dominio di Active Directory. |
-| TCP 80 (HTTP) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
-| TCP 443 (HTTPS) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
-| TCP 3260 (iSCSI) |In ingresso |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
+| TCP 80 (HTTP) |In |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
+| TCP 443 (HTTPS) |In |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
+| TCP 3260 (iSCSI) |In |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 

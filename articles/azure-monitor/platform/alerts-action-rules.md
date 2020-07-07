@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80618981"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
@@ -83,7 +83,7 @@ Configurare quindi la regola di azione per il supporto dell'eliminazione avvisi 
 
 #### <a name="suppression"></a>Eliminazione degli avvisi
 
-Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle opzioni seguenti:
+Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle seguenti opzioni:
 * **Da Now (always)**: Disattiva tutte le notifiche a tempo indefinito.
 * **All'ora pianificata**: disattiva le notifiche entro una durata limitata.
 * **Con una ricorrenza**: disattiva le notifiche in base a una pianificazione ricorrente giornaliera, settimanale o mensile.
@@ -102,7 +102,7 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli regola azione
 
 Infine, configurare i dettagli seguenti per la regola di azione:
-* Name
+* Nome
 * Gruppo di risorse in cui viene salvato
 * Descrizione 
 

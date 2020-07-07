@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373362"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Errore di arresto di Windows-#0x000000EF "processo critico morto"
@@ -37,24 +37,24 @@ In genere, ciò è dovuto a un errore critico del processo di sistema durante l'
 
 ## <a name="solution"></a>Soluzione
 
-### <a name="process-overview"></a>Panoramica processo:
+### <a name="process-overview"></a>Panoramica del processo:
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 2. Correzione di eventuali danneggiamenti del sistema operativo.
-3. **Scelta consigliata**: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale.
-4. Ricompilare la macchina virtuale.
+3. **Consigliato**: prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria.
+4. Ricreare la macchina virtuale.
 
 > [!NOTE]
 > Quando si verifica questo errore di avvio, il sistema operativo guest non è operativo. Per risolvere il problema, sarà necessario eseguire la risoluzione dei problemi in modalità offline.
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare [i passaggi 1-3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
-2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
+1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+2. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="fix-any-os-corruption"></a>Correzione di eventuali danneggiamenti del sistema operativo
 
-1. Apri una finestra del prompt dei comandi con privilegi elevati.
+1. Aprire un prompt dei comandi con privilegi elevati.
 2. Eseguire il seguente comando del controllo file di sistema (SFC):
 
    `sfc /scannow /offbootdir=<BOOT DISK DRIVE>:\ /offwindir=<BROKEN DISK DRIVE>:\windows`
@@ -71,7 +71,7 @@ Se il problema persiste dopo l'esecuzione di SFC, sarà necessario analizzare un
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Connetti il disco del sistema operativo a una nuova macchina virtuale di ripristino
 
 1. Usare [i passaggi 1-3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una nuova macchina virtuale di ripristino.
-2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
+2. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Individuare il file dump e inviare un ticket di supporto
 
@@ -102,11 +102,11 @@ Se lo spazio sul disco del sistema operativo non è sufficiente, è necessario m
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configurazione consigliata per abilitare il dump del sistema operativo
 
-**Carica disco del sistema operativo danneggiato**:
+**Caricare disco del sistema operativo non funzionante**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Abilita in ControlSet001:**
+**Abilitare su ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -114,7 +114,7 @@ Se lo spazio sul disco del sistema operativo non è sufficiente, è necessario m
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Abilita in ControlSet002:**
+**Abilitare su ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -122,10 +122,10 @@ Se lo spazio sul disco del sistema operativo non è sufficiente, è necessario m
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Scarica disco del sistema operativo danneggiato:**
+**Scaricare il disco del sistema operativo non funzionante:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80583226"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
@@ -53,7 +53,7 @@ Il dashboard degli eventi è stato ritirato quando è stata selezionata un'area 
 
 Si consiglia di usare le funzionalità native di Azure Log Analytics per visualizzare gli eventi rilevanti nelle aree di lavoro.
 
-Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In log Analytics passare a **selezionare l'area di lavoro** > **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
+Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In log Analytics passare a **selezionare l'area di lavoro**  >  **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
 
 ![Ricerche salvate nell'area di lavoro][3]
 

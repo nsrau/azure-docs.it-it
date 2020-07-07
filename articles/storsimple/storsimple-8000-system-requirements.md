@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80297718"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
@@ -63,16 +63,16 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud e di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Fuori* o *in uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
-| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
+| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Necessario | Note |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
 | UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
 | UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
 | TCP 9354 |In uscita |WAN |Sì |La porta in uscita viene usata dal dispositivo StorSimple per comunicare con il servizio Gestione dispositivi StorSimple. |
-| 3260 (iSCSI) |In ingresso |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
-| 5985 |In ingresso |LAN |No |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
-| 5986 |In ingresso |LAN |No |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
+| 3260 (iSCSI) |In |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
+| 5985 |In |LAN |No |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
+| 5986 |In |LAN |No |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
@@ -233,7 +233,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 * Verificare che entrambi i moduli controller dello chassis EBOD, entrambi i cavi SAS e tutte le unità disco rigido siano sempre installati.
 * In caso di guasto di un modulo controller dell'enclosure EBOD, richiedere immediatamente una sostituzione.
 * Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio Device Manager di StorSimple accedendo a **monitoraggio** > **integrità hardware**.
+* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio Device Manager di StorSimple accedendo a **monitoraggio**  >  **integrità hardware**.
 * Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 * Non rimuovere contemporaneamente entrambi i cavi SAS dal sistema in qualsiasi momento.
 

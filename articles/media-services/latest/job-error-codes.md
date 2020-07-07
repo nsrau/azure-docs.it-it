@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582227"
 ---
 # <a name="media-services-job-error-codes"></a>Codici di errore del processo di servizi multimediali
@@ -34,7 +34,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Codici di errore degli endpoint di streaming](streaming-endpoint-error-codes.md)
+- [Codici di errore dell'endpoint di streaming](streaming-endpoint-error-codes.md)
 - [Concetti relativi ai Servizi multimediali di Azure](concepts-overview.md)
 - [Quote e limiti](limits-quotas-constraints.md)
 

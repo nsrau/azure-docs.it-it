@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529357"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
@@ -48,14 +48,14 @@ Per informazioni sull'installazione di componenti aggiuntivi nel cluster HDInsig
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
 Il codice PowerShell seguente personalizza una configurazione [Apache Hive](https://hive.apache.org/):
 
 > [!IMPORTANT]  
-> Potrebbe essere `Spark2Defaults` necessario usare il parametro con [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). È possibile passare valori vuoti al parametro, come illustrato nell'esempio di codice riportato di seguito.
+> `Spark2Defaults`Potrebbe essere necessario usare il parametro con [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). È possibile passare valori vuoti al parametro, come illustrato nell'esempio di codice riportato di seguito.
 
 ```powershell
 # hive-site.xml configuration
@@ -86,7 +86,7 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice](#a
 **Per verificare la modifica:**
 
 1. Passare a `https://CLUSTERNAME.azurehdinsight.net/` dove `CLUSTERNAME` è il nome del cluster.
-1. Dal menu a sinistra passare a **hive** > **configs** > **Advanced**.
+1. Dal menu a sinistra passare a **hive**  >  **configs**  >  **Advanced**.
 1. Espandere **Advanced hive-site**.
 1. Individuare **hive. Metastore. client. Socket. timeout** e verificare che il valore sia **90**.
 
@@ -147,7 +147,7 @@ Esempio di frammento di Gestione risorse modello per cambiare la configurazione 
 
 ## <a name="appendix-powershell-sample"></a>Appendice: esempio di PowerShell
 
-Questo script di PowerShell crea un cluster HDInsight e Personalizza un'impostazione hive. Assicurarsi di immettere i valori per `$nameToken`, `$httpPassword`e `$sshPassword`.
+Questo script di PowerShell crea un cluster HDInsight e Personalizza un'impostazione hive. Assicurarsi di immettere i valori per `$nameToken` , `$httpPassword` e `$sshPassword` .
 
 ```powershell
 ####################################

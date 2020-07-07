@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476897"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
@@ -40,7 +40,7 @@ Per integrare il gateway applicazione con l'ambiente del servizio app con bilanc
 * Un ambiente del servizio app con bilanciamento del carico interno.
 * Un'app in esecuzione nell'ambiente del servizio app con bilanciamento del carico interno.
 * Un nome di dominio instradabile su Internet da usare con l'app nell'ambiente del servizio app con bilanciamento del carico interno.
-* L'indirizzo del servizio di bilanciamento del carico interno usato nell'ambiente del servizio app. Queste informazioni sono disponibili nel portale di ambiente del servizio app in **Impostazioni** > **indirizzi IP**:
+* L'indirizzo del servizio di bilanciamento del carico interno usato nell'ambiente del servizio app. Queste informazioni sono disponibili nel portale di ambiente del servizio app in **Impostazioni**  >  **indirizzi IP**:
 
     ![Esempio di elenco di indirizzi IP usati nell'ambiente del servizio app con bilanciamento del carico interno][9]
     
@@ -56,7 +56,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
 ## <a name="configuration-steps"></a>Passaggi di configurazione ##
 
-1. Nel portale di Azure passare a **nuovo** > **rete** > **gateway applicazione**.
+1. Nel portale di Azure passare a **nuovo**  >  **rete**  >  **gateway applicazione**.
 
 2. Nell'area **Informazioni di base**:
 

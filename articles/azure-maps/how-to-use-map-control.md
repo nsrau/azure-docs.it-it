@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 6becb504671c1fa380207fda9d7d553fca8ceddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335239"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
+# <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
 La controllo mappa libreria JavaScript lato client consente di eseguire il rendering delle mappe e della funzionalità embedded di Azure Maps nell'applicazione Web o per dispositivi mobili.
 
@@ -27,7 +27,7 @@ La controllo mappa libreria JavaScript lato client consente di eseguire il rende
 
 2. Caricare Azure Maps Web SDK. È possibile scegliere una delle due opzioni seguenti:
 
-    * Usare la versione CDN ospitata a livello globale di Azure Maps Web SDK aggiungendo riferimenti a JavaScript e al foglio di stile `<head>` nell'elemento del file HTML:
+    * Usare la versione CDN ospitata a livello globale di Azure Maps Web SDK aggiungendo riferimenti a JavaScript e al foglio di stile nell' `<head>` elemento del file HTML:
 
         ```HTML
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
@@ -75,7 +75,7 @@ La controllo mappa libreria JavaScript lato client consente di eseguire il rende
     </body>
    ```
 
-5. Per inizializzare il controllo mappa, definire un nuovo tag script nel corpo HTML. Passare `id` l'oggetto della `<div>` mappa o un `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro durante la creazione di un'istanza della `Map` classe. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+5. Per inizializzare il controllo mappa, definire un nuovo tag script nel corpo HTML. Passare l'oggetto `id` della mappa `<div>` o un `HTMLElement` (ad esempio, `document.getElementById('myMap')` ) come primo parametro durante la creazione di un'istanza della `Map` classe. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
    Se è necessario creare un account o trovare la chiave, seguire le istruzioni in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
@@ -183,7 +183,7 @@ La controllo mappa libreria JavaScript lato client consente di eseguire il rende
 
 ## <a name="localizing-the-map"></a>Localizzare la mappa
 
-Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei `atlas` nomi globale, che comporterà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
+Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo `atlas` spazio dei nomi globale, che comporterà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -207,7 +207,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> Con il Web SDK è possibile caricare più istanze della mappa nella stessa pagina con impostazioni diverse per lingua e area geografica. Inoltre, è possibile aggiornare queste impostazioni dopo il caricamento della mappa utilizzando `setStyle` la funzione della mappa. 
+> Con il Web SDK è possibile caricare più istanze della mappa nella stessa pagina con impostazioni diverse per lingua e area geografica. Inoltre, è possibile aggiornare queste impostazioni dopo il caricamento della mappa utilizzando la `setStyle` funzione della mappa. 
 
 Di seguito è riportato un esempio di mappe di Azure con la lingua impostata su "fr-FR" e la visualizzazione regionale impostata su "auto".
 
@@ -219,7 +219,7 @@ Un elenco completo delle lingue e delle visualizzazioni a livello di area suppor
 
 Azure Maps Web SDK supporta il cloud di Azure per enti pubblici. Tutti gli URL JavaScript e CSS usati per accedere ad Azure Maps Web SDK rimangono invariati. Per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure Maps è necessario eseguire le attività seguenti.
 
-Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza `Map` della classe. 
+Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza della `Map` classe. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
@@ -233,7 +233,7 @@ Quando si usa il modulo Services, il dominio per i servizi deve essere impostato
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell' `atlas.azure.us`URL in. Ad esempio, se si usa il servizio API di ricerca, modificare il dominio `https://atlas.microsoft.com/search/` URL `https://atlas.azure.us/search/`da a.
+Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell'URL in `atlas.azure.us` . Ad esempio, se si usa il servizio API di ricerca, modificare il dominio URL da `https://atlas.microsoft.com/search/` a `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

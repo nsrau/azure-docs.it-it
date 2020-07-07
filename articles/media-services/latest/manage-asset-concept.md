@@ -14,10 +14,10 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582210"
 ---
 # <a name="manage-assets"></a>Gestire le risorse
@@ -45,7 +45,7 @@ Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un
 
 1. Usare l'API Servizi multimediali v3 per creare un nuovo asset "input". Questa operazione crea un contenitore nell'account di archiviazione associato all'account di Servizi multimediali. L'API restituisce il nome del contenitore (ad esempio, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    Se si dispone già di un contenitore BLOB che si vuole associare a un asset, è possibile specificare il nome del contenitore durante la creazione dell'asset. Servizi multimediali supporta attualmente solo i BLOB nella radice del contenitore e non quelli con i percorsi nel nome del file. Un contenitore con il nome file "input.mp4" andrà quindi bene. Tuttavia, un contenitore con il nome file "video/input/input. mp4" non funzionerà.
+    Se si dispone già di un contenitore BLOB che si vuole associare a un asset, è possibile specificare il nome del contenitore durante la creazione dell'asset. Servizi multimediali supporta attualmente solo i BLOB nella radice del contenitore e non quelli con i percorsi nel nome del file. Un contenitore con il nome file "input.mp4" andrà quindi bene. Tuttavia, un contenitore con il nome file "video/input/input.mp4" non funzionerà.
 
     È possibile usare l'interfaccia della riga di comando di Azure per eseguire il caricamento direttamente in qualsiasi account di archiviazione e contenitore della sottoscrizione, per cui si hanno i diritti.
 
@@ -58,7 +58,7 @@ Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un
 
     È possibile usare l'API Servizi multimediali per [elencare gli URL dei contenitori di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** accetta un parametro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) su cui è stato `expiryTime`impostato. Il tempo deve essere impostato su < 24 ore.
+    **AssetContainerSas. listContainerSas** accetta un parametro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) su cui è stato impostato `expiryTime` . Il tempo deve essere impostato su < 24 ore.
 
     [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) restituisce più URL SAS perché sono disponibili due chiavi dell'account di archiviazione per ogni account di archiviazione. Un account di archiviazione ha due chiavi perché consente il failover e la rotazione trasparente delle chiavi dell'account di archiviazione. Il primo URL di firma di accesso condiviso rappresenta la prima chiave dell'account di archiviazione e il secondo URL SAS rappresenta la seconda chiave.
 3. Usare le API di archiviazione di Azure o gli SDK (ad esempio, l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) per caricare i file nel contenitore di asset.
@@ -109,7 +109,7 @@ curl -X PUT \
 
 In servizi multimediali un oggetto di [output attivo](https://docs.microsoft.com/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](https://docs.microsoft.com/rest/api/media/assets) .
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Utilizzo di un DVR cloud](live-event-cloud-dvr.md)
 * [Esercitazione Live di streaming](stream-live-tutorial-with-api.md)
@@ -118,7 +118,7 @@ Per altre informazioni, vedi:
 
 In servizi multimediali, quando si elaborano i video, ad esempio la codifica o l'analisi, è necessario creare un [Asset](assets-concept.md) di output per archiviare il risultato del [processo](transforms-jobs-concept.md).
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Codifica di un video](encoding-concept.md)
 * [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md)
@@ -127,9 +127,9 @@ Per altre informazioni, vedi:
 
 Per pubblicare un asset per lo streaming, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md). Il localizzatore di streaming deve comprendere il nome dell'asset che si desidera pubblicare. 
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
-[Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3](stream-files-tutorial-with-api.md)
+[Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>Scaricare i risultati di un processo da un asset di output
 

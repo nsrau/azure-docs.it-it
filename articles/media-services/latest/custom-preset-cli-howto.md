@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382954"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
@@ -44,7 +44,7 @@ Nell'esempio seguente viene definito il corpo della richiesta di una nuova trasf
 
 In questo esempio viene innanzitutto aggiunto un livello l'elemento aacaudio per la codifica audio e due livelli H264Video per la codifica video. Nei livelli video si assegnano le etichette in modo da poterle usare nei nomi dei file di output. Successivamente, si vuole che l'output includa anche anteprime. Nell'esempio seguente vengono specificate le immagini in formato PNG, generate al 50% della risoluzione del video di input e tre timestamp: {25%, 50%, 75} della lunghezza del video di input. Infine, viene specificato il formato per i file di output, uno per video e audio e un altro per le anteprime. Poiché sono presenti più H264Layers, è necessario usare macro che producono nomi univoci per livello. È possibile usare una `{Label}` macro o `{Bitrate}` , l'esempio mostra la prima.
 
-Questa trasformazione verrà salvata in un file. In questo esempio il file `customPreset.json`è denominato.
+Questa trasformazione verrà salvata in un file. In questo esempio il file è denominato `customPreset.json` .
 
 ```json
 {
@@ -126,7 +126,7 @@ Questa trasformazione verrà salvata in un file. In questo esempio il file `cust
 
 ## <a name="create-a-new-transform"></a>Crea una nuova trasformazione  
 
-In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario prima verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. Il comando `show` seguente restituisce la `customTransformName` trasformazione se esistente:
+In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario prima verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. Il `show` comando seguente restituisce la `customTransformName` trasformazione se esistente:
 
 ```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName

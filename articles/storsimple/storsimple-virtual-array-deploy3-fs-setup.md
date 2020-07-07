@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80297635"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
@@ -72,11 +72,11 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    1. Assegnare un **Nome** univoco al dispositivo. Questo nome può avere da 1 a 15 caratteri e contenere lettere, numeri e trattini.
    2. Fare clic sull'icona ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png)**File server** per il **Tipo** di dispositivo che si sta creando. Un file server consente la creazione di cartelle condivise.
    3. Il dispositivo è un file server, quindi è necessario aggiungerlo a un dominio. Immettere un **nome di dominio**.
-   4. Fare clic su **Applica**.
+   4. Fare clic su **Apply**.
 7. Verrà visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
-8. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni del dispositivo.
+8. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
@@ -93,7 +93,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    1. Fornire l'**URL proxy Web** in questo formato: *http://&lt;indirizzo IP-host o FDQN&gt;:Numero della porta*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
-   4. Fare clic su **Applica**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
+   4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
 10. Configurare le impostazioni ora per il dispositivo, ad esempio il fuso orario e i server NTP primari e secondari (facoltativo). I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
     
     ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
@@ -103,7 +103,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     1. Nell'elenco a discesa selezionare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
     2. Specificare un **Server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
     3. Facoltativamente, specificare un **Server NTP secondario** per il dispositivo.
-    4. Fare clic su **Applica**. Le impostazioni ora configurate vengono così convalidate e applicate.
+    4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 11. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
     
     1. Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
@@ -185,7 +185,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    3. Un **Tipo** per la condivisione. Il tipo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale** . Per tutti gli altri dati, selezionare una **Condivisione a livelli** .
       Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
    
-   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel *formato\@John contoso.com* . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato *john \@ contoso.com* . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
    
    5. Fare clic su **Aggiungi** per creare la condivisione. 
     

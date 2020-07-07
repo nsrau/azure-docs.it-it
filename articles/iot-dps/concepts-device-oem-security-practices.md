@@ -9,10 +9,10 @@ ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
 ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529529"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Procedure di sicurezza per i produttori di dispositivi Azure Internet
@@ -95,7 +95,7 @@ Se si è abituati a usare le password, è possibile chiedersi perché non è pos
 Si considerino le variabili seguenti e il modo in cui ognuno influisca sul processo di produzione complessivo. 
 
 #### <a name="where-the-certificate-root-of-trust-comes-from"></a>Dove deriva la radice del certificato di attendibilità
-Può essere costosa e complessa per la gestione di un'infrastruttura a chiave pubblica (PKI).  Soprattutto se la società non ha alcuna esperienza nella gestione di un'infrastruttura a chiave pubblica. Le opzioni possibili sono:
+Può essere costosa e complessa per la gestione di un'infrastruttura a chiave pubblica (PKI).  Soprattutto se la società non ha alcuna esperienza nella gestione di un'infrastruttura a chiave pubblica. Le opzioni disponibili sono:
 - Usare un'infrastruttura a chiave pubblica di terze parti. È possibile acquistare certificati di firma intermedi da un fornitore di certificati di terze parti. In alternativa, è possibile usare un'autorità di certificazione (CA) privata. 
 - Usare un'infrastruttura a chiave pubblica autogestita. È possibile gestire il proprio sistema PKI e generare i propri certificati.
 - Usare il servizio di sicurezza [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) . Questa opzione si applica solo ai dispositivi Azure Sphere. 

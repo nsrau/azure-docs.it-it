@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478696"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Strutture di dati nel servizio Mobility di Azure Maps
@@ -23,7 +23,7 @@ Questo articolo presenta il concetto di area metro nel [servizio Mobility di Azu
 
 I dati del servizio Mobility sono raggruppati in base alle aree di metro supportate. Le aree metropolitane non seguono i limiti della città. Un'area metro può contenere più città, città densamente popolate e città circostanti. In realtà, un paese/area geografica può essere un'area metropolitana. 
 
-È `metroID` l'ID di un'area metropolitana che può essere usato per chiamare l' [API dell'area di informazioni di Get metro](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Usare l'API di Azure Maps ' "Get metro" per richiedere tipi di transito, agenzie di transito, avvisi attivi e dettagli aggiuntivi per la metropolitana scelta. È anche possibile richiedere le aree e i metroID di metro supportati. Gli ID area metro sono soggetti a modifiche.
+`metroID`È l'ID di un'area metropolitana che può essere usato per chiamare l' [API dell'area di informazioni di Get metro](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Usare l'API di Azure Maps ' "Get metro" per richiedere tipi di transito, agenzie di transito, avvisi attivi e dettagli aggiuntivi per la metropolitana scelta. È anche possibile richiedere le aree e i metroID di metro supportati. Gli ID area metro sono soggetti a modifiche.
 
 **metroID:** 522 **Nome:** Seattle-Tacoma-Bellevue
 

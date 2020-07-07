@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546509"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
@@ -104,7 +104,7 @@ Quando si avvia un failover di test, non includere tutti i controller di dominio
 
 A partire da Windows Server 2012, [misure di sicurezza aggiuntive sono integrate in Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Queste misure di sicurezza consentono di proteggere i controller di dominio virtualizzati dai rollback di numero di sequenza di aggiornamento (USN) se la piattaforma hypervisor sottostante supporta **VM-generazione**. Azure supporta **VM-GenerationID**, perciò nei controller di dominio che eseguono Windows Server 2012 o una versione successiva in macchine virtuali di Azure sono presenti queste misure di sicurezza aggiuntive.
 
-Quando **VM-GenerationID** viene reimpostato, viene reimpostato anche il valore **InvocationID** del database di Active Directory Domain Services. Inoltre, il pool di ID relativo (RID) viene eliminato e `SYSVOL` la cartella è contrassegnata come non autorevole. Per ulteriori informazioni, vedere [Introduzione alla virtualizzazione di Active Directory Domain Services](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e virtualizzazione in [modo sicuro file System distribuito replica (DFSR)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671).
+Quando **VM-GenerationID** viene reimpostato, viene reimpostato anche il valore **InvocationID** del database di Active Directory Domain Services. Inoltre, il pool di ID relativo (RID) viene eliminato e la `SYSVOL` cartella è contrassegnata come non autorevole. Per ulteriori informazioni, vedere [Introduzione alla virtualizzazione di Active Directory Domain Services](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e virtualizzazione in [modo sicuro file System distribuito replica (DFSR)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671).
 
 Il failover in Azure potrebbe provocare la reimpostazione di **VM-GenerationID**. La reimpostazione di **VM-GenerationID** attiva misure di sicurezza aggiuntive quando la macchina virtuale controller di dominio viene avviata in Azure. Questo potrebbe causare un ritardo significativo nella possibilità di accedere alla macchina virtuale del controller di dominio.
 
@@ -124,7 +124,7 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 
   :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Modifica ID chiamata":::
 
-- `SYSVOL`la cartella `NETLOGON` e le condivisioni non sono disponibili.
+- `SYSVOL`la cartella e le `NETLOGON` condivisioni non sono disponibili.
 
   :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Condivisione cartella SYSVOL":::
 
@@ -139,7 +139,7 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 > [!IMPORTANT]
 > Alcune configurazioni descritte in questa sezione non sono le configurazioni di controller di dominio standard o predefinite. Se non si vuole apportare queste modifiche a un controller di dominio in produzione, è possibile creare un controller di dominio dedicato per il failover di test di Site Recovery. Apportare le modifiche solo a quel controller di dominio dedicato.
 
-1. Al prompt dei comandi eseguire il comando seguente per verificare se `SYSVOL` la cartella e `NETLOGON` la cartella sono condivise:
+1. Al prompt dei comandi eseguire il comando seguente per verificare se la `SYSVOL` cartella e la `NETLOGON` cartella sono condivise:
 
     `NET SHARE`
 
@@ -181,7 +181,7 @@ Se le condizioni precedenti sono soddisfatte, è probabile che il controller di 
 
 Se si esegue il controller di dominio e il DNs nella stessa macchina virtuale, è possibile ignorare questa procedura.
 
-Se DNS non è presente nella stessa macchina virtuale del controller di dominio, è necessario creare una VM DNS per il failover di test. È possibile usare un server DNS nuovo e creare tutte le zone necessarie. Ad esempio, se il dominio Active Directory è `contoso.com`, è possibile creare una zona DNS con il nome `contoso.com`. Le voci corrispondenti a Active Directory devono essere aggiornate in DNS, come segue:
+Se DNS non è presente nella stessa macchina virtuale del controller di dominio, è necessario creare una VM DNS per il failover di test. È possibile usare un server DNS nuovo e creare tutte le zone necessarie. Ad esempio, se il dominio Active Directory è `contoso.com` , è possibile creare una zona DNS con il nome `contoso.com` . Le voci corrispondenti a Active Directory devono essere aggiornate in DNS, come segue:
 
 1. Verificare che queste impostazioni siano state definite prima che venga avviata qualsiasi altra macchina virtuale del piano di ripristino:
 

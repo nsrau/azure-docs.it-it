@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7a793ff35675c876dc429976ebee96887b12735a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335601"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere una forma a una mappa usando Azure Maps Android SDK
@@ -28,7 +28,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
 
 È possibile aggiungere una linea alla mappa utilizzando un **livello linea**, attenersi alla procedura seguente per aggiungere una riga sulla mappa.
 
-1. Modificare il **layout res > > activity_main. XML** in modo che abbia un aspetto simile al seguente:
+1. Modificare il **layout res > > activity_main.xml** in modo che sia simile a quello riportato di seguito:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -78,7 +78,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     
     Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Viene quindi creato un elenco di oggetti **punto** . Un **LineString** viene creato dall'elenco di punti e aggiunto all'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati sulla mappa. Viene quindi creato un livello linea a cui viene aggiunta l'origine dati.
 
-    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
+    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
     
     ```Java
     package com.example.myapplication;
@@ -185,7 +185,7 @@ Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come il
 
 Il **livello poligono** consente di eseguire il rendering dell'area del poligono sulla mappa. Attenersi alla procedura seguente per aggiungere un poligono sulla mappa.
 
-1. Modificare il **layout res > > activity_main. XML** in modo che abbia un aspetto simile al seguente:
+1. Modificare il **layout res > > activity_main.xml** in modo che sia simile a quello riportato di seguito:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -240,7 +240,7 @@ Il **livello poligono** consente di eseguire il rendering dell'area del poligono
 
     Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Un oggetto **poligono** viene quindi creato da un elenco di oggetti **Point** e viene aggiunto all'origine dati. Un **livello poligono** esegue il rendering dei dati incapsulati nell'origine dati sulla mappa. Viene quindi creato un livello poligono per eseguire il rendering dell'area del poligono e viene aggiunta l'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati. L'ultima parte del frammento di codice crea un livello linea per il rendering del contorno del poligono e l'aggiunta dell'origine dati.
 
-    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
+    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
 
     ```Java
     package com.example.myapplication;
@@ -358,7 +358,7 @@ Se l'applicazione viene eseguita adesso, nella mappa dovrebbe essere visualizzat
 Per aggiungere altri dati alla mappa:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](how-to-add-symbol-to-android-map.md)
+> [Aggiungere un livello per i simboli](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i riquadri](how-to-add-tile-layer-android-map.md)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298344"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
@@ -114,10 +114,10 @@ Per ottenere il gateway Log Analytics dal portale di Azure, seguire questa proce
  
    ![Screenshot dei passaggi per scaricare il gateway Log Analytics](./media/gateway/download-gateway.png)
 
-o 
+oppure 
 
 1. Nel pannello dell'area di lavoro in **Impostazioni** selezionare **Impostazioni avanzate**.
-1. Passare a **origini** > connesse**server Windows** e selezionare **Scarica log Analytics gateway**.
+1. Passare a **origini connesse**  >  **server Windows** e selezionare **Scarica log Analytics gateway**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Installare Log Analytics gateway mediante installazione guidata
 
@@ -260,13 +260,13 @@ Per configurare l'integrazione, aggiornare la configurazione del proxy di sistem
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-Dopo aver completato l'integrazione con Log Analytics, rimuovere la modifica eseguendo `netsh winhttp reset proxy`. Quindi, nella console operatore, utilizzare l'opzione **Configura server proxy** per specificare il server gateway log Analytics. 
+Dopo aver completato l'integrazione con Log Analytics, rimuovere la modifica eseguendo `netsh winhttp reset proxy` . Quindi, nella console operatore, utilizzare l'opzione **Configura server proxy** per specificare il server gateway log Analytics. 
 
 1. Nella console di Operations Manager, in **Operations Management Suite**, selezionare **connessione**, quindi fare clic su **Configura server proxy**.
 
    ![Screenshot del Operations Manager, che mostra la selezione configurare il server proxy](./media/gateway/scom01.png)
 
-1. Selezionare **Usa un server proxy per accedere a Operations Management Suite** e quindi immettere l'indirizzo IP del server gateway log Analytics o dell'indirizzo IP virtuale del servizio di bilanciamento del carico. Prestare attenzione a iniziare con il prefisso `http://`.
+1. Selezionare **Usa un server proxy per accedere a Operations Management Suite** e quindi immettere l'indirizzo IP del server gateway log Analytics o dell'indirizzo IP virtuale del servizio di bilanciamento del carico. Prestare attenzione a iniziare con il prefisso `http://` .
 
    ![Screenshot di Operations Manager, che mostra l'indirizzo del server proxy](./media/gateway/scom02.png)
 
@@ -288,7 +288,7 @@ Per configurare server o gruppi specifici per l'utilizzo del server gateway Log 
 1. Nel campo **Cerca** immettere **servizio integrità** e selezionarlo dall'elenco. Selezionare **OK**.  
 1. Cercare la **regola di impostazione proxy di Advisor**. 
 1. Sulla barra degli strumenti Operations Manager selezionare **sostituzioni** , quindi scegliere **Sostituisci Rule\For un oggetto specifico della classe: servizio integrità** e selezionare un oggetto dall'elenco.  In alternativa, creare un gruppo personalizzato che contenga l'oggetto servizio integrità dei server a cui si desidera applicare la sostituzione. Applicare quindi la sostituzione al gruppo personalizzato.
-1. Nella finestra di dialogo **proprietà di sostituzione** aggiungere un segno di spunta nella colonna **sostituzione** accanto al parametro **WebProxyAddress** .  Nel campo **valore di sostituzione** immettere l'URL del server gateway log Analytics. Prestare attenzione a iniziare con il prefisso `http://`.  
+1. Nella finestra di dialogo **proprietà di sostituzione** aggiungere un segno di spunta nella colonna **sostituzione** accanto al parametro **WebProxyAddress** .  Nel campo **valore di sostituzione** immettere l'URL del server gateway log Analytics. Prestare attenzione a iniziare con il prefisso `http://` .  
 
     >[!NOTE]
     > Non è necessario attivare la regola. Questa funzione è già gestita automaticamente con una sostituzione nel riferimento protetto di Microsoft System Center Advisor Management Pack che è destinato al gruppo di server di monitoraggio di Microsoft System Center Advisor.
@@ -305,13 +305,13 @@ Vedere la sezione [configurare la rete](../../automation/automation-hybrid-runbo
 
 Se il computer è registrato automaticamente come ruolo di lavoro ibrido per Runbook, ad esempio se la soluzione Gestione aggiornamenti è abilitata per una o più macchine virtuali, attenersi alla procedura seguente:
 
-1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Riavviare il servizio gateway di Log Analytics usando il cmdlet di PowerShell seguente: `Restart-Service OMSGatewayService`
 
 Se il computer è stato aggiunto ad automazione di Azure usando il cmdlet di registrazione del ruolo di lavoro ibrido per Runbook, seguire questa procedura:
 
-1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Riavviare il servizio gateway di Log Analytics.
     `Restart-Service OMSGatewayService`
 
@@ -327,10 +327,10 @@ Se il computer è stato aggiunto ad automazione di Azure usando il cmdlet di reg
 
 Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore potrebbe verificarsi quando PowerShell non riesce a trovare il modulo. Il modulo è reperibile nel percorso di installazione del gateway OMS: c:\Programmi\Microsoft *OMS Gateway\PowerShell\OmsGateway*.
 
-| **Cmdlet** | **Parametri** | **Descrizione** | **Esempio** |
+| **Cmdlet** | **Parameters** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayConfig` |Codice |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password (stringa sicura) |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Ottiene l'host attualmente consentito (solo l'host consentito configurato localmente, non gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 

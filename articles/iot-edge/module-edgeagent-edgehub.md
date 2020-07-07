@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546196"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Proprietà dei moduli gemelli "agente di IoT Edge" e "hub di IoT Edge"
@@ -53,8 +53,8 @@ Il dispositivo gemello del modulo per l'agente di IoT Edge è denominato `$edgeA
 | modules.{moduleId}.version | Una stringa definita dall'utente che rappresenta la versione di questo modulo. | Sì |
 | modules.{moduleId}.type | Deve essere "docker" | Sì |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sì |
-| modules.{moduleId}.restartPolicy | {"Never" \| "on-failure \| " "on-unhealthy" \| "Always"} | Sì |
-| moduli. {moduleId}. imagePullPolicy | {"on-create" \| "mai"} | No |
+| modules.{moduleId}.restartPolicy | {"mai" \| "on-failure" \| "on-unhealthy" \| "Always"} | Sì |
+| moduli. {moduleId}. imagePullPolicy | {"in-create" \| "mai"} | No |
 | moduli. {moduleId}. env | Elenco di variabili di ambiente da passare al modulo. Accetta il formato`"<name>": {"value": "<value>"}` | No |
 | modules.{moduleId}.settings.image | URI dell'immagine del modulo. | Sì |
 | modules.{moduleId}.settings.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore del modulo. [Opzioni di creazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |

@@ -15,16 +15,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295433"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è possibile eseguire l'autenticazione in uno di due modi:
 
@@ -124,7 +124,7 @@ Per ottenere le informazioni, seguire questa procedura:
 
 Questa sezione mostra come usare **Postman** per eseguire un'API REST che restituisce un token di connessione JWT (token di accesso). Per chiamare le API REST di Servizi multimediali, è necessario aggiungere l'intestazione "Authorization" alle chiamate e aggiungere il valore "Bearer *your_access_token*" a ciascuna chiamata, come mostrato nella prossima sezione dell'esercitazione. 
 
-1. Aprire **Postman**.
+1. Apri il **post**.
 2. Selezionare **POST**.
 3. Immettere l'URL che include il nome di tenant usando il formato seguente: il nome del tenant deve terminare con **.onmicrosoft.com** e l'URL con **oauth2/token**: 
 
@@ -162,7 +162,7 @@ La risposta restituita contiene il **token di accesso** da usare per accedere al
 
 Questa sezione mostra come accedere alle API **Assets** tramite **Postman**.
 
-1. Aprire **Postman**.
+1. Apri il **post**.
 2. Selezionare **GET**.
 3. Incollare l'endpoint dell'API REST, ad esempio https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selezionare la scheda **Autorizzazione**. 
