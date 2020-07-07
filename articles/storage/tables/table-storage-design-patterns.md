@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529340"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
@@ -101,7 +101,7 @@ I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ri
 
 Se si esegue una query su un intervallo di entità dipendente, è possibile specificare un intervallo ordinato per ID dipendente o un intervallo ordinato per indirizzo di posta elettronica eseguendo la query sulle entità con il prefisso appropriato in **RowKey**.  
 
-* Per trovare tutti i dipendenti del reparto vendite con un ID dipendente nell'intervallo compreso tra **000100** e **000199** ordinati in base all'ID dipendente, usare: $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
+* Per trovare tutti i dipendenti del reparto vendite con un ID dipendente compreso nell'intervallo da **000100** a **000199** ordinati nell'ordine di utilizzo ID dipendente: $Filter = (PartitionKey EQ ' empid_Sales ') e (RowKey GE ' 000100') e (RowKey le ' 000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con 'a' ordinato in base all’indirizzo di posta elettronica utilizzare: $filter = (PartitionKey eq ' email_Sales') e (RowKey ge 'a') e (RowKey lt "b")  
 
 La sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
@@ -155,7 +155,7 @@ In questo esempio, il passaggio 4 inserisce il dipendente nella tabella dei dipe
 ### <a name="recovering-from-failures"></a>Ripristino da errori
 È importante che le operazioni nei passaggi **4** e **5** siano *idempotenti* nei casi in cui il ruolo di lavoro deve riavviare l'operazione di archiviazione. Se si sta usando il servizio tabelle, per il passaggio **4** è consigliabile usare un'operazione "insert or replace"; per il passaggio **5** è consigliabile usare un'operazione "delete if exists" nella libreria client in uso. Se si sta usando un altro sistema di archiviazione, è consigliabile usare un'operazione idempotente appropriata.  
 
-Se il ruolo di lavoro non completa mai il passaggio **6**, dopo un timeout il messaggio ricompare nella coda, pronto per una nuova elaborazione da parte del ruolo di lavoro. Il ruolo di lavoro può controllare quante volte un messaggio nella coda è stato letto e, se necessario, contrassegnarlo come messaggio non elaborabile da analizzare inviandolo a una coda separata. Per altre informazioni sulla lettura dei messaggi in coda e la verifica del numero di rimozioni dalla coda, vedere [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se il ruolo di lavoro non completa mai il passaggio **6**, dopo un timeout il messaggio ricompare nella coda, pronto per una nuova elaborazione da parte del ruolo di lavoro. Il ruolo di lavoro può controllare quante volte un messaggio nella coda è stato letto e, se necessario, contrassegnarlo come messaggio non elaborabile da analizzare inviandolo a una coda separata. Per ulteriori informazioni sulla lettura dei messaggi della coda e la verifica del numero di rimozione dalla coda, vedere [Get messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
 Alcuni errori del servizio tabelle e del servizio di accodamento sono temporanei e l'applicazione client deve includere la logica di ripetizione dei tentativi appropriata per gestirli.  
 
@@ -191,17 +191,17 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Se si desidera poter recuperare un elenco di entità dipendente anche in base al valore di un'altra proprietà non univoca, ad esempio il cognome, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza piuttosto che usare un indice per la ricerca diretta. Il motivo è che il servizio tabelle non fornisce indici secondari.  
 
 ### <a name="solution"></a>Soluzione
-Per abilitare la ricerca in base al cognome con la struttura di entità illustrata in precedenza, è necessario gestire gli elenchi di ID dipendente. Se si desidera recuperare le entità Employee con un cognome specifico, ad esempio Jones, è necessario innanzitutto individuare l'elenco di ID dipendente per i dipendenti con Jones come cognome e recuperare tali entità Employee. Sono disponibili tre opzioni principali per archiviare gli elenchi di ID dipendente:  
+Per abilitare la ricerca in base al cognome con la struttura di entità illustrata in precedenza, è necessario gestire gli elenchi di ID dipendente. Per recuperare le entità dipendente con un determinato cognome, ad esempio Jones, è necessario innanzitutto individuare l'elenco di ID relativi ai dipendenti con il cognome Jones e quindi recuperare tali entità dipendente. Per l'archiviazione degli elenchi di ID dipendente sono disponibili tre opzioni principali:  
 
 * Usare l'archiviazione BLOB.  
 * Creare entità di indice nella stessa partizione delle entità dipendente.  
 * Creare entità di indice in una tabella o una partizione separata.  
 
-<u>Opzione 1: usare l'archiviazione BLOB</u>  
+<u>Opzione #1: usare l'archiviazione BLOB</u>  
 
 Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e archiviare in ogni BLOB un elenco dei valori **PartitionKey** (reparto) e **RowKey** (ID dipendente) per i dipendenti con questo cognome. Quando si aggiunge o elimina un dipendente, è necessario verificare la coerenza finale tra il contenuto del BLOB pertinente e le entità dipendente.  
 
-<u>Opzione 2:</u> creare entità di indice nella stessa partizione  
+<u>#2 opzioni:</u> Creare entità di indice nella stessa partizione  
 
 Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:  
 
@@ -223,7 +223,7 @@ I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipend
 2. Analizzare l'elenco di ID dipendente nel campo EmployeeIDs.  
 3. Se sono necessarie informazioni aggiuntive su ognuno dei dipendenti (ad esempio gli indirizzi e-mail), recuperare ognuna delle entità dipendente usando il valore **PartitionKey** "Sales" e i valori **RowKey** dall'elenco dei dipendenti ottenuti nel passaggio 2.  
 
-<u>Opzione 3:</u> creare entità di indice in una tabella o una partizione separata  
+<u>#3 opzioni:</u> Creare entità di indice in una partizione o in una tabella separata  
 
 Per la terza opzione, usare entità di indice che archiviano i dati seguenti:  
 
@@ -232,7 +232,7 @@ Per la terza opzione, usare entità di indice che archiviano i dati seguenti:
 
 La proprietà **employeeids** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
-Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare che le entità di indice siano coerenti con le entità Employee.  
+Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare la coerenza finale tra le entità indice e le entità dipendente.  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -244,7 +244,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * È possibile implementare una soluzione basata su code che garantisca coerenza finale. Per altri dettagli, vedere [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern).  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
-Utilizzare questo modello quando si desidera cercare un set di entità che condividono tutti un valore di proprietà comune, ad esempio tutti i dipendenti con il cognome Jones.  
+Usare questo criterio quando si desidera cercare un set di entità che condividono un valore della proprietà comune, ad esempio tutti i dipendenti con il cognome Jones.  
 
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable è un oggetto CloudTable che implementa un metodo CreateQuery\<ITableEntity> () che restituisce un> TableQuery\<ITableEntity. Gli oggetti di questo tipo implementano un oggetto IQueryable e consentono l'utilizzo di espressioni di query LINQ e della sintassi della notazione del punto.
+EmployeeTable è un oggetto CloudTable che implementa un metodo CreateQuery \<ITableEntity> () che restituisce un TableQuery \<ITableEntity> . Gli oggetti di questo tipo implementano un oggetto IQueryable e consentono l'utilizzo di espressioni di query LINQ e della sintassi della notazione del punto.
 
 Il recupero di più entità e l'ottenimento mediante la specifica di una query con una clausola **where** . Per evitare un'analisi di tabella, è consigliabile includere sempre il valore **PartitionKey** nella clausola where e, se possibile, il valore **RowKey** per evitare analisi di tabelle e partizioni. Il servizio tabelle supporta un set limitato di operatori di confronto (maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a) da usare per determinare la clausola where. 
 
@@ -633,7 +633,7 @@ Una query ottimale restituisce una singola entità in base a un valore **Partiti
 
 È sempre necessario eseguire test completi delle prestazioni dell'applicazione in tali scenari.  
 
-Una query sul servizio tabelle può restituire un massimo di 1.000 entità contemporaneamente e può essere eseguita per un massimo di cinque secondi. Se il set di risultati contiene più di 1.000 entità, nel caso in cui la query non venga completata entro cinque secondi, o se la query supera il limite della partizione, il servizio tabelle restituisce un token di continuazione per consentire all'applicazione client di richiedere il successivo set di entità. Per altre informazioni sul funzionamento dei token di continuazione, vedere [Timeout e paginazione delle query](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Una query sul servizio tabelle può restituire un massimo di 1.000 entità contemporaneamente e può essere eseguita per un massimo di cinque secondi. Se il set di risultati contiene più di 1.000 entità, nel caso in cui la query non venga completata entro cinque secondi, o se la query supera il limite della partizione, il servizio tabelle restituisce un token di continuazione per consentire all'applicazione client di richiedere il successivo set di entità. Per ulteriori informazioni sul funzionamento dei token di continuazione, vedere [timeout e paginazione delle query](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 La libreria client di archiviazione può gestire automaticamente i token di continuazione per l'utente mentre restituisce entità dal servizio tabelle. L'esempio di codice C# seguente che usa la libreria client di archiviazione gestisce automaticamente i token di continuazione se il servizio tabelle li restituisce in una risposta:  
 
@@ -742,7 +742,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -762,7 +762,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -799,7 +799,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -835,7 +835,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -857,7 +857,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -898,7 +898,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Posta elettronica</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1128,5 +1128,5 @@ L'applicazione client può chiamare più metodi asincroni come questo e ogni chi
 
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Progettazione per le query](table-storage-design-for-query.md)
-- [Crittografia dei dati di tabella](table-storage-design-encrypt-data.md)
+- [Crittografia dei dati della tabella](table-storage-design-encrypt-data.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

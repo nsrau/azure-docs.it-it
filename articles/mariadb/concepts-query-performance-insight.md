@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79527845"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Informazioni dettagliate sulle prestazioni delle query nel Database di Azure per MariaDB
@@ -26,10 +26,10 @@ Informazioni dettagliate prestazioni query consente di identificare rapidamente 
 - Identificazione delle query con il tempo di esecuzione più lungo nelle ultime X ore
 - Identificazione delle prime N query in attesa delle risorse
  
-### <a name="wait-statistics"></a>Statistiche attesa
+### <a name="wait-statistics"></a>Statistiche di attesa
 
-- Informazioni sulla natura delle attese per una query
-- Informazioni sulle tendenze per le attese di risorse e su dove esiste la contesa di risorse
+- Informazioni sulla natura dell'attesa per le query
+- Informazioni sulle tendenze per le attese di risorse e su dove esiste il conflitto di risorse
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -47,24 +47,24 @@ Nella pagina del portale del database di Azure per il server MariaDB selezionare
 
 ### <a name="long-running-queries"></a>Query a esecuzione prolungata
 
-La scheda **query con esecuzione prolungata** Mostra le prime 5 query per durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando l'elenco a discesa **numero di query** . I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
+La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando **Numero di query** nell'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
-È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone zoom avanti e indietro per visualizzare rispettivamente un periodo di tempo più piccolo o più grande.
+È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone di ingrandimento e riduzione per visualizzare rispettivamente un intervallo di tempo superiore o inferiore.
 
 ![Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-### <a name="wait-statistics"></a>Statistiche attesa 
+### <a name="wait-statistics"></a>Statistiche di attesa 
 
 > [!NOTE]
-> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarla solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure "*problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
+> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure "*problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
 
-Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento Wait, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
+Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento di attesa, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
 Selezionare la scheda **Statistiche di attesa** per visualizzare le corrispondenti visualizzazioni in attesa nel server.
 
-Le query visualizzate nella visualizzazione delle statistiche di attesa sono raggruppate in base alle query che mostrano le attese più grandi durante l'intervallo di tempo specificato.
+Le query visualizzate nelle statistiche di attesa sono raggruppate in base a quelle che mostrano le attese più lunghe durante l'intervallo di tempo specificato.
 
-![Informazioni dettagliate prestazioni query attese statistiche](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Statistiche di attesa di Informazioni dettagliate prestazioni query](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

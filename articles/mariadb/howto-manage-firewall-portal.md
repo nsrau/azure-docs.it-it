@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530666"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire le regole del firewall di Database di Azure per MariaDB con il portale di Azure
@@ -49,10 +49,10 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Gestire regole del firewall esistenti nel portale di Azure
 Ripetere i passaggi per gestire le regole del firewall.
-* Per aggiungere il computer corrente, fare clic su **+ Aggiungi indirizzo IP corrente**. Fare clic su **Salva** per salvare le modifiche.
-* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. Fare clic su **Salva** per salvare le modifiche.
-* Per modificare una regola esistente, fare clic su uno dei campi nella regola e inserire la modifica. Fare clic su **Salva** per salvare le modifiche.
-* Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. Fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere il computer corrente, fare clic su **+ Aggiungi indirizzo IP corrente**. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per modificare una regola esistente, fare clic su uno dei campi nella regola e inserire la modifica. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. È consigliabile fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
  - Analogamente, è possibile creare uno script per [creare e gestire regole del firewall di database di Azure per MariaDB usando l'interfaccia della riga](howto-manage-firewall-cli.md)di comando

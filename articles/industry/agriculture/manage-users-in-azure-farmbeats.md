@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79502056"
 ---
 # <a name="manage-users"></a>Gestire gli utenti
@@ -69,7 +69,7 @@ Attenersi alla procedura per aggiungere utenti a Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. In alto a destra selezionare l'account e quindi passare al tenant Azure AD associato a FarmBeats.
-3. Selezionare **Azure Active Directory** > **utenti**.
+3. Selezionare gli **utenti** di  > **Azure Active Directory**.
 
     Viene visualizzato un elenco di Azure AD utenti.
 

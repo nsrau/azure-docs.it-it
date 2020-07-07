@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79503127"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Configurare le impostazioni del proxy del servizio Mobility per il ripristino di emergenza da Azure ad Azure
@@ -51,8 +51,8 @@ Il servizio Mobility rileva automaticamente le impostazioni del proxy dalle impo
 In questo caso, il cliente fornisce impostazioni personalizzate del proxy dell'applicazione nel file di configurazione del servizio Mobility ProxyInfo. conf. Questo metodo consente ai clienti di fornire il proxy solo per il servizio Mobility o un proxy diverso per Azure Site Recovery servizio Mobility rispetto a un proxy (o nessun proxy) per le altre applicazioni nel computer.
 
 ## <a name="proxy-template"></a>Modello proxy
-ProxyInfo. conf contiene il modello seguente [proxy] Address =http://1.2.3.4 Port = 5678 bypass = hypervrecoverymanager. WindowsAzure. com, login. microsoftonline. com, BLOB. Core. Windows. NET. L'oggetto bypass non supporta i caratteri jolly, ad esempio ' *. windows.net ', ma la concessione di windows.net è abbastanza efficace per il bypass. 
+ProxyInfo. conf contiene il modello seguente [proxy] Address = http://1.2.3.4 Port = 5678 bypass = hypervrecoverymanager. WindowsAzure. com, login. microsoftonline. com, BLOB. Core. Windows. NET. L'oggetto bypass non supporta i caratteri jolly, ad esempio ' *. windows.net ', ma la concessione di windows.net è abbastanza efficace per il bypass. 
 
 ## <a name="next-steps"></a>Passaggi successivi:
-- Leggere le [linee guida sulla rete](site-recovery-azure-to-azure-networking-guidance.md) per la replica di macchine virtuali di Azure.
+- Leggere il [materiale sussidiario per la rete](site-recovery-azure-to-azure-networking-guidance.md) per la replica delle macchine virtuali di Azure.
 - Distribuire il ripristino di emergenza [replicando le macchine virtuali di Azure](site-recovery-azure-to-azure.md).
