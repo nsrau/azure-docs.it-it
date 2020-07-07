@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come usare PowerShell per di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756046"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611663"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -73,8 +73,8 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene configurato un cluster 
 * Protezione con certificato (configurabile nei parametri del modello).
 * [Proxy inverso](service-fabric-reverseproxy.md) abilitato.
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato.
-* [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello).
-* [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello).
+* [Livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello).
+* [Livello di affidabilità](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello).
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello).
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello).
 

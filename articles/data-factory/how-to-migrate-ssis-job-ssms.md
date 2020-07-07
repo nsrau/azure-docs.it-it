@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82627586"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Eseguire la migrazione di processi SQL Server Agent ad ADF con SSMS
@@ -33,9 +33,9 @@ In generale, per i processi di SQL Agent selezionati con i tipi di passaggio di 
 
 |Oggetto processo di SQL Agent  |Risorsa ADF  |Note|
 |---------|---------|---------|
-|Processo di SQL Agent|pipeline     |Il nome della pipeline verrà *generato per \<il nome del processo>*. <br> <br> I processi di Agent predefiniti non sono applicabili: <li> Processo di manutenzione del server SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
-|Passaggio del processo SSIS|Attività Esegui pacchetto SSIS|<li> Il nome dell'attività sarà il \<nome del passaggio>. <li> Verrà eseguita la migrazione dell'account proxy utilizzato nel passaggio del processo come autenticazione di Windows per questa attività. <li> Le *Opzioni di esecuzione eccetto l'* uso del runtime a *32 bit* definito nel passaggio del processo verranno ignorate durante la migrazione. <li> La *Verifica* definita nel passaggio del processo verrà ignorata nella migrazione.|
-|schedule      |trigger pianifica        |Il nome del trigger di pianificazione verrà *generato per \<nome pianificazione>*. <br> <br> Le opzioni seguenti nella pianificazione del processo di SQL Agent verranno ignorate durante la migrazione: <li> Intervallo di secondo livello. <li> *Avvia automaticamente all'avvio di SQL Server Agent* <li> *Avvia quando la CPU risulta inattiva* <li> giorno della *settimana e* *giorno festivo*<time zone> <br> Di seguito sono riportate le differenze dopo la migrazione della pianificazione del processo di SQL Agent al trigger di pianificazione di ADF: <li> L'esecuzione successiva del trigger di pianificazione di ADF è indipendente dallo stato di esecuzione dell'esecuzione avviata dall'attività precedente. <li> La configurazione della ricorrenza del trigger di pianificazione di ADF è diversa dalla frequenza giornaliera nel processo di SQL Agent.|
+|Processo di SQL Agent|pipeline     |Nome della pipeline *per \<job name> *cui verrà generato il. <br> <br> I processi di Agent predefiniti non sono applicabili: <li> Processo di manutenzione del server SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|Passaggio del processo SSIS|Attività Esegui pacchetto SSIS|<li> Il nome dell'attività sarà \<step name> . <li> Verrà eseguita la migrazione dell'account proxy utilizzato nel passaggio del processo come autenticazione di Windows per questa attività. <li> Le *Opzioni di esecuzione eccetto l'* uso del runtime a *32 bit* definito nel passaggio del processo verranno ignorate durante la migrazione. <li> La *Verifica* definita nel passaggio del processo verrà ignorata nella migrazione.|
+|schedule      |trigger pianifica        |Nome del trigger di pianificazione che verrà *generato per \<schedule name> *. <br> <br> Le opzioni seguenti nella pianificazione del processo di SQL Agent verranno ignorate durante la migrazione: <li> Intervallo di secondo livello. <li> *Avvia automaticamente all'avvio di SQL Server Agent* <li> *Avvia quando la CPU risulta inattiva* <li> giorno della *settimana e* *giorno festivo*<time zone> <br> Di seguito sono riportate le differenze dopo la migrazione della pianificazione del processo di SQL Agent al trigger di pianificazione di ADF: <li> L'esecuzione successiva del trigger di pianificazione di ADF è indipendente dallo stato di esecuzione dell'esecuzione avviata dall'attività precedente. <li> La configurazione della ricorrenza del trigger di pianificazione di ADF è diversa dalla frequenza giornaliera nel processo di SQL Agent.|
 
 - generare modelli di Azure Resource Manager (ARM) nella cartella di output locale e distribuirli in data factory manualmente o in un secondo momento. Per ulteriori informazioni sui modelli di Gestione risorse ADF, vedere [tipi di risorse Microsoft. DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
@@ -57,8 +57,8 @@ La funzionalità descritta in questo articolo richiede SQL Server Management Stu
     1. Aggiornare il percorso della cartella di origine. I percorsi validi sono percorsi di cartelle o percorsi di cartelle padre dei pacchetti.
     1. Aggiornare il percorso della cartella di destinazione. Il valore predefinito è il percorso relativo dell'account di archiviazione predefinito, selezionato nel passaggio 1.
     1. Elimina un mapping selezionato tramite **Elimina mapping**.
-![](media/how-to-migrate-ssis-job-ssms/step2.png)
-![-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ ° passo-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Selezionare i processi applicabili da migrare e configurare le impostazioni relative all' *attività del pacchetto SSIS eseguita*corrispondente.
 

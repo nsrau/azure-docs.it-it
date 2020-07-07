@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613286"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
@@ -39,15 +39,15 @@ Per collegare FarmBeats, è necessario usare le credenziali seguenti nel softwar
 
 ## <a name="api-development"></a>Sviluppo di API
 
-Le API contengono la documentazione tecnica di spavalderia. Per informazioni sulle API e sulle richieste o risposte corrispondenti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
+Le API contengono la documentazione tecnica di Swagger. Per informazioni sulle API e sulle richieste o risposte corrispondenti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## <a name="authentication"></a>Authentication
 
-FarmBeats USA Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure ad). App Azure servizio fornisce supporto predefinito per l'autenticazione e l'autorizzazione. 
+FarmBeats USA Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure ad).  Il Servizio app di Azure offre supporto di autorizzazione e autenticazione integrato. 
 
 Per altre informazioni su Azure AD, vedere [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
-FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti:
+FarmBeats Datahub usa l'autenticazione con token di connessione, che richiede le credenziali seguenti:
 
 - ID client
 - Segreto client
@@ -87,13 +87,13 @@ access_token = token_response.get('access_token')
 
 ## <a name="http-request-headers"></a>Intestazioni di richiesta HTTP
 
-Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats datahub.
+Di seguito sono riportate le intestazioni di richiesta di uso più frequente che devono essere specificate quando si effettua una chiamata API a FarmBeats Datahub.
 
 **Intestazione** | **Descrizione ed esempio**
 --- | ---
-Content-Type  | Formato della richiesta (Content-Type: Application/<format>). Per le API datahub di FarmBeats, il formato è JSON. Content-Type: application/json
-Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer <Access-token>
-Accept  | Formato della risposta. Per le API datahub di FarmBeats, il formato è JSON. Accept: Application/JSON
+Content-Type  | Formato della richiesta (Content-Type: application/<format>). Il formato per l’API FarmBeats Datahub è JSON. Content-Type: application/json
+Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Authorization: Bearer <Access-Token>
+Accept  | Formato della risposta. Il formato per l’API FarmBeats Datahub è JSON. Accept: application/json
 
 
 ## <a name="api-requests"></a>Richieste API
@@ -105,7 +105,7 @@ Per eseguire una richiesta API REST, combinare:
 - URI della risorsa (per eseguire query, inviare dati, aggiornare o eliminare).
 - Una o più intestazioni della richiesta HTTP.
 
-Facoltativamente, è possibile includere i parametri di query sulle chiamate GET da filtrare, limitare le dimensioni e ordinare i dati nelle risposte.
+Facoltativamente, è possibile includere parametri di query sulle chiamate GET da filtrare, di cui limitare le dimensioni e ordinare i dati nelle risposte.
 
 La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
 
@@ -115,9 +115,9 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Authorization: Bearer <Access-Token>”
 ```
 
-Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della richiesta JSON.
+La maggior parte delle chiamate GET, POST e PUT richiede un corpo della richiesta in formato JSON.
 
-La richiesta di esempio seguente consiste nel creare un dispositivo. Questo esempio include un JSON di input con il corpo della richiesta.
+La seguente richiesta di esempio serve a creare un dispositivo. Questo esempio include un JSON di input con il corpo della richiesta.
 
 
 ```bash
@@ -130,7 +130,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 ## <a name="data-format"></a>Formato dati
 
-JSON è un formato di dati comune indipendente dal linguaggio che fornisce una semplice rappresentazione testuale di strutture di dati arbitrarie. Per altre informazioni, vedere l' [organizzazione JSON](https://JSON.org).
+JSON è un formato di dati comune indipendente dal linguaggio che offre una rappresentazione testuale semplice di strutture di dati arbitrarie. Per altre informazioni, vedere l' [organizzazione JSON](https://JSON.org).
 
 ## <a name="ingest-imagery-into-farmbeats"></a>Inserire immagini in FarmBeats
 

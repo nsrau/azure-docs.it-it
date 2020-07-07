@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561647"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564209"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware
 
@@ -145,7 +145,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
     Nella stessa pagina fare clic su **Add hard disk** (Aggiungi disco rigido) e quindi selezionare **Existing hard disk** (Disco rigido esistente). Selezionare il file VMDK nell'archivio dati. Verrà aggiunto un disco del sistema operativo. 
 
-     [Pagina per la personalizzazione delle impostazioni](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Pagina per la personalizzazione delle impostazioni](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Scorrere verso il basso fino all'elenco a discesa **New hard disk** (Nuovo disco rigido) ed espanderlo per visualizzare le impostazioni. Impostare **Virtual Device Node** (Nodo dispositivo virtuale) su **IDE controller 0** (Controller IDE 0).
 

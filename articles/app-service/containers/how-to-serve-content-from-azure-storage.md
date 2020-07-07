@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
 ms.openlocfilehash: 9a5a38ea32d927f50fb9ddbebe3e1c3533e6fcc0
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82625324"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
@@ -38,7 +38,7 @@ Questa guida illustra come aggiungere archiviazione di Azure al servizio app in 
 - Archiviazione di Azure **non è incluso** nell'app Web e fatturato separatamente. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]
-> Le configurazioni del servizio app che usano l'archiviazione BLOB di Azure diventeranno di sola lettura nel 2020 febbraio. [Altre informazioni](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
+> Le configurazioni del servizio app che usano l'archiviazione BLOB di Azure diventeranno di sola lettura nel 2020 febbraio. [Scopri di più](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
 >
 
 ## <a name="configure-your-app-with-azure-storage"></a>Configurare l'app con archiviazione di Azure
@@ -68,9 +68,9 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 ## <a name="use-azure-storage-in-docker-compose"></a>Usare archiviazione di Azure in Docker Compose
 
-Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list) .
 
-Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `custom-id`. Ad esempio:
+Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `custom-id` . Ad esempio:
 
 ```yaml
 wordpress:

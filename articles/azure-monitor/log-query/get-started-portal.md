@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80055577"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798256"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Esercitazione: Introduzione alle query di Log Analytics
 
@@ -37,6 +37,7 @@ Per completare la maggior parte dei passaggi di questa esercitazione, è possibi
 È anche possibile usare il proprio ambiente, se si usa Monitoraggio di Azure per raccogliere i dati di log in almeno una risorsa di Azure. Per aprire un'area di lavoro Log Analytics, selezionare **Log** nel riquadro di spostamento sinistro di Monitoraggio di Azure. 
 
 ## <a name="understand-the-schema"></a>Informazioni sullo schema
+ 
 Uno *schema* è una raccolta di tabelle raggruppate in categorie logiche. Lo schema dimostrativo presenta diverse categorie che provengono dalle soluzioni di monitoraggio. Ad esempio, la categoria **LogManagement** contiene eventi di Windows e Syslog, dati sulle prestazioni ed eventi heartbeat degli agenti.
 
 Le tabelle dello schema vengono visualizzate nella scheda **Tabelle** dell'area di lavoro Log Analytics. Le tabelle contengono le colonne, ognuna con un tipo di dati visualizzato dall'icona accanto al nome della colonna. Ad esempio, la tabella **Event** contiene colonne di testo come **Computer** e colonne numeriche come **EventCategory**.
@@ -50,6 +51,7 @@ Log Analytics viene aperto con una nuova query vuota nell'**Editor di query**.
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Scrivere una query
+
 Le query di log di Monitoraggio di Azure usano una versione del linguaggio di query Kusto. Le query possono iniziare con un nome di tabella o un comando [search](/azure/kusto/query/searchoperator). 
 
 La query seguente recupera tutti i record dalla tabella **Event**:
@@ -156,6 +158,7 @@ I risultati vengono visualizzati in un grafico a barre in pila. Selezionare altr
 È anche possibile impostare la visualizzazione preferita nella query stessa, usando l'operatore [render](/azure/kusto/query/renderoperator).
 
 ## <a name="pin-results-to-a-dashboard"></a>Aggiungere i risultati a un dashboard
+
 Per aggiungere una tabella o un grafico dei risultati da Log Analytics a un dashboard di Azure condiviso, selezionare **Aggiungi al dashboard** nella barra superiore. 
 
 ![Aggiungi al dashboard](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ Una tabella o un grafico aggiunto a un dashboard condiviso presenta le seguenti 
 - I grafici con molte categorie discrete raggruppano automaticamente le categorie meno popolate in un singolo contenitore **others**.
 
 ## <a name="save-load-or-export-queries"></a>Salvare, caricare o esportare query
+
 Quando si crea una query, è possibile salvare o condividere la query o i risultati con altri utenti. 
 
 ### <a name="save-queries"></a>Salvataggio delle query
+
 Per salvare una query:
 
 1. Selezionare **Salva** nella barra superiore.

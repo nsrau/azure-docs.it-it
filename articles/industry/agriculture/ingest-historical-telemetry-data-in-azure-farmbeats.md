@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613269"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
@@ -27,11 +27,11 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 
 È necessario abilitare l'integrazione dei partner nell'istanza di Azure FarmBeats. Questo passaggio crea un client che ha accesso all'istanza di Azure FarmBeats come partner del dispositivo e fornisce i valori seguenti, necessari nei passaggi successivi:
 
-- Endpoint API: si tratta dell'URL datahub, ad esempio https://\<datahub>. azurewebsites.NET
+- Endpoint API: si tratta dell'URL datahub, ad esempio https:// \<datahub> . azurewebsites.NET
 - ID tenant
 - ID client
 - Segreto client
-- Stringa di connessione EventHub
+- Stringa di connessione all’Hub eventi
 
 A tale scopo, seguire questa procedura:
 
@@ -42,7 +42,7 @@ A tale scopo, seguire questa procedura:
 
 2. **Se si utilizza FarmBeats versione 1.2.7 o successiva, ignorare i passaggi a, b e c e andare al passaggio 3.** È possibile controllare la versione di FarmBeats selezionando l'icona **delle impostazioni** nell'angolo superiore destro dell'interfaccia utente di FarmBeatsri.
 
-      a.  Passa a **Azure Active Directory** > **registrazioni** per l'app
+      a.  Passa a **Azure Active Directory**  >  **registrazioni** per l'app
 
       b. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
 
@@ -70,7 +70,7 @@ A tale scopo, seguire questa procedura:
 
     ```
 
-7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory** > pagina**Panoramica** .
+7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
 
     ```azurepowershell-interactive 
 
@@ -91,56 +91,56 @@ A tale scopo, seguire questa procedura:
  > I partner possono accedere solo per leggere, creare e aggiornare i metadati. **l'opzione Delete è limitata al partner.**
 
 - /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
-- /**Dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
+- /**Device**: Device corrisponde a un dispositivo fisico presente nella farm.
 - /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misura del sensore, ad esempio la temperatura e la pressione dell'ambiente.
-- /**Sensore**: il sensore corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
+- /**Sensor**: Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 
 
 |        DeviceModel   |  Suggerimenti   |
 | ------- | -------             |
-|     Tipo (nodo, gateway)        |          Tipo di dispositivo-nodo o gateway      |
+|     Type (node, gateway)        |          Tipo di dispositivo-nodo o gateway      |
 |          Produttore            |         Nome del produttore    |
-|  ProductCode                    |  Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor # 6800.  |
-|            Porte          |     Nome e tipo della porta, che è digitale o analogo.
-|     Nome                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
-      Descrizione     | Fornire una descrizione significativa del modello.
-|    Proprietà          |    Proprietà aggiuntive del produttore.   |
+|  ProductCode                    |  Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor#6800.  |
+|            Porte          |     Nome e tipo della porta, che può essere digitale o analoga.
+|     Nome                 |  Nome di identificazione della risorsa. Ad esempio, il nome del modello o il nome del prodotto.
+      Descrizione     | Inserire una descrizione significativa del modello.
+|    Proprietà          |    Proprietà aggiuntive inserite dal produttore.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato.  |
 |  HardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
-|  ReportingInterval        |   Intervallo di Reporting in secondi.
-|  Location            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).
-|ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
+|  ReportingInterval        |   L'intervallo di reporting in secondi.
+|  Location            |  Latitudine (tra -90 e +90), longitudine (tra -180 e 180) ed elevazione (in metri) del dispositivo.
+|ParentDeviceId       |    ID del dispositivo padre a cui è connesso questo dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
 |    Nome            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
-|     Descrizione       |      Fornire una descrizione significativa. |
-|     Proprietà    |  Proprietà aggiuntive del produttore.
+|     Descrizione       |      Specificare una descrizione significativa. |
+|     Proprietà    |  Proprietà aggiuntive inserite dal produttore.
 |     **SensorModel**        |          |
-|       Tipo (analogico, digitale)          |      Tipo di sensore, sia analogico che digitale.       |
+|       Type (analog, digital)          |      Tipo di sensore, sia analogico che digitale.       |
 |          Produttore            |       Produttore del sensore.     |
-|     ProductCode| Codice prodotto o nome modello o numero. Ad esempio, RS-CO2-N01. |
-|       Nome > SensorMeasures       | Nome della misura del sensore. Sono supportati solo caratteri minuscoli. Per le misurazioni di profondità diverse, specificare la profondità. Ad esempio, soil_moisture_15cm. Questo nome deve essere coerente con i dati di telemetria.  |
-|          Tipo di dati > SensorMeasures       |Tipo di dati di telemetria. Attualmente, il valore Double è supportato.|
-|    Tipo > SensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
-|        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, piedi, miglio, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, Millilitr, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
+|     ProductCode| Codice prodotto o numero o nome del modello. Ad esempio, RS-CO2-N01. |
+|       SensorMeasures > Name       | Nome della misurazione del sensore. Sono supportati solo caratteri minuscoli. Per le misurazioni di profondità diverse, specificare la profondità. Ad esempio, soil_moisture_15cm. Questo nome deve essere coerente con i dati di telemetria.  |
+|          SensorMeasures > DataType       |Tipo di dati di telemetria. Attualmente è supportato il tipo di dati double.|
+|    SensorMeasures > Type    |Tipo di misurazione dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
+|        SensorMeasures > Unit              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, piedi, miglio, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, Millilitr, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation.  |
 |          Nome            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
-|    Descrizione        | Fornire una descrizione significativa del modello.|
-|   Proprietà       |  Proprietà aggiuntive del produttore.|
-|    **Sensore**      |          |
-| HardwareId          |   ID univoco per il sensore impostato dal produttore.|
+|    Descrizione        | Inserire una descrizione significativa del modello.|
+|   Proprietà       |  Proprietà aggiuntive inserite dal produttore.|
+|    **Sensor**      |          |
+| HardwareId          |   ID univoco del sensore impostato dal produttore.|
 |  SensorModelId     |    ID del modello di sensore associato.|
-| Location          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
-|   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo.|
+| Location          |  Latitudine (tra -90 e +90), longitudine (tra -180 e 180) ed elevazione (in metri) del sensore.|
+|   Port > Name        |  Nome e tipo della porta tramite cui il sensore è connesso al dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo.|
 |    DeviceID  |    ID del dispositivo a cui è connesso il sensore. |
-| Nome            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
-|    Descrizione      | Fornire una descrizione significativa.|
-|    Proprietà        |Proprietà aggiuntive del produttore.|
+| Nome            |   Nome che identifica la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
+|    Descrizione      | Specificare una descrizione significativa.|
+|    Proprietà        |Proprietà aggiuntive inserite dal produttore.|
 
 Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ### <a name="api-request-to-create-metadata"></a>Richiesta API per la creazione di metadati
 
-Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https://\<yourdatahub>. azurewebsites.NET).
+Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
 ### <a name="authentication"></a>Authentication
 
@@ -330,7 +330,7 @@ Ora che sono stati creati i dispositivi e i sensori in FarmBeats, è possibile i
 
 ### <a name="create-a-telemetry-client"></a>Creare un client di telemetria
 
-È necessario inviare i dati di telemetria a hub eventi di Azure per l'elaborazione. Hub eventi di Azure è un servizio che consente l'inserimento di dati in tempo reale (telemetria) da applicazioni e dispositivi connessi. Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sull'invio di dati di telemetria, vedere [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+È necessario inviare i dati di telemetria a hub eventi di Azure per l'elaborazione. Hub eventi di Azure è un servizio che consente l’inserimento di dati (di telemetria) in tempo reale da applicazioni e dispositivi connessi. Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sull'invio di dati di telemetria, vedere [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Inviare un messaggio di telemetria come client
 
@@ -425,7 +425,7 @@ Ecco un esempio di messaggio di telemetria:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Non è possibile visualizzare i dati di telemetria dopo l'inserimento dei dati cronologici/di streaming dai sensori
 
-**Sintomo**: i dispositivi o i sensori sono stati distribuiti e sono stati creati i dispositivi/sensori in FarmBeats e i dati di telemetria inseriti nel EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
+**Sintomo**: i dispositivi o i sensori sono stati distribuiti e sono stati creati in FarmBeats e i dati di telemetria sono stati inseriti in EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
 
 **Azione correttiva**:
 

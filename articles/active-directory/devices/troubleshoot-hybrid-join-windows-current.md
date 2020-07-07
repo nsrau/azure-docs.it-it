@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti
+title: Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 description: Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611314"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
 Il contenuto di questo articolo è applicabile ai dispositivi che eseguono Windows 10 o Windows Server 2016.
 
@@ -29,7 +29,7 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 - Accesso condizionale basato sul dispositivo
 - [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for business](../active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
 Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi.
 
@@ -132,7 +132,7 @@ Il campo ' Error Phase ' indica la fase dell'errore di join mentre ' client Erro
 
 Utilizzare i registri Visualizzatore eventi per individuare la fase e il codice di errore per gli errori di join.
 
-1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in >  **registri applicazioni e servizi****registrazione dispositivo utente** **Microsoft** > **Windows** > 
+1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con i seguenti EventID compresi 304, 305, 307.
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -156,10 +156,10 @@ Possibili cause dell'errore:
    - È necessario un oggetto SCP valido nella foresta AD a cui appartiene il dispositivo, che punta a un nome di dominio verificato in Azure AD.
    - I dettagli sono disponibili nella sezione [configurare un punto di connessione del servizio](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Errore durante la connessione e il recupero dei metadati di individuazione dall'endpoint di individuazione.
-   - Il dispositivo deve essere in grado di `https://enterpriseregistration.windows.net`accedere al contesto di sistema per individuare gli endpoint di registrazione e autorizzazione.
+   - Il dispositivo deve essere in grado di accedere al `https://enterpriseregistration.windows.net` contesto di sistema per individuare gli endpoint di registrazione e autorizzazione.
    - Se l'ambiente locale richiede un proxy in uscita, l'amministratore IT deve assicurarsi che l'account computer del dispositivo sia in grado di individuare e autenticare automaticamente il proxy in uscita.
 - Errore di connessione all'endpoint dell'area di autenticazione utente ed esecuzione dell'individuazione dell'area di autenticazione. (Solo Windows 10 versione 1809 e successive)
-   - Il dispositivo deve essere in grado di `https://login.microsoftonline.com`accedere, nel contesto di sistema, per eseguire l'individuazione dell'area di autenticazione per il dominio verificato e determinare il tipo di dominio (gestito/federato).
+   - Il dispositivo deve essere in grado di accedere `https://login.microsoftonline.com` , nel contesto di sistema, per eseguire l'individuazione dell'area di autenticazione per il dominio verificato e determinare il tipo di dominio (gestito/federato).
    - Se l'ambiente locale richiede un proxy in uscita, l'amministratore IT deve verificare che il contesto di sistema nel dispositivo sia in grado di individuare e autenticare automaticamente il proxy in uscita.
 
 **Codici di errore comuni:**
@@ -207,7 +207,7 @@ Cercare "DRS Discovery test" nella sezione "dati di diagnostica" dell'output del
 
 Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCode per gli errori di join.
 
-1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in >  **registri applicazioni e servizi****registrazione dispositivo utente** **Microsoft** > **Windows** > 
+1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con il seguente EventID compresi 201
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -252,7 +252,7 @@ Motivi dell'errore:
 
 Utilizzare i registri Visualizzatore eventi per individuare il codice di errore, il codice di errore, il codice di errore del server e il messaggio di errore del server.
 
-1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in >  **registri applicazioni e servizi****registrazione dispositivo utente** **Microsoft** > **Windows** > 
+1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cerca gli eventi con gli EventID 305 seguenti
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -282,7 +282,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Soluzione: controllare lo sfasamento dell'ora del client. Riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Motivo: tentativo di connessione a `https://login.microsoftonline.com` non riuscito.
-   - Soluzione: verificare la connessione di `https://login.microsoftonline.com`rete a.
+   - Soluzione: verificare la connessione di rete a `https://login.microsoftonline.com` .
 
 ##### <a name="other-errors"></a>Altri errori
 
@@ -327,7 +327,7 @@ Il campo ' Registration Type ' indica il tipo di join eseguito.
 
 Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCode per gli errori di join.
 
-1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in >  **registri applicazioni e servizi****registrazione dispositivo utente** **Microsoft** > **Windows** > 
+1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con il seguente EventID compresi 204
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -363,10 +363,10 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 - **WININET_E_TIMEOUT** (0x80072EE2/-2147012894)
    - Motivo: timeout di rete generale durante il tentativo di registrare il dispositivo in DRS
-   - Soluzione: verificare la connettività di `https://enterpriseregistration.windows.net`rete a.
+   - Soluzione: verificare la connettività di rete a `https://enterpriseregistration.windows.net` .
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072EE7/-2147012889)
    - Motivo: non è stato possibile risolvere il nome o l'indirizzo del server.
-   - Soluzione: verificare la connettività di `https://enterpriseregistration.windows.net`rete a. Assicurarsi che la risoluzione DNS per il nome host sia accurata in n/w e nel dispositivo.
+   - Soluzione: verificare la connettività di rete a `https://enterpriseregistration.windows.net` . Assicurarsi che la risoluzione DNS per il nome host sia accurata in n/w e nel dispositivo.
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
    - Motivo: la connessione al server è stata interrotta in modo anomalo.
    - Soluzione: riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo.
@@ -381,15 +381,15 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 | Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: il <UUID> tenant non è stato trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
+| DirectoryError | AADSTS90002: il tenant non è stato <UUID> trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |
 | AuthenticationError | Verifica del SID del computer di destinazione | Il certificato nel dispositivo Azure AD non corrisponde al certificato usato per firmare il BLOB durante il join di sincronizzazione. Questo errore indica in genere che la sincronizzazione non è stata ancora completata. |  Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Passaggio 5: raccogliere i log e contattare supporto tecnico Microsoft
 
-Scaricare il file auth. zip da[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Scaricare il file Auth.zip da[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Decomprimere i file e rinominare i file inclusi **Start-auth. txt** e **Stop-auth. txt** in **Start-auth. cmd** e **Stop-auth. cmd**.
+1. Decomprimere i file e rinominare i file inclusi **start-auth.txt** e **stop-auth.txt** in **Start-auth. cmd** e **Stop-auth. cmd**.
 1. Da un prompt dei comandi con privilegi elevati eseguire **Start-auth. cmd**.
 1. Usare switch account per passare a un'altra sessione con l'utente del problema.
 1. Riprodurre il problema.

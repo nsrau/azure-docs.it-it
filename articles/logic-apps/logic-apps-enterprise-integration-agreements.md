@@ -9,16 +9,16 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612334"
 ---
-# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire gli accordi tra partner commerciali in app per la logica di Azure
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire i contratti tra partner commerciali in App per la logica di Azure
 
-Un 
-*accordo* tra [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md)consente a organizzazioni e aziende di comunicare senza difficoltà tra loro definendo il protocollo standard del settore specifico da usare per lo scambio di messaggi business-to-business (B2B). I contratti forniscono i vantaggi più comuni, ad esempio:
+Un accordo tra [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md)  
+ *agreement* consente a organizzazioni e aziende di comunicare senza difficoltà tra loro definendo il protocollo standard del settore specifico da usare per lo scambio di messaggi business-to-business (B2B). I contratti forniscono i vantaggi più comuni, ad esempio:
 
 * Consentire alle organizzazioni di scambiare informazioni usando un formato noto.
 * Migliorare l'efficienza quando si eseguono transazioni B2B.
@@ -36,7 +36,7 @@ Per creare accordi per lo scambio di messaggi RosettaNet, vedere [Exchange Roset
 
 * Almeno due [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md) già creati nell'account di integrazione. Un contratto richiede un partner host e un partner guest. Entrambi i partner devono utilizzare lo stesso qualificatore "identità di business" del contratto che si desidera creare, ad esempio AS2, X12 o EDIFACT.
 
-* Facoltativo: l'app per la logica in cui si vuole usare il contratto e un trigger che avvia il flusso di lavoro dell'app per la logica. Per creare solo l'account di integrazione e gli artefatti B2B, non è necessaria un'app per la logica. Tuttavia, prima che l'app per la logica possa usare gli artefatti B2B nell'account di integrazione, è necessario collegare l'account di integrazione all'app per la logica. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Facoltativo: l'app per la logica in cui si vuole usare il contratto e un trigger che avvia il flusso di lavoro dell'app per la logica. Per creare solo l'account di integrazione e gli artefatti B2B, non è necessaria un'app per la logica. Tuttavia, prima che l'app per la logica possa usare gli artefatti B2B nell'account di integrazione, è necessario collegare l'account di integrazione all'app per la logica. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-agreements"></a>Creare contratti
 
@@ -65,8 +65,8 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
    | **Host Identity (Identità host)** | Sì | <*host-partner-Identifier*> | Identificatore del partner host |
    | **Guest Partner (Partner guest)** | Sì | <*nome-partner-Guest*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
    | **identità guest** | Sì | <*Guest-partner-Identifier*> | Identificatore del partner Guest |
-   | **Receive Settings (Impostazioni di ricezione)** | Variabile | Variabile | Queste proprietà specificano il modo in cui il partner host riceve tutti i messaggi in arrivo dal partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
-   | **Send Settings (Impostazioni di invio)** | Variabile | Variabile | Queste proprietà specificano il modo in cui il partner host invia tutti i messaggi in uscita al Partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
+   | **Receive Settings (Impostazioni di ricezione)** | Varia | Varia | Queste proprietà specificano il modo in cui il partner host riceve tutti i messaggi in arrivo dal partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
+   | **Send Settings (Impostazioni di invio)** | Varia | Varia | Queste proprietà specificano il modo in cui il partner host invia tutti i messaggi in uscita al Partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
    |||||
 
    > [!IMPORTANT]

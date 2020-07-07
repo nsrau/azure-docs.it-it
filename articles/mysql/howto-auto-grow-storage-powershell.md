@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/28/2020
 ms.openlocfilehash: c8a19fe338af14f97e0eb191d7b57e840c71e400
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612725"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Aumento automatico delle dimensioni di archiviazione nel database di Azure per il server MySQL con PowerShell
@@ -30,8 +30,8 @@ Per completare questa guida, è necessario:
 - Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Mentre il modulo AZ. MySql PowerShell è in anteprima, è necessario installarlo separatamente dal modulo AZ PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
-> Una volta che il modulo AZ. MySql PowerShell è disponibile a livello generale, diventa parte delle future versioni del modulo AZ PowerShell e disponibile in modo nativo dall'interno Azure Cloud Shell.
+> Durante la fase di anteprima del modulo Az.MySql PowerShell, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Quando il modulo Az.MySql PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
 Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
 

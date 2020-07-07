@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509424"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560535"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Esempi dell'interfaccia della riga di comando di Azure per l'API Azure Cosmos DB Core (SQL)
 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per l'API Azure Cosmos DB Core (SQL). Per tutti i comandi dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili pagine di riferimento in [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/cosmosdb). Per alcuni esempi dell'interfaccia della riga di comando di Azure per altre API di Azure Cosmos DB, vedere [API Cassandra](cli-samples-cassandra.md), [API MongoDB](cli-samples-mongodb.md), [API Gremlin](cli-samples-gremlin.md) e [API Tabella](cli-samples-table.md). Tutti gli esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nel [repository GitHub dell'interfaccia della riga di comando di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Attività | Descrizione |
 |---|---|
 | [Creare un account, un database e un contenitore Azure Cosmos ](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creare un account, un database e un contenitore Azure Cosmos DB per l'API SQL (Core). |
 | [Cambiare il numero di unità elaborate](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Aggiornare il valore di UR/s in un database e un contenitore.|

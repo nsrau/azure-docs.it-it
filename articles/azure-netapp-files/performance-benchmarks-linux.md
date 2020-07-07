@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614590"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Benchmark delle prestazioni Azure NetApp Files per Linux
@@ -47,13 +47,13 @@ In questo grafico viene illustrato un calo del 10% alla volta, da letture pure a
 
 ## <a name="linux-scale-up"></a>Scalabilità verticale Linux  
 
-Il kernel Linux 5,3 Abilita la rete con scalabilità orizzontale a client singolo`nconnect`per NFS. I grafici in questa sezione mostrano i risultati dei test di convalida per l'opzione di montaggio sul lato client con NFSv3. La funzionalità è disponibile in SUSE (a partire da SLES12SP4) e Ubuntu (a partire dalla versione 19,10). Si tratta di un concetto simile a SMB multicanale e Oracle Direct NFS.
+Il kernel Linux 5,3 Abilita la rete con scalabilità orizzontale a client singolo per NFS `nconnect` . I grafici in questa sezione mostrano i risultati dei test di convalida per l'opzione di montaggio sul lato client con NFSv3. La funzionalità è disponibile in SUSE (a partire da SLES12SP4) e Ubuntu (a partire dalla versione 19,10). Si tratta di un concetto simile a SMB multicanale e Oracle Direct NFS.
 
-I grafici confrontano i vantaggi `nconnect` di a un volume montato non connesso. Nei grafici, FIO ha generato il carico di lavoro da una singola istanza di D32s_v3 nell'area di Azure US-West2.
+I grafici confrontano i vantaggi di `nconnect` a un volume montato non connesso. Nei grafici, FIO ha generato il carico di lavoro da una singola istanza di D32s_v3 nell'area di Azure US-West2.
 
 ### <a name="linux-read-throughput"></a>Velocità effettiva di lettura Linux  
 
-I grafici seguenti mostrano letture sequenziali di ~ 3.500 MiB/s letture con `nconnect`, approssimativamente 2,3 x non`nconnect`.
+I grafici seguenti mostrano letture sequenziali di ~ 3.500 MiB/s letture con `nconnect` , approssimativamente 2,3 x non `nconnect` .
 
 ![Velocità effettiva di lettura Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
@@ -65,13 +65,13 @@ I grafici seguenti mostrano Scritture sequenziali. Indicano che `nconnect` non h
 
 ### <a name="linux-read-iops"></a>IOPS lettura Linux  
 
-I grafici seguenti mostrano letture casuali di ~ 200.000 operazioni di i `nconnect`/o di lettura con`nconnect`, approssimativamente 3x non-.
+I grafici seguenti mostrano letture casuali di ~ 200.000 operazioni di i `nconnect` /o di lettura con, approssimativamente 3x non- `nconnect` .
 
 ![IOPS lettura Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>IOPS di scrittura Linux  
 
-I grafici seguenti mostrano scritture casuali di ~ 135.000 operazioni di `nconnect`i/`nconnect`o al secondo con circa 3x non.
+I grafici seguenti mostrano scritture casuali di ~ 135.000 operazioni di i/o al secondo con `nconnect` circa 3x non `nconnect` .
 
 ![IOPS di scrittura Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

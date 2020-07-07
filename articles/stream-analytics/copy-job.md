@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612266"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiare o eseguire il backup dei processi di analisi di flusso di Azure
@@ -39,7 +39,7 @@ ms.locfileid: "82612266"
 
     ![Esporta processo ASA in Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
-3. Per pubblicare il processo in un'altra area o backup usando un altro nome, selezionare **Seleziona dalle sottoscrizioni da pubblicare** nell'editor di\*query (con estensione asaql) e seguire le istruzioni.
+3. Per pubblicare il processo in un'altra area o backup usando un altro nome, selezionare **Seleziona dalle sottoscrizioni da pubblicare** nell'editor di query (con \* estensione asaql) e seguire le istruzioni.
 
     ![Pubblicare in Azure in Visual Studio Code](./media/quick-create-vs-code/submit-job.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "82612266"
 
 1. Seguire le [istruzioni per esportare un processo di analisi di flusso di Azure distribuito in un progetto](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
 
-2. Aprire il \*file con estensione Asaql nell'editor di query, selezionare **Invia ad Azure** nell'editor di script e seguire le istruzioni per pubblicare il processo in un'altra area o in un altro backup usando un nuovo nome.
+2. Aprire il \* file con estensione asaql nell'editor di query, selezionare **Invia ad Azure** nell'editor di script e seguire le istruzioni per pubblicare il processo in un'altra area o in un altro backup usando un nuovo nome.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

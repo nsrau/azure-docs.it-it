@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610701"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
@@ -31,10 +31,10 @@ La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con
 
 | Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | HDInsight Version | Tipo di cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti tranne Spark 2,1 e 2,2|
-|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | BLOB | Standard | Frequente, sporadico, archivio | 3.6+ | Tutti tranne Spark 2,1 e 2,2|
+|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, sporadico, archivio | 3.6+ | Tutti |
 |Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
-|Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
+|Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
 * * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.

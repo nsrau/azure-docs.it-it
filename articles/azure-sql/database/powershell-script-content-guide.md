@@ -2,7 +2,7 @@
 title: Esempi di script di Azure PowerShell
 description: Usare gli esempi di script di Azure PowerShell per creare e gestire le risorse di Database SQL di Azure e Istanza gestita di SQL di Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718547"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987311"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Esempi di Azure PowerShell per Database SQL di Azure e Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per database SQL di Azure.
 
-| |  |
+|Collegamento|Descrizione|
 |---|---|
 |**Creare e configurare database singoli e pool elastici**||
 | [Creare un database singolo e configurare una regola del firewall a livello di server](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell crea un database singolo e configura una regola del firewall IP a livello di server. |
@@ -64,7 +64,7 @@ Vedere altre informazioni sull'[API Azure PowerShell per i database singoli](sin
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per Istanza gestita di SQL di Azure.
 
-| |  |
+|Collegamento|Descrizione|
 |---|---|
 |**Creare e configurare istanze gestite**||
 | [Creare e gestire un'istanza gestita](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell. |

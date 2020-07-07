@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610786"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
@@ -69,22 +69,22 @@ Se l'istanza di Windows Server è danneggiata o inaccessibile e si vuole riprist
 
 Include la terminologia utilizzata in questi passaggi:
 
-* *Computer di origine* : il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
+* *Computer di origine* : il computer originale dal quale è stato effettuato il backup e che non è al momento disponibile.
 * *Computer di destinazione* : il computer in cui i dati vengono ripristinati.
-* *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
+* Insieme di credenziali di *esempio* : l'insieme di credenziali dei servizi di ripristino in cui il *computer di origine* e quello di *destinazione* sono registrati. <br/>
 
 > [!NOTE]
 > I backup eseguiti da un computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, i backup eseguiti da un computer con Windows Server 2016 non possono essere ripristinati in Windows Server 2012 R2. È tuttavia possibile eseguire l'operazione inversa. È possibile usare i backup da Windows Server 2012 R2 per ripristinare Windows Server 2016.
 >
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
-2. Assicurarsi che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali dei servizi di ripristino.
+1. Aprire lo snap-in **backup di Microsoft Azure** nel *computer di destinazione*.
+2. Verificare che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali di servizi di ripristino.
 3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
 4. Selezionare **Un altro server**
 
     ![Un altro server](./media/backup-azure-restore-system-state/anotherserver.png)
 
-5. Specificare il file dell'insieme di credenziali che corrisponde all' *Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), è necessario scaricarne uno nuovo dall'*insieme di credenziali di esempio* nel Portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, viene visualizzato l'insieme di credenziali di Servizi di ripristino associato al file di credenziali dell'insieme di credenziali.
+5. Specificare il file dell'insieme di credenziali che corrisponde all' *Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricare un nuovo file di archivio delle credenziali dall'insieme di credenziali di *esempio* nel portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, viene visualizzato l'insieme di credenziali di Servizi di ripristino associato al file di credenziali dell'insieme di credenziali.
 
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**.

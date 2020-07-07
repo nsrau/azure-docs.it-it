@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Definizioni di criteri di gruppo con iniziative'
 description: Questo modello di Criteri di Azure fornisce un esempio di come raggruppare le definizioni di criteri in un'iniziativa
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41c2b0cf3b8f677cdc408e85088c3ca6c2049d6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 065e7632d76feccdd6d2d5a411ba7cdf50aeaf68
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170249"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565697"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Modello di Criteri di Azure: definizioni di criteri di gruppo
 
