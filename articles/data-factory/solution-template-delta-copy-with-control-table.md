@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629032"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
@@ -114,11 +114,11 @@ Il modello definisce i parametri seguenti:
 
     ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Scrivere il contenuto ** \@{Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** e quindi selezionare **Finish (fine**).  
+10. Scrivere il contenuto ** \@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** e quindi selezionare **Finish (fine**).  
 
     ![Scrivere il contenuto per i parametri dell'stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+11. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
 
     ![Selezionare * * debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 

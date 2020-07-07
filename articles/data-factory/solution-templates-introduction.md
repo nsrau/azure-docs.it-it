@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628947"
 ---
 # <a name="templates"></a>Modelli
@@ -32,7 +32,7 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
     ![Aprire la raccolta modelli dalla pagina di panoramica](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Nella scheda Author in Esplora inventario risorse selezionare **+**, quindi **pipeline from template** per aprire la raccolta di modelli.
+1.  Nella scheda Author in Esplora inventario risorse selezionare **+** , quindi **pipeline from template** per aprire la raccolta di modelli.
 
     ![Aprire la raccolta modelli dalla scheda Autore](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -56,7 +56,7 @@ Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipe
 
     -   [Copia Delta dal database](solution-template-delta-copy-with-control-table.md)
 
-    -   Copia da \<origine\> a \<destinazione\>
+    -   Copia da \<source\> a\<destination\>
 
         -   [Da Amazon S3 ad Azure Data Lake Storage di seconda generazione](solution-template-migration-s3-azure.md)
 

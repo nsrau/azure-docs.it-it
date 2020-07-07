@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652679"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerazioni sull'uso di Novell Android con MSAL.NET
@@ -33,7 +33,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-In MSAL 4,2 e versioni successive è anche possibile impostare questa funzionalità a livello di `PublicClientApplication`. A tale scopo, usare un callback:
+In MSAL 4,2 e versioni successive è anche possibile impostare questa funzionalità a livello di `PublicClientApplication` . A tale scopo, usare un callback:
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -54,7 +54,7 @@ var pca = PublicClientApplicationBuilder
 ```
 
 ## <a name="ensure-that-control-returns-to-msal"></a>Verificare che il controllo torni a MSAL 
-Quando viene terminata la parte interattiva del flusso di autenticazione, assicurarsi che il controllo torni a MSAL. In Android eseguire l'override `OnActivityResult` del metodo `Activity`di. Chiamare quindi il `SetAuthenticationContinuationEventArgs` metodo della classe `AuthenticationContinuationHelper` MSAL. 
+Quando viene terminata la parte interattiva del flusso di autenticazione, assicurarsi che il controllo torni a MSAL. In Android eseguire l'override del `OnActivityResult` metodo di `Activity` . Chiamare quindi il `SetAuthenticationContinuationEventArgs` metodo della `AuthenticationContinuationHelper` classe MSAL. 
 
 Ad esempio:
 
@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 Questa riga garantisce che il controllo torni a MSAL alla fine della parte interattiva del flusso di autenticazione.
 
 ## <a name="update-the-android-manifest"></a>Aggiornare il manifesto Android
-Il file *file AndroidManifest. XML* deve contenere i valori seguenti:
+Il file di *AndroidManifest.xml* deve contenere i valori seguenti:
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
 ```
@@ -90,9 +90,9 @@ Il file *file AndroidManifest. XML* deve contenere i valori seguenti:
  </activity>
 ```
 
-Sostituire il nome del pacchetto registrato nell'portale di Azure per il `android:host=` valore. Sostituire l'hash della chiave registrato nell'portale di Azure per il `android:path=` valore. L'hash della firma *non* deve essere codificato in URL. Assicurarsi che una barra iniziale (`/`) venga visualizzata all'inizio dell'hash della firma.
+Sostituire il nome del pacchetto registrato nell'portale di Azure per il `android:host=` valore. Sostituire l'hash della chiave registrato nell'portale di Azure per il `android:path=` valore. L'hash della firma *non* deve essere codificato in URL. Assicurarsi che una barra iniziale ( `/` ) venga visualizzata all'inizio dell'hash della firma.
 
-In alternativa, [creare l'attività nel codice](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) anziché modificare manualmente *file AndroidManifest. XML*. Per creare l'attività nel codice, creare prima una classe che includa `Activity` l'attributo e `IntentFilter` l'attributo. 
+In alternativa, [creare l'attività nel codice](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) anziché modificare manualmente *AndroidManifest.xml*. Per creare l'attività nel codice, creare prima una classe che includa l' `Activity` attributo e l' `IntentFilter` attributo. 
 
 Di seguito è riportato un esempio di una classe che rappresenta i valori del file XML:
 
@@ -109,7 +109,7 @@ Di seguito è riportato un esempio di una classe che rappresenta i valori del fi
 
 ### <a name="xamarinforms-43x-manifest"></a>Manifesto Novell. Forms 4.3. X
 
-Novell. Forms 4.3. x genera il codice che `package` imposta l' `com.companyname.{appName}` attributo su in *file AndroidManifest. XML*. Se si usa `DataScheme` As `msal{client_id}`, potrebbe essere necessario modificare il valore in modo che corrisponda al valore dello `MainActivity.cs` spazio dei nomi.
+Novell. Forms 4.3. x genera il codice che imposta l' `package` attributo su `com.companyname.{appName}` in *AndroidManifest.xml*. Se si usa `DataScheme` As `msal{client_id}` , potrebbe essere necessario modificare il valore in modo che corrisponda al valore dello `MainActivity.cs` spazio dei nomi.
 
 ## <a name="use-the-embedded-web-view-optional"></a>Usare la visualizzazione Web incorporata (facoltativo)
 
@@ -129,7 +129,7 @@ var authResult = AcquireTokenInteractive(scopes)
 Per altre informazioni, vedere [usare i Web browser per](msal-net-web-browsers.md) le [considerazioni sul browser di sistema](msal-net-system-browser-android-considerations.md)di MSAL.NET e Novell Android.
 
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 È possibile creare una nuova applicazione Novell. Forms e aggiungere un riferimento al pacchetto NuGet MSAL.NET.
 Tuttavia, se si aggiorna un'applicazione Novell. Forms esistente a MSAL.NET Preview 1.1.2 o successiva, potrebbero verificarsi problemi di compilazione.
 
@@ -140,12 +140,12 @@ Per risolvere i problemi di compilazione:
 - Verificare che Novell. Android. support. v4 venga aggiornato automaticamente alla versione 25.4.0.2. Se necessario, eseguire l'aggiornamento alla versione 25.4.0.2.
 - Verificare che tutti i pacchetti Novell. Android. support siano della versione di destinazione 25.4.0.2.
 - Pulire o ricompilare l'applicazione.
-- In Visual Studio provare a impostare il numero massimo di compilazioni di progetto parallele su 1. A tale scopo, selezionare **Opzioni** > **progetti e soluzioni** > **Compila ed Esegui** > **numero massimo di compilazioni di progetti paralleli**.
-- Se si esegue la compilazione dalla riga di comando e il comando `/m`USA, provare a rimuovere questo elemento dal comando.
+- In Visual Studio provare a impostare il numero massimo di compilazioni di progetto parallele su 1. A tale scopo, selezionare **Opzioni**  >  **progetti e soluzioni**  >  **Compila ed Esegui**  >  **numero massimo di compilazioni di progetti paralleli**.
+- Se si esegue la compilazione dalla riga di comando e il comando USA `/m` , provare a rimuovere questo elemento dal comando.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Errore: il nome AuthenticationContinuationHelper non esiste nel contesto corrente
 
-Se un errore indica che `AuthenticationContinuationHelper` non esiste nel contesto corrente, è possibile che in Visual Studio il file Android. csproj * sia stato aggiornato in modo errato. In alcuni casi il percorso del *netstandard13* *monoandroid90* * \<file di>HintPath* contiene erroneamente netstandard13 anziché monoandroid90.
+Se un errore indica che `AuthenticationContinuationHelper` non esiste nel contesto corrente, è possibile che in Visual Studio il file Android. csproj * sia stato aggiornato in modo errato. Talvolta il *\<HintPath>* percorso del file contiene erroneamente *netstandard13* anziché *monoandroid90*.
 
 Questo esempio contiene un percorso file corretto:
 

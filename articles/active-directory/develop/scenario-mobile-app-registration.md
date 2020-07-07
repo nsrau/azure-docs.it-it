@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652633"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
@@ -50,7 +50,7 @@ Questa esperienza consente all'app di ottenere Single Sign-On (SSO) tramite Micr
 
 Il portale di registrazione delle app offre un'esperienza di anteprima per il calcolo dell'URI di risposta negoziato per le applicazioni iOS e Android:
 
-1. Nel portale di registrazione delle app selezionare **autenticazione** > **provare la nuova esperienza**.
+1. Nel portale di registrazione delle app selezionare **autenticazione**  >  **provare la nuova esperienza**.
 
    ![Il pannello autenticazione, in cui è possibile scegliere una nuova esperienza](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -73,7 +73,7 @@ Quando si completano i passaggi, l'URI di reindirizzamento viene calcolato per l
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Ecco il formato consigliato per il manifesto:
 
 - **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - Ad esempio, immettere `msauth.com.yourcompany.appName://auth`
+  - Immettere ad esempio `msauth.com.yourcompany.appName://auth`
 - **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - È possibile generare l'hash della firma Android usando la chiave di rilascio o la chiave di debug tramite il comando di chiave.
 

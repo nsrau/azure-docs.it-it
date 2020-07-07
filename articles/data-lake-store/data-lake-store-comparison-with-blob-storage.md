@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691732"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
@@ -40,6 +40,6 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Ridondanza geografica |Con ridondanza locale (più copie di dati in un'area di Azure) |Archiviazione con ridondanza locale, archiviazione con ridondanza della zona, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Per ulteriori informazioni, vedere [qui](../storage/common/storage-redundancy.md) . |
 | Stato del servizio |Disponibile a livello generale |Disponibile a livello generale |
 | Disponibilità a livello di area |Vedere [qui](https://azure.microsoft.com/regions/#services) |Disponibili in tutte le aree di Azure |
-| Price |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/storage/) |
+| Prezzo |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/storage/) |
 
 
