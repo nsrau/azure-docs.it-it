@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/03/2019
-ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2133b68bf942cee87548783fb40d08c9bfe876ff
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851631"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 
@@ -255,7 +255,7 @@ Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. 
  }
 ```
 
-### <a name="get-an-entity-from-a-partition"></a>Ottenere un'entità da una partizione
+## <a name="get-an-entity-from-a-partition"></a>Ottenere un'entità da una partizione
 
 È possibile ottenere entità da una partizione usando il metodo Retrieve nella classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). Il codice di esempio seguente ottiene la chiave di partizione, la chiave di riga l'indirizzo e-mail e il numero di telefono di un'entità cliente. Questo esempio stampa anche le unità richiesta utilizzate per eseguire query per l'entità. Per eseguire query per l'entità, aggiungere il codice seguente al file **SamplesUtils.cs**: 
 

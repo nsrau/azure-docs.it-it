@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7cabe5b0564ec63335800a999bebec67ec970587
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856775"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida di avvio rapido: Creare un'app .NET Core con Configurazione app
 
@@ -99,7 +99,9 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
     Se si usa macOS o Linux, eseguire il comando seguente:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
     Riavviare il prompt dei comandi per rendere effettiva la modifica. Stampare il valore della variabile di ambiente per verificare che sia impostato correttamente.
 

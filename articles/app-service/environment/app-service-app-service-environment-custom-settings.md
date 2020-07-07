@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 25393007a3cc878737ea5927cb65bcf7ef945313
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057560"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833503"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -24,23 +24,25 @@ Se non è disponibile un ambiente del servizio app, vedere [Come creare un ambie
 
 Il frammento di modello di Resource Manager abbreviato seguente illustra l'attributo **clusterSettings** :
 
-    "resources": [
-    {
-       "apiVersion": "2015-08-01",
-       "type": "Microsoft.Web/hostingEnvironments",
-       "name": ...,
-       "location": ...,
-       "properties": {
-          "clusterSettings": [
-             {
-                 "name": "nameOfCustomSetting",
-                 "value": "valueOfCustomSetting"
-             }
-          ],
-          "workerPools": [ ...],
-          etc...
-       }
+```json
+"resources": [
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": ...,
+    "location": ...,
+    "properties": {
+        "clusterSettings": [
+            {
+                "name": "nameOfCustomSetting",
+                "value": "valueOfCustomSetting"
+            }
+        ],
+        "workerPools": [ ...],
+        etc...
     }
+}
+```
 
 L'attributo **clusterSettings** può essere incluso in un modello di Resource Manager per aggiornare l'ambiente del servizio app.
 
@@ -61,13 +63,15 @@ Ad esempio, se un ambiente del servizio app dispone di quattro front-end, per l'
 
 L'ambiente del servizio app funziona come un sistema di black box in cui non è possibile visualizzare i componenti interni o la comunicazione all'interno del sistema. Per consentire una velocità effettiva più elevata, la crittografia non è abilitata per impostazione predefinita tra i componenti interni. Il sistema è sicuro perché il traffico è completamente inaccessibile per il monitoraggio o l'accesso. Tuttavia, se sono presenti requisiti di conformità che richiedono la crittografia completa del percorso dati dall'inizio alla fine, è possibile abilitare questa funzionalità con l'attributo clusterSetting.  
 
-        "clusterSettings": [
-            {
-                "name": "InternalEncryption",
-                "value": "1"
-            }
-        ],
- 
+```json
+"clusterSettings": [
+    {
+        "name": "InternalEncryption",
+        "value": "1"
+    }
+],
+```
+
 Dopo aver abilitato l'impostazione InternalEncryption in clusterSetting, è possibile che si verifichino problemi in termini di prestazioni del sistema. Quando si apporta la modifica per abilitare InternalEncryption, l'ambiente del servizio app sarà in uno stato instabile fino a quando la modifica non viene propagata completamente. Il completamento della propagazione completa della modifica può richiedere alcune ore, a seconda del numero di istanze disponibili nell'ambiente del servizio app. È consigliabile non abilitare questa impostazione in un ambiente del servizio app mentre è in uso. Se è necessario abilitare questa impostazione in un ambiente del servizio app usato attivamente, è opportuno deviare il traffico in un ambiente di backup fino al completamento dell'operazione. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Disabilitare TLS 1.1 e TLS 1.0
@@ -76,29 +80,31 @@ Per gestire le impostazioni di TLS in ogni app, è quindi possibile usare le ind
 
 Per disabilitare tutto il traffico TLS 1.1 e TLS 1.0 in ingresso per tutte le app in un ambiente del servizio app, è possibile impostare la seguente voce **clusterSettings**:
 
-        "clusterSettings": [
-            {
-                "name": "DisableTls1.0",
-                "value": "1"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "DisableTls1.0",
+        "value": "1"
+    }
+],
+```
 
 Il nome dell'impostazione indica 1.0, ma quando è configurata, disabilita sia TLS 1.0 che TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Modifica dell'ordine dei pacchetti di crittografia TLS
 Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco delle crittografie negoziate dal server. Questo risultato può essere ottenuto modificando **clusterSettings** come illustrato di seguito. L'elenco dei pacchetti di crittografia può essere recuperato da [questo articolo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
-        "clusterSettings": [
-            {
-                "name": "FrontEndSSLCipherSuiteOrder",
-                "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "FrontEndSSLCipherSuiteOrder",
+        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+    }
+],
+```
 
 > [!WARNING]
 > Se per il pacchetto di crittografia vengono impostati valori non corretti che non possono essere riconosciuti da SChannel, tutta la comunicazione TLS con il server potrebbe non funzionare. In tal caso, sarà necessario rimuovere la voce *FrontEndSSLCipherSuiteOrder* da **clusterSettings** e inviare il modello di Resource Manager aggiornato per ripristinare le impostazioni predefinite del pacchetto di crittografia.  Usare questa funzionalità con cautela.
-> 
-> 
 
 ## <a name="get-started"></a>Introduzione
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).

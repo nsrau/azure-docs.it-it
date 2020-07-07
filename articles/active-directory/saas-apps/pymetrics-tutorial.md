@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f10bf6a0487ea53bf4e05d0d2d389e2a275e83a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ea300148f421577e6f3ace961d06127fc9f2b536
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765215"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801173"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con pymetrics
 
@@ -102,11 +102,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione pymetrics prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
     
-    | Nome |  |  Attributo di origine|
-    | ---------------| --------------- | --------- |
-    | UserFirstName | | user.givenname |
-    | UserLastName | | user.surname |
-    | UserEmail | | user.userprincipalname |
+    | Nome | Attributo di origine|
+    | --------------- | --------- |
+    | UserFirstName | user.givenname |
+    | UserLastName | user.surname |
+    | UserEmail | user.userprincipalname |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

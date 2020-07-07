@@ -62,6 +62,10 @@
       href: ethereum-logic-app.md
     - name: Monitorare il servizio Azure Blockchain
       href: monitor-azure-blockchain-service.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/blockchain/blockchain
 - name: Risorse
   items:
     - name: Kit di sviluppo Azure Blockchain

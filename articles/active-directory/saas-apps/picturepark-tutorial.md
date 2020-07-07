@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 57f412f93d9dbe2d9967c5cbc7dc50b1ee8bd61f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73177010"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
 
@@ -109,12 +109,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Picturepark, seguire qu
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
 
-    |  |
-    |--|
-    | `https://<companyname>.current-picturepark.com`|
-    | `https://<companyname>.picturepark.com`|
-    | `https://<companyname>.next-picturepark.com`|
-    | |
+    ```http
+        https://<companyname>.current-picturepark.com
+        https://<companyname>.picturepark.com
+        https://<companyname>.next-picturepark.com
+    ```
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Picturepark](https://picturepark.com/company/picturepark-customer-support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

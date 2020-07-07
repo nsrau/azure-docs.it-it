@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 1dd716a279f7a09e7d9152ee34ff5c7bdac201dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849923"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Informazioni su ML Services in Azure HDInsight
 
@@ -114,7 +114,9 @@ I pacchetti aggiuntivi possono essere installati con un'azione script dopo la cr
 
 È possibile cambiare la memoria disponibile per ML Services usando opzioni Hadoop nella chiamata a **RxHadoopMR**:
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### <a name="scale-your-cluster"></a>Applicare la scalabilità al cluster
 
