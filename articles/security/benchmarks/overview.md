@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606875"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di Azure
@@ -27,11 +27,11 @@ Nel benchmark di sicurezza di Azure vengono usati i controlli seguenti:
 - [Registrazione e monitoraggio](security-control-logging-monitoring.md)
 - [Identità e controllo di accesso](security-control-identity-access-control.md)
 - [Protezione dei dati](security-control-data-protection.md)
-- [Gestione vulnerabilità](security-control-vulnerability-management.md)
-- [Gestione di asset e inventario](security-control-inventory-asset-management.md)
+- [Gestione delle vulnerabilità](security-control-vulnerability-management.md)
+- [Inventario e gestione delle risorse](security-control-inventory-asset-management.md)
 - [Configurazione sicura](security-control-secure-configuration.md)
-- [Difesa da malware](security-control-malware-defense.md)
-- [Recupero dati](security-control-data-recovery.md)
+- [Malware Defense](security-control-malware-defense.md)
+- [Ripristino dei dati](security-control-data-recovery.md)
 - [Risposta agli eventi imprevisti](security-control-incident-response.md)
 - [Test di penetrazione ed esercizi Red Team](security-control-penetration-tests-red-team-exercises.md)
 
@@ -46,7 +46,7 @@ Ogni raccomandazione include le informazioni seguenti:
 - **Responsabilità**: se il cliente o il provider di servizi (o entrambi) è responsabile dell'implementazione di questa raccomandazione. Le responsabilità di sicurezza sono condivise nel cloud pubblico. Alcuni controlli di sicurezza sono disponibili solo per il provider di servizi cloud e pertanto il provider è responsabile di risolverli. Queste sono osservazioni generali: per alcuni singoli servizi, la responsabilità sarà diversa da quella elencata nel benchmark di sicurezza di Azure. Queste differenze sono descritte nelle raccomandazioni di base per il singolo servizio. 
 - **Dettagli**: la logica per la raccomandazione e i collegamenti alle indicazioni su come implementarla. Se la raccomandazione è supportata dal centro sicurezza di Azure, verranno elencate anche le informazioni.
 
-Siamo lieti di ricevere commenti e suggerimenti dettagliati e partecipare attivamente allo sforzo di benchmark di sicurezza di Azure. per fornire l'input diretto del team di benchmark di sicurezza di Azure, compilare il modulo all'indirizzo [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+Siamo lieti di ricevere commenti e suggerimenti dettagliati e partecipare attivamente allo sforzo di benchmark di sicurezza di Azure. per fornire l'input diretto del team di benchmark di sicurezza di Azure, compilare il modulo all'indirizzo [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

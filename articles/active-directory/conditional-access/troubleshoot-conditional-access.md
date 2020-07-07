@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610515"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Risoluzione dei problemi di accesso con l'accesso condizionale
@@ -41,7 +41,7 @@ Per ulteriori informazioni sul problema, fare clic su **altri dettagli** nella p
 Per individuare i criteri di accesso condizionale o i criteri applicati e perché eseguire le operazioni seguenti.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o Reader globale.
-1. Passare a **Azure Active Directory** > **accessi**.
+1. Passare a **Azure Active Directory**  >  **accessi**.
 1. Trovare l'evento per l'accesso da rivedere. Aggiungere o rimuovere filtri e colonne per filtrare le informazioni non necessarie.
    1. Aggiungere i filtri per limitare l'ambito:
       1. **ID di correlazione** quando si dispone di un evento specifico da analizzare.
@@ -80,5 +80,5 @@ Quando si invia l'evento imprevisto, fornire l'ID richiesta e l'ora e la data de
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Report delle attività di accesso nel portale di Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
-- [Risoluzione dei problemi di accesso condizionale mediante lo strumento What If](troubleshoot-conditional-access-what-if.md)
+- [Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If](troubleshoot-conditional-access-what-if.md)
 - Procedure consigliate per [l'accesso condizionale in Azure Active Directory](best-practices.md)

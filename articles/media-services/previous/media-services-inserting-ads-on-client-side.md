@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594866"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
@@ -160,7 +160,7 @@ Anche gli annunci non lineari vengono specificati in un elemento `<Creative>`. L
     </Creative>
 ```
 
-L'elemento <**NonLinearAds**> può contenere uno o più elementi <**NonLinear**>, ognuno dei quali può descrivere un annuncio non lineare. L'elemento <**NonLinear**> specifica la risorsa per l'annuncio non lineare. La risorsa può essere <**StaticResource**>, <**IFrameResource**>, o <**HTMLResource**>. \<**StaticResource**> descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
+L'elemento <**NonLinearAds**> può contenere uno o più elementi <**NonLinear**>, ognuno dei quali può descrivere un annuncio non lineare. L'elemento <**NonLinear**> specifica la risorsa per l'annuncio non lineare. La risorsa può essere <**StaticResource**>, <**IFrameResource**>, o <**HTMLResource**>. \<**StaticResource**>descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
 
 Image/gif, image/jpeg, image/png: la risorsa viene visualizzata in un tag HTML <**img**>.
 
@@ -846,5 +846,5 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474663"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513851"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Attivare sottoscrizioni e account di Azure con Cloudyn
 
@@ -65,7 +65,7 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
     2. Nel portale di Azure selezionare **Azure Active Directory**.
     3. Per ottenere l'ID tenant selezionare **Proprietà** per il tenanto di Azure AD.
     4. Copiare il GUID ID directory. Questo valore è l'ID tenant.
-    Per altre informazioni, vedere [Ottenere l'ID tenant](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Per altre informazioni, vedere [Ottenere l'ID tenant](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Se necessario, selezionare l'ID della tariffa. Se non si conosce l'ID della tariffa, seguire questa procedura per trovarlo.
     1. In alto a destra nel portale di Azure fare clic sulle informazioni utente e quindi su **Visualizza fattura**.
     2. In **Account di fatturazione** fare clic su **Sottoscrizioni**.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598437"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
@@ -92,7 +92,7 @@ In Visual Studio è possibile aprire app per la logica create in precedenza e di
 
    ![Aprire l'app per la logica distribuita dal portale di Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Dopo l'apertura dell'app per la logica nella finestra di progettazione di app per la logica, nella parte inferiore della finestra di progettazione è possibile selezionare **visualizzazione codice** per poter esaminare la struttura della definizione di app per la logica sottostante. Se non si vuole creare un modello di distribuzione per l'app per la logica, scoprire come [scaricare un modello di Azure Resource Manager](#download-logic-app) per tale app per la logica. Altre informazioni sui [modelli di Resource Manager](../azure-resource-manager/templates/overview.md).
+   Dopo l'apertura dell'app per la logica nella finestra di progettazione di app per la logica, nella parte inferiore della finestra di progettazione è possibile selezionare **visualizzazione codice** per poter esaminare la struttura della definizione di app per la logica sottostante. Se non si vuole creare un modello di distribuzione per l'app per la logica, scoprire come [scaricare un modello di Azure Resource Manager](#download-logic-app) per tale app per la logica. Altre informazioni sui [modelli di gestione risorse](../azure-resource-manager/templates/overview.md).
 
 <a name="download-logic-app"></a>
 
@@ -125,7 +125,7 @@ Per creare app per la logica per scenari di integrazione aziendale B2B (business
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
-1. In Esplora soluzioni aprire il menu di scelta rapida **<nome-app-logica>. JSON** e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
+1. In Esplora soluzioni aprire il menu di scelta rapida **<Logic-app-name # C1.jsnel** menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
 
    ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -160,7 +160,7 @@ Per modificare il tipo o il percorso dell'app per la logica, è necessario aprir
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
-1. In Esplora soluzioni aprire il menu `<logic-app-name>.json` di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
+1. In Esplora soluzioni aprire il `<logic-app-name>.json` menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
 
    ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

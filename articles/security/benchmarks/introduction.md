@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606858"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduzione al benchmark di sicurezza di Azure
@@ -34,8 +34,8 @@ I termini "Control", "benchmark" e "baseline" vengono usati spesso nella documen
 
 | Termine | Descrizione | Esempio |
 |--|--|--|
-| Controllo | Un **controllo** è una descrizione di alto livello di una funzionalità o di un'attività che deve essere risolta e non è specifica di una tecnologia o di un'implementazione. | La protezione dei dati è uno dei controlli di sicurezza. Questo controllo contiene azioni specifiche che devono essere risolte per garantire la protezione dei dati. |
+| Control | Un **controllo** è una descrizione di alto livello di una funzionalità o di un'attività che deve essere risolta e non è specifica di una tecnologia o di un'implementazione. | La protezione dei dati è uno dei controlli di sicurezza. Questo controllo contiene azioni specifiche che devono essere risolte per garantire la protezione dei dati. |
 | Benchmark | Un **benchmark** contiene raccomandazioni sulla sicurezza per una tecnologia specifica, ad esempio Azure. Le raccomandazioni vengono classificate in base al controllo a cui appartengono. | Il benchmark di sicurezza di Azure include i consigli sulla sicurezza specifici della piattaforma Azure  |
-| Di base | Una **linea di base** è i requisiti di sicurezza per un'organizzazione. I requisiti di sicurezza sono basati sulle raccomandazioni di benchmark. Ogni organizzazione decide quali raccomandazioni di benchmark includere nella baseline. | La società Contoso crea la propria linea di base di sicurezza scegliendo di richiedere raccomandazioni specifiche nel benchmark di sicurezza di Azure. |
+| Versione di base | Una **linea di base** è i requisiti di sicurezza per un'organizzazione. I requisiti di sicurezza sono basati sulle raccomandazioni di benchmark. Ogni organizzazione decide quali raccomandazioni di benchmark includere nella baseline. | La società Contoso crea la propria linea di base di sicurezza scegliendo di richiedere raccomandazioni specifiche nel benchmark di sicurezza di Azure. |
 
 I commenti e suggerimenti sul benchmark di sicurezza di Azure sono benvenuti. Si consiglia di fornire commenti nell'area commenti e suggerimenti riportata di seguito. Se si preferisce condividere l'input in modo più privato con il team di benchmark di sicurezza di Azure, è possibile compilare il modulo all'indirizzohttps://aka.ms/AzSecBenchmark 

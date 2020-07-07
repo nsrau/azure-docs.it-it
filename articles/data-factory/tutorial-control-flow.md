@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253461"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513314"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -54,7 +54,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per un elenco delle aree di Azure in cui Data Factory è attualmente disponibile, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati e le risorse di calcolo possono trovarsi in altre aree. Gli archivi includono Archiviazione di Azure e Database SQL di Azure. Le risorse di calcolo includono HDInsight, usato da Data Factory.
 
-Creare un'applicazione come descritto in [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo. Per le parti successive di questa esercitazione saranno necessari diversi valori, ad esempio **ID applicazione (client)** e **ID della directory (tenant)** .
+Creare un'applicazione come descritto in [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo. Per le parti successive di questa esercitazione saranno necessari diversi valori, ad esempio **ID applicazione (client)** e **ID della directory (tenant)** .
 
 ### <a name="create-a-blob-table"></a>Creare una tabella BLOB
 

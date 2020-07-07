@@ -3,16 +3,16 @@ title: Configurare una VPN da punto a sito in Linux per l'uso con File di Azure 
 description: Come configurare una VPN da punto a sito in Linux per l'uso con File di Azure
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515307"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Linux per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
@@ -117,7 +117,9 @@ Il gateway di rete virtuale di Azure è il servizio a cui si connetteranno i com
 Ricordarsi di sostituire `<desired-vpn-name-here>` con il nome che si vuole usare per queste risorse.
 
 > [!Note]  
-> La distribuzione del gateway di rete virtuale di Azure può richiedere fino a 45 minuti. Durante la distribuzione di questa risorsa, questo script bash verrà bloccato per consentire il completamento della distribuzione. Si tratta di un comportamento previsto.
+> La distribuzione del gateway di rete virtuale di Azure può richiedere fino a 45 minuti. Durante la distribuzione di questa risorsa, questo script bash verrà bloccato per consentire il completamento della distribuzione.
+>
+> Le connessioni P2S IKEv2/OpenVPN non sono supportate con lo SKU **Basic** . Questo script usa lo SKU **VpnGw1** per il gateway di rete virtuale, di conseguenza.
 
 ```bash
 vpnName="<desired-vpn-name-here>"

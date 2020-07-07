@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
 ms.openlocfilehash: 347f8a4cf1fb95849bcf1008e91d17878f3d01f8
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598522"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
@@ -40,7 +40,7 @@ Quando l'eliminazione temporanea è abilitata, le risorse contrassegnate come ri
 
 Quando si crea un nuovo insieme di credenziali delle chiavi, l'eliminazione temporanea è abilitata per impostazione predefinita. È possibile creare un insieme di credenziali delle chiavi senza eliminazione temporanea tramite l'interfaccia della riga di comando di [Azure](soft-delete-cli.md) o [Azure PowerShell](soft-delete-powershell.md). Quando l'eliminazione temporanea è abilitata in un insieme di credenziali delle chiavi, non è possibile disabilitarla
 
-Il periodo di memorizzazione predefinito è 90 giorni, ma durante la creazione dell'insieme di credenziali delle chiavi è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Il criterio Ripulisci conservazione protezione usa lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere modificato.
+Il periodo di memorizzazione predefinito è 90 giorni, ma durante la creazione dell'insieme di credenziali delle chiavi è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. I criteri di conservazione con protezione da eliminazione usano lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere cambiato.
 
 Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente finché non viene superato il periodo di conservazione.
 

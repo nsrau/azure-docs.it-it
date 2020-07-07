@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82608916"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
@@ -153,12 +153,12 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 
 ## <a name="configure-poa-behavior"></a>Configurare il comportamento di POA
 
-È possibile configurare il comportamento di POA per soddisfare le proprie esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile specificare i parametri dell'applicazione `ApplicationParameter` specificando `Start-ServiceFabricApplicationUpgrade` i `New-ServiceFabricApplication` cmdlet o.
+È possibile configurare il comportamento di POA per soddisfare le proprie esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile specificare i parametri dell'applicazione specificando `ApplicationParameter` i `Start-ServiceFabricApplicationUpgrade` `New-ServiceFabricApplication` cmdlet o.
 
 | Parametro        | Type                          | Dettagli |
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di Windows Update risultati che devono essere memorizzati nella cache. <br><br>Il valore predefinito è 3000, supponendo che: <br> &nbsp;&nbsp;-Il numero di nodi è 20. <br> &nbsp;&nbsp;-Il numero di aggiornamenti per un nodo al mese è 5. <br> &nbsp;&nbsp;-Il numero di risultati per ogni operazione può essere 10. <br> &nbsp;&nbsp;-I risultati degli ultimi tre mesi devono essere archiviati. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br><br>Di seguito sono elencati i valori consentiti: <br>*No,:* gli aggiornamenti di Windows vengono installati un nodo alla volta. <br> *UpgradeDomainWise*: gli aggiornamenti di Windows sono installati un dominio di aggiornamento alla volta. Al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono andare per un aggiornamento di Windows.<br><br> Per decidere quale criterio è più adatto per il cluster, vedere la sezione [domande frequenti](#frequently-asked-questions) .
+|TaskApprovalPolicy   |Enumerazione <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br><br>Di seguito sono elencati i valori consentiti: <br>*No,:* gli aggiornamenti di Windows vengono installati un nodo alla volta. <br> *UpgradeDomainWise*: gli aggiornamenti di Windows sono installati un dominio di aggiornamento alla volta. Al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono andare per un aggiornamento di Windows.<br><br> Per decidere quale criterio è più adatto per il cluster, vedere la sezione [domande frequenti](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: *1024*)               | Dimensioni massime dei log di patch Orchestration app in MB, che possono essere rese disponibili localmente nei nodi.
 | WUQuery               | string<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | *Boolean* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
@@ -169,7 +169,7 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 | AcceptWindowsUpdateEula | Boolean <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
-> Se si desidera che gli aggiornamenti di Windows vengano eseguiti `WUFrequency` immediatamente, impostare in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione riprenda al massimo 30 minuti, impostare WUFrequency come *giornaliero, 17:30:00*.
+> Se si desidera che gli aggiornamenti di Windows vengano eseguiti immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione riprenda al massimo 30 minuti, impostare WUFrequency come *giornaliero, 17:30:00*.
 
 ## <a name="deploy-poa"></a>Distribuisci POA
 
@@ -191,7 +191,7 @@ Per aggiornare la versione di POA usando PowerShell, seguire le istruzioni ripor
 
 Per rimuovere l'applicazione, seguire le istruzioni in [distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
-Per praticità, è stato fornito lo script undeploy. ps1 insieme all'applicazione. Per usare lo script:
+Per praticità, è stato fornito lo script Undeploy.ps1 insieme all'applicazione. Per usare lo script:
 
   - Connettersi a un cluster di Service Fabric tramite ```Connect-ServiceFabricCluster```.
   - Eseguire lo script Undeploy.ps1 di PowerShell.
@@ -248,15 +248,15 @@ HResult | 0-operazione riuscita<br> altro-errore| Indica il motivo dell'errore d
 
 Se non è stato ancora pianificato alcun aggiornamento, il file JSON dei risultati è vuoto.
 
-Accedere al cluster per eseguire query Windows Update risultati. Individuare l'indirizzo IP della replica per l'indirizzo principale del servizio Coordinator e aprire l'URL seguente dal&lt;browser: http://replica-IP&gt;:&lt;ApplicationPort/PatchOrchestrationApplication/V1/GetWindowsUpdateResults.&gt;
+Accedere al cluster per eseguire query Windows Update risultati. Individuare l'indirizzo IP della replica per l'indirizzo principale del servizio Coordinator e aprire l'URL seguente dal browser: http:// &lt; replica-IP &gt; : &lt; ApplicationPort &gt; /PatchOrchestrationApplication/V1/GetWindowsUpdateResults.
 
-L'endpoint REST per Coordinator Service dispone di una porta dinamica. Per controllare l'URL esatto, vedere Service Fabric Explorer. Ad esempio, i risultati sono disponibili in *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults*.
+L'endpoint REST per Coordinator Service dispone di una porta dinamica. Per controllare l'URL esatto, vedere Service Fabric Explorer. Ad esempio, i risultati sono disponibili in *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* .
 
 ![Immagine dell'endpoint REST](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 Se il proxy inverso è abilitato nel cluster, è possibile accedere anche all'URL dall'esterno del cluster.
 
-L'endpoint che è necessario raggiungere è *http://&lt;ServerURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/V1/GetWindowsUpdateResults*.
+L'endpoint che è necessario raggiungere è *http:// &lt; ServerURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/V1/GetWindowsUpdateResults*.
 
 Per abilitare il proxy inverso nel cluster, seguire le istruzioni in [proxy inverso in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
@@ -277,7 +277,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
 1. NodeAgentNTService, in esecuzione in ogni nodo, Cerca gli aggiornamenti di Windows disponibili all'ora pianificata. Se sono disponibili aggiornamenti, vengono scaricati nel nodo.
 
-1. Una volta scaricati gli aggiornamenti, l'agente del nodo NTService crea un'attività di ripristino corrispondente per il nodo con il nome *\<POS___ unique_id>*. Per visualizzare le attività di ripristino, è possibile usare il cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o l'utilizzo di SFX nella sezione dei dettagli del nodo. Al termine della creazione, l'attività di ripristino passa rapidamente allo [stato *richiesto* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Una volta scaricati gli aggiornamenti, l'agente del nodo NTService crea un'attività di ripristino corrispondente per il nodo con il nome *POS___ \<unique_id> *. Per visualizzare le attività di ripristino, è possibile usare il cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o l'utilizzo di SFX nella sezione dei dettagli del nodo. Al termine della creazione, l'attività di ripristino passa rapidamente allo [stato *richiesto* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Il servizio Coordinator cerca periodicamente le attività di ripristino nello stato *richiesto* e quindi le aggiorna per *preparare* lo stato in base a TaskApprovalPolicy. Se TaskApprovalPolicy è configurato per essere No, un'attività di ripristino corrispondente a un nodo viene preparata solo se nessuna altra attività di ripristino è attualmente in fase di *preparazione*, *approvazione*, *esecuzione*o *ripristino* dello stato. 
 
@@ -294,7 +294,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
 1. Quando l'attività di ripristino si trova nello stato in *esecuzione* , viene avviata l'installazione della patch in tale nodo. Dopo l'installazione della patch, il nodo potrebbe o non essere riavviato, a seconda della patch. Successivamente, l'attività di ripristino viene spostata nello stato *Restoring* , che consente di riattivare il nodo. L'attività di ripristino viene quindi contrassegnata come completata.
 
-   In POA Versions 1.4.0 e versioni successive è possibile trovare lo stato dell'aggiornamento visualizzando gli eventi di integrità in NodeAgentService con la proprietà WUOperationStatus\<-nodename>. Le sezioni evidenziate nelle immagini seguenti mostrano lo stato degli aggiornamenti di Windows nei nodi *poanode_0* e *poanode_2*:
+   In POA Versions 1.4.0 e versioni successive è possibile trovare lo stato dell'aggiornamento visualizzando gli eventi di integrità in NodeAgentService con WUOperationStatus- \<NodeName> Property. Le sezioni evidenziate nelle immagini seguenti mostrano lo stato degli aggiornamenti di Windows nei nodi *poanode_0* e *poanode_2*:
 
    [![Immagine dello stato dell'operazione Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 

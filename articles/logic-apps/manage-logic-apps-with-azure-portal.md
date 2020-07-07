@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598165"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gestire app per la logica nella portale di Azure
@@ -34,7 +34,7 @@ Per trovare e aprire l'app per la logica, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
 
-1. Nella barra di ricerca di Azure immettere `logic apps`e selezionare app per la **logica**.
+1. Nella barra di ricerca di Azure immettere `logic apps` e selezionare app per la **logica**.
 
    ![Trovare e selezionare "App per la logica"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
@@ -176,7 +176,7 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
    ![Eliminare più app per la logica](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. Quando viene visualizzata la casella di conferma `yes`, immettere e selezionare **Elimina**.
+1. Quando viene visualizzata la casella di conferma, immettere `yes` e selezionare **Elimina**.
 
    ![Confermare l'eliminazione delle app per la logica](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 

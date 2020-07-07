@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java"
+title: "Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 4e7cc969ff2c36415b8fd1cebafa1873f9efd38c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0021548779409272dee40021dc5f56eb76aa7d96
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80239060"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985585"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java
 
 Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Java invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
@@ -30,17 +30,18 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
+    - La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Rilevamento anomalie. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
-- Chiave di Rilevamento anomalie ed endpoint
 - Importare queste librerie dal repository Maven
     - Pacchetto [JSON in Java](https://mvnrepository.com/artifact/org.json/json)
     - Pacchetto [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
 - File JSON contenente i punti dati delle serie temporali. I dati di esempio per questa guida di avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa di Rilevamento anomalie
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## <a name="create-a-new-application"></a>Creare una nuova applicazione
 

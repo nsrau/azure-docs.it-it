@@ -3,16 +3,16 @@ title: Configurare una VPN da sito a sito per l'uso con File di Azure | Microsof
 description: Come configurare una VPN da sito a sito per l'uso con File di Azure
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515336"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurare una VPN da sito a sito per l'uso con File di Azure
 È possibile usare una connessione VPN da sito a sito per montare le condivisioni file di Azure su SMB dalla rete locale, senza aprire la porta 445. È possibile configurare una VPN da sito a sito usando il servizio [Gateway VPN di Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md), ovvero una risorsa di Azure che offre servizi VPN e viene distribuita in un gruppo di risorse insieme ad account di archiviazione o altre risorse di Azure.

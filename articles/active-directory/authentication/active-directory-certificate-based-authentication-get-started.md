@@ -13,10 +13,10 @@ ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610650"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
@@ -112,7 +112,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
 
     Get-AzureADTrustedCertificateAuthority
 
-### <a name="add"></a>Add
+### <a name="add"></a>Aggiunta
 
 Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
 
@@ -123,7 +123,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-### <a name="remove"></a>Rimuovere
+### <a name="remove"></a>Rimuovi
 
 Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
 

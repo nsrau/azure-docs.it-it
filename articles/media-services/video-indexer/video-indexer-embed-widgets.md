@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594849"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
@@ -32,11 +32,11 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 |Nome|Definizione|Descrizione|
 |---|---|---|
 |`widgets` | Stringhe separate da virgola | Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` esegue il rendering solo di utenti e parole chiave interfaccia utente Insights.<br/>Opzioni disponibili: People, animatedCharacters, keywords, labels, sentimentals, Emotions, topics, KeyFrames, transcript, OCR, Speakers, Scenes e namedEntities.|
-|`controls`|Stringhe separate da virgola|Consente di controllare i controlli di cui si desidera eseguire il rendering.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` Visualizza solo l'opzione di ricerca e il pulsante di download.<br/>Opzioni disponibili: ricerca, download, set di impostazioni, lingua.|
+|`controls`|Stringhe separate da virgola|Consente di controllare i controlli di cui si desidera eseguire il rendering.<br/>Esempio: Visualizza `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` solo l'opzione di ricerca e il pulsante di download.<br/>Opzioni disponibili: ricerca, download, set di impostazioni, lingua.|
 |`language`|Un codice di lingua breve (nome del linguaggio)|Controlla il linguaggio Insights.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>o `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Un codice di lingua breve | Controlla la lingua dell'interfaccia utente. Il valore predefinito è `en`. <br/>Esempio: `locale=de`.|
 |`tab` | Scheda selezionata predefinita | Controlla la scheda **Insights** di cui è stato eseguito il rendering per impostazione predefinita. <br/>Esempio: `tab=timeline` esegue il rendering delle informazioni dettagliate con la scheda **sequenza temporale** selezionata.|
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, per `trial` il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -50,7 +50,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 |`type`| | Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/> Esempio: `type=audio`. |
 |`autoplay` | Un valore booleano | Indica se il lettore deve iniziare a riprodurre il video quando viene caricato. Il valore predefinito è `true`.<br/> Esempio: `autoplay=false`. |
 |`language`/`locale` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, per `trial` il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
 
 ### <a name="editor-widget"></a>Widget editor
 
@@ -58,10 +58,10 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 |Nome|Definizione|Descrizione|
 |---|---|---|
-|`accessToken`<sup>*</sup> | string | Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede `accessToken` il parametro. |
+|`accessToken`<sup>*</sup> | string | Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il `accessToken` parametro. |
 |`language` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`. |
 |`locale` | Un codice di lingua breve | Controlla il linguaggio Insights. Il valore predefinito è `en`.<br/>Esempio: `language=de`. |
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, per `trial` il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete.| 
 
 <sup>*</sup>Il proprietario deve prestare `accessToken` attenzione.
 
@@ -69,7 +69,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 Questa sezione illustra come incorporare il contenuto pubblico e privato nelle app.
 
-Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, per `trial` il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > La condivisione di un collegamento per il widget **Player** o **Insights** includerà il token di accesso e consentirà di concedere le autorizzazioni di sola lettura all'account.
@@ -85,7 +85,7 @@ Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere
 
 ### <a name="private-content"></a>Contenuto privato
 
-Per incorporare un video privato, è necessario passare un token di accesso `src` nell'attributo dell'iframe:
+Per incorporare un video privato, è necessario passare un token di accesso nell' `src` attributo dell'iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
@@ -94,7 +94,7 @@ Per ottenere il contenuto del widget cognitive Insights, usare uno dei metodi se
 - API [widget ottenere informazioni dettagliate](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
 - [Token di accesso Get video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Aggiungerlo come parametro di query all'URL. Specificare questo URL come `src` valore per l'iframe, come illustrato in precedenza.
 
-Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare il [widget Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true`.
+Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare il [widget Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interazione dei widget
 
@@ -106,7 +106,7 @@ Il widget cognitive Insights può interagire con un video nell'app. Questa sezio
 
 Per ottenere Video Indexer widget per comunicare con altri componenti, il servizio Video Indexer:
 
-- Usa il metodo `postMessage`HTML5 per la comunicazione tra le origini.
+- Usa il metodo HTML5 per la comunicazione tra le origini `postMessage` .
 - Convalida il messaggio nell'origine VideoIndexer.ai.
 
 Se si implementa il proprio codice del lettore e si esegue l'integrazione con i widget cognitive Insights, è responsabilità dell'utente convalidare l'origine del messaggio che deriva da VideoIndexer.ai.
@@ -228,21 +228,21 @@ Per altre informazioni, vedere la [demo Azure Media Player + vi Insights](https:
 
 ## <a name="adding-subtitles"></a>Aggiunta di sottotitoli
 
-Se si incorpora Video Indexer Insights con il proprio [Azure Media Player](https://aka.ms/azuremediaplayer), è possibile usare il `GetVttUrl` metodo per ottenere didascalie chiuse (sottotitoli). È anche possibile chiamare un metodo JavaScript dal plug-in `getSubtitlesUrl` video Indexer amp (come illustrato in precedenza).
+Se si incorpora Video Indexer Insights con il proprio [Azure Media Player](https://aka.ms/azuremediaplayer), è possibile usare il `GetVttUrl` metodo per ottenere didascalie chiuse (sottotitoli). È anche possibile chiamare un metodo JavaScript dal plug-in Video Indexer AMP `getSubtitlesUrl` (come illustrato in precedenza).
 
 ## <a name="customizing-embeddable-widgets"></a>Personalizzazione di widget incorporabili
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
 
-È possibile scegliere i tipi di informazioni desiderate. A tale scopo, specificarli come valore per il parametro URL seguente aggiunto al codice di incorporamento ottenuto (dall'API o dall'app Web): `&widgets=<list of wanted widgets>`.
+È possibile scegliere i tipi di informazioni desiderate. A tale scopo, specificarli come valore per il parametro URL seguente aggiunto al codice di incorporamento ottenuto (dall'API o dall'app Web): `&widgets=<list of wanted widgets>` .
 
-I valori possibili sono: `people`, `animatedCharacters` `keywords`,, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`e `namedEntities`.
+I valori possibili sono: `people` ,,, `animatedCharacters` `keywords` `labels` , `sentiments` , `emotions` , `topics` , `keyframes` , `transcript` , `ocr` , `speakers` , `scenes` e `namedEntities` .
 
 Se, ad esempio, si vuole incorporare un widget che contiene solo persone e parole chiave Insights, l'URL di incorporamento di iframe sarà simile al seguente:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. (Personalizza il valore HTML `<title>` ).
+Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. (Personalizza il `<title>` valore HTML).
    
 Ad esempio, se si vuole dare alla finestra dell'iframe il titolo "MyInsights", l'URL avrà un aspetto simile al seguente:
 

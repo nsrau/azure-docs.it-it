@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610242"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
@@ -19,7 +19,7 @@ ms.locfileid: "82610242"
 > [!NOTE]
 > Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name.md).
 
-Quando si usa [Gestione traffico di Azure](/azure/traffic-manager/) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando ** \<Traffic-Manager-endpoint>. trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio\.www contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
+Quando si usa [Gestione traffico di Azure](/azure/traffic-manager/) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando ** \<traffic-manager-endpoint> . trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio www \. contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
 
 Questo articolo illustra come configurare un nome di dominio personalizzato con un'app del servizio app integrata con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
@@ -69,7 +69,7 @@ Quando l'app del servizio app si trova in un piano tariffario supportato, viene 
 Sebbene le specifiche di ogni provider di dominio variano, è possibile eseguire il mapping *da* un [nome di dominio personalizzato non radice](#what-about-root-domains) (ad esempio **www.contoso.com**) *al* nome di dominio di Traffic Manager (**contoso.trafficmanager.NET**) integrato con l'app. 
 
 > [!NOTE]
-> Se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare preventivamente **www\.contoso.com** all'app, creare un record CNAME da **awverify. www** a **contoso.trafficmanager.NET**. È quindi possibile aggiungere "www\.contoso.com" all'app senza la necessità di modificare il record CNAME "www". Per altre informazioni, vedere [eseguire la migrazione di un nome DNS attivo al servizio app Azure](manage-custom-dns-migrate-domain.md).
+> Se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare preventivamente **www \. contoso.com** all'app, creare un record CNAME da **awverify. www** a **contoso.trafficmanager.NET**. È quindi possibile aggiungere "www \. contoso.com" all'app senza la necessità di modificare il record CNAME "www". Per altre informazioni, vedere [eseguire la migrazione di un nome DNS attivo al servizio app Azure](manage-custom-dns-migrate-domain.md).
 
 Dopo aver completato l'aggiunta o la modifica di record DNS presso il provider di dominio, salvare le modifiche.
 
@@ -88,7 +88,7 @@ Dopo la propagazione dei record per il nome di dominio, usare il browser per ver
 > 
 
 1. Una volta completata la risoluzione del dominio, tornare alla pagina dell'app nel [portale di Azure](https://portal.azure.com)
-2. Nel percorso di spostamento a sinistra selezionare **domini** > personalizzati**Aggiungi nome host**.
+2. Nel percorso di spostamento a sinistra selezionare **domini personalizzati**  >  **Aggiungi nome host**.
 4. Digitare il nome di dominio personalizzato di cui è stato eseguito il mapping in precedenza e selezionare **convalida**.
 5. Assicurarsi che **Tipo di record del nome host** sia impostato su **CNAME (www\.example.com o qualsiasi sottodominio**).
 

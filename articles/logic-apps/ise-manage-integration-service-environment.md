@@ -7,13 +7,13 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598420"
 ---
-# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gestire l'ambiente Integration Services (ISE) in app per la logica di Azure
+# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gestire l'ambiente del servizio di integrazione in App per la logica di Azure
 
 Questo articolo illustra come eseguire attività di gestione per l' [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ad esempio:
 
@@ -166,7 +166,7 @@ L'unità di base Premium ISE ha una capacità fissa, quindi se è necessaria una
 
 ## <a name="restart-ise"></a>Riavviare ISE
 
-Se si modificano le impostazioni del server DNS o del server DNS, è necessario riavviare ISE in modo che ISE possa rilevare tali modifiche. Il riavvio di uno SKU Premium ISE non comporta tempi di inattività dovuti alla ridondanza e ai componenti che si riavviano uno alla volta durante il riciclo. Tuttavia, uno SKU dello sviluppatore ISE presenta tempi di inattività perché non esiste alcuna ridondanza. Per altre informazioni, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+Se si modifica il server DNS o le relative impostazioni, è necessario riavviare l’ISE in modo che possa rilevare tali modifiche. Il riavvio di uno SKU Premium ISE non comporta tempi di inattività dovuti alla ridondanza e ai componenti che si riavviano uno alla volta durante il riciclo. Tuttavia, uno SKU dello sviluppatore ISE presenta tempi di inattività perché non esiste alcuna ridondanza. Per altre informazioni, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
 1. Nella [portale di Azure](https://portal.azure.com)passare a ISE.
 
