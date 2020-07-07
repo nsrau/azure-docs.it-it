@@ -10,15 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137621"
 ---
 # <a name="two-class-logistic-regression-module"></a>Modulo di regressione logistica a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per creare un modello di regressione logistica che può essere usato per stimare due (e solo due) risultati. 
 
@@ -55,7 +55,7 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
   
     -   La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  
   
-     Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se <code>x = L1</code> e <code>y = L2</code>, quindi <code>ax + by = c</code> definisce la portata lineare dei termini di regolarizzazione.  
+     Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se <code>x = L1</code> e <code>y = L2</code> , quindi <code>ax + by = c</code> definisce la portata lineare dei termini di regolarizzazione.  
   
     > [!NOTE]
     >  Per ulteriori informazioni sulla regolarizzazione L1 e L2, Nell'articolo seguente viene illustrato il modo in cui la regolarizzazione L1 e L2 sono diverse e il modo in cui influiscono sul montaggio del modello, con esempi di codice per la regressione logistica e i modelli di rete neurale: [regolarizzazione L1 e L2 per Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  

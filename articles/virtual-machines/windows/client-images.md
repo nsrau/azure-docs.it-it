@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083275"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usare client Windows in Azure per scenari di sviluppo/test
@@ -21,8 +21,8 @@ A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in 
 ![Dettagli delle immagini sul portale di Azure](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Per le immagini di Windows 10 Pro e Windows 10 Pro N nella raccolta di Azure, fare riferimento a [come distribuire Windows 10 in Azure con multi-tenant hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
->![Pro Details dell'immagine dalla portale di Azure](./media/client-images/windows-client-pro-images.png) 
+> Per le immagini di Windows 10 Pro e Windows 10 Pro N nella raccolta di Azure, fare riferimento a [come distribuire Windows 10 in Azure con multi-tenant hosting Rights](windows-desktop-multitenant-hosting-deployment.md) 
+> ![ Pro Details dell'immagine dalla portale di Azure](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Idoneità della sottoscrizione

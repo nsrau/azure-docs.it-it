@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085622"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Crittografia dischi di Azure con Azure AD per macchine virtuali Windows (versione precedente)
@@ -24,7 +24,7 @@ ms.locfileid: "82085622"
 
 
 >[!IMPORTANT]
-> - Prima di crittografare i dischi, è necessario [eseguire uno snapshot](snapshot-copy-managed-disk.md) e/o creare un backup. I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Una volta eseguito un backup, è possibile usare il [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) per crittografare i dischi gestiti specificando il parametro-skipVmBackup. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere [eseguire il backup e il ripristino di VM di Azure crittografate](../../backup/backup-azure-vms-encryption.md). 
+> - Prima di crittografare i dischi, è necessario [eseguire uno snapshot](snapshot-copy-managed-disk.md) e/o creare un backup. I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo aver eseguito un backup, è possibile usare il [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) per crittografare i dischi gestiti specificando il parametro -skipVmBackup. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere [eseguire il backup e il ripristino di VM di Azure crittografate](../../backup/backup-azure-vms-encryption.md). 
 >
 > - La crittografia o la disabilitazione della crittografia può causare il riavvio di una macchina virtuale.
 
@@ -182,7 +182,7 @@ Usare le istruzioni nell'appendice per la preparazione delle immagini pre-critto
 
 
 ### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a><a name="bkmk_VHDprePSH"> </a> Crittografare le macchine virtuali con dischi rigidi virtuali pre-crittografati con Azure PowerShell
-È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato usando il cmdlet di PowerShell [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). L'esempio seguente offre alcuni parametri comuni. 
+È possibile abilitare la crittografia del disco nel disco rigido virtuale crittografato usando il cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) di PowerShell. L'esempio seguente offre alcuni parametri comuni. 
 
 ```powershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"

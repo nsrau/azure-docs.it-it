@@ -1,5 +1,5 @@
 ---
-title: Raccomandazioni sulla sicurezza per l'archiviazione BLOB
+title: Raccomandazioni sulla sicurezza per archiviazione BLOB
 titleSuffix: Azure Storage
 description: Informazioni sulle raccomandazioni sulla sicurezza per l'archiviazione BLOB. L'implementazione di queste linee guida consente di soddisfare gli obblighi di sicurezza, come descritto nel modello di responsabilità condivisa.
 services: storage
@@ -11,21 +11,21 @@ ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086114"
 ---
-# <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per l'archiviazione BLOB
+# <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
-Questo articolo contiene raccomandazioni sulla sicurezza per l'archiviazione BLOB. L'implementazione di questi consigli consentirà di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+Questo articolo contiene raccomandazioni sulla sicurezza per l'archiviazione BLOB. Implementando queste raccomandazioni sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa. Per altre informazioni sulle iniziative intraprese da Microsoft per assolvere alle responsabilità dei provider di servizi, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
-Alcuni consigli inclusi in questo articolo possono essere monitorati automaticamente dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse in Azure. Per informazioni sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+Alcune raccomandazioni presenti in questo articolo possono essere monitorate automaticamente dal Centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse di Azure: Per informazioni sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
 
-Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Fornisce quindi suggerimenti su come risolverli. Per altre informazioni sulle raccomandazioni del Centro sicurezza di Azure, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../../security-center/security-center-recommendations.md).
+Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. e fornisce raccomandazioni per affrontarle in modo efficace. Per altre informazioni sulle raccomandazioni del Centro di sicurezza di Azure, vedere [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-recommendations.md).
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
@@ -55,9 +55,9 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Abilitare le regole del firewall | Configurare le regole del firewall per limitare l'accesso all'account di archiviazione alle richieste che hanno origine da indirizzi o intervalli IP specificati oppure da un elenco di subnet in una rete virtuale di Azure (VNet). Per ulteriori informazioni sulla configurazione delle regole del firewall, vedere [sincronizzazione file di Azure impostazioni del proxy e del firewall](../files/storage-sync-files-firewall-and-proxy.md). | - |
-| Consenti ai servizi Microsoft attendibili di accedere all'account di archiviazione | L'attivazione delle regole del firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste provengano da un servizio che opera all'interno di una rete virtuale di Azure (VNet) o da indirizzi IP pubblici consentiti. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. È possibile consentire le richieste da altri servizi di Azure aggiungendo un'eccezione per consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione. Per ulteriori informazioni sull'aggiunta di un'eccezione per i servizi Microsoft attendibili, vedere [sincronizzazione file di Azure impostazioni del proxy e del firewall](../files/storage-sync-files-firewall-and-proxy.md).| - |
+| Consenti ai servizi Microsoft attendibili di accedere all'account di archiviazione | L'attivazione delle regole firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste non provengano da un servizio in esecuzione all'interno di una rete virtuale di Azure o da indirizzi IP pubblici consentiti. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. È possibile consentire le richieste da altri servizi di Azure aggiungendo un'eccezione per consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione. Per ulteriori informazioni sull'aggiunta di un'eccezione per i servizi Microsoft attendibili, vedere [sincronizzazione file di Azure impostazioni del proxy e del firewall](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Usare endpoint privati | Un endpoint privato assegna un indirizzo IP privato dalla rete virtuale di Azure (VNet) all'account di archiviazione. Protegge tutto il traffico tra il VNet e l'account di archiviazione tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure](../../private-link/create-private-endpoint-storage-portal.md). | - |
-| Usare i tag del servizio VNet | Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi. Per altre informazioni sui tag di servizio supportati da archiviazione di Azure, vedere [Cenni preliminari sui tag dei servizi di Azure](../../virtual-network/service-tags-overview.md). Per un'esercitazione che illustra come usare i tag di servizio per creare regole di rete in uscita, vedere [limitare l'accesso alle risorse di PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
+| Usare i tag del servizio VNet | Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi. Per altre informazioni sui tag di servizio supportati da archiviazione di Azure, vedere [Cenni preliminari sui tag dei servizi di Azure](../../virtual-network/service-tags-overview.md). Per un'esercitazione che illustra come usare i tag di servizio per creare regole di rete in uscita, vedere [limitare l'accesso alle risorse di PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitare l'accesso alla rete per reti specifiche | La limitazione dell'accesso di rete alle reti che ospitano i client che richiedono l'accesso riduce l'esposizione delle risorse agli attacchi di rete. | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Registrazione/monitoraggio

@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133790"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
@@ -23,7 +23,7 @@ La piattaforma di archiviazione di Azure è la soluzione di archiviazione cloud 
 - **Proteggere.** Tutti i dati scritti in un account di archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
 - **Scalabile.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
 - **Gestito.** Azure gestisce automaticamente la manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
-- **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per archiviazione di Azure in un'ampia gamma di linguaggi, tra cui .NET, Java, node. js, Python, PHP, Ruby, go e altri ancora, oltre a un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
+- **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per archiviazione di Azure in un'ampia gamma di linguaggi, tra cui .NET, Java, Node.js, Python, PHP, Ruby, go e altri ancora, oltre a un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
 ## <a name="core-storage-services"></a>Servizi di archiviazione Core
 
@@ -123,7 +123,7 @@ Sono disponibili due tipi di crittografia di base per i servizi di archiviazione
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-La crittografia di archiviazione di Azure protegge e salvaguarda i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente tutti i dati prima di renderli permanente nell'account di archiviazione e li decrittografa prima del recupero. I processi di crittografia, decrittografia e gestione delle chiavi sono trasparenti per gli utenti. I clienti possono anche scegliere di gestire le proprie chiavi usando Azure Key Vault. Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](storage-service-encryption.md)inattivi.
+La crittografia di archiviazione di Azure protegge e salvaguarda i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente tutti i dati prima di renderli permanente nell'account di archiviazione e li decrittografa prima del recupero. I processi di crittografia, decrittografia e gestione delle chiavi sono trasparenti per gli utenti. I clienti possono anche scegliere di gestire le proprie chiavi usando Azure Key Vault. Per altre informazioni, vedere [Crittografia di Archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
@@ -150,7 +150,7 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 - [API REST di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Libreria client di archiviazione di Azure per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Libreria client di archiviazione di Azure per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Libreria client di archiviazione di Azure per Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Libreria client di archiviazione di Azure per Python](https://github.com/Azure/azure-storage-python)
 - [Libreria client di archiviazione di Azure per PHP](https://github.com/Azure/azure-storage-php)
 - [Libreria client di archiviazione di Azure per Ruby](https://github.com/Azure/azure-storage-ruby)

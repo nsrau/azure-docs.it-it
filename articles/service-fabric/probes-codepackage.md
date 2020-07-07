@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137587"
 ---
 # <a name="liveness-probe"></a>Probe di liveity
@@ -21,7 +21,7 @@ Prima di procedere con questo articolo, acquisire familiarità con il [modello d
 > [!NOTE]
 > Il probe di liveity è supportato solo per i contenitori in modalità di rete NAT.
 
-## <a name="semantics"></a>Semantics
+## <a name="semantics"></a>Semantica
 È possibile specificare un solo Probe di liveity per ogni contenitore e controllarne il comportamento usando i campi seguenti:
 
 * `initialDelaySeconds`: Ritardo iniziale in secondi per l'esecuzione del probe dopo l'avvio del contenitore. Il valore supportato è **int**. Il valore predefinito è 0 e il valore minimo è 0.
@@ -40,15 +40,15 @@ Inoltre, Service Fabric genererà i report sull' [integrità][health-introductio
 
 * `OK`: Il probe ha esito positivo per il valore impostato in **successThreshold**.
 
-* `Error`: Il probe **failureCount** ==  **failureThreshold**prima che il contenitore venga riavviato.
+* `Error`: Il probe **failureCount**  ==   **failureThreshold**prima che il contenitore venga riavviato.
 
 * `Warning`: 
-    * Il probe ha esito negativo e **failureCount** < **failureThreshold**. Questo report sull'integrità rimane attivo fino a quando **failureCount** raggiunge il valore impostato in **failureThreshold** o **successThreshold**.
+    * Il probe ha esito negativo e **failureCount**  <  **failureThreshold**. Questo report sull'integrità rimane attivo fino a quando **failureCount** raggiunge il valore impostato in **failureThreshold** o **successThreshold**.
     * In caso di esito negativo, l'avviso rimane ma con successi consecutivi aggiornati.
 
 ## <a name="specifying-a-liveness-probe"></a>Specifica di un probe di liveity
 
-È possibile specificare un probe nel file ApplicationManifest. XML in **ServiceManifestImport**.
+È possibile specificare un probe nel file di ApplicationManifest.xml in **ServiceManifestImport**.
 
 Il Probe può essere per uno dei seguenti elementi:
 

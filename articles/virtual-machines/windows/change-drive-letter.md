@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083423"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
@@ -28,7 +28,7 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Spostare temporaneamente pagefile.sys nell'unità C
 1. Connettersi alla macchina virtuale. 
-2. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
+2. Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **sistema**.
 3. Nel menu a sinistra selezionare **Impostazioni di sistema avanzate**.
 4. Nella sezione **Prestazioni** selezionare **Impostazioni**.
 5. Selezionare la scheda **Avanzate** .
@@ -54,7 +54,7 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 5. Nella sezione **Memoria virtuale** selezionare **Modifica**.
 6. Selezionare l'unità del sistema operativo **C** e quindi fare clic su **Nessun file di paging** e su **Imposta**.
 7. Selezionare l'unità di archiviazione temporanea **T** e quindi fare clic su **Dimensioni gestite dal sistema** e su **Imposta**.
-8. Fare clic su **Applica**. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
+8. Fare clic su **Apply**. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
 9. Riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi

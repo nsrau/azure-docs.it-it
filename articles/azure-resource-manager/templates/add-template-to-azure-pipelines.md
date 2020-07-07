@@ -4,10 +4,10 @@ description: Viene descritto come configurare l'integrazione continua in Azure P
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084652"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrare i modelli ARM con Azure Pipelines
@@ -16,7 +16,7 @@ Visual Studio fornisce il progetto gruppo di risorse di Azure per la creazione d
 
 Esistono due modi per distribuire i modelli con Azure Pipelines:
 
-* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza durante tutto il ciclo di vita dello sviluppo, perché si usa lo stesso script incluso nel progetto di Visual Studio (Deploy-azureresourcegroup. ps1). Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Quindi, lo script distribuisce il modello.
+* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza durante tutto il ciclo di vita dello sviluppo, perché si usa lo stesso script incluso nel progetto di Visual Studio (Deploy-AzureResourceGroup.ps1). Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Quindi, lo script distribuisce il modello.
 
 * **Aggiunta di attività per la copia e la distribuzione di attività**. Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività esegue la fase degli artefatti e l'altra distribuisce il modello.
 
@@ -54,7 +54,7 @@ Questo articolo presuppone che il progetto di Visual Studio e l'organizzazione D
 
 È ora possibile aggiungere un'attività di Azure PowerShell o il file di copia e distribuire le attività.
 
-## <a name="azure-powershell-task"></a>Attività Azure PowerShell
+## <a name="azure-powershell-task"></a>Attività di Azure PowerShell
 
 Questa sezione illustra come configurare la distribuzione continua usando una singola attività che esegue lo script di PowerShell nel progetto. Il file YAML seguente crea un' [attività Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
 
@@ -72,21 +72,21 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-Quando si imposta l'attività su `AzurePowerShell@3`, la pipeline usa i comandi del modulo AzureRM per autenticare la connessione. Per impostazione predefinita, lo script di PowerShell nel progetto di Visual Studio usa il modulo AzureRM. Se lo script è stato aggiornato per usare il [modulo AZ](/powershell/azure/new-azureps-module-az), impostare l'attività su `AzurePowerShell@4`.
+Quando si imposta l'attività su `AzurePowerShell@3` , la pipeline usa i comandi del modulo AzureRM per autenticare la connessione. Per impostazione predefinita, lo script di PowerShell nel progetto di Visual Studio usa il modulo AzureRM. Se lo script è stato aggiornato per usare il [modulo AZ](/powershell/azure/new-azureps-module-az), impostare l'attività su `AzurePowerShell@4` .
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-Per `azureSubscription`, specificare il nome della connessione al servizio creata.
+Per `azureSubscription` , specificare il nome della connessione al servizio creata.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-Per `scriptPath`, specificare il percorso relativo dal file della pipeline allo script. È possibile esaminare il repository per visualizzare il percorso.
+Per `scriptPath` , specificare il percorso relativo dal file della pipeline allo script. È possibile esaminare il repository per visualizzare il percorso.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -154,13 +154,13 @@ Il seguente YAML mostra l' [attività copia file di Azure](/azure/devops/pipelin
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. `SourcePath` Indica la posizione degli elementi relativi al file della pipeline. In questo esempio, i file sono presenti in una cartella `AzureResourceGroup1` denominata che è il nome del progetto.
+Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. `SourcePath`Indica la posizione degli elementi relativi al file della pipeline. In questo esempio, i file sono presenti in una cartella denominata `AzureResourceGroup1` che è il nome del progetto.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-Per `azureSubscription`, specificare il nome della connessione al servizio creata.
+Per `azureSubscription` , specificare il nome della connessione al servizio creata.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -194,7 +194,7 @@ Il YAML seguente mostra l' [attività di distribuzione del modello di Azure Reso
 
 Esistono diverse parti di questa attività da rivedere per l'ambiente in uso.
 
-- `deploymentScope`: Selezionare l'ambito di distribuzione dalle opzioni: `Management Group` `Subscription` e. `Resource Group` Usare il **gruppo di risorse** in questa procedura dettagliata. Per altre informazioni sugli ambiti, vedere [Ambiti di distribuzione](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Selezionare l'ambito di distribuzione dalle opzioni: `Management Group` `Subscription` e `Resource Group` . Usare il **gruppo di risorse** in questa procedura dettagliata. Per altre informazioni sugli ambiti, vedere [Ambiti di distribuzione](deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Specificare il nome della connessione al servizio creata.
 
@@ -204,14 +204,14 @@ Esistono diverse parti di questa attività da rivedere per l'ambiente in uso.
 
 - `subscriptionName`: Specificare l'ID sottoscrizione di destinazione. Questa proprietà si applica solo all'ambito di distribuzione del gruppo di risorse e all'ambito di distribuzione della sottoscrizione.
 
-- `resourceGroupName`e `location`: specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
+- `resourceGroupName`e `location` : specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-L'attività di distribuzione è collegata a un `WebSite.json` modello denominato e a un file di parametri denominato website. Parameters. JSON. Usare i nomi dei file di modello e di parametri.
+L'attività di distribuzione è collegata a un modello denominato `WebSite.json` e a un file di parametri denominato WebSite.parameters.json. Usare i nomi dei file di modello e di parametri.
 
 Ora che si è appreso come creare le attività, procedere con la procedura per modificare la pipeline.
 

@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82139303"
 ---
 # <a name="azure-media-player-demos"></a>Demo di Azure Media Player
@@ -23,7 +23,7 @@ Di seguito è riportato un elenco di collegamenti a demo del Azure Media Player.
 | ------------|----------------------------|-------------------------------------|--------------|
 | Basic |
 | Imposta origine | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Riprodurre contenuto non protetto.|
-| Caratteristiche |
+| Funzionalità |
 | Inserimento di annunci VOD-VAST | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/D | Inserisci annunci incrociati pre-mid e post-roll in un asset VOD. |
 | Playback Speed | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/D | Consente ai visualizzatori di controllare la velocità con cui il video viene controllato. |
 | Interfaccia di svuotamento AMP | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Abilita la nuova interfaccia AMP. **Nota:** Lo svuotamento AMP è supportato solo nelle versioni AMP 2.1.0 + |
@@ -33,7 +33,7 @@ Di seguito è riportato un elenco di collegamenti a demo del Azure Media Player.
 | MP4 video progressivo | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveVideo.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveVideo.html) | Riproduzione di MP4 audio progressivo. |
 | MP3 progressivo audio | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveAudio.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveAudio.html) | Riproduzione di audio MP3 progressivo. |
 | DD + | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_dolbyDigitalPlus.html) | N/D | Riproduzione del contenuto con DD + audio. |
-| Options |
+| Opzioni |
 | Profilo euristico | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_heuristicsProfile.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_heuristicsProfile.html) | Modifica del profilo euristico |
 | Localizzazione | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_localization.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_localization.html) |
 Impostazione della localizzazione |

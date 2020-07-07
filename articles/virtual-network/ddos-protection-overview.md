@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130965"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
@@ -37,7 +37,7 @@ Protezione DDoS di Azure, insieme alle procedure consigliate di progettazione de
 |Report di mitigazione                              |No                                    |Report sulla mitigazione degli attacchi post                |
 |Log del flusso di mitigazione                            |No                                    |Flusso di log NRT per l'integrazione SIEM           |
 |Personalizzazione dei criteri di mitigazione                 |No                                    |Coinvolgere gli esperti DDoS                           |
-|Supporto                                         |Massimo sforzo                           |Accesso agli esperti DDoS durante un attacco attivo|
+|Supporto tecnico                                         |Massimo sforzo                           |Accesso agli esperti DDoS durante un attacco attivo|
 |Contratto di servizio                                             |Area di Azure                          |Protezione dei costi & delle applicazioni       |
 |Prezzi                                         |Gratuito                                  |Utilizzo mensile & basato su                         |
 
@@ -72,7 +72,7 @@ Le funzionalità di Protezione DDoS Standard includono:
 
 Protezione DDoS Standard monitora l'utilizzo effettivo del traffico e lo confronta continuamente con le soglie definite nei criteri DDoS. Quando la soglia di traffico viene superata, viene avviata automaticamente la mitigazione DDoS. Quando il traffico torna sotto la soglia, la mitigazione viene rimossa.
 
-![Misura di prevenzione](./media/ddos-protection-overview/mitigation.png)
+![Strategia di riduzione del rischio](./media/ddos-protection-overview/mitigation.png)
 
 Durante la mitigazione il traffico inviato alla risorsa protetta viene reindirizzato dal servizio Protezione DDoS e vengono eseguiti diversi controlli, ad esempio i controlli seguenti:
 

@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134364"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuisci moduli IoT Edge su larga scala usando Visual Studio Code
 
-È possibile creare una **IOT Edge distribuzione automatica** usando Visual Studio Code per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge fanno parte della funzionalità di [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) dell'hub Internet. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli a più dispositivi. È anche possibile tenere traccia dello stato e dell'integrità dei moduli e apportare modifiche quando necessario.
+È possibile creare una **IOT Edge distribuzione automatica** usando Visual Studio Code per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli a più dispositivi. È anche possibile tenere traccia dello stato e dell'integrità dei moduli e apportare modifiche quando necessario.
 
-Per altre informazioni, vedere [comprendere IOT Edge distribuzioni automatiche per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
+Per altre informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 
 In questo articolo si configurano Visual Studio Code e l'estensione Internet. Si apprenderà quindi come distribuire i moduli in un set di dispositivi IoT Edge.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [Hub](../iot-hub/iot-hub-create-through-portal.md) Internet delle cose nella sottoscrizione di Azure.
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) con il runtime di IoT Edge installato.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) per Visual Studio Code.
@@ -37,9 +37,9 @@ In questo articolo si configurano Visual Studio Code e l'estensione Internet. Si
 
 1. In Visual Studio Code aprire la **finestra di esplorazione**.
 
-1. Nella parte inferiore della finestra di esplorazione espandere la sezione **Hub Azure** .
+1. Nella parte inferiore di Explorer, espandere la sezione **Hub IoT di Azure**.
 
-1. Fare clic su **..** . nell'intestazione della sezione **Hub Azure** . Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
+1. Fare clic sui puntini di sospensione ( **...** ) nell'intestazione della sezione **Hub IoT di Azure**. Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
 
 1. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
 
@@ -51,7 +51,7 @@ In questo articolo si configurano Visual Studio Code e l'estensione Internet. Si
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto di distribuzione è un documento JSON che descrive i moduli da distribuire. Viene inoltre descritto il flusso dei dati tra i moduli e le proprietà desiderate dei moduli gemelli. Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).
+Un manifesto di distribuzione è un documento JSON che descrive i moduli da distribuire. Viene inoltre descritto il flusso dei dati tra i moduli e le proprietà desiderate dei moduli gemelli. Per altre informazioni, vedere [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md).
 
 Per distribuire i moduli tramite Visual Studio Code, salvare il manifesto della distribuzione a livello locale come file con estensione JSON. Quando si esegue il comando per applicare la configurazione al dispositivo, sarà necessario specificarne il percorso.
 
@@ -145,9 +145,9 @@ Per identificare i dispositivi IoT Edge che devono ricevere la distribuzione, è
 }
 ```
 
-Il dispositivo riceverà una distribuzione se la condizione di destinazione per la distribuzione contiene un'espressione che corrisponde a uno dei valori del tag, ad `tag.location.building = '20'`esempio.
+Il dispositivo riceverà una distribuzione se la condizione di destinazione per la distribuzione contiene un'espressione che corrisponde a uno dei valori del tag, ad esempio `tag.location.building = '20'` .
 
-Se si vuole scegliere come destinazione un dispositivo specifico indipendentemente dai tag o da altri valori, è sufficiente `deviceId` specificare per la condizione di destinazione.
+Se si vuole scegliere come destinazione un dispositivo specifico indipendentemente dai tag o da altri valori, è sufficiente specificare `deviceId` per la condizione di destinazione.
 
 Ecco alcuni altri esempi:
 
@@ -164,7 +164,7 @@ Per informazioni dettagliate, vedere [condizione di destinazione](module-deploym
 
 È possibile modificare il dispositivo gemello in Visual Studio Code per configurare i tag. Dal menu **Visualizza** selezionare **tavolozza comandi** ed eseguire il comando **IOT Edge: modifica dispositivo gemello** . Selezionare il dispositivo IoT Edge e viene visualizzato il dispositivo gemello.
 
-In questo esempio non è stato definito alcun tag. Sostituire la sezione `"tags": {}` vuota corrente con la definizione di tag personalizzata.
+In questo esempio non è stato definito alcun tag. Sostituire la sezione vuota corrente `"tags": {}` con la definizione di tag personalizzata.
 
 ```json
 {
@@ -223,7 +223,7 @@ Dopo aver configurato il manifesto di distribuzione e i tag configurati nel disp
   | Parametro | Descrizione |
   | --- | --- |
   | ID distribuzione | Nome della distribuzione che verrà creata nell'hub Internet. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`. |
-  | Condizione di destinazione | Immettere una condizione di destinazione per determinare quali dispositivi saranno assegnati a questa distribuzione.La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
+  | Condizione di destinazione | Immettere una condizione di destinazione per determinare quali dispositivi saranno assegnati a questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio, `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
   | Priorità |  Numero intero positivo. Se due o più distribuzioni sono destinate allo stesso dispositivo, viene applicata la distribuzione con il valore numerico più elevato per Priority. |
 
   Dopo aver specificato la priorità, nel terminale dovrebbe essere visualizzato un output simile a quello illustrato di seguito:
@@ -239,4 +239,4 @@ Usare il [portale di Azure](how-to-monitor-iot-edge-deployments.md#monitor-a-dep
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [distribuzione di moduli per IOT Edge dispositivi](module-deployment-monitoring.md).
+Altre informazioni sulla [distribuzione di moduli nei dispositivi IoT Edge](module-deployment-monitoring.md).

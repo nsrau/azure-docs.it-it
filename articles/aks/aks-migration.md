@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 9a5e2c1e36a742115ed2f5c690c81a186a86dee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129093"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione ad Azure Kubernetes Service (AKS)
@@ -53,7 +53,7 @@ Si consiglia di usare i cluster AKS supportati dai [set di scalabilità di macch
 
 I cluster AKS supportati dai [set di disponibilità delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) non sono supportati per molte di queste funzionalità.
 
-L'esempio seguente crea un cluster AKS con un pool a nodo singolo supportato da un set di scalabilità di macchine virtuali. Usa un servizio di bilanciamento del carico standard. Abilita anche il ridimensionamento automatico del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
+L'esempio seguente crea un cluster AKS con un pool a nodo singolo supportato da un set di scalabilità di macchine virtuali. Usa un servizio di bilanciamento del carico standard. Abilita anche il componente di scalabilità automatica del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
 
 ```azurecli-interactive
 # First create a resource group
@@ -94,7 +94,7 @@ Per altre informazioni, vedere [sottoscrizione di Azure e limiti dei servizi](ht
 
 Se l'applicazione non può gestire i tempi di inattività, è necessario seguire le procedure consigliate per gli scenari di migrazione a disponibilità elevata.  Le procedure consigliate per la pianificazione di continuità aziendale complessa, il ripristino di emergenza e l'ottimizzazione del tempo di attività esulano dall'ambito di questo documento.  Per altre informazioni, vedere [le procedure consigliate per la continuità aziendale e il ripristino di emergenza in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) .
 
-Per le applicazioni complesse, in genere si esegue la migrazione nel corso del tempo anziché tutta in una volta. Ciò significa che i vecchi e i nuovi ambienti potrebbero dover comunicare sulla rete. Le applicazioni che in `ClusterIP` precedenza usavano i servizi per la comunicazione potrebbero dover essere `LoadBalancer` esposte come tipo e essere protette in modo appropriato.
+Per le applicazioni complesse, in genere si esegue la migrazione nel corso del tempo anziché tutta in una volta. Ciò significa che i vecchi e i nuovi ambienti potrebbero dover comunicare sulla rete. Le applicazioni che in precedenza usavano i `ClusterIP` Servizi per la comunicazione potrebbero dover essere esposte come tipo `LoadBalancer` e essere protette in modo appropriato.
 
 Per completare la migrazione, è opportuno indirizzare i client ai nuovi servizi in esecuzione su AKS. Si consiglia di reindirizzare il traffico aggiornando DNS per puntare al Load Balancer che si trova davanti al cluster AKS.
 
@@ -131,7 +131,7 @@ Se l'applicazione può ospitare più repliche che puntano alla stessa condivisio
 * Puntare il traffico in tempo reale al nuovo cluster AKS.
 * Disconnettere il vecchio cluster.
 
-Se si vuole iniziare con una condivisione vuota e creare una copia dei dati di origine, è possibile usare i comandi [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) per eseguire la migrazione dei dati.
+Se si vuole iniziare con una condivisione vuota e creare una copia dei dati di origine, è possibile usare i [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) comandi per eseguire la migrazione dei dati.
 
 
 #### <a name="migrating-persistent-volumes"></a>Migrazione di volumi permanenti
@@ -158,7 +158,7 @@ Alcuni strumenti open source consentono di creare dischi gestiti ed eseguire la 
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Distribuzione della configurazione del cluster
 
-Si consiglia di usare la pipeline di integrazione continua (CI) e recapito continuo (CD) esistente per distribuire una configurazione ben nota a AKS. È possibile usare Azure Pipelines per [compilare e distribuire le applicazioni in AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clonare le attività di distribuzione esistenti e `kubeconfig` assicurarsi che punti al nuovo cluster AKS.
+Si consiglia di usare la pipeline di integrazione continua (CI) e recapito continuo (CD) esistente per distribuire una configurazione ben nota a AKS. È possibile usare Azure Pipelines per [compilare e distribuire le applicazioni in AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clonare le attività di distribuzione esistenti e assicurarsi che `kubeconfig` punti al nuovo cluster AKS.
 
 Se non è possibile, esportare le definizioni delle risorse dal cluster Kubernetes esistente e quindi applicarle ad AKS. È possibile usare `kubectl` per esportare gli oggetti.
 

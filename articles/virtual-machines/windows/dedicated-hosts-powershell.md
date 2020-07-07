@@ -9,30 +9,30 @@ ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: b90189c6ba5e51a24d0c248b5aa08e9a5e4bbd9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082850"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
-Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount`. 
+Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount` . 
 
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
+- Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per ulteriori informazioni, fare riferimento alla [pagina dei prezzi](https://aka.ms/ADHPricing) dell'host.
 
 ## <a name="create-a-host-group"></a>Creare un gruppo host
 
-Un **gruppo host** è una risorsa che rappresenta una raccolta di host dedicati. È possibile creare un gruppo host in un'area e una zona di disponibilità e aggiungervi host. Quando si pianifica la disponibilità elevata, sono disponibili opzioni aggiuntive. Con gli host dedicati è possibile usare una o entrambe le opzioni seguenti: 
-- Span tra più zone di disponibilità. In questo caso, è necessario disporre di un gruppo host in ognuna delle zone che si desidera utilizzare.
-- Si estende su più domini di errore di cui è stato eseguito il mapping ai rack fisici. 
+Un **gruppo host** è una risorsa che rappresenta una raccolta di host dedicati. È necessario creare un gruppo host in un'area e in una zona di disponibilità e aggiungervi gli host. Quando si pianifica la disponibilità elevata, sono disponibili opzioni aggiuntive. Con gli host dedicati è possibile usare una o entrambe le opzioni seguenti: 
+- Estendersi tra più zone di disponibilità. In questo caso, è necessario disporre di un gruppo host in ognuna delle zone che si desidera usare.
+- Estendersi tra più domini di errore mappati a rack fisici. 
  
-In entrambi i casi, è necessario specificare il numero di domini di errore per il gruppo host. Se non si desidera estendere i domini di errore nel gruppo, utilizzare un numero di domini di errore pari a 1. 
+In entrambi i casi, è necessario specificare il numero di domini di errore per il gruppo host. Se non si desidera estendere i domini di errore nel gruppo, usare un numero di domini di errore pari a 1. 
 
 È anche possibile decidere di usare le zone di disponibilità e i domini di errore. In questo esempio viene creato un gruppo host nella zona 1, con 2 domini di errore. 
 
@@ -50,11 +50,11 @@ $hostGroup = New-AzHostGroup `
    -Zone 1
 ```
 
-## <a name="create-a-host"></a>Creazione di un host
+## <a name="create-a-host"></a>Creare un host
 
-A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.
+A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU dell'host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.
 
-Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
+Per altre informazioni sugli SKU e i prezzi degli host, vedere [Prezzi degli host dedicati di Azure](https://aka.ms/ADHPricing).
 
 Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto di specificare il dominio di errore per l'host. In questo esempio il dominio di errore per l'host viene impostato su 1.
 
@@ -92,9 +92,9 @@ New-AzVM `
 > [!WARNING]
 > Se si crea una macchina virtuale in un host che non dispone di risorse sufficienti, la macchina virtuale verrà creata in uno stato di errore. 
 
-## <a name="check-the-status-of-the-host"></a>Verificare lo stato dell'host
+## <a name="check-the-status-of-the-host"></a>Controllare lo stato dell'host
 
-È possibile controllare lo stato di integrità dell'host e il numero di macchine virtuali che è ancora possibile distribuire [GetAzHost](/powershell/module/az.compute/get-azhost) nell'host usando `-InstanceView` GetAzHost con il parametro.
+È possibile controllare lo stato di integrità dell'host e il numero di macchine virtuali che è ancora possibile distribuire nell'host usando [GetAzHost](/powershell/module/az.compute/get-azhost) con il `-InstanceView` parametro.
 
 ```azurepowershell-interactive
 Get-AzHost `
@@ -213,9 +213,9 @@ Start-AzVM `
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Viene addebitato il costo per gli host dedicati anche quando nessuna macchina virtuale viene distribuita. È necessario eliminare tutti gli host attualmente non utilizzati per ridurre i costi.  
+Viene addebitato il costo per gli host dedicati anche quando non viene distribuita nessuna macchina virtuale. È necessario eliminare tutti gli host attualmente non usati per ridurre i costi.  
 
-È possibile eliminare un host solo quando non sono più presenti macchine virtuali che lo utilizzano. Eliminare le macchine virtuali usando [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
+È possibile eliminare un host solo quando non sono più presenti macchine virtuali che lo usano. Eliminare le macchine virtuali usando [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
 ```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
@@ -242,6 +242,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) un modello di esempio che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È anche possibile distribuire host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).

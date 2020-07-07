@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82128725"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
@@ -28,7 +28,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
 ##  <a name="policies"></a><a name="ProxyPolicies"></a>Criteri  
   
--   [Criteri di restrizione di accesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
+-   [Criteri di limitazione dell'accesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.  
     -   [Limita frequenza delle chiamate per sottoscrizione](api-management-access-restriction-policies.md#LimitCallRate) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate per ogni sottoscrizione.  
     -   [Limita frequenza delle chiamate per chiave](api-management-access-restriction-policies.md#LimitCallRateByKey): impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  

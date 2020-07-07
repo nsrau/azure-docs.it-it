@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101451"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Risolvere i problemi di connessione a database di Azure per MariaDB
@@ -47,7 +47,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione del firewall: il firewall del server di Database di Azure per MariaDB o del lato client blocca le connessioni.
 * Riconfigurazione della rete lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
-* Errore dell'utente: ad esempio, è possibile che i parametri di connessione digitati in modo non consentiti, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ServerName* mancante nel nome utente.
+* Errore dell'utente: ad esempio, è possibile che i parametri di connessione digitati in modo non consentiti, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ ServerName* mancante nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

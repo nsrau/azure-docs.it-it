@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ac1ed9ac25d65d0391175fc6d43b48048da74926
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101587"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controlli di sicurezza per macchine virtuali Windows
@@ -25,34 +25,34 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto per endpoint di servizio| Sì | |
-| Supporto di VNet Injection| Sì | |
-| Isolamento rete e supporto del firewall| Sì |  |
-| Supporto del tunneling forzato| Sì | Vedere [configurare il tunneling forzato usando il modello di distribuzione Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+| Supporto endpoint di servizio| Sì | |
+| Supporto aggiunta rete virtuale| Sì | |
+| Supporto isolamento rete e protezione tramite firewall| Sì |  |
+| Supporto del tunneling forzato| Sì | Vedere [Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
-## <a name="monitoring--logging"></a>Monitoraggio & registrazione
+## <a name="monitoring--logging"></a>Monitoraggio e registrazione
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | [Monitorare e aggiornare una macchina virtuale Windows in Azure](tutorial-monitoring.md). |
-| Registrazione e controllo del piano di gestione e controllo| Sì |  |
-| Registrazione e controllo del piano dati | No |  |
+| Supporto monitoraggio di Azure (analisi dei log, analisi approfondita dell'app e così via)| Sì | [Monitorare e aggiornare una macchina virtuale Windows in Azure](tutorial-monitoring.md). |
+| Piano di gestione e controllo - Registrazione e controllo| Sì |  |
+| Piano dati - Registrazione e controllo | No |  |
 
 ## <a name="identity"></a>Identità
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Autenticazione| Sì |  |
+| Authentication| Sì |  |
 | Autorizzazione| Sì |  |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server: chiavi gestite da Microsoft | Sì | Vedere [crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
-| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [crittografia in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
-| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
+| Crittografia lato server dei dati inattivi: chiavi gestite da Microsoft | Sì | Vedere [crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [Crittografia dei dati in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Crittografia lato server dei dati inattivi: chiavi gestite dal cliente (BYOK) | Sì | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Crittografia a livello di colonna (Servizi dati di Azure)| N/D | |
 | Chiamate API crittografate| Sì | Tramite HTTPS e TLS. |
 
 
@@ -61,8 +61,8 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì |  | 
+| Supporto gestione della configurazione (controllo delle versioni di configurazione e così via)| Sì |  | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../../security/fundamentals/security-controls.md).
+- Maggiori informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../../security/fundamentals/security-controls.md).

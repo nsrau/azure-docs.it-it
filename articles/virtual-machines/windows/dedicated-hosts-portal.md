@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082935"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portale
@@ -24,7 +24,7 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-1. Nella pagina **Nuovo**, in **Più comuni**, selezionare **Windows Server 2016 Datacenter**.
+1. Nella pagina **nuovo** , in **Popular**, selezionare **Windows Server 2016 datacenter**.
 1. Nella scheda **nozioni di base** , in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta, quindi selezionare *myDedicatedHostsRG* come **gruppo di risorse**. 
 1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Posizione**.
 1. In **Opzioni di disponibilità** selezionare **zona di disponibilità**Selezionare *1* nell'elenco a discesa.
@@ -58,8 +58,8 @@ Spostare la macchina virtuale in un host dedicato usando il [portale](https://po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni, vedere Cenni preliminari sugli [host dedicati](dedicated-hosts.md) . 
+- Per ulteriori informazioni, vedere la panoramica [Host dedicati](dedicated-hosts.md). 
 
-- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) un modello di esempio che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È inoltre possibile distribuire un host dedicato utilizzando [Azure PowerShell](dedicated-hosts-powershell.md).

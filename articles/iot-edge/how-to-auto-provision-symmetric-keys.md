@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131021"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
@@ -43,7 +43,7 @@ Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito
 
 È necessario definire un ID di registrazione univoco per identificare ogni dispositivo. È possibile usare l'indirizzo MAC, il numero di serie o informazioni univoche dal dispositivo.
 
-In questo esempio viene usata una combinazione di un indirizzo MAC e di un numero di serie che costituisce la stringa seguente per un `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`ID registrazione:.
+In questo esempio viene usata una combinazione di un indirizzo MAC e di un numero di serie che costituisce la stringa seguente per un ID registrazione: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6` .
 
 Creare un ID di registrazione univoco per il dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino ("-").
 
@@ -185,7 +185,7 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Sostituire i valori segnaposto `<SCOPE_ID>`per `<REGISTRATION_ID>`, e `<SYMMETRIC_KEY>` con i dati raccolti in precedenza. Verificare che il **provisioning:** la riga non includa spazi vuoti precedenti e che gli elementi nidificati vengano rientrati da due spazi.
+Sostituire i valori segnaposto per `<SCOPE_ID>` , `<REGISTRATION_ID>` e `<SYMMETRIC_KEY>` con i dati raccolti in precedenza. Verificare che il **provisioning:** la riga non includa spazi vuoti precedenti e che gli elementi nidificati vengano rientrati da due spazi.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
@@ -204,9 +204,9 @@ Per informazioni più dettagliate sull'installazione di IoT Edge in Windows, inc
 
 1. A questo punto, i dispositivi core per le cose possono riavviarsi automaticamente. Altri dispositivi Windows 10 o Windows Server possono richiedere il riavvio. In tal caso, riavviare il dispositivo ora. Quando il dispositivo è pronto, eseguire di nuovo PowerShell come amministratore.
 
-1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale con i contenitori di Windows `-Dps` a meno che non si usi il flag per usare il provisioning automatico.
+1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale con i contenitori di Windows a meno che non si usi il `-Dps` flag per usare il provisioning automatico.
 
-   Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetric_key}` con i dati raccolti in precedenza.
+   Sostituire i valori segnaposto per `{scope_id}` , `{registration_id}` e `{symmetric_key}` con i dati raccolti in precedenza.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

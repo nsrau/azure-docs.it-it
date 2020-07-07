@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82117570"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Come modellare i dati SQL relazionali per l'importazione e l'indicizzazione in Azure ricerca cognitiva
@@ -84,7 +84,7 @@ La soluzione consiste nell'acquisire i dettagli della stanza come JSON annidato 
     GO
     ```
 
-2. Creare una vista composta da tutti i campi della tabella padre (`SELECT * from dbo.Hotels$`), con l'aggiunta di un nuovo campo *room* contenente l'output di una query nidificata. Una clausola **for JSON auto per** `SELECT * from dbo.Rooms$` struttura l'output come JSON. 
+2. Creare una vista composta da tutti i campi della tabella padre ( `SELECT * from dbo.Hotels$` ), con l'aggiunta di un nuovo campo *room* contenente l'output di una query nidificata. Una clausola **for JSON auto per** `SELECT * from dbo.Rooms$` struttura l'output come JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]

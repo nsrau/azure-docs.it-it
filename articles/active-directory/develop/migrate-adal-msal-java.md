@@ -15,10 +15,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82128016"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guida alla migrazione da ADAL a MSAL per Java
@@ -43,13 +43,13 @@ Se si è lavorato con l'endpoint Azure AD for Developers (v 1.0) (e ADAL4J), pot
 
 ADAL4J acquisisce i token per le risorse, mentre MSAL per Java acquisisce i token per gli ambiti. Un numero di MSAL per le classi Java richiede un parametro Scopes. Questo parametro è un elenco di stringhe che dichiarano le autorizzazioni e le risorse desiderate richieste. Vedere [ambiti di Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) per visualizzare gli ambiti di esempio.
 
-È possibile aggiungere il `/.default` suffisso di ambito alla risorsa per facilitare la migrazione delle app dall'endpoint v 1.0 (adal) all'endpoint della piattaforma Microsoft Identity (MSAL). Ad esempio, per il valore della risorsa `https://graph.microsoft.com`di, il valore dell'ambito `https://graph.microsoft.com/.default`equivalente è.  Se la risorsa non è nel formato URL, ma un ID risorsa del modulo `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, è comunque possibile usare il valore di ambito come. `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`
+È possibile aggiungere il `/.default` suffisso di ambito alla risorsa per facilitare la migrazione delle app dall'endpoint v 1.0 (adal) all'endpoint della piattaforma Microsoft Identity (MSAL). Ad esempio, per il valore della risorsa di `https://graph.microsoft.com` , il valore dell'ambito equivalente è `https://graph.microsoft.com/.default` .  Se la risorsa non è nel formato URL, ma un ID risorsa del modulo `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , è comunque possibile usare il valore di ambito come `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Per altri dettagli sui diversi tipi di ambiti, fare riferimento [a autorizzazioni e consenso nella piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e agli [ambiti per un'API Web che accettano gli articoli relativi ai token v 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
 
 ## <a name="core-classes"></a>Classi di base
 
-In ADAL4J la `AuthenticationContext` classe rappresenta la connessione al servizio token di sicurezza (STS) o al server di autorizzazione tramite un'autorità. Tuttavia, MSAL per Java è progettato per le applicazioni client. Fornisce due classi separate: `PublicClientApplication` e `ConfidentialClientApplication` per rappresentare le applicazioni client.  Quest'ultimo `ConfidentialClientApplication`,, rappresenta un'applicazione progettata per gestire in modo sicuro un segreto, ad esempio un identificatore dell'applicazione per un'app daemon.
+In ADAL4J la `AuthenticationContext` classe rappresenta la connessione al servizio token di sicurezza (STS) o al server di autorizzazione tramite un'autorità. Tuttavia, MSAL per Java è progettato per le applicazioni client. Fornisce due classi separate: `PublicClientApplication` e `ConfidentialClientApplication` per rappresentare le applicazioni client.  Quest'ultimo, `ConfidentialClientApplication` , rappresenta un'applicazione progettata per gestire in modo sicuro un segreto, ad esempio un identificatore dell'applicazione per un'app daemon.
 
 La tabella seguente illustra il mapping delle funzioni ADAL4J alla nuova MSAL per le funzioni Java:
 
@@ -92,7 +92,7 @@ Per ulteriori informazioni sui token v 1.0 e v 2.0, vedere [Azure Active Directo
 
 ## <a name="adal-to-msal-migration"></a>Migrazione da ADAL a MSAL
 
-In ADAL4J sono stati esposti i token di aggiornamento, che hanno consentito agli sviluppatori di memorizzarli nella cache. Utilizzeranno `AcquireTokenByRefreshToken()` quindi per abilitare soluzioni quali l'implementazione di servizi con esecuzione prolungata che aggiornano i dashboard per conto dell'utente quando l'utente non è più connesso.
+In ADAL4J sono stati esposti i token di aggiornamento, che hanno consentito agli sviluppatori di memorizzarli nella cache. Utilizzeranno quindi `AcquireTokenByRefreshToken()` per abilitare soluzioni quali l'implementazione di servizi con esecuzione prolungata che aggiornano i dashboard per conto dell'utente quando l'utente non è più connesso.
 
 MSAL per Java non espone i token di aggiornamento per motivi di sicurezza. Al contrario, MSAL gestisce i token di aggiornamento automaticamente.
 
@@ -113,7 +113,7 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-`IAuthenticationResult` Restituisce un token di accesso e un token ID, mentre il nuovo token di aggiornamento viene archiviato nella cache.
+`IAuthenticationResult`Restituisce un token di accesso e un token ID, mentre il nuovo token di aggiornamento viene archiviato nella cache.
 L'applicazione conterrà ora anche un IAccount:
 
 ```java
