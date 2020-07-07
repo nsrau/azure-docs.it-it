@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245821"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
@@ -32,8 +32,8 @@ In caso di domande, inviare commenti su questo articolo.
 
 | Stack           | Valore previsto                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | percorso di uno script per eseguire tutte le configurazioni necessarie (ad esempio, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
+| Tomcat          | percorso di uno script per eseguire tutte le configurazioni necessarie (ad esempio, `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | il file di configurazione PM2 o il file di script                                |
 | .NET Core       | nome della DLL compilata come`dotnet <myapp>.dll`                                 |
 | Ruby            | script Ruby con cui si vuole inizializzare l'app                     |
@@ -86,7 +86,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 
    Se si verifica un errore che indica l'impossibilità di trovare il comando `curl`, assicurarsi di installare curl tramite `apt-get install curl` prima di eseguire il comando `curl` precedente.
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Lingue supportate
 
 **Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 
@@ -108,9 +108,9 @@ Sì, durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'ap
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 
-**Sto usando un contenitore personalizzato. Desidero che la piattaforma Monti una condivisione SMB nella `/home/` directory.**
+**Sto usando un contenitore personalizzato. Desidero che la piattaforma Monti una condivisione SMB nella `/home/` Directory.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o è impostata su *true*, la directory `/home/` **verrà condivisa** tra le istanze della scala e i file scritti **verranno mantenuti** tra i riavvii. Se si imposta `WEBSITES_ENABLE_APP_SERVICE_STORAGE` in modo esplicito su *false* , il montaggio viene disabilitato.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o è impostata su *true*, la `/home/` directory **verrà condivisa** tra le istanze della scala e i file scritti **verranno mantenuti** tra i riavvii. Se si imposta in modo esplicito `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *false* , il montaggio viene disabilitato.
 
 **L'avvio del contenitore personalizzato richiede molto tempo e la piattaforma riavvia il contenitore prima del completamento di questa operazione. Come si risolve il problema?**
 
@@ -122,7 +122,7 @@ Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o
 
 **Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?**
 
-Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name`, usare lo [ `az` strumento da riga di comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` , usare lo [ `az` strumento da riga di comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
@@ -153,7 +153,7 @@ Per usare Registro Azure Container con più contenitori, **tutte le immagini del
 Definire le impostazioni dell'applicazione seguenti:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completo, ad esempio `https://<server-name>.azurecr.io`:)
+- DOCKER_REGISTRY_SERVER_URL (URL completo, ad esempio: `https://<server-name>.azurecr.io` )
 - DOCKER_REGISTRY_SERVER_PASSWORD (abilitare l'accesso di amministratore nelle impostazioni di Registro Azure Container)
 
 Nel file di configurazione fare riferimento all'immagine di Registro Azure Container come nell'esempio seguente:

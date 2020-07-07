@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246518"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
@@ -30,7 +30,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
-    - **Log di controllo i**log di controllo forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.[Audit logs](concept-audit-logs.md)  - 
+    - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](concept-risky-sign-ins.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](concept-user-at-risk.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -119,7 +119,7 @@ Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente
 
 - Operazione completata
 
-- Errore
+- Operazioni non riuscite
 
 - Interrotto
 
@@ -146,14 +146,14 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Autenticazione moderna|Descrizione|
+|Nome|Autenticazione moderna|Descrizione|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
 |Exchange ActiveSync| |Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
 |Browser|![Controllo](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
 |Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiceSync per connettersi a Exchange Online|
-|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
 |IMAP4| |Un client di posta legacy che usa IMAP per recuperare la posta elettronica.|
 |MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
@@ -198,7 +198,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scarica](./media/concept-sign-ins/71.png "Download")
+![Scaricare](./media/concept-sign-ins/71.png "Scarica")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -236,7 +236,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - ID applicazione
 - Applicazione
 - Client
-- Percorso
+- Posizione
 - Indirizzo IP
 - Data
 - Autenticazione a più fattori obbligatoria
@@ -267,7 +267,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

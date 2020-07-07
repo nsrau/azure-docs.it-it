@@ -11,15 +11,15 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128865"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Differenze di convalida in base ai tipi di conto supportati (signInAudience)
 
-Quando si registra un'applicazione con la piattaforma di identità Microsoft per gli sviluppatori, viene richiesto di selezionare i tipi di account supportati dall'applicazione. Nell'oggetto e nel manifesto dell'applicazione questa proprietà è `signInAudience`.
+Quando si registra un'applicazione con la piattaforma di identità Microsoft per gli sviluppatori, viene richiesto di selezionare i tipi di account supportati dall'applicazione. Nell'oggetto e nel manifesto dell'applicazione questa proprietà è `signInAudience` .
 
 Di seguito sono indicate alcune opzioni disponibili:
 
@@ -35,13 +35,13 @@ Per le differenze di convalida di diverse proprietà per diversi tipi di account
 
 | Proprietà | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` e `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| URI ID applicazione (`identifierURIs`)  | Deve essere univoco nel tenant <br><br> sono supportati gli schemi urn:// <br><br> I caratteri jolly non sono supportati <br><br> Sono supportate le stringhe di query e i frammenti <br><br> Lunghezza massima di 255 caratteri <br><br> Nessun limite * sul numero di identifierURIs  | Deve essere globalmente univoco <br><br> sono supportati gli schemi urn:// <br><br> I caratteri jolly non sono supportati <br><br> Sono supportate le stringhe di query e i frammenti <br><br> Lunghezza massima di 255 caratteri <br><br> Nessun limite * sul numero di identifierURIs | Deve essere globalmente univoco <br><br> gli schemi urn://non sono supportati <br><br> I caratteri jolly, i frammenti e le stringhe di query non sono supportati <br><br> Lunghezza massima di 120 caratteri <br><br> Massimo 50 identifierURIs |
-| Certificati (`keyCredentials`) | Chiave di firma simmetrica | Chiave di firma simmetrica | Crittografia e chiave di firma asimmetrica | 
-| Segreti client (`passwordCredentials`) | Nessun limite * | Nessun limite * | Se liveSDK è abilitato: massimo 2 segreti client | 
-| URI di Reindirizzamento`replyURLs`() | Per altre informazioni, vedere [restrizioni e limitazioni dell'URL di risposta/URI di reindirizzamento](reply-url.md) . | | | 
-| Autorizzazioni API (`requiredResourceAccess`) | Nessun limite * | Nessun limite * | Sono consentite al massimo 30 autorizzazioni per risorsa (ad esempio Microsoft Graph) | 
-| Ambiti definiti da questa API (`oauth2Permissions`) | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito |  Lunghezza massima del nome dell'ambito di 40 caratteri <br><br> Massimo 100 ambiti definiti | 
-| Applicazioni client autorizzate`preautorizedApplications`() | Nessun limite * | Nessun limite * | Massimo totale di 500 <br><br> Massimo 100 di app client definite <br><br> Massimo 30 ambiti definiti per client | 
+| URI ID applicazione ( `identifierURIs` )  | Deve essere univoco nel tenant <br><br> sono supportati gli schemi urn:// <br><br> I caratteri jolly non sono supportati <br><br> Sono supportate le stringhe di query e i frammenti <br><br> Lunghezza massima di 255 caratteri <br><br> Nessun limite * sul numero di identifierURIs  | Deve essere globalmente univoco <br><br> sono supportati gli schemi urn:// <br><br> I caratteri jolly non sono supportati <br><br> Sono supportate le stringhe di query e i frammenti <br><br> Lunghezza massima di 255 caratteri <br><br> Nessun limite * sul numero di identifierURIs | Deve essere globalmente univoco <br><br> gli schemi urn://non sono supportati <br><br> I caratteri jolly, i frammenti e le stringhe di query non sono supportati <br><br> Lunghezza massima di 120 caratteri <br><br> Massimo 50 identifierURIs |
+| Certificati ( `keyCredentials` ) | Chiave di firma simmetrica | Chiave di firma simmetrica | Crittografia e chiave di firma asimmetrica | 
+| Segreti client ( `passwordCredentials` ) | Nessun limite * | Nessun limite * | Se liveSDK è abilitato: massimo 2 segreti client | 
+| URI di reindirizzamento ( `replyURLs` ) | Per altre informazioni, vedere [restrizioni e limitazioni dell'URL di risposta/URI di reindirizzamento](reply-url.md) . | | | 
+| Autorizzazioni API ( `requiredResourceAccess` ) | Nessun limite * | Nessun limite * | Sono consentite al massimo 30 autorizzazioni per risorsa (ad esempio Microsoft Graph) | 
+| Ambiti definiti da questa API ( `oauth2Permissions` ) | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito |  Lunghezza massima del nome dell'ambito di 40 caratteri <br><br> Massimo 100 ambiti definiti | 
+| Applicazioni client autorizzate ( `preautorizedApplications` ) | Nessun limite * | Nessun limite * | Massimo totale di 500 <br><br> Massimo 100 di app client definite <br><br> Massimo 30 ambiti definiti per client | 
 | appRoles | Supportato <br> Nessun limite * | Supportato <br> Nessun limite * | Non supportato | 
 | URL di disconnessione | http://localhostconsentito <br><br> Lunghezza massima di 255 caratteri | http://localhostconsentito <br><br> Lunghezza massima di 255 caratteri | <br><br> https://localhostè consentito, http://localhost non riesce per MSA <br><br> Lunghezza massima di 255 caratteri <br><br> Lo schema HTTP non è consentito <br><br> I caratteri jolly non sono supportati | 
 
@@ -50,4 +50,4 @@ Per le differenze di convalida di diverse proprietà per diversi tipi di account
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulla [registrazione dell'applicazione](app-objects-and-service-principals.md)
-- Informazioni sul [manifesto dell'applicazione](reference-app-manifest.md)
+- Informazioni sul [Manifesto dell'applicazione](reference-app-manifest.md)

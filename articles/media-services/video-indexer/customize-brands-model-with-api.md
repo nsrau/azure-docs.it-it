@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128003"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
@@ -30,7 +30,7 @@ Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overv
 L'API [Create a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) crea una nuova personalizzazione personalizzata e la aggiunge al modello Custom Brands per l'account specificato.
 
 > [!NOTE]
-> Impostando `enabled` (nel corpo) su true, il marchio viene inserito nell'elenco di *inclusione* per video Indexer da rilevare. Se `enabled` si imposta su false, il marchio viene inserito nell'elenco di *esclusione* , quindi video Indexer non lo rileva.
+> Impostando `enabled` (nel corpo) su true, il marchio viene inserito nell'elenco di *inclusione* per video Indexer da rilevare. `enabled`Se si imposta su false, il marchio viene inserito nell'elenco di *esclusione* , quindi video Indexer non lo rileva.
 
 Altri parametri che è possibile impostare nel corpo:
 
@@ -94,7 +94,7 @@ La risposta specifica informazioni sul marchio che è stato cercato (usando l'ID
 ```
 
 > [!NOTE]
-> `enabled`l'impostazione di `true` su indica che il marchio si trova nell'elenco di *inclusione* per video Indexer da rilevare `enabled` e che se è false significa che il marchio è incluso nell'elenco di *esclusione* , quindi video Indexer non lo rileverà.
+> `enabled`l'impostazione di su `true` indica che il marchio si trova nell'elenco di *inclusione* per video Indexer da rilevare e `enabled` che se è false significa che il marchio è incluso nell'elenco di *esclusione* , quindi video Indexer non lo rileverà.
 
 ## <a name="update-a-specific-brand"></a>Aggiornare un marchio specifico
 

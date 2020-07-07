@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391716"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Guida introduttiva: distribuire un'app del catalogo di servizi tramite portale di Azure
@@ -54,7 +54,7 @@ A seguito della distribuzione dell'app del catalogo di servizi, si dispone di du
 
 1. Visualizzare il gruppo di risorse denominato **applicationGroup** per visualizzare l'app del catalogo di servizi.
 
-   ![Visualizza applicazione](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Visualizzare l'applicazione](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Visualizzare il gruppo di risorse denominato **applicationGroup{hash-characters}** per vedere le risorse per l'app del catalogo di servizi.
 

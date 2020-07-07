@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239867"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Cenni preliminari sulle immagini Red Hat Enterprise Linux
@@ -57,7 +57,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1
 
 L'API REST di Azure consente di usare il moniker "Latest" per la versione anziché per la versione specifica. L'uso di "Latest" effettua il provisioning dell'immagine più recente disponibile per l'editore, l'offerta e lo SKU specificati.
 
-`RedHat:RHEL:8-LVM:latest` Si riferisce ad esempio alla versione più recente dell'immagine partizionata LVM 8, disponibile.
+`RedHat:RHEL:8-LVM:latest`Si riferisce ad esempio alla versione più recente dell'immagine partizionata LVM 8, disponibile.
 
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
@@ -71,27 +71,27 @@ Il confronto tra le versioni dell'immagine viene eseguito confrontando i valori 
 
 Per le immagini RHEL 6. x, i tipi di immagine sono riportati nella tabella seguente.
 
-|Editore | Offerta | Valore SKU | Versione | Dettagli
+|Editore | Offerta | Valore SKU | Version | Dettagli
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | Versione secondaria (ad esempio, 6,9) | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.9.2018010506) | Tutte le immagini RHEL 6. x standard seguono questa convenzione.
-|RedHat | RHEL-BYOS | RHEL-raw69 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.9.20181023) | Questa immagine è un'immagine RHEL 6,9 BYOS.
+|RedHat | rhel-byos | RHEL-raw69 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.9.20181023) | Questa immagine è un'immagine RHEL 6,9 BYOS.
 |RedHat | RHEL | RHEL-SAP-APPS | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.8.2017053118) | Questa immagine è un'immagine RHEL 6,8 per le applicazioni SAP. È autorizzato ad accedere ai repository di applicazioni SAP e ai repository RHEL di base.
 |RedHat | RHEL | RHEL-SAP-HANA | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.7.2017053121) | Questa immagine è un RHEL 6,7 per SAP HANA immagine. È autorizzato ad accedere ai repository SAP HANA e ai repository RHEL di base.
 
 ## <a name="rhel-7-image-types"></a>Tipi di immagine RHEL 7
 
-Per le immagini RHEL 7. x, sono disponibili diversi tipi di immagine. La tabella seguente illustra i diversi set di immagini disponibili. Per visualizzare un elenco completo, usare il comando dell'interfaccia `az vm image list --publisher redhat --all`della riga di comando di Azure.
+Per le immagini RHEL 7. x, sono disponibili diversi tipi di immagine. La tabella seguente illustra i diversi set di immagini disponibili. Per visualizzare un elenco completo, usare il comando dell'interfaccia della riga di comando di Azure `az vm image list --publisher redhat --all` .
 
 >[!NOTE]
 > Se non diversamente specificato, tutte le immagini sono partizionate in LVM e si connettono a repository RHEL regolari. Ovvero, i repository non sono il supporto per gli aggiornamenti estesi (EUS) e non sono Update Services for SAP (E4S). In futuro, stiamo passando alla pubblicazione solo di immagini con partizionamento LVM, ma siamo aperti a commenti e suggerimenti su questa decisione. Per altre informazioni sul supporto degli aggiornamenti estesi e sui servizi di aggiornamento per SAP, vedere [Red Hat Enterprise Linux ciclo di vita](https://access.redhat.com/support/policy/updates/errata).
 
-|Editore | Offerta | Valore SKU | Versione | Dettagli
+|Editore | Offerta | Valore SKU | Version | Dettagli
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | Versione secondaria (ad esempio, 7,6) | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019102813) | Le immagini pubblicate prima del 2019 aprile sono collegate ai repository RHEL standard. Le immagini pubblicate dopo il 2019 aprile vengono collegate ai repository EUS di Red Hat per consentire il blocco della versione di una specifica versione secondaria. I clienti che desiderano repository regolari devono usare le immagini che contengono 7-LVM o 7-RAW nel valore SKU (i dettagli seguono). RHEL 7,7 e le immagini successive sono partizionate in LVM. Tutte le altre immagini in questa categoria sono partizionate non elaborate.
 |RedHat | RHEL | 7-RAW | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019102813) | Queste immagini sono partizionate non elaborate, ad esempio non è stato aggiunto alcun volume logico.
 |RedHat | RHEL | 7-RAW-CI | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019072418) | Queste immagini sono partizionate non elaborate, ad esempio non è stato aggiunto alcun volume logico, e usano cloud-init per il provisioning.
 |RedHat | RHEL | 7-LVM | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019062414) | Queste immagini sono partizionate in LVM.
-|RedHat | RHEL-BYOS | RHEL-{LVM, RAW} | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.7.20190819) | Queste immagini sono immagini RHEL 7 BYOS. Non sono collegati ad alcun repository e non addebitano la tariffa Premium RHEL. Se si è interessati alle immagini RHEL BYOS, [richiedere l'accesso](https://aka.ms/rhel-byos). I valori di SKU terminano con la versione secondaria e indicano se l'immagine è non elaborata o LVM partizionata. Ad esempio, un valore SKU di RHEL-lvm77 indica un'immagine RHEL 7,7 partizionata LVM.
+|RedHat | rhel-byos | RHEL-{LVM, RAW} | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.7.20190819) | Queste immagini sono immagini RHEL 7 BYOS. Non sono collegati ad alcun repository e non addebitano la tariffa Premium RHEL. Se si è interessati alle immagini RHEL BYOS, [richiedere l'accesso](https://aka.ms/rhel-byos). I valori di SKU terminano con la versione secondaria e indicano se l'immagine è non elaborata o LVM partizionata. Ad esempio, un valore SKU di RHEL-lvm77 indica un'immagine RHEL 7,7 partizionata LVM.
 |RedHat | RHEL | RHEL-SAP | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019071300) | Queste immagini sono RHEL per le immagini SAP. Hanno diritto ad accedere ai repository di SAP HANA e applicazioni, nonché ai repository E4S di RHEL. La fatturazione include RHEL Premium e SAP Premium oltre alla tariffa di calcolo di base.
 |RedHat | RHEL | RHEL-SAP-HA | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019062320) | Queste immagini sono RHEL per SAP con la disponibilità elevata e le immagini dei servizi di aggiornamento. Hanno diritto ad accedere ai repository di SAP HANA e applicazioni e ai repository a disponibilità elevata, nonché ai repository E4S RHEL. La fatturazione include RHEL Premium, SAP Premium e High Availability Premium oltre alla tariffa di calcolo di base.
 |RedHat | RHEL | RHEL-HA | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019062019) | Queste immagini sono immagini RHEL che hanno anche il diritto di accedere al componente aggiuntivo di disponibilità elevata. L'addebito è leggermente più alto rispetto a RHEL e alla tariffa di calcolo di base a causa del componente aggiuntivo Premium a disponibilità elevata.
@@ -102,7 +102,7 @@ Per le immagini RHEL 7. x, sono disponibili diversi tipi di immagine. La tabella
 
 Di seguito sono riportati i dettagli relativi ai tipi di immagine RHEL 8.
 
-|Editore | Offerta | Valore SKU | Versione | Dettagli
+|Editore | Offerta | Valore SKU | Version | Dettagli
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191023) | Queste immagini sono immagini con partizionamento in RHEL 8, connesse ai repository standard di Red Hat.
 |RedHat | RHEL | 8-Gen2 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191024) | Queste immagini sono immagini partizionate di Hyper-V di seconda generazione (LVM), che sono connesse ai repository standard di Red Hat. Per altre informazioni sulle macchine virtuali di seconda generazione in Azure, vedere [supporto per le macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
@@ -146,7 +146,7 @@ Versione secondaria |Esempio di immagine EUS              |Stato EUS            
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | Le immagini pubblicate il 2019 aprile e versioni successive sono EUS per impostazione predefinita.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Le immagini pubblicate il 2019 giugno e versioni successive sono EUS per impostazione predefinita. |
-RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Le immagini pubblicate il 2019 e versioni successive sono EUS per impostazione predefinita. |
+RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | Le immagini pubblicate il 2019 e versioni successive sono EUS per impostazione predefinita. |
 RHEL 8,0      |N/D                            | Nessun EUS è disponibile da Red Hat.                               |
 
 ### <a name="update-services-for-sap"></a>Aggiornare i servizi per SAP

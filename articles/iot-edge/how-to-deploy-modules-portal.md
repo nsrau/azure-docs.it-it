@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133927"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
@@ -24,7 +24,7 @@ Questo articolo illustra come il portale di Azure consente di creare un manifest
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [Hub](../iot-hub/iot-hub-create-through-portal.md) Internet delle cose nella sottoscrizione di Azure.
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device.md#register-in-the-azure-portal) con il runtime di IoT Edge installato.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -43,7 +43,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 1. Nella sezione **moduli IOT Edge** della pagina selezionare **Aggiungi**.
 1. Esaminare i tipi di moduli dal menu a discesa:
 
-   * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`esempio è. Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine.
+   * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di esempio è `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine.
    * **Modulo Marketplace** : moduli ospitati in Azure Marketplace. Alcuni moduli del Marketplace richiedono una configurazione aggiuntiva, quindi esaminare i dettagli del modulo nell'elenco dei [moduli IOT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Modulo di analisi di flusso di Azure** : moduli generati da un carico di lavoro di analisi di flusso di Azure.
 
@@ -53,7 +53,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="specify-routes"></a>Specificare le route
 
-Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, una route viene chiamata **Route** e definita **da\* /messages/in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
+Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, una route viene chiamata **Route** e definita **da/messages/ \* in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
 
 Aggiungere o aggiornare le route con le informazioni provenienti da [Declare Routes](module-composition.md#declare-routes), quindi selezionare **Next: Review + create** per passare al passaggio successivo della procedura guidata.
 

@@ -10,10 +10,10 @@ ms.date: 05/04/2019
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 62f136eb1c2684bfd307a05ccbb4836739da6f3a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82789454"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere le immagini di macchine virtuali della raccolta tra i tenant di Azure
@@ -27,7 +27,7 @@ Le raccolte di immagini condivise consentono di condividere immagini con RBAC. �
 
 ## <a name="create-a-vm-using-azure-cli"></a>Creare una VM usando l'interfaccia della riga di comando di Azure
 
-Accedere all'entità servizio per il tenant 1 usando appID, la chiave dell'app e l'ID del tenant 1. Se necessario, `az account show --query "tenantId"` è possibile usare per ottenere gli ID tenant.
+Accedere all'entità servizio per il tenant 1 usando appID, la chiave dell'app e l'ID del tenant 1. `az account show --query "tenantId"`Se necessario, è possibile usare per ottenere gli ID tenant.
 
 ```azurecli-interactive
 az account clear

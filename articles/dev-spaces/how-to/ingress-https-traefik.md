@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.openlocfilehash: fd11b3bbd3f90b75203084ff0753c1485d57a35b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80155430"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usare un controller di ingresso traefik personalizzato e configurare HTTPS
@@ -47,7 +47,7 @@ Aggiungere il [repository Helm stabile ufficiale][helm-stable-repo], che contien
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Creare uno spazio dei nomi Kubernetes per il controller di ingresso traefik e installarlo `helm`usando.
+Creare uno spazio dei nomi Kubernetes per il controller di ingresso traefik e installarlo usando `helm` .
 
 > [!NOTE]
 > Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo, rimuovere il parametro *--set RBAC. Enabled = true* .
@@ -58,7 +58,7 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 ```
 
 > [!NOTE]
-> L'esempio precedente crea un endpoint pubblico per il controller di ingresso. Se invece è necessario usare un endpoint privato per il controller di ingresso, aggiungere il comando *--set service. Annotations. Service\\. Beta\\. kubernetes\\. io/Azure-Load-Balancer-Internal "= true* parametro per il comando *Helm install* .
+> L'esempio precedente crea un endpoint pubblico per il controller di ingresso. Se invece è necessario usare un endpoint privato per il controller di ingresso, aggiungere il comando *--set service. Annotations. Service \\ . Beta \\ . kubernetes \\ . io/Azure-Load-Balancer-Internal "= true* parametro per il comando *Helm install* .
 > ```console
 > helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
@@ -102,7 +102,7 @@ Aprire [values. YAML][values-yaml] ed effettuare gli aggiornamenti seguenti:
 * Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *traefik. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN*. 
 * Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: traefik # in ingresso personalizzato*. 
 
-Di seguito è riportato un esempio di `values.yaml` un file aggiornato:
+Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -125,13 +125,13 @@ gateway:
 
 Salvare le modifiche e chiudere il file.
 
-Creare lo spazio di *sviluppo* con l'applicazione di `azds space select`esempio usando.
+Creare lo spazio di *sviluppo* con l'applicazione di esempio usando `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-Distribuire l'applicazione di esempio `helm install`utilizzando.
+Distribuire l'applicazione di esempio utilizzando `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
@@ -139,13 +139,13 @@ helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 
 L'esempio precedente distribuisce l'applicazione di esempio nello spazio dei nomi *dev* .
 
-Consente di visualizzare gli URL per accedere all'applicazione `azds list-uris`di esempio tramite.
+Consente di visualizzare gli URL per accedere all'applicazione di esempio tramite `azds list-uris` .
 
 ```console
 azds list-uris
 ```
 
-L'output seguente Mostra gli URL di esempio `azds list-uris`da.
+L'output seguente Mostra gli URL di esempio da `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -166,7 +166,7 @@ azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-L'output seguente Mostra gli URL `azds list-uris` di esempio di per accedere all'applicazione di esempio nello spazio dev figlio *azureuser1* .
+L'output seguente Mostra gli URL di esempio di `azds list-uris` per accedere all'applicazione di esempio nello spazio dev figlio *azureuser1* .
 
 ```console
 Uri                                                  Status
@@ -175,7 +175,7 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Passare al servizio *bikesharingweb* nello spazio dev figlio *AZUREUSER1* aprendo l'URL pubblico dal `azds list-uris` comando. Nell'esempio precedente, l'URL pubblico per il servizio *bikesharingweb* nello spazio dev figlio *azureuser1* è `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
+Passare al servizio *bikesharingweb* nello spazio dev figlio *AZUREUSER1* aprendo l'URL pubblico dal `azds list-uris` comando. Nell'esempio precedente, l'URL pubblico per il servizio *bikesharingweb* nello spazio dev figlio *azureuser1* è `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` .
 
 ## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Configurare il controller di ingresso di traefik per l'uso di HTTPS
 
@@ -211,13 +211,13 @@ spec:
 > [!NOTE]
 > Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer*.
 
-Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml`.
+Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 
 ```console
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Rimuovere i *traefik* *ClusterRole* e *ClusterRoleBinding*precedenti, quindi aggiornare traefik per usare HTTPS usando `helm`.
+Rimuovere i *traefik* *ClusterRole* e *ClusterRoleBinding*precedenti, quindi aggiornare traefik per usare HTTPS usando `helm` .
 
 > [!NOTE]
 > Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo, rimuovere il parametro *--set RBAC. Enabled = true* .
@@ -261,7 +261,7 @@ az network dns record-set a remove-record \
 
 L'esempio precedente aggiorna il record *a* nella zona DNS *MY_CUSTOM_DOMAIN* per usare *PREVIOUS_EXTERNAL_IP*.
 
-Aggiornare [values. YAML][values-yaml] per includere i dettagli relativi all'uso di *Cert-Manager* e HTTPS. Di seguito è riportato un esempio di `values.yaml` un file aggiornato:
+Aggiornare [values. YAML][values-yaml] per includere i dettagli relativi all'uso di *Cert-Manager* e HTTPS. Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -292,7 +292,7 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Aggiornare l'applicazione di esempio `helm`tramite:
+Aggiornare l'applicazione di esempio tramite `helm` :
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
@@ -322,7 +322,7 @@ Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] per u
 ...
 ```
 
-Aggiornare [BikeSharingWeb/Package. JSON][package-json] con una dipendenza per il pacchetto *URL* .
+Aggiornare [BikeSharingWeb/package.json][package-json] con una dipendenza per il pacchetto *URL* .
 
 ```json
 {
@@ -334,7 +334,7 @@ Aggiornare [BikeSharingWeb/Package. JSON][package-json] con una dipendenza per i
 ...
 ```
 
-Aggiornare il metodo *getApiHostAsync* in [BikeSharingWeb/lib/helper. js][helpers-js] per usare https:
+Aggiornare il metodo *getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helpers-js] per usare https:
 
 ```javascript
 ...
@@ -351,7 +351,7 @@ Aggiornare il metodo *getApiHostAsync* in [BikeSharingWeb/lib/helper. js][helper
 ...
 ```
 
-Passare alla `BikeSharingWeb` directory e usare `azds up` per eseguire il servizio BikeSharingWeb aggiornato.
+Passare alla `BikeSharingWeb` Directory e usare `azds up` per eseguire il servizio BikeSharingWeb aggiornato.
 
 ```console
 cd ../BikeSharingWeb/

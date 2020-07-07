@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154730"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
@@ -60,18 +60,18 @@ Nello scenario di esempio precedente è possibile classificare le app in base ai
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
 
-A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati da Azure AD. Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
+A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati da Azure AD. Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico offre una panoramica:
 
 |Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flusso del codice di autorizzazione](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Flusso implicito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Flusso OIDC ibrido](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
-|[Riscatto token di aggiornamento](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token di aggiornamento | x | x | x| |
-|[Flusso per conto di](v1-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
+|[Riscatto del token di aggiornamento](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token di aggiornamento | x | x | x| |
+|[Flusso on-behalf-of](v1-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
 |[Credenziali del client](v1-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
 
-I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL, `response_mode` dove `query` è `fragment`o.  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono `groups` di attestazioni `wids` o. 
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL (dove `response_mode` è `query` o `fragment`).  Alcuni browser hanno un limite delle dimensioni dell'URL che può essere inserito nella barra del browser e hanno esito negativo quando è troppo lungo.  Di conseguenza, questi token non dispongono di attestazioni `groups` o `wids`. 
 
 Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Azure AD e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Azure AD.
 
@@ -132,7 +132,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
 | Issuer | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| Name | Fornisce un valore leggibile che identifica l'oggetto del token. |
+| Nome | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID dell'oggetto. | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
 | Scope | Indica le autorizzazioni concesse all'applicazione client. |
@@ -140,7 +140,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Versione | Contiene il numero di versione del token. |
+| Version | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

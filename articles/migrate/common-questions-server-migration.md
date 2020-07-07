@@ -4,10 +4,10 @@ description: Risposte alle domande comuni sull'uso della migrazione del server A
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744332"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
@@ -21,13 +21,13 @@ Questo articolo risponde alle domande più comuni sull'Azure Migrate: strumento 
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Quali aree geografiche sono supportate per la migrazione con Azure Migrate?
 
-Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi](migrate-support-matrix.md#supported-geographies-azure-government).
+Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Come funziona la replica VMware senza agenti?
 
 Il metodo di replica senza agenti per VMware USA snapshot VMware e il rilevamento dei blocchi modificati VMware (CBT).
 
-Il processo è il seguente:
+Questa è la procedura:
 
 1. Quando si avvia la replica, viene pianificato un ciclo di replica iniziale. Nel ciclo iniziale viene effettuato uno snapshot della macchina virtuale. Lo snapshot viene usato per replicare le macchine virtuali VMDK (dischi). 
 2. Al termine del ciclo di replica iniziale, delta replication cicli vengono pianificati periodicamente.
@@ -83,9 +83,9 @@ Attualmente, è possibile eseguire la migrazione di VM 100 per ogni istanza di s
 
 È possibile limitare l'uso di NetQosPolicy. Ad esempio:
 
-Il AppNamePrefix da utilizzare in NetQosPolicy è "GatewayWindowsService. exe". È possibile creare un criterio nell'appliance Azure Migrate per limitare il traffico di replica dall'appliance creando un criterio come quello seguente:
+Il AppNamePrefix da usare in NetQosPolicy è "GatewayWindowsService.exe". È possibile creare un criterio nell'appliance Azure Migrate per limitare il traffico di replica dall'appliance creando un criterio come quello seguente:
  
-New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
+New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1 MB
 
 ## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>È possibile eseguire la migrazione di VM già replicate in Azure? 
 
@@ -106,7 +106,7 @@ La migrazione di computer come se fossero server fisici è utile in diversi scen
 Sebbene possa trattarsi di un caso d'uso valido, attualmente non è supportato. La distribuzione di due o più appliance per individuare lo stesso set di macchine virtuali causa un problema di servizio in cui la proprietà della macchina virtuale continua a passare tra le due appliance. Questo è il motivo per cui le VM appaiono e scompaiono. In questi casi, per risolvere il problema, è necessario eliminare un'appliance ed eseguire un aggiornamento hardware.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione di macchine virtuali VMware?
-Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md).
+Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md)
  
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407464"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub eventi all'ambiente Time Series Insights
@@ -62,7 +62,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
    [![In Origini eventi selezionare il pulsante Aggiungi](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Immettere un valore per **nome origine evento** univoco per questo ambiente Time Series Insights, ad esempio `Contoso-TSI-GA-Event-Hub-ES`.
+1. Immettere un valore per **nome origine evento** univoco per questo ambiente Time Series Insights, ad esempio `Contoso-TSI-GA-Event-Hub-ES` .
 
 1. In **Origine** selezionare **Hub eventi**.
 

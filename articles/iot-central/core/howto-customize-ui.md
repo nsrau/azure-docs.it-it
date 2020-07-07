@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 8f76f143b6c6a26b88b78e20d8d5d8ae1ae48553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158005"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personalizzare l'interfaccia utente di Azure IoT Central
@@ -49,7 +49,7 @@ Immagine PNG, non superiore a 32 x 32 pixel, con uno sfondo trasparente. Un Web 
 
 ### <a name="browser-colors"></a>Colori del browser
 
-È possibile modificare il colore dell'intestazione di pagina e il colore utilizzato per i pulsanti di accento e altre evidenziazioni. Usare un valore di colore esadecimale a sei caratteri `##ff6347`nel formato. Per ulteriori informazioni sulla notazione dei colori del **valore esadecimale** , vedere [colori HTML](https://www.w3schools.com/html/html_colors.asp).
+È possibile modificare il colore dell'intestazione di pagina e il colore utilizzato per i pulsanti di accento e altre evidenziazioni. Usare un valore di colore esadecimale a sei caratteri nel formato `##ff6347` . Per ulteriori informazioni sulla notazione dei colori del **valore esadecimale** , vedere [colori HTML](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
 > È sempre possibile ripristinare le opzioni predefinite nella pagina **Personalizza applicazione** .

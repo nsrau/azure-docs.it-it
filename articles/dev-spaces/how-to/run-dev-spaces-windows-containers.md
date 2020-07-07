@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240492"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
@@ -54,14 +54,14 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Eseguire il servizio Windows nel cluster AKS e verificare che sia in uno stato di *esecuzione* . Questo articolo usa un' [applicazione di esempio][sample-application] per illustrare un servizio Windows e Linux in esecuzione nel cluster.
 
-Clonare l'applicazione di esempio da GitHub e passare `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` alla directory:
+Clonare l'applicazione di esempio da GitHub e passare alla `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` Directory:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-L'applicazione di esempio usa [Helm 3][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla `charts` directory e usare Helm eseguire il servizio Windows:
+L'applicazione di esempio usa [Helm 3][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla `charts` Directory e usare Helm eseguire il servizio Windows:
 
 ```console
 cd charts/
@@ -91,7 +91,7 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Aggiornare il servizio Windows per gli spazi di sviluppo
 
-Quando si abilitano gli spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita gli spazi di sviluppo proveranno a instrumentare tutti i nuovi contenitori in esecuzione in tale spazio dei nomi. Gli spazi di sviluppo proveranno anche a instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire agli spazi di sviluppo di instrumentare un contenitore in esecuzione nello spazio dei nomi, aggiungere l'intestazione *No-proxy* a `deployment.yaml`.
+Quando si abilitano gli spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita gli spazi di sviluppo proveranno a instrumentare tutti i nuovi contenitori in esecuzione in tale spazio dei nomi. Gli spazi di sviluppo proveranno anche a instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire agli spazi di sviluppo di instrumentare un contenitore in esecuzione nello spazio dei nomi, aggiungere l'intestazione *No-proxy* a `deployment.yaml` .
 
 Aggiungere `azds.io/no-proxy: "true"` al `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` file:
 
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-Nell'esempio precedente, il nome della distribuzione è *Windows-Service*. Aggiornare il servizio Windows con la nuova configurazione usando `helm upgrade`:
+Nell'esempio precedente, il nome della distribuzione è *Windows-Service*. Aggiornare il servizio Windows con la nuova configurazione usando `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Poiché è stato aggiornato `deployment.yaml`, gli spazi di sviluppo non tenterà di instrumentare il servizio.
+Poiché è stato aggiornato `deployment.yaml` , gli spazi di sviluppo non tenterà di instrumentare il servizio.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Eseguire l'applicazione Linux con Azure Dev Spaces
 
-Passare alla `webfrontend` directory e usare i `azds prep` comandi e `azds up` per eseguire l'applicazione Linux nel cluster.
+Passare alla `webfrontend` Directory e usare i `azds prep` comandi e `azds up` per eseguire l'applicazione Linux nel cluster.
 
 ```console
 cd ../../webfrontend-linux/
@@ -161,7 +161,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, che viene visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/` . Passare al servizio in un browser e fare clic su *About (informazioni* ) nella parte superiore. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows usata dal contenitore.
+È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, che viene visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Passare al servizio in un browser e fare clic su *About (informazioni* ) nella parte superiore. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows usata dal contenitore.
 
 ![App di esempio che mostra la versione di Windows da mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 

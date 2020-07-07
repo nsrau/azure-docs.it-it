@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783747"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
@@ -87,12 +87,12 @@ Nell'esempio precedente il server DNS viene impostato su un servizio DNS accessi
 
 Posizionare `daemon.json` nella posizione corretta per la piattaforma:
 
-| Piattaforma | Percorso |
+| Piattaforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows host con i contenitori di Windows | `C:\ProgramData\iotedge-moby\config` |
 
-Se il percorso contiene `daemon.json` già un file, aggiungervi la chiave **DNS** e salvare il file.
+Se il percorso contiene già un `daemon.json` file, aggiungervi la chiave **DNS** e salvare il file.
 
 Riavviare il motore di gestione dei contenitori per rendere effettivi gli aggiornamenti.
 
@@ -149,7 +149,7 @@ Un altro processo nel computer host ha associato una porta che il modulo edgeHub
 
 Se il dispositivo IoT Edge funziona come dispositivo gateway, è necessario trovare e arrestare il processo che usa la porta 443, 5671 o 8883. Un errore per la porta 443 indica in genere che l'altro processo è un server Web.
 
-Se non è necessario usare il dispositivo IoT Edge come gateway, è possibile rimuovere i binding della porta dalle opzioni di creazione del modulo di edgeHub. È possibile modificare le opzioni di creazione nel portale di Azure o direttamente nel file Deployment. JSON.
+Se non è necessario usare il dispositivo IoT Edge come gateway, è possibile rimuovere i binding della porta dalle opzioni di creazione del modulo di edgeHub. È possibile modificare le opzioni di creazione nel portale di Azure o direttamente nella deployment.jssul file.
 
 Nel portale di Azure:
 
@@ -157,7 +157,7 @@ Nel portale di Azure:
 
 2. Selezionare il dispositivo IoT Edge che si desidera aggiornare.
 
-3. Selezionare **Set Modules** (Configura i moduli).
+3. Selezionare **imposta moduli**.
 
 4. Selezionare **le impostazioni di runtime**.
 
@@ -165,11 +165,11 @@ Nel portale di Azure:
 
 6. Salvare le modifiche e creare la distribuzione.
 
-Nel file Deployment. JSON:
+Nel file deployment.js:
 
-1. Aprire il file Deployment. JSON applicato al dispositivo IoT Edge.
+1. Aprire il deployment.jsnel file che è stato applicato al dispositivo IoT Edge.
 
-2. Trovare le `edgeHub` impostazioni nella sezione edgeAgent desired Properties:
+2. Trovare le `edgeHub` Impostazioni nella sezione edgeAgent desired Properties:
 
    ```json
    "edgeHub": {
@@ -222,7 +222,7 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
    ![Configurare il nome DNS della macchina virtuale](./media/troubleshoot/configure-dns.png)
 
 3. Specificare un valore per **Etichetta del nome DNS** e selezionare **Salva**.
-4. Copiare il nuovo nome DNS, che deve essere nel formato ** \<DNSnamelabel\>.\< vmlocation\>. cloudapp.Azure.com**.
+4. Copiare il nuovo nome DNS, che deve essere nel formato ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. All'interno della macchina virtuale, usare il comando seguente per configurare il runtime di IoT Edge con il nome DNS:
 
    * In Linux:
@@ -241,7 +241,7 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
 
 **Comportamento osservato:**
 
-Si ottiene un EventLogexception quando si `Get-WinEvent` utilizza in Windows.
+Si ottiene un EventLogexception quando si utilizza `Get-WinEvent` in Windows.
 
 **Causa radice:**
 
@@ -276,7 +276,7 @@ Per l'hub IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance
 
 Nel portale di Azure:
 
-Nell'hub Internet delle cose selezionare il dispositivo IOT Edge e nella pagina dei dettagli del dispositivo e selezionare **set Modules** > **Runtime Settings**. Creare una variabile di ambiente per il modulo Hub IoT Edge denominato *OptimizeForPerformance* , che è impostato su *false*.
+Nell'hub Internet delle cose selezionare il dispositivo IOT Edge e nella pagina dei dettagli del dispositivo e selezionare **set Modules**  >  **Runtime Settings**. Creare una variabile di ambiente per il modulo Hub IoT Edge denominato *OptimizeForPerformance* , che è impostato su *false*.
 
 ![OptimizeForPerformance impostato su false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -314,7 +314,7 @@ Per motivi di sicurezza, il daemon di IoT Edge impone l'identificazione del proc
 
 A partire dalla versione 1.0.7, tutti i processi dei moduli sono autorizzati a connettersi. Per altre informazioni, vedere il log delle modifiche della [versione 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Se non è possibile eseguire l'aggiornamento a 1.0.7, seguire questa procedura. Verificare che il modulo IoT Edge personalizzato usi sempre lo stesso ID di processo per inviare messaggi a edgeHub. Ad esempio, assicurarsi di `ENTRYPOINT` eseguire il `CMD` comando anziché nel file docker. Il `CMD` comando conduce a un ID di processo per il modulo e un altro ID processo per il comando bash che esegue il programma `ENTRYPOINT` principale, ma conduce a un singolo ID processo.
+Se non è possibile eseguire l'aggiornamento a 1.0.7, seguire questa procedura. Verificare che il modulo IoT Edge personalizzato usi sempre lo stesso ID di processo per inviare messaggi a edgeHub. Ad esempio, assicurarsi di eseguire `ENTRYPOINT` `CMD` il comando anziché nel file docker. Il `CMD` comando conduce a un ID di processo per il modulo e un altro ID processo per il comando bash che esegue il programma principale, ma `ENTRYPOINT` conduce a un singolo ID processo.
 
 ## <a name="iot-edge-module-deploys-successfully-then-disappears-from-device"></a>Il modulo IoT Edge viene distribuito correttamente, quindi scompare dal dispositivo
 
@@ -330,7 +330,7 @@ Se una distribuzione automatica è destinata a un dispositivo, ha la priorità r
 
 Usare solo un tipo di meccanismo di distribuzione per dispositivo, ovvero una distribuzione automatica o distribuzioni di singoli dispositivi. Se sono presenti più distribuzioni automatiche destinate a un dispositivo, è possibile modificare le descrizioni della priorità o della destinazione per assicurarsi che la correzione venga applicata a un determinato dispositivo. È anche possibile aggiornare i dispositivi gemelli in modo che non corrispondano più alla descrizione di destinazione della distribuzione automatica.
 
-Per altre informazioni, vedere [comprendere IOT Edge distribuzioni automatiche per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
+Per altre informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

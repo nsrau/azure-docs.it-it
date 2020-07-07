@@ -8,17 +8,17 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408335"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controllo di sicurezza: registrazione e monitoraggio
 
 La registrazione e il monitoraggio della sicurezza sono incentrati sulle attività correlate all'abilitazione, all'acquisizione e all'archiviazione dei log di controllo per i servizi di Azure.
 
-## <a name="21-use-approved-time-synchronization-sources"></a>2,1: utilizzare origini di sincronizzazione dell'ora approvate
+## <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
@@ -30,15 +30,15 @@ Microsoft mantiene le origini temporali per le risorse di Azure, tuttavia, è po
 
 - [Come configurare la sincronizzazione dell'ora per le risorse di calcolo Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
 
-## <a name="22-configure-central-security-log-management"></a>2,2: configurare la gestione dei log di sicurezza centrale
+## <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
 | 2.2 | 6,5, 6,6 | Customer |
 
-Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dai dispositivi endpoint, le risorse di rete e altri sistemi di sicurezza. In monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine/archivio.
+Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dai dispositivi endpoint, le risorse di rete e altri sistemi di sicurezza. In Monitoraggio di Azure usare una o più aree di lavoro Log Analytics per eseguire query ed effettuare analisi, quindi usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
-In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti. 
+In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti. 
 
 - [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -46,9 +46,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Come iniziare a usare monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-## <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: abilitare la registrazione di controllo per le risorse di Azure
+## <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
@@ -60,7 +60,7 @@ Abilitare le impostazioni di diagnostica nelle risorse di Azure per l'accesso ai
 
 - [Informazioni sulla registrazione e sui diversi tipi di log in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
 
-## <a name="24-collect-security-logs-from-operating-systems"></a>2,4: raccogliere i registri di sicurezza dai sistemi operativi
+## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
@@ -72,19 +72,19 @@ Se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabil
 
 - [Informazioni sulla raccolta dati del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
-## <a name="25-configure-security-log-storage-retention"></a>2,5: configurare la conservazione dell'archiviazione dei log di sicurezza
+## <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
 | 2.5 | 6.4 | Customer |
 
-In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine/archivio.
+In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-## <a name="26-monitor-and-review-logs"></a>2,6: monitorare ed esaminare i log
+## <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
@@ -92,13 +92,13 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 Analizza e monitora i log per un comportamento anomalo e verifica regolarmente i risultati. Usare l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati di log.
 
-In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti. 
+In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti. 
 
 - [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 - [Informazioni sull'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-- [Come eseguire query personalizzate in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 ## <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: abilitare gli avvisi per le attività anomale
 
@@ -116,11 +116,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 - [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-## <a name="28-centralize-anti-malware-logging"></a>2,8: centralizzare la registrazione anti-malware
+## <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2.8 | 8.6 | Customer |
+| 2,8 | 8.6 | Customer |
 
 Abilitare la raccolta di eventi antimalware per le macchine virtuali e i servizi cloud di Azure.
 
@@ -130,15 +130,15 @@ Abilitare la raccolta di eventi antimalware per le macchine virtuali e i servizi
 
 - [Informazioni su Microsoft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-## <a name="29-enable-dns-query-logging"></a>2,9: abilitare la registrazione delle query DNS
+## <a name="29-enable-dns-query-logging"></a>2.9: abilitare la registrazione delle query DNS
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2,9 | 8.7 | Customer |
+| 2.9 | 8.7 | Customer |
 
 Implementare una soluzione di terze parti da Azure Marketplace per la soluzione di registrazione DNS in base alle esigenze dell'organizzazione.  
 
-## <a name="210-enable-command-line-audit-logging"></a>2,10: abilitare la registrazione di controllo da riga di comando
+## <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
@@ -148,7 +148,7 @@ Usare Microsoft Monitoring Agent in tutte le macchine virtuali Windows di Azure 
 
 - [Raccolta dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
-- [Come eseguire query personalizzate in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 - [Origini dati Syslog in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
 

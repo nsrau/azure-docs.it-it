@@ -5,10 +5,10 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80153353"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creare e distribuire modelli ARM con IntelliJ IDEA
@@ -33,7 +33,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Il modello usato in questo articolo è denominato [creare un account di archiviazione standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Questo modello definisce una risorsa account di archiviazione di Azure.
 
-1. Fare clic con il pulsante destro [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) del [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) mouse e salvare nel computer locale.
+1. Fare clic con il pulsante destro del mouse e salvare nel [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) computer locale.
 
 1. Se Azure Toolkit è installato correttamente ed è stato eseguito l'accesso, nella barra laterale di IntelliJ IDEA verrà visualizzato Azure Explorer. Fare clic con il pulsante destro del mouse su **Resource Management** (Gestione risorse) e scegliere **Create Deployment** (Crea distribuzione).
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066911"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
@@ -31,7 +31,7 @@ Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fo
 Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
 
 - [Macchine virtuali e sistemi operativi supportati](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Requisiti aggiuntivi per le macchine virtuali](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [Requisiti aggiuntivi delle macchine virtuali](../linux/disk-encryption-overview.md#additional-vm-requirements)
 - [Requisiti di rete](../linux/disk-encryption-overview.md#networking-requirements)
 - [Requisiti di archiviazione delle chiavi di crittografia](../linux/disk-encryption-overview.md#encryption-key-storage-requirements)
 
@@ -76,7 +76,7 @@ Lo schema v 1.1 è consigliato e non richiede proprietà di Azure Active Directo
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0.1: con AAD 
 
-Lo schema 0,1 richiede `AADClientID` e `AADClientSecret` o `AADClientCertificate`.
+Lo schema 0,1 richiede `AADClientID` e `AADClientSecret` o `AADClientCertificate` .
 
 Utilizzo di `AADClientSecret`:
 
@@ -141,25 +141,25 @@ Utilizzo di `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Data |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryptionForLinux | stringa |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1,1, 0,1 | INT |
 | (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 0,1) AADClientSecret | password | stringa |
-| (schema 0,1) AADClientCertificate | thumbprint | stringa |
-| opzionale (schema 0,1) Passphrase | password | stringa |
+| (schema 0,1) AADClientSecret | password | string |
+| (schema 0,1) AADClientCertificate | thumbprint | string |
+| opzionale (schema 0,1) Passphrase | password | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
-| KeyVaultURL | url | stringa |
-| KeyVaultResourceId | url | stringa |
-| opzionale KeyEncryptionKeyURL | url | stringa |
-| opzionale KekVaultResourceId | url | stringa |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| KeyVaultURL | url | string |
+| KeyVaultResourceId | url | string |
+| opzionale KeyEncryptionKeyURL | url | string |
+| opzionale KekVaultResourceId | url | string |
+| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -168,12 +168,12 @@ Per un esempio di distribuzione dei modelli basata sullo schema v 1.1, vedere il
 Per un esempio di distribuzione dei modelli basata sullo schema v 0.1, vedere il modello di avvio rapido di Azure [201-Encrypt-running-Linux-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 >[!WARNING]
-> - Se in precedenza è stato usato crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, è necessario continuare a usare questa opzione per crittografare la macchina virtuale.
-> - Quando si esegue la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare gli accessi SSH mentre è in corso la crittografia per evitare problemi di blocco di file aperti a cui sarà necessario accedere durante il processo di crittografia. Per controllare lo stato di avanzamento, usare il cmdlet di PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) o il comando [VM Encryption Show](/cli/azure/vm/encryption#az-vm-encryption-show) cli. Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
+> - Se in precedenza è stato usato il servizio Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la VM.
+> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare accessi SSH mentre è in corso la crittografia per evitare che eventuali file aperti a cui è necessario accedere durante il processo di crittografia risultino bloccati. Per controllare lo stato di avanzamento, usare il cmdlet di PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) o il comando [VM Encryption Show](/cli/azure/vm/encryption#az-vm-encryption-show) cli. Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
 > - La disabilitazione della crittografia nelle macchine virtuali Linux è supportata solo per i volumi di dati. Non è supportata nei dati o nei volumi del sistema operativo, se il volume del sistema operativo è stato crittografato. 
 
 >[!NOTE]
-> Inoltre, `VolumeType` se il parametro è impostato su All, i dischi dati verranno crittografati solo se montati correttamente.
+> Inoltre, se il `VolumeType` parametro è impostato su All, i dischi dati verranno crittografati solo se montati correttamente.
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -183,7 +183,7 @@ Per la risoluzione di problemi, consultare la [guida alla risoluzione dei proble
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/community/). 
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). 
 
 In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393169"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Sottoscrivere eventi tramite il portale
@@ -28,7 +28,7 @@ Per creare una sottoscrizione di Griglia di eventi per tutte le [origini eventi]
 
 1. Cercare e selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
 
-   ![Cerca](./media/subscribe-through-portal/search.png)
+   ![Ricerca](./media/subscribe-through-portal/search.png)
 
 1. Selezionare **+ Sottoscrizione di eventi**.
 

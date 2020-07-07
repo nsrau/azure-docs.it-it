@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80292132"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
@@ -134,7 +134,7 @@ Immettere un valore descrittivo per **displayName** e **description** per il pro
 
 * **displayName** può essere un nome qualsiasi per l'API. Per questo articolo usare "Service Fabric App".
 * **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
-* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "http\/:/servicefabric".
+* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "http: \/ /servicefabric".
 * **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 * **protocols** determina i protocolli da usare per l'accesso all'API, per questo articolo **http** e **https**.
 * **path** è un suffisso per l'API. Per questo articolo usare "myapp".
@@ -186,7 +186,7 @@ Per un set completo di attributi di criteri di back-end di Service Fabric, veder
 
 Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* per la distribuzione.
 
-|Parametro|valore|
+|Parametro|Valore|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -273,7 +273,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
     ["value1", "value2"]
     ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Un cluster è costituito da altre risorse di Azure oltre alla risorsa cluster stessa. Il modo più semplice per eliminare il cluster e tutte le risorse che utilizza consiste nell'eliminare il gruppo di risorse.
 
@@ -303,7 +303,7 @@ Altre informazioni sull'uso di [ Gestione API](/azure/api-management/import-and-
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-Vice-Fabric-scripts-and-Templates/BLOB/Master/templates/Service-Integration/Network-APIM. Parameters. JSONn
+Vice-Fabric-scripts-and-Templates/BLOB/Master/templates/Service-Integration/network-apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

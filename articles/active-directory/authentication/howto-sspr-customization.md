@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394254"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizzare l'esperienza utente per la reimpostazione della password self-service Azure Active Directory
@@ -56,8 +56,8 @@ Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli,
 
 Se l'organizzazione non vuole inviare notifiche agli amministratori sulle richieste di reimpostazione della password, è possibile usare le opzioni di configurazione seguenti:
 
-* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa**Customization** > opzione si trova in **reimpostazione** > password**personalizzato indirizzo di posta elettronica o URL del supporto tecnico**.
-* Abilitare la reimpostazione self-service della password per tutti gli utenti. Questa opzione si trova in**proprietà**di **reimpostazione** > della password. Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
+* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **reimpostazione password**  >  **Customization**  >  **personalizzato indirizzo di posta elettronica o URL del supporto tecnico**.
+* Abilitare la reimpostazione self-service della password per tutti gli utenti. Questa opzione si trova in proprietà di **reimpostazione della password**  >  **Properties**. Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizzare la pagina di accesso e il pannello di accesso
 
@@ -72,7 +72,7 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 ### <a name="directory-name"></a>Nome della directory
 
-Per rendere le cose più semplici da usare, è possibile modificare il nome dell'organizzazione nel portale e nelle comunicazioni automatiche. Per modificare l'attributo nome directory nella portale di Azure, passare a **Azure Active Directory** > **proprietà**. L'opzione nome descrittivo dell'organizzazione è la più visibile nei messaggi di posta elettronica automatizzati, come negli esempi seguenti:
+Per rendere le cose più semplici da usare, è possibile modificare il nome dell'organizzazione nel portale e nelle comunicazioni automatiche. Per modificare l'attributo nome directory nella portale di Azure, passare a **Azure Active Directory**  >  **proprietà**. L'opzione nome descrittivo dell'organizzazione è la più visibile nei messaggi di posta elettronica automatizzati, come negli esempi seguenti:
 
 * Nome descrittivo nel messaggio di posta elettronica, ad esempio "*Microsoft per conto di Contoso demo*"
 * Riga dell'oggetto nel messaggio di posta elettronica, ad esempio "*codice di verifica della posta elettronica dell'account demo Contoso*"
@@ -81,7 +81,7 @@ Per rendere le cose più semplici da usare, è possibile modificare il nome dell
 
 Se si usa Active Directory Federation Services (AD FS) per gli eventi di accesso degli utenti, è possibile aggiungere un collegamento alla pagina di accesso usando le istruzioni riportate nell'articolo per [aggiungere la descrizione della pagina di accesso](/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Fornire agli utenti un collegamento alla pagina per l'immissione del flusso di lavoro SSPR, ad esempio *https://passwordreset.microsoftonline.com*. Per aggiungere un collegamento alla pagina di accesso AD FS, usare il comando seguente nel server AD FS:
+Fornire agli utenti un collegamento alla pagina per l'immissione del flusso di lavoro SSPR, ad esempio *https://passwordreset.microsoftonline.com* . Per aggiungere un collegamento alla pagina di accesso AD FS, usare il comando seguente nel server AD FS:
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"

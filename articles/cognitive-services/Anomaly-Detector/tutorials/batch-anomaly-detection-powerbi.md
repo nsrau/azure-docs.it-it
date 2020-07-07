@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 67a17373bb161e54493974ebf01e785bb1329087
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921927"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -143,10 +143,10 @@ Nella schermata principale di Power BI iniziare a usare le query create in prece
 
 Aggiungere i campi seguenti da **Richiamata funzione**  al campo **Valori** del grafico. Usare lo screenshot seguente come aiuto per creare il grafico.
 
-    * valore
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* valore
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![Immagine della nuova schermata di misura rapida](../media/tutorials/chart-settings.png)
 

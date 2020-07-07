@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/26/2019
 ms.author: philmea
 ms.openlocfilehash: 78406175090521af70381f61f4e33dfb6c35ac8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159150"
 ---
 # <a name="manage-models-in-the-repository"></a>Gestire i modelli nel repository
@@ -32,7 +32,7 @@ Esistono due tipi di repository di modelli per l'archiviazione di modelli e inte
 - È disponibile un unico _repository pubblico_ che archivia i modelli e le interfacce di funzionalità del dispositivo per i dispositivi nel catalogo dei dispositivi [Azure Certified per](https://aka.ms/iotdevcat)Internet. Questo repository archivia anche le [interfacce comuni](./concepts-common-interfaces.md) e [DCMS e le interfacce pubblicate dai partner Microsoft](./howto-onboard-portal.md). Per informazioni su come certificare un dispositivo e aggiungere il modello di funzionalità del dispositivo al repository pubblico, vedere l'esercitazione [certificare il dispositivo Plug and Play](./tutorial-certification-test.md).
 - Sono presenti più _repository aziendali_. Un repository aziendale viene creato automaticamente per l'organizzazione quando si esegue [l'onboarding nel portale Azure Certified for](./howto-onboard-portal.md)Internet. È possibile usare il repository aziendale per archiviare i modelli e le interfacce di funzionalità del dispositivo durante le fasi di sviluppo e test.
 
-## <a name="azure-certified-for-iot-portal"></a>Portale Azure Certified per le cose
+## <a name="azure-certified-for-iot-portal"></a>Portale Azure Certified per IoT
 
 Nel [portale di Azure Certified per](https://preview.catalog.azureiotsolutions.com)l'it è possibile completare le attività seguenti:
 

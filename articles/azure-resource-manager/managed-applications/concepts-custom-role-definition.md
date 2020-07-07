@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391835"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Elemento di definizione del ruolo personalizzato nelle applicazioni gestite di Azure
@@ -20,11 +20,11 @@ Questo articolo fornisce una panoramica dell'artefatto di definizione del ruolo 
 
 ## <a name="custom-role-definition-artifact"></a>Artefatto di definizione del ruolo personalizzato
 
-È necessario denominare l'artefatto di definizione del ruolo personalizzato customRoleDefinition. JSON. Posizionare lo stesso livello di createUiDefinition. JSON e mainTemplate. JSON nel pacchetto con estensione zip che consente di creare una definizione di applicazione gestita. Per informazioni su come creare il pacchetto zip e pubblicare una definizione di applicazione gestita, vedere [pubblicare una definizione di applicazione gestita.](publish-service-catalog-app.md)
+È necessario denominare l'artefatto di definizione di ruolo personalizzato customRoleDefinition.jsin. Posizionare lo stesso livello di createUiDefinition.json e mainTemplate.json nel pacchetto zip che consente di creare una definizione di applicazione gestita. Per informazioni su come creare il pacchetto zip e pubblicare una definizione di applicazione gestita, vedere [pubblicare una definizione di applicazione gestita.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schema di definizione del ruolo personalizzato
 
-Il file customRoleDefinition. JSON ha una proprietà di primo `roles` livello che è una matrice di ruoli. Questi ruoli sono le autorizzazioni necessarie per il funzionamento dell'applicazione gestita. Attualmente, sono consentiti solo i ruoli predefiniti, ma è possibile specificare più ruoli. È possibile fare riferimento a un ruolo mediante l'ID della definizione di ruolo o il nome del ruolo.
+Il customRoleDefinition.jssu file ha una `roles` proprietà di primo livello che è una matrice di ruoli. Questi ruoli sono le autorizzazioni necessarie per il funzionamento dell'applicazione gestita. Attualmente, sono consentiti solo i ruoli predefiniti, ma è possibile specificare più ruoli. È possibile fare riferimento a un ruolo mediante l'ID della definizione di ruolo o il nome del ruolo.
 
 Esempio di JSON per la definizione di ruolo personalizzata:
 
@@ -49,7 +49,7 @@ Esempio di JSON per la definizione di ruolo personalizzata:
 
 ## <a name="roles"></a>Ruoli
 
-Un ruolo è costituito da un `$.properties.roleName` oggetto o `id`da:
+Un ruolo è costituito da un oggetto `$.properties.roleName` o da `id` :
 
 ```json
 {
@@ -61,7 +61,7 @@ Un ruolo è costituito da un `$.properties.roleName` oggetto o `id`da:
 ```
 
 > [!NOTE]
-> È possibile utilizzare il `id` campo o `roleName` . È necessario solo un. Questi campi vengono usati per cercare la definizione di ruolo da applicare. Se vengono specificati entrambi, verrà `id` usato il campo.
+> È possibile utilizzare il `id` campo o `roleName` . È necessario solo un. Questi campi vengono usati per cercare la definizione di ruolo da applicare. Se vengono specificati entrambi, `id` verrà usato il campo.
 
 |Proprietà|Necessaria?|Descrizione|
 |---------|---------|---------|

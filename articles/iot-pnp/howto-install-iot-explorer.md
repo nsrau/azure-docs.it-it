@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159184"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
@@ -29,7 +29,7 @@ Questo articolo illustra come:
 Per usare lo strumento Azure Internet Explorer, è necessario:
 
 - Un hub IoT di Azure. Sono disponibili diversi modi per aggiungere un hub Internet alla sottoscrizione di Azure, ad esempio [la creazione di un hub Internet delle cose usando l'interfaccia della riga di comando di Azure](../iot-hub/iot-hub-create-using-cli.md). Per eseguire lo strumento Azure Internet Explorer è necessaria la stringa di connessione dell'hub Internet. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Un dispositivo registrato nell'hub Internet. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo. Assicurarsi di sostituire i `{YourIoTHubName}` segnaposto `{YourDeviceID}` e con i valori seguenti:
+- Un dispositivo registrato nell'hub IoT. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo. Assicurarsi di sostituire i `{YourIoTHubName}` `{YourDeviceID}` segnaposto e con i valori seguenti:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -73,7 +73,7 @@ Nella pagina dell'elenco dei **dispositivi** è possibile:
 
 - Selezionare **Aggiungi** per registrare un nuovo dispositivo con l'hub. Immettere quindi un ID dispositivo. Usare le impostazioni predefinite per generare automaticamente le chiavi di autenticazione e abilitare la connessione all'hub.
 - Selezionare un dispositivo e quindi fare clic su **Elimina** per eliminare un'identità del dispositivo. Esaminare i dettagli del dispositivo prima di completare questa azione per assicurarsi di eliminare l'identità del dispositivo corretta.
-- Eseguire una `capabilityID` query `interfaceID`in base a e. Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire una query sui dispositivi.
+- Eseguire una query in base a `capabilityID` e `interfaceID` . Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire una query sui dispositivi.
 
 ## <a name="interact-with-a-device"></a>Interagire con un dispositivo
 
@@ -89,7 +89,7 @@ Questa sezione include le schede **identità dispositivo**, **dispositivo gemell
 - È possibile chiamare un [metodo diretto](../iot-hub/iot-hub-devguide-direct-methods.md) sul dispositivo nella scheda **metodo diretto** .
 - È possibile inviare un [messaggio da cloud a dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) nella scheda **messaggi da cloud a dispositivo** .
 
-### <a name="digital-twin"></a>Gemello digitale
+### <a name="digital-twin"></a>Gemelli digitali
 
 È possibile usare lo strumento per visualizzare un'istanza del dispositivo gemello digitale del dispositivo. Per un dispositivo Plug and Play, tutte le interfacce associate al modello di funzionalità del dispositivo vengono visualizzate in questa sezione dello strumento. Consente di selezionare un'interfaccia per espandere le relative [plug and Play primitive](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
@@ -109,7 +109,7 @@ Nella pagina **interfaccia** è possibile visualizzare la definizione JSON dell'
 
 Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione**, **esito positivo**o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 Per inviare un comando a un dispositivo, passare alla pagina **comandi** :
 

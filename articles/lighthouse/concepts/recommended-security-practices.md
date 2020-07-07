@@ -4,10 +4,10 @@ description: Quando si usa la gestione delle risorse delegata di Azure, è impor
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246909"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
@@ -25,18 +25,18 @@ Si consiglia di chiedere ai clienti di implementare Azure Multi-Factor Authentic
 Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo necessario per gestire le risorse dei clienti. Ciò consente di aggiungere o rimuovere singoli utenti al gruppo in base alle esigenze, invece di assegnare le autorizzazioni direttamente a tale utente.
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **Sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali.
 
 È ad esempio possibile usare una struttura simile alla seguente:
 
-|Nome gruppo  |Tipo  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
+|Nome gruppo  |Type  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
 |---------|---------|---------|---------|---------|
-|Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Valutazione     |Gruppo utenti         |\<principalId\>         |Lettore         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Architetti     |Gruppo utenti         |\<principalId\>         |Autore di contributi         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Valutazione     |Gruppo utenti         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specialisti di macchine virtuali     |Gruppo utenti         |\<principalId\>         |Collaboratore macchina virtuale         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Autore di contributi         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Una volta creati questi gruppi, è possibile assegnare gli utenti in base alle esigenze. Aggiungere solo gli utenti che devono avere effettivamente accesso. Controllare regolarmente l'appartenenza ai gruppi e rimuovere gli utenti che non è più appropriato o necessario includere.
 

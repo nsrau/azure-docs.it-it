@@ -4,14 +4,14 @@ description: Connettersi a una rete del servizio Azure Blockchain usando MetaMas
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920576"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Guida di avvio rapido: Usare MetaMask per connettersi e distribuire un contratto intelligente
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Avvio rapido: Usare MetaMask per connettersi e distribuire un contratto intelligente
 
 In questa guida di avvio rapido si userà MetaMask per connettersi a una rete del servizio Azure Blockchain e Remix per distribuire un contratto intelligente. Metamask è un'estensione del browser per gestire un portafoglio Ether ed eseguire azioni di contratto intelligente.
 
@@ -97,7 +97,7 @@ Remix è un ambiente di sviluppo Solidity basato su browser. L'uso congiunto di 
 
 1. Selezionare il contratto **simple** (semplice) e quindi **Deploy** (Distribuisci).
 
-    ![Deploy](./media/connect-metamask/deploy.png)
+    ![Distribuire](./media/connect-metamask/deploy.png)
 
 
 1. Una notifica MetaMask avvisa che i fondi sono insufficienti per eseguire la transazione.
@@ -128,9 +128,9 @@ Remix è un ambiente di sviluppo Solidity basato su browser. L'uso congiunto di 
 
 Il riquadro di debug di Remix visualizza i dettagli sulle transazioni nella blockchain:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Cronologia di debug](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+È possibile visualizzare la creazione del contratto **semplice**, la transazione per **simple.add** e la chiamata a **simple.get**.
 
 Per visualizzare la cronologia delle transazioni in MetaMask, aprire l'estensione del browser MetaMask ed esaminare la sezione **Cronologia** per un log dei contratti e delle transazioni distribuite.
 

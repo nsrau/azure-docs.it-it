@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80152655"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticare e risolvere i problemi di un ambiente di anteprima
@@ -92,7 +92,7 @@ Selezionare le origini eventi per cui è stato interrotto l'inserimento, incolla
 Verificare che il nome e il valore siano conformi alle regole seguenti:
 
 * Il nome della proprietà Timestamp fa distinzione fra maiuscole e minuscole.
-* Il valore della proprietà timestamp che deriva dall'origine evento come stringa JSON ha il formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Un esempio di tale stringa è `“2008-04-12T12:53Z”`.
+* Il valore della proprietà timestamp che deriva dall'origine evento come stringa JSON ha il formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Un esempio di tale stringa è `“2008-04-12T12:53Z”`.
 
 Il modo più semplice per garantire l'acquisizione e il corretto funzionamento del nome della proprietà Timestamp consiste nell'usare lo strumento di esplorazione di anteprima di Time Series Insights. All'interno dello strumento di esplorazione di anteprima di Time Series Insights, usando il grafico, selezionare un periodo di tempo dopo aver specificato il nome della proprietà Timestamp. Fare clic con il pulsante destro del mouse sulla selezione e selezionare l'opzione **Esplora eventi**. L'intestazione della prima colonna contiene il nome della proprietà Timestamp. Deve avere `($ts)` accanto alla parola `Timestamp`, invece di:
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066874"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
@@ -139,23 +139,23 @@ Utilizzo di `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Data |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryption | stringa |
-| typeHandlerVersion | 2,2, 1,1 | stringa |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryption | string |
+| typeHandlerVersion | 2,2, 1,1 | string |
 | (schema 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 1,1) AADClientSecret | password | stringa |
-| (schema 1,1) AADClientCertificate | thumbprint | stringa |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
-| KeyVaultURL | url | stringa |
-| KeyVaultResourceId | url | stringa |
-| opzionale KeyEncryptionKeyURL | url | stringa |
-| opzionale KekVaultResourceId | url | stringa |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| (schema 1,1) AADClientSecret | password | string |
+| (schema 1,1) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| KeyVaultURL | url | string |
+| KeyVaultResourceId | url | string |
+| opzionale KeyEncryptionKeyURL | url | string |
+| opzionale KekVaultResourceId | url | string |
+| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -164,7 +164,7 @@ Per un esempio di distribuzione dei modelli basato sullo schema v 2.2, vedere il
 Per un esempio di distribuzione dei modelli basata sullo schema v 1.1, vedere il modello di avvio rapido di Azure [201-Encrypt-running-Windows-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 >[!NOTE]
-> Inoltre, `VolumeType` se il parametro è impostato su All, i dischi dati verranno crittografati solo se sono formattati correttamente. 
+> Inoltre, se il `VolumeType` parametro è impostato su All, i dischi dati verranno crittografati solo se sono formattati correttamente. 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -174,7 +174,7 @@ Per la risoluzione di problemi, consultare la [guida alla risoluzione dei proble
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/community/). 
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). 
 
 In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
 

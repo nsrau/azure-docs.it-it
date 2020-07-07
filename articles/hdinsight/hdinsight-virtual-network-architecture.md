@@ -1,5 +1,5 @@
 ---
-title: Architettura della rete virtuale di Azure HDInsight
+title: Architettura della rete virtuale di HDInsight
 description: Informazioni sulle risorse disponibili quando si crea un cluster HDInsight in una rete virtuale di Azure.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81390215"
 ---
-# <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di Azure HDInsight
+# <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di HDInsight
 
 Questo articolo illustra le risorse presenti quando si distribuisce un cluster HDInsight in una rete virtuale di Azure personalizzata. Queste informazioni consentono di connettere le risorse locali al cluster HDInsight in Azure. Per altre informazioni sulle reti virtuali di Azure, vedere informazioni su [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
@@ -36,9 +36,9 @@ I cluster Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogni t
 
 Usare nomi di dominio completi (FQDN) per indirizzare i nodi nel cluster. È possibile ottenere i nomi di dominio completi per diversi tipi di nodo nel cluster usando l' [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Questi FQDN saranno nel formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+Questi FQDN saranno nel formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net` .
 
-Il `<node-type-prefix>` sarà *HN* per *nodi head, per i nodi del ruolo* di lavoro e *Zn* per i nodi Zookeeper.
+Il `<node-type-prefix>` sarà *HN* per nodi head, per *i* nodi del ruolo di lavoro e *Zn* per i nodi Zookeeper.
 
 Se è necessario solo il nome host, usare solo la prima parte del nome di dominio completo:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
@@ -46,7 +46,7 @@ Se è necessario solo il nome host, usare solo la prima parte del nome di domini
 
 Il diagramma seguente illustra il posizionamento dei nodi HDInsight e delle risorse di rete in Azure.
 
-![Diagramma delle entità HDInsight create in VNET personalizzati di Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+![Diagramma delle entità HDInsight create nella VNET personalizzata di Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 Le risorse predefinite in una rete virtuale di Azure includono i tipi di nodo del cluster indicati nella tabella precedente. E i dispositivi di rete che supportano la comunicazione tra la rete virtuale e le reti esterne.
 
@@ -71,16 +71,16 @@ Le risorse di rete seguenti sono presenti automaticamente nella rete virtuale us
 
 È possibile accedere al cluster HDInsight in tre modi:
 
-- Un endpoint HTTPS esterno alla rete virtuale in `CLUSTERNAME.azurehdinsight.net`.
-- Un endpoint SSH per la connessione diretta a nodo Head all' `CLUSTERNAME-ssh.azurehdinsight.net`indirizzo.
-- Un endpoint HTTPS all'interno della rete `CLUSTERNAME-int.azurehdinsight.net`virtuale. Si noti il`-int`"" in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato nella rete virtuale e non sarà accessibile dalla rete Internet pubblica.
+- Un endpoint HTTPS esterno alla rete virtuale in `CLUSTERNAME.azurehdinsight.net` .
+- Un endpoint SSH per la connessione diretta a nodo Head all'indirizzo `CLUSTERNAME-ssh.azurehdinsight.net` .
+- Un endpoint HTTPS all'interno della rete virtuale `CLUSTERNAME-int.azurehdinsight.net` . Si noti il " `-int` " in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato nella rete virtuale e non sarà accessibile dalla rete Internet pubblica.
 
 A questi tre endpoint viene assegnato un servizio di bilanciamento del carico.
 
 Gli indirizzi IP pubblici vengono anche forniti ai due endpoint che consentono la connessione dall'esterno della rete virtuale.
 
-1. Un indirizzo IP pubblico viene assegnato al servizio di bilanciamento del carico per il nome di dominio completo (FQDN) da usare per la connessione al cluster da `CLUSTERNAME.azurehdinsight.net`Internet.
-1. Il secondo indirizzo IP pubblico viene usato per il nome `CLUSTERNAME-ssh.azurehdinsight.net`di dominio solo SSH.
+1. Un indirizzo IP pubblico viene assegnato al servizio di bilanciamento del carico per il nome di dominio completo (FQDN) da usare per la connessione al cluster da Internet `CLUSTERNAME.azurehdinsight.net` .
+1. Il secondo indirizzo IP pubblico viene usato per il nome di dominio solo SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

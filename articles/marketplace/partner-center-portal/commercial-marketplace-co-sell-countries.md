@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277057"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Co-selling di codici paese e area geografica
@@ -24,14 +24,14 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 
 ## <a name="countryregion-table"></a>Tabella paese/area geografica
 
-|   Nome del paese/area geografica               |   ISO-2   |
+|   Nome paese/area               |   ISO-2   |
 |-------------------------------------|-----------|
 | Contatti globali                     | OOO       |
 | Afghanistan                         | AF        |
 | Isole Åland                       | AX        |
 | Albania                             | AL        |
 | Algeria                             | DZ        |
-| Samoa Americane                      | AS        |
+| Samoa americane                      | AS        |
 | Andorra                             | AD        |
 | Angola                              | AO        |
 | Antartide                          | AQ        |
@@ -58,7 +58,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Botswana                            | BW        |
 | Isola Bouvet                       | BV        |
 | Brasile                              | BR        |
-| Territorio britannico dell'Oceano Indiano      | IO        |
+| Territorio britannico dell'Oceano indiano      | IO        |
 | Isole Vergini Britanniche              | VG        |
 | Brunei                              | BN        |
 | Bulgaria                            | BG        |
@@ -79,7 +79,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Colombia                            | CO        |
 | Comore                             | KM        |
 | Congo                               | CG        |
-| Repubblica democratica del Congo                         | CD        |
+| Congo (RDC)                         | CD        |
 | Isole Cook                        | CK        |
 | Costa Rica                          | CR        |
 | Côte d’Ivoire (Costa d'Avorio)                       | CI        |
@@ -103,9 +103,9 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Figi                                | FJ        |
 | Finlandia                             | FI        |
 | Francia                              | VF        |
-| Guayana Francese                       | GF        |
+| Guayana francese                       | GF        |
 | Polinesia Francese                    | PF        |
-| Terre australi francesi         | TF        |
+| Terre Australi Francesi         | TF        |
 | Gabon                               | GA        |
 | Gambia                              | GM        |
 | Georgia                             | GE        |
@@ -143,7 +143,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Kazakhstan                          | KZ        |
 | Kenya                               | KE        |
 | Kiribati                            | KI        |
-| Corea (Sud)                       | KR        |
+| Corea del Sud                       | KR        |
 | Kuwait                              | KW        |
 | Kirghizistan                          | KG        |
 | Laos                                | LA        |
@@ -162,7 +162,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Maldive                            | MV        |
 | Mali                                | ML        |
 | Malta                               | MT        |
-| Marshall                    | MH        |
+| Isole Marshall                    | MH        |
 | Martinica                          | MQ        |
 | Mauritania                          | MR        |
 | Mauritius                           | MU        |
@@ -177,7 +177,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Marocco                             | MA        |
 | Mozambico                          | MZ        |
 | Myanmar                             | MM        |
-| Namibia                             | N/D        |
+| Namibia                             | ND        |
 | Nauru                               | NR        |
 | Nepal                               | NP        |
 | Paesi Bassi                         | NL        |
@@ -187,9 +187,9 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Niger                               | NE        |
 | Nigeria                             | NG        |
 | Niue                                | NU        |
-| Norfolk                      | NF        |
+| Isola Norfolk                      | NF        |
 | Corea del Nord                         | KP        |
-| Marianne Settentrionali            | MP        |
+| Isole Marianne Settentrionali            | MP        |
 | Macedonia del Nord                     | MK        |
 | Norvegia                              | NO        |
 | Oman                                | OM        |
@@ -206,7 +206,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Portogallo                            | PT        |
 | Portorico                         | PR        |
 | Qatar                               | QA        |
-| Réunion                             | RE        |
+| Riunione                             | RE        |
 | Romania                             | RO        |
 | Russia                              | RU        |
 | Ruanda                              | LS        |
@@ -246,7 +246,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Tagikistan                          | TJ        |
 | Tanzania                            | TZ        |
 | Thailandia                            | TH        |
-| Timor-Leste                         | TL        |
+| Timor Leste                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
 | Tonga                               | A        |
@@ -254,7 +254,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Tunisia                             | TN        |
 | Turchia                              | TR        |
 | Turkmenistan                        | TM        |
-| Turks e Caicos, Isole            | TC        |
+| Isole Turks e Caicos            | TC        |
 | Tuvalu                              | TV        |
 | Uganda                              | UG        |
 | Ucraina                             | UA        |
@@ -263,7 +263,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Stati Uniti                       | Stati Uniti        |
 | Uruguay                             | UY        |
 | Stati Uniti Altre isole americane del Pacifico               | UM        |
-| Isole Vergini Americane                 | VI        |
+| U.S. Vergini Americane                 | VI        |
 | Uzbekistan                          | UZ        |
 | Vanuatu                             | VU        |
 | Città del Vaticano                        | VA        |
