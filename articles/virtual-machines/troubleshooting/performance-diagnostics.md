@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70080608"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
@@ -37,10 +37,10 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-database-EE 13,8 Marketplace image), CentOS 6,5 [`*`], 7,6, RHEL 7,2, 7,5, 8,0 [`*`], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`]
+Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-database-Ee 13,8 Marketplace image), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
 
 >[!Note]
->[`*`] Consultare i [problemi noti](how-to-use-perfinsights-linux.md#known-issues)
+>[ `*` ] Consultare i [problemi noti](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installare ed eseguire la diagnostica delle prestazioni della macchina virtuale
 
@@ -80,13 +80,13 @@ I seguenti scenari di analisi sono disponibili sul portale di Azure. Selezionare
     Include tutti i controlli nell'analisi rapida delle prestazioni e consente di monitorare il consumo elevato di risorse. Usare questa versione per risolvere i problemi generali relativi alle prestazioni, ad esempio un utilizzo elevato della CPU, della memoria e dello spazio su disco. Questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. Altre informazioni su [Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
 * **Analisi avanzata delle prestazioni**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/advanced)
+    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/advanced)
 
 * **Analisi file di Azure**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/azurefiles)
+    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
->[`*`] Questi scenari di analisi sono supportati solo in Windows.
+>[ `*` ] Questi scenari di analisi sono supportati solo in Windows.
 
 ![Screenshot del riquadro Esegui diagnostica nel pannello Diagnostica prestazioni](media/performance-diagnostics/run-diagnostics-pane.png)
 
@@ -109,7 +109,7 @@ Viene visualizzata una notifica all'avvio dell'installazione della diagnostica d
 Al termine dell'analisi, i seguenti elementi vengono caricati nelle tabelle di Azure e nel contenitore BLOB (oggetto binario di grandi dimensioni) relativi all'account di archiviazione specificato:
 
 * Tutte le informazioni dettagliate e le informazioni correlate dell'esecuzione
-* Un file compresso (con estensione zip) di output (denominato **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-fff. zip** ) in Windows e un file tar ball (denominato **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-fff. tar. gz** ) in Linux che contiene i file di log
+* Un file compresso (con estensione zip) di output (denominato **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip** ) in Windows e un file tar ball (denominato **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-fff. tar. gz** ) in Linux che contiene file di log
 * Un report HTML
 
 Dopo il caricamento, viene elencato un nuovo report di diagnostica nel portale di Azure.
@@ -201,4 +201,4 @@ Attualmente non vi è alcun modo semplice per sapere con esattezza quando l'inst
 
 Dopo avere esaminato le informazioni dettagliate di diagnostica delle prestazioni e il report, se non è ancora possibile stabilire la causa del problema è si necessita di ulteriore assistenza, è possibile aprire un ticket di supporto con il Supporto tecnico Microsoft.
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).

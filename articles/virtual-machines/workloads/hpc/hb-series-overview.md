@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
 ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707766"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Panoramica delle macchine virtuali serie HB
@@ -46,7 +46,7 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 | Core                            | 60 (SMT disabilitato)                |
 | CPU                              | AMD EPYC 7551 *                   |
 | Frequenza CPU (non-AVX)          | ~ 2,55 GHz (singolo + tutti i core)   |
-| Memoria                           | 4 GB/Core (Totale 240)            |
+| Memory                           | 4 GB/Core (Totale 240)            |
 | Disco locale                       | 700 GB NVMe                      |
 | Infiniband                       | 100 GB EDR Mellanox ConnectX-5 * * |
 | Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC * * * |

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876113"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
@@ -72,7 +72,7 @@ Questo set di aree è più ampio perché la distribuzione delle risorse in una d
     
 Microsoft si impegna a garantire che i servizi di Azure siano sempre disponibili in tutte le aree geografiche. Tuttavia, le interruzioni del servizio non pianificate possono verificarsi per brevi periodi in una determinata area. In questi casi, è possibile visualizzare un Data Manager e la definizione di un processo in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. È possibile che si verifichi una latenza aggiuntiva in uno scenario di questo tipo, ma questa è la strategia di recupero nel raro caso di un'interruzione a livello di area.
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 StorSimple Data Manager richiede la chiave di crittografia dei dati del servizio per eseguire la trasformazione dal formato StorSimple a quello nativo. La chiave di crittografia dei dati del servizio viene generata quando il primo dispositivo esegue la registrazione al servizio StorSimple. Per altre informazioni su questa chiave, vedere [Sicurezza di StorSimple](storsimple-8000-security.md).
 

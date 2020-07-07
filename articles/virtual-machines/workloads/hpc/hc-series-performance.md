@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707693"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali serie HC
@@ -44,14 +44,14 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 2               | 1000            | 1,80            | 7.50            | 1,85            | 1,86            | 0,20            |
 | 4               | 1000            | 1,79            | 6,06            | 1,83            | 1,84            | 0,20            |
 | 8               | 1000            | 1,78            | 5.26            | 1,83            | 1,84            | 0,19            |
-| 16              | 1000            | 1,79            | 6,21            | 1,83            | 1,84            | 0,22            |
+| 16              | 1000            | 1,79            | 6,21            | 1,83            | 1,84            | 0.22            |
 | 32              | 1000            | 1,80            | 6.82            | 1,84            | 1,85            | 0.24            |
 | 64              | 1000            | 1,85            | 5,47            | 1,88            | 1,86            | 0,12            |
 | 128             | 1000            | 1,88            | 5,61            | 1,93            | 1,89            | 0,25            |
-| 256             | 1000            | 2,24            | 6,39            | 2,28            | 2,02            | 0,18            |
-| 512             | 1000            | 2.32            | 5,42            | 2,36            | 2.30            | 0.17            |
+| 256             | 1000            | 2.24            | 6,39            | 2,28            | 2,02            | 0,18            |
+| 512             | 1000            | 2.32            | 5.42            | 2,36            | 2.30            | 0.17            |
 | 1024            | 1000            | 2,43            | 6,22            | 2,48            | 2,38            | 0,21            |
-| 2048            | 1000            | 2.68            | 6,14            | 2.75            | 2.52            | 0,20            |
+| 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0,20            |
 | 4096            | 1000            | 3,17            | 7,02            | 3,26            | 2.81            | 0.24            |
 
 ## <a name="osu-mpi-latency-test"></a>Test della latenza MPI di OSU
@@ -75,7 +75,7 @@ Test della latenza MPI di OSU v 5.4.3.
 | 512  | 2.57     | 2.52     | 2.81     |
 | 1024 | 2.76     | 2.71     | 2.97     |
 | 2048 | 3,09     | 3.11     | 3,34     |
-| 4096 | 3,72     | 3.91     | 4.44     |
+| 4096 | 3.72     | 3.91     | 4.44     |
 
 ## <a name="mpi-bandwidth"></a>Larghezza di banda MPI
 

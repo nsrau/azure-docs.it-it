@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109302"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti dell'autenticazione a più fattori per la soluzione di identità ibrida
@@ -58,6 +58,6 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 ## <a name="next-steps"></a>Passaggi successivi
 [Definire una strategia di adozione della soluzione ibrida di gestione delle identità](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

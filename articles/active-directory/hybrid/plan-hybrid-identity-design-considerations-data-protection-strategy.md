@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109363"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
@@ -49,7 +49,7 @@ A seconda delle risposte fornite alle domande nella sezione [Determinare i requi
 | SQL Server per la crittografia dei database |X |X | |
 | Crittografia da VM a VM | | |X |
 | SSL/TLS | | |X |
-| VPN | | |X |
+| Connessione | | |X |
 
 > [!NOTE]
 > Per altre informazioni sulle garanzie relative alla conformità per ogni servizio di Azure, vedere [Conformità in base al prodotto](https://azure.microsoft.com/support/trust-center/services/) nel [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/).

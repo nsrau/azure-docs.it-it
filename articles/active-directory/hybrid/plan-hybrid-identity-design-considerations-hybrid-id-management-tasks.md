@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109374"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
@@ -61,7 +61,7 @@ Per definire correttamente tali requisiti, assicurarsi che venga fornita una ris
 ## <a name="synchronization-management"></a>Gestione della sincronizzazione
 Uno dei principali obiettivi della gestione delle identità è quello di raccogliere tutti i provider di identità e mantenerli sincronizzati. Per la sincronizzazione dei dati viene usato un provider di identità autorevole. In uno scenario di identità ibrido, con un modello di gestione sincronizzato, si gestiscono tutte le identità utente e dispositivo in un server locale e, in seguito, si sincronizzano nel cloud gli account ed eventualmente le password. L'utente immette in locale la stessa password usata per il cloud e, al momento dell'accesso, la password viene verificata dalla soluzione di identità. Questo modello usa uno strumento di sincronizzazione di directory.
 
-![sincronizzazione della](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) directory per progettare correttamente la sincronizzazione della soluzione di identità ibrida garantire la risposta alle domande seguenti:
+![sincronizzazione ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) della directory per progettare correttamente la sincronizzazione della soluzione di identità ibrida garantire la risposta alle domande seguenti:
 *    Quali sono le soluzioni di sincronizzazione disponibili per la soluzione di identità ibrida?
 *    Quali sono le funzionalità di Single Sign-on disponibili?
 *    Quali sono le opzioni per la Federazione delle identità tra B2B e B2C?

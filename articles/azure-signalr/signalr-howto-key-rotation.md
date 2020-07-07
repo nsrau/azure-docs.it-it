@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67565737"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Come ruotare la chiave di accesso per il Servizio Azure SignalR
@@ -59,4 +59,4 @@ In questa guida si è appreso come rigenerare le chiavi di accesso. Passare alle
 > [Eseguire l'integrazione con ASP.NET Core Identity](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Creare un'app in tempo reale senza server con autenticazione](./signalr-tutorial-authenticate-azure-functions.md)
+> [Creare un'app in tempo reale serverless con l'autenticazione](./signalr-tutorial-authenticate-azure-functions.md)

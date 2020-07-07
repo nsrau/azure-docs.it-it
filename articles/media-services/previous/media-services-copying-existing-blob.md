@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67068901"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copia di un BLOB esistente in un asset di Servizi multimediali
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questo articolo illustra come copiare BLOB da un account di archiviazione in un nuovo asset di Servizi multimediali di Azure (AMS) usando le [estensioni SDK .NET dei Servizi multimediali di Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
@@ -49,7 +49,7 @@ Due account dei Servizi multimediali. Vedere l'articolo [Come creare un account 
 ### <a name="download-sample"></a>Scaricare un esempio
 È possibile seguire i passaggi descritti in questo articolo oppure scaricare un esempio che contiene il codice descritto in questo articolo da [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
-### <a name="set-up-your-project"></a>Configurare il progetto
+### <a name="set-up-your-project"></a>Impostare il progetto
 
 1. Configurare l'ambiente di sviluppo come descritto in [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Sviluppo di applicazioni di Servizi multimediali con .NET). 
 2. Aggiungere la sezione appSettings al file con estensione CONFIG e aggiornare i valori in base all'account di Servizi multimediali, all'account di archiviazione di destinazione e all'ID dell'asset di origine.  
@@ -165,7 +165,7 @@ namespace CopyExistingBlobsIntoAsset
 - Un account di archiviazione da cui si desidera copiare i BLOB.
 - Un account AMS in cui si desidera copiare i BLOB.
 
-### <a name="set-up-your-project"></a>Configurare il progetto
+### <a name="set-up-your-project"></a>Impostare il progetto
 
 1. Configurare l'ambiente di sviluppo come descritto in [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Sviluppo di applicazioni di Servizi multimediali con .NET). 
 2. Aggiungere la sezione appSettings al file di configurazione e aggiornare i valori in base alla risorsa di archiviazione di origine e agli account AMS di destinazione.
@@ -384,6 +384,6 @@ Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 164bedffcf9a1aca9f1fa46dea254fb928abcf04
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69637260"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Uso di Twilio per le funzionalità voce, VoIP e SMS in Azure
@@ -34,7 +34,7 @@ Twilio consente agli sviluppatori di [acquistare numeri di telefono programmabil
 Inviando richieste HTTP all'API del servizio Web Twilio, gli sviluppatori possono inviare SMS o avviare chiamate in uscita. Per le chiamate in uscita, lo sviluppatore deve inoltre specificare un URL che restituisca le istruzioni TwiML per la gestione della chiamata in uscita dopo la connessione.
 
 ### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>Incorporare funzionalità VoIP nel codice dell'interfaccia utente (JavaScript, iOS o Android)
-Twilio offre un SDK lato client che consente di trasformare qualsiasi Web browser desktop, app per iOS o app per Android in un telefono VoIP. In questo articolo verrà illustrato l'utilizzo delle funzionalità VoIP nel browser. Oltre a *Twilio JavaScript SDK* in esecuzione nel browser, è necessario usare un'applicazione lato server (l'applicazione Node. js) per emettere un "token di capacità" per il client JavaScript. Per altre informazioni sull'uso di VoIP con Node.js, vedere il [blog per sviluppatori di Twilio][voipnode].
+Twilio offre un SDK lato client che consente di trasformare qualsiasi Web browser desktop, app per iOS o app per Android in un telefono VoIP. In questo articolo verrà illustrato l'utilizzo delle funzionalità VoIP nel browser. Oltre a *Twilio JavaScript SDK* in esecuzione nel browser, è necessario usare un'applicazione lato server (l'applicazione node.js) per emettere un "token di capacità" per il client JavaScript. Per altre informazioni sull'uso di VoIP con Node.js, vedere il [blog per sviluppatori di Twilio][voipnode].
 
 <a id="signup"/>
 
@@ -247,7 +247,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'us
 [signup]: https://ahoy.twilio.com/azure
 [azure_new_site]: app-service/app-service-web-get-started-nodejs.md
 [twilio_console]: https://www.twilio.com/console
-[NPM]: https://npmjs.org
+[npm]: https://npmjs.org
 [express]: https://expressjs.com
 [voipnode]: https://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
 [docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/

@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68297776"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure
@@ -60,7 +60,7 @@ La frammentazione può essere considerata un'operazione negativa, ma il supporto
 
 In generale, è possibile creare una rete più efficiente aumentando la MTU. Ogni pacchetto trasmesso presenta informazioni di intestazione che vengono aggiunte al pacchetto originale. Quando la frammentazione crea più pacchetti, si verifica un sovraccarico dell'intestazione e la rete risulta meno efficiente.
 
-Di seguito è riportato un esempio. Le dimensioni dell'intestazione Ethernet sono pari a 14 byte più una sequenza di controllo frame a 4 byte per garantire la coerenza dei frame. Se viene inviato un pacchetto di 1 2.000 byte, nella rete vengono aggiunti 18 byte di overhead Ethernet. Se il pacchetto è frammentato in un pacchetto a 1.500 byte e un pacchetto da 500 byte, ogni pacchetto avrà 18 byte di intestazione Ethernet, un totale di 36 byte.
+Ecco un esempio. Le dimensioni dell'intestazione Ethernet sono pari a 14 byte più una sequenza di controllo frame a 4 byte per garantire la coerenza dei frame. Se viene inviato un pacchetto di 1 2.000 byte, nella rete vengono aggiunti 18 byte di overhead Ethernet. Se il pacchetto è frammentato in un pacchetto a 1.500 byte e un pacchetto da 500 byte, ogni pacchetto avrà 18 byte di intestazione Ethernet, un totale di 36 byte.
 
 Tenere presente che l'aumento del valore MTU non creerà necessariamente una rete più efficiente. Se un'applicazione invia solo pacchetti da 500 byte, sarà presente lo stesso overhead dell'intestazione se la MTU è 1.500 byte o 9.000 byte. La rete diventerà più efficiente solo se usa dimensioni dei pacchetti maggiori interessate dalla MTU.
 
@@ -127,7 +127,7 @@ La latenza di rete è regolata dalla velocità della luce su una rete in fibra o
 
 | | | | |
 |-|-|-|-|
-|**Route**|**Distance**|**Tempo unidirezionale**|**RTT**|
+|**Route**|**Distanza**|**Tempo unidirezionale**|**RTT**|
 |Da New York a San Francisco|4.148 km|21 MS|42 ms|
 |Da New York a Londra|5.585 km|28 ms|56 ms|
 |Da New York a Sydney|15.993 km|80 ms|160 ms|
@@ -213,18 +213,18 @@ Get-NetTCPConnection
 Get-NetTCPSetting
 ```
 
-È possibile impostare le dimensioni iniziali della finestra TCP e il fattore di scalabilità TCP in `Set-NetTCPSetting` Windows tramite il comando di PowerShell. Per ulteriori informazioni, vedere [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+È possibile impostare le dimensioni iniziali della finestra TCP e il fattore di scalabilità TCP in Windows tramite il `Set-NetTCPSetting` comando di PowerShell. Per ulteriori informazioni, vedere [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Queste sono le impostazioni TCP valide per `AutoTuningLevel`:
+Queste sono le impostazioni TCP valide per `AutoTuningLevel` :
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Fattore di scala**|**Moltiplicatore di scala**|**Formula per<br/>calcolare le dimensioni massime della finestra**|
-|Disabled|nessuno|nessuno|Dimensioni finestra|
+|**AutoTuningLevel**|**Fattore di scala**|**Moltiplicatore di scala**|**Formula per <br/> calcolare le dimensioni massime della finestra**|
+|Disabilitata|nessuno|nessuno|Dimensioni finestra|
 |Con restrizioni|4|2 ^ 4|Dimensioni finestra * (2 ^ 4)|
 |Con restrizioni elevata|2|2 ^ 2|Dimensioni finestra * (2 ^ 2)|
 |Normale|8|2 ^ 8|Dimensioni finestra * (2 ^ 8)|

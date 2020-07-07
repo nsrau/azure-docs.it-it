@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70018272"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
@@ -74,12 +74,12 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
    Ad esempio, una regola di scalabilità orizzontale consente di attivare un'aggiunta di un'unità di Gestione API di Azure, quando la metrica capacità media negli ultimi 30 minuti supera l'80%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                           |
+    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                     |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                 |
     | Aggregazione temporale      | Media           |                                                                                                                                                                                                                                                                                 |
-    | Nome metrica           | Capacity          | La metrica della capacità è una metrica di Gestione API di Azure che riflette l'utilizzo delle risorse di un'istanza di Gestione API di Azure.                                                                                                                                                            |
+    | Nome metrica           | Capacità          | La metrica della capacità è una metrica di Gestione API di Azure che riflette l'utilizzo delle risorse di un'istanza di Gestione API di Azure.                                                                                                                                                            |
     | Statistica intervallo di tempo  | Media           |                                                                                                                                                                                                                                                                                 |
     | Operatore              | Maggiore di      |                                                                                                                                                                                                                                                                                 |
     | Soglia             | 80%               | Soglia per la metrica della capacità media.                                                                                                                                                                                                                                 |
@@ -89,7 +89,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
     | Numero di istanze        | 1                 | Scalare orizzontalmente un'istanza di Gestione API di Azure di 1 unità.                                                                                                                                                                                                                          |
     | Disattiva regole dopo (minuti)   | 60                | Sono necessari almeno 20 minuti per la scalabilità orizzontale del servizio gestione API di Azure. Nella maggior parte dei casi, il periodo di raffreddamento di 60 minuti impedisce l'attivazione di numerose scale-out.                                                                                                  |
 
-8. Fare clic su **Aggiungi** per salvare la regola.
+8. Fare clic su **Add** (Aggiungi) per salvare la regola.
 
     ![Regola di scalabilità orizzontale di Monitoraggio di Azure](media/api-management-howto-autoscale/05.png)
 
@@ -101,12 +101,12 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     Ad esempio, una regola di riduzione consente di rimuovere un'unità di Gestione API di Azure, quando la metrica della capacità media negli ultimi 30 minuti è inferiore al 35%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Aggregazione temporale      | Media           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Nome metrica           | Capacity          | Metrica identica a quella usata per la regola di ridimensionamento.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    | Nome metrica           | Capacità          | Metrica identica a quella usata per la regola di ridimensionamento.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Statistica intervallo di tempo  | Media           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Operatore              | Minore di         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Soglia             | 35%               | Proprio come per la regola di scalabilità orizzontale, questo valore dipende in modo rilevante dai modelli di utilizzo di Gestione API di Azure. |
@@ -116,7 +116,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
     | Numero di istanze        | 1                 | Valore identico a quello usato per la regola di ridimensionamento.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Disattiva regole dopo (minuti)   | 90                | La riduzione deve essere più conservativa rispetto a una scalabilità orizzontale, pertanto il periodo di disattivazione delle regole dovrà essere più lungo.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-11. Fare clic su **Aggiungi** per salvare la regola.
+11. Fare clic su **Add** (Aggiungi) per salvare la regola.
 
     ![Regola di riduzione di Monitoraggio di Azure](media/api-management-howto-autoscale/06.png)
 
@@ -127,7 +127,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     ![Regola di riduzione di Monitoraggio di Azure](media/api-management-howto-autoscale/07.png)
 
-13. Fare clic su **Salva**. La scalabilità automatica è stata configurata.
+13. Fare clic su **Save**. La scalabilità automatica è stata configurata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
