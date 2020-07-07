@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580674"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casi d'uso di Anteprima di Azure Time Series Insights
@@ -60,7 +60,7 @@ Esistono tre modi principali per interagire con i dati archiviati in Time Series
 
   * Per altre informazioni su come condividere gli URL e la nuova interfaccia utente, vedere [visualizzare i dati in esplora Azure Time Series Insights Preview](time-series-insights-update-explorer.md).
 
-* Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone `from`di operatori temporali, `to`ad `first`esempio, `last`, e. `average`Dispone di aggregazioni e trasformazioni, ad esempio `min`, `max`, `split by`, `order by`, e `DateHistogram`. Include anche operatori di `has`filtro, ad esempio `in`, `and`, `or`, `greater than`, e `REGEX`. Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni Homegrown per individuare le anomalie.
+* Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone di operatori temporali `from` , ad esempio,, `to` `first` e `last` . Dispone di aggregazioni e trasformazioni, ad esempio `average` ,, `min` `max` , `split by` , `order by` e `DateHistogram` . Include anche operatori di filtro, ad esempio `has` ,, `in` `and` , `or` , `greater than` e `REGEX` . Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni Homegrown per individuare le anomalie.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Analisi operativa e miglioramento dell'efficienza dei processi
 

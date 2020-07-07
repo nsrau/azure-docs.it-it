@@ -1,5 +1,5 @@
 ---
-title: Informazioni sullo stato delle app nel cloud Spring di Azure
+title: Informazioni sullo stato delle app in Azure Spring Cloud
 description: Informazioni sulle categorie di stato delle app nel cloud Spring di Azure
 author: MikeDodaro
 ms.service: spring-cloud
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569004"
 ---
-# <a name="understanding-app-status-in-azure-spring-cloud"></a>Informazioni sullo stato delle app nel cloud Spring di Azure
+# <a name="understanding-app-status-in-azure-spring-cloud"></a>Informazioni sullo stato delle app in Azure Spring Cloud
 
 L'interfaccia utente di Azure Spring cloud fornisce informazioni sullo stato delle applicazioni in esecuzione.  È disponibile un'opzione **app** per ogni gruppo di risorse in una sottoscrizione che visualizza lo stato generale dei tipi di applicazione.  Per ogni tipo di applicazione, vengono visualizzate le **istanze dell'applicazione**.
 
@@ -29,14 +29,14 @@ Per visualizzare lo stato generale di un tipo di applicazione, selezionare **app
 
 **Lo stato della distribuzione viene segnalato come uno dei valori seguenti:**
 
-| Enum | Definizione |
+| Enumerazione | Definizione |
 |:--:|:----------------:|
 | In esecuzione | La distribuzione dovrebbe essere in esecuzione. |
 | Arrestato | La distribuzione deve essere arrestata. |
 
 **Lo stato di provisioning è accessibile solo dall'interfaccia della riga di comando.  Viene segnalato come uno dei valori seguenti:**
 
-| Enum | Definizione |
+| Enumerazione | Definizione |
 |:--:|:----------------:|
 | Creating | La risorsa sta creando. |
 | Aggiornamento | Aggiornamento della risorsa in corso. |
@@ -54,7 +54,7 @@ Per visualizzare lo stato di un'istanza specifica di un'app distribuita, fare cl
 
 **Lo stato dell'istanza viene segnalato come uno dei valori seguenti:**
 
-| Enum | Definizione |
+| Enumerazione | Definizione |
 |:--:|:----------------:|
 | Avvio in corso | Il file binario è stato distribuito correttamente nell'istanza specificata. L'avvio dell'istanza del file jar potrebbe non riuscire perché non è possibile eseguire correttamente il file jar. |
 | In esecuzione | L'istanza funziona. |
@@ -63,7 +63,7 @@ Per visualizzare lo stato di un'istanza specifica di un'app distribuita, fare cl
 
 **Lo stato di individuazione dell'istanza viene segnalato come uno dei valori seguenti:**
 
-| Enum | Definizione |
+| Enumerazione | Definizione |
 |:--:|:----------------:|
 | UP | L'istanza dell'app è registrata in Eureka ed è pronta per ricevere traffico |
 | OUT_OF_SERVICE | L'istanza dell'app è registrata in Eureka e in grado di ricevere traffico. ma viene arrestato intenzionalmente per il traffico. |

@@ -6,10 +6,10 @@ author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 05/04/2020
 ms.openlocfilehash: 892b59b3d3e980abfcdb9cd692c2598ceb1284ad
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780930"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
@@ -76,7 +76,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * pianificazioni: per impostazione predefinita, limitate a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 * services
 
@@ -85,7 +85,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * clusters
 * spazi dei nomi
 
-## <a name="microsoftexperimentation"></a>Microsoft. sperimentazione
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 * experimentWorkspaces
 

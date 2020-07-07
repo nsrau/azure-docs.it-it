@@ -4,10 +4,10 @@ description: Informazioni sul modo in cui l'eliminazione temporanea per le macch
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82765773"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminazione temporanea per le macchine virtuali

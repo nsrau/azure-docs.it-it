@@ -4,10 +4,10 @@ description: Usare Azure Resource Manager per spostare le macchine virtuali in u
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744628"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
@@ -37,9 +37,9 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 2. Per spostare le macchine virtuali configurate con backup di Azure, seguire questa procedura:
 
    1. Trovare il percorso della macchina virtuale.
-   2. Trovare un gruppo di risorse con il modello di denominazione `AzureBackupRG_<location of your VM>_1`seguente:. Ad esempio, *AzureBackupRG_westus2_1*
+   2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` . Ad esempio, *AzureBackupRG_westus2_1*
    3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
-   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello `AzureBackup_<name of your VM that you're trying to move>_###########`di denominazione.
+   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
    6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.
 

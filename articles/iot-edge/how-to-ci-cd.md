@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561023"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
@@ -25,7 +25,7 @@ Questo articolo descrive come usare le attività integrate Azure IoT Edge per Az
 
 * Le **Immagini del modulo Azure IOT Edge-Build** acquisiscono il codice della soluzione IOT Edge e compilano le immagini del contenitore.
 * **Azure IOT Edge push delle immagini del modulo** inserisce le immagini del modulo nel registro contenitori specificato.
-* **Azure IOT Edge-genera manifesto di distribuzione** accetta un file Deployment. template. JSON e le variabili, quindi genera il file manifesto della distribuzione IOT Edge finale.
+* **Azure IOT Edge-genera manifesto di distribuzione** accetta una deployment.template.jssu file e variabili e quindi genera il file manifesto di distribuzione IOT Edge finale.
 * **Azure IOT Edge: la distribuzione nei dispositivi IOT Edge** consente di creare distribuzioni di IOT Edge a dispositivi IOT Edge singoli o multipli.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -54,7 +54,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 >
 >Per altre informazioni, vedere [Creare una pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Accedere all'organizzazione DevOps di Azure (**https:\//dev.Azure.com/{Your Organization}/**) e aprire il progetto che contiene il repository della soluzione IOT Edge.
+1. Accedere all'organizzazione DevOps di Azure (**https: \/ /dev.Azure.com/{Your Organization}/**) e aprire il progetto che contiene il repository della soluzione IOT Edge.
 
    Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**. Questo repository contiene **IoTEdgeSolution**, in cui c'è il codice per un modulo denominato **filtermodule**.
 
@@ -84,7 +84,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
      ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 
-5. La pipeline è preconfigurata con un processo denominato **Processo agente 1**. Selezionare il segno più (**+**) per aggiungere tre attività al processo: **Azure IOT Edge** due volte, **copiare i file** una sola volta e **pubblicare gli artefatti di compilazione** una sola volta. Passare il mouse sul nome di ogni attività per vedere il pulsante **Aggiungi**.
+5. La pipeline è preconfigurata con un processo denominato **Processo agente 1**. Selezionare il segno più ( **+** ) per aggiungere tre attività al processo: **Azure IOT Edge** due volte, **copiare i file** una sola volta e **pubblicare gli artefatti di compilazione** una sola volta. Passare il mouse sul nome di ogni attività per vedere il pulsante **Aggiungi**.
 
    ![Aggiungere l'attività Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -96,23 +96,23 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
    * **Nome visualizzato**: accettare le immagini predefinite del **modulo Azure IOT Edge-Build**.
    * **Azione**: accettare le **Immagini del modulo di compilazione**predefinito.
-   * **file con estensione template. JSON**: selezionare i puntini di sospensione (**...**) e passare al file **Deployment. template. JSON** nel repository che contiene la soluzione IOT Edge.
+   * **.template.jssu file**: selezionare i puntini di sospensione (**...**) e passare al **deployment.template.js** nel file nel repository che contiene la soluzione IOT Edge.
    * **Piattaforma predefinita**: selezionare la piattaforma appropriata per i moduli in base al dispositivo IOT Edge di destinazione.
-   * **Variabili di output**: le variabili di output includono un nome di riferimento che è possibile usare per configurare il percorso del file in cui verrà generato il file Deployment. JSON. Impostare il nome di riferimento su un valore facile da ricordare, ad esempio **edge**.
+   * **Variabili di output**: le variabili di output includono un nome di riferimento che è possibile usare per configurare il percorso del file in cui verrà generato il deployment.jssul file. Impostare il nome di riferimento su un valore facile da ricordare, ad esempio **edge**.
 
 
-   Queste configurazioni usano il repository di immagini e il tag definiti nel `module.json` file per assegnare un nome e un tag all'immagine del modulo. Le **Immagini dei moduli di compilazione** consentono inoltre di sostituire le variabili con il valore esatto `module.json` definito nel file. In Visual Studio o Visual Studio Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda **variabili pipeline** . Selezionare la scheda **variabili** e configurare il nome e il valore come segue:
+   Queste configurazioni usano il repository di immagini e il tag definiti nel `module.json` file per assegnare un nome e un tag all'immagine del modulo. Le **Immagini dei moduli di compilazione** consentono inoltre di sostituire le variabili con il valore esatto definito nel `module.json` file. In Visual Studio o Visual Studio Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda **variabili pipeline** . Selezionare la scheda **variabili** e configurare il nome e il valore come segue:
 
     * **ACR_ADDRESS**: indirizzo del container Registry di Azure. 
 
-    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. le **Immagini dei moduli di compilazione** riconoscono `${VARIABLE}` solo le variabili nel formato. Assicurarsi di usare questo formato nei `**/module.json` file.
+    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. le **Immagini dei moduli di compilazione** riconoscono solo le variabili nel `${VARIABLE}` formato. Assicurarsi di usare questo formato nei `**/module.json` file.
     
 7. Selezionare la seconda attività **Azure IoT Edge** per modificarla. Questa attività esegue il push di tutte le immagini dei moduli nel registro contenitori selezionato.
 
    * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione.
    * **Azione**: usare l'elenco a discesa per selezionare le **Immagini del modulo push**.
    * **Tipo di registro contenitori**: selezionare il tipo di registro contenitori usato per archiviare le immagini del modulo. A seconda del tipo di registro scelto, il modulo cambia. Se si sceglie **Registro Azure Container**, usare gli elenchi a discesa per selezionare la sottoscrizione di Azure e il nome del registro contenitori. Se si sceglie **Generic Container Registry** (Registro contenitori generico), selezionare **Nuovo** per creare una connessione al servizio di registro.
-   * **file con estensione template. JSON**: selezionare i puntini di sospensione (**...**) e passare al file **Deployment. template. JSON** nel repository che contiene la soluzione IOT Edge.
+   * **.template.jssu file**: selezionare i puntini di sospensione (**...**) e passare al **deployment.template.js** nel file nel repository che contiene la soluzione IOT Edge.
    * **Piattaforma predefinita**: selezionare la stessa piattaforma delle immagini del modulo compilato.
 
    Se si dispone di più registri contenitori per ospitare le immagini del modulo, è necessario duplicare questa attività, selezionare un registro contenitori diverso e usare **Ignora moduli** nelle impostazioni avanzate per ignorare le immagini che non sono per questo specifico registro.
@@ -120,13 +120,13 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 8. Selezionare l'attività **copia file** per modificarla. Usare questa attività per copiare i file nella directory di gestione temporanea degli artefatti.
 
    * **Nome visualizzato**: copia file in: Drop Folder.
-   * **Contenuto**: inserire due righe in questa sezione, `deployment.template.json` e `**/module.json`. Questi due tipi di file sono gli input per generare IoT Edge manifesto della distribuzione. Deve essere copiato nella cartella di gestione temporanea degli artefatti e pubblicato per la pipeline di rilascio.
-   * **Cartella di destinazione**: inserire la `$(Build.ArtifactStagingDirectory)`variabile. Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione.
+   * **Contenuto**: inserire due righe in questa sezione, `deployment.template.json` e `**/module.json` . Questi due tipi di file sono gli input per generare IoT Edge manifesto della distribuzione. Deve essere copiato nella cartella di gestione temporanea degli artefatti e pubblicato per la pipeline di rilascio.
+   * **Cartella di destinazione**: inserire la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione.
 
 9. Selezionare l'attività **Pubblica artefatti di compilazione** per modificarla. Fornire il percorso della directory di gestione temporanea dell'artefatto all'attività in modo che sia possibile pubblicare il percorso nella pipeline di rilascio.
 
    * **Nome visualizzato**: Publish artefatte: Drop.
-   * **Percorso di pubblicazione**: inserire la variabile `$(Build.ArtifactStagingDirectory)`. Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione.
+   * **Percorso di pubblicazione**: inserire la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione.
    * **Nome artefatto**: Drop.
    * **Percorso di pubblicazione degli artefatti**: Azure Pipelines.
 
@@ -172,7 +172,7 @@ Creare una nuova pipeline e aggiungere una nuova fase
 
 8. Nella fase **dev** dovrebbe essere visualizzato un processo predefinito di **Agent**. È possibile configurare dettagli sul processo agente, ma l'attività di distribuzione è indipendente dalla piattaforma, il che significa che è possibile scegliere **Hosted VS2017** o **Hosted Ubuntu 1604** nel **Pool di agenti** (o qualsiasi altro agente gestito dall'utente stesso).
 
-9. Selezionare il segno più (**+**) per aggiungere due attività. Cercare e aggiungere **Azure IOT Edge** due volte.
+9. Selezionare il segno più ( **+** ) per aggiungere due attività. Cercare e aggiungere **Azure IOT Edge** due volte.
 
     ![Aggiungere attività per dev](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -180,17 +180,17 @@ Creare una nuova pipeline e aggiungere una nuova fase
 
     * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione.
     * **Azione**: usare l'elenco a discesa per selezionare **Genera manifesto di distribuzione**. Modificando il valore dell'azione viene aggiornato anche il nome visualizzato dell'attività, in modo che corrispondano.
-    * **file con estensione template. JSON**: inserire il `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`percorso. Il percorso viene pubblicato dalla pipeline di compilazione.
+    * **.template.jssu file**: inserire il percorso `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json` . Il percorso viene pubblicato dalla pipeline di compilazione.
     * **Piattaforma predefinita**: scegliere lo stesso valore quando si compilano le immagini del modulo.
-    * **Percorso di output**: inserire il `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`percorso. Questo percorso è il file manifesto di distribuzione IoT Edge finale.
+    * **Percorso di output**: inserire il percorso `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Questo percorso è il file manifesto di distribuzione IoT Edge finale.
 
-    Queste configurazioni consentono di sostituire gli URL delle immagini del `deployment.template.json` modulo nel file. Il **manifesto di generazione della distribuzione** consente inoltre di sostituire le variabili con il valore esatto definito `deployment.template.json` nel file. In VS/VS Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda variabili della pipeline di rilascio. passare alla scheda variabili e configurare il nome e il valore come segue.
+    Queste configurazioni consentono di sostituire gli URL delle immagini del modulo nel `deployment.template.json` file. Il **manifesto di generazione della distribuzione** consente inoltre di sostituire le variabili con il valore esatto definito nel `deployment.template.json` file. In VS/VS Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda variabili della pipeline di rilascio. passare alla scheda variabili e configurare il nome e il valore come segue.
 
     * **ACR_ADDRESS**: indirizzo del container Registry di Azure.
     * **ACR_PASSWORD**: la password di Azure container Registry.
     * **ACR_USER**: il nome utente di Azure container Registry.
 
-    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. Il **manifesto di generazione della distribuzione** può solo riconoscere che le `${VARIABLE}` variabili sono in versione, quindi assicurarsi di usarle `*.template.json` nei file.
+    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. Il **manifesto di generazione della distribuzione** può solo riconoscere che le variabili sono in versione, quindi assicurarsi `${VARIABLE}` di usarle nei `*.template.json` file.
 
     ![Configurare le variabili per la pipeline di versione](./media/how-to-ci-cd/configure-variables.png)
 
@@ -203,7 +203,7 @@ Creare una nuova pipeline e aggiungere una nuova fase
     * **Scegliere un dispositivo singolo/multiplo**: scegliere se si vuole distribuire la pipeline di rilascio a un dispositivo o a più dispositivi.
       * Se si distribuisce a un singolo dispositivo, immettere l'**ID del dispositivo IoT Edge**.
       * Se si distribuisce a più dispositivi, specificare la **condizione di destinazione** del dispositivo. La condizione di destinazione è un filtro che corrisponde a un set di dispositivi IoT Edge nell'hub Internet. Se si vogliono usare i Tag del dispositivo come condizione, è necessario aggiornare i tag di dispositivo corrispondenti con il dispositivo gemello hub IoT. Aggiornare l'**ID distribuzione di IoT Edge** e la **priorità della distribuzione IoT Edge** nelle impostazioni avanzate. Per altre informazioni sulla creazione di una distribuzione per più dispositivi, vedere [Informazioni sulle distribuzioni automatiche IoT Edge](module-deployment-monitoring.md).
-    * Espandere Impostazioni avanzate, selezionare **IOT Edge ID distribuzione**, inserire la variabile `$(System.TeamProject)-$(Release.EnvironmentName)`. Viene eseguito il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge.
+    * Espandere Impostazioni avanzate, selezionare **IOT Edge ID distribuzione**, inserire la variabile `$(System.TeamProject)-$(Release.EnvironmentName)` . Viene eseguito il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge.
 
 12. Selezionare **Salva** per salvare le modifiche nella nuova pipeline di versione. Tornare alla visualizzazione pipeline selezionando **Pipeline** dal menu.
 

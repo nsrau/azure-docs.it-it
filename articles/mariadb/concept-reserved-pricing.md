@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82732904"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
@@ -38,7 +38,7 @@ Si supponga, ad esempio, di eseguire un database quinta generazione-32 vCore Mar
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Acquistare la capacità riservata di database di Azure per MariaDB
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **tutte le prenotazioni dei servizi** > **Reservations**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3.  Selezionare **Aggiungi** e quindi nel riquadro prenotazioni acquisti selezionare database di **Azure per MariaDB** per acquistare una nuova prenotazione per i database di MariaDB.
 4.  Compilare i campi obbligatori. I database nuovi o esistenti che corrispondono agli attributi selezionati sono idonei per ottenere lo sconto per la capacità riservata. Il numero effettivo del database di Azure per i server MariaDB che ottengono lo sconto dipendono dall'ambito e dalla quantità selezionati.
 
@@ -60,7 +60,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>Flessibilità delle dimensioni vCore
 

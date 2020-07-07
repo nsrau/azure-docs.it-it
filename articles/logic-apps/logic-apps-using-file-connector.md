@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580639"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
@@ -38,7 +38,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 * Un account di posta elettronica da un provider supportato da App per la logica, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). Questa app per la logica usa un account Office 365 Outlook. Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
   > [!IMPORTANT]
-  > Se si vuole usare il connettore Gmail, solo gli account aziendali G-Suite possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account utente Gmail, è possibile usare questo connettore solo con specifici servizi approvati da Google oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per questo esempio, è necessaria un'app per la logica vuota.
 
@@ -70,10 +70,10 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    | -------- | -------- | ----- | ----------- |
-   | **Connection Name (Nome connessione)** | Sì | <*Nome connessione*> | Il nome da assegnare alla connessione |
+   | **Connection Name** (Nome connessione) | Sì | <*Nome connessione*> | Il nome da assegnare alla connessione |
    | **Cartella radice** | Sì | <*nome-cartella-radice*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
    | **Tipo di autenticazione** | No | <*tipo di autenticazione*> | Tipo di autenticazione usato dal file system: **Windows** |
-   | **Nome utente** | Sì | <*domain*>\\<*nome utente* dominio> <p>-oppure- <p><*local-computer*>\\<*nome utente* del computer locale> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <>\\<*nome utente* *del computer locale*>. |
+   | **Nome utente** | Sì | <*domain* > \\ dominio < *nome utente*> <p>-oppure- <p><*computer* > \\ locale < *nome utente*> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <nome utente *del computer locale* > \\ < *username*>. |
    | **Password** | Sì | <*password*> | La password per il computer in cui è presente il file system |
    | **Gateway** | Sì | <*installato-Gateway-Name*> | Il nome del gateway installato in precedenza |
    |||||

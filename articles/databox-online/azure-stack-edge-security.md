@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 3d567ec4d760be24fdbb79ff85bd6db0eb4a66c8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82570070"
 ---
 # <a name="azure-stack-edge-security-and-data-protection"></a>Sicurezza e protezione dei dati in Azure Stack Edge
@@ -56,7 +56,7 @@ Per altre informazioni, vedere [ottenere una chiave di attivazione](azure-stack-
 
 Le password assicurano che solo gli utenti autorizzati possano accedere ai dati. I dispositivi Azure Stack Edge vengono avviati in uno stato bloccato.
 
-È possibile scegliere:
+È possibile:
 
 - Connettersi all'interfaccia utente Web locale del dispositivo tramite un browser e quindi specificare una password per accedere al dispositivo.
 - Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. La gestione remota è attivata per impostazione predefinita. È quindi possibile specificare la password del dispositivo per accedere al dispositivo. Per altre informazioni, vedere [connettersi in remoto al dispositivo Azure stack Edge](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).

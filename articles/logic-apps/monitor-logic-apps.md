@@ -7,20 +7,20 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82732003"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure
 
-Dopo aver [creato ed eseguito un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md), è possibile controllare lo stato di esecuzione dell'app per la logica, la [cronologia delle esecuzioni](#review-runs-history), la [cronologia dei trigger](#review-trigger-history)e le prestazioni. Per ottenere notifiche sugli errori o su altri possibili problemi, configurare gli [avvisi](#add-azure-alerts). È ad esempio possibile creare un avviso che rileva "quando più di cinque esecuzioni in un'ora hanno esito negativo".
+Dopo aver [creato ed eseguito un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md), è possibile controllare lo stato di esecuzione dell'app per la logica, la [cronologia delle esecuzioni](#review-runs-history), la [cronologia dei trigger](#review-trigger-history)e le prestazioni. Per ricevere notifiche sugli errori o su altri possibili problemi, configurare gli [avvisi](#add-azure-alerts). È ad esempio possibile creare un avviso che rileva "quando più di cinque esecuzioni in un'ora hanno esito negativo".
 
 Per il monitoraggio degli eventi in tempo reale e il debug più completo, configurare la registrazione diagnostica per l'app per la logica usando i [log di monitoraggio di Azure](../azure-monitor/overview.md). Questo servizio di Azure consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. È quindi possibile trovare e visualizzare gli eventi, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione. Archiviando queste informazioni nei [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md), è possibile creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di trovare e analizzare tali informazioni. È anche possibile usare questi dati di diagnostica con altri servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Per altre informazioni, vedere [monitorare le app per la logica con monitoraggio di Azure](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> Se le app per la logica vengono eseguite in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) creato per usare un [endpoint di accesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni dell'app per *la logica solo dall'interno della rete virtuale*. Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si vuole accedere alla cronologia delle esecuzioni. Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE, ad esempio tramite il peering o una rete privata virtuale. Per altre informazioni, vedere [ISE endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> Se le app per la logica vengono eseguite in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) creato per usare un [endpoint di accesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni dell'app per *la logica solo dall'interno della rete virtuale*. Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si vuole accedere alla cronologia delle esecuzioni. Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE, ad esempio tramite il peering o una rete privata virtuale. Per altre informazioni, vedere [Accesso endpoint dell’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -28,9 +28,9 @@ Per il monitoraggio degli eventi in tempo reale e il debug più completo, config
 
 Ogni volta che il trigger viene attivato per un elemento o un evento, il motore delle app per la logica crea ed esegue un'istanza del flusso di lavoro separata per ogni elemento o evento. Per impostazione predefinita, ogni istanza del flusso di lavoro viene eseguita in parallelo in modo che nessun flusso di lavoro debba attendere prima di avviare un'esecuzione. È possibile esaminare gli eventi verificatisi durante l'esecuzione, incluso lo stato di ogni passaggio nel flusso di lavoro più gli input e gli output per ogni passaggio.
 
-1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-   Per trovare l'app per la logica, nella casella di ricerca di Azure `logic apps`principale immettere e quindi selezionare app per la **logica**.
+   Per trovare l'app per la logica, nella casella di ricerca di Azure principale immettere `logic apps` e quindi selezionare **app**per la logica.
 
    ![Trovare e selezionare il servizio "app per la logica"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -49,8 +49,8 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
    | Stato | Descrizione |
    |--------|-------------|
    | **Operazione annullata** | Il flusso di lavoro era in esecuzione ma è stata ricevuta una richiesta di annullamento |
-   | **Operazione non riuscita** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per gestire l'errore |
-   | **In esecuzione** | Il flusso di lavoro è attualmente in esecuzione, <p>Questo stato può essere visualizzato anche per i flussi di lavoro limitati o a causa del piano tariffario corrente. Per altre informazioni vedere i [limiti delle azioni sulla pagina dei prezzi](https://azure.microsoft.com/pricing/details/logic-apps/). Se si configura la [registrazione diagnostica](../logic-apps/monitor-logic-apps.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
+   | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per gestire l'errore |
+   | **Running** | Il flusso di lavoro è attualmente in esecuzione, <p>Questo stato può essere visualizzato anche per i flussi di lavoro limitati o a causa del piano tariffario corrente. Per altre informazioni vedere i [limiti delle azioni sulla pagina dei prezzi](https://azure.microsoft.com/pricing/details/logic-apps/). Se si configura la [registrazione diagnostica](../logic-apps/monitor-logic-apps.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>**Nota**: se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
    | **Waiting** | Il flusso di lavoro non è stato avviato o è sospeso, ad esempio, a causa di un flusso di lavoro precedente ancora in esecuzione. |
    |||
@@ -94,9 +94,9 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
 
 Ogni esecuzione di app per la logica inizia con un trigger. La cronologia dei trigger elenca tutti i tentativi di trigger eseguiti dall'app per la logica e le informazioni sugli input e output per ogni tentativo del trigger.
 
-1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-   Per trovare l'app per la logica, nella casella di ricerca di Azure `logic apps`principale immettere e quindi selezionare app per la **logica**.
+   Per trovare l'app per la logica, nella casella di ricerca di Azure principale immettere `logic apps` e quindi selezionare **app**per la logica.
 
    ![Trovare e selezionare il servizio "app per la logica"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -118,7 +118,7 @@ Ogni esecuzione di app per la logica inizia con un trigger. La cronologia dei tr
 
    | Stato | Descrizione |
    |--------|-------------|
-   | **Operazione non riuscita** | Si è verificato un errore. Per esaminare i messaggi di errore generati per un trigger non riuscito, selezionare il tentativo di trigger e scegliere **Output**. Ad esempio, si potrebbero trovare input che non sono validi. |
+   | **Non riuscito** | Si è verificato un errore. Per esaminare i messaggi di errore generati per un trigger non riuscito, selezionare il tentativo di trigger e scegliere **Output**. Ad esempio, si potrebbero trovare input che non sono validi. |
    | **Ignorato** | Il trigger ha controllato l'endpoint ma non ha trovato dati. |
    | **Completato** | Il trigger ha controllato l'endpoint e ha trovato dati disponibili. In genere compare anche lo stato "Attivato" accanto a questo stato. In caso contrario, la definizione del trigger potrebbe essere una condizione o comando `SplitOn` che non è soddisfatto. <p>Questo stato può essere associato a un trigger manuale, un trigger di ricorrenza o un trigger di poll. Un trigger può essere eseguito correttamente, ma l'esecuzione stessa potrebbe comunque non riuscire quando le azioni generano errori non gestiti. |
    |||
@@ -140,7 +140,7 @@ Ogni esecuzione di app per la logica inizia con un trigger. La cronologia dei tr
 
 Per ottenere gli avvisi in base a metriche specifiche o al superamento delle soglie per l'app per la logica, configurare gli [avvisi in monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Per configurare gli avvisi senza usare [monitoraggio di Azure](../log-analytics/log-analytics-overview.md), seguire questa procedura.
 
-1. Nel menu dell'app per la logica, in **monitoraggio**selezionare **avvisi** > **nuova regola di avviso**.
+1. Nel menu dell'app per la logica, in **monitoraggio**selezionare **avvisi**  >  **nuova regola di avviso**.
 
    ![Aggiungere un avviso per l'app per la logica](./media/monitor-logic-apps/add-new-alert-rule.png)
 
@@ -162,7 +162,7 @@ Per ottenere gli avvisi in base a metriche specifiche o al superamento delle sog
 
    1. Per **tipo di aggregazione**selezionare **conteggio**.
 
-   1. Per **valore soglia**immettere `1`.
+   1. Per **valore soglia**immettere `1` .
 
    1. In **anteprima condizione**verificare che la condizione appaia corretta.
 

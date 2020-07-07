@@ -4,15 +4,15 @@ description: Panoramica di Data Lake Storage Gen1 (noto in precedenza come Azure
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
-ms.openlocfilehash: 99384374226fd89cfd672c6b4f851a1743db0764
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 2ca6ceb326a1fd6f7aaf5a9871d043377e60de83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67118798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508555"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>Che cos'è Azure Data Lake Storage Gen1?
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733414"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come eseguire Durable Functions come processi Web
@@ -17,23 +17,23 @@ Per impostazione predefinita, Durable Functions usa il runtime di funzioni di Az
 
 [Funzioni di Azure](../functions-overview.md) e l'estensione [Funzioni durevoli](durable-functions-overview.md) sono basate su [WebJobs SDK](../../app-service/webjobs-sdk-how-to.md). L'host del processo in webjobs SDK è il runtime in funzioni di Azure. Se è necessario controllare il comportamento in modi non possibili in funzioni di Azure, è possibile sviluppare ed eseguire Durable Functions usando webjobs SDK manualmente.
 
-Nella versione 3. x di webjobs SDK, l'host è un'implementazione di `IHost`e nella versione 2. x viene usato l' `JobHost` oggetto.
+Nella versione 3. x di webjobs SDK, l'host è un'implementazione di `IHost` e nella versione 2. x viene usato l' `JobHost` oggetto.
 
-L'esempio di concatenamento Durable Functions è disponibile in una versione di webjobs SDK 2. x: scaricare o clonare il [repository Durable Functions](https://github.com/azure/azure-functions-durable-extension/)ed estrarre il ramo *V1* e passare alla cartella *\\Samples webjobssdk\\Concatenation* .
+L'esempio di concatenamento Durable Functions è disponibile in una versione di webjobs SDK 2. x: scaricare o clonare il [repository Durable Functions](https://github.com/azure/azure-functions-durable-extension/)ed estrarre il ramo *V1* e passare alla cartella *Samples \\ webjobssdk \\ Concatenation* .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia familiarità con le nozioni di base relative a WebJobs SDK, allo sviluppo della libreria di classi C# per Funzioni di Azure e a Funzioni durevoli. Per un'introduzione a questi argomenti, vedere le risorse seguenti:
 
-* [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md) (Introduzione a WebJobs SDK)
+* [Introduzione a WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
 * [Creare la prima funzione con Visual Studio](../functions-create-your-first-function-visual-studio.md)
 * [Funzioni permanenti](durable-functions-sequence.md)
 
 Per seguire la procedura descritta in questo articolo:
 
-* [Installare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con il carico di lavoro **sviluppo di Azure** .
+* [Installare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con l carico di lavoro **Sviluppo di Azure**.
 
-  Se si dispone già di Visual Studio, ma non si dispone di tale carico di lavoro, aggiungere il carico di lavoro selezionando **strumenti** > **Ottieni strumenti e funzionalità**.
+  Se si dispone già di Visual Studio, ma non si dispone di tale carico di lavoro, aggiungere il carico di lavoro selezionando **strumenti**  >  **Ottieni strumenti e funzionalità**.
 
   È anche possibile usare [Visual Studio Code](https://code.visualstudio.com/), ma alcune istruzioni sono specifiche per Visual Studio.
 
@@ -43,13 +43,13 @@ Per seguire la procedura descritta in questo articolo:
 
 Questo articolo illustra come sviluppare un progetto di WebJobs SDK 2.x (equivalente a Funzioni di Azure versione 1.x). Per informazioni sulla versione 3.x, vedere [WebJobs SDK 3.x](#webjobs-sdk-3x) più avanti in questo articolo.
 
-## <a name="create-a-console-app"></a>Creare un'app console
+## <a name="create-a-console-app"></a>Creare un'applicazione console
 
 Per eseguire Durable Functions come processi Web, è necessario creare prima un'app console. Un progetto di WebJobs SDK è semplicemente un progetto di app console con i pacchetti NuGet appropriati installati.
 
-Nella finestra di dialogo **nuovo progetto** di Visual Studio selezionare app console **Desktop** > classico di Windows **(.NET Framework)**. Nel file di progetto `TargetFrameworkVersion` deve essere `v4.6.1`.
+Nella finestra di dialogo **nuovo progetto** di Visual Studio selezionare app console **desktop classico di Windows**  >  **(.NET Framework)**. Nel file di progetto `TargetFrameworkVersion` deve essere `v4.6.1`.
 
-Visual Studio include anche un modello di progetto processo Web, che è possibile usare selezionando **cloud** > **Azure processo Web (.NET Framework)**. Questo modello comporta l'installazione di molti pacchetti, alcuni dei quali potrebbero non essere necessari.
+Visual Studio include anche un modello di progetto processo Web, che è possibile usare selezionando **cloud**  >  **Azure processo Web (.NET Framework)**. Questo modello comporta l'installazione di molti pacchetti, alcuni dei quali potrebbero non essere necessari.
 
 ## <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
@@ -61,7 +61,7 @@ Install-Package Microsoft.Extensions.Logging -version 2.0.1
 Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
-Occorre anche disporre di provider di registrazione. I comandi seguenti installano il provider applicazione Azure Insights e il `ConfigurationManager`. Con `ConfigurationManager` è possibile ottenere la chiave di strumentazione di Application Insights dalle impostazioni dell'app.
+Occorre anche disporre di provider di registrazione. I comandi seguenti installano il provider applicazione Azure Insights e il `ConfigurationManager` . Con `ConfigurationManager` è possibile ottenere la chiave di strumentazione di Application Insights dalle impostazioni dell'app.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
@@ -157,7 +157,7 @@ In un progetto webjobs SDK è possibile chiamare i metodi sull'oggetto client di
 * `RaiseEventAsync`
 * `TerminateAsync`
 
-La funzione del client di orchestrazione nel progetto di esempio avvia la funzione dell'agente di orchestrazione, quindi `GetStatusAsync` passa a un ciclo che chiama ogni 2 secondi:
+La funzione del client di orchestrazione nel progetto di esempio avvia la funzione dell'agente di orchestrazione, quindi passa a un ciclo che chiama `GetStatusAsync` ogni 2 secondi:
 
 ```cs
 string instanceId = await client.StartNewAsync(nameof(HelloSequence), input: null);
@@ -202,11 +202,11 @@ Questa sezione fornisce una panoramica di come eseguire il [progetto di esempio]
 
 1. Creare un'app Web e un account di archiviazione.
 
-1. Nell'app Web salvare la stringa di connessione di archiviazione in un'impostazione dell'app `AzureWebJobsStorage`denominata.
+1. Nell'app Web salvare la stringa di connessione di archiviazione in un'impostazione dell'app denominata `AzureWebJobsStorage` .
 
 1. Creare una risorsa Application Insights e usare il tipo di app **generale** .
 
-1. Salvare la chiave di strumentazione in un'impostazione dell' `APPINSIGHTS_INSTRUMENTATIONKEY`app denominata.
+1. Salvare la chiave di strumentazione in un'impostazione dell'app denominata `APPINSIGHTS_INSTRUMENTATIONKEY` .
 
 1. Eseguire la distribuzione come processo Web.
 
@@ -216,7 +216,7 @@ Questo articolo illustra come sviluppare un progetto webjobs SDK 2. x. Se si sta
 
 La modifica principale introdotta è l'uso di .NET Core anziché .NET Framework. Per creare un progetto webjobs SDK 3. x, le istruzioni sono le stesse, con le eccezioni seguenti:
 
-1. Creare un'app console di .NET Core. Nella finestra di dialogo **nuovo progetto** di Visual Studio selezionare app console **.NET Core** > **(.NET Core)**. Il file di progetto specifica che `TargetFramework` è `netcoreapp2.x`.
+1. Creare un'app console di .NET Core. Nella finestra di dialogo **nuovo progetto** di Visual Studio selezionare app console **.NET Core**  >  **(.NET Core)**. Il file di progetto specifica che `TargetFramework` è `netcoreapp2.x`.
 
 1. Scegliere la versione di rilascio webjobs SDK 3. x dei pacchetti seguenti:
 
@@ -224,7 +224,7 @@ La modifica principale introdotta è l'uso di .NET Core anziché .NET Framework.
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Impostare la stringa di connessione di archiviazione e la chiave di strumentazione Application Insights in un file *appSettings. JSON* usando il Framework di configurazione di .NET Core. Ad esempio:
+1. Impostare la stringa di connessione di archiviazione e la chiave di strumentazione Application Insights in un *appsettings.jssu* file usando il Framework di configurazione di .NET Core. Ad esempio:
 
     ```json
         {

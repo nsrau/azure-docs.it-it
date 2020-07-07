@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569082"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Requisiti di sistema di Azure Stack Edge
@@ -82,7 +82,7 @@ Si consiglia di impostare le regole del firewall per il traffico in uscita, in b
 
 | Modello URL                      | Componente o funzionalità                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*.cdn.mscr.io | Registro contenitori Microsoft (obbligatorio)               |
+| https: \/ /MCR.Microsoft.com<br></br>https://\*.cdn.mscr.io | Registro contenitori Microsoft (obbligatorio)               |
 | https://\*.azurecr.io                     | Registri contenitori personali e di terze parti (facoltativo) | 
 | https://\*.azure-devices.net              | Criteri di accesso dell'hub IoT (obbligatorio)                             | 
 
@@ -94,9 +94,9 @@ Si consiglia di impostare le regole del firewall per il traffico in uscita, in b
 
 | Modello URL                      | Componente o funzionalità                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*. CDN.MSCR.com | Registro contenitori Microsoft (obbligatorio)               |
-| https://\*. Azure-Devices.US              | Criteri di accesso dell'hub IoT (obbligatorio)           |
-| https://\*. azurecr.US                    | Registri contenitori personali e di terze parti (facoltativo) | 
+| https: \/ /MCR.Microsoft.com<br></br>https:// \* . CDN.MSCR.com | Registro contenitori Microsoft (obbligatorio)               |
+| https:// \* . Azure-Devices.US              | Criteri di accesso dell'hub IoT (obbligatorio)           |
+| https:// \* . azurecr.US                    | Registri contenitori personali e di terze parti (facoltativo) | 
 
 ## <a name="internet-bandwidth"></a>Larghezza di banda Internet
 
@@ -135,4 +135,4 @@ Infine, assicurarsi di convalidare la soluzione nel set di dati e di quantificar
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Distribuire il Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Distribuire Azure Stack Edge](azure-stack-edge-deploy-prep.md)

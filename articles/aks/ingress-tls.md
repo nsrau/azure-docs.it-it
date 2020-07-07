@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/27/2020
 ms.openlocfilehash: 59f1b63a5c72ed5583b88af9e42bf5337f358b47
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561897"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
@@ -28,7 +28,7 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 Questo articolo presuppone anche che si disponga di [un dominio personalizzato][custom-domain] con una [zona DNS][dns-zone] nello stesso gruppo di risorse del cluster AKS.
 
@@ -249,7 +249,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Eseguire le due applicazioni demo usando `kubectl apply`:
+Eseguire le due applicazioni demo usando `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -258,12 +258,12 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 ## <a name="create-an-ingress-route"></a>Creare una route in ingresso
 
-Entrambe le applicazioni sono in esecuzione nel cluster Kubernetes. Tuttavia, sono configurati con un servizio `ClusterIP` di tipo e non sono accessibili da Internet. Per renderle disponibili pubblicamente, creare una risorsa di ingresso Kubernetes. La risorsa di ingresso configura le regole che instradano il traffico a una delle due applicazioni.
+Entrambe le applicazioni sono in esecuzione nel cluster Kubernetes. Tuttavia, sono configurati con un servizio di tipo `ClusterIP` e non sono accessibili da Internet. Per renderle disponibili pubblicamente, creare una risorsa di ingresso Kubernetes. La risorsa di ingresso configura le regole che instradano il traffico a una delle due applicazioni.
 
 Nell'esempio seguente, il traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN* viene indirizzato al servizio *AKS-HelloWorld* . Traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* viene indirizzato al servizio *AKS-HelloWorld-Two* . Traffico verso *Hello-World-ingress. MY_CUSTOM_DOMAIN/routing statico* viene indirizzato al servizio denominato *AKS-HelloWorld* per gli asset statici.
 
 > [!NOTE]
-> Se è stato configurato un FQDN per l'indirizzo IP del controller di ingresso anziché un dominio personalizzato, usare il nome di dominio completo anziché *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Se, ad esempio, il nome di dominio completo è *demo-AKS-ingress.eastus.cloudapp.Azure.com*, sostituire *Hello-World-ingress. MY_CUSTOM_DOMAIN* con *demo-AKS-ingress.eastus.cloudapp.Azure.com* in `hello-world-ingress.yaml`.
+> Se è stato configurato un FQDN per l'indirizzo IP del controller di ingresso anziché un dominio personalizzato, usare il nome di dominio completo anziché *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Se, ad esempio, il nome di dominio completo è *demo-AKS-ingress.eastus.cloudapp.Azure.com*, sostituire *Hello-World-ingress. MY_CUSTOM_DOMAIN* con *demo-AKS-ingress.eastus.cloudapp.Azure.com* in `hello-world-ingress.yaml` .
 
 Creare un file denominato `hello-world-ingress.yaml` usando l'esempio YAML. Aggiornare gli elementi *hosts* e *host* in base al nome DNS creato in un passaggio precedente.
 
@@ -327,7 +327,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Successivamente, è necessario creare una risorsa certificato. La risorsa certificato definisce il certificato X.509 desiderato. Per ulteriori informazioni, vedere [certificati Cert-Manager][cert-manager-certificates]. Cert-Manager ha creato automaticamente un oggetto certificato per l'utente tramite il traffico in ingresso-shim, che viene distribuito automaticamente con Cert-Manager da v 0.2.2. Per altre informazioni, consultare la [documentazione su ingress-shim][ingress-shim].
 
-Per verificare che il certificato sia stato creato correttamente, usare `kubectl get certificate --namespace ingress-basic` il comando e verificare che *Ready* sia *true*, operazione che può richiedere alcuni minuti.
+Per verificare che il certificato sia stato creato correttamente, usare il `kubectl get certificate --namespace ingress-basic` comando e verificare che *Ready* sia *true*, operazione che può richiedere alcuni minuti.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -346,7 +346,7 @@ Questo articolo ha usato Helm per installare i componenti di ingresso, i certifi
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminare lo spazio dei nomi di esempio e tutte le risorse
 
-Per eliminare l'intero spazio dei nomi di esempio `kubectl delete` , usare il comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
+Per eliminare l'intero spazio dei nomi di esempio, usare il `kubectl delete` comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -360,7 +360,7 @@ In alternativa, un approccio più granulare consiste nell'eliminare le singole r
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Elencare le versioni Helm con `helm list` il comando. Cercare i grafici denominati *nginx* e *Cert-Manager*, come illustrato nell'output di esempio seguente:
+Elencare le versioni Helm con il `helm list` comando. Cercare i grafici denominati *nginx* e *Cert-Manager*, come illustrato nell'output di esempio seguente:
 
 ```
 $ helm list --namespace ingress-basic

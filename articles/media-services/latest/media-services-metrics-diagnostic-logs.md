@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559536"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
@@ -44,15 +44,15 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 |Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
-|AssetCount|Conteggio asset|Asset nell'account.|
-|AssetQuota|Quota asset|Quota di asset nell'account.|
-|AssetQuotaUsedPercentage|Percentuale di utilizzo della quota di asset|Percentuale della quota di asset già in uso.|
-|ContentKeyPolicyCount|Conteggio dei criteri della chiave simmetrica|Criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuota|Quota dei criteri della chiave simmetrica|Quota dei criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuotaUsedPercentage|Percentuale di utilizzo della quota dei criteri della chiave simmetrica|Percentuale della quota dei criteri della chiave simmetrica già utilizzata.|
-|StreamingPolicyCount|Conteggio dei criteri di flusso|Criteri di streaming nell'account.|
-|StreamingPolicyQuota|Quota dei criteri di streaming|Quota dei criteri di streaming nell'account.|
-|StreamingPolicyQuotaUsedPercentage|Percentuale di utilizzo della quota dei criteri di flusso|Percentuale della quota dei criteri di flusso già utilizzata.|
+|AssetCount|Asset count (Conteggio asset)|Asset nell'account.|
+|AssetQuota|Asset quota (Quota asset)|Quota di asset nell'account.|
+|AssetQuotaUsedPercentage|Asset quota used percentage (Percentuale usata quota asset)|Percentuale della quota di asset già in uso.|
+|ContentKeyPolicyCount|Content Key Policy count (Conteggio criteri chiave simmetrica)|Criteri chiave simmetrica nell'account.|
+|ContentKeyPolicyQuota|Content Key Policy quota (Quota criteri chiave simmetrica)|Quota dei criteri chiave simmetrica nell'account.|
+|ContentKeyPolicyQuotaUsedPercentage|Content Key Policy quota used percentage (Percentuale usata quota criteri chiave simmetrica)|Percentuale della quota dei criteri della chiave simmetrica già utilizzata.|
+|StreamingPolicyCount|Streaming Policy count (Conteggio criteri di streaming)|Criteri di streaming nell'account.|
+|StreamingPolicyQuota|Streaming Policy quota (Quota criteri di streaming)|Quota dei criteri di streaming nell'account.|
+|StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage (Percentuale usata quota criteri di streaming)|Percentuale della quota dei criteri di flusso già utilizzata.|
 
 È anche necessario esaminare [le quote e i limiti dell'account](limits-quotas-constraints.md).
 
@@ -64,7 +64,7 @@ Sono supportate le metriche seguenti per gli [endpoint di streaming](https://doc
 |---|---|---|
 |Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
 |Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
-|SuccessE2ELatency|Latenza end-to-end riuscita|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
+|SuccessE2ELatency|Success end to end Latency (Latenza end-to-end riuscita)|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Perché si vuole usare la metrica?
 

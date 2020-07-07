@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 791eed9419375c7245488b8ec61a1c5481be382e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580576"
 ---
 # <a name="configure-tls-in-azure-database-for-postgresql---hyperscale-citus"></a>Configurare TLS in database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -26,10 +26,10 @@ Analogamente, le stringhe di connessione predefinite nelle impostazioni "stringh
 Alcuni framework di applicazioni che usano PostgreSQL per i servizi di database non abilitano TLS per impostazione predefinita durante l'installazione. Se il server PostgreSQL impone le connessioni TLS ma l'applicazione non è configurata per TLS, l'applicazione potrebbe non riuscire a connettersi al server di database. Consultare la documentazione dell'applicazione per informazioni su come abilitare le connessioni TLS.
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Applicazioni che richiedono la verifica del certificato per la connettività TLS
-In alcuni casi, le applicazioni richiedono un file del certificato locale generato da un file di certificato (.cer) dell'autorità di certificazione (CA) attendibile per connettersi in modo sicuro. Il certificato per la connessione a un database di Azure per PostgreSQL-iperscalabilità (CITUS) https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pemsi trova in. Scaricare il file del certificato e salvarlo nel percorso preferito.
+In alcuni casi, le applicazioni richiedono un file del certificato locale generato da un file di certificato (.cer) dell'autorità di certificazione (CA) attendibile per connettersi in modo sicuro. Il certificato per la connessione a un database di Azure per PostgreSQL-iperscalabilità (CITUS) si trova in https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem . Scaricare il file del certificato e salvarlo nel percorso preferito.
 
 ### <a name="connect-using-psql"></a>Connettersi con PSQL
-Nell'esempio seguente viene illustrato come connettersi al nodo coordinatore CITUS (iperscale) utilizzando l'utilità da riga di comando psql. Usare l' `sslmode=verify-full` impostazione della stringa di connessione per applicare la verifica del certificato TLS. Passare il percorso del file del certificato locale `sslrootcert` al parametro.
+Nell'esempio seguente viene illustrato come connettersi al nodo coordinatore CITUS (iperscale) utilizzando l'utilità da riga di comando psql. Usare l' `sslmode=verify-full` impostazione della stringa di connessione per applicare la verifica del certificato TLS. Passare il percorso del file del certificato locale al `sslrootcert` parametro.
 
 Di seguito è riportato un esempio della stringa di connessione PSQL:
 ```

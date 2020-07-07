@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f3660956a3e66fc9a632eace378feb8873bceaf8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093061"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506090"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Esercitazione: Integrazione di Azure Active Directory con RedVector
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RedVector, seguire ques
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://sso2.redvector.com/adfs/<Companyname>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<Companyname>.redvector.com/saml2`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://sso2.redvector.com/saml2`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di RedVector](mailto:sso@redvector.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

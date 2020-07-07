@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562339"
 ---
 # <a name="apache-spark-guidelines"></a>Linee guida per Apache Spark
@@ -22,7 +22,7 @@ Questo articolo fornisce diverse linee guida per l'uso di Apache Spark in Azure 
 
 | Opzione | Documenti |
 |---|---|
-| VSCode | [Usare gli strumenti di Spark & hive per Visual Studio Code](../hdinsight-for-vscode.md) |
+| VSCode | [Usare Spark & Hive Tools per Visual Studio Code](../hdinsight-for-vscode.md) |
 | Jupyter Notebook | [Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [Esercitazione: usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight](./apache-spark-intellij-tool-plugin.md) |
 | IntelliJ | [Esercitazione: Creare un'applicazione Scala Maven per Apache Spark in HDInsight usando IntelliJ](./apache-spark-create-standalone-application.md) |
@@ -69,4 +69,4 @@ Questo articolo fornisce diverse linee guida per l'uso di Apache Spark in Azure 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare le impostazioni di Apache Spark](apache-spark-settings.md)
-* [Ottimizzare i processi di Apache Spark in HDInsight](apache-spark-perf.md)
+* [Ottimizzare i processi Apache Spark in HDInsight](apache-spark-perf.md)

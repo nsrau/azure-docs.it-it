@@ -4,10 +4,10 @@ description: Informazioni sui concetti di identità e accesso della soluzione VM
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82740954"
 ---
 # <a name="azure-vmware-solution-avs-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure (AVS)
@@ -29,10 +29,10 @@ I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente
 |  Certificati            |  --  |        --       |  Microsoft esegue la gestione dei certificati.  |
 |  Raccolta contenuto         | Un utente CloudAdmin dispone dei privilegi necessari per creare e usare i file in una raccolta contenuto.    |         Abilitato con SSO.         |  Microsoft distribuirà i file nella raccolta contenuto agli host ESXi.  |
 |  Data center              |  --  |        --          |  Microsoft esegue tutte le operazioni data center.  |
-|  Archivio dati               | Datastore. AllocateSpace, datastore. browse, datastore. config, datastore. DeleteFile, datastore. filemanagement, datastore. UpdateVirtualMachineMetadata     |    --    |   -- |
+|  Archivio dati               | Datastore. AllocateSpace, datastore. browse, Datastore.Config, datastore. DeleteFile, datastore. filemanagement, datastore. UpdateVirtualMachineMetadata     |    --    |   -- |
 |  Agent Manager ESX       |  --  |         --       |  Microsoft esegue tutte le operazioni.  |
 |  Cartella                  |  Un utente CloudAdmin dispone di tutti i privilegi di cartella.     |  --  |  --  |
-|  Globale                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global. SystemTag         |                  |    |
+|  Globale                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global.SystemTag         |                  |    |
 |  Host                    |  Host. hbr. HbrManagement      |        --          |  Microsoft esegue tutte le altre operazioni host.  |
 |  InventoryService        |  InventoryService. tagging      |        --          |  --  |
 |  Rete                 |  Network.Assign    |                  |  Microsoft esegue tutte le altre operazioni di rete.  |

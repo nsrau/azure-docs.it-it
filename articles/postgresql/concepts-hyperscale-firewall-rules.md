@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580921"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -32,7 +32,7 @@ Un firewall del gruppo di server iperscalabile (CITUS) che può connettersi al n
 
 Quando il firewall blocca le connessioni, può causare errori dell'applicazione. Usando il driver JDBC per PostgreSQL, ad esempio, genera un errore simile al seguente:
 
-> Java. util. Concurrent. ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: nessuna\_voce PG HBA. conf per l'host "123.45.67.890", User "CITUS", database "CITUS", SSL
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: nessuna \_ voce PG HBA. conf per l'host "123.45.67.890", utente "CITUS", database "CITUS", SSL
 
 Per informazioni sulle modalità di definizione delle regole, vedere [creare e gestire regole del firewall](howto-hyperscale-manage-firewall-using-portal.md) .
 

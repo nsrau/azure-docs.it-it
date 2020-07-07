@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790480"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
@@ -102,8 +102,8 @@ Gestione API instrada le richieste a un _gateway_ a livello di area in base [all
 
 1. Creare [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
 1. Se si usa un dominio personalizzato, [usarlo con gestione traffico invece che con](../traffic-manager/traffic-manager-point-internet-domain.md) il servizio gestione API.
-1. [Configurare gli endpoint regionali di gestione API in gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint internazionali seguono il modello di `https://<service-name>-<region>-01.regional.azure-api.net`URL, ad esempio. `https://contoso-westus2-01.regional.azure-api.net`
-1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL, ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. [Configurare gli endpoint regionali di gestione API in gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint internazionali seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net` , ad esempio `https://contoso-westus2-01.regional.azure-api.net` .
+1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` , ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
 1. Specificare [il metodo di routing](../traffic-manager/traffic-manager-routing-methods.md) di gestione traffico.
 
 [create an api management service instance]: get-started-create-service-instance.md

@@ -8,15 +8,15 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509670"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
-Azure Cosmos DB offre l'esecuzione transazionale di JavaScript integrata nel linguaggio. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript eseguito all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e UDF usando il [portale di Azure](https://portal.azure.com/), l'[API di query integrata nel linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) o gli [SDK client dell'API SQL di Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB offre l'esecuzione transazionale di JavaScript integrata nel linguaggio. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere **stored procedure**, **trigger**e **funzioni definite dall'utente (UDF)** nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript eseguito all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e funzioni definite dall'utente usando [portale di Azure](https://portal.azure.com/), l' [API di query integrata del linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) o gli [SDK client dell'API SQL di Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Vantaggi dell'uso della programmazione lato server
 
@@ -66,7 +66,7 @@ Le transazioni sono integrate in modo nativo nel modello di programmazione JavaS
 Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria del contenitore di Azure Cosmos DB. Questa funzionalità garantisce la [coerenza assoluta](consistency-levels-tradeoffs.md) delle letture dalle stored procedure. Le query che usano funzioni definite dall'utente possono essere eseguite nella replica primaria o in qualsiasi replica secondaria. Le stored procedure e i trigger sono progettati per supportare scritture transazionali, mentre la logica di sola lettura viene implementata meglio come logica sul lato applicazione e le query che usano gli [SDK delle API SQL di Azure Cosmos DB](sql-api-dotnet-samples.md) consentiranno di saturare la velocità effettiva del database. 
 
 > [!TIP]
-> Le query eseguite all'interno di un stored procedure o di un trigger potrebbero non visualizzare le modifiche apportate agli elementi dalla stessa transazione di script. Questa istruzione si applica sia alle query SQL, ad `getContent().getCollection.queryDocuments()`esempio, sia alle query in linguaggio integrato, ad `getContext().getCollection().filter()`esempio.
+> Le query eseguite all'interno di un stored procedure o di un trigger potrebbero non visualizzare le modifiche apportate agli elementi dalla stessa transazione di script. Questa istruzione si applica sia alle query SQL, ad esempio, sia alle `getContent().getCollection.queryDocuments()` query in linguaggio integrato, ad esempio `getContext().getCollection().filter()` .
 
 ## <a name="bounded-execution"></a>Esecuzione vincolata
 

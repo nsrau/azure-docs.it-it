@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744711"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-selling di codici di stato e provincia in Azure Marketplace
@@ -73,9 +73,9 @@ Questo articolo elenca i codici di stato e provincia disponibili quando si forni
 | Wisconsin                           | US-WI     |
 | Wyoming                             | US-WY     |
 | District of Columbia                | US-DC     |
-| Samoa Americane                      | USA COME     |
+| Samoa americane                      | USA COME     |
 | Guam                                | US-GU     |
-| Marianne Settentrionali            | US-MP     |
+| Isole Marianne Settentrionali            | US-MP     |
 | Portorico                         | US-PR     |
 | Altre isole minori degli Stati Uniti | US-UM    |
 | Isole Vergini americane                 | US-VI    |
