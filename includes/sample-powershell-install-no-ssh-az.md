@@ -1,15 +1,15 @@
 ---
-author: sptramer
-ms.service: azure-powershell
 ms.topic: include
 ms.date: 06/05/2019
-ms.author: sttramer
-ms.openlocfilehash: e769bfaab66cf1072bee192331c3bbc839a0488b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+author: mikefrobbins
+ms.author: mirobb
+manager: barbkess
+ms.openlocfilehash: 32a725f6f84a1a79df9b1211d95ecb2ac530aa07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67133690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85378406"
 ---
 Questo esempio richiede Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione.
 Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). 

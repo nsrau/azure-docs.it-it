@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67103941"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Esercitazione: Integrazione di Azure Active Directory con Dossier
 
@@ -107,11 +107,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dossier, seguire questa
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente:
 
-    | |
-    |-|-|
-    | `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
-    | |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `Dossier/<CLIENTNAME>`
 
@@ -120,11 +119,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dossier, seguire questa
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
     
-    | |
-    |-|-|
-    |  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
-    | |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
     > [!NOTE]

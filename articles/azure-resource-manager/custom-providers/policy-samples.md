@@ -1,17 +1,17 @@
 ---
 title: Definizioni di criteri predefiniti per i provider di risorse personalizzati di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per i provider di risorse personalizzati di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 9730b99a9ae7af7e615cf1a6c7f187420ab4f13f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 3ff2095c3b3676facf82c8022896e918726767d3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887484"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314740"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Definizioni predefinite di Criteri di Azure per i provider di risorse personalizzati di Azure
 

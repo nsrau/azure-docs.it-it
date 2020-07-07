@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per l'hub IoT di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per l'hub IoT di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 921bfb8276573feb3cde80e723ff916c84da92a5
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 093d52b5f5214f3d853423a4989d39a15eeeaa3e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886689"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313967"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definizioni predefinite di Criteri di Azure per l'hub IoT di Azure
 

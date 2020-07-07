@@ -1,22 +1,22 @@
 ---
 title: Definizioni di criteri predefiniti per set di scalabilità di macchine virtuali di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per set di scalabilità di macchine virtuali di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 37cbd246476058a736fa2df3fda7abcaa0bb5ab6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 56f42094c2ed8540773d2ee668b7ea42f7037507
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888009"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322790"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definizioni predefinite di Criteri di Azure per set di scalabilità di macchine virtuali di Azure
 
-Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per set di scalabilità di macchine virtuali di Azure. Per informazioni su altri Criteri di Azure predefiniti per altri servizi, vedere le [definizioni di Criteri di Azure predefiniti](../governance/policy/samples/built-in-policies.md).
+Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per set di scalabilità di macchine virtuali di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

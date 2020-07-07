@@ -1,25 +1,14 @@
 ---
 title: 'Esercitazione: Esercitazione su REST con Inoltro di Azure'
 description: "Esercitazione: creare un'applicazione host Inoltro di Azure che espone un'interfaccia basata su REST."
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/05/2019
-ms.author: spelluru
-ms.openlocfilehash: a9c2837315bde2684cbcefa5a603268a450bfba9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203155"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316639"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Esercitazione: Esercitazione su REST per l'inoltro WCF di Azure
 

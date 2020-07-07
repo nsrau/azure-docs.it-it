@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d151deb3b8f7a5784cd9c22bd124145be092489
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aed7c6ece045ab75571c9146c235c69f5c8d19a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158911"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Esercitazione: Integrazione di Azure Active Directory con Ariba
 
@@ -108,10 +108,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ariba, seguire questa p
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente:
     
-    | |
-    |--|
-    | `https://<subdomain>.sourcing.ariba.com` |
-    | `https://<subdomain>.supplier.ariba.com` |
+    ```http
+    https://<subdomain>.sourcing.ariba.com
+    https://<subdomain>.supplier.ariba.com
+    ```
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `http://<subdomain>.procurement-2.ariba.com`
 
