@@ -6,7 +6,7 @@ ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: eac8a9f1ca0c9a4824499155f25bb22ac8474bae
 ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2020
 ms.locfileid: "75934597"
