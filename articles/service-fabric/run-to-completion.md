@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431293"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
@@ -22,7 +22,7 @@ Prima di procedere con questo articolo, è consigliabile acquisire familiarità 
 > La semantica RunToCompletion non è attualmente supportata per i servizi scritti con il modello di programmazione [Reliable Services][reliable-services-link] .
  
 ## <a name="runtocompletion-semantics-and-specification"></a>Semantica e specifica RunToCompletion
-La semantica RunToCompletion può essere specificata come **ExecutionPolicy** durante [l'importazione di ServiceManifest][application-and-service-manifests-link]. Il criterio specificato viene ereditato da tutti i CodePackage che comprendono ServiceManifest. Il seguente frammento ApplicationManifest. XML fornisce un esempio.
+La semantica RunToCompletion può essere specificata come **ExecutionPolicy** durante [l'importazione di ServiceManifest][application-and-service-manifests-link]. Il criterio specificato viene ereditato da tutti i CodePackage che comprendono ServiceManifest. Il seguente frammento di ApplicationManifest.xml fornisce un esempio.
 
 ```xml
 <ServiceManifestImport>
@@ -47,7 +47,7 @@ Viene ora esaminato un esempio completo che usa la semantica RunToCompletion.
 >
 > Questo esempio fa riferimento a mcr.microsoft.com/windows/nanoserver:1809. I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Il ServiceManifest. XML seguente descrive un ServicePackage costituito da due CodePackage, che rappresentano i contenitori. *RunToCompletionCodePackage1* registra semplicemente un messaggio in **stdout** e viene chiuso. *RunToCompletionCodePackage2* effettua il ping dell'indirizzo di loopback per un periodo di tempo e quindi viene chiuso con un codice di uscita pari a **0**, **1** o **2**.
+Nell'ServiceManifest.xml seguente viene descritto un ServicePackage costituito da due CodePackage, che rappresentano i contenitori. *RunToCompletionCodePackage1* registra semplicemente un messaggio in **stdout** e viene chiuso. *RunToCompletionCodePackage2* effettua il ping dell'indirizzo di loopback per un periodo di tempo e quindi viene chiuso con un codice di uscita pari a **0**, **1** o **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ Il ServiceManifest. XML seguente descrive un ServicePackage costituito da due Co
 </ServiceManifest>
 ```
 
-Nel file ApplicationManifest. XML seguente viene descritta un'applicazione basata su ServiceManifest. XML descritto in precedenza. Specifica **RunToCompletion** **ExecutionPolicy** per *WindowsRunToCompletionServicePackage* con i criteri di riavvio di **OnFailure**. Al momento dell'attivazione di *WindowsRunToCompletionServicePackage*, verranno avviati i relativi CodePackage costitutivi. *RunToCompletionCodePackage1* dovrebbe uscire correttamente al primo attivazione. Tuttavia, *RunToCompletionCodePackage2* può avere esito negativo **(codice di uscita diverso da zero)**, nel qual caso verrà riavviato perché i criteri di riavvio sono **OnFailure**.
+Il ApplicationManifest.xml seguente descrive un'applicazione basata sul ServiceManifest.xml descritto in precedenza. Specifica **RunToCompletion** **ExecutionPolicy** per *WindowsRunToCompletionServicePackage* con i criteri di riavvio di **OnFailure**. Al momento dell'attivazione di *WindowsRunToCompletionServicePackage*, verranno avviati i relativi CodePackage costitutivi. *RunToCompletionCodePackage1* dovrebbe uscire correttamente al primo attivazione. Tuttavia, *RunToCompletionCodePackage2* può avere esito negativo **(codice di uscita diverso da zero)**, nel qual caso verrà riavviato perché i criteri di riavvio sono **OnFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

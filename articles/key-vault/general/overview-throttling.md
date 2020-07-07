@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432086"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
@@ -41,7 +41,7 @@ Se si ritiene che il precedente non soddisfi le proprie esigenze, compilare la t
 
 | Nome dell'insieme di credenziali | Area dell'insieme di credenziali | Tipo di oggetto (segreto, chiave o certificato) | Operazioni * | Tipo chiave | Lunghezza o curva della chiave | Chiave HSM?| RPS stato stabile necessario | Richieste RPS di picco |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Chiave | Sign | EC | P-256 | No | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Codice | Sign | EC | P-256 | No | 200 | 1000 |
 
 \*Per un elenco completo dei valori possibili, vedere [operazioni Azure Key Vault](/rest/api/keyvault/key-operations).
 

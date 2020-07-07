@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431033"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
@@ -80,8 +80,8 @@ trim_reason_desc specifica se il gruppo di righe è stato tagliato (trim_reason_
 La memoria massima necessaria per comprimere un gruppo di righe è circa
 
 - 72 MB +
-- \#righe \* \#colonne \* 8 byte +
-- \#righe \* \#stringa breve-colonne \* 32 byte +
+- \#righe \* \# colonne \* 8 byte +
+- \#righe \* \# stringa breve-colonne \* 32 byte +
 - \#colonne stringa lunga \* 16 MB per il dizionario di compressione
 
 dove le colonne stringa breve usano tipi di dati stringa < = 32 byte e le colonne stringa lunga usano tipi di dati stringa > 32 byte.

@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450141"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Migliorare la sicurezza per i messaggi B2B usando i certificati
@@ -44,11 +44,11 @@ Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2
 
 3. In **Certificati** scegliere **Aggiungi**. In **Aggiungi certificato** specificare questi dettagli per il certificato. Al termine dell'operazione, scegliere **OK**.
 
-   | Proprietà | valore | Descrizione | 
+   | Proprietà | Valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*Nome certificato*> | Nome del certificato, ovvero "publicCert" in questo esempio | 
    | **Tipo di certificato** | Pubblico | Tipo del certificato |
-   | **Certificato** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. |
+   | **Certificate** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. |
    ||||
 
    ![Scegliere "Aggiungi" e specificare i dettagli del certificato](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
@@ -83,14 +83,14 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
 
 5. In **Certificati** scegliere **Aggiungi**. In **Aggiungi certificato** specificare questi dettagli per il certificato. Al termine dell'operazione, scegliere **OK**.
 
-   | Proprietà | valore | Descrizione | 
+   | Proprietà | Valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*Nome certificato*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
    | **Tipo di certificato** | Private | Tipo del certificato |
-   | **Certificato** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
+   | **Certificate** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*Integration-account-Resource-Group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
-   | **Key Vault** | <*Key-Vault-Name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
-   | **Nome chiave** | <*nome chiave*> | Nome della chiave |
+   | **Insieme di credenziali di chiave** | <*Key-Vault-Name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
+   | **Nome della chiave** | <*nome chiave*> | Nome della chiave |
    ||||
 
    ![Scegliere "Aggiungi" e specificare i dettagli del certificato](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)

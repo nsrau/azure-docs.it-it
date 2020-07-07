@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 75f8c1f77a372d3b9b9e9a5582927f24b99fe9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190215"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     ![portale di Azure avviare l'interfaccia utente di YARN](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambariri, selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **YARN** > **collegamenti rapidi** Yarn > **interfaccia utente**Active Gestione risorse > gestione risorse.
+   > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambariri, selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **YARN**  >  **collegamenti rapidi** Yarn > **interfaccia utente**Active Gestione risorse > gestione risorse.
 
 2. Poiché il processo Spark è stato avviato con i notebook di Jupyter, l'applicazione ha il nome **remotesparkmagics** (il nome per tutte le applicazioni avviate dai notebook). Per ottenere altre informazioni sul processo, selezionare l'ID applicazione con il nome dell'applicazione. Questa azione avvia la visualizzazione dell'applicazione.
 
@@ -98,7 +98,7 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
     ![portale di Azure avviare il server cronologia Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Avviare la cronologia Spark Server1")
 
    > [!TIP]  
-   > In alternativa, è anche possibile avviare l'interfaccia utente del Server cronologia Spark dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, nel pannello Panoramica selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **Spark2** > **Quick Links** > **Spark2 Cronologia server UI**.
+   > In alternativa, è anche possibile avviare l'interfaccia utente del Server cronologia Spark dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, nel pannello Panoramica selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **Spark2**  >  **Quick Links**  >  **Spark2 Cronologia server UI**.
 
 2. Vengono elencate tutte le applicazioni completate. Per ulteriori informazioni, selezionare un ID applicazione per eseguire il drill-down in un'applicazione.
 

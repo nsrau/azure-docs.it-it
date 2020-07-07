@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
-keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
+keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205313"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurare l'autenticazione Azure Active Directory per un cluster Azure Red Hat OpenShift 4 (portale)
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.75 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.75 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -58,7 +58,7 @@ Le attestazioni facoltative possono essere usate per:
 * Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
 * Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
-Si configurerà OpenShift per usare `email` l'attestazione e si `upn` eseguirà il fallback per impostare il nome `upn` utente preferito aggiungendo il come parte del token ID restituito da Azure Active Directory.
+Si configurerà OpenShift per usare l'attestazione e si eseguirà il `email` fallback per `upn` impostare il nome utente preferito aggiungendo il `upn` come parte del token ID restituito da Azure Active Directory.
 
 Passare a **configurazione token (anteprima)** e fare clic su **Aggiungi attestazione facoltativa**. Selezionare **ID** , quindi controllare le attestazioni di **posta elettronica** e **UPN** .
 
@@ -72,7 +72,7 @@ Seguire le istruzioni nella documentazione di Azure Active Directory per [assegn
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurare l'autenticazione OpenID OpenShift
 
-Recuperare le `kubeadmin` credenziali. Eseguire il comando seguente per trovare la password per l' `kubeadmin` utente.
+Recuperare le `kubeadmin` credenziali. Eseguire il comando seguente per trovare la password per l'utente `kubeadmin`.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -80,7 +80,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-L'output di esempio seguente mostra che la password sarà `kubeadminPassword`in.
+L'output di esempio seguente mostra che la password sarà in `kubeadminPassword`.
 
 ```json
 {
@@ -89,7 +89,7 @@ L'output di esempio seguente mostra che la password sarà `kubeadminPassword`in.
 }
 ```
 
-È possibile trovare l'URL della console del cluster eseguendo il comando seguente, che sarà simile al seguente:`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+È possibile trovare l'URL della console del cluster eseguendo il comando seguente, simile al seguente: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -98,14 +98,14 @@ L'output di esempio seguente mostra che la password sarà `kubeadminPassword`in.
     --query "consoleProfile.url" -o tsv
 ```
 
-Avviare l'URL della console in un browser e accedere usando `kubeadmin` le credenziali.
+Avviare l'URL della console in un browser e accedere usando le credenziali `kubeadmin`.
 
 Passare ad **Amministrazione**, fare clic su **Impostazioni cluster**, quindi selezionare la scheda **configurazione globale** . scorrere fino a selezionare **OAuth**.
 
 Scorrere verso il basso per selezionare **Aggiungi** in **Identity Providers** e selezionare **OpenID Connect**.
 ![Selezionare OpenID Connect dall'elenco a discesa provider di identità](media/aro4-oauth-idpdrop.png)
 
-Immettere il nome **AAD**, l' **ID client** come **ID applicazione** e il **segreto client**. Il formato dell' **URL dell'autorità emittente** è il `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`seguente:. Sostituire il segnaposto con l'ID tenant recuperato in precedenza.
+Immettere il nome **AAD**, l' **ID client** come **ID applicazione** e il **segreto client**. Il formato dell' **URL dell'autorità emittente** è il seguente: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Sostituire il segnaposto con l'ID tenant recuperato in precedenza.
 
 ![Immettere i dettagli OAuth](media/aro4-oauth-idp-1.png)
 

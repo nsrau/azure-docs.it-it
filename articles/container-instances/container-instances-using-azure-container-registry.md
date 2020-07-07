@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81453524"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
@@ -122,7 +122,7 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuire con un modello di Azure Resource Manager
 
-È possibile specificare le proprietà del registro contenitori di Azure in un modello di Azure Resource Manager includendo `imageRegistryCredentials` la proprietà nella definizione del gruppo di contenitori. Ad esempio, è possibile specificare direttamente le credenziali del registro di sistema:
+È possibile specificare le proprietà del registro contenitori di Azure in un modello di Azure Resource Manager includendo la `imageRegistryCredentials` proprietà nella definizione del gruppo di contenitori. Ad esempio, è possibile specificare direttamente le credenziali del registro di sistema:
 
 ```JSON
 [...]

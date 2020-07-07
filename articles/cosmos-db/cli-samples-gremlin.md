@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1f927823fd7984014e2b8dd4d2ab90d83f144605
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 01e46d144c287569687bb79e7e9cb67b4923b78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552907"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Esempi dell'interfaccia della riga di comando di Azure per l'API Gremlin di Azure Cosmos DB
 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per l'API Gremlin di Azure Cosmos DB. Per tutti i comandi dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili pagine di riferimento in [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/cosmosdb). Tutti gli esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nel [repository GitHub dell'interfaccia della riga di comando di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Attività | Descrizione |
 |---|---|
 | [Creare un account, un database e un grafo di Azure Cosmos DB](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creare un account, un database e un grafo di Azure Cosmos DB per l'API Gremlin. |
 | [Cambiare il numero di unità elaborate](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Aggiornare il valore di UR/s in un database e un grafo.|

@@ -10,14 +10,14 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992561"
 ---
 # <a name="advanced-filtering"></a>Filtro avanzato
-Griglia di eventi consente di specificare i filtri per qualsiasi proprietà nel payload JSON. Questi filtri sono modellati come set di `AND` condizioni, con ogni condizione esterna con condizioni interne `OR` facoltative. Per ogni `AND` condizione specificare i valori seguenti:
+Griglia di eventi consente di specificare i filtri per qualsiasi proprietà nel payload JSON. Questi filtri sono modellati come set di `AND` condizioni, con ogni condizione esterna con condizioni interne facoltative `OR` . Per ogni `AND` condizione specificare i valori seguenti:
 
 * `OperatorType`: Tipo di confronto.
 * `Key`: Percorso JSON della proprietà su cui applicare il filtro.
@@ -50,18 +50,18 @@ Griglia di eventi non supporta attualmente l'applicazione di filtri a una matric
 
 ## <a name="and-or-not-semantics"></a>Semantica AND-OR-NOT
 
-`AdvancedFilters` Si noti che nell'esempio JSON riportato in precedenza è una matrice. Si pensi a `AdvancedFilter` ogni elemento della matrice `AND` come una condizione.
+Si noti che nell'esempio JSON riportato in precedenza `AdvancedFilters` è una matrice. Si pensi a ogni `AdvancedFilter` elemento della matrice come una `AND` condizione.
 
-Per gli operatori che supportano più valori, ad esempio `NumberIn`, `NumberNotIn`, `StringIn`e così via, ogni valore viene considerato come una `OR` condizione. Un oggetto `StringBeginsWith("a", "b", "c")` corrisponderà quindi a qualsiasi valore stringa che inizia con `a` o `b` o `c`.
+Per gli operatori che supportano più valori, ad esempio `NumberIn` , `NumberNotIn` , `StringIn` e così via, ogni valore viene considerato come una `OR` condizione. Un oggetto `StringBeginsWith("a", "b", "c")` corrisponderà quindi a qualsiasi valore stringa che inizia con `a` o `b` o `c` .
 
 > [!CAUTION]
-> Gli operatori NOT `NumberNotIn` e `StringNotIn` si comportano come condizioni e per ogni valore specificato `Values` nel campo.
+> Gli operatori NOT `NumberNotIn` e si `StringNotIn` comportano come condizioni e per ogni valore specificato nel `Values` campo.
 >
 > In caso contrario, si renderà il filtro un filtro Accept-all e si eliminerà lo scopo del filtraggio.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento di arrotondamento a virgola mobile
 
-Griglia di eventi USA `decimal` il tipo .NET per gestire tutti i valori numerici. Il numero di valori specificati nel file JSON della sottoscrizione di eventi non è soggetto a un comportamento di arrotondamento a virgola mobile.
+Griglia di eventi usa il `decimal` tipo .NET per gestire tutti i valori numerici. Il numero di valori specificati nel file JSON della sottoscrizione di eventi non è soggetto a un comportamento di arrotondamento a virgola mobile.
 
 ## <a name="case-sensitivity-of-string-filters"></a>Distinzione maiuscole/minuscole dei filtri stringa
 
@@ -71,7 +71,7 @@ Tutti i confronti di stringhe non fanno distinzione tra maiuscole e minuscole. A
 
 La `Key` proprietà può essere una proprietà di primo livello nota o essere un percorso JSON con più punti, dove ogni punto indica l'esecuzione di un'istruzione in un oggetto JSON annidato.
 
-Griglia di eventi non ha un significato speciale per `$` il carattere nella chiave, a differenza della specifica JSONPath.
+Griglia di eventi non ha un significato speciale per il `$` carattere nella chiave, a differenza della specifica JSONPath.
 
 ### <a name="event-grid-schema"></a>Schema griglia di eventi
 
@@ -79,7 +79,7 @@ Per gli eventi nello schema di griglia di eventi:
 
 * ID
 * Argomento
-* Subject
+* Oggetto
 * EventType
 * DataVersion
 * Data. Prop1

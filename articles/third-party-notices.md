@@ -7,10 +7,10 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72750432"
 ---
 # <a name="legal-notices"></a>Informazioni legali
@@ -19,7 +19,7 @@ Microsoft e i collaboratori concedono una licenza per la documentazione Microsof
 
 Microsoft, Windows, Microsoft Azure e/o altri prodotti e servizi Microsoft menzionati nella documentazione possono essere marchi o marchi registrati di Microsoft Corporation negli Stati Uniti e/o in altri paesi.
 Le licenze per questo progetto non concedono il diritto a usare eventuali nomi, logo o marchi registrati di Microsoft.
-Le linee guida per il marchio generale di Microsoft [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)sono reperibili all'indirizzo.
+Le linee guida per il marchio generale di Microsoft sono reperibili all'indirizzo [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
 Le informazioni sulla privacy sono reperibili all'indirizzo[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

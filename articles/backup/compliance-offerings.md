@@ -4,15 +4,15 @@ description: Riepilogo delle offerte di conformità per backup di Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: da25c6b9b8206ebd2e7ca1a3d90ec88a6efe04b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80423119"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Offerte di conformità di backup di Azure
 
-Per aiutare le organizzazioni a soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti, Microsoft Azure & backup di Azure offre un set completo di certificazioni e attestazioni.
+Microsoft Azure e Backup di Azure offrono una gamma completa di certificazioni e attestazioni che consentono alle organizzazioni di soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti.
 
 Per assicurarsi che il servizio sia regolato quando si usa il servizio backup di Azure, è possibile trovare le offerte di conformità per backup di Azure.
 
@@ -29,7 +29,7 @@ Per assicurarsi che il servizio sia regolato quando si usa il servizio backup di
 * [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
 * [SOC 1, 2, 3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
 
-## <a name="us-government"></a>Enti pubblici Stati Uniti
+## <a name="us-government"></a>US Gov
 
 * [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
 * [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437708"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuità aziendale e ripristino di emergenza per app per la logica di Azure
@@ -234,7 +234,7 @@ Per evitare di leggere ripetutamente gli stessi dati, l'app per la logica deve r
 
 * Le app per la logica che funzionano con il server, il servizio o lo stato sul lato sistema utilizzano i valori delle proprietà o le impostazioni che si trovano sul lato server, servizio o sistema.
 
-  Un trigger basato su query che legge una riga da un database, ad esempio, richiede che la riga includa una `isRead` colonna impostata su `FALSE`. Ogni volta che il trigger legge una riga, l'app per la logica aggiorna la riga cambiando `isRead` la colonna `FALSE` da `TRUE`a.
+  Un trigger basato su query che legge una riga da un database, ad esempio, richiede che la riga includa una `isRead` colonna impostata su `FALSE` . Ogni volta che il trigger legge una riga, l'app per la logica aggiorna la riga cambiando la `isRead` colonna da `FALSE` a `TRUE` .
 
   Questo approccio sul lato server funziona in modo analogo per le code o gli argomenti del bus di servizio che hanno una semantica di Accodamento in cui un trigger può leggere e bloccare un messaggio mentre l'app per la logica elabora il messaggio. Al termine dell'elaborazione dell'app per la logica, il trigger Elimina il messaggio dalla coda o dall'argomento.
 

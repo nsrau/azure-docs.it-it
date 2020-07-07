@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454680"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
@@ -284,7 +284,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Application Insights di monitoraggio di Azure | Sì                | Sì                | -                  |
 | Log Analytics di monitoraggio di Azure      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |
-| Data factory di Azure               | Sì                | Sì                | -                  |
+| Azure Data Factory               | Sì                | Sì                | -                  |
 | Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  |
 | **Contenitori**                   |                    |                    |                    |
 | Servizio Azure Kubernetes         | Sì                | Sì                | -                  |
@@ -303,7 +303,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Bus di servizio                      | Sì                | Sì                | -                  |
 | Site Recovery                    | Sì                | Sì                | -                  |
 | **Database**                    |                    |                    |                    |
-| SQL Server nelle macchine virtuali   | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| SQL Server in macchine virtuali   | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | database SQL di Azure               | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | Database SQL di Azure per MariaDB   | Sì                | -                  | -                  |
 | Database SQL di Azure per MySQL     | Sì                | Sì                | -                  |
@@ -319,7 +319,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Azure Repos                      | Sì                | -                  | Sì                |
 | **Identità**                     |                    |                    |                    |
 | Azure Active Directory           | Sì                | -                  | -                  |
-| Azure Active Directory Domain Services | Sì          | Sì, RSA a 2048 bit  | -                  |
+| Servizi di dominio Azure Active Directory | Sì          | Sì, RSA a 2048 bit  | -                  |
 | **Integrazione**                  |                    |                    |                    |
 | Bus di servizio                      | Sì                | Sì                | Sì                |
 | Griglia di eventi                       | Sì                | -                  | -                  |
@@ -335,7 +335,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | **Sicurezza**                     |                    |                    |                    |
 | Centro sicurezza di Azure per IoT    | Sì                | Sì                | -                  |
 | Azure Sentinel                   | Sì                | Sì                | -                  |
-| **Archiviazione**                      |                    |                    |                    |
+| **Storage**                      |                    |                    |                    |
 | Archiviazione BLOB                     | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | Archiviazione BLOB Premium             | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | Archiviazione su disco                     | Sì                | Sì                | -                  |

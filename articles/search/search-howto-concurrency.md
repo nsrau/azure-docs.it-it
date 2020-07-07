@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792206"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
@@ -22,7 +22,7 @@ Quando si gestiscono risorse ricerca cognitiva di Azure, ad esempio indici e ori
 > [!Tip]
 > Il codice concettuale in una [soluzione C# di esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustra il funzionamento del controllo della concorrenza in Azure ricerca cognitiva. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 
@@ -216,6 +216,6 @@ Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti Ac
 
 ## <a name="see-also"></a>Vedere anche
 
-[Intestazioni di richiesta e risposta HTTP comuni operazioni di](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-indicizzazione di[codici](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-di stato http[(API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+Intestazioni di richiesta [e risposta HTTP comuni](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ Codici di stato [http](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+ [Operazioni sugli indici (API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
