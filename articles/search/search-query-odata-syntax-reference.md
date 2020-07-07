@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793242"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure
 
-Azure ricerca cognitiva usa le [espressioni OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) come parametri nell'intera API. In genere, le espressioni OData vengono utilizzate per `$orderby` i `$filter` parametri e. Queste espressioni possono essere complesse, contenenti più clausole, funzioni e operatori. Tuttavia, anche le espressioni OData semplici come i percorsi delle proprietà vengono usate in molte parti dell'API REST di Azure ricerca cognitiva. Le espressioni di percorso, ad esempio, vengono usate per fare riferimento a sottocampi di campi complessi in qualsiasi punto dell'API, ad esempio quando si elencano i sottocampi in un componente di `$select` [Suggerimento](index-add-suggesters.md), una funzione di assegnazione dei [punteggi](index-add-scoring-profiles.md), il parametro o anche la [ricerca in campo nelle query Lucene](query-lucene-syntax.md).
+Azure ricerca cognitiva usa le [espressioni OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) come parametri nell'intera API. In genere, le espressioni OData vengono utilizzate per `$orderby` i `$filter` parametri e. Queste espressioni possono essere complesse, contenenti più clausole, funzioni e operatori. Tuttavia, anche le espressioni OData semplici come i percorsi delle proprietà vengono usate in molte parti dell'API REST di Azure ricerca cognitiva. Le espressioni di percorso, ad esempio, vengono usate per fare riferimento a sottocampi di campi complessi in qualsiasi punto dell'API, ad esempio quando si elencano i sottocampi in un componente di [Suggerimento](index-add-suggesters.md), una funzione di assegnazione dei [punteggi](index-add-scoring-profiles.md), il `$select` parametro o anche la [ricerca in campo nelle query Lucene](query-lucene-syntax.md).
 
 Questo articolo descrive tutte queste forme di espressioni OData usando una grammatica formale. È inoltre disponibile un [diagramma interattivo](#syntax-diagram) che consente di esplorare visivamente la grammatica.
 

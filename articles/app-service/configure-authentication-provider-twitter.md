@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519900"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso di Twitter
@@ -26,7 +26,7 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
 
 1. Accedere al [portale di Azure] e passare all'applicazione. Copiare l' **URL**. Verrà usato per configurare l'app Twitter.
 1. Visitare il sito Web degli [sviluppatori di Twitter] , accedere con le credenziali dell'account Twitter e selezionare **Crea un'app**.
-1. Immettere il **nome dell'app** e la **Descrizione dell'applicazione** per la nuova app. Incollare l' **URL** dell'applicazione nel campo **URL del sito Web** . Nella sezione **URL di callback** immettere l'URL HTTPS dell'app del servizio app e aggiungere il percorso `/.auth/login/twitter/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Immettere il **nome dell'app** e la **Descrizione dell'applicazione** per la nuova app. Incollare l' **URL** dell'applicazione nel campo **URL del sito Web** . Nella sezione **URL di callback** immettere l'URL HTTPS dell'app del servizio app e aggiungere il percorso `/.auth/login/twitter/callback` . Ad esempio: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
 1. Nella parte inferiore della pagina digitare almeno 100 caratteri in **indicare come verrà usata questa app**, quindi selezionare **Crea**. Fare di nuovo clic su **Crea** nella finestra popup. Verranno visualizzati i dettagli dell'applicazione.
 1. Selezionare la scheda **Keys and Access Tokens** .
 
@@ -39,8 +39,8 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
 
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Aggiungere informazioni di Twitter all'applicazione
 
-1. Passare all'applicazione nella [portale di Azure].
-1. Selezionare **Impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
+1. Passare all'applicazione nel [Azure portal].
+1. Selezionare **Impostazioni** > **Autenticazione/Autorizzazione** e assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
 1. Selezionare **Twitter**.
 1. Incollare i `API key` valori e `API secret key` ottenuti in precedenza.
 1. Selezionare **OK**.
@@ -52,7 +52,7 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
 1. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Twitter, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Twitter**. Quando si imposta questa funzionalità, l'app richiede che tutte le richieste vengano autenticate. Reindirizza anche tutte le richieste non autenticate a Twitter per l'autenticazione.
 
    > [!CAUTION]
-   > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere utili per le app con un home page disponibile pubblicamente, come in molte applicazioni a singola pagina. Per queste applicazioni, **consentire le richieste anonime (nessuna azione)** potrebbe essere preferibile, in modo che l'app avvii manualmente l'autenticazione. Per altre informazioni, vedere [flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
+   > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, il che potrebbe non essere opportuno per le app dotate di una home page disponibile pubblicamente, come nel caso di molte applicazioni a pagina singola. Per queste applicazioni, potrebbe essere preferibile scegliere **Consenti richieste anonime (nessuna azione)** in modo che l'app possa avviare l'autenticazione manualmente in autonomia. Per altre informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
 1. Selezionare **Salva**.
 

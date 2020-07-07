@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205066"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log locali per il gateway self-hosted di gestione API di Azure
@@ -136,7 +136,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-Eseguire il comando seguente per verificare che i servizi siano in esecuzione. Prendere nota di `CLUSTER-IP` e `PORT` del servizio Statistics, che sarà necessario in un secondo momento. È possibile visitare il dashboard Prometheus usando `EXTERNAL-IP` e. `PORT`
+Eseguire il comando seguente per verificare che i servizi siano in esecuzione. Prendere nota di e del `CLUSTER-IP` `PORT` servizio Statistics, che sarà necessario in un secondo momento. È possibile visitare il dashboard Prometheus usando `EXTERNAL-IP` e `PORT` .
 
 ```console
 kubectl get services
@@ -147,14 +147,14 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>Configurare il gateway self-hosted per emettere le metriche
 
-Ora che sono stati distribuiti sia statsd che Prometeo, è possibile aggiornare le configurazioni del gateway self-hosted per iniziare a emettere metriche tramite statistiche. La funzionalità può essere abilitata o disabilitata `telemetry.metrics.local` usando la chiave nella ConfigMap della distribuzione del gateway self-hosted con opzioni aggiuntive. Di seguito è riportata una suddivisione delle opzioni disponibili:
+Ora che sono stati distribuiti sia statsd che Prometeo, è possibile aggiornare le configurazioni del gateway self-hosted per iniziare a emettere metriche tramite statistiche. La funzionalità può essere abilitata o disabilitata usando la `telemetry.metrics.local` chiave nella ConfigMap della distribuzione del gateway self-hosted con opzioni aggiuntive. Di seguito è riportata una suddivisione delle opzioni disponibili:
 
 | Campo  | Predefinito | Descrizione |
 | ------------- | ------------- | ------------- |
-| telemetria. metrica. locale  | `none` | Abilita la registrazione tramite statistiche. Il valore può `none`essere `statsd`. |
+| telemetria. metrica. locale  | `none` | Abilita la registrazione tramite statistiche. Il valore può `none` essere `statsd` . |
 | telemetria. metrica. local. Statistics. endpoint  | n/d | Specifica l'endpoint Statistics. |
 | telemetria. metrica. local. Statistics. campionamento  | n/d | Specifica la frequenza di campionamento della metrica. Il valore può essere compreso tra 0 e 1. e.g.`0.5`|
-| telemetria. metrica. local. Statistics. Tag-Format  | n/d | Formato per l' [assegnazione di tag](https://github.com/prometheus/statsd_exporter#tagging-extensions)all'utilità di esportazione statistica. Il valore può `none`essere `librato`, `dogStatsD`, `influxDB`,. |
+| telemetria. metrica. local. Statistics. Tag-Format  | n/d | Formato per l' [assegnazione di tag](https://github.com/prometheus/statsd_exporter#tagging-extensions)all'utilità di esportazione statistica. Il valore può essere `none` ,, `librato` `dogStatsD` , `influxDB` . |
 
 Ecco una configurazione di esempio:
 
@@ -198,20 +198,20 @@ Eseguire alcune chiamate API tramite il gateway self-hosted, se tutti gli elemen
 
 ## <a name="logs"></a>Log
 
-Il gateway self-hosted restituisce i `stdout` log `stderr` a e per impostazione predefinita. È possibile visualizzare facilmente i log usando il comando seguente:
+Il gateway self-hosted restituisce i log a `stdout` e `stderr` per impostazione predefinita. È possibile visualizzare facilmente i log usando il comando seguente:
 
 ```console
 kubectl logs <pod-name>
 ```
 
-Se il gateway self-hosted viene distribuito nel servizio Azure Kubernetes, è possibile abilitare [monitoraggio di Azure per](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) i `stdout` contenitori `stderr` per la raccolta e i carichi di lavoro e per visualizzare i log in log Analytics. 
+Se il gateway self-hosted viene distribuito nel servizio Azure Kubernetes, è possibile abilitare [monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) per la raccolta `stdout` e `stderr` i carichi di lavoro e per visualizzare i log in log Analytics. 
 
-Il gateway self-hosted supporta inoltre diversi protocolli, tra `localsyslog`cui `rfc5424`, e `journal`. Nella tabella seguente sono riepilogate tutte le opzioni supportate. 
+Il gateway self-hosted supporta inoltre diversi protocolli, tra cui `localsyslog` , `rfc5424` e `journal` . Nella tabella seguente sono riepilogate tutte le opzioni supportate. 
 
 | Campo  | Predefinito | Descrizione |
 | ------------- | ------------- | ------------- |
-| telemetria. logs. STD  | `text` | Abilita la registrazione nei flussi standard. Il valore può `none`essere `text`,,`json` |
-| telemetria. logs. local  | `none` | Abilita la registrazione locale. Il valore può `none`essere `auto`, `localsyslog`, `rfc5424`,,`journal`  |
+| telemetria. logs. STD  | `text` | Abilita la registrazione nei flussi standard. Il valore può essere `none` , `text` ,`json` |
+| telemetria. logs. local  | `none` | Abilita la registrazione locale. Il valore può essere `none` ,, `auto` `localsyslog` , `rfc5424` ,`journal`  |
 | telemetria. logs. local. localsyslog. endpoint  | n/d | Specifica l'endpoint localsyslog.  |
 | telemetria. logs. local. localsyslog. Facility  | n/d | Specifica il [codice della funzionalità](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. e.g.`7` 
 | telemetria. logs. local. rfc5424. endpoint  | n/d | Specifica l'endpoint rfc5424.  |

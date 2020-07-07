@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208058"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
@@ -126,7 +126,7 @@ Le risorse in ingresso e il servizio di bilanciamento del carico continuano a es
 
 I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
 
-Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze. I criteri di rete devono essere usati solo per i nodi basati su Linux e i pod in AKS.
+Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze. I criteri di rete devono essere usati solo per pod e nodi basati su Linux nel servizio Azure Kubernetes.
 
 I criteri di rete vengono creati come una risorsa Kubernetes con un manifesto YAML. I criteri vengono applicati ai pod definiti, quindi le regole di ingresso o uscita definiscono la modalità di flusso del traffico. L'esempio seguente applica i criteri di rete ai pod a cui è stata applicata l'etichetta *app: backend*. La regola di ingresso quindi consente solo il traffico proveniente da pod con l'etichetta *app: frontend*:
 

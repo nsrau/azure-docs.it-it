@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455446"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Azure Key Vault Analytics in monitoraggio di Azure
@@ -114,7 +114,7 @@ La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con 
 | `ResourceGroup` |Gruppo di risorse dell'insieme di credenziali delle chiavi |
 | `ResourceId` |ID della risorsa Gestione risorse di Azure. Per i log di Key Vault, questo è l'ID della risorsa Key Vault. |
 | `ResourceProvider` |*Microsoft. KEYVAULT* |
-| `ResourceType` | *VAULTS* |
+| `ResourceType` | *VOLTE* |
 | `ResultSignature` |Stato HTTP (ad esempio *OK*) |
 | `ResultType` |Risultato della richiesta dell'API REST (ad esempio *Operazione completata*) |
 | `SubscriptionId` |ID sottoscrizione di Azure della sottoscrizione che include l'insieme di credenziali delle chiavi |

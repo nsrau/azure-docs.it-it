@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6aaaa24535c95e0a0d3f2b67709374c083ab738
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725215"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AlertMedia
 
@@ -96,12 +96,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     ![image](common/default-attributes.png)
 
 1. Oltre quelli elencati in precedenza, l'applicazione AlertMedia prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
-    
-    | Nome |   |  Attributo di origine|
-    | ---------------| --------------- | --------- |
-    | email |  | user.userprincipalname |
-    | firstname |  | user.givenname |
-    | lastname |  | user.surname |
+
+| Nome | Attributo di origine|
+| ---- | --------------- |
+| email | user.userprincipalname |
+| firstname | user.givenname |
+| lastname | user.surname |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 

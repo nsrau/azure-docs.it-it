@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536302"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Crittografia del disco con chiavi gestite dal cliente
@@ -62,7 +62,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 ## <a name="create-key"></a>Creare la chiave
 
-1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni** > **chiavi** > **+ genera/importa**.
+1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni**  >  **chiavi**  >  **+ genera/importa**.
 
     ![Generare una nuova chiave in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generare una nuova chiave in Azure Key Vault")
 
@@ -80,7 +80,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 ## <a name="create-access-policy"></a>Crea criteri di accesso
 
-1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni** > criteri di**accesso** > e**Aggiungi criteri di accesso**.
+1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni**criteri di  >  **accesso**e  >  **Aggiungi criteri di accesso**.
 
     ![Creare il nuovo criterio di accesso di Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -90,7 +90,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
     |---|---|
     |Autorizzazioni chiave|Selezionare **Get**, **Unwrap Key**e **Wrap Key**.|
     |Autorizzazioni segrete|Selezionare **Get**, **set**ed **Delete**.|
-    |Seleziona entità|Selezionare l'identità gestita assegnata dall'utente creata in precedenza.|
+    |Selezionare un'entità|Selezionare l'identità gestita assegnata dall'utente creata in precedenza.|
 
     ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
@@ -106,7 +106,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
 ![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -153,7 +153,7 @@ New-AzResourceGroupDeployment `
   -managedIdentityName $managedIdentityName
 ```
 
-Il contenuto del modello di gestione delle risorse `azuredeploy.json`:
+Il contenuto del modello di gestione delle risorse `azuredeploy.json` :
 
 ```json
 {

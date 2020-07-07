@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535707"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
@@ -140,7 +140,7 @@ I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzat
 > Un'etichetta **non sicura** per il dominio personalizzato significa che non è ancora associata a un certificato TLS/SSL e qualsiasi richiesta HTTPS da un browser al dominio personalizzato riceverà un errore o un avviso, a seconda del browser. Per configurare il binding TLS, vedere [proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app Azure](configure-ssl-bindings.md).
 >
 
-Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio dello screenshot precedente, provare a passare a _kontoso.NET_ e _www\.kontoso.NET_.
+Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio dello screenshot precedente, provare a passare a _kontoso.NET_ e _www \. kontoso.NET_.
 
 ## <a name="assign-hostnames-to-app"></a>Assegnare i nomi host all'app
 
@@ -171,7 +171,7 @@ Selezionare **Aggiungi il nome host**.
 Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio:
 
 - kontoso.net
-- kontoso.net\.www
+- \.kontoso.net www
 - abc.kontoso.net
 
 Al termine, selezionare **Convalida**. Il tipo di record del nome host viene selezionato automaticamente.
@@ -235,7 +235,7 @@ In Azure, i record DNS per un dominio del servizio app vengono gestiti tramite [
 
 ### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
 
-Nel portale di Azure scegliere **tutti i servizi** > **domini del servizio app**dal menu a sinistra.
+Nel portale di Azure scegliere **tutti i servizi**  >  **domini del servizio app**dal menu a sinistra.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ Dopo aver acquistato il dominio del servizio app, si hanno a disposizione cinque
 
 ### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
 
-Nel portale di Azure scegliere **tutti i servizi** > **domini del servizio app**dal menu a sinistra.
+Nel portale di Azure scegliere **tutti i servizi**  >  **domini del servizio app**dal menu a sinistra.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

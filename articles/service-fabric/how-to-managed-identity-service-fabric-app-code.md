@@ -4,10 +4,10 @@ description: Come usare le identità gestite in Azure Service Fabric il codice d
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461566"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure
@@ -52,8 +52,8 @@ dove:
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | Endpoint di identità gestita per Service Fabric applicazioni, fornito tramite la variabile di ambiente IDENTITY_ENDPOINT. |
-| `api-version` | Parametro della stringa di query che specifica la versione dell'API del servizio token di identità gestito. Attualmente l'unico valore accettato è `2019-07-01-preview`ed è soggetto a modifiche. |
-| `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Questo verrà riflesso come attestazione `aud` (audience) del token emesso. Questo esempio richiede un token per accedere a Azure Key Vault, il cui URI ID app è https\/:/Vault.Azure.NET/. |
+| `api-version` | Parametro della stringa di query che specifica la versione dell'API del servizio token di identità gestito. Attualmente l'unico valore accettato è `2019-07-01-preview` ed è soggetto a modifiche. |
+| `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Questo verrà riflesso come `aud` attestazione (audience) del token emesso. Questo esempio richiede un token per accedere a Azure Key Vault, il cui URI ID app è https: \/ /Vault.Azure.NET/. |
 | `Secret` | Campo di intestazione della richiesta HTTP, richiesto dal servizio token di identità gestito Service Fabric per Service Fabric Services per l'autenticazione del chiamante. Questo valore viene fornito dal runtime SF tramite IDENTITY_HEADER variabile di ambiente. |
 
 
@@ -75,7 +75,7 @@ dove:
 | `token_type` | Tipo di token. in questo caso, un token di accesso "Bearer", che significa che il presentatore (' Bearer ') di questo token è l'oggetto previsto del token. |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
 | `expires_on` | Timestamp della scadenza del token di accesso. rappresentata come numero di secondi da "1970-01-01T0:0: 0Z UTC" e corrisponde all' `exp` attestazione del token. In questo caso, il token scade il 2019-08-08T06:10:11 + 00:00 (in RFC 3339)|
-| `resource` | Risorsa per cui è stato emesso il token di accesso, specificato tramite `resource` il parametro della stringa di query della richiesta. corrisponde all'attestazione ' AUD ' del token. |
+| `resource` | Risorsa per cui è stato emesso il token di accesso, specificata tramite il `resource` parametro della stringa di query della richiesta; corrisponde all'attestazione ' AUD ' del token. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Acquisizione di un token di accesso con C #
@@ -334,7 +334,7 @@ Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene u
 
 | Elemento | Descrizione |
 | ------- | ----------- |
-| code | Codice di errore. |
+| codice | Codice di errore. |
 | correlationId | ID di correlazione utilizzabile per il debug. |
 | message | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non dipendono dal messaggio di errore stesso.**|
 

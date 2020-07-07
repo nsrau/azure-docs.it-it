@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208993"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
@@ -28,7 +28,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
-1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro della portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
 
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Selezionare una dimensione di VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. In **Impostazioni** > **disponibilità elevata**selezionare una delle zone numerate dall'elenco a discesa **zona di disponibilità** , mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
+5. In **Impostazioni**  >  **disponibilità elevata**selezionare una delle zone numerate dall'elenco a discesa **zona di disponibilità** , mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
 
     ![Selezionare una zona di disponibilità](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

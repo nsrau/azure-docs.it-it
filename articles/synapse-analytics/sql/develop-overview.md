@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429018"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per le funzionalità di SQL sinapsi in Azure sinapsi Analytics
@@ -31,8 +31,8 @@ Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per
 | [Classi di risorse e concorrenza](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sì    | No |
 | [Transazioni](develop-transactions.md)              | Sì | No |
 | [Schemi definiti dall'utente](develop-user-defined-schemas.md) | Sì | Sì |
-| [Distribuzione di tabelle](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sì | No |
-| [Indici tabella](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sì | No |
+| [Distribuzione di tabelle in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sì | No |
+| [Indicizzazione di tabelle](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sì | No |
 | [Partizioni di tabella](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Sì | No |
 | [Statistiche](develop-tables-statistics.md)            | Sì | Sì |
 | [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Sì | No |
@@ -40,7 +40,7 @@ Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per
 | [CETAS](develop-tables-cetas.md)                     | Sì | Sì |
 
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 Di seguito sono riportati gli articoli essenziali che evidenziano tecniche di codifica, suggerimenti e consigli per lo sviluppo specifici:
 
@@ -51,7 +51,7 @@ Di seguito sono riportati gli articoli essenziali che evidenziano tecniche di co
 | [Visualizzazioni](develop-views.md)                             | Sì                | Sì                     |
 | [Tabelle temporanee](develop-tables-temporary.md)       | Sì                | Sì                     |
 | [SQL dinamica](develop-dynamic-sql.md)                 | Sì                | Sì                     |
-| [Ciclo](develop-loops.md)                         | Sì                | Sì                     |
+| [Cicli](develop-loops.md)                         | Sì                | Sì                     |
 | [Opzioni di raggruppamento](develop-group-by-options.md)       | Sì                | No                      |
 | [Assegnazione di variabili](develop-variable-assignment.md) | Sì                | Sì                     |
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430890"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
@@ -40,12 +40,12 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
   Le chiavi vengono sempre archiviate nel percorso /keys, i segreti vengono sempre archiviati nel percorso /secrets.  
 
-## <a name="api-version"></a>Versione dell'API  
+## <a name="api-version"></a>Versione API  
  Il servizio Azure Key Vault supporta il controllo delle versioni del protocollo per garantire la compatibilità con i client di livello inferiore, anche se non tutte le funzionalità saranno disponibili per tali client. I client devono usare il parametro di stringa della query `api-version` per specificare la versione del protocollo supportato, dato che non ci sono valori predefiniti.  
 
  Le versioni del protocollo di Azure Key Vault seguono uno schema di numerazione con data nel formato {AAAA}.{MM}.{GG}.  
 
-## <a name="request-body"></a>Request Body  
+## <a name="request-body"></a>Corpo della richiesta  
  Secondo la specifica HTTP, le operazioni GET NON devono avere un corpo per la richiesta, mentre le operazioni POST e PUT devono avere un corpo per la richiesta. Il corpo nelle operazioni DELETE è facoltativo in HTTP.  
 
  Se non diversamente specificato nella descrizione dell'operazione, il tipo di contenuto del corpo della richiesta deve essere application/json e contenere un oggetto JSON serializzato conforme al tipo di contenuto.  
@@ -88,7 +88,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 ```  
 
-## <a name="authentication"></a>Autenticazione  
+## <a name="authentication"></a>Authentication  
  Tutte le richieste inviate ad Azure Key Vault DEVONO essere autenticate. Azure Key Vault supporta i token di accesso di Azure Active Directory che possono essere ottenuti tramite OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Per altre informazioni sulla registrazione dell'applicazione e l'autenticazione per l'uso di Azure Key Vault, vedere [Registrare l'applicazione client con Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: indirizzo del servizio di autorizzazione OAuth2 che può essere usato per ottenere un token di accesso per la richiesta.  
 
--   Resource: nome della risorsa (`https://vault.azure.net`) da usare nella richiesta di autorizzazione.  
+-   Resource: nome della risorsa ( `https://vault.azure.net` ) da usare nella richiesta di autorizzazione.  
 

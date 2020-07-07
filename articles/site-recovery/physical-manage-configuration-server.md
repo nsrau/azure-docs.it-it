@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478973"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
@@ -35,7 +35,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 | Impostazioni locali del sistema operativo | Inglese (Stati Uniti)|
 | Versione di VMware vSphere PowerCLI | Facoltativo|
 | Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - Nessun sito Web predefinito preesistente <br> -Abilitare [l'autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
 | Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) |
 | Tipo di indirizzo IP | Statico |
@@ -47,7 +47,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 L'ultima versione del file di installazione del server di configurazione è disponibile nel portale di Site Recovery. Può essere inoltre scaricato direttamente dall'[Area download Microsoft](https://aka.ms/unifiedsetup).
 
 1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
-2. Passare a **Site Recovery** > **server di configurazione** dell'infrastruttura (in per VMware & computer fisici).
+2. Passare a **Site Recovery**  >  **server di configurazione** dell'infrastruttura (in per VMware & computer fisici).
 3. Fare clic sul pulsante **+Servers** (+Server).
 4. Nella pagina **Add Server** (Aggiungi server) fare clic sul pulsante Download (Scarica) per scaricare la chiave di registrazione. Questa chiave viene usata durante l'installazione del server di configurazione ai fini della registrazione con il servizio Azure Site Recovery.
 5. Fare clic sul collegamento **Download the Microsoft Azure Site Recovery Unified Setup** (Scarica l'installazione unificata di Microsoft Azure Site Recovery) per scaricare la versione più recente del server di configurazione.
@@ -87,7 +87,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
 11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro.
 
 
-Al termine della registrazione, il server viene visualizzato nel pannello **Impostazioni** > **server** nell'insieme di credenziali.
+Al termine della registrazione, il server viene visualizzato nel pannello **Impostazioni**  >  **server** nell'insieme di credenziali.
 
 
 ## <a name="install-from-the-command-line"></a>Eseguire l'installazione dalla riga di comando
@@ -110,19 +110,19 @@ Eseguire il file di installazione come segue:
 
 |Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Necessario|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Necessario|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Necessario|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Necessario|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Necessario|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Necessario|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Necessario|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -242,7 +242,7 @@ Per aggiornare il server, seguire questa procedura:
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Eliminare il server di configurazione dal portale di Azure
-1. In portale di Azure individuare **Site Recovery** > **server di configurazione** dell'infrastruttura dal menu dell'insieme di credenziali.
+1. In portale di Azure individuare **Site Recovery**  >  **server di configurazione** dell'infrastruttura dal menu dell'insieme di credenziali.
 2. Fare clic sul server di configurazione per cui si vogliono rimuovere le autorizzazioni.
 3. Nella pagina dei dettagli del server di configurazione fare clic sul pulsante **Elimina**.
 4. Fare clic su **Sì** per confermare l'eliminazione del server.
@@ -267,7 +267,7 @@ Per aggiornare il server, seguire questa procedura:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminare o annullare la registrazione di un server di configurazione (PowerShell)
 
-1. [Installare](https://docs.microsoft.com/powershell/azure/install-Az-ps) il modulo Azure PowerShell
+1. [Installa](https://docs.microsoft.com/powershell/azure/install-Az-ps) Modulo Azure PowerShell
 2. Accedere al proprio account di Azure usando il comando
     
     `Connect-AzAccount`
@@ -303,7 +303,7 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 
 ### <a name="renew-the-certificate"></a>Rinnovare il certificato
 
-1. Nell'insieme di credenziali aprire **Site Recovery infrastruttura** > **server di configurazione**e fare clic sul server di configurazione richiesto.
+1. Nell'insieme di credenziali aprire **Site Recovery infrastruttura**  >  **server di configurazione**e fare clic sul server di configurazione richiesto.
 2. La data di scadenza viene visualizzata in **integrità server di configurazione**
 3. Fare clic su **Rinnova certificati**. 
 

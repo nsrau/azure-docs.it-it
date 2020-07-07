@@ -20,22 +20,22 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793357"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funzioni di ricerca full-text OData in Azure ricerca cognitiva `search.ismatch` e`search.ismatchscoring`
 
-Azure ricerca cognitiva supporta la ricerca full-text nel contesto di [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) tramite `search.ismatch` le `search.ismatchscoring` funzioni e. Queste funzioni consentono di combinare la ricerca full-text con un filtro booleano rigoroso in modi che non sono possibili solo usando il parametro `search` di primo livello dell' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Azure ricerca cognitiva supporta la ricerca full-text nel contesto di [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) tramite `search.ismatch` le `search.ismatchscoring` funzioni e. Queste funzioni consentono di combinare la ricerca full-text con un filtro booleano rigoroso in modi che non sono possibili solo usando il `search` parametro di primo livello dell' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> Le `search.ismatch` funzioni `search.ismatchscoring` e sono supportate solo nei filtri nell' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents). Non sono supportate nelle API [suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [AutoComplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+> Le `search.ismatch` `search.ismatchscoring` funzioni e sono supportate solo nei filtri nell' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents). Non sono supportate nelle API [suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [AutoComplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
 
 ## <a name="syntax"></a>Sintassi
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica delle `search.ismatch` funzioni `search.ismatchscoring` e:
+Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica delle `search.ismatch` `search.ismatchscoring` funzioni e:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -72,16 +72,16 @@ I parametri sono definiti nella tabella seguente:
 | Nome parametro | Type | Descrizione |
 | --- | --- | --- |
 | `search` | `Edm.String` | Query di ricerca, in una sintassi di query Lucene [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) . |
-| `searchFields` | `Edm.String` | Elenco delimitato da virgole di campi ricercabili in cui eseguire la ricerca; il valore predefinito è tutti i campi disponibili per la ricerca nell'indice. Quando si [fielded search](query-lucene-syntax.md#bkmk_fields) usa la `search` ricerca nel parametro nel campo, gli identificatori di campo nella query Lucene eseguono l'override di tutti i campi specificati in questo parametro. |
-| `queryType` | `Edm.String` | `'simple'`o `'full'`; il valore predefinito `'simple'`è. Specifica il linguaggio di query usato nel parametro `search`. |
-| `searchMode` | `Edm.String` | `'any'`oppure `'all'`, il valore predefinito `'any'`è. Indica se è necessario trovare una corrispondenza per uno o tutti `search` i termini di ricerca nel parametro per poter contare il documento come corrispondenza. Quando si usano gli [operatori booleani Lucene](query-lucene-syntax.md#bkmk_boolean) nel `search` parametro, avranno la precedenza su questo parametro. |
+| `searchFields` | `Edm.String` | Elenco delimitato da virgole di campi ricercabili in cui eseguire la ricerca; il valore predefinito è tutti i campi disponibili per la ricerca nell'indice. Quando si usa la ricerca nel parametro nel [campo](query-lucene-syntax.md#bkmk_fields) `search` , gli identificatori di campo nella query Lucene eseguono l'override di tutti i campi specificati in questo parametro. |
+| `queryType` | `Edm.String` | `'simple'`o `'full'` ; il valore predefinito è `'simple'` . Specifica il linguaggio di query usato nel parametro `search`. |
+| `searchMode` | `Edm.String` | `'any'`oppure `'all'` , il valore predefinito è `'any'` . Indica se è necessario trovare una corrispondenza per uno o tutti i termini di ricerca nel parametro per poter `search` contare il documento come corrispondenza. Quando si usano gli [operatori booleani Lucene](query-lucene-syntax.md#bkmk_boolean) nel `search` parametro, avranno la precedenza su questo parametro. |
 
 Tutti i parametri precedenti sono equivalenti ai [parametri di richiesta di ricerca corrispondenti nell'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-La `search.ismatch` funzione restituisce un valore di tipo `Edm.Boolean`, che consente di comporre l'elemento con altre sottoespressioni di filtro usando gli [operatori logici](search-query-odata-logical-operators.md)booleani.
+La `search.ismatch` funzione restituisce un valore di tipo `Edm.Boolean` , che consente di comporre l'elemento con altre sottoespressioni di filtro usando gli [operatori logici](search-query-odata-logical-operators.md)booleani.
 
 > [!NOTE]
-> Azure ricerca cognitiva non supporta l'uso `search.ismatch` di `search.ismatchscoring` o all'interno di espressioni lambda. Ciò significa che non è possibile scrivere filtri su raccolte di oggetti che possono correlare le corrispondenze di ricerca full-text con le corrispondenze di filtro Strict sullo stesso oggetto. Per altri dettagli su questa limitazione, oltre ad esempi, vedere [risoluzione dei problemi relativi ai filtri di raccolta in Azure ricerca cognitiva](search-query-troubleshoot-collection-filters.md). Per informazioni più dettagliate sul motivo per cui questa limitazione esiste, vedere informazioni sui [filtri di raccolta in ricerca cognitiva di Azure](search-query-understand-collection-filters.md).
+> Azure ricerca cognitiva non supporta l'uso di `search.ismatch` o `search.ismatchscoring` all'interno di espressioni lambda. Ciò significa che non è possibile scrivere filtri su raccolte di oggetti che possono correlare le corrispondenze di ricerca full-text con le corrispondenze di filtro Strict sullo stesso oggetto. Per altri dettagli su questa limitazione, oltre ad esempi, vedere [risoluzione dei problemi relativi ai filtri di raccolta in Azure ricerca cognitiva](search-query-troubleshoot-collection-filters.md). Per informazioni più dettagliate sul motivo per cui questa limitazione esiste, vedere informazioni sui [filtri di raccolta in ricerca cognitiva di Azure](search-query-understand-collection-filters.md).
 
 
 ### <a name="searchismatchscoring"></a>search. ismatchscoring
@@ -92,7 +92,7 @@ La `search.ismatchscoring` funzione, come la `search.ismatch` funzione, restitui
 - `search.ismatchscoring(search, searchFields)`
 - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
-Entrambe le `search.ismatch` funzioni `search.ismatchscoring` e possono essere utilizzate nella stessa espressione di filtro.
+Entrambe le `search.ismatch` `search.ismatchscoring` funzioni e possono essere utilizzate nella stessa espressione di filtro.
 
 ## <a name="examples"></a>Esempi
 

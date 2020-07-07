@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437008"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro Apache Kafka ad Azure HDInsight 4,0
@@ -54,7 +54,7 @@ Per un elenco completo degli aggiornamenti, vedere [Note sulla versione di Apach
 
 ## <a name="kafka-client-compatibility"></a>Compatibilità del client Kafka
 
-I nuovi broker Kafka supportano i client meno recenti. [Kip-35-il recupero della versione del protocollo](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) ha introdotto un meccanismo per determinare in modo dinamico le funzionalità di un broker Kafka e di [Kip-97: i criteri di compatibilità RPC del client migliorato](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) hanno introdotto nuovi criteri di compatibilità e garanzie per il client Java. In precedenza, un client Kafka doveva interagire con un broker della stessa versione o di una versione più recente. Ora le versioni più recenti dei client Java e di altri client che supportano KIP-35, `librdkafka` ad esempio, possono eseguire il fallback ai tipi di richieste precedenti o generare errori appropriati se la funzionalità non è disponibile.
+I nuovi broker Kafka supportano i client meno recenti. [Kip-35-il recupero della versione del protocollo](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) ha introdotto un meccanismo per determinare in modo dinamico le funzionalità di un broker Kafka e di [Kip-97: i criteri di compatibilità RPC del client migliorato](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) hanno introdotto nuovi criteri di compatibilità e garanzie per il client Java. In precedenza, un client Kafka doveva interagire con un broker della stessa versione o di una versione più recente. Ora le versioni più recenti dei client Java e di altri client che supportano KIP-35, ad esempio, `librdkafka` possono eseguire il fallback ai tipi di richieste precedenti o generare errori appropriati se la funzionalità non è disponibile.
 
 ![Aggiornare la compatibilità del client Kafka](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
 
@@ -85,4 +85,4 @@ Per completare la migrazione, attenersi alla procedura seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottimizzazione delle prestazioni per i cluster Apache Kafka HDInsight](apache-kafka-performance-tuning.md)
-* [Guida introduttiva: creare cluster Apache Kafka in Azure HDInsight usando portale di Azure](apache-kafka-get-started.md)
+* [Avvio rapido: Creare cluster Apache Kafka in HDInsight di Azure usando il portale di Azure](apache-kafka-get-started.md)

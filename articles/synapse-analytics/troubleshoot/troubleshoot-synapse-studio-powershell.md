@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: bbc985407a6cb56f4f1b539f514ab092b5f7d0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431475"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticare i problemi di connettività di Azure sinapsi Studio (anteprima) con lo script di PowerShell
@@ -29,7 +29,7 @@ Azure sinapsi Studio (anteprima) dipende da un set di endpoint dell'API Web per 
 
 Fare clic con il pulsante destro del mouse sul collegamento seguente e scegliere "Salva destinazione con nome":
 
-- [Test-AzureSynapse. ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
+- [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 In alternativa, è possibile aprire direttamente il collegamento e salvare il file di script aperto. Non salvare l'indirizzo del collegamento precedente, in quanto potrebbe cambiare in futuro.
 
@@ -49,12 +49,12 @@ Alla fine, verrà visualizzato un riepilogo della diagnosi. Se il PC non è in g
 
 ![Esaminare il riepilogo di diagnostica](media/troubleshooting-synapse-studio-powershell/diagnosis-summary.png)
 
-Inoltre, un file di log di diagnostica per questa sessione verrà generato nella stessa cartella dello script per la risoluzione dei problemi. Il percorso è indicato nella sezione "suggerimenti generali" (`D:\TestAzureSynapse_2020....log`). Se necessario, è possibile inviare questo file al supporto tecnico.
+Inoltre, un file di log di diagnostica per questa sessione verrà generato nella stessa cartella dello script per la risoluzione dei problemi. Il percorso è indicato nella sezione "suggerimenti generali" ( `D:\TestAzureSynapse_2020....log` ). Se necessario, è possibile inviare questo file al supporto tecnico.
 
 Se si è un amministratore di rete e si sta ottimizzando la configurazione del firewall per Azure sinapsi studio, i dettagli tecnici illustrati sopra la sezione "Riepilogo" possono essere utili.
 
 * Tutti gli elementi di test (richieste) contrassegnati con "superato" indicano che hanno superato i test di connettività, indipendentemente dal codice di stato HTTP.
- Per le richieste non riuscite, il motivo viene visualizzato in giallo, `NamedResolutionFailure` ad `ConnectFailure`esempio o. Questi motivi possono essere utili per determinare se sono presenti configurazioni errate per l'ambiente di rete.
+ Per le richieste non riuscite, il motivo viene visualizzato in giallo, ad esempio `NamedResolutionFailure` o `ConnectFailure` . Questi motivi possono essere utili per determinare se sono presenti configurazioni errate per l'ambiente di rete.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

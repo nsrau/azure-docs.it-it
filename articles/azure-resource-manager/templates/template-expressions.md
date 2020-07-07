@@ -4,10 +4,10 @@ description: Descrive la sintassi JSON dichiarativa per i modelli Azure Resource
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203829"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintassi ed espressioni nei modelli di Azure Resource Manager
@@ -29,7 +29,7 @@ Azure Resource Manager fornisce [funzioni](template-functions.md) che è possibi
 },
 ```
 
-All'interno dell'espressione, la `resourceGroup()` sintassi chiama una delle funzioni che Gestione risorse fornisce per l'utilizzo all'interno di un modello. In questo caso, si tratta della funzione [resourceGroup](template-functions-resource.md#resourcegroup) . Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. La sintassi `.location` recupera una proprietà dall'oggetto restituito dalla funzione.
+All'interno dell'espressione, la sintassi `resourceGroup()` chiama una delle funzioni che Gestione risorse fornisce per l'utilizzo all'interno di un modello. In questo caso, si tratta della funzione [resourceGroup](template-functions-resource.md#resourcegroup) . Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. La sintassi `.location` Recupera una proprietà dall'oggetto restituito dalla funzione.
 
 Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la funzione mantiene invariato l'uso delle maiuscole/minuscole, a meno che queste non vengano modificate espressamente dalla funzione, ad esempio toUpper o toLower. Alcuni tipi di risorse possono presentare requisiti del case distinti rispetto alla valutazione delle funzioni.
 
@@ -47,13 +47,13 @@ La maggior parte delle funzioni funziona allo stesso modo se distribuite in un g
 
 ## <a name="escape-characters"></a>Caratteri di escape
 
-Per avere una stringa letterale che inizia con una `[` parentesi quadra aperta e termina con `]`una parentesi quadra chiusa, ma non deve essere interpretata come espressione, aggiungere una parentesi aggiuntiva `[[`per avviare la stringa con. Ad esempio, la variabile:
+Per avere una stringa letterale che inizia con una parentesi quadra aperta `[` e termina con una parentesi quadra chiusa `]` , ma non deve essere interpretata come espressione, aggiungere una parentesi aggiuntiva per avviare la stringa con `[[` . Ad esempio, la variabile:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Viene risolto in `[test value]`.
+Viene risolto in `[test value]` .
 
 Tuttavia, se la stringa letterale non termina con una parentesi, non usare caratteri di escape per la prima parentesi. Ad esempio, la variabile:
 
@@ -61,7 +61,7 @@ Tuttavia, se la stringa letterale non termina con una parentesi, non usare carat
 "demoVar2": "[test] value"
 ```
 
-Viene risolto in `[test] value`.
+Viene risolto in `[test] value` .
 
 Per eseguire l'escape delle virgolette doppie in un'espressione, ad esempio l'aggiunta di un oggetto JSON nel modello, usare la barra rovesciata.
 
@@ -93,7 +93,7 @@ Quando si passano i valori dei parametri, l'uso di caratteri di escape dipende d
 }
 ```
 
-Se si usa il valore predefinito, il modello restituisce `[test value]`.
+Se si usa il valore predefinito, il modello restituisce `[test value]` .
 
 Tuttavia, se si passa un valore di parametro tramite la riga di comando, i caratteri vengono interpretati letteralmente. Distribuzione del modello precedente con:
 
@@ -107,7 +107,7 @@ Restituisce `[[test value]`. Usare invece:
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-La stessa formattazione si applica quando si passano valori in da un file di parametri. I caratteri vengono interpretati letteralmente. Quando viene usato con il modello precedente, il file di parametri `[test value]`seguente restituisce:
+La stessa formattazione si applica quando si passano valori in da un file di parametri. I caratteri vengono interpretati letteralmente. Quando viene usato con il modello precedente, il file di parametri seguente restituisce `[test value]` :
 
 ```json
 {

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478811"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
@@ -22,7 +22,7 @@ Come illustrato nell'argomento relativo alla [cronologia dell'orchestrazione](du
 
 ## <a name="resetting-and-restarting"></a>Reimpostazione e riavvio
 
-Anziché utilizzare cicli infiniti, le funzioni dell'agente di orchestrazione `ContinueAsNew` reimpostano il `continueAsNew` proprio stato chiamando il metodo (.NET) o (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Questo metodo accetta un singolo parametro serializzabile in JSON, che diventa il nuovo input per la generazione delle funzioni di orchestrazione successive.
+Anziché utilizzare cicli infiniti, le funzioni dell'agente di orchestrazione reimpostano il proprio stato chiamando il `ContinueAsNew` Metodo (.NET) o `continueAsNew` (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Questo metodo accetta un singolo parametro serializzabile in JSON, che diventa il nuovo input per la generazione delle funzioni di orchestrazione successive.
 
 Quando viene chiamato il metodo `ContinueAsNew`, l'istanza accoda un messaggio a se stessa prima della chiusura. Il messaggio riavvia l'istanza con il nuovo valore di input. Viene mantenuto lo stesso ID istanza, ma la cronologia della funzione dell'agente di orchestrazione viene di fatto troncata.
 
@@ -51,7 +51,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -76,10 +76,10 @@ La differenza tra questo esempio e una funzione attivata da timer è che i tempi
 
 ## <a name="starting-an-eternal-orchestration"></a>Avvio di un'orchestrazione eterna
 
-Utilizzare il `StartNewAsync` metodo (.NET) o `startNew` (JavaScript) per avviare un'orchestrazione eterna, analogamente a qualsiasi altra funzione di orchestrazione.  
+Utilizzare il `StartNewAsync` Metodo (.NET) o `startNew` (JavaScript) per avviare un'orchestrazione eterna, analogamente a qualsiasi altra funzione di orchestrazione.  
 
 > [!NOTE]
-> Se è necessario assicurarsi che l'orchestrazione di un singleton eterna sia in esecuzione, è importante mantenere la `id` stessa istanza quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+> Se è necessario assicurarsi che l'orchestrazione di un singleton eterna sia in esecuzione, è importante mantenere la stessa istanza `id` quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -97,7 +97,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di parametro anziché `IDurableOrchestrationClient` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -122,7 +122,7 @@ module.exports = async function (context, req) {
 
 Se una funzione dell'agente di orchestrazione deve essere completata, è sufficiente *non* chiamare `ContinueAsNew` e consentire l'uscita della funzione.
 
-Se una funzione dell'agente di orchestrazione si trova in un ciclo infinito e deve essere `TerminateAsync` arrestata, utilizzare `terminate` il metodo (.NET) o (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) per arrestarla. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+Se una funzione dell'agente di orchestrazione si trova in un ciclo infinito e deve essere arrestata, utilizzare il `TerminateAsync` Metodo (.NET) o `terminate` (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) per arrestarla. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

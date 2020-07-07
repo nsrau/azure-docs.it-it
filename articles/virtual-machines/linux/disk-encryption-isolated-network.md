@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460121"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Crittografia dischi di Azure in una rete isolata
@@ -47,7 +47,7 @@ Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryp
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
 
-La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](instance-metadata-service.md) , che usa un indirizzo IP non instradabile`169.254.169.254`noto () a cui è possibile accedere solo dall'interno della macchina virtuale.  Le configurazioni proxy che modificano il traffico HTTP locale a questo indirizzo, ad esempio l'aggiunta di un'intestazione X-inoltro-for, non sono supportate.
+La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](instance-metadata-service.md) , che usa un indirizzo IP non instradabile noto ( `169.254.169.254` ) a cui è possibile accedere solo dall'interno della macchina virtuale.  Non sono supportate le configurazioni proxy che modificano il traffico HTTP locale a questo indirizzo, ad esempio aggiungendo un'intestazione X-Forwarded-For.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792038"
 ---
 # <a name="conditional-cognitive-skill"></a>Competenza cognitiva condizionale
@@ -72,7 +72,7 @@ Gli elementi seguenti sono valori validi di un'espressione:
         "= !true"
     ```
 
--   Espressioni che usano operatori numerici (+,- \*,,/,%) <br/>
+-   Espressioni che usano operatori numerici (+,-, \* ,/,%) <br/>
     Esempi: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -87,9 +87,9 @@ Gli input fanno distinzione tra maiuscole e minuscole.
 
 | Input   | Descrizione |
 |-------------|-------------|
-| condizione   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
-| whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *true*. Le stringhe delle costanti devono essere restituite tra virgolette singole (' and '). <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
-| whenFalse   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *false*. <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
+| condizione   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/ \* /Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *true*. Le stringhe delle costanti devono essere restituite tra virgolette singole (' and '). <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/> |
+| whenFalse   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *false*. <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>Output competenze
 C'è un singolo output denominato semplicemente "output". Restituisce il valore *whenFalse* se la condizione è false o *whenTrue* se la condizione è true.

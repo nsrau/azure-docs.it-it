@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458284"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
@@ -22,7 +22,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 1. Nel portale selezionare Key Vault.
 
-1. Selezionare **criteri di accesso**.   
+1. Selezionare **Criteri di accesso**.   
 
    ![Selezionare i criteri di accesso](./media/key-vault-access/select-access-policies.png)
 
@@ -36,7 +36,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 ## <a name="add-service-as-contributor"></a>Aggiungere il servizio come collaboratore
 
-1. Selezionare **controllo di accesso (IAM)**.
+1. Selezionare **Controllo di accesso (IAM)** .
 
    ![Selezionare il controllo di accesso](./media/key-vault-access/access-control.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Creare una pipeline CI/CD per un PWA con GatsbyJS e Azure DevOps Starter
-description: DevOps Starter consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
+description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,13 +14,13 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
 ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233848"
 ---
-# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creare una pipeline CI/CD in Azure Pipelines per node. js con Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Starter
 
 Questa Guida introduttiva illustra come creare un'app Web NodeJS progressive (PWA) usando [GatsbyJS](https://www.gatsbyjs.org/) e l'esperienza semplificata per la creazione degli starter di Azure DevOps. Al termine, sarà disponibile una pipeline di integrazione continua e distribuzione continua (CI/CD) per l'app Web progressiva in Azure Pipelines. Azure DevOps Starter configura gli elementi necessari per lo sviluppo, la distribuzione e il monitoraggio.
 
@@ -31,25 +31,25 @@ Questa Guida introduttiva illustra come creare un'app Web NodeJS progressive (PW
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
+DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure selezionata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e, nel riquadro sinistro, selezionare **Crea una risorsa**. 
 
    ![Creare una risorsa di Azure nel portale di Azure](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova.
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
 1. Selezionare l'applicazione di esempio Node.js.   
 
-    ![Selezionare l'esempio node. js](_img/azure-devops-project-nodejs/select-nodejs.png) 
+    ![Selezionare l'esempio di Node.js](_img/azure-devops-project-nodejs/select-nodejs.png) 
 
-1. Il Framework di esempio predefinito è **Express. js**. Modificare la selezione in **app node. js semplice** e quindi fare clic su **Avanti**. 
+1. Il Framework di esempio predefinito è **Express.js**. Modificare la selezione in **Simple Node.js app** e quindi fare clic su **Next (avanti**). 
 
-    ![Selezionare la semplice app node. js](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
+    ![Selezionare la semplice app Node.js](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
 
 1. Le destinazioni di distribuzione disponibili in questo passaggio sono determinate dal framework applicazione selezionato nel passaggio 2. In questo esempio, l' **app Web di Windows** è la destinazione di distribuzione predefinita. Lasciare **app Web per contenitori** impostare e selezionare **Avanti**.
 
@@ -108,7 +108,7 @@ DevOps Starter crea un repository git in Azure Repos o GitHub. Questo esempio ha
     rmdir Application
     ```
 
-1. Usare l'interfaccia della riga di comando di Gatsby per generare un esempio PWA. Eseguire `gatsby new` dal terminale per avviare la procedura guidata di PWA e `gatsby-starter-blog` Selezionare per il modello iniziale. Dovrebbe essere simile a questo esempio:
+1. Usare l'interfaccia della riga di comando di Gatsby per generare un esempio PWA. Eseguire `gatsby new` dal terminale per avviare la procedura guidata di PWA e selezionare `gatsby-starter-blog` per il modello iniziale. Dovrebbe essere simile a questo esempio:
 
     ```powershell
     c:\myproject> gatsby new
@@ -120,16 +120,16 @@ DevOps Starter crea un repository git in Azure Repos o GitHub. Questo esempio ha
         (Use a different starter)
     ```
     
-1. A questo punto è disponibile una `my-gatsby-project`cartella denominata. Rinominarlo `Application` e copiarvi `Dockerfile` il.
+1. A questo punto è disponibile una cartella denominata `my-gatsby-project` . Rinominarlo `Application` e copiarvi il `Dockerfile` .
     
     ```powershell
     mv my-gatsby-project Application
     mv Dockerfile Application
     ```
     
-1. Nell'editor preferito aprire il Dockerfile e modificare la prima riga da `FROM node:8` a. `FROM node:12` Questa modifica garantisce che il contenitore usi node. js versione 12. x invece della versione 8. x. GatsbyJS richiede versioni più moderne di node. js.
+1. Nell'editor preferito aprire il Dockerfile e modificare la prima riga da `FROM node:8` a `FROM node:12` . Questa modifica garantisce che il contenitore usi Node.js versione 12. x invece della versione 8. x. GatsbyJS richiede versioni più moderne di Node.js.
 
-1. Successivamente, aprire il file Package. JSON nella cartella dell'applicazione e modificare il [campo script](https://docs.npmjs.com/files/package.json#scripts) per assicurarsi che i server di sviluppo e di produzione siano in ascolto su tutte le interfacce di rete disponibili, ad esempio 0.0.0.0, e la porta 80. Senza queste impostazioni, il servizio app contenitore non è in grado di instradare il traffico all'app node. js in esecuzione all'interno del contenitore. Il `scripts` campo deve essere simile a quello riportato di seguito. In particolare, si desidera modificare le `develop`destinazioni `serve`, e `start` dalle impostazioni predefinite.
+1. Aprire quindi il package.jsfile nella cartella dell'applicazione e modificare il [campo script](https://docs.npmjs.com/files/package.json#scripts) per assicurarsi che i server di sviluppo e di produzione siano in ascolto su tutte le interfacce di rete disponibili, ad esempio 0.0.0.0, e la porta 80. Senza queste impostazioni, il servizio app contenitore non è in grado di instradare il traffico all'app Node.js in esecuzione all'interno del contenitore. Il `scripts` campo deve essere simile a quello riportato di seguito. In particolare, si desidera modificare le `develop` `serve` destinazioni, e `start` dalle impostazioni predefinite.
 
     ```json
       "scripts": {
@@ -145,9 +145,9 @@ DevOps Starter crea un repository git in Azure Repos o GitHub. Questo esempio ha
     
 ## <a name="edit-your-cicd-pipelines"></a>Modificare le pipeline CI/CD
 
-1. Prima di eseguire il commit del codice nella sezione precedente, apportare alcune modifiche alle pipeline di compilazione e rilascio. Modificare la "pipeline di compilazione" e aggiornare l'attività node per l'uso di node. js versione 12. x. Impostare il campo **versione attività** su 1. x e il campo **versione** su 12. x.
+1. Prima di eseguire il commit del codice nella sezione precedente, apportare alcune modifiche alle pipeline di compilazione e rilascio. Modificare la "pipeline di compilazione" e aggiornare l'attività node per usare Node.js versione 12. x. Impostare il campo **versione attività** su 1. x e il campo **versione** su 12. x.
 
-    ![Aggiornare node. js a 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+    ![Aggiornare Node.js a 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 1. In questa Guida introduttiva non vengono creati unit test ed è in corso la disabilitazione di questi passaggi nella pipeline di compilazione. Quando si scrivono i test, è possibile riabilitare questi passaggi. Fare clic con il pulsante destro del mouse per selezionare le attività **Installa dipendenze test** ed **Esegui unit test** e disabilitarle.
 
@@ -167,7 +167,7 @@ DevOps Starter crea un repository git in Azure Repos o GitHub. Questo esempio ha
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 
-1. Nel browser passare al dashboard iniziale di DevOps.   
+1. Nel browser passare al dashboard di DevOps Starter.   
 Verrà visualizzata una compilazione in corso. Le modifiche apportate vengono compilate e distribuite automaticamente tramite una pipeline CI/CD.
 
 ## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>Eseguire il commit delle modifiche ed esaminare la pipeline di integrazione continua/recapito continuo di Azure
@@ -182,13 +182,13 @@ Nei due passaggi precedenti è stato aggiunto un PWA generato da Gatsby al repos
     git push
     ```
     
-1. Una compilazione viene avviata non appena `git push` viene completata. È possibile seguire lo stato di avanzamento dal **dashboard di Azure DevOps**.
+1. Una compilazione viene avviata non appena viene `git push` completata. È possibile seguire lo stato di avanzamento dal **dashboard di Azure DevOps**.
 
 3. Dopo alcuni minuti, le pipeline di compilazione e di versione verranno completate e l'app Web progressiva verrà distribuita in un contenitore. Fare clic sul collegamento **Endpoint applicazione** dal dashboard precedente per visualizzare un progetto di base Gatsby per i blog.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

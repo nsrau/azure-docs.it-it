@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205092"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuire un gateway self-hosted di gestione API di Azure a Docker
@@ -26,7 +26,7 @@ Questo articolo illustra la procedura per la distribuzione del componente gatewa
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Completare la Guida introduttiva seguente: [creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
+- Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Creare un ambiente docker. [Docker per desktop](https://www.docker.com/products/docker-desktop) è un'opzione efficace per scopi di sviluppo e valutazione. Vedere la [documentazione di Docker](https://docs.docker.com) per informazioni su tutte le edizioni di Docker, sulle funzionalità e sulla documentazione completa su Docker.
 - [Effettuare il provisioning di una risorsa gateway nell'istanza di gestione API](api-management-howto-provision-self-hosted-gateway.md)
 
@@ -60,7 +60,7 @@ CONTAINER ID        IMAGE                                                 COMMAN
 > [!TIP]
 > Usare <code>console docker container logs <gateway-name></code> il comando per visualizzare uno snapshot del log del gateway self-hosted.
 >
-> Usare <code>docker container logs --help</code> il comando per visualizzare tutte le opzioni di visualizzazione del log.
+> Usare il <code>docker container logs --help</code> comando per visualizzare tutte le opzioni di visualizzazione del log.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

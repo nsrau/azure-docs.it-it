@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450939"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Risoluzione dei problemi di registrazione delle informazioni di sicurezza combinate
@@ -33,14 +33,14 @@ La tabella seguente elenca tutti gli eventi di controllo generati dalla registra
 | Attività | Stato | Motivo | Descrizione |
 | --- | --- | --- | --- |
 | L'utente ha registrato tutte le informazioni di sicurezza necessarie | Operazione completata | L'utente ha registrato tutte le informazioni di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato correttamente la registrazione.|
-| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Errore | Registrazione delle informazioni di sicurezza annullata dall'utente. | Questo evento si verifica quando un utente annulla la registrazione dalla modalità di interruzione.|
+| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Operazioni non riuscite | Registrazione delle informazioni di sicurezza annullata dall'utente. | Questo evento si verifica quando un utente annulla la registrazione dalla modalità di interruzione.|
 | Info di sicurezza registrate dall'utente | Operazione completata | *Metodo*registrato dall'utente. | Questo evento si verifica quando un utente registra un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.| 
 | Informazioni di sicurezza rivedute dall'utente | Operazione completata | L'utente ha rivisto le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza.|
-| Informazioni di sicurezza rivedute dall'utente | Errore | L'utente non è riuscito a esaminare le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza, ma si verifica un errore nel back-end.|
+| Informazioni di sicurezza rivedute dall'utente | Operazioni non riuscite | L'utente non è riuscito a esaminare le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza, ma si verifica un errore nel back-end.|
 | Informazioni di sicurezza eliminate dall'utente | Operazione completata | *Metodo*eliminato dall'utente. | Questo evento si verifica quando un utente elimina un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
-| Informazioni di sicurezza eliminate dall'utente | Errore | L'utente non è riuscito a eliminare il *Metodo*. | Questo evento si verifica quando un utente tenta di eliminare un metodo, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
+| Informazioni di sicurezza eliminate dall'utente | Operazioni non riuscite | L'utente non è riuscito a eliminare il *Metodo*. | Questo evento si verifica quando un utente tenta di eliminare un metodo, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
 | Informazioni di sicurezza predefinite modificate dall'utente | Operazione completata | L'utente ha modificato le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
-| Informazioni di sicurezza predefinite modificate dall'utente | Errore | L'utente non è riuscito a modificare le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente tenta di modificare il metodo predefinito, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
+| Informazioni di sicurezza predefinite modificate dall'utente | Operazioni non riuscite | L'utente non è riuscito a modificare le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente tenta di modificare il metodo predefinito, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Risoluzione dei problemi relativi alla modalità di interrupt
 
@@ -60,7 +60,7 @@ Quando un utente registra un numero di telefono e/o un'app per dispositivi mobil
 
 Se un amministratore abilita l'anteprima, gli utenti effettuano la registrazione tramite la nuova esperienza e quindi l'amministratore disabilita l'anteprima, gli utenti potrebbero essere registrati inconsapevolmente anche per Multi-Factor Authentication.
 
-Se un utente che ha completato la registrazione combinata passa alla pagina di registrazione della reimpostazione della password self-service ( [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)SSPR) corrente in, all'utente verrà richiesto di eseguire multi-factor authentication prima di poter accedere a tale pagina. Questo passaggio è previsto dal punto di vista tecnico, ma è una novità per gli utenti registrati in precedenza solo per SSPR. Sebbene questo passaggio aggiuntivo migliori il comportamento di sicurezza dell'utente fornendo un altro livello di sicurezza, gli amministratori potrebbero voler eseguire il rollback degli utenti in modo che non siano più in grado di eseguire Multi-Factor Authentication.  
+Se un utente che ha completato la registrazione combinata passa alla pagina di registrazione della reimpostazione della password self-service (SSPR) corrente in [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) , all'utente verrà richiesto di eseguire multi-factor authentication prima di poter accedere a tale pagina. Questo passaggio è previsto dal punto di vista tecnico, ma è una novità per gli utenti registrati in precedenza solo per SSPR. Sebbene questo passaggio aggiuntivo migliori il comportamento di sicurezza dell'utente fornendo un altro livello di sicurezza, gli amministratori potrebbero voler eseguire il rollback degli utenti in modo che non siano più in grado di eseguire Multi-Factor Authentication.  
 
 ### <a name="how-to-roll-back-users"></a>Come eseguire il rollback per gli utenti
 
@@ -150,7 +150,7 @@ In una finestra di PowerShell eseguire il comando seguente, specificando lo scri
 Per disabilitare l'esperienza aggiornata per gli utenti, completare i passaggi seguenti:
 
 1. Accedere al portale di Azure come amministratore utente.
-2. Passare a **Azure Active Directory** > **Impostazioni** > utente**Gestisci impostazioni per le funzionalità di anteprima del pannello di accesso**.
+2. Passare a **Azure Active Directory**  >  **impostazioni utente**  >  **Gestisci impostazioni per le funzionalità di anteprima del pannello di accesso**.
 3. In **utenti possono usare le funzionalità di anteprima per la registrazione e la gestione delle informazioni di sicurezza**, impostare il selettore su **nessuno**, quindi selezionare **Salva**.
 
 Agli utenti non verrà più richiesto di eseguire la registrazione usando l'esperienza aggiornata.

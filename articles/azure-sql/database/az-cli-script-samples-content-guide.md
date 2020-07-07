@@ -3,7 +3,7 @@ title: Esempi di script dell'interfaccia della riga di comando di Azure
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Esempi di script dell'interfaccia della riga di comando di Azure per creare e gestire Database SQL di Azure e Istanza gestita di SQL di Azure
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples, mvc, sqldbrb=2
 ms.devlang: azurecli
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251521"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982771"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Esempi dell'interfaccia della riga di comando di Azure per Database SQL di Azure e Istanza gestita di SQL 
  
@@ -35,7 +35,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 La tabella seguente contiene collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per gestire database singoli e in pool nel database SQL di Azure. 
 
-| | |
+|Area|Descrizione|
 |---|---|
 |**Creare database nel database SQL di Azure**||
 | [Creare un database singolo e configurare una regola del firewall](scripts/create-and-configure-database-cli.md) | Crea un database SQL e configura una regola del firewall a livello di server. |
@@ -63,7 +63,7 @@ Altre informazioni sull'[API dell'interfaccia della riga di comando di Azure per
 
 La tabella seguente contiene collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per Istanza gestita di SQL di Azure.
 
-| | |
+|Area|Descrizione|
 |---|---|
 | **Creare un'istanza gestita di SQL**||
 | [Creare un'istanza gestita di SQL](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Crea un'istanza gestita di SQL. |
