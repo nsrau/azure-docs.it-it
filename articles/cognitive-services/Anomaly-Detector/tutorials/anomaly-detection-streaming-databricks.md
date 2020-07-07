@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78402680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918924"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -300,6 +300,7 @@ pool.shutdown()
 
 Premere **MAIUSC+INVIO** per eseguire il notebook. L'output visualizzato sarà simile al frammento di codice seguente. Ogni evento nell'output è una combinazione di timestamp e numero di "Mi piace" inserita in Hub eventi.
 
+```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
     Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
@@ -318,6 +319,7 @@ Premere **MAIUSC+INVIO** per eseguire il notebook. L'output visualizzato sarà s
 
     ...
     ...
+```
 
 ## <a name="read-tweets-from-event-hubs"></a>Leggere tweet da Hub eventi
 
@@ -423,16 +425,18 @@ object AnomalyDetector extends Serializable {
 
 Premere **MAIUSC+INVIO** per eseguire il notebook. L'output visualizzato sarà simile al frammento di codice seguente.
 
-    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
-    import java.net.URL
-    import java.sql.Timestamp
-    import com.google.gson.{Gson, GsonBuilder, JsonParser}
-    import javax.net.ssl.HttpsURLConnection
-    defined class Point
-    defined class Series
-    defined class AnomalySingleResponse
-    defined class AnomalyBatchResponse
-    defined object AnomalyDetector
+```scala
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
+defined class Point
+defined class Series
+defined class AnomalySingleResponse
+defined class AnomalyBatchResponse
+defined object AnomalyDetector
+```
 
 Preparare quindi una funzione di aggregazione per un utilizzo futuro.
 ```scala
@@ -495,11 +499,13 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 Premere **MAIUSC+INVIO** per eseguire il notebook. L'output visualizzato sarà simile al frammento di codice seguente.
 
-    import org.apache.spark.sql.Row
-    import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
-    import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-    import scala.collection.immutable.ListMap
-    defined class AnomalyDetectorAggregationFunction
+```scala
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
+defined class AnomalyDetectorAggregationFunction
+```
 
 Caricare quindi i dati dall'hub eventi per il rilevamento anomalie. Sostituire il segnaposto con i valori dell'istanza di Hub eventi di Azure creata in precedenza.
 

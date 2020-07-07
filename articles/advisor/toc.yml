@@ -11,6 +11,7 @@
         - name: Portale di Azure
           href: advisor-alerts-portal.md
         - name: Modello ARM
+          displayName: Resource Manager
           href: advisor-alerts-arm.md
 - name: Esercitazioni
   items:

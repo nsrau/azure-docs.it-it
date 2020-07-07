@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 05/29/2018
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 90777b8303f2d31168e489c8e2a7ca3a779a11e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856740"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
 Un set di scalabilità di macchine virtuali di Azure può aumentare o diminuire automaticamente il numero di istanze di macchine virtuali che eseguono l'applicazione. Questo comportamento automatico ed elastico riduce il sovraccarico di gestione per monitorare e ottimizzare le prestazioni dell'applicazione. Creare regole che definiscono le prestazioni accettabili per un'esperienza positiva del cliente. Quando vengono soddisfatte le soglie definite, le regole di scalabilità automatica intervengono per regolare la capacità del set di scalabilità. È possibile anche pianificare eventi per aumentare o ridurre automaticamente la capacità del set di scalabilità a intervalli fissi. Questo articolo offre una panoramica delle metriche delle prestazioni disponibili e delle azioni che la scalabilità automatica può eseguire.

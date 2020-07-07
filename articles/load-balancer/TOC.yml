@@ -103,6 +103,8 @@
           displayName: ARM
     - name: Configurare un servizio di bilanciamento del carico interno
       items:
+        - name: Portale di Azure
+          href: tutorial-load-balancer-standard-internal-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
@@ -121,8 +123,6 @@
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: Configurare porte a disponibilità elevata per un servizio di bilanciamento del carico interno
-      href: load-balancer-configure-ha-ports.md
     - name: Spostarsi tra aree
       items:
         - name: Servizio di bilanciamento del carico esterno - Portale

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4b1b9e2360f4ae1cf428133006ed08327b10cdef
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 47af78e562329a7221dcba865fc7304543a282df
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856771"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD
 
@@ -69,23 +69,33 @@ Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi ch
 1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di Configurazione app. 
     Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Se si usa Windows PowerShell, eseguire il comando seguente:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Se si usa macOS o Linux, eseguire il comando seguente:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. Per compilare l'app usando l'interfaccia della riga di comando di .NET Core, eseguire questo comando nella shell dei comandi:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 3. Al termine della compilazione, eseguire questo comando per eseguire l'app Web in locale:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
 4. Aprire una finestra del browser e passare a `http://localhost:5000`, che è l'URL predefinito per l'app Web ospitata in locale.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074767"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -281,7 +281,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Di seguito è riportato l'elenco completo degli attributi SAML predefiniti. GivenName è rappresentato dalla stringa seguente.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| sessione | Attributo |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.assertionIssueInstant  | `<ID>` |

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921945"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -60,11 +60,11 @@ Per creare un'istanza di Ricerca personalizzata Bing:
 
 Per includere i risultati di siti Web o URL specifici, aggiungerli alla scheda **Active** (Elementi attivi).
 
-1.       Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Active** (Elementi attivi) e immettere l'URL di uno o più siti Web da includere nella ricerca.
+1. Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Active** (Elementi attivi) e immettere l'URL di uno o più siti Web da includere nella ricerca.
 
     ![Screenshot della scheda Active (Elementi attivi) nell'editor delle definizioni](../media/customSrchEditor.png)
 
-2.       Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Bing restituisce solo i risultati per i siti Web pubblici indicizzati.
+2. Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Bing restituisce solo i risultati per i siti Web pubblici indicizzati.
 
 ## <a name="add-blocked-entries"></a>Aggiungere voci bloccate
 

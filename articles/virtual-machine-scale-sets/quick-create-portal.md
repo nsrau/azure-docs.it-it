@@ -6,17 +6,17 @@ ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
-ms.date: 10/23/2019
+ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6422ad0445b40e61fcc6028e0859995abd65ee8c
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197654"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857061"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali nel portale di Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali nel portale di Azure.
 

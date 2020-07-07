@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto ISO 27001
 description: Mapping dei controlli dell'esempio di progetto ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 501884491dbef85cdf8a29cb5fdcef44a68235a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f4998a84d7079b55e2668a43b7e7359429d54d8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919204"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto ISO 27001
 
@@ -28,7 +28,7 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificazione delle informazioni
 
-Il [Servizio Valutazione della vulnerabilità di SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) può aiutare a individuare i dati sensibili archiviati nei database e include suggerimenti per la loro classificazione. Questo progetto assegna una definizione dei [Criteri di Azure](../../../policy/overview.md) per controllare che le vulnerabilità identificate durante l'analisi della Valutazione della vulnerabilità di SQL vengano risolte.
+Il [Servizio Valutazione della vulnerabilità di SQL](/azure/sql-database/sql-vulnerability-assessment) può aiutare a individuare i dati sensibili archiviati nei database e include suggerimenti per la loro classificazione. Questo progetto assegna una definizione dei [Criteri di Azure](../../../policy/overview.md) per controllare che le vulnerabilità identificate durante l'analisi della Valutazione della vulnerabilità di SQL vengano risolte.
 
 - \[Anteprima\]: Monitorare i risultati della valutazione della vulnerabilità di SQL nel Centro sicurezza di Azure
 
