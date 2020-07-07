@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b50217a3a8aeda03996183bf1dc82a0be1f485ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 357026bbe17650464716282608bc316c5d4b055e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419103"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514881"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno.
 * Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'archivio BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
 * Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
-* **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **clientSecrets** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
+* **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **clientSecrets** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
 
 ## <a name="set-global-variables"></a>Configurare le variabili globali
 

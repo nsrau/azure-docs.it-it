@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335573"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
@@ -48,7 +48,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
 
 È possibile aggiungere un livello sezione alla mappa seguendo questa procedura.
 
-1. Modificare il **layout res > > activity_main. XML** in modo che abbia un aspetto simile al seguente:
+1. Modificare il **layout res > > activity_main.xml** in modo che sia simile a quello riportato di seguito:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -84,9 +84,9 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     });
     ```
     
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Crea quindi un `TileLayer` oggetto e passa un URL del **xyz** `tileUrl` riquadro XYZ formattato nell'opzione. L'opacità del livello è impostata su `0.8` e, poiché i riquadri del servizio affiancato sono riquadri di 256 pixel, queste informazioni vengono `tileSize` passate nell'opzione. Il livello sezione viene quindi passato a Maps Layer Manager.
+    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Crea quindi un `TileLayer` oggetto e passa un URL del riquadro **XYZ** formattato nell' `tileUrl` opzione. L'opacità del livello è impostata su `0.8` e, poiché i riquadri del servizio affiancato sono riquadri di 256 pixel, queste informazioni vengono passate nell' `tileSize` opzione. Il livello sezione viene quindi passato a Maps Layer Manager.
 
-    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
+    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
     
     ```Java
     package com.example.myapplication;
@@ -179,4 +179,4 @@ Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come il
 Vedere l'articolo seguente per altre informazioni sui modi per impostare gli stili della mappa
 
 > [!div class="nextstepaction"]
-> [Modificare gli stili della mappa nelle mappe Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambiare gli stili della mappa nelle mappe Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

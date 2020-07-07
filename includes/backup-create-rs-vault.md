@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204574"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970527"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-Un insieme di credenziali dei Servizi di ripristino è un'entità di archiviazione che archivia i punti di ripristino creati nel corso del tempo. Contiene anche i criteri di backup associati agli elementi protetti.
+Un insieme di credenziali di servizi di ripristino è un'entità di gestione che archivia i punti di ripristino creati nel tempo e fornisce un'interfaccia per eseguire operazioni correlate al backup. Questi includono l'esecuzione di backup su richiesta, l'esecuzione di ripristini e la creazione di criteri di backup.
 
 Seguire questa procedura per creare un insieme di credenziali di Servizi di ripristino.
 
@@ -59,3 +59,6 @@ Seguire questa procedura per creare un insieme di credenziali di Servizi di ripr
     La creazione dell'insieme di credenziali di Servizi di ripristino può richiedere del tempo. Monitorare le notifiche di stato nell'area **Notifiche** nell'angolo in alto a destra del portale. Dopo essere stato creato, l'insieme di credenziali, sarà visualizzabile nell'insieme di credenziali di Servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
 
      ![Aggiornare l'elenco dell'insieme di credenziali di backup](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!IMPORTANT]
+> Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di replica di archiviazione** e **le impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali. Per ulteriori informazioni, vedere la sezione [impostare la ridondanza di archiviazione](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188536"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
@@ -49,7 +49,7 @@ Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 - **Nodo**: destinazione di una configurazione DSC. In questo documento, *node* fa sempre riferimento a una VM di Azure.
 - **Dati di configurazione**: file con estensione psd1 con i dati ambientali di una configurazione.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
@@ -115,7 +115,7 @@ Informazioni importanti sui cmdlet dell'estensione DSC di Resource Manager:
 
 L'estensione DSC di Azure può usare documenti di configurazione DSC per configurare direttamente macchine virtuali di Azure durante la distribuzione. Questa operazione non determina tuttavia la registrazione del nodo in Automazione. Il nodo *non* è gestito centralmente.
 
-Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione localmente come iisInstall. ps1.
+Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione localmente come iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-I comandi seguenti consentono di inserire lo script iisInstall. ps1 nella macchina virtuale specificata. eseguono la configurazione e quindi inviano un report sullo stato.
+I comandi seguenti consentono di inserire lo script iisInstall.ps1 nella macchina virtuale specificata. eseguono la configurazione e quindi inviano un report sullo stato.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -190,7 +190,7 @@ Il portale consente di raccogliere l'input seguente:
 
 - File di dati di **configurazione psd1**: la configurazione richiede un file di dati di configurazione in. psd1, usare questo campo per selezionare il file di dati e caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
-- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **più recente**.
+- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
 
 - **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 

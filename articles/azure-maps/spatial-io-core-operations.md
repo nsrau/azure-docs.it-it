@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371448"
 ---
 # <a name="core-io-operations"></a>Operazioni di i/o Core
@@ -25,10 +25,10 @@ Lo `atlas.io.core` spazio dei nomi contiene due classi di basso livello che poss
 
 La `atlas.io.core.CsvReader` classe legge le stringhe che contengono set di dati delimitati. Questa classe fornisce due metodi per la lettura dei dati:
 
-- Tramite `read` la funzione viene letto il set di dati completo e viene restituita una matrice bidimensionale di stringhe che rappresenta tutte le celle del set di dati delimitato.
+- Tramite la `read` funzione viene letto il set di dati completo e viene restituita una matrice bidimensionale di stringhe che rappresenta tutte le celle del set di dati delimitato.
 - La `getNextRow` funzione legge ogni riga di testo in un set di dati delimitato e restituisce una matrice di stringa che rappresenta tutte le celle della riga del set di dati. L'utente può elaborare la riga ed eliminare la memoria non necessaria da tale riga prima di elaborare la riga successiva. Quindi, la funzione è più efficiente della memoria.
 
-Per impostazione predefinita, il lettore utilizzerà il carattere virgola come delimitatore. Tuttavia, il delimitatore può essere modificato in qualsiasi carattere singolo o impostato su `'auto'`. Se impostato su `'auto'`, il lettore analizzerà la prima riga di testo nella stringa. Quindi seleziona il carattere più comune della tabella seguente da usare come delimitatore.
+Per impostazione predefinita, il lettore utilizzerà il carattere virgola come delimitatore. Tuttavia, il delimitatore può essere modificato in qualsiasi carattere singolo o impostato su `'auto'` . Se impostato su `'auto'` , il lettore analizzerà la prima riga di testo nella stringa. Quindi seleziona il carattere più comune della tabella seguente da usare come delimitatore.
 
 | | |
 | :-- | :-- |
@@ -36,25 +36,25 @@ Per impostazione predefinita, il lettore utilizzerà il carattere virgola come d
 | Scheda | `\t` |
 | Pipe | `|` |
 
-Questo Reader supporta inoltre i qualificatori di testo usati per gestire le celle che contengono il carattere delimitatore. Il carattere virgolette (`'"'`) è il qualificatore di testo predefinito, ma può essere modificato in qualsiasi carattere singolo.
+Questo Reader supporta inoltre i qualificatori di testo usati per gestire le celle che contengono il carattere delimitatore. Il carattere virgolette ( `'"'` ) è il qualificatore di testo predefinito, ma può essere modificato in qualsiasi carattere singolo.
 
 ## <a name="write-delimited-files"></a>Scrivi file delimitati
 
-`atlas.io.core.CsvWriter` Scrive una matrice di oggetti sotto forma di stringa delimitata. Qualsiasi carattere singolo può essere utilizzato come delimitatore o come qualificatore di testo. Il delimitatore predefinito è virgola`','`() e il qualificatore di testo predefinito è`'"'`il carattere virgolette ().
+`atlas.io.core.CsvWriter`Scrive una matrice di oggetti sotto forma di stringa delimitata. Qualsiasi carattere singolo può essere utilizzato come delimitatore o come qualificatore di testo. Il delimitatore predefinito è virgola ( `','` ) e il qualificatore di testo predefinito è il carattere virgolette ( `'"'` ).
 
 Per usare questa classe, attenersi alla procedura seguente:
 
 - Creare un'istanza della classe e, facoltativamente, impostare un delimitatore personalizzato o un qualificatore di testo.
 - Scrivere i dati nella classe usando la `write` funzione o `writeRow` . Per la `write` funzione, passare una matrice bidimensionale di oggetti che rappresentano più righe e celle. Per utilizzare la `writeRow` funzione, passare una matrice di oggetti che rappresenta una riga di dati con più colonne.
 - Chiamare la `toString` funzione per recuperare la stringa delimitata. 
-- È possibile chiamare il `clear` metodo per rendere il writer riutilizzabile e ridurne l'allocazione delle risorse oppure `delete` chiamare il metodo per eliminare l'istanza del writer.
+- È possibile chiamare il `clear` metodo per rendere il writer riutilizzabile e ridurne l'allocazione delle risorse oppure chiamare il `delete` metodo per eliminare l'istanza del writer.
 
 > [!Note]
 > Il numero di colonne scritte sarà vincolato al numero di celle nella prima riga dei dati passati al writer.
 
 ## <a name="read-xml-files"></a>Lettura di file XML
 
-La `atlas.io.core.SimpleXmlReader` classe è più veloce durante l'analisi dei file `DOMParser`XML rispetto a. Tuttavia, la `atlas.io.core.SimpleXmlReader` classe richiede che i file XML siano formattati correttamente. I file XML che non sono formattati correttamente, ad esempio i tag di chiusura mancanti, probabilmente genereranno un errore.
+La `atlas.io.core.SimpleXmlReader` classe è più veloce durante l'analisi dei file XML rispetto a `DOMParser` . Tuttavia, la `atlas.io.core.SimpleXmlReader` classe richiede che i file XML siano formattati correttamente. I file XML che non sono formattati correttamente, ad esempio i tag di chiusura mancanti, probabilmente genereranno un errore.
 
 Il codice seguente illustra come usare la `SimpleXmlReader` classe per analizzare una stringa XML in un oggetto JSON e serializzarla nel formato desiderato.
 
@@ -145,4 +145,4 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)

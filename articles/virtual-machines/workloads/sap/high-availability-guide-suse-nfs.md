@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348863"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
@@ -71,7 +71,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
 * [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione di Macchine virtuali di Microsoft Azure per SAP in Linux (questo articolo)][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [Guide alle procedure consigliate per SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
   * Archiviazione NFS a disponibilità elevata con DRBD e Pacemaker
@@ -120,7 +120,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    4. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come**&lt;ID&gt;sottoscrizione**/subscriptions//resourceGroups/**&lt;nome&gt;gruppo di risorse**/Providers/Microsoft.Network/virtualNetworks/**&lt;nome&gt;rete virtuale**/Subnets/**&lt;nome subnet&gt; **
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
@@ -136,7 +136,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
    SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere un disco dati per ogni sistema SAP a entrambe le macchine virtuali.
-1. Creare una Load Balancer (interna). Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+1. Creare una Load Balancer (interna). Si consiglia di usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
    1. Seguire queste istruzioni per creare un servizio di bilanciamento del carico standard:
       1. Creare gli indirizzi IP front-end
          1. Indirizzo IP 10.0.0.4 per NW1
@@ -166,7 +166,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **NW1-frontend**. **NW-backend** e **NW1-HP**)
-         1. Selezionare **porte a disponibilità elevata**.
+         1. Selezionare **Porte a disponibilità elevata**.
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
@@ -213,10 +213,10 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
 
 > [!Note]
-> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -473,13 +473,13 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 1. **[1]** Aggiungere i dispositivi drbd NFS per il sistema SAP NW1 alla configurazione del cluster
 
    > [!IMPORTANT]
-   > Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
-   > Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat in passato. Attualmente è consigliabile usare l'agente di risorse di Azure-lb, che fa parte degli agenti di risorse del pacchetto, con i seguenti requisiti di versione del pacchetto:
-   > - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
-   > - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+   > Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di essere in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+   > Per i cluster Pacemaker esistenti, in passato era consigliabile sostituire netcat con socat. Attualmente è consigliabile usare l'agente di risorse azure-lb, che fa parte degli agenti di risorse del pacchetto, con i requisiti di versione del pacchetto seguenti:
+   > - Per SLES 12 SP4/SP5 la versione deve essere almeno resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Per SLES 15/15 SP1 la versione deve essere almeno resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Si noti che la modifica richiederà un breve tempo di inattività.  
-   > Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat come descritto in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure, non è necessario passare immediatamente all'agente di risorse Azure-lb.
+   > Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat, come descritto in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) (Protezione avanzata dei rilevamenti del servizio di bilanciamento del carico di Azure), non è necessario passare immediatamente all'agente delle risorse azure-lb.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -571,7 +571,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   L' `crossmnt` opzione nelle risorse `exportfs` cluster è presente nella documentazione per la compatibilità con le versioni precedenti di SLES.  
+   L' `crossmnt` opzione nelle `exportfs` risorse cluster è presente nella documentazione per la compatibilità con le versioni precedenti di SLES.  
 
 1. **[1]** Disabilitare la modalità manutenzione
    
@@ -581,7 +581,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare SAP ASCS e il database](high-availability-guide-suse.md)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha]

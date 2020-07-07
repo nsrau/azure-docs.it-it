@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189463"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
@@ -31,7 +31,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>Errore durante l'esecuzione di cmdlet AzureAD in PowerShell
 
-- **Dettagli**: quando si eseguono cmdlet AzureAD come `Get-AzureADUser` in cloud Shell, è possibile che venga visualizzato un errore `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`:. 
+- **Dettagli**: quando si eseguono cmdlet AzureAD come `Get-AzureADUser` in cloud Shell, è possibile che venga visualizzato un errore: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
 - **Soluzione**: eseguire il `Connect-AzureAD` cmdlet. In precedenza Cloud Shell questo cmdlet veniva eseguito automaticamente durante l'avvio di PowerShell. Per velocizzare l'ora di avvio, il cmdlet non viene più eseguito automaticamente. È possibile scegliere di ripristinare il comportamento precedente aggiungendo `Connect-AzureAD` al file di $profile in PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Timeout anticipati in FireFox
@@ -41,7 +41,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Disabilitazione di Cloud Shell in un ambiente di rete bloccato
 
-- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al `ux.console.azure.com` dominio, che può essere negato, che impedisce l'accesso ai entrypoints di cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code estensione account azure e docs.Microsoft.com. Nel cloud del governo degli Stati Uniti, il `ux.console.azure.us`EntryPoint è; non esiste alcun shell.azure.us corrispondente.
+- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al `ux.console.azure.com` dominio, che può essere negato, che impedisce l'accesso ai entryPoints di cloud Shell, tra cui Portal.Azure.com, Shell.Azure.com, Visual Studio Code estensione account Azure e docs.Microsoft.com. Nel cloud del governo degli Stati Uniti, il punto di ingresso è; non esiste `ux.console.azure.us` alcun Shell.Azure.US corrispondente.
 - **Soluzione**: limitare l'accesso `ux.console.azure.com` o `ux.console.azure.us` tramite le impostazioni di rete all'ambiente. L'icona Cloud Shell continuerà a esistere nell'portale di Azure, ma non si connetterà correttamente al servizio.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
@@ -168,7 +168,7 @@ Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Export
+### <a name="export"></a>Esportazione
 Al fine di **esportare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)

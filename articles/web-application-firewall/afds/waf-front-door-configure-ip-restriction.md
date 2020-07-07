@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336098"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
@@ -34,13 +34,13 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 2. Selezionare **Crea**.
 3. Nella pagina **Crea un criterio WAF** usare i valori seguenti per completare la scheda **nozioni di base** :
    
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Criteri per     |WAF globale (porta anteriore)|
    |Subscription     |Selezionare la propria sottoscrizione|
    |Resource group     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
    |Nome criteri     |Digitare un nome per il criterio|
-   |Stato criteri     |Attivato|
+   |Stato criteri     |Abilitato|
 
    Selezionare **Avanti: impostazioni dei criteri**
 
@@ -50,10 +50,10 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 4. Selezionare **Aggiungi regola personalizzata**.
 5. Nella pagina **Aggiungi regola personalizzata** usare i valori di test seguenti per creare una regola personalizzata:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
-   |Stato     |Attivato|
+   |Stato     |Abilitato|
    |Tipo regola     |Corrispondenza|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|
@@ -87,8 +87,8 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 Prima di iniziare a configurare un criterio di restrizione IP, configurare l'ambiente dell'interfaccia della riga di comando e creare un profilo di sportello anteriore di Azure.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Configurare l'ambiente dell'interfaccia della riga di comando di Azure
-1. Installare l' [interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure o usare Azure cloud Shell. Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Selezionare il pulsante **prova** nei comandi dell'interfaccia della riga di comando seguenti e quindi accedere al proprio account Azure nella sessione cloud Shell visualizzata. Dopo l'avvio della sessione, `az extension add --name front-door` immettere per aggiungere l'estensione per la porta anteriore di Azure.
- 2. Se si usa l'interfaccia della riga di comando in locale in bash, accedere ad `az login`Azure usando.
+1. Installare l' [interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure o usare Azure cloud Shell. Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Selezionare il pulsante **prova** nei comandi dell'interfaccia della riga di comando seguenti e quindi accedere al proprio account Azure nella sessione cloud Shell visualizzata. Dopo l'avvio della sessione, immettere `az extension add --name front-door` per aggiungere l'estensione per la porta anteriore di Azure.
+ 2. Se si usa l'interfaccia della riga di comando in locale in bash, accedere ad Azure usando `az login` .
 
 #### <a name="create-an-azure-front-door-profile"></a>Creare un profilo di sportello anteriore di Azure
 Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte nella [Guida introduttiva: creare una porta anteriore per un'applicazione Web globale a disponibilità elevata](../../frontdoor/quickstart-create-front-door.md).
@@ -212,7 +212,7 @@ $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>Configurare un criterio WAF
-Trovare il nome del gruppo di risorse che contiene il profilo di porta anteriore di Azure `Get-AzResourceGroup`usando. Configurare quindi un criterio WAF con la regola IP usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Trovare il nome del gruppo di risorse che contiene il profilo di porta anteriore di Azure usando `Get-AzResourceGroup` . Configurare quindi un criterio WAF con la regola IP usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `

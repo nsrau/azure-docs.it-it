@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117081"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964805"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Esercitazione: Eseguire il rendering di una scena di Blender con Batch Explorer
 
@@ -27,9 +27,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che garantisce un credito monetario.
 
-È necessario un account Azure Batch con un account di archiviazione associato.  Per creare un account Batch, vedere una delle guide introduttive di Batch, ad esempio l'[articolo relativo all'interfaccia della riga di comando](https://docs.microsoft.com/azure/batch/quick-create-cli).
+È necessario un account Azure Batch con un account di archiviazione associato.  Per creare un account Batch, vedere una delle guide introduttive di Batch, ad esempio l'[articolo relativo all'interfaccia della riga di comando](./quick-create-cli.md).
 
-Quota di core per priorità bassa con almeno 50 core, necessaria per la dimensione di VM e il numero di macchine virtuali specificati in questa esercitazione. È possibile usare la quota predefinita, ma dovrà essere usata una dimensione di VM inferiore con cui il rendering delle immagini richiederà più tempo. Il processo per richiedere un incremento della quota di core è illustrato in dettaglio in [questo articolo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Quota di core per priorità bassa con almeno 50 core, necessaria per la dimensione di VM e il numero di macchine virtuali specificati in questa esercitazione. È possibile usare la quota predefinita, ma dovrà essere usata una dimensione di VM inferiore con cui il rendering delle immagini richiederà più tempo. Il processo per richiedere un incremento della quota di core è illustrato in dettaglio in [questo articolo](./batch-quota-limit.md).
 
 È infine necessario che sia installato [Batch Explorer](https://azure.github.io/BatchExplorer/), disponibile per Windows, OSX e Linux. [Blender](https://www.blender.org/download/) è facoltativo, ma se è installato è possibile visualizzare il file di modello di esempio.
 
@@ -139,4 +139,4 @@ Al termine di tutte le attività, il processo verrà contrassegnato come complet
 ## <a name="next-steps"></a>Passaggi successivi
 * Nella sezione "Gallery" (Raccolta) esplorare le applicazioni di rendering disponibili tramite Batch Explorer.
 * Per ogni applicazione sono disponibili diversi modelli, che verranno estesi nel tempo.  Per Blender, ad esempio, esistono modelli che suddividono una singola immagine in riquadri e consentono così di eseguire il rendering in parallelo delle parti di un'immagine.
-* Per una descrizione completa delle funzionalità di rendering, vedere il set di articoli disponibile [qui](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Per una descrizione completa delle funzionalità di rendering, vedere il set di articoli disponibile [qui](./batch-rendering-service.md).

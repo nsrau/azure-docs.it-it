@@ -3,12 +3,12 @@ title: Azure Batch esegue processi paralleli su larga scala nel cloud
 description: Informazioni sull'uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779557"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965077"
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 
@@ -18,7 +18,7 @@ Gli sviluppatori possono usare Batch come un servizio di piattaforma per compila
 
 Non sono previsti costi aggiuntivi per l'uso di Batch. Si pagano solo le risorse sottostanti utilizzate, ad esempio macchine virtuali, archiviazione e rete.
 
-Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [HPC (High Performance Computing) in Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Eseguire carichi di lavoro paralleli
 Batch funziona bene con carichi di lavoro intrinsecamente paralleli, a volte definiti "imbarazzantemente paralleli". I carichi di lavoro intrinsecamente paralleli sono quelli in cui le applicazioni possono essere eseguite in modo indipendente e ogni istanza completa parte del lavoro. Quando sono in esecuzione, le applicazioni possono accedere ad alcuni dati comuni, ma non comunicano con altre istanze dell'applicazione. I carichi di lavoro intrinsecamente paralleli possono essere quindi eseguiti su larga scala, a seconda della quantità di risorse di calcolo disponibili per l'esecuzione simultanea di applicazioni.
@@ -34,7 +34,7 @@ Alcuni esempi di carichi di lavoro intrinsecamente paralleli che possono essere 
 * Inserimento dati, elaborazione e operazioni ETL
 * Esecuzione di test del software
 
-È inoltre possibile usare Batch per [eseguire carichi di lavoro strettamente associati](batch-mpi.md); si tratta di carichi di lavoro in cui le applicazioni in esecuzione devono comunicare tra loro, in contrapposizione all'esecuzione indipendente. Le applicazioni strettamente associate usano generalmente l'API MPI (Message Passing Interface). È possibile eseguire i carichi di lavoro strettamente associati con Batch usando [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) o Intel MPI. Migliorare le prestazioni delle applicazioni con dimensioni delle macchine virtuali specializzate per [HPC](../virtual-machines/linux/sizes-hpc.md) e [ottimizzate per la GPU](../virtual-machines/linux/sizes-gpu.md).
+È inoltre possibile usare Batch per [eseguire carichi di lavoro strettamente associati](batch-mpi.md); si tratta di carichi di lavoro in cui le applicazioni in esecuzione devono comunicare tra loro, in contrapposizione all'esecuzione indipendente. Le applicazioni strettamente associate usano generalmente l'API MPI (Message Passing Interface). È possibile eseguire i carichi di lavoro strettamente associati con Batch usando [Microsoft MPI](/message-passing-interface/microsoft-mpi) o Intel MPI. Migliorare le prestazioni delle applicazioni con dimensioni delle macchine virtuali specializzate per [HPC](../virtual-machines/linux/sizes-hpc.md) e [ottimizzate per la GPU](../virtual-machines/linux/sizes-gpu.md).
 
 Alcuni esempi di carichi di lavoro strettamente associati sono i seguenti:
 * Analisi degli elementi limitati

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428108"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Procedure consigliate per le operazioni a esecuzione prolungata
@@ -18,7 +18,7 @@ ms.locfileid: "81428108"
 In Azure Analysis Services, un *nodo* rappresenta una macchina virtuale host in cui è in esecuzione una risorsa server. Alcune operazioni, ad esempio query con esecuzione prolungata, operazioni di aggiornamento e sincronizzazione delle query con scalabilità orizzontale, possono avere esito negativo se una risorsa server si sposta in un nodo diverso. I messaggi di errore comuni in questo scenario includono:
 
 - "Si è verificato un errore durante il tentativo di individuare una richiesta XMLA con esecuzione prolungata. La richiesta potrebbe essere stata interrotta dall'aggiornamento del servizio o dal riavvio del server. "
-- "Il processo con ID<guid>' per il<database>modello '' è stato annullato a causa di un errore del servizio (inattività) con messaggio ' annullamento della richiesta di aggiornamento perché bloccato senza aggiornamenti. Si tratta di un problema del servizio interno. Inviare nuovamente il processo o un ticket per ricevere assistenza se il problema si verifica ripetutamente ".
+- "Il processo con ID ' <guid> per il modello ' <database> ' è stato annullato a causa di un errore del servizio (inattività) con messaggio ' annullamento della richiesta di aggiornamento perché bloccato senza aggiornamenti. Si tratta di un problema del servizio interno. Inviare nuovamente il processo o un ticket per ricevere assistenza se il problema si verifica ripetutamente ".
 
 Esistono molti motivi per cui le operazioni a esecuzione prolungata possono essere interrotte. Ad esempio, gli aggiornamenti in Azure, ad esempio: 
 - Patch del sistema operativo 
@@ -48,7 +48,7 @@ Usando le repliche di query di sola lettura, mentre gli aggiornamenti vengono es
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Aggiornamento asincrono con l'API REST](analysis-services-async-refresh.md)  
-[Ridimensionamento orizzontale di Azure Analysis Services](analysis-services-scale-out.md)  
+[Scale-out di Azure Analysis Services](analysis-services-scale-out.md)  
 [Disponibilità elevata di Azure Analysis Services](analysis-services-bcdr.md)  
 [Linee guida per i tentativi per i servizi di Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
 

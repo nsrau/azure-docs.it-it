@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335609"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
@@ -34,11 +34,11 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Data e ora di inizio del periodo di validità. |
 | endTime   | Datetime  | true |  Data e ora di fine del periodo di validità. |
-| recurrenceType | stringa | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
+| recurrenceType | string | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
-* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine `WGS84`] definito in.
+* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine] definito in `WGS84` .
 * Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: tutti i punti in `MultiPoint` utilizzeranno lo stesso raggio per formare una georecinzione a più cerchi.
 * In uno scenario punto-cerchio, una geometria circolare può essere rappresentata usando un oggetto di geometria `Point` con proprietà elaborate nell'[Estensione delle geometrie GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

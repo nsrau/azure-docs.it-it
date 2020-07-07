@@ -3,12 +3,12 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Pool 
 description: Questo script mostra alcuni dei comandi disponibili nell'interfaccia della riga di comando di Azure per creare e gestire un pool di nodi di calcolo Windows in Azure Batch.
 ms.topic: sample
 ms.date: 12/12/2019
-ms.openlocfilehash: 869e9990fe2d7d3f909ccf3db2c49ce7c33e579e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6e7d53ea4ca0a320cd70563ed982c690fa30542c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681848"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963989"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Esempio di interfaccia della riga di comando: creare e gestire un pool Windows in Azure Batch
 
@@ -38,15 +38,15 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea l'account Batch. |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando. |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Crea un pool di nodi di calcolo.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-set) | Aggiorna le proprietà di un pool.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | Abilita la scalabilità automatica in un pool e applica una formula.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | Visualizza le proprietà di un pool.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-disable) | Disabilita la scalabilità automatica in un pool. |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando. |
+| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Crea un pool di nodi di calcolo.  |
+| [az batch pool set](/cli/azure/batch/pool#az-batch-pool-set) | Aggiorna le proprietà di un pool.  |
+| [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | Abilita la scalabilità automatica in un pool e applica una formula.  |
+| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | Visualizza le proprietà di un pool.  |
+| [az batch pool autoscale disable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-disable) | Disabilita la scalabilità automatica in un pool. |
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).

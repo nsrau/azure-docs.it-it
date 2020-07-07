@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371110"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app gestite da schermo 3270 in mainframe IBM con Azure usando App per la logica di Azure e il connettore IBM 3270
 
 > [!NOTE]
 > Questo connettore è in [*anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Con le app per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere si spostano attraverso le schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con app per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di app per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China 21Vianet. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Con App per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere vengono gestite nelle schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con App per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di App per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China (21Vianet). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 Questo articolo descrive gli aspetti relativi all'uso del connettore 3270: 
 
@@ -43,7 +43,7 @@ Dopo aver generato il file di metadati dallo strumento di progettazione, è nece
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Consigliato: un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 
@@ -81,7 +81,7 @@ In un'app basata su schermo 3270, le schermate e i campi dati sono univoci per g
 
 * **Navigazione**: in questa modalità è possibile specificare il piano o il percorso per spostarsi tra le schermate dell'app mainframe per l'attività specifica.
 
-* **Metodi**: in questa modalità viene definito il metodo, ad esempio `GetBalance`, che descrive il percorso di navigazione della schermata. Si scelgono anche i campi in ogni schermata che diventano i parametri di input e output del metodo.
+* **Metodi**: in questa modalità viene definito il metodo, ad esempio, `GetBalance` che descrive il percorso di navigazione della schermata. Si scelgono anche i campi in ogni schermata che diventano i parametri di input e output del metodo.
 
 ### <a name="unsupported-elements"></a>Elementi non supportati
 
@@ -151,7 +151,7 @@ Per ulteriori informazioni, vedere il [piano di navigazione di esempio](#example
 
 ## <a name="define-navigation-plans"></a>Definire i piani di navigazione
 
-In questa modalità è possibile definire il flusso o i passaggi per spostarsi tra le schermate dell'app mainframe per l'attività specifica. In alcuni casi, ad esempio, si potrebbe avere più di un percorso che l'app può eseguire dove un percorso produce il risultato corretto, mentre l'altro percorso genera un errore. Per ogni schermata, specificare le sequenze di tasti necessarie per il passaggio alla schermata successiva, ad esempio `CICSPROD <enter>`.
+In questa modalità è possibile definire il flusso o i passaggi per spostarsi tra le schermate dell'app mainframe per l'attività specifica. In alcuni casi, ad esempio, si potrebbe avere più di un percorso che l'app può eseguire dove un percorso produce il risultato corretto, mentre l'altro percorso genera un errore. Per ogni schermata, specificare le sequenze di tasti necessarie per il passaggio alla schermata successiva, ad esempio `CICSPROD <enter>` .
 
 > [!TIP]
 > Se si automatizzano diverse attività che usano le stesse schermate di connessione e disconnessione, lo strumento di progettazione fornisce tipi speciali di piani di connessione e disconnessione. Quando si definiscono questi piani, è possibile aggiungerli all'inizio e alla fine del piano di navigazione.
@@ -292,7 +292,7 @@ In questa modalità si definisce un metodo associato al piano di navigazione. Pe
    |---------------|-----------------|
    | **Tipo di dati** | Byte, data e ora, Decimal, int, Long, short, String |
    | **Tecnica di riempimento campo** | I parametri supportano questi tipi di riempimento, inserendo spazi vuoti se necessario: <p><p>- **Tipo**: immettere i caratteri in sequenza nel campo. <p>- **Fill**: sostituisce il contenuto del campo con i caratteri, se necessario, inserendo gli spazi vuoti. <p>- **EraseEofType**: cancellare il campo, quindi immettere i caratteri in sequenza nel campo. |
-   | **Stringa formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa `MM/dd/yyyy`di formato. <p>- **Decimal**: la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` usa la stringa `999V99`di formato. |
+   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa di formato `MM/dd/yyyy` . <p>- **Decimal**: la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvare e visualizzare i metadati
@@ -354,19 +354,19 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
    ![Selezionare l'azione 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e scegliere **Crea**.
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Nome connessione** | Sì | <*Nome connessione*> | Nome per la connessione |
+   | **Connection Name** (Nome connessione) | Sì | <*Nome connessione*> | Nome per la connessione |
    | **ID account di integrazione** | Sì | <*nome-account-integrazione*> | Nome dell'account di integrazione |
    | **URL SAS dell'account di integrazione** | Sì | <*Integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. nel menu dell'account di integrazione in **Impostazioni**selezionare **URL callback**. <br>2. nel riquadro di destra, copiare il valore di **URL callback generato** . |
    | **Server** | Sì | <*TN3270-nome-server*> | Nome del server per il servizio TN3270 |
-   | **Porta** | No | <*TN3270-Server-Port*> | La porta usata dal server TN3270. Se viene lasciato vuoto, il connettore `23` USA come valore predefinito. |
+   | **Porta** | No | <*TN3270-Server-Port*> | La porta usata dal server TN3270. Se viene lasciato vuoto, il connettore USA `23` come valore predefinito. |
    | **Tipo di dispositivo** | No | <*IBM-Terminal-Model*> | Nome o numero del modello per il terminale IBM da emulare. Se viene lasciato vuoto, il connettore usa i valori predefiniti. |
-   | **Tabella codici** | No | <*numero di pagina codice*> | Numero della tabella codici per l'host. Se viene lasciato vuoto, il connettore `37` USA come valore predefinito. |
+   | **Tabella codici** | No | <*numero di pagina codice*> | Numero della tabella codici per l'host. Se viene lasciato vuoto, il connettore USA `37` come valore predefinito. |
    | **Nome unità logica** | No | <*Logical-Unit-Name*> | Nome dell'unità logica specifica da richiedere dall'host |
    | **Abilitare SSL?** | No | On o off | Attivare o disattivare la crittografia TLS. |
    | **Convalidare il certificato SSL host?** | No | On o off | Attivare o disattivare la convalida per il certificato del server. |
@@ -392,7 +392,7 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
    **Selezionare il metodo**
 
-   ![Select (metodo)](./media/connectors-create-api-3270/select-method.png)
+   ![Selezionare il metodo](./media/connectors-create-api-3270/select-method.png)
 
    **Selezionare i parametri**
 

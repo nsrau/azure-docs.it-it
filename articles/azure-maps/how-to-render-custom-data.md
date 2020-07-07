@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335512"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
@@ -37,13 +37,13 @@ Per completare le procedure descritte in questo articolo, è necessario creare p
 > [!Note]
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario s0 o S1.
 
-Il livello S0 dell'account mappe di Azure supporta solo una singola istanza `pins` del parametro. Consente di eseguire il rendering fino a cinque puntine da disegno, specificato nella richiesta URL, con un'immagine personalizzata.
+Il livello S0 dell'account mappe di Azure supporta solo una singola istanza del `pins` parametro. Consente di eseguire il rendering fino a cinque puntine da disegno, specificato nella richiesta URL, con un'immagine personalizzata.
 
 Per eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata, completare i passaggi seguenti:
 
-1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Crea nuova** selezionare **raccolta**. Assegnare un nome alla raccolta e selezionare il pulsante **Crea** . 
+1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta). Assegnare un nome alla raccolta e selezionare **Create** (Crea). 
 
-2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
+2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
     
     ![Creare una richiesta in post](./media/how-to-render-custom-data/postman-new.png)
 
@@ -192,7 +192,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
 
-È possibile modificare l'aspetto dei pin aggiungendo i modificatori di stile. Ad esempio, per fare in modo che puntine da disegno e le relative etichette siano maggiori `sc` o minori, usare il modificatore "Ridimensiona stile". Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+È possibile modificare l'aspetto dei pin aggiungendo i modificatori di stile. Ad esempio, per fare in modo che puntine da disegno e le relative etichette siano maggiori o minori, usare il `sc` modificatore "Ridimensiona stile". Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Seguire questa procedura per eseguire il rendering di un cerchio e puntine da disegno con etichette personalizzate:
@@ -207,7 +207,7 @@ Seguire questa procedura per eseguire il rendering di un cerchio e puntine da di
 
     ![Eseguire il rendering di un cerchio con puntine da disegno personalizzato](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. Per modificare il colore di puntine da disegno dall'ultimo passaggio, modificare il modificatore di stile "co". `pins=default|la15+50|al0.66|lc003C62|co002D62|`Si osservi che il colore corrente viene specificato come #002D62 in CSS. Si desidera modificare il #41d42a. Scrivere il nuovo valore di colore dopo l'identificatore "co", come segue `pins=default|la15+50|al0.66|lc003C62|co41D42A|`:. Crea una nuova richiesta GET:
+2. Per modificare il colore di puntine da disegno dall'ultimo passaggio, modificare il modificatore di stile "co". Si osservi `pins=default|la15+50|al0.66|lc003C62|co002D62|` che il colore corrente viene specificato come #002D62 in CSS. Si desidera modificare il #41d42a. Scrivere il nuovo valore di colore dopo l'identificatore "co", come segue: `pins=default|la15+50|al0.66|lc003C62|co41D42A|` . Crea una nuova richiesta GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
