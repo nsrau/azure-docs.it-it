@@ -1,24 +1,21 @@
 ---
-title: Creare un archivio conoscenze (anteprima) nel portale di Azure
+title: Creare un archivio conoscenze nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Usare l'Importazione guidata dati per creare un archivio conoscenze da usare per persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream. Questa funzionalità è attualmente in anteprima pubblica.
+description: Usare l'Importazione guidata dati per creare un archivio conoscenze da usare per persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 06ddb50173299bbb99518921d1589d2f15b0aa88
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/30/2020
+ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488682"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565312"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Avvio rapido: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
-
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni per l'utilizzo supplementari](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che consente di rendere persistente l'output di una pipeline di elaborazione di contenuto per analisi successive o per l'elaborazione downstream. 
 

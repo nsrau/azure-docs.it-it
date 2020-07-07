@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189284"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
@@ -141,7 +141,7 @@ I dati relativi alle corse dei taxi della città di New York sono costituiti da 
 | tip_class |Categoria mance (0: $ 0, 1: $ 0-5, 2: $ 6-10, 3: $ 11-20, 4: > $ 20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Eseguire il codice da Jupyter Notebook nel cluster Spark
-È possibile avviare il notebook di Jupyter dal portale di Azure. Trovare il cluster Spark nel dashboard e fare clic su di esso per aprire la relativa pagina di gestione. Per aprire il notebook associato al cluster Spark, fare clic su **Dashboard** -> cluster**Jupyter notebook**.
+È possibile avviare il notebook di Jupyter dal portale di Azure. Trovare il cluster Spark nel dashboard e fare clic su di esso per aprire la relativa pagina di gestione. Per aprire il notebook associato al cluster Spark, fare clic su **Dashboard cluster**  ->  **Jupyter notebook**.
 
 ![Dashboard del cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
@@ -164,7 +164,7 @@ A questo punto è possibile:
 
 * Fare clic sul notebook per visualizzare il codice.
 * Eseguire ogni cella premendo **MAIUSC+INVIO**.
-* Eseguire l'intero Notebook facendo clic su **Cell** -> **esecuzione**cella.
+* Eseguire l'intero Notebook facendo clic su **Cell**  ->  **esecuzione**cella.
 * Usare la visualizzazione automatica delle query.
 
 > [!TIP]
@@ -181,5 +181,5 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 
 **Uso dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md).
 
-**Convalida incrociata e sweep di iperparametri**: vedere [esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md) sulla modalità di training dei modelli con la convalida incrociata e lo sweep di iperparametri
+**Convalida incrociata e sweep di iperparametri:** Per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri, vedere [Esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md)
 

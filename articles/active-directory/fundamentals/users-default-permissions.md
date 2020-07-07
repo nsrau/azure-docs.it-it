@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366248"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
@@ -36,7 +36,7 @@ Le autorizzazioni predefinite per gli utenti guest sono restrittive per impostaz
 ------------ | --------- | ----------
 Utenti e contatti | Lettura di tutte le proprietà pubbliche di utenti e contatti<br>Invito di utenti guest<br>Modifica della propria password<br>Gestione del proprio numero di cellulare<br>Gestione della propria foto<br>Invalidare i propri token di aggiornamento | Lettura delle proprietà personali<br>Leggi nome visualizzato, indirizzo di posta elettronica, nome di accesso, foto, nome dell'entità utente e proprietà dei tipi di utente di altri utenti e contatti<br>Modifica della propria password
 Gruppi | Creazione di gruppi di sicurezza<br>Creazione di gruppi di Office 365<br>Lettura di tutte le proprietà dei gruppi<br>Lettura delle appartenenze a gruppi non nascoste<br>Lettura delle appartenenze a gruppi di Office 365 nascoste per il gruppo aggiunto<br>Gestione delle proprietà, della titolarità e dell'appartenenza a gruppi dell'utente<br>Aggiunta di utenti guest ai gruppi con proprietario<br>Gestire delle impostazioni di appartenenza dinamica<br>Eliminazione dei gruppi con proprietario<br>Ripristino dei gruppi di Office 365 con proprietario | Lettura di tutte le proprietà dei gruppi<br>Lettura delle appartenenze a gruppi non nascoste<br>Lettura delle appartenenze a gruppi di Office 365 nascoste per i gruppi aggiunti<br>Gestione dei gruppi con proprietario<br>Aggiunta di utenti guest ai gruppi con proprietario (se consentita)<br>Eliminazione dei gruppi con proprietario<br>Ripristino dei gruppi di Office 365 con proprietario<br>Lettura delle proprietà dei propri gruppi, inclusa l'appartenenza.
-APPLICAZIONI | Registrazione (creazione) di una nuova applicazione<br>Lettura delle proprietà delle applicazioni aziendali e registrate<br>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<br>Creazione o eliminazione della password applicazione per un utente<br>Eliminazione delle applicazioni di proprietà<br>Ripristino delle applicazioni di proprietà | Lettura delle proprietà delle applicazioni aziendali e registrate<br>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<br>Eliminazione delle applicazioni di proprietà<br>Ripristino delle applicazioni di proprietà
+Applicazioni | Registrazione (creazione) di una nuova applicazione<br>Lettura delle proprietà delle applicazioni aziendali e registrate<br>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<br>Creazione o eliminazione della password applicazione per un utente<br>Eliminazione delle applicazioni di proprietà<br>Ripristino delle applicazioni di proprietà | Lettura delle proprietà delle applicazioni aziendali e registrate<br>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<br>Eliminazione delle applicazioni di proprietà<br>Ripristino delle applicazioni di proprietà
 Dispositivi | Lettura di tutte le proprietà dei dispositivi<br>Gestione di tutte le proprietà dei dispositivi con proprietario<br> | Nessuna autorizzazione<br>Eliminazione dei dispositivi con proprietario<br>
 Directory | Lettura di tutte le informazioni aziendali<br>Lettura di tutti i domini<br>Lettura di tutti i contratti dei partner | Lettura del nome visualizzato e dei domini verificati
 Ruoli e ambiti | Lettura di tutti i ruoli amministrativi e delle appartenenze<br>Lettura di tutte le proprietà e dell'appartenenza delle unità amministrative | Nessuna autorizzazione 
@@ -73,64 +73,64 @@ Le tabelle seguenti descrivono le autorizzazioni specifiche in Azure Active Dire
 #### <a name="owned-application-registrations"></a>Registrazioni di applicazioni di proprietà
 Gli utenti possono eseguire le azioni seguenti per le registrazioni di applicazioni di proprietà.
 
-| **Azioni** | **Descrizione** |
+| **Actions** | **Descrizione** |
 | --- | --- |
-| Microsoft. directory/applicazioni/destinatari/aggiornamento | Aggiornare la proprietà applications.audience in Azure Active Directory. |
-| Microsoft. directory/Applications/Authentication/Update | Aggiornare la proprietà applications.authentication in Azure Active Directory. |
-| Microsoft. directory/Applications/Basic/Update | Aggiornare le proprietà di base per le applicazioni in Azure Active Directory. |
-| Microsoft. directory/applicazioni/credenziali/aggiornamento | Aggiornare la proprietà applications.credentials in Azure Active Directory. |
-| Microsoft. directory/applicazioni/eliminazione | Eliminare applicazioni in Azure Active Directory. |
-| Microsoft. directory/applicazioni/proprietari/aggiornamento | Aggiornare la proprietà applications.owners in Azure Active Directory. |
-| Microsoft. directory/applicazioni/autorizzazioni/aggiornamento | Aggiornare la proprietà applications.permissions in Azure Active Directory. |
-| Microsoft. directory/Applications/Policies/Update | Aggiornare la proprietà applications.policies in Azure Active Directory. |
+| microsoft.directory/applications/audience/update | Aggiornare la proprietà applications.audience in Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Aggiornare la proprietà applications.authentication in Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Aggiornare le proprietà di base per le applicazioni in Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Aggiornare la proprietà applications.credentials in Azure Active Directory. |
+| microsoft.directory/applications/delete | Eliminare applicazioni in Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Aggiornare la proprietà applications.owners in Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Aggiornare la proprietà applications.permissions in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Aggiornare la proprietà applications.policies in Azure Active Directory. |
 | Microsoft. directory/applicazioni/ripristino | Ripristina le applicazioni in Azure Active Directory. |
 
 #### <a name="owned-enterprise-applications"></a>Applicazioni aziendali di proprietà
 Gli utenti possono eseguire le azioni seguenti nelle applicazioni aziendali di proprietà. Un'applicazione aziendale è costituita da un'entità servizio, uno o più criteri di applicazione e talvolta da un oggetto applicazione nello stesso tenant dell'entità servizio.
 
-| **Azioni** | **Descrizione** |
+| **Actions** | **Descrizione** |
 | --- | --- |
-| Microsoft. directory/auditLogs/allProperties/Read | Leggere tutte le proprietà (incluse quelle con privilegi) per auditLogs in Azure Active Directory. |
-| Microsoft. directory/Policies/Basic/Update | Aggiornare le proprietà di base sui criteri in Azure Active Directory. |
-| Microsoft. directory/criteri/Elimina | Eliminare criteri in Azure Active Directory. |
-| Microsoft. directory/Policies/owners/Update | Aggiornare la proprietà policies.owners in Azure Active Directory. |
-| Microsoft. directory/entità servizio/appRoleAssignedTo/Update | Aggiornare la proprietà servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
-| Microsoft. directory/entità servizio/appRoleAssignments/Update | Aggiornare la proprietà users.appRoleAssignments in Azure Active Directory. |
-| Microsoft. directory/entità servizio/audience/Update | Aggiornare la proprietà servicePrincipals.audience in Azure Active Directory. |
-| Microsoft. directory/entità servizio/Authentication/Update | Aggiornare la proprietà servicePrincipals.authentication in Azure Active Directory. |
-| Microsoft. directory/entità servizio/Basic/Update | Aggiornare le proprietà di base su servicePrincipals in Azure Active Directory. |
-| Microsoft. directory/entità servizio/Credentials/Update | Aggiornare la proprietà servicePrincipals.credentials in Azure Active Directory. |
-| Microsoft. directory/entità servizio/Delete | Eliminare servicePrincipals in Azure Active Directory. |
-| Microsoft. directory/entità servizio/owners/Update | Aggiornare la proprietà servicePrincipals.owners in Azure Active Directory. |
-| Microsoft. directory/entità servizio/autorizzazioni/aggiornamento | Aggiornare la proprietà servicePrincipals.permissions in Azure Active Directory. |
-| Microsoft. directory/entità servizio/Policies/Update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
-| Microsoft. directory/signInReports/allProperties/Read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per auditLogs in Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Aggiornare le proprietà di base sui criteri in Azure Active Directory. |
+| microsoft.directory/policies/delete | Eliminare criteri in Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Aggiornare la proprietà policies.owners in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Aggiornare la proprietà servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Aggiornare la proprietà users.appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Aggiornare la proprietà servicePrincipals.audience in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Aggiornare la proprietà servicePrincipals.authentication in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Aggiornare le proprietà di base su servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Aggiornare la proprietà servicePrincipals.credentials in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Eliminare servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Aggiornare la proprietà servicePrincipals.owners in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Aggiornare la proprietà servicePrincipals.permissions in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 
 #### <a name="owned-devices"></a>Dispositivi di proprietà
 Gli utenti possono eseguire le azioni seguenti nei dispositivi di proprietà.
 
-| **Azioni** | **Descrizione** |
+| **Actions** | **Descrizione** |
 | --- | --- |
-| Microsoft. directory/devices/bitLockerRecoveryKeys/Read | Leggere la proprietà devices.bitLockerRecoveryKeys in Azure Active Directory. |
-| Microsoft. directory/devices/Disable | Disabilitare i dispositivi in Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Leggere la proprietà devices.bitLockerRecoveryKeys in Azure Active Directory. |
+| microsoft.directory/devices/disable | Disabilitare i dispositivi in Azure Active Directory. |
 
 #### <a name="owned-groups"></a>Gruppi di proprietà
 Gli utenti possono eseguire le azioni seguenti nei gruppi di proprietà.
 
-| **Azioni** | **Descrizione** |
+| **Actions** | **Descrizione** |
 | --- | --- |
-| Microsoft. directory/groups/appRoleAssignments/Update | Aggiornare la proprietà groups.appRoleAssignments in Azure Active Directory. |
-| Microsoft. directory/groups/Basic/Update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/Delete | Eliminare gruppi in Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/update | Aggiornare la proprietà groups.appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
+| microsoft.directory/groups/delete | Eliminare gruppi in Azure Active Directory. |
 | Microsoft. directory/groups/dynamicMembershipRule/Update | Aggiornare la proprietà groups.dynamicMembershipRule in Azure Active Directory. |
-| Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |
-| Microsoft. Directory/gruppi/proprietari/aggiornamento | Aggiornare la proprietà groups.owners in Azure Active Directory. |
-| Microsoft. Directory/gruppi/ripristino | Ripristinare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/Impostazioni/aggiornamento | Aggiornare la proprietà groups.settings in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Aggiornare la proprietà groups.members in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Aggiornare la proprietà groups.owners in Azure Active Directory. |
+| microsoft.directory/groups/restore | Ripristinare gruppi in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Aggiornare la proprietà groups.settings in Azure Active Directory. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su come assegnare i ruoli di amministratore di Azure AD, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-* [Gestisci utenti](add-users-azure-active-directory.md)
+* [Gestire gli utenti](add-users-azure-active-directory.md)

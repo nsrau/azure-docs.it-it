@@ -1,5 +1,5 @@
 ---
-title: Risorse supportate per Azure Red Hat OpenShift 3,11
+title: Risorse supportate per Azure Red Hat OpenShift 3.11
 description: Informazioni sulle aree di Azure e sulle dimensioni delle macchine virtuali supportate da Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203676"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Risorse di Azure Red Hat OpenShift
@@ -34,7 +34,7 @@ Di seguito sono riportate le dimensioni delle macchine virtuali supportate che Ã
 
 Le dimensioni dei nodi di calcolo seguenti sono supportate dall'API REST di Azure Red Hat OpenShift:
 
-|Dimensioni|vCPU|RAM|
+|Dimensione|vCPU|RAM|
 |-|-|-|
 |D4S standard V3|4|16 GB|
 |D8S standard V3|8|32 GB|
@@ -54,7 +54,7 @@ Le dimensioni dei nodi di calcolo seguenti sono supportate dall'API REST di Azur
 
 Le dimensioni dei nodi master/infrastruttura seguenti sono supportate dall'API REST di Azure Red Hat OpenShift:
 
-|Dimensioni|vCPU|RAM|
+|Dimensione|vCPU|RAM|
 |-|-|-|
 |D4S standard V3|4|16 GB|
 |D8S standard V3|8|32 GB|

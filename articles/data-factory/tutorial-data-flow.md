@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418678"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando il mapping dei flussi di dati
@@ -36,14 +36,14 @@ In questa esercitazione vengono completati i passaggi seguenti:
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Si usa l'archiviazione ADLS come archivi dati di *origine* e *sink* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) per informazioni su come crearne uno.
 
-Il file che si sta trasformando in questa esercitazione è MoviesDB. csv, disponibile [qui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Per recuperare il file da GitHub, copiare il contenuto in un editor di testo di propria scelta per salvarlo localmente come file con estensione CSV. Per caricare il file nell'account di archiviazione, vedere [caricare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Gli esempi faranno riferimento a un contenitore denominato "Sample-Data".
+Il file che si sta trasformando in questa esercitazione è MoviesDB.csv, disponibile [qui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Per recuperare il file da GitHub, copiare il contenuto in un editor di testo di propria scelta per salvarlo localmente come file con estensione CSV. Per caricare il file nell'account di archiviazione, vedere [caricare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Gli esempi faranno riferimento a un contenitore denominato "Sample-Data".
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
 In questo passaggio si crea una data factory e si apre l'Data Factory UX per creare una pipeline nell'data factory.
 
 1. Aprire **Microsoft Edge** o **Google Chrome**. Attualmente, Data Factory interfaccia utente è supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **analisi** > **Data Factory**:
+2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**:
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -62,7 +62,7 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
-8. Selezionare **Create** (Crea).
+8. Selezionare **Crea**.
 9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
 10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
@@ -75,7 +75,7 @@ In questo passaggio verrà creata una pipeline che contiene un'attività flusso 
    ![Creare una pipeline](./media/doc-common-process/get-started-page.png)
 
 1. Nella scheda **generale** della pipeline immettere **TransformMovies** per **nome** della pipeline.
-1. Nella barra superiore della Factory scorrere il dispositivo di scorrimento **debug del flusso di dati** . La modalità di debug consente il test interattivo della logica di trasformazione in un cluster Spark attivo. I cluster di flussi di dati impiegano 5-7 minuti per il riscaldamento e si consiglia agli utenti di attivare prima il debug se pianificano lo sviluppo del flusso di dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
+1. Nella barra superiore della Factory scorrere il dispositivo di scorrimento **debug del flusso di dati** . La modalità di debug consente il test interattivo della logica di trasformazione in un cluster Spark attivo. I cluster di flussi di dati impiegano 5-7 minuti per il riscaldamento e si consiglia agli utenti di attivare prima il debug se pianificano lo sviluppo del flusso di dati. Per altre informazioni, vedere [Modalità di debug](concepts-data-flow-debug-mode.md).
 
     ![Attività flusso di dati](media/tutorial-data-flow/dataflow1.png)
 1. Nel riquadro **attività** espandere l'accordo di **spostamento e trasformazione** . Trascinare e rilasciare l'attività **flusso di dati** dal riquadro nell'area di disegno della pipeline.
@@ -87,7 +87,7 @@ In questo passaggio verrà creata una pipeline che contiene un'attività flusso 
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logica di trasformazione compilazione nell'area di disegno del flusso di dati
 
-Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di disegno del flusso di dati. In questo passaggio verrà compilato un flusso di dati che accetta il moviesDB. CSV nell'archiviazione ADLS e aggrega la valutazione media di Comedie da 1910 a 2000. Il file verrà quindi scritto nuovamente nell'archivio ADLS.
+Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di disegno del flusso di dati. In questo passaggio verrà compilato un flusso di dati che accetta il moviesDB.csv nell'archiviazione ADLS e aggrega la valutazione media di Comedie da 1910 a 2000. Il file verrà quindi scritto nuovamente nell'archivio ADLS.
 
 1. Nell'area di disegno del flusso di dati aggiungere un'origine facendo clic sulla casella **Aggiungi origine** .
 
@@ -107,7 +107,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 1. Nella schermata di creazione del servizio collegato denominare il servizio collegato ADLS Gen2 **ADLSGen2** e specificare il metodo di autenticazione. Immettere quindi le credenziali di connessione. In questa esercitazione viene usata la chiave dell'account per connettersi all'account di archiviazione. È possibile fare clic su **Test connessione** per verificare che le credenziali siano state immesse correttamente. Al termine, fare clic su Crea.
 
     ![Servizio collegato](media/tutorial-data-flow/ls1.png)
-1. Quando si torna alla schermata di creazione del set di dati, immettere dove si trova il file nel campo **percorso file** . In questa esercitazione il file moviesDB. csv si trova in container Sample-Data. Quando il file contiene intestazioni, controllare la **prima riga come intestazione**. Selezionare **da connessione/archivio** per importare lo schema dell'intestazione direttamente dal file nella risorsa di archiviazione. Fare clic su OK al termine dell'operazione.
+1. Quando si torna alla schermata di creazione del set di dati, immettere dove si trova il file nel campo **percorso file** . In questa esercitazione il file moviesDB.csv si trova in container Sample-Data. Quando il file contiene intestazioni, controllare la **prima riga come intestazione**. Selezionare **da connessione/archivio** per importare lo schema dell'intestazione direttamente dal file nella risorsa di archiviazione. Fare clic su OK al termine dell'operazione.
 
     ![Set di dati](media/tutorial-data-flow/dataset4.png)
 1. Se il cluster di debug è stato avviato, passare alla scheda **Anteprima dati** della trasformazione origine e fare clic su **Aggiorna** per ottenere uno snapshot dei dati. È possibile utilizzare l'anteprima dati per verificare che la trasformazione sia configurata correttamente.
@@ -118,7 +118,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
     ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow5.png)
 1. Assegnare un nome alla trasformazione filtro **FilterYears**. Fare clic sulla casella espressione accanto a applica **filtro** per aprire Generatore di espressioni. Qui si specificherà la condizione di filtro.
 
-    ![Filtro](media/tutorial-data-flow/filter1.png)
+    ![Filtra](media/tutorial-data-flow/filter1.png)
 1. Il generatore di espressioni del flusso di dati consente di compilare in modo interattivo espressioni da usare in diverse trasformazioni. Le espressioni possono includere funzioni predefinite, colonne dello schema di input e parametri definiti dall'utente. Per ulteriori informazioni su come compilare espressioni, vedere [Generatore di espressioni del flusso di dati](concepts-data-flow-expression-builder.md).
 
     In questa esercitazione si vogliono filtrare i film di genere Comedy che hanno avuto come risultato tra gli anni 1910 e 2000. Come Year è attualmente una stringa, è necessario convertirla in un Integer usando la ```toInteger()``` funzione. Utilizzare gli operatori maggiore di o uguale a (>=) e minore o uguale a (<=) per confrontare i valori letterali anno 1910 e 200-. Unire queste espressioni con l'operatore and (&&). L'espressione viene visualizzata come segue:
@@ -131,13 +131,13 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
     Se si dispone di un cluster di debug attivo, è possibile verificare la logica facendo clic su **Aggiorna** per visualizzare l'output delle espressioni rispetto agli input utilizzati. Esiste più di una risposta giusta su come eseguire questa logica usando il linguaggio delle espressioni del flusso di dati.
 
-    ![Filtro](media/tutorial-data-flow/filter2.png)
+    ![Filtra](media/tutorial-data-flow/filter2.png)
 
     Al termine dell'espressione, fare clic su **Salva e fine** .
 
 1. Recuperare un' **anteprima dei dati** per verificare che il filtro funzioni correttamente.
 
-    ![Filtro](media/tutorial-data-flow/filter3.png)
+    ![Filtra](media/tutorial-data-flow/filter3.png)
 1. La trasformazione successiva che verrà aggiunta è una trasformazione **aggregazione** nel **modificatore dello schema**.
 
     ![Aggregate](media/tutorial-data-flow/agg1.png)
@@ -147,7 +147,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 1. Passare alla scheda **aggregazioni** . Nella casella di testo a sinistra, denominare la colonna aggregata **AverageComedyRating**. Fare clic sulla casella espressione a destra per immettere l'espressione di aggregazione tramite Generatore di espressioni.
 
     ![Aggregate](media/tutorial-data-flow/agg3.png)
-1. Per ottenere la media della **classificazione**di colonna, utilizzare ```avg()``` la funzione di aggregazione. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la ```toInteger()``` funzione. Questa espressione è simile a quanto segue:
+1. Per ottenere la media della **classificazione**di colonna, utilizzare la ```avg()``` funzione di aggregazione. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la ```toInteger()``` funzione. Questa espressione è simile a quanto segue:
 
     ```avg(toInteger(Rating))```
 

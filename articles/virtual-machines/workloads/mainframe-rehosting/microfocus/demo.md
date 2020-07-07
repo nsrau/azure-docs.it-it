@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80411081"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare la microfocus CICS BankDemo per Micro Focus Enterprise Developer 4,0 in Azure
@@ -78,7 +78,7 @@ Dopo aver installato Enterprise Developer 4,0 nella macchina virtuale, è necess
 
 8. Dopo aver selezionato tutte le opzioni, fare clic su **Avanti** per installare.
 
-9. Dopo le funzionalità di Windows, passare a **pannello \> di controllo sistema \> e strumenti di amministrazione sicurezza**e selezionare **Servizi**. Scorrere verso il basso e verificare che i servizi seguenti siano in esecuzione e impostati su **automatico**:
+9. Dopo le funzionalità di Windows, passare a **Pannello di controllo \> sistema e \> strumenti di amministrazione sicurezza**e selezionare **Servizi**. Scorrere verso il basso e verificare che i servizi seguenti siano in esecuzione e impostati su **automatico**:
 
     - **NetTcpPortSharing**
     - **Adattatore listener Net.Pipe**
@@ -98,7 +98,7 @@ Alcuni processi server aziendali devono essere in grado di accedere SQL Server e
 
 2. A sinistra espandere la cartella **sicurezza** e selezionare account di **accesso**.
 
-3. Selezionare **NT Authority\\System** e selezionare **proprietà**.
+3. Selezionare **NT Authority \\ System** e selezionare **proprietà**.
 
 4. Selezionare **ruoli server** e controllare **sysadmin**.
 
@@ -106,7 +106,7 @@ Alcuni processi server aziendali devono essere in grado di accedere SQL Server e
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Creare il database BankDemo e tutti i relativi oggetti
 
-1. Aprire **Esplora risorse** e passare a **C:\\utenti\\Public\\Documents\\Micro\\Focus Enterprise\\Developer\\Samples\\mainframe\\\\CICS\\DotNet BankDemo SQL**.
+1. Aprire **Esplora risorse** e passare a **C: \\ utenti \\ public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ BankDemo \\ SQL**.
 
 2. Copiare il contenuto del file **BankDemoCreateAll. SQL** negli Appunti.
 
@@ -132,7 +132,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
 1. Aprire Visual Studio e accedere.
 
-2. Nell'opzione di menu **file** selezionare **Apri progetto/soluzione**, passare a **C:\\utenti\\Public\\Documents\\Micro Focus\\Enterprise Developer\\Samples\\\\\\\\mainframe CICS DotNet BankDemo**e selezionare il file **sln** .
+2. Nell'opzione di menu **file** selezionare **Apri progetto/soluzione**, passare a **C: \\ utenti \\ public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ BankDemo**e selezionare il file **sln** .
 
 3. Esaminare gli oggetti. I programmi COBOL sono visualizzati in Esplora soluzioni con l'estensione CBL insieme a quaderni (CPY) e JCL.
 
@@ -154,7 +154,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
 1. Aprire un prompt dei comandi di Enterprise Developer (64 bit) come amministratore.
 
-2. Passare a **% public%\\Documents\\Micro Focus\\Enterprise Developer\\\\Samples\\mainframe\\CICS\\DotNet BankDemo**.
+2. Passare a **% public% \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ BankDemo**.
 
 3. Al prompt dei comandi eseguire **bankdemodbdeploy** e includere il parametro per il database in cui eseguire la distribuzione, ad esempio:
 
@@ -163,7 +163,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
     ```
 
 > [!NOTE]
-> Assicurarsi di usare una barra (/) e non una barra rovesciata (\\). Questo script viene eseguito per un periodo di tempo.
+> Assicurarsi di usare una barra (/) e non una barra rovesciata ( \\ ). Questo script viene eseguito per un periodo di tempo.
 
 ![Amministrazione: finestra Prompt dei comandi per gli sviluppatori Enterprise](media/06-demo-cmd.png)
 
@@ -181,7 +181,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
      ![Finestra di dialogo Definisci area](media/07-demo-cics.png)
 
-6. Per selezionare il file di definizione dell'area per il database tra più aree **,\_individuare\_Region bankdemo DB. config** in **\\C\\:\\Users\\Public Documents Micro\\Focus\\\\Enterprise\\Developer\\\\Samples mainframe CICS DotNet bankdemo**.
+6. Per selezionare il file di definizione dell'area per il database tra più aree, individuare **Region \_ bankdemo \_db.config** in **C: \\ Users \\ public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ bankdemo**.
 
      ![Definisci regione-nome area: BANKDEMO](media/08-demo-cics.png)
 
@@ -195,13 +195,13 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
 3. Nella casella di riepilogo a discesa selezionare **istanza del servizio di database**. Sarà il computer locale SQLEXPRESS.
 
-4. Selezionare l'istanza nel contenitore delle **definizioni di risorse XA (\\MachineName SQLEXPRESS)** e fare clic su **Aggiungi**.
+4. Selezionare l'istanza nel contenitore delle **definizioni di risorse XA (MachineName \\ SQLEXPRESS)** e fare clic su **Aggiungi**.
 
 5. Selezionare **database XA Resource Definition** , quindi digitare **BANKDEMO** per **nome** e **area**.
 
      ![Schermata nuova definizione risorsa XA database](media/09-demo-xa.png)
 
-6. Fare clic sui puntini di sospensione (**..**.) per visualizzare la creazione guidata stringa di connessione. Per **nome server**Digitare **(local\\) SQLEXPRESS**. Per **accesso**selezionare **autenticazione di Windows**. Per nome database digitare **BANKDEMO**
+6. Fare clic sui puntini di sospensione (**..**.) per visualizzare la creazione guidata stringa di connessione. Per **nome server**Digitare **(local) \\ SQLEXPRESS**. Per **accesso**selezionare **autenticazione di Windows**. Per nome database digitare **BANKDEMO**
 
      ![Schermata Modifica stringa di connessione](media/10-demo-string.png)
 
@@ -230,7 +230,7 @@ Creare un listener per le sessioni TN3270 che accedono all'applicazione BankDemo
 
 1. Nel riquadro sinistro espandere **Editor configurazione** e selezionare **listener**.
 
-2. Fare clic sull'icona **Apri file** e selezionare il file **seelistener. exe. config** . Questo file verrà modificato e caricato ogni volta che viene avviato Enterprise Server.
+2. Fare clic sull'icona **Apri file** e selezionare il file **seelistener.exe.config** . Questo file verrà modificato e caricato ogni volta che viene avviato Enterprise Server.
 
 3. Si notino le due aree definite in precedenza (ESDEMO e JCLDEMO).
 
@@ -265,8 +265,8 @@ L'ultima cosa da fare è configurare una sessione 3270 usando Rumba, un emulator
 
 6. Per User ID digitare **B0001** e per la password digitare anything. Viene visualizzata la prima schermata BANK20.
 
-![Visualizzazione del mainframe visualizzazione](media/14-demo.png)
-![del mainframe schermata iniziale-Rumba-schermata di dimostrazione del sottosistema](media/15-demo.png)
+![Visualizzazione del mainframe visualizzazione del mainframe schermata iniziale ](media/14-demo.png)
+ ![ -Rumba-schermata di dimostrazione del sottosistema](media/15-demo.png)
 
 Congratulazioni! Viene ora eseguita un'applicazione CICS in Azure usando Micro Focus Enterprise Server.
 

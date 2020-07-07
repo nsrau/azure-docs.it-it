@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261444"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559017"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Esercitazione: Indicizzare i BLOB JSON da Archiviazione di Azure con le API REST
 
@@ -112,13 +112,13 @@ In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-
 
   ![Intestazione e URL della richiesta Postman](media/search-get-started-postman/postman-url.png "Intestazione e URL della richiesta Postman")
 
-Gli URI devono specificare una versione API e ogni chiamata deve restituire un messaggio di creazione riuscita con codice **201**. La versione API disponibile a livello generale per l'uso delle matrici JSON è `2019-05-06`.
+Gli URI devono specificare una versione API e ogni chiamata deve restituire un messaggio di creazione riuscita con codice **201**. La versione API disponibile a livello generale per l'uso delle matrici JSON è `2020-06-30`.
 
 ## <a name="3---create-a-data-source"></a>3 - Creare un'origine dati
 
 L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un oggetto Ricerca cognitiva di Azure che specifica quali dati indicizzare.
 
-1. Impostare l'endpoint di questa chiamata su `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca. 
+1. Impostare l'endpoint di questa chiamata su `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Sostituire `[service name]` con il nome del servizio di ricerca. 
 
 1. Copiare il codice JSON seguente nel corpo della richiesta.
 
@@ -161,7 +161,7 @@ L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searc
     
 La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index) che crea un indice di Ricerca cognitiva di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
 
-1. Impostare l'endpoint di questa chiamata su `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca.
+1. Impostare l'endpoint di questa chiamata su `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
 1. Copiare il codice JSON seguente nel corpo della richiesta.
 
@@ -236,7 +236,7 @@ La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.c
 
 Un indicizzatore si connette all'origine dati, importa i dati nell'indice di ricerca di destinazione e facoltativamente fornisce una pianificazione per automatizzare l'aggiornamento dei dati. L'API REST è [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Impostare l'URI per questa chiamata su `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca.
+1. Impostare l'URI per questa chiamata su `https://[service name].search.windows.net/indexers?api-version=2020-06-30`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
 1. Copiare il codice JSON seguente nel corpo della richiesta.
 
@@ -281,7 +281,7 @@ Un indicizzatore si connette all'origine dati, importa i dati nell'indice di ric
 
 1. Cambiare il verbo in **GET**.
 
-1. Impostare l'URI per questa chiamata su `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Sostituire `[service name]` con il nome del servizio di ricerca.
+1. Impostare l'URI per questa chiamata su `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
 1. Inviare la richiesta. Si tratta di una query di ricerca full-text non specificata che restituisce tutti i campi contrassegnati come recuperabili nell'indice, insieme al numero di documenti. La risposta dovrebbe essere simile alla seguente:
 
@@ -313,7 +313,7 @@ Un indicizzatore si connette all'origine dati, importa i dati nell'indice di ric
             . . . 
     ```
 
-1. Aggiungere il parametro di query `$select` per limitare i risultati a un minor numero di campi: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  Per questa query, anche se viene trovata la corrispondenza per 100 documenti, per impostazione predefinita Ricerca cognitiva di Azure ne restituisce solo 50 nei risultati.
+1. Aggiungere il parametro di query `$select` per limitare i risultati a un minor numero di campi: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Per questa query, anche se viene trovata la corrispondenza per 100 documenti, per impostazione predefinita Ricerca cognitiva di Azure ne restituisce solo 50 nei risultati.
 
    ![Query con parametri](media/search-semi-structured-data/lastquery.png "Query con parametri")
 
@@ -333,7 +333,7 @@ Nelle prime fasi sperimentali di sviluppo l'approccio più pratico per le iteraz
 È possibile usare il portale per eliminare indici, indicizzatori e origini dati. In alternativa, usare il comando **DELETE** e specificare gli URL per ogni oggetto. Il comando seguente elimina un indicizzatore.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 In caso di corretto completamento dell'eliminazione viene restituito il codice di stato 204.

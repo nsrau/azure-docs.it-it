@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422424"
 ---
 # <a name="linux-support"></a>Supporto di Linux
@@ -38,7 +38,7 @@ I seguenti partner hanno approvato i client desktop virtuali Windows per i dispo
 
 L'SDK è compatibile con la maggior parte dei sistemi operativi basati su Ubuntu 18,04 o versioni successive. Se si dispone di una distribuzione Linux diversa, è possibile collaborare con l'utente per scoprire come supportare al meglio le proprie esigenze.
 
-### <a name="feature-support"></a>Supporto delle funzionalità
+### <a name="feature-support"></a>Supporto funzionalità
 
 L'SDK supporta più connessioni a sessioni di applicazioni desktop e remote. Sono supportati i seguenti reindirizzamenti:
 

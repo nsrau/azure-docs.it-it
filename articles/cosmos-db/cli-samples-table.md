@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560611"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Esempi dell'interfaccia della riga di comando di Azure per l'API Tabella di Azure Cosmos DB
 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per l'API Tabella di Azure Cosmos DB. Per tutti i comandi dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili pagine di riferimento in [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/cosmosdb). Tutti gli esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nel [repository GitHub dell'interfaccia della riga di comando di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Attività | Descrizione |
 |---|---|
 | [Creare un account e una tabella di Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creare un account e una tabella di Azure Cosmos DB per l'API Tabella. |
 | [Cambiare il numero di unità elaborate](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Aggiornare il valore di UR/s in una tabella.|

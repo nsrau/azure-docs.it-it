@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410550"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Come usare Twilio per le funzionalità voce ed SMS in PHP
@@ -28,7 +28,7 @@ Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che cons
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere messaggi di testo. **Twilio Client** consente di effettuare chiamate VoIP da qualsiasi telefono, tablet o browser e supporta WebRTC.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-I clienti di Azure riceveranno un' [offerta speciale](https://www.twilio.com/azure): $ 10 di credito Twilio all'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscattare il credito Twilio e iniziare a: [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+I clienti di Azure riceveranno un' [offerta speciale](https://www.twilio.com/azure): $ 10 di credito Twilio all'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscattare il credito Twilio e iniziare a: [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure) .
 
 Twilio è un servizio con pagamento in base al consumo. Non prevede spese iniziali ed è possibile chiudere l'account in qualsiasi momento. Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio).
 
@@ -38,20 +38,20 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbi Twilio
-L'API usa i verbi Twilio; il ** &lt;verbo Say&gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
+L'API usa i verbi Twilio; il verbo ** &lt; Say &gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio. Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa al linguaggio di markup Twilio](https://www.twilio.com/docs/api/twiml).
 
-* Dial: connette il chiamante a un altro telefono. ** &lt;&gt;**
-* Raccolta: raccoglie le cifre numeriche immesse sul tastierino telefonico. ** &lt;&gt;**
-* Hangup: termina una chiamata. ** &lt;&gt;**
-* Play: riproduce un file audio. ** &lt;&gt;**
-* Pause: attende in modo invisibile all'utente un numero di secondi specificato. ** &lt;&gt;**
-* Record: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione. ** &lt;&gt;**
-* Reindirizzamento: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso. ** &lt;&gt;**
-* Rifiuta: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione ** &lt;&gt;**
-* Say: converte il testo in sintesi vocale eseguita in una chiamata. ** &lt;&gt;**
-* SMS: Invia un messaggio SMS. ** &lt;&gt;**
+* ** &lt; Dial &gt; **: connette il chiamante a un altro telefono.
+* ** &lt; Raccolta &gt; **: raccoglie le cifre numeriche immesse sul tastierino telefonico.
+* ** &lt; Hangup &gt; **: termina una chiamata.
+* ** &lt; Play &gt; **: riproduce un file audio.
+* ** &lt; Pause &gt; **: attende in modo invisibile all'utente un numero di secondi specificato.
+* ** &lt; Record &gt; **: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione.
+* ** &lt; Reindirizzamento &gt; **: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso.
+* ** &lt; Rifiuta &gt; **: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione
+* ** &lt; Say &gt; **: converte il testo in sintesi vocale eseguita in una chiamata.
+* ** &lt; SMS &gt; **: Invia un messaggio SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML e sui verbi Twilio che indicano a Twilio come elaborare una chiamata o un SMS.
@@ -73,14 +73,14 @@ Se si desidera creare un account Twilio, iscriversi nella pagina [Try Twilio][tr
 Quando si effettua l'iscrizione a un account Twilio, si riceverà un ID account e un token di autenticazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. L'ID account e il token di autorizzazione sono visualizzabili nella [pagina dell'account Twilio][twilio_account], rispettivamente nei campi **ACCOUNT SID** (SID ACCOUNT) e **AUTH TOKEN** (TOKEN AUTORIZZAZIONE).
 
 ## <a name="create-a-php-application"></a><a id="create_app"></a>Creare un'applicazione PHP
-Un'applicazione PHP che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione PHP che usa il servizio Twilio. I servizi Twilio sono basati su REST e possono essere chiamati da PHP in diversi modi. Questo articolo, tuttavia, illustra solo come usare i servizi Twilio con la [libreria Twilio per PHP da GitHub][twilio_php]. Per ulteriori informazioni sull'utilizzo della libreria Twilio per PHP, vedere [https://www.twilio.com/docs/libraries/php][twilio_lib_docs].
+Un'applicazione PHP che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione PHP che usa il servizio Twilio. I servizi Twilio sono basati su REST e possono essere chiamati da PHP in diversi modi. Questo articolo, tuttavia, illustra solo come usare i servizi Twilio con la [libreria Twilio per PHP da GitHub][twilio_php]. Per ulteriori informazioni sull'utilizzo della libreria Twilio per PHP, vedere [https://www.twilio.com/docs/libraries/php][twilio_lib_docs] .
 
 Per istruzioni dettagliate sulla creazione e sulla distribuzione di un'applicazione Twilio/PHP in Azure, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione PHP in Azure][howto_phonecall_php].
 
 ## <a name="configure-your-application-to-use-twilio-libraries"></a><a id="configure_app"></a>Configurare l'applicazione per l'uso delle librerie Twilio
 È possibile configurare l'applicazione in modo che usi la libreria Twilio per PHP in due modi:
 
-1. Scaricare la libreria Twilio per PHP da GitHub ([https://github.com/twilio/twilio-php][twilio_php]) e aggiungere la directory **Services** all'applicazione.
+1. Scaricare la libreria Twilio per PHP da GitHub ( [https://github.com/twilio/twilio-php][twilio_php] ) e aggiungere la directory **Services** all'applicazione.
    
     -OPPURE-
 2. Installare la libreria Twilio per PHP come pacchetto PEAR. È possibile eseguire l'installazione tramite i comandi seguenti:
@@ -92,7 +92,7 @@ Dopo avere installato la libreria Twilio per PHP, sarà possibile aggiungere un'
 
         require_once 'Services/Twilio.php';
 
-Per ulteriori informazioni, vedere [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
+Per altre informazioni, vedere [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Procedura: Effettuare una chiamata in uscita
 Di seguito è illustrato come effettuare una chiamata in uscita tramite la classe **Services_Twilio**. Questo codice utilizza inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori per i numeri di telefono **From** e **To** e assicurarsi di verificare il numero di telefono in **From** per l'account Twilio prima di eseguire il codice.
@@ -172,7 +172,7 @@ Nella schermata seguente è illustrato come inviare un SMS tramite la classe **S
     }
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
-Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL [https://twimlets.com/message][twimlet_message_url]fornito da Twilio. Poiché TwiML è progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, fare [https://twimlets.com/message][twimlet_message_url] clic per visualizzare un `<Response>` elemento vuoto; come altro esempio, fare [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] clic per visualizzare `<Response>` un elemento che contiene `<Say>` un elemento.
+Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [https://twimlets.com/message][twimlet_message_url] . Poiché TwiML è progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, fare clic per [https://twimlets.com/message][twimlet_message_url] visualizzare un `<Response>` elemento vuoto; come altro esempio, fare clic [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un `<Response>` elemento che contiene un `<Say>` elemento.
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte XML. In questo argomento si presuppone che si userà PHP per creare TwiML.
 
@@ -194,7 +194,7 @@ Come si evince dal codice riportato sopra, la risposta TwiML è semplicemente un
     $response->say("Hello world.");
     print $response;
 
-Per ulteriori informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml_reference]. 
+Per ulteriori informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml_reference] . 
 
 Dopo aver configurato la pagina PHP in modo da fornire risposte TwiML, usare l'URL della pagina PHP come URL trasmesso nel metodo `Services_Twilio->account->calls->create`. Se, ad esempio, si dispone di un'applicazione Web chiamata **MyTwiML** distribuita in un servizio ospitato in Azure e il nome della pagina PHP è **mytwiml.php**, è possibile trasmettere l'URL a **Services_Twilio->account->calls->create**, come mostrato nell'esempio seguente:
 

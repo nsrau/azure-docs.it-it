@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203234"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usare una cache compatibile con Redis esterna in gestione API di Azure
@@ -74,7 +74,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 3. Fare clic sul pulsante **+ Aggiungi**.
 4. Selezionare la cache nel campo a discesa **Cache instance** (Istanza della cache).
 5. Selezionare **predefinito** o specificare l'area desiderata nel campo **utilizza da** elenco a discesa.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Aggiungere una cache di Azure per Redis ospitata al di fuori della sottoscrizione di Azure corrente o di Azure in generale
 
@@ -84,7 +84,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 4. Selezionare **Personalizzata** nel campo a discesa **Cache instance** (Istanza della cache).
 5. Selezionare **predefinito** o specificare l'area desiderata nel campo **utilizza da** elenco a discesa.
 6. Fornire la stringa di connessione della cachedi Azure per Redis nel campo **Stringa di connessione**.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Aggiungere una cache Redis a un gateway self-hosted
 
@@ -94,7 +94,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 4. Selezionare **Personalizzata** nel campo a discesa **Cache instance** (Istanza della cache).
 5. Specificare il percorso del gateway self-hosted desiderato o il **valore predefinito** nel campo **USA da** elenco a discesa.
 6. Fornire la stringa di connessione della cache Redis nel campo **Stringa di connessione**.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ## <a name="use-the-external-cache"></a>Usare la cache esterna
 

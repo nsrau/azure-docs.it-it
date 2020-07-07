@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418015"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Cambia attività in Azure Data Factory
@@ -82,7 +82,7 @@ La pipeline in questo esempio copia i dati da una cartella di input a una cartel
 > [!NOTE]
 > Questa sezione include le definizioni JSON e i comandi di PowerShell di esempio per eseguire la pipeline. Per la procedura dettagliata di creazione di una pipeline di Data Factory tramite Azure PowerShell e le definizioni JSON, vedere [Esercitazione: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline. Json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -337,5 +337,5 @@ Vedere altre attività del flusso di controllo supportate da Data Factory:
 - [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

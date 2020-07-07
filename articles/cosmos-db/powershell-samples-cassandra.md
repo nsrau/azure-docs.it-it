@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2efc652c936e7949147bf77ccc1548308734a467
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: fec25bb3043942605895491952d963ee20ac4078
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563896"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Esempi di Azure PowerShell per Azure Cosmos DB - API Cassandra
 
@@ -20,7 +20,7 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell di esempi
 > [!NOTE]
 > Gli esempi usano i cmdlet di gestione di [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Verificare regolarmente se sono disponibili aggiornamenti per `Az.CosmosDB`.
 
-| | |
+|Attività | Descrizione |
 |---|---|
 |[Creare un account, un keyspace e una tabella](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un keyspace e una tabella Azure Cosmos DB. |
 |[Elencare o ottenere keyspace o tabelle](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere keyspace o tabelle. |

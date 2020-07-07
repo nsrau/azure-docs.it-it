@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193395"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
@@ -48,7 +48,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     
     >[!NOTE]
     >
-    >È consigliabile modificare il daemon direttamente in Docker perché il percorso del file daemon. JSON può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >La modifica del daemon direttamente in Docker è consigliata perché il percorso del daemon.jsnel file può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >Ad esempio, se si aggiunge `RUN apt-get install nodejs -y` sarà possibile supportare le applicazioni `nodejs` come eseguibili guest.
     
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina dell' [Hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per revisioni specifiche, vedere la pagina dell'[hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
 3. Per creare un'immagine riutilizzabile da `Dockerfile` aprire un terminale e `cd` alla directory che contiene `Dockerfile` e quindi eseguire:
 
@@ -166,7 +166,7 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     ```
 
     > [!IMPORTANT]
-    > Le versioni correnti `brew cask install java` di possono installare una versione più recente del JDK.
+    > Le versioni correnti di `brew cask install java` possono installare una versione più recente del JDK.
     > Assicurarsi di installare JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale

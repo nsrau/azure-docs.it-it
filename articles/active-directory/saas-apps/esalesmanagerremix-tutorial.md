@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202397"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
@@ -65,7 +65,7 @@ Per configurare l'integrazione di Azure AD con E Sales Manager Remix, aggiungere
 
     ![Pulsante Azure Active Directory][1]
 
-1. Selezionare **applicazioni** > aziendali**tutte le applicazioni**.
+1. Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
 
     ![Finestra "Applicazioni aziendali"][2]
     
@@ -101,9 +101,9 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Nella casella **URL accesso** digitare un URL in questo formato: *https://\<URL basato sul server>/\<sottodominio>/esales-pc*.
+    a. Nella casella **URL di accesso** Digitare un URL nel formato seguente: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
 
-    b. Nella casella **Identificatore** digitare un URL in questo formato: *https://\<URL basato sul server>/\<sottodominio>/*.
+    b. Nella casella **identificatore** Digitare un URL nel formato seguente: *https:// \<Server-Based-URL> / \<sub-domain> / *.
 
     c. Annotare il valore di **Identificatore**, che verrà usato successivamente in questa esercitazione.
     
@@ -120,7 +120,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     Viene visualizzata la finestra **Modifica attributo**.
 
-1. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nello * \<spazio dei nomi pattern>\</Name>* e salvarlo per usarlo in seguito in questa esercitazione.
+1. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nel modello *\<Namespace>/\<Name>* e salvarlo per usarlo in seguito in questa esercitazione.
 
     ![Finestra Modifica attributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -142,7 +142,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Comando "To Administrator Menu" (A menu amministratore)](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Nel riquadro sinistro selezionare **Impostazioni** > **di sistema collaborazione con sistema esterno**.
+1. Nel riquadro sinistro selezionare impostazioni di **sistema**  >  **collaborazione con sistema esterno**.
 
     ![Collegamenti "System settings" (Impostazioni sistema) e "Cooperation with external system" (Cooperazione con sistema esterno)](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -171,7 +171,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     h. Selezionare **Setting complete** (Impostazione completata).
 
 > [!TIP]
-> Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app nella sezione **Active Directory** > **applicazioni aziendali** , selezionare la scheda **Single Sign-on** e quindi accedere alla documentazione incorporata nella sezione **configurazione** nella parte inferiore. Per altre informazioni sulla funzionalità di documentazione integrata vedere [Documentazione integrata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app nella sezione **Active Directory**  >  **applicazioni aziendali** , selezionare la scheda **Single Sign-on** e quindi accedere alla documentazione incorporata nella sezione **configurazione** nella parte inferiore. Per altre informazioni sulla funzionalità di documentazione integrata vedere [Documentazione integrata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
@@ -184,7 +184,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Collegamento Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Per visualizzare un elenco di utenti correnti, selezionare **utenti e gruppi** > **tutti gli utenti**.
+1. Per visualizzare un elenco di utenti correnti, selezionare **utenti e gruppi**  >  **tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -214,7 +214,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Configurazione di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selezionare **la** > **manutenzione delle impostazioni della società per reparti e dipendenti**, quindi selezionare **Employees registered**.
+1. Selezionare **la**  >  **manutenzione delle impostazioni della società per reparti e dipendenti**, quindi selezionare **Employees registered**.
 
     ![Scheda "Employees registered" (Dipendenti registrati)](./media/esalesmanagerremix-tutorial/user1.png)
 

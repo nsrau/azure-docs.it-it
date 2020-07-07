@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335815"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotazioni per il controller di ingresso del gateway applicazione 
@@ -22,7 +22,7 @@ La risorsa di ingresso Kubernetes può essere annotata con coppie chiave/valore 
 
 ## <a name="list-of-supported-annotations"></a>Elenco di annotazioni supportate
 
-Affinché una risorsa in ingresso venga osservata da AGIC, è **necessario annotarla** con `kubernetes.io/ingress.class: azure/application-gateway`. Solo AGIC funzionerà con la risorsa in ingresso in questione.
+Affinché una risorsa in ingresso venga osservata da AGIC, è **necessario annotarla** con `kubernetes.io/ingress.class: azure/application-gateway` . Solo AGIC funzionerà con la risorsa in ingresso in questione.
 
 | Chiave di annotazione | Tipo valore | Valore predefinito | Valori consentiti
 | -- | -- | -- | -- |
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-Nell'esempio precedente è stata definita una risorsa di ingresso denominata `go-server-ingress-bkprefix` con un'annotazione. `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` L'annotazione indica al gateway applicazione di creare un'impostazione HTTP che avrà un override del prefisso del percorso `/hello` per `/test/`il percorso di.
+Nell'esempio precedente è stata definita una risorsa di ingresso denominata `go-server-ingress-bkprefix` con un'annotazione `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . L'annotazione indica al gateway applicazione di creare un'impostazione HTTP che avrà un override del prefisso del percorso per il percorso `/hello` di `/test/` .
 
 > [!NOTE] 
 > Nell'esempio precedente è stata definita una sola regola. Tuttavia, le annotazioni sono applicabili all'intera risorsa in ingresso, pertanto se un utente ha definito più regole, il prefisso del percorso back-end viene configurato per ognuno dei percorsi specificati. Pertanto, se un utente desidera regole diverse con prefissi di percorso diversi (anche per lo stesso servizio), è necessario definire risorse in ingresso diverse.
 
 ## <a name="tls-redirect"></a>Reindirizzamento TLS
 
-Il gateway applicazione [può essere configurato](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) in modo da reindirizzare automaticamente gli URL http alle relative controparti HTTPS. Quando questa annotazione è presente e TLS è configurato correttamente, il controller di ingresso di Kubernetes creerà una [regola di routing con una configurazione di reindirizzamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e applicherà le modifiche al gateway applicazione. Il reindirizzamento creato sarà HTTP `301 Moved Permanently`.
+Il gateway applicazione [può essere configurato](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) in modo da reindirizzare automaticamente gli URL http alle relative controparti HTTPS. Quando questa annotazione è presente e TLS è configurato correttamente, il controller di ingresso di Kubernetes creerà una [regola di routing con una configurazione di reindirizzamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e applicherà le modifiche al gateway applicazione. Il reindirizzamento creato sarà HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Utilizzo
 
@@ -206,8 +206,8 @@ spec:
 Questa annotazione consente di specificare se esporre questo endpoint nell'indirizzo IP privato del gateway applicazione.
 
 > [!NOTE]
-> * Il gateway applicazione non supporta più indirizzi IP sulla stessa porta, ad esempio: 80/443. Il traffico in ingresso con `appgw.ingress.kubernetes.io/use-private-ip: "false"` l'annotazione e un altro con `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` provocherà l'esito negativo di AGIC durante l'aggiornamento del gateway applicazione.
-> * Per il gateway applicazione che non dispone di un indirizzo IP privato, il `appgw.ingress.kubernetes.io/use-private-ip: "true"` traffico in ingresso con verrà ignorato. Questa operazione si riflette nei log del controller e negli eventi in ingresso per tali ingreses `NoPrivateIP` con avviso.
+> * Il gateway applicazione non supporta più indirizzi IP sulla stessa porta, ad esempio: 80/443. Il traffico in ingresso con l'annotazione `appgw.ingress.kubernetes.io/use-private-ip: "false"` e un altro con `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` provocherà l'esito negativo di AGIC durante l'aggiornamento del gateway applicazione.
+> * Per il gateway applicazione che non dispone di un indirizzo IP privato, il traffico in ingresso con `appgw.ingress.kubernetes.io/use-private-ip: "true"` verrà ignorato. Questa operazione si riflette nei log del controller e negli eventi in ingresso per tali ingreses con `NoPrivateIP` avviso.
 
 
 ### <a name="usage"></a>Utilizzo
@@ -237,10 +237,10 @@ spec:
 
 ## <a name="backend-protocol"></a>Protocollo back-end
 
-Questa annotazione consente di specificare il protocollo che il gateway applicazione deve usare durante la comunicazione con i pod. Protocolli supportati: `http`,`https`
+Questa annotazione consente di specificare il protocollo che il gateway applicazione deve usare durante la comunicazione con i pod. Protocolli supportati: `http` ,`https`
 
 > [!NOTE]
-> * Sebbene i certificati autofirmati siano supportati nel gateway applicazione, attualmente AGIC supporta `https` solo quando i pod usano un certificato firmato da un'autorità di certificazione ben nota.
+> * Sebbene i certificati autofirmati siano supportati nel gateway applicazione, attualmente AGIC supporta solo `https` quando i pod usano un certificato firmato da un'autorità di certificazione ben nota.
 > * Assicurarsi di non usare la porta 80 con HTTPS e la porta 443 con HTTP nei pod.
 
 ### <a name="usage"></a>Utilizzo

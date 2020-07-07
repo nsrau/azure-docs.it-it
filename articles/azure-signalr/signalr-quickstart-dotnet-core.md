@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254887"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962136"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Guida introduttiva: Creare una chat room mediante il servizio SignalR
 
@@ -45,7 +45,9 @@ In questa sezione verrà usata l'[interfaccia della riga di comando di .NET Core
 
 2. Nella nuova cartella eseguire il comando seguente per creare il progetto:
 
-        dotnet new mvc
+    ```dotnetcli
+    dotnet new mvc
+    ```
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Aggiungere Secret Manager al progetto
@@ -74,11 +76,15 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
 1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Azure.SignalR` eseguendo il comando seguente:
 
-        dotnet add package Microsoft.Azure.SignalR
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.SignalR
+    ```
 
 2. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
 
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
+    ```
 
 3. Aggiungere un segreto denominato *Azure:SignalR:ConnectionString* a Secret Manager. 
 
@@ -86,7 +92,7 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
     È necessario eseguire questo comando nella stessa directory del file con estensione *csproj*.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
@@ -224,19 +230,25 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
 
 1. Per compilare l'app usando l'interfaccia della riga di comando di .NET Core, eseguire questo comando nella shell dei comandi:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 2. Dopo che la compilazione viene completata correttamente, eseguire questo comando per eseguire l'app Web in locale:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     L'app verrà ospitata in locale sulla porta 5000 come configurato nel profilo di runtime di sviluppo:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Development
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Development
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.    
+    ```
 
 3. Aprire due finestre del browser. In ciascun browser passare a `http://localhost:5000`. Verrà richiesto di immettere il proprio nome. Immettere un nome per entrambi i client e verificare il push del contenuto del messaggio tra i due client usando il pulsante **Invia**.
 

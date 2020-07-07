@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203132"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Effettuare il provisioning di un gateway self-hosted in gestione API di Azure
@@ -25,7 +25,7 @@ Il provisioning di una risorsa gateway nell'istanza di gestione API di Azure è 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la Guida introduttiva seguente: [creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
+Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -42,7 +42,7 @@ Completare la Guida introduttiva seguente: [creare un'istanza di gestione API di
 > [!IMPORTANT]
 > Per impostazione predefinita, nessuna delle API esistenti verrà associata alla nuova risorsa del gateway. Pertanto, i tentativi di richiamarli tramite il nuovo gateway comporteranno una `404 Resource Not Found` risposta.
 
-6. Fare clic su **Aggiungi**.
+6. Scegliere **Aggiungi**.
 
 A questo punto è stato effettuato il provisioning della risorsa gateway nell'istanza di gestione API. È possibile procedere con la distribuzione del gateway.
 

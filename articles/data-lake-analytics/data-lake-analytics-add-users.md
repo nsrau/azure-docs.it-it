@@ -10,10 +10,10 @@ ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672718"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Aggiunta di un utente nel portale di Azure
@@ -34,7 +34,7 @@ Concedere "R-X" o "RWX", in base alle esigenze, alle cartelle che contengono dat
 ## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Facoltativamente, aggiungere il ruolo **Lettore** di Azure Data Lake Storage Gen1 all'utente.
 1.  Individuare l'account Azure Data Lake Storage Gen1.
 2.  Fare clic su **Utenti**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4.  Selezionare un ruolo Controllo degli accessi in base al ruolo di Azure per assegnare questo gruppo.
 5.  Assegnare il ruolo Lettore. Questo ruolo dispone del set minimo di autorizzazioni necessarie per esplorare o gestire i dati archiviati in Azure Data Lake Storage Gen1. Assegnare questo ruolo se il gruppo non deve gestire i servizi di Azure.
 6.  Digitare il nome del gruppo.

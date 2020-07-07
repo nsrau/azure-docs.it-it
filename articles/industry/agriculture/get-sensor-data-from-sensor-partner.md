@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398225"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
@@ -35,7 +35,7 @@ Dopo aver avviato il flusso dei dati del sensore, è possibile iniziare il proce
  - ID tenant
  - ID client
  - Segreto client
- - Stringa di connessione EventHub
+ - Stringa di connessione all’Hub eventi
 
 Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
@@ -46,7 +46,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
 2. **Se si utilizza FarmBeats versione 1.2.7 o successiva, ignorare i passaggi a, b e c e andare al passaggio 3.** È possibile controllare la versione di FarmBeats selezionando l'icona **delle impostazioni** nell'angolo superiore destro dell'interfaccia utente di FarmBeatsri.
 
-      a.  Passa a **Azure Active Directory** > **registrazioni** per l'app
+      a.  Passa a **Azure Active Directory**  >  **registrazioni** per l'app
 
       b. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
 
@@ -74,7 +74,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
     ```
 
-7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory** > pagina**Panoramica** .
+7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
 
     ```azurepowershell-interactive 
 
@@ -88,7 +88,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
 A questo punto sono disponibili le informazioni seguenti generate dalla sezione precedente.
  - Endpoint API
- - Stringa di connessione EventHub
+ - Stringa di connessione all’Hub eventi
  - ID client
  - Segreto client
  - ID tenant

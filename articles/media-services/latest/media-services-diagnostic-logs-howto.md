@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382920"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
@@ -96,7 +96,7 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 
  È ora possibile visualizzare l'evento JSON che è stato archiviato nell'account di archiviazione.
 
-### <a name="examples-of-pt1hjson"></a>Esempi di PT1H. JSON
+### <a name="examples-of-pt1hjson"></a>Esempi di PT1H.js
 
 #### <a name="clear-key-delivery-log"></a>Cancella log di recapito chiave
 
@@ -180,7 +180,7 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
+* [Metriche di Monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
 * [Log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)
 

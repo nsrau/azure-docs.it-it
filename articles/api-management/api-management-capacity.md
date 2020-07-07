@@ -13,10 +13,10 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336015"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
@@ -95,7 +95,7 @@ La **metrica a capacità** ridotta non significa necessariamente che l'istanza d
 
 ## <a name="use-capacity-for-scaling-decisions"></a>Usare la capacità per prendere decisioni per la scalabilità
 
-La **capacità** è la metrica per prendere decisioni sull'opportunità di ridimensionare un'istanza di Gestione API per gestire un carico maggiore. Prendere in considerazione:
+La **capacità** è la metrica per prendere decisioni sull'opportunità di ridimensionare un'istanza di Gestione API per gestire un carico maggiore. Tenere in considerazione:
 
 + L'individuazione di tendenze e medie a lungo termine.
 + La possibilità di ignorare i picchi più probabilmente non correlati ad aumenti del carico (vedere la sezione "Comportamento delle metriche di capacità" per una spiegazione).
