@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414768"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
@@ -40,7 +40,7 @@ Questo modello (*nome modello: esegue la migrazione dei dati cronologici da AWS 
 Il modello contiene cinque attività:
 - **Lookup** recupera le partizioni che non sono state copiate in Azure Data Lake storage Gen2 da una tabella di controllo esterna. Il nome della tabella è *s3_partition_control_table* e la query per caricare i dati dalla tabella è *"SELECT PARTITIONPREFIX from s3_partition_control_table where SuccessOrFailure = 0"*.
 - **Foreach** Ottiene l'elenco di partizioni dall'attività *Lookup* e scorre ogni partizione nell'attività *TriggerCopy* . È possibile impostare *batchCount* per l'esecuzione simultanea di più processi di copia di ADF. In questo modello è stato impostato 2.
-- **ExecutePipeline** esegue la pipeline *CopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che caricano altre partizioni non saranno interessati.
+- **ExecutePipeline** esegue la pipeline *CopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che in quel momento caricano altre partizioni non saranno interessati.
 - **Copy copia** ogni partizione da AWS S3 a Azure Data Lake storage Gen2.
 - **SqlServerStoredProcedure** aggiornare lo stato della copia di ogni partizione nella tabella di controllo.
 
@@ -50,12 +50,12 @@ Il modello contiene due parametri:
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Affinché il modello copi i file modificati solo da Amazon S3 a Azure Data Lake Storage Gen2
 
-Questo modello (*nome modello: copia dati Delta da AWS S3 a Azure Data Lake storage Gen2*) USA LastModifiedTime di ogni file per copiare i file nuovi o aggiornati solo da AWS S3 ad Azure. Tenere presente che se i file o le cartelle sono già stati partizionati con le informazioni TimeSlice come parte del nome del file o della cartella in AWS s3 (ad esempio,/yyyy/mm/DD/file.csv), è possibile passare a questa [esercitazione](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) per ottenere un approccio più efficiente per il caricamento incrementale di nuovi file. Questo modello presuppone che sia stato scritto un elenco di partizioni in una tabella di controllo esterna nel database SQL di Azure. Utilizzerà quindi un'attività di *ricerca* per recuperare l'elenco delle partizioni dalla tabella di controllo esterno, eseguire l'iterazione su ogni partizione e fare in modo che ogni processo di copia ADF copi una partizione alla volta. Quando ogni processo di copia inizia a copiare i file da AWS S3, si basa sulla proprietà LastModifiedTime per identificare e copiare solo i file nuovi o aggiornati. Al termine di un processo di copia, viene utilizzata l'attività *stored procedure* per aggiornare lo stato della copia di ogni partizione nella tabella del controllo.
+Questo modello (*nome modello: copia dati Delta da AWS S3 a Azure Data Lake storage Gen2*) USA LastModifiedTime di ogni file per copiare i file nuovi o aggiornati solo da AWS S3 ad Azure. Tenere presente che se i file o le cartelle sono già stati partizionati con le informazioni TimeSlice come parte del nome del file o della cartella in AWS s3 (ad esempio,/yyyy/mm/dd/file.csv), è possibile passare a questa [esercitazione](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) per ottenere l'approccio più efficiente per il caricamento incrementale di nuovi file. Questo modello presuppone che sia stato scritto un elenco di partizioni in una tabella di controllo esterna nel database SQL di Azure. Utilizzerà quindi un'attività di *ricerca* per recuperare l'elenco delle partizioni dalla tabella di controllo esterno, eseguire l'iterazione su ogni partizione e fare in modo che ogni processo di copia ADF copi una partizione alla volta. Quando ogni processo di copia inizia a copiare i file da AWS S3, si basa sulla proprietà LastModifiedTime per identificare e copiare solo i file nuovi o aggiornati. Al termine di un processo di copia, viene utilizzata l'attività *stored procedure* per aggiornare lo stato della copia di ogni partizione nella tabella del controllo.
 
 Il modello contiene sette attività:
 - La **ricerca** recupera le partizioni da una tabella di controllo esterna. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"SELECT distinct PartitionPrefix from s3_partition_delta_control_table"*.
 - **Foreach** Ottiene l'elenco di partizioni dall'attività *Lookup* e scorre ogni partizione nell'attività *TriggerDeltaCopy* . È possibile impostare *batchCount* per l'esecuzione simultanea di più processi di copia di ADF. In questo modello è stato impostato 2.
-- **ExecutePipeline** esegue la pipeline *DeltaCopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che caricano altre partizioni non saranno interessati.
+- **ExecutePipeline** esegue la pipeline *DeltaCopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che in quel momento caricano altre partizioni non saranno interessati.
 - La **ricerca** recupera l'ultima fase di esecuzione del processo di copia dalla tabella del controllo esterno, in modo che i file nuovi o aggiornati possano essere identificati tramite LastModifiedTime. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"Select Max (JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix =' @ {pipeline (). Parameters. prefixStr}' and SuccessOrFailure = 1"*.
 - **Copiare** copia i file nuovi o modificati solo per ogni partizione da AWS S3 a Azure Data Lake storage Gen2. La proprietà di *modifiedDatetimeStart* è impostata sull'ultima fase di esecuzione del processo di copia. La proprietà di *modifiedDatetimeEnd* è impostata sul tempo di esecuzione del processo di copia corrente. Tenere presente che l'ora viene applicata al fuso orario UTC.
 - **SqlServerStoredProcedure** aggiorna lo stato di copia di ogni partizione e di esecuzione della copia nella tabella di controllo in caso di esito positivo. La colonna di SuccessOrFailure è impostata su 1.
@@ -109,7 +109,7 @@ Il modello contiene due parametri:
 
 3. Passare a **Esegui la migrazione dei dati cronologici da AWS S3 a Azure Data Lake storage Gen2** modello. Immettere le connessioni alla tabella di controllo esterno, AWS S3 come archivio dell'origine dati e Azure Data Lake Storage Gen2 come archivio di destinazione. Tenere presente che la tabella di controllo esterno e la stored procedure fanno riferimento alla stessa connessione.
 
-    ![Crea una nuova connessione](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Creare una nuova connessione](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Selezionare **Usa questo modello**.
 
@@ -119,11 +119,11 @@ Il modello contiene due parametri:
 
     ![Esaminare la pipeline](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+6. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
 
-    ![Fare clic su * * debug * *](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Fare clic su **Debug **](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
-7. Verranno visualizzati risultati simili a quelli dell'esempio seguente:
+7. I risultati visualizzati sono simili all'esempio seguente:
 
     ![Esaminare il risultato](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
@@ -172,7 +172,7 @@ Il modello contiene due parametri:
 
 3. Passare a **copia dati Delta da AWS S3 a Azure Data Lake storage Gen2** modello. Immettere le connessioni alla tabella di controllo esterno, AWS S3 come archivio dell'origine dati e Azure Data Lake Storage Gen2 come archivio di destinazione. Tenere presente che la tabella di controllo esterno e la stored procedure fanno riferimento alla stessa connessione.
 
-    ![Crea una nuova connessione](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    ![Creare una nuova connessione](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
 4. Selezionare **Usa questo modello**.
 
@@ -182,11 +182,11 @@ Il modello contiene due parametri:
 
     ![Esaminare la pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+6. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
 
-    ![Fare clic su * * debug * *](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
+    ![Fare clic su **Debug **](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 
-7. Verranno visualizzati risultati simili a quelli dell'esempio seguente:
+7. I risultati visualizzati sono simili all'esempio seguente:
 
     ![Esaminare il risultato](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
 

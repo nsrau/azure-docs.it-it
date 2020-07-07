@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81380681"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
@@ -90,7 +90,7 @@ Negli hub eventi interessati provare a regolare la proprietà **Conservazione me
 
 [![Conservazione messaggi dell'hub eventi.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Se non è configurata alcuna proprietà nell'`timeStampPropertyName`origine evento (), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la configurazione `timeStampPropertyName` nel pacchetto di dati quando vengono analizzati gli eventi.
+Se non è configurata alcuna proprietà nell'origine evento ( `timeStampPropertyName` ), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la configurazione `timeStampPropertyName` nel pacchetto di dati quando vengono analizzati gli eventi.
 
 Informazioni su [come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per ridimensionare l'ambiente in modo da supportare capacità aggiuntiva o aumentare la durata della conservazione.
 

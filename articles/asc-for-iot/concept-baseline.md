@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311649"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la baseline e i controlli personalizzati
 
 Questo articolo illustra il Centro sicurezza di Azure per la baseline e riepiloga tutte le proprietà associate dei controlli personalizzati di base.
 
-## <a name="baseline"></a>Di base
+## <a name="baseline"></a>Versione di base
 
 Una linea di base stabilisce un comportamento standard per ogni dispositivo e rende più semplice stabilire un comportamento insolito o una deviazione dalle norme previste.
 
@@ -64,7 +64,7 @@ Per configurare i controlli personalizzati della linea di base:
 
 ## <a name="baseline-custom-check-properties"></a>Proprietà controllo personalizzato Baseline
 
-| Name| Stato | Valori validi| Valori predefiniti| Descrizione |
+| Nome| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obbligatorio: true |Valori validi: **Boolean** |Valore predefinito: **false** |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |baselineCustomChecksFilePath |Obbligatorio: true|Valori validi: **String**, **null** |Valore predefinito: **null** |Percorso completo della configurazione XML di base|

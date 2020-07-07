@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393347"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Hub eventi di Azure come origine di griglia di eventi
@@ -57,30 +57,30 @@ Questo evento di esempio mostra lo schema di un evento di hub eventi generato qu
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati dell'evento dell'hub eventi. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
+| data | object | Dati dell'evento dell'hub eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | stringa | Percorso del file di acquisizione. |
-| fileType | stringa | Tipo di file del file di acquisizione. |
-| partitionId | stringa | ID della partizione. |
+| fileUrl | string | Percorso del file di acquisizione. |
+| fileType | string | Tipo di file del file di acquisizione. |
+| partitionId | string | ID della partizione. |
 | sizeInBytes | integer | Dimensioni del file. |
 | eventCount | integer | Numero di eventi nel file. |
 | firstSequenceNumber | integer | Numero di sequenza minore nella coda. |
 | lastSequenceNumber | integer | Ultimo numero di sequenza nella coda. |
-| firstEnqueueTime | stringa | Primo orario nella coda. |
-| lastEnqueueTime | stringa | Ultimo orario nella coda. |
+| firstEnqueueTime | string | Primo orario nella coda. |
+| lastEnqueueTime | string | Ultimo orario nella coda. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 

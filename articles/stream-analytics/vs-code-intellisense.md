@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394397"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense negli strumenti di analisi di flusso di Azure per Visual Studio Code
@@ -21,9 +21,9 @@ IntelliSense è disponibile per il [linguaggio di query di analisi di flusso](ht
 
 ## <a name="intellisense-features"></a>IntelliSense, funzionalità
 
-Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Code sono basate su un servizio di linguaggio. Un servizio di linguaggio analizza il codice sorgente e fornisce completamenti di codice intelligenti basati sulla semantica del linguaggio. Se un servizio di linguaggio conosce i possibili completamenti, i suggerimenti di IntelliSense vengono visualizzati durante la digitazione. Se si continua a digitare, un elenco di membri, ad esempio variabili e metodi, viene filtrato in modo da includere solo i membri che contengono i caratteri digitati. Quando si preme il `Tab` tasto `Enter` o, IntelliSense inserisce il membro selezionato.
+Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Code sono basate su un servizio di linguaggio. Un servizio di linguaggio analizza il codice sorgente e fornisce completamenti di codice intelligenti basati sulla semantica del linguaggio. Se un servizio di linguaggio conosce i possibili completamenti, i suggerimenti di IntelliSense vengono visualizzati durante la digitazione. Se si continua a digitare, un elenco di membri, ad esempio variabili e metodi, viene filtrato in modo da includere solo i membri che contengono i caratteri digitati. Quando si preme il `Tab` `Enter` tasto o, IntelliSense inserisce il membro selezionato.
 
-È possibile attivare IntelliSense in qualsiasi finestra dell'editor digitando un carattere del trigger, ad esempio `.`il carattere punto.
+È possibile attivare IntelliSense in qualsiasi finestra dell'editor digitando un carattere del trigger, ad esempio il carattere punto `.` .
 
 ![completamento automatico IntelliSense](./media/vs-code-intellisense/auto-completion.gif)
 

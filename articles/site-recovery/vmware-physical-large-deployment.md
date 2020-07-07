@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409777"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
@@ -64,7 +64,7 @@ Eseguire quindi il planner come indicato di seguito:
 5. Analizzare le [raccomandazioni](site-recovery-vmware-deployment-planner-analyze-report.md) e le [stime dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md)del report.
 
 >[!NOTE]
-> Per impostazione predefinita, lo strumento è configurato per profilare e generare report per un massimo di 1000 VM. È possibile modificare questo limite aumentando il valore della chiave MaxVMsSupported nel file ASRDeploymentPlanner. exe. config.
+> Per impostazione predefinita, lo strumento è configurato per profilare e generare report per un massimo di 1000 VM. È possibile modificare questo limite aumentando il valore della chiave MaxVMsSupported nel file di ASRDeploymentPlanner.exe.config.
 
 ## <a name="plan-target-azure-requirements-and-capacity"></a>Requisiti e capacità per la destinazione del piano (Azure)
 
@@ -212,7 +212,7 @@ Per eseguire un failover su larga scala, si consiglia quanto segue:
 1. Creare piani di ripristino per il failover del carico di lavoro.
     - Ogni piano di ripristino può attivare il failover di un massimo di 100 computer.
     - [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
-2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Altre informazioni](site-recovery-runbook-automation.md)
+2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Scopri di più](site-recovery-runbook-automation.md)
 2. Prima del failover, preparare i computer Windows in modo che siano conformi all'ambiente Azure. I [limiti di failover](#plan-azure-subscriptions-and-quotas) sono maggiori per i computer conformi. [Altre](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) informazioni su manuali operativi.
 4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) di PowerShell, insieme a un piano di ripristino.
 

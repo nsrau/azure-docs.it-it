@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415036"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
@@ -63,7 +63,7 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 | url | URL di base del servizio REST. | Sì |
 | enableServerCertificateValidation | Indica se convalidare il certificato TLS/SSL sul lato server per la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
 
@@ -174,9 +174,9 @@ Per copiare dati da REST, sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Sì |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service]/[relative URL specified in dataset]` . | No |
 
-`requestMethod`Se si imposta `additionalHeaders`, `requestBody` e `paginationRules` nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello nell'origine attività in futuro.
+Se si imposta `requestMethod` , `additionalHeaders` `requestBody` e `paginationRules` nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello nell'origine attività in futuro.
 
 **Esempio:**
 
@@ -218,7 +218,7 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
 | requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No |
 
 >[!NOTE]
->REST Connector ignora qualsiasi intestazione "Accept" specificata in `additionalHeaders`. Poiché REST Connector supporta solo la risposta in JSON, viene generata automaticamente un'intestazione di `Accept: application/json`.
+>REST Connector ignora qualsiasi intestazione "Accept" specificata in `additionalHeaders` . Poiché REST Connector supporta solo la risposta in JSON, viene generata automaticamente un'intestazione di `Accept: application/json` .
 
 **Esempio 1: uso del metodo Get con l'impaginazione**
 
@@ -317,7 +317,7 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 
 **Valori supportati** nelle regole di paginazione:
 
-| valore | Descrizione |
+| Valore | Description |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | Il valore di "intestazione_risposta" è definito dall'utente e fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per inviare la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
@@ -356,7 +356,7 @@ L'API Viso di Facebook restituisce la risposta nella struttura seguente, nel qua
 }
 ```
 
-La configurazione dell'origine dell'attività di copia REST `paginationRules` corrispondente, in particolare, è la seguente:
+La configurazione dell'origine dell'attività di copia REST corrispondente `paginationRules` , in particolare, è la seguente:
 
 ```json
 "typeProperties": {
@@ -403,7 +403,7 @@ Il modello definisce due parametri:
 3. Selezionare **Usa questo modello**.
     ![Usa questo modello](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Si noterà che la pipeline è stata creata come illustrato nell'esempio seguente ![: pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Si noterà che la pipeline è stata creata come illustrato nell'esempio seguente: ![ pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Selezionare attività **Web** . In **Impostazioni**specificare l' **URL**, il **Metodo**, le **intestazioni**e il **corpo** corrispondenti per recuperare i Bearer token OAuth dall'API di accesso del servizio da cui si desidera copiare i dati. Il segnaposto nel modello presenta un esempio di Azure Active Directory OAuth (AAD). Nota l'autenticazione AAD è supportata in modo nativo dal connettore REST. di seguito è riportato solo un esempio di flusso OAuth. 
 
@@ -411,7 +411,7 @@ Il modello definisce due parametri:
     |:--- |:--- |:--- |
     | URL |Specificare l'URL da cui recuperare il bearer token OAuth. ad esempio, nell'esempiohttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metodo | Metodo HTTP. I valori consentiti sono **post** e **Get**. | 
-    | Headers | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
+    | Intestazioni | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
     | Corpo | Corpo della richiesta HTTP. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
@@ -425,10 +425,10 @@ Il modello definisce due parametri:
 
    ![Copia autenticazione origine](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+7. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
    ![Esecuzione della pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
-8. Quando l'esecuzione della pipeline viene completata correttamente, viene visualizzato il risultato simile all'esempio seguente: ![risultato dell'esecuzione della pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. Quando l'esecuzione della pipeline viene completata correttamente, viene visualizzato il risultato simile all'esempio seguente: ![ risultato dell'esecuzione della pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
 
 9. Fare clic sull'icona "output" di webactivity nella colonna **azioni** per visualizzare le access_token restituite dal servizio.
 

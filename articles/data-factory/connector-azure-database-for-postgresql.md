@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/16/2019
 ms.openlocfilehash: b85e72ae6698cd9fa018c940e158bfcf25279ed5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410472"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per PostgreSQL usando Azure Data Factory
@@ -37,7 +37,7 @@ Questo connettore di database di Azure per PostgreSQL è supportato per le attiv
 
 Azure Data Factory fornisce un driver predefinito per abilitare la connettività. Non è quindi necessario installare manualmente alcun driver per usare questo connettore.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,7 +55,7 @@ Per il servizio collegato database di Azure per PostgreSQL sono supportate le pr
 
 Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Di seguito sono riportate altre proprietà che è possibile impostare in base al caso:
 
-| Proprietà | Descrizione | Options | Obbligatoria |
+| Proprietà | Descrizione | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Il metodo usato dal driver per crittografare i dati inviati tra il driver e il server di database. Ad esempio, `EncryptionMethod=<0/1/6>;`| 0 (Nessuna crittografia) **(impostazione predefinita)** / 1 (SSL) / 6 (RequestSSL) | No |
 | ValidateServerCertificate (VSC) | Determina se il driver convalida il certificato inviato dal server di database quando è abilitata la crittografia SSL (metodo di crittografia = 1). Ad esempio, `ValidateServerCertificate=<0/1>;`| 0 (disabilitato) **(impostazione predefinita)** / 1 (abilitato) | No |
@@ -136,7 +136,7 @@ Per copiare i dati da un Database di Azure per PostgreSQL, impostare il tipo di 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AzurePostgreSqlSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. ad esempio `"SELECT * FROM MyTable"` | No (se è specificata la proprietà TableName nel set di dati) |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"` | No (se è specificata la proprietà TableName nel set di dati) |
 
 **Esempio**:
 
@@ -214,7 +214,7 @@ Per copiare dati in database di Azure per PostgreSQL, nella sezione **sink** del
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
 Per ulteriori informazioni sulle proprietà, vedere [attività Lookup in Azure Data Factory](control-flow-lookup-activity.md).
 

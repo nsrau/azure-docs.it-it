@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81413687"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Trasformazione flat nel flusso di dati del mapping
@@ -68,7 +68,7 @@ Vedere l'oggetto JSON seguente per gli esempi seguenti della trasformazione Flat
 
 | Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| Goods. Customers | Nessuno | name <br> Customer = Goods. Customer |
+| Goods. Customers | nessuno | name <br> Customer = Goods. Customer |
 
 #### <a name="output"></a>Output
 
@@ -86,7 +86,7 @@ Vedere l'oggetto JSON seguente per gli esempi seguenti della trasformazione Flat
 
 | Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| Goods. Orders. Spedit. orderItems | Nessuno | name <br> orderId = Goods. Orders. orderId <br> ItemName = Goods. Orders. Spedit. orderItems. ItemName <br> itemQty = Goods. Orders. Spedit. orderItems. itemQty <br> Località = Località |
+| Goods. Orders. Spedit. orderItems | nessuno | name <br> orderId = Goods. Orders. orderId <br> ItemName = Goods. Orders. Spedit. orderItems. ItemName <br> itemQty = Goods. Orders. Spedit. orderItems. itemQty <br> Località = Località |
 
 #### <a name="output"></a>Output
 

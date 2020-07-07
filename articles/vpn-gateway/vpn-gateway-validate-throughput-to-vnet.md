@@ -11,10 +11,10 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631777"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
@@ -33,7 +33,7 @@ La connessione del gateway VPN coinvolge i componenti seguenti:
 * Dispositivo VPN locale (visualizzare un elenco di [dispositivi VPN convalidati](vpn-gateway-about-vpn-devices.md#devicetable)).
 * Internet pubblico
 * Gateway VPN di Azure
-* Macchina virtuale Azure
+* Macchina virtuale di Azure
 
 Il diagramma seguente mostra la connettività logica di una rete locale a una rete virtuale di Azure tramite VPN.
 
@@ -123,27 +123,27 @@ Scaricare [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pe
 
 ## <a name="test-vms-running-windows"></a>Testare le VM che eseguono Windows
 
-### <a name="load-latteexe-onto-the-vms"></a>Caricare latte. exe nelle VM
+### <a name="load-latteexe-onto-the-vms"></a>Caricare Latte.exe sulle macchine virtuali
 
-Scaricare la versione più recente di [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Scaricare la versione più recente di [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Prendere in considerazione l'inserimento di latte. exe in una cartella separata, ad esempio`c:\tools`
+Provare a inserire Latte.exe in una cartella separata, ad esempio`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Consenti latte. exe attraverso Windows Firewall
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Consenti Latte.exe tramite Windows Firewall
 
-Nel ricevitore creare una regola di autorizzazione per la Windows Firewall per consentire l'arrivo del traffico latte. exe. È più semplice consentire l'intero programma di caffellatte. exe per nome, anziché consentire porte TCP specifiche in ingresso.
+Nel ricevitore creare una regola di autorizzazione per la Windows Firewall per consentire l'arrivo del traffico Latte.exe. È più semplice consentire l'intero programma di Latte.exe in base al nome, anziché consentire porte TCP specifiche in ingresso.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Consenti a caffellatte. exe di usare la Windows Firewall come questa
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Consenti Latte.exe tramite la Windows Firewall come questa
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-Ad esempio, se è stato copiato latte. exe nella cartella "c:\Tools", si tratta del comando
+Se, ad esempio, si è copiato latte.exe nella cartella "c:\Tools", si tratta del comando
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Esegui test di latenza
 
-Avviare latte. exe sul ricevitore (eseguire da CMD, non da PowerShell):
+Avviare latte.exe sul ricevitore (eseguire da CMD, non da PowerShell):
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -155,7 +155,7 @@ Se la macchina virtuale ha un indirizzo IP di 10.0.0.4, avrà un aspetto simile 
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Avviare latte. exe nel mittente (eseguire da CMD, non da PowerShell)
+Avviare latte.exe sul mittente (eseguire da CMD, non da PowerShell)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -225,7 +225,7 @@ In particolare, l'analisi delle tracce di acquisizione pacchetti (Wireshark/Netw
 
 Anche se la velocità effettiva complessiva valutata con i passaggi precedenti (iPERF/NTTTCP/e così via) è stata corretta, è possibile che si verifichi un rallentamento dei file quando si usa Esplora risorse oppure si trascina e si elimina una sessione RDP. Questo problema è in genere dovuto a uno o a entrambi i fattori seguenti:
 
-* Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in RichCopy, fare clic su **azione** > **copia opzioni** > **copia file**.
+* Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in RichCopy, fare clic su **azione**  >  **copia opzioni**  >  **copia file**.
 
    ![Problemi di esecuzione lenta della copia dei file](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -265,4 +265,4 @@ Se viene rilevato un picco di latenza insolito elevato da hop in "msn.net", cont
 
 Per ulteriori informazioni o per la guida, consultare il collegamento seguente:
 
-* [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

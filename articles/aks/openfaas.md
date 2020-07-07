@@ -7,10 +7,10 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631461"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
@@ -28,7 +28,7 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>Aggiungere il repository del grafico Helm OpenFaaS
 
-Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure cloud Shell nel browser.
+Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure Cloud Shell nel browser.
 
 OpenFaaS gestisce i propri grafici Helm per restare aggiornati con tutte le modifiche più recenti.
 
@@ -58,7 +58,7 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-È possibile ottenere il valore del segreto con `echo $PASSWORD`.
+È possibile ottenere il valore del segreto con `echo $PASSWORD` .
 
 La password creata qui verrà usata dal grafico Helm per abilitare l'autenticazione di base sul gateway OpenFaaS, esposto a Internet tramite un LoadBalancer cloud.
 
@@ -108,7 +108,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Per testare il sistema OpenFaaS, passare all'indirizzo IP esterno sulla porta 8080, in questo esempio `http://52.186.64.52:8080`. Verrà richiesto di effettuare l'accesso. Per recuperare la password, immettere `echo $PASSWORD`.
+Per testare il sistema OpenFaaS, passare all'indirizzo IP esterno sulla porta 8080, in questo esempio `http://52.186.64.52:8080`. Verrà richiesto di effettuare l'accesso. Per recuperare la password, immettere `echo $PASSWORD` .
 
 ![Interfaccia utente di OpenFaaS](media/container-service-serverless/openfaas.png)
 

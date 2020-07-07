@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408629"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
@@ -19,7 +19,7 @@ ms.locfileid: "81408629"
 Questo articolo descrive come eseguire la replica di macchine virtuali di Azure con crittografia dischi di Azure abilitata, da un'area di Azure a un'altra.
 
 >[!NOTE]
-> Site Recovery attualmente supporta ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono sistemi operativi Windows. Per i sistemi operativi Linux è supportato solo ADE senza AAD. Inoltre, per i computer che eseguono ADE 1,1 (senza AAD), le VM devono usare Managed Disks. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0,1 (con AAD) a 1,1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo l'abilitazione di 1,1.
+> Site Recovery attualmente supporta Crittografia dischi di Azure, con e senza Azure Active Directory (AAD), per le macchine virtuali che eseguono sistemi operativi Windows. Per i sistemi operativi Linux, il servizio Crittografia dischi di Azure è supportato solo senza AAD. Inoltre, per i computer che eseguono Crittografia dischi di Azure 1.1 (senza AAD), le VM devono usare dischi gestiti. Le VM con dischi non gestiti non sono supportate. Se si passa dalla versione 0.1 (con AAD) alla versione 1.1 di Crittografia dischi di Azure, è necessario disabilitare la replica e abilitarla per una VM dopo l'abilitazione della versione 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Autorizzazioni utente necessarie
@@ -42,7 +42,7 @@ Per abilitare la replica delle macchine virtuali abilitate per la crittografia d
 
 Per gestire le autorizzazioni, passare alla risorsa di Key Vault nel portale. Aggiungere le autorizzazioni necessarie per l'utente. L'esempio seguente illustra come abilitare le autorizzazioni per l'insieme di credenziali delle chiavi *ContosoWeb2Keyvault*, che si trova nell'area di origine.
 
-1. Passare a **Home** > **Vaults** > **ContosoWeb2KeyVault > criteri di accesso**.
+1. Passare a **Home**  >  **Vaults**  >  **ContosoWeb2KeyVault > criteri di accesso**.
 
    ![Finestra delle autorizzazioni di Key Vault](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -60,9 +60,9 @@ Per risolvere i problemi relativi alle autorizzazioni, vedere l'argomento relati
 ## <a name="copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script"></a>Copiare le chiavi di crittografia del disco nell'area di ripristino di emergenza usando lo script di PowerShell
 
 1. [Aprire il codice dello script non elaborato "CopyKeys"](https://aka.ms/ade-asr-copy-keys-code).
-2. Copiare lo script in un file e denominarlo **Copy-Keys. ps1**.
+2. Copiare lo script in un file e denominarlo **Copy-keys.ps1**.
 3. Aprire l'applicazione Windows PowerShell e passare alla cartella in cui è stato salvato il file.
-4. Eseguire copy-Keys. ps1.
+4. Eseguire Copy-keys.ps1.
 5. Fornire le credenziali di Azure per l'accesso.
 6. Selezionare la **sottoscrizione di Azure** delle VM.
 7. Attendere il caricamento dei gruppi di risorse e quindi selezionare il **gruppo di risorse** delle macchine virtuali.
@@ -86,7 +86,7 @@ Per questo esempio, l'area di Azure primaria è Asia orientale e l'area secondar
     - **Sottoscrizione di origine**: sottoscrizione a cui appartengono le macchine virtuali di origine. Può trattarsi di qualsiasi sottoscrizione che si trovi nello stesso tenant di Azure Active Directory dell'insieme di credenziali di servizi di ripristino.
     - **Gruppo di risorse:** gruppo di risorse a cui appartengono le macchine virtuali di origine. Tutte le macchine virtuali nel gruppo di risorse selezionato sono elencate per la protezione nel passaggio successivo.
 
-3. In **macchine** > virtuali**selezionare macchine virtuali**, selezionare tutte le VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Quindi selezionare **OK**.
+3. In **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare tutte le VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Quindi selezionare **OK**.
 
 4. In **Impostazioni**è possibile configurare le seguenti impostazioni del sito di destinazione.
 
@@ -118,7 +118,7 @@ Per modificare le impostazioni di destinazione predefinite Site Recovery, attene
    - Per l'insieme di credenziali delle **chiavi di crittografia del disco**di destinazione, selezionare l'insieme di credenziali delle chiavi di crittografia del disco nell'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
    - Per l'insieme di credenziali delle chiavi di **crittografia**chiave di destinazione, selezionare l'insieme di credenziali chiave di crittografia della chiave dall'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
 
-3. Selezionare **Crea risorsa** > di destinazione**Abilita replica**.
+3. Selezionare **Crea risorsa di destinazione**  >  **Abilita replica**.
 4. Quando le macchine virtuali sono abilitate per la replica, è possibile controllare lo stato di integrità delle macchine virtuali in **elementi replicati**.
 
 >[!NOTE]
@@ -129,7 +129,7 @@ Negli scenari seguenti verrà richiesto di aggiornare le impostazioni di crittog
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata abilitata la crittografia del disco nella macchina virtuale di origine.
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata modificata la chiave di crittografia del disco o la chiave di crittografia della chiave nella macchina virtuale di origine.
 
-È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia di destinazione nell'insieme di credenziali di **Servizi** > di ripristino risorse di**calcolo e rete**delle > **Proprietà** > degli*elementi replicati*.
+È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia di destinazione nell'insieme di credenziali di **servizi di ripristino**risorse di  >  *replicated item*  >  **Properties**  >  **calcolo e rete**delle proprietà degli elementi replicati.
 
 ![Finestra di dialogo Aggiorna impostazioni ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -141,7 +141,7 @@ Azure Site Recovery richiede almeno l'autorizzazione di lettura per l'insieme di
 **Come risolvere il problema:** Indipendentemente dal fatto che l'utente sia o meno un amministratore della sottoscrizione, è importante avere l'autorizzazione Get per l'insieme di credenziali delle chiavi.
 
 1. Passare a Key Vault dell'area di origine, che in questo esempio è "ContososourceKeyvault" > **criteri di accesso** 
-2. In **Seleziona entità** Aggiungi il nome utente, ad esempio:dradmin@contoso.com""
+2. In **Seleziona entità** Aggiungi il nome utente, ad esempio: " dradmin@contoso.com "
 3. In **autorizzazioni chiave** selezionare Get 
 4. In **autorizzazione segreta** selezionare Get 
 5. Salvare i criteri di accesso
@@ -153,7 +153,7 @@ Sono disponibili tutte le autorizzazioni per l'insieme di credenziali delle chia
 
 Autorizzazione richiesta nell'insieme di credenziali delle [chiavi di destinazione](#required-user-permissions)
 
-**Come risolvere il problema:** Passare a **Home** > **Vault** > **ContosotargetKeyvault** > **criteri di accesso** e aggiungere le autorizzazioni appropriate.
+**Come risolvere il problema:** Passare a **Home**  >  **Vault**  >  **ContosotargetKeyvault**  >  **criteri di accesso** e aggiungere le autorizzazioni appropriate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

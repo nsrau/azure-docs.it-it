@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414166"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
 
-> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-activity-performance.md)
 > * [Versione corrente](copy-activity-performance.md)
 
@@ -42,7 +42,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 ## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Prestazioni di copia e scalabilità ottenibili con ADF
 
-ADF offre un'architettura senza server che consente il parallelismo a livelli diversi, consentendo agli sviluppatori di compilare pipeline per sfruttare al meglio la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  Ciò significa che la velocità effettiva che è possibile ottenere può essere stimata misurando la velocità effettiva minima offerta dall'archivio dati di origine, l'archivio dati di destinazione e la larghezza di banda di rete tra l'origine e la destinazione.  La tabella seguente calcola la durata della copia in base alle dimensioni dei dati e al limite di larghezza di banda per l'ambiente. 
+ADF offre un'architettura serverless che consente il parallelismo a livelli diversi, consentendo agli sviluppatori di compilare pipeline per sfruttare al meglio la larghezza di banda di rete, nonché le operazioni di I/O al secondo di archiviazione e la larghezza di banda per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  Ciò significa che la velocità effettiva che è possibile ottenere può essere stimata misurando la velocità effettiva minima offerta dall'archivio dati di origine, l'archivio dati di destinazione e la larghezza di banda di rete tra l'origine e la destinazione.  La tabella seguente calcola la durata della copia in base alle dimensioni dei dati e al limite di larghezza di banda per l'ambiente. 
 
 | Dimensioni dati/ <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
@@ -59,8 +59,8 @@ La copia di ADF è scalabile a livelli diversi:
 
 ![scalabilità delle copie di ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
-- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio utilizzando [per ogni ciclo](control-flow-for-each-activity.md).
-- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 DIUs](#data-integration-units) per ogni attività di copia in modo senza server. Quando si usa Integration Runtime indipendenti, è possibile scalare manualmente il computer o scalare orizzontalmente in più computer ([fino a 4 nodi](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e una singola attività di copia partiziona il set di file in tutti i nodi.
+- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio usando il [ciclo For Each](control-flow-for-each-activity.md).
+- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 unità di integrazione dati](#data-integration-units) per ogni attività di copia in modalità serverless; quando si usa il runtime di integrazione self-hosted è possibile aumentare manualmente le prestazioni del computer o aumentare le istanze in più computer ([fino a 4 nodi](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e una singola attività di copia eseguirà la partizione del set di file in tutti i nodi.
 - Una singola attività di copia legge e scrive nell'archivio dati usando più thread [in parallelo](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Procedura di ottimizzazione delle prestazioni
@@ -118,7 +118,7 @@ Per ospitare un aumento del carico di lavoro simultaneo o per ottenere prestazio
 Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. [Altre informazioni](copy-activity-performance-features.md#staged-copy)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli altri articoli sull'attività di copia:
+Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
 - [Risolvere i problemi delle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md)

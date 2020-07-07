@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414933"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
@@ -24,7 +24,7 @@ ms.locfileid: "81414933"
 Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati.
 
 > [!NOTE]
-> I prezzi usati negli esempi seguenti sono ipotetici e non sono destinati a implicare prezzi effettivi.
+> I prezzi usati negli esempi seguenti sono ipotetici e non suggeriscono in alcun modo i prezzi effettivi.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiare i dati da AWS S3 in Archiviazione BLOB di Azure ogni ora
 
@@ -163,7 +163,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 - Operazioni di Data Factory = **$ 0,0001**
   - Lettura/scrittura = 10\*00001 = $ 0,0001 [1 L/S = $ 0,50/50000 = 0,00001]
   - Monitoraggio = 2\*000005 = $ 0,00001 [1 monitoraggio = $ 0,25/50000 = 0,000005]
-- Esecuzione orchestrazione &amp; Pipeline = **$1,463**
+- Esecuzione orchestrazione pipeline &amp; = **$1,463**
   - Esecuzioni di attività = 001\*2 = 0,002 [1 esecuzione = $ 1/1000 = 0,001]
   - Attività flusso di dati = $1,461 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.274/hour in Azure Integration Runtime con 16 core calcolo generale
 
@@ -173,6 +173,6 @@ Ora che si conoscono i prezzi per Azure Data Factory, è possibile iniziare!
 
 - [Creare una data factory usando l'interfaccia utente di Azure Data Factory](quickstart-create-data-factory-portal.md)
 
-- [Introduzione a Data factory di Azure](introduction.md)
+- [Introduzione al servizio Azure Data Factory](introduction.md)
 
 - [Creazione di oggetti visivi in Azure Data Factory](author-visually.md)

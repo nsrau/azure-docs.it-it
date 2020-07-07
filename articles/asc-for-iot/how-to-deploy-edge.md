@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311286"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
@@ -165,7 +165,7 @@ Se si verifica un problema, i log del contenitore rappresentano il modo migliore
 
 1. Verificare che siano in esecuzione i seguenti contenitori:
 
-   | Name | IMAGE |
+   | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
@@ -179,7 +179,7 @@ Se si verifica un problema, i log del contenitore rappresentano il modo migliore
 
    `sudo docker logs azureiotsecurity`
 
-1. Per log più dettagliati, aggiungere la variabile di ambiente seguente alla **azureiotsecurity** distribuzione del modulo azureiotsecurity `logLevel=Debug`:.
+1. Per log più dettagliati, aggiungere la variabile di ambiente seguente alla distribuzione del modulo **azureiotsecurity** : `logLevel=Debug` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,7 +10,7 @@ ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
 ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
 ms.locfileid: "81007834"

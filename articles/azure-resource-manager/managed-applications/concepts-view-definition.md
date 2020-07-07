@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391701"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visualizzazione dell'elemento di definizione nelle applicazioni gestite di Azure
@@ -20,11 +20,11 @@ Questo articolo fornisce una panoramica dell'elemento della definizione della vi
 
 ## <a name="view-definition-artifact"></a>Artefatto di definizione delle visualizzazioni
 
-L'elemento della definizione della vista deve essere denominato **viewDefinition. JSON** e inserito allo stesso livello di **createUiDefinition. JSON** e **mainTemplate. JSON** nel pacchetto zip che consente di creare una definizione di applicazione gestita. Per informazioni su come creare il pacchetto zip e pubblicare una definizione di applicazione gestita, vedere [pubblicare una definizione di applicazione gestita di Azure](publish-service-catalog-app.md)
+L'elemento della definizione della vista deve essere denominato **viewDefinition.json** e inserito allo stesso livello di **createUiDefinition.jssu** e **mainTemplate.json** nel pacchetto zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto zip e pubblicare una definizione di applicazione gestita, vedere [pubblicare una definizione di applicazione gestita di Azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Visualizza Schema definizione
 
-Il file **viewDefinition. JSON** dispone solo di una proprietà `views` di primo livello, che è una matrice di visualizzazioni. Ogni visualizzazione viene visualizzata nell'interfaccia utente dell'applicazione gestita come voce di menu separata nel sommario. Ogni visualizzazione dispone di `kind` una proprietà che imposta il tipo della visualizzazione. Deve essere impostato su uno dei valori seguenti: [Overview](#overview), [metrics](#metrics), [CustomResources](#custom-resources), [Associations](#associations). Per altre informazioni, vedere [schema JSON corrente per viewDefinition. JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+Il **viewDefinition.jssu** file ha una sola `views` proprietà di primo livello, ovvero una matrice di visualizzazioni. Ogni visualizzazione viene visualizzata nell'interfaccia utente dell'applicazione gestita come voce di menu separata nel sommario. Ogni visualizzazione dispone di una `kind` proprietà che imposta il tipo della visualizzazione. Deve essere impostato su uno dei valori seguenti: [Overview](#overview), [metrics](#metrics), [CustomResources](#custom-resources), [Associations](#associations). Per ulteriori informazioni, vedere [schema JSON corrente per viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Esempio di JSON per la definizione della vista:
 
@@ -107,7 +107,7 @@ Esempio di JSON per la definizione della vista:
 
 `"kind": "Overview"`
 
-Quando si fornisce questa visualizzazione in **viewDefinition. JSON**, viene eseguito l'override della pagina di panoramica predefinita nell'applicazione gestita.
+Quando si fornisce questa visualizzazione in **viewDefinition.json**, viene sostituita la pagina di panoramica predefinita nell'applicazione gestita.
 
 ```json
 {
@@ -127,9 +127,9 @@ Quando si fornisce questa visualizzazione in **viewDefinition. JSON**, viene ese
 
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
-|intestazione|No|Intestazione della pagina Overview.|
+|header|No|Intestazione della pagina Overview.|
 |description|No|Descrizione dell'applicazione gestita.|
-|comandi|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della pagina Panoramica, vedere [comandi](#commands).|
+|commands|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della pagina Panoramica, vedere [comandi](#commands).|
 
 ![Panoramica](./media/view-definition/overview.png)
 
@@ -167,7 +167,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|No|Titolo visualizzato della visualizzazione.|
-|Versione|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
+|version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
 |grafici|Sì|Matrice di grafici della pagina metrica.|
 
 ### <a name="chart"></a>Grafico
@@ -175,7 +175,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato del grafico.|
-|chartType|No|Visualizzazione da utilizzare per il grafico. Per impostazione predefinita, viene utilizzato un grafico a linee. Tipi di grafico supportati `Bar, Line, Area, Scatter`:.|
+|chartType|No|Visualizzazione da utilizzare per il grafico. Per impostazione predefinita, viene utilizzato un grafico a linee. Tipi di grafico supportati: `Bar, Line, Area, Scatter` .|
 |Metriche|Sì|Matrice di metriche da tracciare in questo grafico. Per altre informazioni sulle metriche supportate in portale di Azure, vedere [metriche supportate con monitoraggio di Azure](../../azure-monitor/platform/metrics-supported.md)|
 
 ### <a name="metric"></a>Metrica
@@ -184,8 +184,8 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 |---------|---------|---------|
 |name|Sì|Nome della metrica.|
 |aggregationType|Sì|Tipo di aggregazione da utilizzare per questa metrica. Tipi di aggregazione supportati:`none, sum, min, max, avg, unique, percentile, count`|
-|namespace|No|Informazioni aggiuntive da usare per determinare il provider di metriche corretto.|
-|resourceTagFilter|No|La matrice dei tag delle risorse (sarà separata `or` da Word) per la quale verranno visualizzate le metriche. Si applica al filtro del tipo di risorsa.|
+|spazio dei nomi|No|Informazioni aggiuntive da usare per determinare il provider di metriche corretto.|
+|resourceTagFilter|No|La matrice dei tag delle risorse (sarà separata da `or` Word) per la quale verranno visualizzate le metriche. Si applica al filtro del tipo di risorsa.|
 |resourceType|Sì|Tipo di risorsa per cui visualizzare le metriche.|
 
 ![Metriche](./media/view-definition/metrics.png)
@@ -194,7 +194,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 
 `"kind": "CustomResources"`
 
-È possibile definire più visualizzazioni di questo tipo. Ogni visualizzazione rappresenta un tipo di risorsa personalizzato **univoco** del provider personalizzato definito in **mainTemplate. JSON**. Per un'introduzione ai provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](../custom-providers/overview.md).
+È possibile definire più visualizzazioni di questo tipo. Ogni visualizzazione rappresenta un tipo di risorsa personalizzato **univoco** del provider personalizzato definito in **mainTemplate.js**. Per un'introduzione ai provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](../custom-providers/overview.md).
 
 In questa visualizzazione è possibile eseguire operazioni GET, PUT, DELETE e POST per il tipo di risorsa personalizzato. Le operazioni POST potrebbero essere azioni personalizzate globali o azioni personalizzate in un contesto del tipo di risorsa personalizzato.
 
@@ -226,19 +226,19 @@ In questa visualizzazione è possibile eseguire operazioni GET, PUT, DELETE e PO
 
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
-|displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione CustomResources in **viewDefinition. JSON**.|
-|Versione|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
+|displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione CustomResources nel **viewDefinition.js**.|
+|version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
 |resourceType|Sì|Tipo di risorsa personalizzata. Deve essere un tipo di risorsa personalizzata **univoco** del provider personalizzato.|
 |icon|No|Icona della visualizzazione. L'elenco di icone di esempio è definito nello [schema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Creare lo schema di definizione dell'interfaccia utente per il comando Crea risorsa personalizzata. Per un'introduzione alla creazione di definizioni dell'interfaccia utente, vedere Introduzione a [CreateUiDefinition](create-uidefinition-overview.md)|
-|comandi|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della visualizzazione CustomResources, vedere [comandi](#commands).|
-|colonne|No|Matrice di colonne della risorsa personalizzata. Se non è definito `name` , la colonna verrà visualizzata per impostazione predefinita. La colonna deve avere `"key"` e `"displayName"`. Per chiave, fornire la chiave della proprietà da visualizzare in una visualizzazione. Se annidato, utilizzare il punto come delimitatore, ad `"key": "name"` esempio `"key": "properties.property1"`o. Per nome visualizzato specificare il nome visualizzato della proprietà da visualizzare in una vista. È anche possibile specificare una `"optional"` proprietà. Se è impostato su true, per impostazione predefinita la colonna è nascosta in una visualizzazione.|
+|commands|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della visualizzazione CustomResources, vedere [comandi](#commands).|
+|colonne|No|Matrice di colonne della risorsa personalizzata. Se non è definito `name` , la colonna verrà visualizzata per impostazione predefinita. La colonna deve avere `"key"` e `"displayName"` . Per chiave, fornire la chiave della proprietà da visualizzare in una visualizzazione. Se annidato, utilizzare il punto come delimitatore, ad esempio `"key": "name"` o `"key": "properties.property1"` . Per nome visualizzato specificare il nome visualizzato della proprietà da visualizzare in una vista. È anche possibile specificare una `"optional"` Proprietà. Se è impostato su true, per impostazione predefinita la colonna è nascosta in una visualizzazione.|
 
 ![CustomResources](./media/view-definition/customresources.png)
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
-Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che vengono visualizzati nella pagina. Ogni comando rappresenta un'azione POST del provider personalizzato di Azure definito in **mainTemplate. JSON**. Per un'introduzione ai provider personalizzati, vedere [Panoramica dei provider personalizzati di Azure](../custom-providers/overview.md).
+Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che vengono visualizzati nella pagina. Ogni comando rappresenta un'azione POST del provider personalizzato di Azure definito in **mainTemplate.json**. Per un'introduzione ai provider personalizzati, vedere [Panoramica dei provider personalizzati di Azure](../custom-providers/overview.md).
 
 ```json
 {
@@ -256,7 +256,7 @@ Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che v
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Nome visualizzato del pulsante di comando.|
-|path|Sì|Nome dell'azione del provider personalizzato. L'azione deve essere definita in **mainTemplate. JSON**.|
+|path|Sì|Nome dell'azione del provider personalizzato. L'azione deve essere definita in **mainTemplate.js**.|
 |icon|No|Icona del pulsante di comando. L'elenco di icone di esempio è definito nello [schema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Creare lo schema di definizione dell'interfaccia utente per il comando. Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).|
 
@@ -264,9 +264,9 @@ Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che v
 
 `"kind": "Associations"`
 
-È possibile definire più visualizzazioni di questo tipo. Questa visualizzazione consente di collegare le risorse esistenti all'applicazione gestita tramite il provider personalizzato definito in **mainTemplate. JSON**. Per un'introduzione ai provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](../custom-providers/overview.md).
+È possibile definire più visualizzazioni di questo tipo. Questa visualizzazione consente di collegare le risorse esistenti all'applicazione gestita tramite il provider personalizzato definito in **mainTemplate.js**. Per un'introduzione ai provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](../custom-providers/overview.md).
 
-In questa visualizzazione è possibile estendere le risorse di Azure esistenti in `targetResourceType`base a. Quando si seleziona una risorsa, viene creata una richiesta di onboarding al provider personalizzato **pubblico** , che può applicare un effetto collaterale alla risorsa. 
+In questa visualizzazione è possibile estendere le risorse di Azure esistenti in base a `targetResourceType` . Quando si seleziona una risorsa, viene creata una richiesta di onboarding al provider personalizzato **pubblico** , che può applicare un effetto collaterale alla risorsa. 
 
 ```json
 {
@@ -282,8 +282,8 @@ In questa visualizzazione è possibile estendere le risorse di Azure esistenti i
 
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
-|displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione di associazioni in **viewDefinition. JSON**.|
-|Versione|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
+|displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione di associazioni nel **viewDefinition.js**.|
+|version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
 |targetResourceType|Sì|Tipo di risorsa di destinazione. Questo è il tipo di risorsa che verrà visualizzato per l'onboarding delle risorse.|
 |createUIDefinition|No|Creare lo schema di definizione dell'interfaccia utente per il comando Crea risorsa di associazione. Per un'introduzione alla creazione di definizioni dell'interfaccia utente, vedere Introduzione a [CreateUiDefinition](create-uidefinition-overview.md)|
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407202"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
@@ -36,11 +36,11 @@ Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di 
 
 L'oggetto del messaggio di posta elettronica segue questo modello:
 
-&lt;nome&gt; utente ha invitato l'utente ad accedere alle applicazioni all'interno dell'organizzazione.
+&lt;nome utente &gt; ha invitato l'utente ad accedere alle applicazioni all'interno dell'organizzazione.
 
 ### <a name="from-address"></a>Indirizzo del mittente.
 
-Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn. Questo modello dovrebbe chiarire che, anche se il messaggio di invites@microsoft.composta elettronica deriva da, l'invito è di un'altra organizzazione. Il formato è: inviti Microsoft <invites@microsoft.com> o inviti Microsoft per conto del &lt;TenantName&gt; <invites@microsoft.com>. 
+Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn. Questo modello dovrebbe chiarire che, anche se il messaggio di posta elettronica deriva da invites@microsoft.com , l'invito è di un'altra organizzazione. Il formato è: inviti Microsoft  <invites@microsoft.com> o inviti Microsoft per conto del &lt; TenantName &gt;  <invites@microsoft.com> . 
 
 ### <a name="reply-to"></a>Rispondi a
 
@@ -91,7 +91,7 @@ Se non è configurata alcuna di queste impostazioni, come lingua verrà usato l'
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-- [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
+- [Che cos'è Azure AD collaborazione B2B](what-is-b2b.md)
 - [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](add-users-administrator.md)
 - [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](add-users-information-worker.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)

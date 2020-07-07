@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393260"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Gruppo di risorse di Azure come origine di griglia di eventi
@@ -237,34 +237,34 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati dell'evento del gruppo di risorse. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
+| data | object | Dati dell'evento del gruppo di risorse. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| authorization | oggetto | L'autorizzazione richiesta per l'operazione. |
-| claims | oggetto | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
-| httpRequest | oggetto | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
-| resourceProvider | stringa | Provider di risorse per l'operazione. |
-| resourceUri | stringa | L'URI della risorsa nell'operazione. |
-| operationName | stringa | Operazione eseguita. |
-| status | stringa | Lo stato dell'operazione. |
-| subscriptionId | stringa | L'ID sottoscrizione della risorsa. |
-| TenantId | stringa | L'ID tenant della risorsa. |
+| authorization | object | L'autorizzazione richiesta per l'operazione. |
+| claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | string | Un ID operazione per la risoluzione dei problemi. |
+| httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
+| resourceProvider | string | Provider di risorse per l'operazione. |
+| resourceUri | string | L'URI della risorsa nell'operazione. |
+| operationName | string | Operazione eseguita. |
+| status | string | Lo stato dell'operazione. |
+| subscriptionId | string | L'ID sottoscrizione della risorsa. |
+| TenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo  |Descrizione  |
 |---------|---------|
-| [Esercitazione: monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
+| [Esercitazione: monitorare le modifiche della macchina virtuale con griglia di eventi di Azure e app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
 | [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-cli-resource-group.md)| Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |
 | [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un gruppo di risorse e applicare un filtro per una risorsa](./scripts/event-grid-cli-resource-group-filter.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse e applica un filtro per una risorsa. |
 | [PowerShell: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-powershell-resource-group.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |

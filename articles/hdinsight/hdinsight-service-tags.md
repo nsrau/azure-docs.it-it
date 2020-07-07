@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410861"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
@@ -30,7 +30,7 @@ Sono disponibili due opzioni per l'uso dei tag di servizio nei gruppi di sicurez
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usa un singolo tag del servizio HDInsight globale
 
-Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDInsight consiste nell' `HDInsight` aggiungere il tag globale a una regola NSG.
+Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDInsight consiste nell'aggiungere il tag globale `HDInsight` a una regola NSG.
 
 1. Dal [portale di Azure](https://portal.azure.com/)selezionare il gruppo di sicurezza di rete.
 
@@ -54,7 +54,7 @@ Per informazioni sui tag di servizio da aggiungere per la propria area, vedere l
 
 Se il cluster si trova in un'area elencata in questa tabella, è sufficiente aggiungere un singolo tag di servizio regionale a NSG.
 
-| Country | Region | Tag servizio |
+| Paese | Region | Tag di servizio |
 | ---- | ---- | ---- |
 | Australia | Australia orientale | HDInsight. AustraliaEast |
 | &nbsp; | Australia sud-orientale | HDInsight. AustraliaSoutheast |
@@ -73,7 +73,7 @@ Se il cluster si trova in un'area elencata in questa tabella, è sufficiente agg
 | Giappone | Giappone occidentale | HDInsight. JapanWest |
 | Francia | Francia centrale| HDInsight. FranceCentral |
 | Regno Unito | Regno Unito meridionale | HDInsight. UKSouth |
-| Azure Government | DOD Central | HDInsight. USDoDCentral |
+| Azure Government | Stati Uniti centrali DoD | HDInsight. USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | DOD est | HDInsight. USDoDEast |
 | &nbsp; | USGov Arizona | HDInsight. USGovArizona |
@@ -86,7 +86,7 @@ Le aree rimanenti sono divise in gruppi in base ai tag di servizio regionali usa
 
 #### <a name="group-1"></a>Gruppo 1
 
-Se il cluster viene creato in una delle aree della tabella seguente, consentire i tag `HDInsight.WestUS` del servizio e. `HDInsight.EastUS` Inoltre, il tag di servizio regionale elencato. Le aree in questa sezione richiedono tre tag di servizio.
+Se il cluster viene creato in una delle aree della tabella seguente, consentire i tag del servizio `HDInsight.WestUS` e `HDInsight.EastUS` . Inoltre, il tag di servizio regionale elencato. Le aree in questa sezione richiedono tre tag di servizio.
 
 Ad esempio, se il cluster viene creato nell' `East US 2` area, è necessario aggiungere i tag di servizio seguenti al gruppo di sicurezza di rete:
 
@@ -94,7 +94,7 @@ Ad esempio, se il cluster viene creato nell' `East US 2` area, è necessario agg
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Country | Region | Tag servizio |
+| Paese | Region | Tag di servizio |
 | ---- | ---- | ---- |
 | Stati Uniti | Stati Uniti orientali 2 | HDInsight. EastUS2 |
 | &nbsp; | Stati Uniti centrali | HDInsight. Centralus |
@@ -111,15 +111,15 @@ Ad esempio, se il cluster viene creato nell' `East US 2` area, è necessario agg
 
 #### <a name="group-2"></a>Gruppo 2
 
-I cluster nelle aree di *Cina settentrionale* e *Cina orientale* devono consentire due tag di servizio: `HDInsight.ChinaNorth` e. `HDInsight.ChinaEast`
+I cluster nelle aree di *Cina settentrionale* e *Cina orientale* devono consentire due tag di servizio: `HDInsight.ChinaNorth` e `HDInsight.ChinaEast` .
 
 #### <a name="group-3"></a>Gruppo 3
 
-I cluster nelle aree di *US gov Iowa* e *US gov Virginia* devono consentire due tag di servizio: `HDInsight.USGovIowa` e. `HDInsight.USGovVirginia`
+I cluster nelle aree di *US gov Iowa* e *US gov Virginia* devono consentire due tag di servizio: `HDInsight.USGovIowa` e `HDInsight.USGovVirginia` .
 
 #### <a name="group-4"></a>Gruppo 4
 
-I cluster nelle aree della *Germania centrale* e della *Germania nord-orientale* devono consentire due tag di `HDInsight.GermanyCentral` servizio `HDInsight.GermanyNortheast`: e.
+I cluster nelle aree della *Germania centrale* e della *Germania nord-orientale* devono consentire due tag di servizio: `HDInsight.GermanyCentral` e `HDInsight.GermanyNortheast` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

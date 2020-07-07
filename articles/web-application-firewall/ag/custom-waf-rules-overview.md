@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383819"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
@@ -37,7 +37,7 @@ Le espressioni regolari sono supportate anche nelle regole personalizzate, esatt
 
 Consentire e bloccare il traffico è semplice con regole personalizzate. Ad esempio, è possibile bloccare tutto il traffico proveniente da un intervallo di indirizzi IP. È possibile creare un'altra regola per consentire il traffico se la richiesta deriva da un browser specifico.
 
-Per consentire un elemento, verificare che `-Action` il parametro sia impostato su **Consenti**. Per bloccare un elemento, verificare che `-Action` il parametro sia impostato su **blocco**.
+Per consentire un elemento, verificare che il `-Action` parametro sia impostato su **Consenti**. Per bloccare un elemento, verificare che il `-Action` parametro sia impostato su **blocco**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -161,10 +161,10 @@ Elenco di valori da confrontare, che può essere considerato come *o*' ed. Ad es
 - Block: blocca la transazione in base a *SecDefaultAction* (modalità di rilevamento/prevenzione). Proprio come l'azione Consenti, una volta che la richiesta viene valutata e aggiunta all'elenco dei blocchi, la valutazione viene arrestata e la richiesta viene bloccata. Eventuali richieste successive a quelle che soddisfano le stesse condizioni non verranno valutate e verranno bloccate. 
 - Log: consente alla regola di scrivere nel log, ma consente di eseguire le altre regole per la valutazione. Le altre regole personalizzate vengono valutate in ordine di priorità, seguite dalle regole gestite.
 
-## <a name="geomatch-custom-rules-preview"></a>Geomatch-regole personalizzate (anteprima)
+## <a name="geomatch-custom-rules-preview"></a>Regole personalizzate di corrispondenza geografica (anteprima)
 
 Le regole personalizzate consentono di creare regole personalizzate per soddisfare le esigenze specifiche delle applicazioni e dei criteri di sicurezza. È possibile limitare l'accesso alle applicazioni Web in base al paese o all'area geografica. Per ulteriori informazioni, vedere la pagina relativa [alle regole personalizzate di geocorrispondenza (anteprima)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver apprese le regole personalizzate, [creare regole personalizzate](create-custom-waf-rules.md).
+Dopo aver letto la documentazione sulle regole personalizzate, [crearle in modo autonomo](create-custom-waf-rules.md).
