@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
 ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122198"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e applicazione di patch per cache di Azure per Redis
@@ -59,13 +58,13 @@ Poiché la sincronizzazione completa dei dati viene eseguita prima della ripetiz
 
 ## <a name="additional-cache-load"></a>Caricamento cache aggiuntivo
 
-Ogni volta che si verifica un failover, le cache standard e Premium devono replicare i dati da un nodo all'altro. Questa replica causa un aumento del carico sia nella memoria del server che nella CPU. Se l'istanza della cache è già caricata in modo eccessivo, le applicazioni client potrebbero riscontrare una latenza maggiore. In casi estremi, le applicazioni client potrebbero ricevere eccezioni di timeout. Per ridurre l'effetto di questo carico aggiuntivo, [configurare](cache-configure.md#memory-policies) l' `maxmemory-reserved` impostazione della cache.
+Ogni volta che si verifica un failover, le cache standard e Premium devono replicare i dati da un nodo all'altro. Questa replica causa un aumento del carico sia nella memoria del server che nella CPU. Se l'istanza della cache è già caricata in modo eccessivo, le applicazioni client potrebbero riscontrare una latenza maggiore. In casi estremi, le applicazioni client potrebbero ricevere eccezioni di timeout. Per ridurre l'effetto di questo carico aggiuntivo, [configurare](cache-configure.md#memory-policies) l'impostazione della cache `maxmemory-reserved` .
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>In che modo un failover influisce sull'applicazione client?
 
 Il numero di errori visualizzati dall'applicazione client dipende dal numero di operazioni in sospeso sulla connessione al momento del failover. Eventuali connessioni instradate attraverso il nodo che ha chiuso le connessioni visualizzeranno errori. Molte librerie client possono generare tipi diversi di errori quando le connessioni si interrompono, incluse le eccezioni di timeout, le eccezioni di connessione o le eccezioni di socket. Il numero e il tipo di eccezioni dipendono dalla posizione del percorso del codice in cui la richiesta è quando la cache chiude le connessioni. Ad esempio, un'operazione che invia una richiesta ma non ha ricevuto una risposta quando si verifica il failover potrebbe ottenere un'eccezione di timeout. Le nuove richieste sull'oggetto connessione chiuso ricevono le eccezioni di connessione fino a quando la riconnessione non viene eseguita correttamente.
 
-La maggior parte delle librerie client tenta di riconnettersi alla cache se sono state configurate a tale scopo. Tuttavia, in alcuni casi, i bug imprevisti possono mettere gli oggetti della libreria in uno stato irreversibile. Se gli errori permangono per più di un periodo di tempo preconfigurato, è necessario ricreare l'oggetto connessione. In Microsoft.NET e in altri linguaggi orientati a oggetti, la ricreazione della connessione senza riavviare l'applicazione può essere eseguita usando [un\<modello\> Lazy T](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+La maggior parte delle librerie client tenta di riconnettersi alla cache se sono state configurate a tale scopo. Tuttavia, in alcuni casi, i bug imprevisti possono mettere gli oggetti della libreria in uno stato irreversibile. Se gli errori permangono per più di un periodo di tempo preconfigurato, è necessario ricreare l'oggetto connessione. In Microsoft.NET e in altri linguaggi orientati a oggetti, la ricreazione della connessione senza riavviare l'applicazione può essere eseguita usando [un \<T\> modello Lazy](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
 ### <a name="how-do-i-make-my-application-resilient"></a>Ricerca per categorie garantire la resilienza dell'applicazione?
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934878"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Distribuire applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si distribuiscono applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di rilascio e risposta di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per distribuire un'applicazione più protetta.
 
-Le fasi SDL seguenti sono descritte in questo articolo:
+Questo articolo tratta le fasi di SDL seguenti:
 
 - Versione
 - Risposta
@@ -88,5 +87,5 @@ Il Centro sicurezza standard consente di:
 ## <a name="next-steps"></a>Passaggi successivi
 Negli articoli seguenti si consigliano i controlli di sicurezza e le attività che consentono di progettare e sviluppare applicazioni sicure.
 
-- [Progettare applicazioni protette](secure-design.md)
+- [Progettare applicazioni sicure](secure-design.md)
 - [Sviluppare applicazioni sicure](secure-develop.md)

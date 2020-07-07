@@ -20,15 +20,14 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113113"
 ---
-# <a name="odata-searchin-function-in-azure-cognitive-search"></a>Funzione `search.in` OData in Azure ricerca cognitiva
+# <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funzione OData in Azure ricerca cognitiva
 
-Uno scenario comune nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) consiste nel controllare se un singolo campo in ogni documento è uguale a uno dei molti valori possibili. Ad esempio, questo è il modo in cui alcune applicazioni implementano il [taglio di sicurezza](search-security-trimming-for-azure-search.md) , verificando un campo contenente uno o più ID entità rispetto a un elenco di ID entità che rappresentano l'utente che ha emesso la query. Un modo per scrivere una query come questa consiste nell'usare gli [`eq`](search-query-odata-comparison-operators.md) operatori [`or`](search-query-odata-logical-operators.md) e:
+Uno scenario comune nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) consiste nel controllare se un singolo campo in ogni documento è uguale a uno dei molti valori possibili. Ad esempio, questo è il modo in cui alcune applicazioni implementano il [taglio di sicurezza](search-security-trimming-for-azure-search.md) , verificando un campo contenente uno o più ID entità rispetto a un elenco di ID entità che rappresentano l'utente che ha emesso la query. Un modo per scrivere una query come questa consiste nell'usare gli [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) operatori e:
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
@@ -72,7 +71,7 @@ I parametri sono definiti nella tabella seguente:
 
 | Nome parametro | Type | Descrizione |
 | --- | --- | --- |
-| `variable` | `Edm.String` | Riferimento a un campo stringa (o una variabile di intervallo su un campo di raccolta di stringhe `search.in` nel caso in cui `any` venga `all` utilizzato all'interno di un'espressione or). |
+| `variable` | `Edm.String` | Riferimento a un campo stringa (o una variabile di intervallo su un campo di raccolta di stringhe nel caso in cui `search.in` venga utilizzato all'interno di un' `any` `all` espressione or). |
 | `valueList` | `Edm.String` | Stringa contenente un elenco delimitato di valori da confrontare con il `variable` parametro. Se il `delimiters` parametro non è specificato, i delimitatori predefiniti sono spazio e virgola. |
 | `delimiters` | `Edm.String` | Stringa in cui ogni carattere viene considerato come separatore durante l'analisi del `valueList` parametro. Il valore predefinito di questo parametro è `' ,'` che indica che tutti i valori con spazi e/o virgole tra di essi verranno separati. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare delimitatori alternativi, ad esempio `'|'` in questo parametro. |
 
@@ -80,7 +79,7 @@ I parametri sono definiti nella tabella seguente:
 
 ### <a name="performance-of-searchin"></a>Prestazioni di`search.in`
 
-Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste alcun limite esplicito per il numero di elementi che è possibile `search.in`passare a, sebbene sia ancora limitato dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
+Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste alcun limite esplicito per il numero di elementi che è possibile passare a `search.in` , sebbene sia ancora limitato dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
 
 ## <a name="examples"></a>Esempi
 

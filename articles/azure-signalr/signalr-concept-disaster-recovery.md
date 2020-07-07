@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73747640"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
@@ -51,7 +50,7 @@ Questa operazione può essere eseguita in due modi.
 
 ### <a name="through-config"></a>Tramite configurazione
 
-Si dovrebbe già essere in grado di impostare la stringa di connessione del servizio SignalR tramite le variabili di ambiente/impostazioni app/Web. cofig `Azure:SignalR:ConnectionString`in una voce di configurazione denominata.
+Si dovrebbe già essere in grado di impostare la stringa di connessione del servizio SignalR tramite le variabili di ambiente/impostazioni app/Web. cofig in una voce di configurazione denominata `Azure:SignalR:ConnectionString` .
 Se sono presenti più endpoint, si possono impostare in più voci di configurazione, ognuna con il formato seguente:
 
 ```
@@ -63,7 +62,7 @@ Il nome è facoltativo, ma sarà utile se si vuole personalizzare ulteriormente 
 
 ### <a name="through-code"></a>Tramite codice
 
-Se si preferisce archiviare le stringhe di connessione in un altro punto, è anche possibile leggerle nel codice e usarle come parametri quando `AddAzureSignalR()` si chiama (in ASP.NET Core `MapAzureSignalR()` ) o (in ASP.NET).
+Se si preferisce archiviare le stringhe di connessione in un altro punto, è anche possibile leggerle nel codice e usarle come parametri quando si chiama `AddAzureSignalR()` (in ASP.NET Core) o `MapAzureSignalR()` (in ASP.NET).
 
 Di seguito viene riportato il codice di esempio:
 

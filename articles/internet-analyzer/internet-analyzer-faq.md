@@ -8,10 +8,9 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74184262"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Domande frequenti su Azure Internet Analyzer (anteprima)
@@ -27,7 +26,7 @@ L'anteprima è disponibile per la selezione dei clienti. Se si è interessati a 
 3. Fare clic sulla sottoscrizione di Azure con cui si prevede di usare Internet Analyzer.
 4. Passare alle impostazioni dei **provider di risorse** per la sottoscrizione.
 5. Cercare **Microsoft. Network** e fare clic sul pulsante **Register** (o **Re-Register**).
-![richiesta di accesso](./media/ia-faq/request-preview-access.png)
+![Richiesta di accesso](./media/ia-faq/request-preview-access.png)
 
 6. [Richiedere l'approvazione](https://aka.ms/internetAnalyzerContact) fornendo l'indirizzo di posta elettronica e l'ID sottoscrizione di Azure usato per effettuare la richiesta di accesso.
 7. Una volta approvata la richiesta, si riceverà un messaggio di posta elettronica di conferma e sarà possibile creare/aggiornare/modificare le risorse di Internet Analyzer dalla sottoscrizione di Azure appena consentita.

@@ -11,10 +11,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73667659"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
@@ -56,7 +55,7 @@ Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengo
 
 1. Definizione delle query di selezione dei dati (vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .
    
-   La sintassi per richiamare una funzione Data Factory è: ** $$ \<Function>** per le query di selezione dei dati e altre proprietà nell'attività e nei set di dati.  
+   La sintassi per richiamare una funzione data factory è: **$$\<function>** per le query di selezione dei dati e altre proprietà nell'attività e nei set di dati.  
 2. Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.
    
     La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.     
@@ -94,10 +93,10 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 | Data |StartOfDay(X) |X: DateTime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | Datetime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
 | Datetime |Ticks(X) |X: DateTime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
-| Testo |Format(X) |X: variabile stringa |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
+| Text |Format(X) |X: variabile stringa |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
 
 > [!IMPORTANT]
-> Quando si utilizza una funzione all'interno di un'altra funzione, non è **$$** necessario utilizzare il prefisso per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, si noti **$$** che il prefisso non viene usato per la funzione **time. AddHours** . 
+> Quando si utilizza una funzione all'interno di un'altra funzione, non è necessario utilizzare **$$** il prefisso per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, si noti che **$$** il prefisso non viene usato per la funzione **time. AddHours** . 
 
 #### <a name="example"></a>Esempio
 Nell'esempio seguente, i parametri di input e output per l'attività Hive vengono determinati usando la funzione `Text.Format` e la variabile di sistema SliceStart. 

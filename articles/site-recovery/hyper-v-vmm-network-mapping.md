@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082569"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
@@ -53,7 +52,7 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Posizione** | **Server VMM** | **Reti VM** | **Mappata a**
+**Posizione** | **Server VMM** | **Reti delle macchine virtuali** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Non mappata
@@ -73,8 +72,8 @@ Di seguito viene indicato in che modo vengono configurati i cloud VMM e in che m
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>N/D</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
-SilverCloud2 | <p>N/D</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
@@ -88,7 +87,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 In base a queste impostazioni, quando si seleziona la rete VM di destinazione, nella tabella seguente sono mostrate le opzioni che saranno disponibili.
 
-**Seleziona** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
+**Select** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponibile
  | GoldCloud1 | GoldCloud2 | Disponibile

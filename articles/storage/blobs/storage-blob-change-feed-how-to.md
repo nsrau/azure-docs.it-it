@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74111864"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Elaborare il feed delle modifiche nell'archiviazione BLOB di Azure (anteprima)
@@ -28,11 +27,11 @@ Per altre informazioni sul feed delle modifiche, vedere [feed delle modifiche ne
 
 1. In Visual Studio aggiungere l'URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` alle origini dei pacchetti NuGet. 
 
-   Per informazioni, vedere [origini di pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+   Per informazioni, vedere [Origini pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
 2. In Gestione pacchetti NuGet trovare il pacchetto **Microsoft. Azure. storage. offre** e installarlo nel progetto. 
 
-   Per informazioni, vedere [trovare e installare un pacchetto](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Per informazioni, vedere [Trovare e installare un pacchetto](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 ## <a name="connect-to-the-storage-account"></a>Effettuare la connessione all'account di archiviazione
 

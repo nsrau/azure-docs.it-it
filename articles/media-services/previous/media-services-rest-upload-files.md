@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888595"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST  
@@ -27,7 +26,7 @@ ms.locfileid: "73888595"
 > * [Portale](media-services-portal-upload-files.md)
 > 
 
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file nell'asset, il contenuto viene archiviato in modo sicuro nel cloud per un'ulteriore elaborazione e streaming. 
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
 
 Questa esercitazione illustra come caricare un file ed eseguire altre operazioni associate:
 
@@ -53,7 +52,7 @@ Questa esercitazione illustra come caricare un file ed eseguire altre operazioni
 Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
  
 * Quando si accede alle entità con l'API REST di Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md). <br/>Con la raccolta Postman usata in questa esercitazione vengono impostate tutte le intestazioni necessarie.
-* Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per il contenuto di streaming, ad esempio http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)seguenti:! *' ();: @ &= + $,/?% # [] ". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+* Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per il contenuto di streaming, ad esempio http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 * La lunghezza del nome non deve essere superare i 260 caratteri.
 * È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. Vedere [questo](media-services-quotas-and-limitations.md) articolo per informazioni dettagliate sulla limitazione per le dimensioni dei file.
 
@@ -87,7 +86,7 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
         ]
     }
     ```
-4. A sinistra della finestra di **posting** fare clic su **1. Ottenere** -> il token di autenticazione AAD**Get Azure ad token per l'entità servizio**.
+4. A sinistra della finestra di **posting** fare clic su **1. Ottenere il token di autenticazione AAD**  ->  **Get Azure ad token per l'entità servizio**.
 
     La parte URL viene compilata con la variabile di ambiente **AzureADSTSEndpoint** (precedentemente nell'esercitazione si impostano i valori delle variabili di ambiente che supportano la raccolta).
 
@@ -110,7 +109,7 @@ Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criter
 
 ### <a name="create-an-access-policy"></a>Creare i criteri di accesso
 
-1. Selezionare **AccessPolicy** -> **Crea AccessPolicy per il caricamento**.
+1. Selezionare **AccessPolicy**  ->  **Crea AccessPolicy per il caricamento**.
 2. Fare clic su **Invia**.
 
     ![Caricare un file](./media/media-services-rest-upload-files/postman-access-policy.png)
@@ -121,7 +120,7 @@ Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criter
 
 ### <a name="overview"></a>Panoramica
 
-Un [asset](https://docs.microsoft.com/rest/api/media/operations/asset) è un contenitore di più tipi o set di oggetti in Servizi multimediali, inclusi elementi video e audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
+Un [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) è un contenitore di più tipi o set di oggetti in servizi multimediali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
 
 Una delle proprietà che è possibile aggiungere quando si crea un asset è **Options**. È possibile specificare una delle opzioni di crittografia seguenti: **None** (impostazione predefinita, non viene usata alcuna crittografia), **StorageEncrypted** (per contenuto che è stato pre-crittografato con crittografia di archiviazione lato client), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Se è presente un asset crittografato, è necessario configurare un criterio di recapito. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -131,7 +130,7 @@ In questo esempio viene creato un asset non crittografato.
 
 ### <a name="create-an-asset"></a>Creare un asset
 
-1. Selezionare **Asset** -> **Crea asset**.
+1. Selezionare **Asset**  ->  **Crea asset**.
 2. Fare clic su **Invia**.
 
     ![Caricare un file](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -157,12 +156,12 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. Per altre informazioni, vedere Locator.
-* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").    
+* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").    
 * Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso.
 
 ### <a name="create-a-sas-locator"></a>Creare un localizzatore di firma di accesso condiviso
 
-1. Selezionare **Locator** -> **create SAS Locator**.
+1. Selezionare **Locator**  ->  **create SAS Locator**.
 2. Fare clic su **Invia**.
 
     Lo script "test" crea l'URl di caricamento sulla base del nome del file multimediale specificato e delle informazioni del localizzatore di firma di accesso condiviso e imposta la variabile di ambiente appropriata.
@@ -200,7 +199,7 @@ Creare e configurare una nuova richiesta:
 
 Dopo aver caricato il file è necessario creare nell'asset i metadati per il file multimediale caricato nella risorsa di archiviazione BLOB associata all'asset.
 
-1. Selezionare **AssetFiles** -> **CreateFileInfos**.
+1. Selezionare **AssetFiles**  ->  **CreateFileInfos**.
 2. Fare clic su **Invia**.
 
     ![Caricare un file](./media/media-services-rest-upload-files/postman-create-file-info.png)

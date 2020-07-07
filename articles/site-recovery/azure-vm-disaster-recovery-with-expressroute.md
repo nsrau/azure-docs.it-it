@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73954091"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per macchine virtuali di Azure
@@ -38,13 +37,13 @@ Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
 - [Circuiti](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
 - [Domini di routing](../expressroute/expressroute-circuit-peerings.md#routingdomains) ExpressRoute
-- [Località](../expressroute/expressroute-locations.md) per ExpressRoute.
+- [Località](../expressroute/expressroute-locations.md)ExpressRoute.
 - [Architettura della replica](azure-to-azure-architecture.md) per le macchine virtuali di Azure
 - Come [configurare la replica](azure-to-azure-tutorial-enable-replication.md) per le macchine virtuali di Azure.
 - Come eseguire il [failover](azure-to-azure-tutorial-failover-failback.md) delle macchine virtuali di Azure.
 
 
-## <a name="general-recommendations"></a>Raccomandazioni generali
+## <a name="general-recommendations"></a>Indicazioni generali
 
 Come procedura consigliata e per garantire obiettivi del punto di ripristino (RPO) efficienti per il ripristino di emergenza, è consigliabile effettuare le operazioni seguenti al momento della configurazione di Site Recovery per l'integrazione con ExpressRoute:
 
@@ -104,23 +103,23 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direction** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da spoke a hub | Consenti traffico inoltrato | Attivato
-Da spoke a hub | Consenti transito gateway | Disabled
-Da spoke a hub | Usa gateway remoti | Attivato
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
+Da spoke a hub | Consenti traffico inoltrato | Abilitato
+Da spoke a hub | Consenti transito gateway | Disabilitata
+Da spoke a hub | Usa gateway remoti | Abilitato
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direction** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da hub a spoke | Consenti traffico inoltrato | Attivato
-Da hub a spoke | Consenti transito gateway | Attivato
-Da hub a spoke | Usa gateway remoti | Disabled
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
+Da hub a spoke | Consenti traffico inoltrato | Abilitato
+Da hub a spoke | Consenti transito gateway | Abilitato
+Da hub a spoke | Usa gateway remoti | Disabilitata
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

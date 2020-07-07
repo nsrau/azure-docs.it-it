@@ -14,10 +14,9 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73620570"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino con l'interfaccia della riga di comando di Azure
@@ -39,7 +38,7 @@ Per eseguire questi passaggi per la risoluzione dei problemi, è necessario aver
 > [!Important]
 > Gli script in questo articolo si applicano solo alle VM che usano [Managed Disks](../linux/managed-disks-overview.md). 
 
-Negli esempi seguenti sostituire i nomi dei parametri con valori personalizzati, ad esempio `myResourceGroup` e. `myVM`
+Negli esempi seguenti sostituire i nomi dei parametri con valori personalizzati, ad esempio `myResourceGroup` e `myVM` .
 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare l'output seriale per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento del disco rigido virtuale sottostante.
@@ -105,14 +104,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-Se il gruppo di risorse e lo snapshot di origine non si trovano nella stessa area, verrà visualizzato l'errore "risorsa non trovata" quando si esegue `az disk create`. In questo caso, è necessario specificare `--location <region>` per creare il disco nella stessa area dello snapshot di origine.
+Se il gruppo di risorse e lo snapshot di origine non si trovano nella stessa area, verrà visualizzato l'errore "risorsa non trovata" quando si esegue `az disk create` . In questo caso, è necessario specificare `--location <region>` per creare il disco nella stessa area dello snapshot di origine.
 
 A questo punto si ha una copia del disco del sistema operativo originale. È possibile montare questo nuovo disco in un'altra macchina virtuale Windows per la risoluzione dei problemi.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Connetti il nuovo disco rigido virtuale a un'altra macchina virtuale
 Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Il disco viene collegato a questa macchina virtuale per la risoluzione dei problemi per esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro di sistema o dell'applicazione.
 
-Questo script connette il disco `myNewOSDisk` alla macchina virtuale `MyTroubleshootVM`:
+Questo script connette il disco `myNewOSDisk` alla macchina virtuale `MyTroubleshootVM` :
 
 ```azurecli
 # Get ID of the OS disk that you just created.

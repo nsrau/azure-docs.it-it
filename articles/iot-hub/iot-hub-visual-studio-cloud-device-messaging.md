@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74079483"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Cloud Explorer per Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
@@ -54,7 +53,7 @@ Il componente Cloud Explorer da Programma di installazione di Visual Studio per 
 
 Per accedere all'hub, seguire questa procedura:
 
-1. In Visual Studio selezionare **Visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
+1. In Visual Studio selezionare **Visualizza**  >  **Cloud Explorer** per aprire Cloud Explorer.
 
 1. Selezionare l'icona di gestione account per visualizzare le sottoscrizioni.
 

@@ -9,10 +9,9 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68847166"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell
@@ -25,7 +24,7 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 ![Visualizzazione dei risultati](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>Installazione
+## <a name="setup"></a>Configurazione
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -172,5 +171,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possibile approfondire le operazioni possibili con gli eventi di archiviazione BLOB e con la Griglia di eventi:
 
-- [Reazione a eventi di archiviazione BLOB](storage-blob-event-overview.md)
+- [Reazione agli eventi di archiviazione BLOB](storage-blob-event-overview.md)
 - [Informazioni sulla griglia di eventi](../../event-grid/overview.md)

@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74072971"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
@@ -63,7 +62,7 @@ Per informazioni sulla risoluzione dei problemi di ogni estensione, vedere la se
 | Microsoft. Compute. customscriptextension | [Script personalizzato per Windows](custom-script-windows.md#troubleshoot-and-support) |
 | Microsoft. ostcextensions. alle customscriptforlinux | [Configurazione dello stato desiderato per Linux](dsc-linux.md#troubleshoot-and-support) |
 | Microsoft. PowerShell. DSC | [Configurazione dello stato desiderato per Windows](dsc-windows.md#troubleshoot-and-support) |
-| Microsoft. hpccompute. nvidiagpudriverlinux | [Estensione driver GPU NVIDIA per Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverlinux | [Estensione di driver GPU NVIDIA per Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
 | Microsoft. hpccompute. nvidiagpudriverwindows | [Estensione driver GPU NVIDIA per Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
 | Microsoft. Azure. Security. iaasantimalware | [Estensione antimalware per Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
 | Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Monitoraggio di Azure per Linux](oms-linux.md#troubleshoot-and-support)

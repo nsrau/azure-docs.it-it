@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890462"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
@@ -82,7 +81,7 @@ Sia il lato dispositivo che il lato servizio di un flusso dispositivo devono ess
 
 !["Endpoint del flusso del dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-In alternativa, è possibile recuperare le informazioni sugli endpoint usando l'interfaccia della riga di comando di Azure nella sezione proprietà `property.hostname` dell' `property.deviceStreams` Hub, in particolare e chiavi.
+In alternativa, è possibile recuperare le informazioni sugli endpoint usando l'interfaccia della riga di comando di Azure nella sezione proprietà dell'hub, in particolare `property.hostname` e `property.deviceStreams` chiavi.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>
@@ -106,7 +105,7 @@ L'output è un oggetto JSON di tutti gli endpoint a cui il servizio e il disposi
 
 Come indicato all'inizio di questo articolo, il dispositivo crea una connessione in uscita all'endpoint di streaming dell'hub Internet durante il processo di avvio dei flussi del dispositivo. I firewall nel dispositivo o nella relativa rete devono consentire la connettività in uscita al gateway di streaming tramite la porta 443 (la comunicazione avviene su una connessione WebSocket crittografata con TLS).
 
-Il nome host dell'endpoint di streaming del dispositivo è reperibile nel portale dell'hub Azure per gli hub ![. nella scheda Panoramica "endpoint del flusso del dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+Il nome host dell'endpoint di streaming del dispositivo è reperibile nella scheda Panoramica del portale Hub ![ Azure. Endpoint del flusso del dispositivo "](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 In alternativa, è possibile trovare queste informazioni tramite l'interfaccia della riga di comando di Azure:
 
@@ -168,7 +167,7 @@ Ecco gli esempi di Echo:
 
 * [Servizio C# e programma del servizio](quickstart-device-streams-echo-csharp.md)
 
-* [Programma di servizio node. js](quickstart-device-streams-echo-nodejs.md)
+* [Programma diNode.js Service](quickstart-device-streams-echo-nodejs.md)
 
 * [Programma C Device](quickstart-device-streams-echo-c.md)
 
@@ -204,7 +203,7 @@ Consultare i collegamenti seguenti per istruzioni su come eseguire i programmi d
 
 * [Servizio C# e programma del servizio](quickstart-device-streams-proxy-csharp.md)
 
-* [Programma di servizio node. js](quickstart-device-streams-proxy-nodejs.md)
+* [Programma diNode.js Service](quickstart-device-streams-proxy-nodejs.md)
 
 * [Programma C Device](quickstart-device-streams-proxy-c.md)
 

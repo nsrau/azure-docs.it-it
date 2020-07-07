@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73954399"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
@@ -58,7 +57,7 @@ Per iniziare, in Azure è necessario eseguire queste operazioni:
 2. Creare una rete di Azure a cui verranno aggiunte le macchine virtuali di Azure quando vengono create dagli account di archiviazione o dai dischi gestiti dopo il failover.
 3. Configurare un insieme di credenziali di Servizi di ripristino di Azure per Site Recovery. L'insieme di credenziali si trova nel portale di Azure e viene usato per distribuire, configurare, orchestrare, monitorare e risolvere i problemi di distribuzione di Site Recovery.
 
-*Ulteriore assistenza?*
+*Serve ulteriore assistenza?*
 
 Informazioni su come configurare Azure tramite [la verifica dell'account](tutorial-prepare-azure.md#verify-account-permissions), la creazione di una [rete](tutorial-prepare-azure.md#set-up-an-azure-network)e la [configurazione di un](tutorial-prepare-azure.md#create-a-recovery-services-vault)insieme di credenziali.
 
@@ -76,7 +75,7 @@ Di seguito vengono indicate le operazioni da eseguire.
 2. Verificare la compatibilità dell'infrastruttura VMware, se non è già stato fatto in precedenza.
 3. Verificare che sia possibile connettersi alle macchine virtuali di Azure dopo il failover. Configurare Remote Desktop Protocol in computer Windows locali o SSH in computer Linux.
 
-*Ulteriore assistenza?*
+*Serve ulteriore assistenza?*
 - Preparare gli account per l'[individuazione automatica](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) e per l'[installazione del servizio Mobility](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation).
 - [Verificare](vmware-azure-tutorial-prepare-on-premises.md#check-vmware-requirements) che le impostazioni VMware siano compatibili.
 - [Prepararsi](vmware-azure-tutorial-prepare-on-premises.md#prepare-to-connect-to-azure-vms-after-failover) in modo che sia possibile connettersi ad Azure dopo il failover.
@@ -99,7 +98,7 @@ Dopo aver creato l'infrastruttura di Azure e in locale, è possibile configurare
 5. **Criteri di replica**. Specificare come eseguire la replica. Le impostazioni includono la frequenza di creazione e di archiviazione dei punti di ripristino e indicano se devono essere creati snapshot coerenti con le app.
 6. **Abilitare la replica**. Abilitare la replica per i computer locali. Se è stato creato un account per installare il servizio Mobility, tale account verrà installato quando si abilita la replica per un computer. 
 
-*Ulteriore assistenza?*
+*Serve ulteriore assistenza?*
 
 - Per una descrizione dettagliata di tali passaggi, provare l'[esercitazione su VMware](vmware-azure-tutorial.md) e la [procedura dettagliata sui server fisici](physical-azure-disaster-recovery.md).
 - [Altre informazioni](vmware-azure-set-up-source.md) sulla configurazione dell'ambiente di origine.

@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 08/30/2019
 ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70913952"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testare il codice Azure Data Lake Analytics
@@ -55,7 +54,7 @@ L'interfaccia `Run()` restituisce un risultato di esecuzione progetto. *0* indic
 
 ### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Un progetto di test dello script U-SQL viene creato su un framework di unit test C#. Dopo aver compilato il progetto, selezionare **test** > **Windows** > **Esplora test**di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
+Un progetto di test dello script U-SQL viene creato su un framework di unit test C#. Dopo aver compilato il progetto, selezionare **test**  >  **Windows**  >  **Esplora test**di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
 
 ## <a name="test-c-udos"></a>UDO di test C#
 
@@ -108,7 +107,7 @@ Dopo aver chiamato le funzioni UDO, è possibile verificare i risultati attraver
 
 ### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Dopo aver compilato il progetto, selezionare **test** > **Windows** > **Esplora test**di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
+Dopo aver compilato il progetto, selezionare **test**  >  **Windows**  >  **Esplora test**di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Esegui test case in Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
@@ -116,7 +115,7 @@ Entrambi i **progetti di test di script U-SQL** e i **progetti di test UDO C#** 
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>Eseguire test case U-SQL in Azure Pipelines
 
-Per un test U-SQL, assicurarsi di caricare `CPPSDK` nel computer di compilazione, quindi passare il `CPPSDK` percorso a. `USqlScriptTestRunner(cppSdkFolderFullPath: @"")`
+Per un test U-SQL, assicurarsi di caricare `CPPSDK` nel computer di compilazione, quindi passare il `CPPSDK` percorso a `USqlScriptTestRunner(cppSdkFolderFullPath: @"")` .
 
 #### <a name="what-is-cppsdk"></a>Definizione di CppSDK
 
@@ -132,7 +131,7 @@ Il modo più comune per preparare la dipendenza CPPSDK in Azure Pipelines è il 
 
 1. Zip la cartella che include le librerie CPPSDK.
 
-1. Archiviare il file .zip nel sistema di controllo di origine. Il file zip consente di archiviare tutte le librerie nella cartella CPPSDK in modo che i file non vengano ignorati a causa `.gitignore` di un file.
+1. Archiviare il file .zip nel sistema di controllo di origine. Il file zip consente di archiviare tutte le librerie nella cartella CPPSDK in modo che i file non vengano ignorati a causa di un `.gitignore` file.
 
 1. Decomprimere il file .zip nella pipeline di compilazione.
 

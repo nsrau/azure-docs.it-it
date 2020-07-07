@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113811"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: creare una competenza personalizzata usando il API Ricerca entità Bing
@@ -33,7 +32,7 @@ Anche se in questo esempio viene usata una funzione di Azure per ospitare un'API
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-1. In Visual Studio selezionare **nuovo** > **progetto** dal menu file.
+1. In Visual Studio selezionare **nuovo**  >  **progetto** dal menu file.
 
 1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#** > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
@@ -315,7 +314,7 @@ Assicurarsi di immettere un valore di *chiave* personalizzato nella `key` costan
 
 Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa abilità nel [repository Power Skills](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-Naturalmente, è possibile rinominare il file da `Function1.cs` a. `BingEntitySearch.cs`
+Naturalmente, è possibile rinominare il file da `Function1.cs` a `BingEntitySearch.cs` .
 
 ## <a name="test-the-function-from-visual-studio"></a>Testare la funzione da Visual Studio
 
@@ -325,7 +324,7 @@ Premere **F5** per eseguire il programma e testare i comportamenti della funzion
 POST https://localhost:7071/api/EntitySearch
 ```
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
     "values": [
@@ -375,7 +374,7 @@ La risposta dovrebbe essere simile all'esempio seguente:
 
 Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarla.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Scegliere **Crea nuova** > **pubblicazione**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Scegliere **Crea nuova**  >  **pubblicazione**.
 
 1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
 
@@ -393,7 +392,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
 
-### <a name="request-body"></a>Request Body
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
     "values": [

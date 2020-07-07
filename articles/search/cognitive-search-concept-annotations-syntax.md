@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113858"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un ricerca cognitiva di Azure
@@ -95,7 +94,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 
-Si noti che la cardinalità `"/document/people/*/lastname"` di è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
+Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
 
 ```json
   {

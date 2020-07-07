@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953192"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usare Cloud Explorer per Visual Studio per la gestione dei dispositivi dell'hub IoT di Azure
@@ -31,7 +30,7 @@ ms.locfileid: "73953192"
 
 Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) (Indicazioni sulla comunicazione da dispositivo a cloud) e [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) (Indicazioni sulla comunicazione da cloud a dispositivo).
 
-i dispositivi gemelli sono documenti JSON che archiviano informazioni sullo stato dei dispositivi, tra cui metadati, configurazioni e condizioni. L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
+I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi, ad esempio metadati, configurazioni e condizioni. L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
@@ -59,7 +58,7 @@ Il componente Cloud Explorer da Programma di installazione di Visual Studio per 
 
 ## <a name="sign-in-to-access-your-hub"></a>Accedi per accedere all'hub
 
-1. In Visual Studio selezionare **Visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
+1. In Visual Studio selezionare **Visualizza**  >  **Cloud Explorer** per aprire Cloud Explorer.
 
 1. Selezionare l'icona di gestione account per visualizzare le sottoscrizioni.
 
@@ -89,9 +88,9 @@ Per modificare un dispositivo gemello, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul dispositivo e scegliere **Edit Device Twin** (Modifica dispositivo gemello).
 
-   Viene aperto un file **Azure-Internet per dispositivi gemelli. JSON** con il contenuto del dispositivo gemello.
+   Viene aperto un **azure-iot-device-twin.jsnel** file con il contenuto del dispositivo gemello.
 
-1. Apportare alcune modifiche ai **tag** o alle **Proprietà. i campi desiderati** nel file **Azure-Internet.**
+1. Apportare alcune modifiche ai **tag** o alle **Proprietà. i campi desiderati** per il **azure-iot-device-twin.jssu** file.
 
 1. Premere **CTRL+S** per aggiornare il dispositivo gemello.
 

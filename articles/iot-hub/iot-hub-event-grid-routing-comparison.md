@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73906800"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
@@ -34,7 +33,7 @@ Sia il routing dei messaggi che Griglia di eventi consentono la configurazione d
 | **Messaggi ed eventi del dispositivo** | Sì, il routing dei messaggi può essere usato per i dati di telemetria, per segnalare le modifiche del dispositivo gemello, per gli eventi del ciclo di vita del dispositivo e per gli eventi di modifica del gemello digitale (parte del [plug and Play](../iot-pnp/overview-iot-plug-and-play.md) | Sì, griglia di eventi può essere usata per i dati di telemetria, ma può anche indicare quando i dispositivi vengono creati, eliminati, connessi e disconnessi dall'hub Internet. |
 | **Ordinamento** | Sì, viene mantenuto l'ordinamento degli eventi.  | No, l'ordine degli eventi non è garantito. | 
 | **Filtro** | Applicazione di filtri avanzati in proprietà di applicazione del messaggio, proprietà di sistema del messaggio, corpo del messaggio, tag del dispositivo gemello e proprietà del dispositivo gemello. Il filtro non viene applicato agli eventi di modifica del dispositivo gemello digitale. Ad esempio, vedere [Sintassi query per il routing dei messaggi di hub IoT](iot-hub-devguide-routing-query-syntax.md). | Filtro basato sul tipo di evento, il tipo di oggetto e gli attributi in ogni evento. Per esempi, vedere [informazioni sugli eventi di filtro nelle sottoscrizioni di griglia di eventi](../event-grid/event-filtering.md). Quando si sottoscrive un evento di telemetria, è possibile applicare filtri aggiuntivi sui dati per filtrare le proprietà del messaggio, il corpo del messaggio e il dispositivo gemello nell'hub Internet, prima della pubblicazione in griglia di eventi. Vedere [come filtrare gli eventi](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Endpoint** | <ul><li>Hub eventi</li> <li>Archiviazione BLOB di Azure</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Archiviazione BLOB</li> <li>Argomenti personalizzati</li> <li>Archiviazione code</li> <li>Microsoft Flow</li> <li>Servizi di terze parti tramite webhook</li></ul><br>sono supportati gli endpoint 500 per l'hub Internet. Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
+| **Endpoints** | <ul><li>Hub eventi</li> <li>Archiviazione BLOB di Azure</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Archiviazione BLOB</li> <li>Argomenti personalizzati</li> <li>Archiviazione code</li> <li>Microsoft Flow</li> <li>Servizi di terze parti tramite webhook</li></ul><br>sono supportati gli endpoint 500 per l'hub Internet. Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
 | **Costii** | Non vengono addebitati costi separati per il routing dei messaggi. Vengono addebitati solo i dati di telemetria in ingresso nell'hub IoT. Se ad esempio un messaggio viene instradato a tre endpoint diversi, viene fatturato un solo messaggio. | Non è previsto alcun addebito per l'hub IoT. Griglia di eventi offre le prime 100.000 operazioni al mese gratuite e quindi $0,60 per milione di operazioni in seguito. |
 
 ## <a name="similarities"></a>Somiglianze
@@ -46,7 +45,7 @@ Il routing dei messaggi dell'hub IoT e Griglia di eventi presentano anche analog
 | **Dimensioni massime messaggio** | 256 KB, da dispositivo a cloud | 256 KB, da dispositivo a cloud |
 | **Affidabilità** | Elevata: ogni messaggio viene recapitato all'endpoint almeno una volta per ogni route. Imposta come scaduti tutti i messaggi che non vengono recapitati entro un'ora. | Elevata: ogni messaggio viene recapitato al webhook almeno una volta per ogni sottoscrizione. Imposta come scaduti tutti gli eventi che non vengono recapitati entro 24 ore. | 
 | **Scalabilità** | Elevata: è ottimizzato per supportare milioni di dispositivi connessi simultaneamente che inviano miliardi di messaggi. | Elevata: consente il routing di 10.000.000 di eventi al secondo per ogni area. |
-| **Latenza** | Bassa: in tempo quasi reale. | Bassa: in tempo quasi reale. |
+| **Latency** | Bassa: in tempo quasi reale. | Bassa: in tempo quasi reale. |
 | **Invio a più endpoint** | Sì, invia un singolo messaggio a più endpoint. | Sì, invia un singolo messaggio a più endpoint.  
 | **Sicurezza** | L'hub IoT fornisce l'identità per ogni dispositivo e il controllo di accesso revocabile. Per altre informazioni, vedere [Controllo dell'accesso all'hub IoT](iot-hub-devguide-security.md). | Griglia di eventi fornisce la convalida in tre punti: sottoscrizioni di eventi, pubblicazione di eventi e recapito di eventi al webhook. Per altre informazioni, vedere [Event Grid security and authentication](../event-grid/security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi). |
 

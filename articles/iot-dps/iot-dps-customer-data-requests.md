@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890642"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
@@ -62,6 +61,6 @@ Per altre informazioni su come gestire le registrazioni, vedere l'argomento rela
 
 ## <a name="links-to-additional-documentation"></a>Collegamenti a documentazione aggiuntiva
 
-La documentazione completa per le API del servizio Device provisioning [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)è disponibile all'indirizzo.
+La documentazione completa per le API del servizio Device provisioning è disponibile all'indirizzo [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps) .
 
 [Funzionalità di richiesta dati dei clienti](../iot-hub/iot-hub-customer-data-requests.md) hub IoT.

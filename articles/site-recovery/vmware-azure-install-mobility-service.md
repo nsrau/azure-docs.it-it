@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74186460"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente Mobility
@@ -53,7 +52,7 @@ In ogni computer Linux da proteggere eseguire le operazioni seguenti:
 
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
-8. Riavviare il servizio **sshd** .
+8. Riavviare il servizio **sshd**.
 9. Aggiungere l'account creato in CSPSConfigtool. A questo scopo, accedere al server di configurazione.
 10. Aprire **cspsconfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella %ProgramData%\home\svsystems\bin.
 11. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.

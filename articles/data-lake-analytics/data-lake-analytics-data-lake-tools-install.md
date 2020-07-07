@@ -10,10 +10,9 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70914068"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installare Data Lake Tools per Visual Studio
@@ -48,7 +47,7 @@ Abilitare il carico di lavoro **Sviluppo di Azure**, come illustrato:
 
 Scaricare e installare [Microsoft Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio ](https://aka.ms/adltoolsvs). Al termine dell'installazione, in Visual Studio sono state apportate le modifiche seguenti:
 
-* Il nodo **Esplora server** > **Azure** contiene un nodo **Data Lake Analytics** .
+* Il nodo **Esplora server**  >  **Azure** contiene un nodo **Data Lake Analytics** .
 * Il menu **Strumenti** include una voce **Data Lake**.
 
 ## <a name="next-steps"></a>Passaggi successivi

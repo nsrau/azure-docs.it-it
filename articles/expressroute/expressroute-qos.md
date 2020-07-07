@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: debc5d91478d0a5c3cc16c7b09f5713ba09b467e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74080089"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisiti ExpressRoute QoS
@@ -28,10 +27,10 @@ La tabella seguente fornisce un elenco di contrassegni DSCP usati da Microsoft t
 
 | **Classe di traffico** | **Modalità di gestione (contrassegno DSCP)** | **Carichi di lavoro Microsoft teams e Skype for business** |
 | --- | --- | --- |
-| **Vocale** |ENTITY FRAMEWORK (46) |Skype/Microsoft teams/Lync Voice |
-| **Interactive (Interattivo)** |AF41 (34) |Video, VBSS |
+| **Chiamata vocale** |ENTITY FRAMEWORK (46) |Skype/Microsoft teams/Lync Voice |
+| **Interattivo** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Condivisione delle app | 
-| **Predefinita** |AF11 (10) |Trasferimento di file |
+| **Impostazione predefinita** |AF11 (10) |Trasferimento di file |
 | |CS0 (0) |Altro |
 
 * È necessario classificare i carichi di lavoro e contrassegnare i valori DSCP corretti. Seguire le indicazioni fornite [qui](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) su come impostare i contrassegni DSCP nella rete.

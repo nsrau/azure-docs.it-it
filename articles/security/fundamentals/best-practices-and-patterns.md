@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889846"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
@@ -30,9 +29,9 @@ Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potr
 
 * [Procedure consigliate per la sicurezza dei limiti di Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Procedure consigliate per la sicurezza del database di Azure](database-best-practices.md)
-* [Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](data-encryption-best-practices.md)
-* [Gestione delle identità di Azure e procedure consigliate per la sicurezza del controllo di accesso](identity-management-best-practices.md)
-* [Procedure consigliate per la sicurezza di rete di Azure](network-best-practices.md)
+* [Procedure consigliate per la crittografia e la sicurezza dei dati di Azure](data-encryption-best-practices.md)
+* [Procedure consigliate per la sicurezza del controllo di accesso e la gestione delle identità di Azure](identity-management-best-practices.md)
+* [Procedure consigliate per la sicurezza della rete di Azure](network-best-practices.md)
 * [Procedure consigliate per la sicurezza operativa di Azure](operational-best-practices.md)
 * [Procedure consigliate di Azure PaaS](paas-deployments.md)
 * [Procedure consigliate per la sicurezza di Azure Service Fabric](service-fabric-best-practices.md)
@@ -41,7 +40,7 @@ Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potr
 * [Procedure consigliate per la sicurezza Internet delle cose](iot-best-practices.md)
 * [Protezione di database PaaS in Azure](paas-applications-using-sql.md)
 * [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure](paas-applications-using-app-services.md)
-* [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure](paas-applications-using-storage.md)
+* [Protezione delle applicazioni PaaS Web e per dispositivi mobili usando Archiviazione di Azure](paas-applications-using-storage.md)
 * [Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure](iaas.md)
 
 Il white paper [Procedure consigliate per le soluzioni Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) è una raccolta di procedure di sicurezza consigliate disponibili negli articoli elencati in precedenza.

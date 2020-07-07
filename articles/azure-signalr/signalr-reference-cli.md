@@ -7,10 +7,9 @@ ms.topic: reference
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 3c28781362e60d22b0d9a4e3754daaa24e5b61ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158120"
 ---
 # <a name="azure-cli-reference"></a>Informazioni di riferimento sull'interfaccia della riga di comando di Azure
@@ -19,7 +18,7 @@ La tabella seguente include collegamenti a script Bash per il servizio Azure Sig
 
 | | |
 |-|-|
-|**Crea**||
+|**Creare**||
 | [Creare un nuovo servizio SignalR e un gruppo di risorse](scripts/signalr-cli-create-service.md) | Crea una nuova risorsa di servizio SignalR Azure in un nuovo gruppo di risorse con un nome casuale.  |
 |**Integrare**||
 | [Creare un nuovo servizio SignalR e un'app Web configurata per l'uso di SignalR](scripts/signalr-cli-create-with-app-service.md) | Crea una nuova risorsa di servizio SignalR Azure in un nuovo gruppo di risorse con un nome casuale. Aggiunge anche un nuovo piano di servizio app e app Web per ospitare un'app Web ASP.NET Core che usa il servizio SignalR. L'app Web è configurata con un'impostazione app per la connessione alla nuova risorsa servizio SignalR. |

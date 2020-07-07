@@ -20,10 +20,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113094"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintassi di $select OData in Azure ricerca cognitiva
@@ -52,16 +51,16 @@ field_path ::= identifier('/'identifier)*
 
 Il parametro **$Select** viene visualizzato in due formati:
 
-1. Una singola stella (`*`) che indica che devono essere restituiti tutti i campi recuperabili oppure
+1. Una singola stella ( `*` ) che indica che devono essere restituiti tutti i campi recuperabili oppure
 1. Elenco delimitato da virgole dei percorsi dei campi, che identificano i campi da restituire.
 
 Quando si usa il secondo form, è possibile specificare solo i campi recuperabili nell'elenco.
 
-Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l' `Address` indice includa `City`un campo `Country` con `Street`i campi, e che possono essere recuperati. Se si specifica `Address` in **$SELECT**, i risultati della query includeranno tutti e tre i campi secondari.
+Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l'indice includa un `Address` campo con `Street` `City` `Country` i campi, e che possono essere recuperati. Se si specifica `Address` in **$SELECT**, i risultati della query includeranno tutti e tre i campi secondari.
 
 ## <a name="examples"></a>Esempi
 
-Includere i `HotelId`campi `HotelName`di primo `Rating` livello, e nei risultati, nonché il `City` campo secondario di: `Address`
+Includere i `HotelId` `HotelName` `Rating` campi di primo livello, e nei risultati, nonché il `City` campo secondario di `Address` :
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +77,7 @@ Un risultato di esempio può essere simile al seguente:
 }
 ```
 
-Includere il `HotelName` `Address`campo di primo livello nei risultati, nonché tutti i sottocampi di e i `Type` sottocampi e `BaseRate` di ogni oggetto della `Rooms` raccolta:
+Includere il `HotelName` campo di primo livello nei risultati, nonché tutti i sottocampi di e `Address` i `Type` `BaseRate` sottocampi e di ogni oggetto della `Rooms` raccolta:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 

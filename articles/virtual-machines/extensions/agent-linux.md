@@ -16,10 +16,9 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74073860"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
@@ -31,7 +30,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
 > 
 > 
 
-* **Provisioning dell'immagine**
+* **Provisioning immagini**
   
   * Creazione di un account utente
   * Configurazione dei tipi di autenticazione SSH
@@ -42,7 +41,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
   * Gestione del disco risorse
   * Formattazione e montaggio del disco risorse
   * Configurazione dell'area di swap
-* **Funzionalità di rete**
+* **Rete**
   
   * Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma.
   * Garantisce la stabilità del nome dell'interfaccia di rete
@@ -110,7 +109,7 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 * verbose: aumenta il livello di dettaglio del comando specificato
 * force: ignora la conferma interattiva per determinati comandi
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 * help: elenca i flag e i comandi supportati.
 * deprovision: tenta di pulire il sistema per renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
   

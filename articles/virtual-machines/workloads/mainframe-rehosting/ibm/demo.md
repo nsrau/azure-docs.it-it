@@ -13,10 +13,9 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68841379"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1
@@ -83,7 +82,7 @@ Ora che si dispone dei pacchetti, è necessario caricarli nella macchina virtual
 6. Avviare il caricamento nella directory della macchina virtuale di Azure creata, che diventa l'archivio immagini per zD&T.
 
     > [!NOTE]
-    > Assicurarsi che **ADCDTOOLS. Il codice XML** è incluso nel caricamento nella directory **Home/UserID/ZDT/ADCD/nov2017** . Sarà necessario più avanti.
+    > Assicurarsi che **ADCDTOOLS.XML** sia incluso nel caricamento nella directory **Home/UserID/ZDT/ADCD/nov2017** . Sarà necessario più avanti.
 
 7. Attendere che i file vengano caricati, operazione che può richiedere del tempo a seconda della connessione ad Azure.
 
@@ -105,7 +104,7 @@ Il passaggio successivo consiste nel configurare zD&T per l'uso dei pacchetti ca
         /opt/ibm/zDT/bin/startServer
     ```
 2. Prendere nota dell'output dell'URL da parte del comando e utilizzare questo URL per accedere al server Web. L'aspetto è simile al seguente:
-     > https://(nome o indirizzo IP della VM): 9443/ZDTMC/index. html
+     > https://(nome o indirizzo IP della VM): 9443/ZDTMC/index.html
      >
      > Tenere presente che l'accesso Web usa la porta 9443. Utilizzare questo per accedere al server Web. L'ID utente per ZD&T è **zdtadmin** e la password è **password**.
 

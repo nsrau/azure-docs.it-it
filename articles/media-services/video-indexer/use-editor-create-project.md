@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73839174"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizzare l'Editor Video Indexer per creare progetti
@@ -107,7 +106,7 @@ Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **S
 
 1. Al termine, verificare che il progetto sia stato salvato. È ora possibile eseguire il rendering di questo progetto. Selezionare **il rendering e il download**. 
 
-    ![Salvare](./media/video-indexer-view-edit/save.png)
+    ![Salva](./media/video-indexer-view-edit/save.png)
 
     Sarà presente un popup che indica che l'indicizzatore video eseguirà il rendering di un file e il collegamento per il download verrà inviato al messaggio di posta elettronica. Selezionare Continua. 
     

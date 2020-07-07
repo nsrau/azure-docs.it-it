@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083961"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurare un server di elaborazione in Azure per il failback
@@ -28,7 +27,7 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuire un server di elaborazione in Azure
 
-1. Nell'insieme di credenziali > **Site Recovery infrastruttura**> **Gestisci** > **server di configurazione**selezionare il server di configurazione.
+1. Nell'insieme di credenziali > **Site Recovery infrastruttura** >  **Gestisci**  >  **server di configurazione**selezionare il server di configurazione.
 2. Nella pagina del server fare clic su **+ Server di elaborazione**
 3. Nella pagina **Aggiungere il server di elaborazione** selezionare di distribuire il server di elaborazione in Azure.
 4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ciascuna di esse.

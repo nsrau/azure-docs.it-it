@@ -4,10 +4,9 @@ description: Usare uno script di PowerShell per installare in modo invisibile il
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172233"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
@@ -18,9 +17,9 @@ Questi passaggi non si applicano se si sta installando server di Backup di Azure
 
 ## <a name="install-backup-server"></a>Installare il server di Backup
 
-1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo È possibile creare il file nel blocco note o in un altro editor di testo. Salvare il file come MABSSetup. ini.
+1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo È possibile creare il file nel blocco note o in un altro editor di testo. Salvare il file come MABSSetup.ini.
 
-2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo racchiuso tra parentesi quadre (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
+2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo all'interno delle parentesi (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
 
    ```text
    [OPTIONS]

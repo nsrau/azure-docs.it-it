@@ -13,10 +13,9 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881014"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Supporto di HSM dedicato di Azure
@@ -41,7 +40,7 @@ Nella configurazione dei dispositivi HSM vengono usati diversi componenti softwa
 * SDK
 * Strumenti
 
-### <a name="guidance"></a>Materiale sussidiario
+### <a name="guidance"></a>Indicazioni
 
 Gemalto rende disponibile materiale sussidiario relativo all'amministrazione e alla configurazione tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/). Una volta effettuato l'accesso usando un ID cliente valido, questi documenti sono disponibili per il download. Gemalto fornisce inoltre una serie di guide all'integrazione per assistere i clienti con scenari diversi e integrazioni di software. Per altre informazioni, vedere il [sito partner di Gemalto per Microsoft](https://safenet.gemalto.com/partners/microsoft/).
 
@@ -96,5 +95,5 @@ Prima di eseguire il provisioning di dispositivi o di iniziare la progettazione 
 * [Architettura di distribuzione](deployment-architecture.md)
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)
-* [Funzionalità di rete](networking.md)
+* [Rete](networking.md)
 

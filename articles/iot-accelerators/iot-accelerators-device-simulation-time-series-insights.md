@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889337"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
@@ -21,7 +20,7 @@ L'acceleratore della soluzione Simulazione dispositivi consente di generare dati
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se non è stato distribuito l'acceleratore della soluzione, seguire i passaggi nella guida introduttiva [Distribuire ed eseguire una soluzione di simulazione dei dispositivi basata sul cloud](quickstart-device-simulation-deploy.md).
 
@@ -57,7 +56,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **Crea una risorsa** > **Internet delle cose** > **Time Series Insights**:
+1. Selezionare **Crea una risorsa**  >  **Internet delle cose**  >  **Time Series Insights**:
 
     ![Nuovo ambiente Azure Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
@@ -66,11 +65,11 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
     | Impostazione | valore |
     | ------- | ----- |
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
-    | Sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
+    | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **contoso-simulation**. Usare il nome dell'acceleratore di soluzioni. |
     | Location | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
     | Sku |**S1** |
-    | Capacity | **1** |
+    | Capacità | **1** |
 
     ![Creare Azure Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
 
@@ -151,7 +150,7 @@ Lo strumento di esplorazione di Azure Time Series Insights è un'app Web che si 
 
     ![Prospettiva dello strumento di esplorazione di Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. Fare **+** clic per aggiungere una nuova query alla prospettiva:
+1. Fare clic **+** per aggiungere una nuova query alla prospettiva:
 
     ![Aggiunta di query dello strumento di esplorazione di Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820124"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
@@ -29,7 +28,7 @@ Ogni fabbrica Contoso ha linee di produzione costituite da tre stazioni ognuna. 
 * Stazione di test
 * Stazione di imballaggio
 
-Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. ad esempio:
+Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. Ciò include:
 
 * Stato operativo corrente, ad esempio il consumo di energia corrente.
 * Informazioni relative alla produzione, ad esempio il numero di articoli prodotti.
@@ -266,7 +265,7 @@ Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di 
 
 * Nome
 * Descrizione
-* Immagine
+* Image
 * Location
 * Unità
 * Visible
@@ -282,7 +281,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Connected Factory usa le formule OEE pubblicate da [http://www.oeefoundation.org](http://www.oeefoundation.org).
+Connected Factory usa le formule OEE pubblicate da [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 
@@ -291,7 +290,7 @@ Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei v
 Fabbrica connessa supporta un semplice meccanismo di generazione di avvisi basati sulla soglia minima o massima. Ci sono diverse azioni predefinite che è possibile configurare in risposta agli avvisi. Il meccanismo è controllato dalle proprietà seguenti:
 
 * Massimo
-* Minima
+* Minimo
 * MaximumAlertActions
 * MinimumAlertActions
 

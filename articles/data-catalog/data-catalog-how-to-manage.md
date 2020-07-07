@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68736335"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
@@ -36,7 +35,7 @@ Quando un asset di dati in Data Catalog ha dei proprietari, solo gli utenti auto
 >
 >
 
-### <a name="take-ownership"></a>Diventare proprietario
+### <a name="take-ownership"></a>Acquisizione della proprietà.
 Gli utenti possono diventare proprietari degli asset di dati selezionando l'opzione **accetta proprietà** nel portale di Data Catalog. Non sono necessarie speciali autorizzazioni per diventare proprietario di un asset di dati senza proprietario. Qualsiasi utente può diventare proprietario di un asset di dati senza proprietario.
 
 ### <a name="add-owners-and-co-owners"></a>Aggiungere proprietari e comproprietari

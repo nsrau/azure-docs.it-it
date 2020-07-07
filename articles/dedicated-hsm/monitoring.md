@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3fde577a6b0efb7584e1c9efd57c95583ebe4ec9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881414"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Monitoraggio di HSM dedicato di Azure
@@ -42,5 +41,5 @@ Prima di eseguire il provisioning di dispositivi o di iniziare la progettazione 
 
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)
-* [Funzionalità di rete](networking.md)
-* [Supportabilità](supportability.md)
+* [Rete](networking.md)
+* [Facilità di supporto](supportability.md)

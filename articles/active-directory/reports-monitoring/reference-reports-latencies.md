@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74007698"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
@@ -59,7 +58,7 @@ Esistono due tipi di report sulla sicurezza:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minima | Media | Massimo |
+| Report | Minimo | Media | Massimo |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
@@ -70,7 +69,7 @@ Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rileva
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
-| Report | Minima | Media | Massimo |
+| Report | Minimo | Media | Massimo |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |

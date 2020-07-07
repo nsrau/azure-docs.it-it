@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73648441"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Comprendere le differenze tra i formati di dati U-SQL e Spark
@@ -43,7 +42,7 @@ Dopo questa trasformazione, i dati vengono copiati come descritto nel capitolo s
 - Semantica dei dati durante la copia dei file, la copia viene eseguita a livello di byte. Quindi gli stessi dati devono essere visualizzati nell'account [Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-introduction.md) . Si noti tuttavia che Spark può interpretare alcuni caratteri in modo diverso. Ad esempio, può usare un valore predefinito diverso per un delimitatore di riga in un file CSV.
     Inoltre, se si copiano dati tipizzati (dalle tabelle), parquet e Spark possono avere precisione e scala diversi per alcuni dei valori tipizzati (ad esempio, un valore float) e possono trattare i valori null in modo diverso. Ad esempio, U-SQL ha la semantica C# per i valori null, mentre Spark ha una logica a tre valori per i valori null.
 
-- Le tabelle U-SQL di organizzazione dei dati (partizionamento) forniscono il partizionamento a due livelli. Il livello esterno (`PARTITIONED BY`) è per valore e viene mappato principalmente nello schema di partizionamento hive/Spark usando le gerarchie di cartelle. È necessario assicurarsi che i valori null siano mappati alla cartella corretta. Il livello interno (`DISTRIBUTED BY`) in U-SQL offre 4 schemi di distribuzione: Round Robin, intervallo, hash e hash diretto.
+- Le tabelle U-SQL di organizzazione dei dati (partizionamento) forniscono il partizionamento a due livelli. Il livello esterno ( `PARTITIONED BY` ) è per valore e viene mappato principalmente nello schema di partizionamento hive/Spark usando le gerarchie di cartelle. È necessario assicurarsi che i valori null siano mappati alla cartella corretta. Il livello interno ( `DISTRIBUTED BY` ) in U-SQL offre 4 schemi di distribuzione: Round Robin, intervallo, hash e hash diretto.
     Le tabelle hive/Spark supportano solo il partizionamento dei valori o il partizionamento hash, usando una funzione hash diversa da U-SQL. Quando si generano i dati della tabella U-SQL, probabilmente sarà possibile eseguire il mapping solo al partizionamento del valore per Spark e potrebbe essere necessario eseguire un'ulteriore ottimizzazione del layout dei dati in base alle query Spark finali.
 
 ## <a name="next-steps"></a>Passaggi successivi

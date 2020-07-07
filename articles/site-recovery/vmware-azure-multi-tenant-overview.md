@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083997"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
@@ -92,7 +91,7 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 >| Oggetto | Ruolo | Osservazioni |
 >| --- | --- | --- |
 >| vCenter | Read-Only | Necessario solo per consentire l'accesso a vCenter per la gestione di oggetti diversi. Questa autorizzazione può essere rimossa se l'account non dovrà mai essere offerto a un tenant o usato per operazioni di gestione in vCenter. |
->| Datacenter | Azure_Site_Recovery |  |
+>| Data center | Azure_Site_Recovery |  |
 >| Host e cluster host | Azure_Site_Recovery | Assicura nuovamente che l'accesso sia a livello di oggetto, in modo che solo gli host accessibili abbiano VM tenant prima del failover e dopo il failback. |
 >| Archivio dati e cluster archivio dati | Azure_Site_Recovery | Come sopra. |
 >| Rete | Azure_Site_Recovery |  |
@@ -120,7 +119,7 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 
 1. Passare al portale di Azure e nell'insieme di credenziali creato in precedenza registrare il server vCenter nel server di configurazione usando l'account vCenter creato.
 2. Completare il processo di preparazione dell'infrastruttura per Site Recovery seguendo la procedura consueta.
-3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che vengano visualizzate solo le VM del tenant in **replica** > **selezionare macchine virtuali**.
+3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che vengano visualizzate solo le VM del tenant in **replica**  >  **selezionare macchine virtuali**.
 
 ## <a name="dedicated-hosting-solution"></a>Soluzione di hosting dedicato
 

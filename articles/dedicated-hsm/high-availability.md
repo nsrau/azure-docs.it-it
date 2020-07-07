@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70882257"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Disponibilità elevata con HSM dedicato di Azure
@@ -38,8 +37,8 @@ Altri argomenti sui concetti:
 
 * [Architettura di distribuzione](deployment-architecture.md)
 * [Sicurezza fisica](physical-security.md)
-* [Funzionalità di rete](networking.md)
-* [Supportabilità](supportability.md)
+* [Rete](networking.md)
+* [Facilità di supporto](supportability.md)
 * [Monitoring](monitoring.md)
 
 Per informazioni dettagliate su come configurare i dispositivi HSM per la disponibilità elevata, fare riferimento al portale di supporto clienti di Gemalto per le guide all'amministrazione e vedere la sezione 6.

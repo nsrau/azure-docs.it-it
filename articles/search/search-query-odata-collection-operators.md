@@ -20,19 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113244"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatori di raccolte OData in Azure ricerca cognitiva `any` e`all`
 
-Quando si scrive un' [espressione di filtro OData](query-odata-filter-orderby-syntax.md) da usare con ricerca cognitiva di Azure, è spesso utile filtrare in campi di raccolta. Per ottenere questo risultato, è `any` possibile `all` usare gli operatori e.
+Quando si scrive un' [espressione di filtro OData](query-odata-filter-orderby-syntax.md) da usare con ricerca cognitiva di Azure, è spesso utile filtrare in campi di raccolta. Per ottenere questo risultato, è possibile usare gli `any` `all` operatori e.
 
 ## <a name="syntax"></a>Sintassi
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica di un'espressione OData che `any` USA `all`o.
+Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica di un'espressione OData che usa `any` o `all` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,9 +55,9 @@ lambda_expression ::= identifier ':' boolean_expression
 Sono disponibili tre forme di espressione che filtrano le raccolte.
 
 - I primi due eseguono l'iterazione su un campo della raccolta, applicando un predicato specificato sotto forma di espressione lambda a ogni elemento della raccolta.
-  - Un'espressione che `all` utilizza `true` restituisce se il predicato è true per ogni elemento della raccolta.
-  - Un'espressione che `any` utilizza `true` restituisce se il predicato è true per almeno un elemento della raccolta.
-- La terza forma di filtro di raccolta `any` utilizza senza un'espressione lambda per verificare se un campo di raccolta è vuoto. Se la raccolta contiene elementi, restituisce `true`. Se la raccolta è vuota, restituisce `false`.
+  - Un'espressione che utilizza `all` restituisce `true` se il predicato è true per ogni elemento della raccolta.
+  - Un'espressione che utilizza `any` restituisce `true` se il predicato è true per almeno un elemento della raccolta.
+- La terza forma di filtro di raccolta utilizza `any` senza un'espressione lambda per verificare se un campo di raccolta è vuoto. Se la raccolta contiene elementi, restituisce `true` . Se la raccolta è vuota, restituisce `false` .
 
 Un' **espressione lambda** in un filtro di raccolta è simile al corpo di un ciclo in un linguaggio di programmazione. Definisce una variabile, denominata variabile di **intervallo**, che include l'elemento corrente della raccolta durante l'iterazione. Definisce anche un'altra espressione booleana che rappresenta i criteri di filtro da applicare alla variabile di intervallo per ogni elemento della raccolta.
 
@@ -68,19 +67,19 @@ Trova la corrispondenza `tags` dei documenti il cui campo contiene esattamente l
 
     tags/any(t: t eq 'wifi')
 
-Trova la `ratings` corrispondenza dei documenti in cui ogni elemento del campo rientra tra 3 e 5 inclusi:
+Trova la corrispondenza dei documenti in cui ogni elemento del `ratings` campo rientra tra 3 e 5 inclusi:
 
     ratings/all(r: r ge 3 and r le 5)
 
-Trovare la corrispondenza con i documenti in cui una delle `locations` Coordinate geografiche nel campo si trova all'interno del poligono specificato:
+Trovare la corrispondenza con i documenti in cui una delle coordinate geografiche nel `locations` campo si trova all'interno del poligono specificato:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-Trova la corrispondenza dei `rooms` documenti in cui il campo è vuoto:
+Trova la corrispondenza dei documenti in cui il `rooms` campo è vuoto:
 
     not rooms/any()
 
-Trova la corrispondenza con i documenti in cui `rooms/amenities` per tutte le chat room il `rooms/baseRate` campo contiene "TV" ed è minore di 100:
+Trova la corrispondenza con i documenti in cui per tutte le chat room il `rooms/amenities` campo contiene "TV" ed `rooms/baseRate` è minore di 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 

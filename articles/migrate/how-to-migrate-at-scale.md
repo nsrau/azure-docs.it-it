@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74196353"
 ---
 # <a name="scale-migration-of-vms"></a>Ridimensionare la migrazione delle macchine virtuali 
@@ -52,7 +51,7 @@ Una volta completati tutti i prerequisiti, è necessario creare un file CSV cont
 ### <a name="script-execution"></a>Esecuzione degli script
 Una volta pronto il file CSV, è possibile seguire la procedura illustrata di seguito per eseguire la migrazione delle macchine virtuali locali:
 
-**N.ro passaggio** | **Nome script** | **Descrizione**
+**N.ro passaggio** | **Nome dello script** | **Descrizione**
 --- | --- | ---
 1 | asr_startmigration.ps1 | Abilitare la replica per tutte le macchine virtuali elencate nel file CSV. Lo script crea un output CSV con i dettagli del processo per ogni macchina virtuale.
 2 | asr_replicationstatus.ps1 | Controllare lo stato della replica. Lo script crea un file CSV con lo stato per ogni macchina virtuale.

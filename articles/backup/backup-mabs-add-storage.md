@@ -4,10 +4,9 @@ description: Informazioni sulle nuove funzionalità del server di Backup di Azur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172370"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
@@ -36,7 +35,7 @@ Il server di Backup V2 o versione successiva accetta volumi di archiviazione. Qu
 
 L'uso del server di Backup V2 o versione successiva con volumi come archiviazione su disco consente di mantenere il controllo sull'archiviazione. Un volume può essere un singolo disco. Tuttavia, se si desidera estendere l'archiviazione in futuro, creare un volume da un disco creato utilizzando spazi di archiviazione. Ciò può essere utile se si desidera espandere il volume per l'archiviazione di backup. In questa sezione sono presentate le procedure consigliate per la creazione di un volume con questa configurazione.
 
-1. In Server Manager selezionare > **volumi** >  **Servizi file e archiviazione****pool di archiviazione**. In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
+1. In Server Manager selezionare volumi **Servizi file e archiviazione**  >  **Volumes**  >  **pool di archiviazione**. In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
 
     ![Creare un nuovo pool di archiviazione](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -119,7 +118,7 @@ Se si desidera usare lo spazio di archiviazione legacy con il server di backup, 
 
 Per aggiungere spazio di archiviazione su disco:
 
-1. Nella console di amministrazione selezionare **gestione** > **archiviazione su disco** > **Aggiungi**.
+1. Nella console di amministrazione selezionare **gestione**  >  **archiviazione su disco**  >  **Aggiungi**.
 
     ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

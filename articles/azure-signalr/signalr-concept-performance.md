@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74157662"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guida alle prestazioni per il Servizio Azure SignalR
@@ -160,7 +159,7 @@ Nella tabella seguente viene illustrato un caso d'uso reale della **trasmissione
 | Trasmissione  | Dimensioni dei messaggi | Messaggi in ingresso al secondo | Connessioni | Intervalli di invio |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100,000     | 5 secondi                      |
-| 2 | 256 kB               | 1                        | 8.000       | 5 secondi                      |
+| 2 | 256 KB               | 1                        | 8\.000       | 5 secondi                      |
 
 La formula seguente è facile da dedurre in base alla formula precedente:
 
@@ -168,7 +167,7 @@ La formula seguente è facile da dedurre in base alla formula precedente:
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-Per Unit100, la larghezza di banda massima in uscita è 400 MB rispetto alla tabella precedente. Per le dimensioni del messaggio da 20 KB, il numero massimo di connessioni in uscita deve \* essere 400 MB 5/20 KB = 100.000, che corrisponde al valore reale.
+Per Unit100, la larghezza di banda massima in uscita è 400 MB rispetto alla tabella precedente. Per le dimensioni del messaggio da 20 KB, il numero massimo di connessioni in uscita deve essere 400 MB \* 5/20 KB = 100.000, che corrisponde al valore reale.
 
 ##### <a name="mixed-use-cases"></a>Casi di utilizzo misti
 
@@ -346,7 +345,7 @@ La tabella seguente è un riepilogo statistico dopo molti cicli di esecuzione de
 |   Invia a connessione   | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
 | Connessioni                        | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50.000          | 100,000         |
-| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 8.000  | 9000  | 20.000 | 20.000 |
+| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 8\.000  | 9000  | 20.000 | 20.000 |
 | Larghezza di banda in ingresso/in uscita | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
 
 Questo caso d'uso richiede un carico elevato sul lato server dell'app. Vedere il numero consigliato di server applicazioni nella tabella seguente.

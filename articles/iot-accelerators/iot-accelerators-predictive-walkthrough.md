@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827422"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di manutenzione predittiva
@@ -77,7 +76,7 @@ Per visualizzare il funzionamento dei dati di telemetria raccolti attraverso i s
 
 L'acceleratore di soluzioni di manutenzione predittiva di Azure IoT usa il modello di regressione creato da questo modello. Il modello viene distribuito nella sottoscrizione di Azure e reso disponibile tramite un'API generata automaticamente. La soluzione include un subset di dati di test per 4 (su un totale di 100) motori e 4 (su un totale di 21) flussi di dati dei sensori. Questi dati sono sufficienti per fornire un risultato esatto dal modello con training.
 
-*\[1\] A. Saxena e K. Goebel (2008). "Set di dati di simulazione della riduzione del motore di turbofan", data repositoryhttps://c3.nasa.gov/dashlink/resources/139/)della NASA Ames Prognostics (, NASA Ames Research Center, campo Moffett, CA*
+*\[1 \] A. Saxena e K. Goebel (2008). "Set di dati di simulazione della riduzione del motore di turbofan", data repository della NASA Ames Prognostics ( https://c3.nasa.gov/dashlink/resources/139/) , NASA Ames Research Center, campo Moffett, CA*
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere esaminato i componenti chiave dell'acceleratore di soluzioni di manutenzione predittiva, è possibile personalizzarli.

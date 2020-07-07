@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082657"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
@@ -49,7 +48,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Server VMM** | Il server VMM ha uno o più cloud contenenti host Hyper-V. | È necessario installare il provider di Site Recovery nel server VMM per orchestrare la replica con Site Recovery e registrare il server nell'insieme di credenziali di Servizi di ripristino.
 **Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o nodo del cluster Hyper-V.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in un server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
-**Funzionalità di rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
+**Rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
 
 **Architettura della replica da Hyper-V ad Azure (con VMM)**
 
@@ -69,7 +68,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. È possibile monitorare il processo nella scheda **processi** .      ![](media/hyper-v-azure-architecture/image1.png) Elenco ![processi Abilita il drill-down di protezione](media/hyper-v-azure-architecture/image2.png)
+4. È possibile monitorare il processo nella scheda **processi** .      ![ ](media/hyper-v-azure-architecture/image1.png) Elenco ![ processi Abilita drill-down per la protezione](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati

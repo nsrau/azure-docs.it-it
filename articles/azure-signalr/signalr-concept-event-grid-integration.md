@@ -9,10 +9,9 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158199"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reazione agli eventi del Servizio Azure SignalR
@@ -63,5 +62,5 @@ Per altre informazioni, vedere [schema degli eventi del servizio SignalR](../eve
 Scopri di più su griglia di eventi e assegna agli eventi del servizio Azure SignalR un tentativo:
 
 > [!div class="nextstepaction"]
-> [Provare un'integrazione di griglia di eventi di esempio con il servizio](./signalr-howto-event-grid-integration.md)
-> Azure SignalR[su griglia di eventi](../event-grid/overview.md)
+> [Provare un'integrazione di griglia di eventi di esempio con il servizio](./signalr-howto-event-grid-integration.md) 
+>  Azure SignalR [Informazioni su griglia di eventi](../event-grid/overview.md)

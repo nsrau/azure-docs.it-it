@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73663179"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
@@ -170,15 +169,15 @@ I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si
 
 Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori misurati nella distribuzione.
 
-| Metrica | Contatore |
+| Metrica | Counter |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memoria disponibile |\Memoria\MByte disponibili |
 | IOPS |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
-| Operazioni di lettura VM (IOPS) al secondo  |\Dispositivo dispositivo di archiviazione virtuale\<(VHD>) \Byte letti/sec |
-| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Dispositivo\<(VHD>) \Byte scritti operazioni/sec |
-| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \Dispositivo\<(> VHD) \Byte letti/sec |
-| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \Dispositivo\<(> VHD) \Byte scritti/sec |
+| Operazioni di lettura VM (IOPS) al secondo  |\Dispositivo di archiviazione Hyper-V (\<VHD>)\Operazioni di lettura/secondo |
+| Operazioni di scrittura VM (IOPS) al secondo |\Dispositivo di archiviazione virtuale Hyper-V (\<VHD>)\Operazioni di scrittura/S |
+| Velocità effettiva lettura VM |\Dispositivo di archiviazione virtuale Hyper-V (\<VHD>)\Byte letti al secondo |
+| Velocità effettiva di scrittura VM |\Dispositivo di archiviazione virtuale Hyper-V(\<VHD>)\Byte scritti al secondo |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

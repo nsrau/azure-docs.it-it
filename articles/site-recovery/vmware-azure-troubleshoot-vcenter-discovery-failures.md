@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74091244"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Risolvere gli errori di individuazione server vCenter
@@ -20,7 +19,7 @@ Questo articolo consente di risolvere i problemi che si verificano a causa di er
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valori non numerici nella proprietà maxSnapShots
 
-Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la `snapshot.maxSnapShots` proprietà della proprietà in una macchina virtuale.
+Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà della proprietà `snapshot.maxSnapShots` in una macchina virtuale.
 
 Questo problema è identificato dall'ID errore 95126.
 
@@ -46,8 +45,8 @@ In generale, il proxy viene utilizzato per comunicare con le reti pubbliche; com
 
 Quando viene rilevato questo problema, si verificano le situazioni seguenti:
 
-- Il> vCenter \<del server vCenter non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: (503) Server non disponibile
-- Il> vCenter \<del server vCenter non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: Impossibile connettersi al server remoto.
+- Il server vCenter \<vCenter> non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: (503) Server non disponibile
+- Il server vCenter \<vCenter> non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: Impossibile connettersi al server remoto.
 - Non è possibile connettersi al server vCenter/ESXi.
 
 Per risolvere il problema:
@@ -60,7 +59,7 @@ Per la configurazione del proxy di individuazione:
 
 1. Aprire IE nel contesto utente del sistema usando lo strumento PsExec.
     
-    PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 
 2. Modificare le impostazioni del proxy in Internet Explorer per ignorare l'indirizzo IP di vCenter.
 3. Riavviare il servizio tmanssvc.
@@ -73,7 +72,7 @@ Per la configurazione del proxy DRA:
 
 3. Al prompt dei comandi eseguire il comando seguente.
    
-   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [indirizzo IP/FQDN del server vCenter fornito al momento dell'aggiunta di vCenter]**
+   **DRCONFIGURATOR.EXE/Configure/AddBypassUrls [indirizzo IP/FQDN di server vCenter fornito al momento dell'aggiunta di vCenter]**
 
 4. Riavviare il servizio del provider DRA.
 

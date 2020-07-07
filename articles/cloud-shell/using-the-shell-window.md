@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70860314"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso della finestra Azure Cloud Shell
@@ -47,7 +46,7 @@ Fare clic sull'icona Settings (impostazioni) nella parte superiore sinistra dell
 ## <a name="upload-and-download-files"></a>Caricare e scaricare file
 Fare clic sull'icona Carica/Scarica file nella parte superiore sinistra della finestra, quindi selezionare carica o Scarica.  
 ![Caricare/scaricare file](media/using-the-shell-window/uploaddownload.png)
-* Per il caricamento di file, usare il popup per passare al file nel computer locale, selezionare il file desiderato e fare clic sul pulsante "Apri".  Il file verrà caricato nella `/home/user` directory.
+* Per il caricamento di file, usare il popup per passare al file nel computer locale, selezionare il file desiderato e fare clic sul pulsante "Apri".  Il file verrà caricato nella `/home/user` Directory.
 * Per scaricare il file, immettere il percorso completo del file nella finestra popup (ovvero, sostanzialmente, un percorso nella `/home/user` directory visualizzata per impostazione predefinita) e selezionare il pulsante "Scarica".  
 > [!NOTE] 
 > I file e i percorsi di file fanno distinzione tra maiuscole e minuscole in Cloud Shell Controllare la combinazione di maiuscole e minuscole nel percorso del file.
