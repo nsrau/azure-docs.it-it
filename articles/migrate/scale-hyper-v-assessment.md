@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70279446"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure
@@ -47,9 +46,9 @@ Usare i limiti riepilogati in questa tabella per la pianificazione.
 **Pianificazione** | **Limiti**
 --- | --- 
 **Progetti Azure Migrate** | Consente di valutare fino a 35.000 VM in un progetto.
-**Appliance Azure Migrate** | Un'appliance può individuare fino a 5000 VM.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
+**Appliance Azure Migrate** | Un'appliance può individuare fino a 5000 VM.<br/> Un'appliance può connettersi al massimo con 300 host Hyper-V.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
 **Gruppo** | È possibile aggiungere fino a 35.000 VM in un singolo gruppo.
-**Valutazione Azure Migrate** | È possibile valutare fino a 35.000 VM in un'unica valutazione.
+**Valutazione Azure Migrate** | È anche possibile valutare fino a 35.000 macchine virtuali in una singola valutazione.
 
 
 
@@ -58,7 +57,7 @@ Usare i limiti riepilogati in questa tabella per la pianificazione.
 - Per avviare l'individuazione dal dispositivo, è necessario selezionare ogni host Hyper-V. 
 - Se si sta eseguendo un ambiente multi-tenant, attualmente non è possibile individuare solo le macchine virtuali che appartengono a un tenant specifico. 
 
-## <a name="prepare-for-assessment"></a>Prepararsi per la valutazione
+## <a name="prepare-for-assessment"></a>Preparare la valutazione
 
 Preparare Azure e Hyper-V per la valutazione del server. 
 
