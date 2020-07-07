@@ -6,13 +6,13 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208024"
 ---
-# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità delle aree in Azure Kubernetes Service (AKS)
+# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, limitazioni delle dimensioni delle macchine virtuali e disponibilità delle aree nel servizio Azure Kubernetes
 
 Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risorse e le funzionalità. Alcuni SKU di macchine virtuali (VM) sono limitati anche per l'uso.
 

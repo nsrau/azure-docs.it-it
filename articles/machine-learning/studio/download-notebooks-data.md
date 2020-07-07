@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
 ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208466"
 ---
 # <a name="download-notebookspreview-data"></a>Scarica i dati dei notebook (anteprima)
@@ -25,9 +25,9 @@ Questo articolo fornisce istruzioni dettagliate su come scaricare i dati dei not
     ![Passare alla scheda notebook.](./media/download-notebooks/notebooks-list.png)
 
 1. Selezionare il notebook che si vuole scaricare. Verrà aperto in Jupyter.
-    ![Selezionare un notebook](./media/download-notebooks/select-notebook.png) che Scarica più notebook contemporaneamente non è supportato.
+    ![Selezionare un notebook ](./media/download-notebooks/select-notebook.png) che Scarica più notebook contemporaneamente non è supportato.
 
-1. Passare a **file** -> **Scarica come**e selezionare un'opzione di formattazione.
+1. Passare a **file**  ->  **Scarica come**e selezionare un'opzione di formattazione.
     ![Opzioni di download del notebook](./media/download-notebooks/download-options.PNG)
 
 1. Dopo aver selezionato un'opzione, il file del notebook si avvierà per il download. Ignorare gli errori 500 o 502 visualizzati, che non avranno alcun effetto sul download.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 87350bae282d9d0dccef9cb2121000f7a0473762
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195486"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
@@ -129,7 +129,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 ## <a name="connect-from-an-example-java-application"></a>Connettersi da un'applicazione Java di esempio
 
-Un esempio di uso di un client Java per eseguire query su hive in HDInsight [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc)è disponibile all'indirizzo. Seguire le istruzioni del repository per compilare ed eseguire l'esempio.
+Un esempio di uso di un client Java per eseguire query su hive in HDInsight è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc) . Seguire le istruzioni del repository per compilare ed eseguire l'esempio.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -147,7 +147,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Soluzione**: per correggere l'errore, attenersi alla procedura seguente:
 
-1. Uscire da SQuirreL, quindi passare alla directory in cui è installato SQuirreL nel sistema, ad esempio `C:\Program Files\squirrel-sql-4.0.0\lib`. Nella directory `lib` della directory di SquirreL sostituire il file commons-codec.jar esistente con quello scaricato dal cluster HDInsight.
+1. Uscire da SQuirreL, quindi passare alla directory in cui è installato SQuirreL nel sistema, ad esempio `C:\Program Files\squirrel-sql-4.0.0\lib` . Nella directory `lib` della directory di SquirreL sostituire il file commons-codec.jar esistente con quello scaricato dal cluster HDInsight.
 
 1. Riavviare SQuirreL. L'errore non dovrebbe più verificarsi quando ci si connette a Hive in HDInsight.
 

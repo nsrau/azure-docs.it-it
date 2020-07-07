@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176626"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestisci chiavi di accesso all'account di archiviazione
@@ -42,7 +42,7 @@ Per visualizzare e copiare le chiavi di accesso o la stringa di connessione dell
 
 Per recuperare le chiavi di accesso all'account con PowerShell, chiamare il comando [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) .
 
-Nell'esempio seguente viene recuperata la prima chiave. Per recuperare la seconda chiave, usare `Value[1]` anziché `Value[0]`. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Nell'esempio seguente viene recuperata la prima chiave. Per recuperare la seconda chiave, usare `Value[1]` anziché `Value[0]` . Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```powershell
 $storageAccountKey = `
@@ -108,7 +108,7 @@ Per ruotare le chiavi di accesso dell'account di archiviazione con PowerShell:
     ```
 
 1. Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.
-1. Rigenerare la chiave di accesso secondaria nello stesso modo. Per rigenerare la chiave secondaria, utilizzare `key2` come nome della `key1`chiave anziché.
+1. Rigenerare la chiave di accesso secondaria nello stesso modo. Per rigenerare la chiave secondaria, utilizzare `key2` come nome della chiave anziché `key1` .
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Per ruotare le chiavi di accesso dell'account di archiviazione con la CLI di Azu
     ```
 
 1. Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.
-1. Rigenerare la chiave di accesso secondaria nello stesso modo. Per rigenerare la chiave secondaria, utilizzare `key2` come nome della `key1`chiave anziché.
+1. Rigenerare la chiave di accesso secondaria nello stesso modo. Per rigenerare la chiave secondaria, utilizzare `key2` come nome della chiave anziché `key1` .
 
 ---
 

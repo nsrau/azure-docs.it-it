@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202877"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
@@ -68,7 +68,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
    * Opzionale Il portale per sviluppatori di gestione API (a meno che non si esegua gestione API di Azure nel livello consumo, più avanti in questo scenario).
 1. Impostare WebApp/API Web per tutte e 3 le applicazioni e impostare ' Consenti flusso implicito ' su Sì solo per il client front-end.
 1. Impostare ora l'URI ID app, scegliere un elemento univoco e pertinente per il servizio in fase di creazione.
-1. Usare i segnaposto per gli URL di risposta per ora https://localhost, ad esempio, questi URL verranno aggiornati in un secondo momento.
+1. Usare i segnaposto per gli URL di risposta per ora https://localhost , ad esempio, questi URL verranno aggiornati in un secondo momento.
 1. Fare clic su' Crea ', quindi ripetere i passaggi 2-5 per ognuna delle tre app precedenti, registrando l'URI AppID, il nome e l'ID applicazione per un uso successivo per tutte e tre le app.
 1. Aprire l'applicazione portale per sviluppatori di gestione API dall'elenco di applicazioni e selezionare la scheda *chiavi* (in generale), quindi fare clic su "Genera chiave" per generare una chiave di autenticazione.
 1. Quando si fa clic su Salva, registrare la chiave in un luogo sicuro per un uso successivo. si noti che questa è l'unica possibilità per visualizzare e copiare la chiave.
@@ -148,12 +148,12 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 5. Tornare alla scheda HttpTrigger1, fare clic su' Ottieni URL funzione ', quindi copiare l'URL visualizzato.
 
    > [!NOTE]
-   > Le associazioni appena create direbbero semplicemente alle funzioni di rispondere alle richieste HTTP GET anonime all'URL appena copiato. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Ora abbiamo un'API HTTPS scalabile senza server, in grado di restituire un payload molto semplice.
+   > Le associazioni appena create direbbero semplicemente alle funzioni di rispondere alle richieste HTTP GET anonime all'URL appena copiato. ( `https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey` ) Ora abbiamo un'API HTTPS scalabile senza server, in grado di restituire un payload molto semplice.
    > È ora possibile testare la chiamata di questa API da un Web browser usando l'URL sopra riportato, è anche possibile rimuovere la parte? code = Secret dell'URL e dimostrare che funzioni di Azure restituirà un errore 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Configurare e proteggere l'API della funzione
 1. È necessario configurare due aree aggiuntive nell'app per le funzioni (restrizioni di autenticazione e di rete).
-1. Per prima cosa, è necessario configurare l'autenticazione/autorizzazione, quindi fare clic sul nome dell'app per le funzioni &lt;(&gt; accanto all'icona delle funzioni Z) per visualizzare la pagina panoramica.
+1. Per prima cosa, è necessario configurare l'autenticazione/autorizzazione, quindi fare clic sul nome dell'app per le funzioni (accanto all' &lt; &gt; icona delle funzioni Z) per visualizzare la pagina panoramica.
 1. Selezionare quindi la scheda "funzionalità della piattaforma" e selezionare "autenticazione/autorizzazione".
 1. Attivare la funzionalità di autenticazione del servizio app.
 1. In "provider di autenticazione" scegliere "Azure Active Directory" e scegliere "avanzate" dall'opzione modalità di gestione.
@@ -257,12 +257,12 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 1. Aprire il pannello Azure AD B2C e passare alla registrazione dell'applicazione per il portale per sviluppatori
 1. Impostare la voce ' URL di risposta ' su quella annotata quando è stata configurata la redirect_uri della concessione del codice di autenticazione in gestione API in precedenza.
 
-   Ora che l'autorizzazione utente OAuth 2,0 è abilitata in `Echo API`, la console per sviluppatori ottiene un token di accesso per l'utente, prima di chiamare l'API.
+   Ora che l'autorizzazione utente OAuth 2,0 è abilitata in `Echo API` , la console per sviluppatori ottiene un token di accesso per l'utente, prima di chiamare l'API.
 
-1. Passare a qualsiasi operazione `Echo API` nel portale per sviluppatori e selezionare **prova** per visualizzare la console per sviluppatori.
+1. Passare a qualsiasi operazione nel `Echo API` portale per sviluppatori e selezionare **prova** per visualizzare la console per sviluppatori.
 1. Si noti un nuovo elemento nella sezione **authorization** , corrispondente al server di autorizzazione appena aggiunto.
 1. Selezionare **codice di autorizzazione** nell'elenco a discesa autorizzazione. verrà richiesto di accedere al tenant di Azure ad. Se è già stato eseguito l'accesso con l'account, è possibile che non venga richiesto.
-1. Dopo aver eseguito l'accesso, viene `Authorization: Bearer` aggiunta un'intestazione alla richiesta con un token di accesso da Azure ad B2C codificato in Base64. 
+1. Dopo aver eseguito l'accesso, `Authorization: Bearer` viene aggiunta un'intestazione alla richiesta con un token di accesso da Azure ad B2C codificato in Base64. 
 1. Selezionare **Send (Invia** ). è possibile chiamare l'API correttamente.
 
    > [!NOTE]
@@ -283,7 +283,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 ## <a name="build-the-javascript-spa-to-consume-the-api"></a>Compilare la SPA JavaScript per utilizzare l'API
 1. Aprire il pannello account di archiviazione nell'portale di Azure 
 1. Selezionare l'account creato e selezionare il pannello "sito Web statico" dalla sezione Impostazioni. se non viene visualizzata l'opzione "sito Web statico", verificare che sia stato creato un account V2.
-1. Impostare la funzionalità di hosting Web statico su' Enabled ' e impostare il nome del documento di indice su' index. html ', quindi fare clic su' Save '.
+1. Impostare la funzionalità di hosting Web statico su "Enabled" e impostare il nome del documento di indice su "index.html', quindi fare clic su" Salva ".
 1. Annotare il contenuto dell'endpoint primario, perché questo è il percorso in cui verrà ospitato il sito front-end. 
 
    > [!NOTE]
@@ -291,7 +291,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 
 ## <a name="upload-the-js-spa-sample"></a>Caricare l'esempio di JS SPA
 1. Sempre nel pannello dell'account di archiviazione selezionare il pannello "blob" dalla sezione servizio BLOB e fare clic sul contenitore $web visualizzato nel riquadro di destra.
-1. Salvare il codice riportato di seguito in un file in locale nel computer come index. html e quindi caricare il file index. html nel contenitore $web.
+1. Salvare il codice riportato di seguito in un file in locale nel computer come index.html e quindi caricare il file index.html nel contenitore $web.
 
    ```html
    <!doctype html>
@@ -415,7 +415,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Configurare JS SPA per Azure AD B2C
 1. A questo punto, è possibile configurare la SPA con l'indirizzo API di gestione API appropriato e i Azure AD B2C ID applicazione/client corretti
-1. Tornare al pannello archiviazione portale di Azure e fare clic su index. html, quindi scegliere ' modifica BLOB ' 
+1. Tornare al pannello archiviazione portale di Azure e fare clic su index.html, quindi scegliere ' modifica BLOB ' 
 1. Aggiornare i dettagli di autenticazione in modo che corrispondano all'applicazione front-end registrata in B2C in precedenza, notando che i valori "b2cScopes" sono per il back-end dell'API.
 1. La chiave webApi e l'URL dell'API sono disponibili nel riquadro di test di gestione API per l'operazione API.
 1. Per creare una chiave di sottoscrizione gestione API, tornare al pannello Gestione API, selezionare "sottoscrizioni" e fare clic su "Aggiungi sottoscrizione" e salvare il record. Facendo clic sui puntini di sospensione (...) accanto alla riga creata, sarà possibile visualizzare le chiavi in modo da poter copiare la chiave primaria.

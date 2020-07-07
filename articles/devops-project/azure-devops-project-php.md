@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: creare una pipeline CI/CD per PHP con Azure DevOps Starter'
-description: DevOps Starter consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
+description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233789"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Creare una pipeline CI/CD per PHP con Azure DevOps Starter
@@ -32,9 +32,9 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova.
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -62,7 +62,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 
- DevOps Starter crea un repository git in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
+ DevOps Starter crea un repository GIT in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
 1. Nella parte sinistra del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository Git appena creato.
 
@@ -74,13 +74,13 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 
-1. Nel browser passare al dashboard iniziale di DevOps. Verrà visualizzata una compilazione in corso. Le modifiche appena apportate vengono compilate e distribuite automaticamente tramite una pipeline CI/CD.
+1. Nel browser passare al dashboard di DevOps Starter. Verrà visualizzata una compilazione in corso. Le modifiche appena apportate vengono compilate e distribuite automaticamente tramite una pipeline CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 
  DevOps Starter configura automaticamente una pipeline di integrazione continua/recapito continuo completa in Azure Pipelines. Esplorare e personalizzare la pipeline in base alle esigenze. Per acquisire familiarità con le pipeline di compilazione e di versione eseguire questa procedura:
 
-1. Nella parte superiore del Dashboard Starter di DevOps selezionare **pipeline di compilazione**. Questo collegamento apre una scheda del browser e la pipeline di compilazione per il nuovo progetto.
+1. Selezionare **Pipeline di compilazione** nel dashboard di DevOps Starter. Questo collegamento apre una scheda del browser e la pipeline di compilazione per il nuovo progetto.
 
 1. Puntare al campo **stato** , quindi selezionare i **puntini** di sospensione (...). In un menu vengono visualizzate diverse opzioni, ad esempio l'accodamento di una nuova compilazione, la sospensione di una compilazione e la modifica della pipeline di compilazione.
 
@@ -90,7 +90,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Nella parte superiore della pipeline di compilazione selezionare il nome della pipeline di compilazione.
 
-1. Modificare il nome della pipeline di compilazione scegliendo un testo più descrittivo, selezionare **Salva e accoda**, quindi selezionare **Salva**.
+1. Modificare il nome della pipeline di compilazione con un nome più descrittivo, selezionare, **salvare & coda**, quindi selezionare **Salva**.
 
 1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**.  Il riquadro **Cronologia** mostra un log di controllo delle modifiche recenti per la compilazione. Azure Pipelines tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
@@ -98,7 +98,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
-1. Selezionare **Compilazione e versione** e quindi **Versioni**.  DevOps Starter crea una pipeline di versione per gestire le distribuzioni in Azure.
+1. Selezionare **Compilazione e versione** e quindi **Versioni**.  DevOps Starter crea una pipeline di versione per gestire le distribuzioni per Azure.
 
 1. Selezionare i puntini di sospensione (...) accanto alla pipeline di versione e quindi scegliere **Modifica**. La pipeline di versione contiene una pipeline che definisce il processo per la versione. 
 
@@ -114,11 +114,11 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Selezionare **Commit**. Questa visualizzazione mostra i commit di codice associati alla distribuzione specifica. 
 
-1. Selezionare **log**. I log contengono informazioni utili sul processo di distribuzione. Possono essere visualizzati durante e dopo le distribuzioni.
+1. Selezionare **Log**. I log contengono informazioni utili sul processo di distribuzione. Possono essere visualizzati durante e dopo le distribuzioni.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate. Usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

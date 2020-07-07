@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186187"
 ---
 # <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Guida alla pubblicazione dell'offerta per Office 365, Dynamics 365, Power Apps e Power BI
@@ -37,6 +37,6 @@ Per i collegamenti ai processi e alle linee guida di pubblicazione per ogni tipo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, Scopri come [espandere il tuo business cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Se non è già stato fatto, scoprire come [Aumentare il business sul cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
 Per creare una nuova offerta o completarne una esistente, passare a [centro](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)per i partner.

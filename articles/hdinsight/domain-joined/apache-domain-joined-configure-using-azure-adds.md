@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 2b4756990162817087b0904a764b97526c3545d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186652"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package configurazioni con Azure Active Directory Domain Services in HDInsight
@@ -43,7 +43,7 @@ Il nome di dominio usato con Azure AD DS deve avere una lunghezza di 39 caratter
 
 Quando si Abilita LDAP sicuro, inserire il nome di dominio nel nome del soggetto. E il nome alternativo del soggetto nel certificato. Se il nome di dominio è *contoso100.onmicrosoft.com*, assicurarsi che esista il nome esatto nel nome del soggetto del certificato e il nome alternativo del soggetto. Per altre informazioni, vedere [Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
-Nell'esempio seguente viene creato un certificato autofirmato. Il nome di dominio *contoso100.onmicrosoft.com* è in `Subject` entrambi (nome soggetto) `DnsName` e (nome alternativo del soggetto).
+Nell'esempio seguente viene creato un certificato autofirmato. Il nome di dominio *contoso100.onmicrosoft.com* è in entrambi `Subject` (nome soggetto) e `DnsName` (nome alternativo del soggetto).
 
 ```powershell
 $lifetime=Get-Date
@@ -70,7 +70,7 @@ Assegnare quindi il ruolo di **collaboratore di servizi di dominio HDInsight** a
 
 ![Controllo di accesso di Azure Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-L'assegnazione del ruolo di **collaboratore di servizi di dominio HDInsight** garantisce che questa`on behalf of`identità disponga dell'accesso () appropriato per le operazioni di servizi di dominio nel dominio Azure AD DS. Queste operazioni includono la creazione e l'eliminazione di unità organizzative.
+L'assegnazione del ruolo di **collaboratore di servizi di dominio HDInsight** garantisce che questa identità disponga dell' `on behalf of` accesso () appropriato per le operazioni di servizi di dominio nel dominio Azure AD DS. Queste operazioni includono la creazione e l'eliminazione di unità organizzative.
 
 Una volta assegnato il ruolo all'identità gestita, l'amministratore di Azure AD DS gestisce chi lo utilizza. In primo luogo, l'amministratore seleziona l'identità gestita nel portale. Quindi seleziona il **controllo di accesso (IAM)** in Overview ( **Panoramica**). L'amministratore assegna il ruolo di **operatore di identità gestito** a utenti o gruppi che desiderano creare cluster ESP.
 
@@ -91,15 +91,15 @@ Modificare la configurazione dei server DNS nella rete virtuale Azure AD DS. Per
 
 ![Aggiornamento della configurazione DNS della rete virtuale](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-È più semplice posizionare sia l'istanza Azure AD DS, sia il cluster HDInsight nella stessa rete virtuale di Azure. Se si prevede di usare reti virtuali diverse, è necessario eseguire il peering delle reti virtuali in modo che il controller di dominio sia visibile alle VM HDInsight. Per altre informazioni, vedere [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
+È più semplice posizionare sia l'istanza Azure AD DS, sia il cluster HDInsight nella stessa rete virtuale di Azure. Se si prevede di usare reti virtuali diverse, è necessario eseguire il peering delle reti virtuali in modo che il controller di dominio sia visibile alle VM HDInsight. Per altre informazioni, vedere [Peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
 
-Dopo aver eseguito il peering delle reti virtuali, configurare la rete virtuale HDInsight per l'uso di un server DNS personalizzato. E immettere gli indirizzi IP privati Azure AD DS come indirizzi del server DNS. Quando entrambe le reti virtuali usano gli stessi server DNS, il nome di dominio personalizzato verrà risolto nell'indirizzo IP corretto e sarà raggiungibile da HDInsight. Se, ad esempio, il nome di `contoso.com`dominio è, dopo questo passaggio `ping contoso.com` dovrebbe risolversi a destra Azure ad IP DS.
+Dopo aver eseguito il peering delle reti virtuali, configurare la rete virtuale HDInsight per l'uso di un server DNS personalizzato. E immettere gli indirizzi IP privati Azure AD DS come indirizzi del server DNS. Quando entrambe le reti virtuali usano gli stessi server DNS, il nome di dominio personalizzato verrà risolto nell'indirizzo IP corretto e sarà raggiungibile da HDInsight. Se, ad esempio, il nome di dominio è `contoso.com` , dopo questo passaggio `ping contoso.com` dovrebbe risolversi a destra Azure ad IP DS.
 
 ![Configurazione dei server DNS personalizzati per una rete virtuale con peering](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
 Se si usano regole del gruppo di sicurezza di rete (NSG) nella subnet HDInsight, è necessario consentire gli [IP richiesti](../hdinsight-management-ip-addresses.md) per il traffico in ingresso e in uscita.
 
-Per testare la configurazione della rete, aggiungere una VM Windows alla rete virtuale o alla subnet HDInsight ed effettuare il ping del nome di dominio. (Dovrebbe risolversi in un indirizzo IP). Eseguire **LDP. exe** per accedere al dominio Azure AD DS. Quindi, aggiungere questa macchina virtuale Windows al dominio per verificare che tutte le chiamate RPC richieste siano state eseguite tra il client e il server.
+Per testare la configurazione della rete, aggiungere una VM Windows alla rete virtuale o alla subnet HDInsight ed effettuare il ping del nome di dominio. (Dovrebbe risolversi in un indirizzo IP). Eseguire **ldp.exe** per accedere al dominio Azure AD DS. Quindi, aggiungere questa macchina virtuale Windows al dominio per verificare che tutte le chiamate RPC richieste siano state eseguite tra il client e il server.
 
 Usare **nslookup** per confermare l'accesso di rete all'account di archiviazione. O qualsiasi database esterno che è possibile usare, ad esempio External metastore Hive o DB Ranger. Verificare che le [porte richieste](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) siano consentite nelle regole NSG della subnet Azure AD DS, se NSG protegge Azure AD DS. Se l'aggiunta al dominio di questa macchina virtuale Windows ha esito positivo, è possibile continuare con il passaggio successivo e creare cluster ESP.
 
@@ -124,7 +124,7 @@ Quando si crea un cluster HDInsight con ESP, è necessario specificare i paramet
 
 * **Gruppi di accesso al cluster**: i gruppi di sicurezza i cui utenti si vuole sincronizzare e che hanno accesso al cluster devono essere disponibili in Azure AD DS. Un esempio è il gruppo HiveUsers. Per altre informazioni, vedere [Creare un gruppo e aggiungere membri in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **URL LDAPS**: un esempio è `ldaps://contoso.com:636`.
+* **URL LDAPS**: un esempio è `ldaps://contoso.com:636` .
 
 L'identità gestita creata può essere scelta dall'elenco a discesa **identità gestita assegnata dall'utente** durante la creazione di un nuovo cluster.
 

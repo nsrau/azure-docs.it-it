@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161491"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Screenshot delle impostazioni dell'app per le funzioni](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selezionare la**configurazione**delle**funzionalità** > della piattaforma **app per le funzioni** > .
+6. Selezionare la **Function App**  >  configurazione delle**funzionalità della piattaforma**app per le funzioni  >  **Configuration**.
 
     ![Screenshot delle impostazioni dell'app per le funzioni di Azure](./media/automate-custom-reports/config.png)
 
@@ -136,7 +136,7 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
      ![Screenshot delle chiavi API delle impostazioni](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. Verrà avviato il sito di SendGrid. Selezionare **Impostazioni** > **chiavi API**.
+3. Verrà avviato il sito di SendGrid. Selezionare **Impostazioni**  >  **chiavi API**.
 
      ![Screenshot della creazione e visualizzazione dell'app delle chiavi API](./media/automate-custom-reports/function-app-15.png)
 

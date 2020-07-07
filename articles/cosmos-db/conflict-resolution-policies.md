@@ -8,10 +8,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82182753"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipi di conflitto e criteri di risoluzione dei conflitti
@@ -35,7 +35,7 @@ Azure Cosmos DB offre un meccanismo flessibile basato sui criteri per risolvere 
   Se due o più elementi sono in conflitto su operazioni di inserimento o sostituzione, l'elemento con il valore massimo per il percorso di risoluzione dei conflitti diventa il vincitore. Il sistema determina il vincitore se più elementi hanno lo stesso valore numerico per il percorso di risoluzione dei conflitti. Tutte le aree convergono sicuramente in un singolo vincitore e si ritrovano con la stessa versione dell'elemento di cui si esegue il commit. Quando sono coinvolti i conflitti di eliminazione, la versione eliminata prevale sempre sui conflitti di inserimento o sostituzione. Questo risultato si verifica indipendentemente dal valore del percorso di risoluzione dei conflitti.
 
   > [!NOTE]
-  > WINS Last Write è il criterio di risoluzione dei conflitti predefinito e `_ts` usa il timestamp per le API seguenti: SQL, MongoDB, Cassandra, Gremlin e Table. La proprietà numerica personalizzata è disponibile solo per l'API SQL.
+  > WINS Last Write è il criterio di risoluzione dei conflitti predefinito e USA `_ts` il timestamp per le API seguenti: SQL, MongoDB, Cassandra, Gremlin e Table. La proprietà numerica personalizzata è disponibile solo per l'API SQL.
 
   Per altre informazioni, vedere gli [esempi d'uso dei criteri di risoluzione dei conflitti LWW](how-to-manage-conflicts.md).
 

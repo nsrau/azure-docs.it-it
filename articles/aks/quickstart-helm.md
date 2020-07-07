@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82169569"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Helm
 
-[Helm][helm] è uno strumento per la creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
+[Helm][helm] è uno strumento di creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai gestori di pacchetti Linux, ad esempio *apt* e *yum*, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
 Questo articolo illustra come usare Helm per creare un pacchetto ed eseguire un'applicazione in AKS. Per altre informazioni sull'installazione di un'applicazione esistente con Helm, vedere [installare applicazioni esistenti con Helm in AKS][helm-existing].
 
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
-Questa Guida introduttiva usa [un'applicazione Node. js di esempio dal repository di esempio Azure Dev Spaces][example-nodejs]. Clonare l'applicazione da GitHub e passare alla `dev-spaces/samples/nodejs/getting-started/webfrontend` directory.
+Questa Guida introduttiva usa [un esempio Node.js applicazione dal repository di esempio Azure Dev Spaces][example-nodejs]. Clonare l'applicazione da GitHub e passare alla `dev-spaces/samples/nodejs/getting-started/webfrontend` Directory.
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -168,7 +168,7 @@ service:
 ...
 ```
 
-Eseguire `appVersion` l' `v1` aggiornamento a in *WebFrontEnd/Chart. YAML*. Ad esempio
+Eseguire l'aggiornamento `appVersion` a `v1` in *WebFrontEnd/Chart. YAML*. Ad esempio
 
 ```yml
 apiVersion: v2

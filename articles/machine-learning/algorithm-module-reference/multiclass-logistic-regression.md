@@ -10,15 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137774"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Modulo di regressione logistica multiclasse
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per creare un modello di regressione logistica che può essere usato per stimare più valori.
 
@@ -48,7 +48,7 @@ Nella regressione logistica multiclasse è possibile usare il classificatore per
 
     La regolarizzazione è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.
 
-     Le regolarizzazioni di tipo L1 e L2 hanno effetti e usi differenti. La regolarizzazione L1 può essere applicata a modelli di tipo sparse, caratteristica utile quando si lavora con dati a elevata dimensionalità. La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se `x = L1` e `y = L2`, `ax + by = c` definisce la portata lineare dei termini di regolarizzazione.
+     Le regolarizzazioni di tipo L1 e L2 hanno effetti e usi differenti. La regolarizzazione L1 può essere applicata a modelli di tipo sparse, caratteristica utile quando si lavora con dati a elevata dimensionalità. La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se `x = L1` e `y = L2` , `ax + by = c` definisce la portata lineare dei termini di regolarizzazione.
 
      Sono state concepite diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica, ad esempio la [regolarizzazione di reti elastiche](https://wikipedia.org/wiki/Elastic_net_regularization).
 

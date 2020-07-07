@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0ccb87017f962650f099d506e1d200ab408316d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195146"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Panoramica di Apache Spark Streaming
 
-[Apache Spark](https://spark.apache.org/) Il flusso fornisce l'elaborazione del flusso di dati nei cluster HDInsight Spark. Con la garanzia che qualsiasi evento di input venga elaborato una sola volta, anche se si verifica un errore del nodo. Un flusso Spark è un processo a esecuzione prolungata che riceve i dati di input da un'ampia gamma di origini, tra cui Hub eventi di Azure. Inoltre: Hub Azure, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`socket TCP non elaborati o da monitoraggio Apache Hadoop filesystem Yarn. A differenza di un processo basato solo sugli eventi, un flusso Spark raggruppa i dati di input in finestre temporali. Ad esempio una sezione di 2 secondi, quindi trasforma ogni batch di dati tramite operazioni di mapping, riduzione, join ed estrazione. Il flusso Spark scrive quindi i dati trasformati in file system, database, dashboard e nella console.
+[Apache Spark](https://spark.apache.org/) Il flusso fornisce l'elaborazione del flusso di dati nei cluster HDInsight Spark. Con la garanzia che qualsiasi evento di input venga elaborato una sola volta, anche se si verifica un errore del nodo. Un flusso Spark è un processo a esecuzione prolungata che riceve i dati di input da un'ampia gamma di origini, tra cui Hub eventi di Azure. Inoltre: Hub Azure, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` socket TCP non elaborati o da monitoraggio Apache Hadoop filesystem Yarn. A differenza di un processo basato solo sugli eventi, un flusso Spark raggruppa i dati di input in finestre temporali. Ad esempio una sezione di 2 secondi, quindi trasforma ogni batch di dati tramite operazioni di mapping, riduzione, join ed estrazione. Il flusso Spark scrive quindi i dati trasformati in file system, database, dashboard e nella console.
 
 ![Elaborazione di flussi con HDInsight e Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 L'output risultante è simile al seguente:
 
-| value | time |
+| Valore | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -167,7 +167,7 @@ Sono presenti sei valori, perché DummySource crea un valore ogni 5 secondi e l'
 
 ## <a name="sliding-windows"></a>Finestre temporali scorrevoli
 
-Per eseguire calcoli di aggregazione sulla DStream per un determinato periodo di tempo, ad esempio per ottenere una temperatura media negli ultimi due secondi, `sliding window` usare le operazioni incluse con Spark streaming. Una finestra temporale scorrevole ha una durata (lunghezza della finestra) e un intervallo durante il quale viene valutato il contenuto della finestra (intervallo di scorrimento).
+Per eseguire calcoli di aggregazione sulla DStream per un determinato periodo di tempo, ad esempio per ottenere una temperatura media negli ultimi due secondi, usare le `sliding window` operazioni incluse con Spark streaming. Una finestra temporale scorrevole ha una durata (lunghezza della finestra) e un intervallo durante il quale viene valutato il contenuto della finestra (intervallo di scorrimento).
 
 Le finestre temporali scorrevoli possono sovrapporsi, ad esempio è possibile definire una finestra con una lunghezza di due secondi, con scorrimento ogni secondo. Questa azione significa che ogni volta che si esegue un calcolo di aggregazione, la finestra includerà i dati dell'ultimo secondo della finestra precedente. E tutti i nuovi dati nel prossimo un secondo.
 
@@ -222,7 +222,7 @@ ssc.start()
 
 Dopo il primo minuto sono presenti 12 voci, sei da ognuno dei due batch raccolti nella finestra.
 
-| value | time |
+| Valore | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

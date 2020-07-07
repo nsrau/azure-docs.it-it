@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192502"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux
@@ -50,7 +50,7 @@ La funzione di aggregazione dei log rende più deterministico l'accesso ai log d
 
 In questo percorso, `user` è il nome dell'utente che ha avviato l'applicazione e `applicationId` è l'identificatore univoco assegnato a un'applicazione dall'oggetto YARN RM.
 
-I log aggregati non sono leggibili direttamente, perché sono scritti in un oggetto tfile, formato binario indicizzato dal contenitore. Usare i log `ResourceManager` Yarn o gli strumenti dell'interfaccia della riga di comando per visualizzare questi log come testo normale per le applicazioni o i contenitori di interesse.
+I log aggregati non sono leggibili direttamente, perché sono scritti in un oggetto tfile, formato binario indicizzato dal contenitore. Usare i `ResourceManager` log Yarn o gli strumenti dell'interfaccia della riga di comando per visualizzare questi log come testo normale per le applicazioni o i contenitori di interesse.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>Log yarn in un cluster ESP
 
@@ -58,7 +58,7 @@ I log aggregati non sono leggibili direttamente, perché sono scritti in un ogge
 
 1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
-1. Dall'interfaccia utente di Ambari passare a **MapReduce2** > **configs** > **Advanced** > **Custom mapred-site**.
+1. Dall'interfaccia utente di Ambari passare a **MapReduce2**  >  **configs**  >  **Advanced**  >  **Custom mapred-site**.
 
 1. Aggiungere *uno* dei set di proprietà seguenti:
 
@@ -79,7 +79,7 @@ I log aggregati non sono leggibili direttamente, perché sono scritti in un ogge
 
 ## <a name="yarn-cli-tools"></a>Strumenti dell’interfaccia di riga di comando YARN
 
-1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -147,9 +147,9 @@ I log aggregati non sono leggibili direttamente, perché sono scritti in un ogge
     yarn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-## <a name="yarn-resourcemanager-ui"></a>interfaccia `ResourceManager` utente di Yarn
+## <a name="yarn-resourcemanager-ui"></a>`ResourceManager`interfaccia utente di Yarn
 
-L'interfaccia `ResourceManager` utente di Yarn viene eseguita nel cluster nodo head. Si accede tramite l'interfaccia utente Web di Ambariri. Per visualizzare i log di YARN, procedere come segue:
+L' `ResourceManager` interfaccia utente di Yarn viene eseguita nel cluster nodo head. Si accede tramite l'interfaccia utente Web di Ambariri. Per visualizzare i log di YARN, procedere come segue:
 
 1. Nel Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
 
@@ -157,7 +157,7 @@ L'interfaccia `ResourceManager` utente di Yarn viene eseguita nel cluster nodo h
 
     ![Servizio Yarn Apache Ambari selezionato](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. Dall'elenco a discesa **collegamenti rapidi** selezionare uno dei nodi head del cluster e quindi **`ResourceManager Log`** selezionare.
+3. Dall'elenco a discesa **collegamenti rapidi** selezionare uno dei nodi head del cluster e quindi selezionare **`ResourceManager Log`** .
 
     ![Collegamenti rapidi di Apache Ambari Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 5abc3395152e03520eaff14b02d150892abf0e22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184215"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Elaborare e analizzare documenti JSON tramite apache Hive in HDInsight di Azure
@@ -146,7 +146,7 @@ Output dello script nella console di Hive:
 
 ![Risultati della query Apache Hive JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-La `json_tuple` UDF usa la sintassi di [visualizzazione laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) in hive, che consente\_a JSON Tuple di creare una tabella virtuale applicando la funzione UDT a ogni riga della tabella originale. I documenti JSON complessi diventano troppo difficili da gestire a causa dell'uso ripetuto di **LATERAL VIEW**. Inoltre, **JSON_TUPLE** non è in grado di gestire JSON annidati.
+La `json_tuple` UDF usa la sintassi di [visualizzazione laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) in hive, che consente \_ a JSON Tuple di creare una tabella virtuale applicando la funzione UDT a ogni riga della tabella originale. I documenti JSON complessi diventano troppo difficili da gestire a causa dell'uso ripetuto di **LATERAL VIEW**. Inoltre, **JSON_TUPLE** non è in grado di gestire JSON annidati.
 
 ### <a name="use-a-custom-serde"></a>Usare un'interfaccia SerDe personalizzata
 

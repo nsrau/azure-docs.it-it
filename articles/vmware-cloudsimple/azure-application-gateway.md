@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185694"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Usare applicazione Azure gateway con macchine virtuali VMware nell'ambiente cloud privato CloudSimple
@@ -71,7 +71,7 @@ Le istruzioni dettagliate per questa operazione sono disponibili in [creare un g
 
 1. Creare una rete virtuale nella sottoscrizione e nel gruppo di risorse.
 2. Creare una subnet, da usare come subnet dedicata, all'interno della rete virtuale.
-3. Creare un gateway applicazione standard (abilitando facoltativamente WAF): dalla Home page di portale di Azure fare clic su **Resource** > **Network** > **gateway applicazione** dal lato superiore sinistro della pagina. Selezionare lo SKU standard e le dimensioni e specificare le informazioni sulla sottoscrizione, il gruppo di risorse e la località di Azure. Se necessario, creare un nuovo indirizzo IP pubblico per il gateway applicazione e fornire i dettagli sulla rete virtuale e la subnet dedicata per il gateway applicazione.
+3. Creare un gateway applicazione standard (abilitando facoltativamente WAF): dalla Home page di portale di Azure fare clic su **Resource**  >  **Network**  >  **gateway applicazione** dal lato superiore sinistro della pagina. Selezionare lo SKU standard e le dimensioni e specificare le informazioni sulla sottoscrizione, il gruppo di risorse e la località di Azure. Se necessario, creare un nuovo indirizzo IP pubblico per il gateway applicazione e fornire i dettagli sulla rete virtuale e la subnet dedicata per il gateway applicazione.
 4. Aggiungere un pool back-end con macchine virtuali e aggiungerlo al gateway applicazione.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. creare e configurare un pool di macchine virtuali del server Web nel cloud privato

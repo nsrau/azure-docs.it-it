@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186635"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
@@ -26,7 +26,7 @@ Questo articolo descrive le soluzioni per gli errori che si possono incontrare d
 
 ### <a name="error"></a>Errore
 
-"Impossibile accedere al percorso dell'azione di script\<: URL\>azione script"
+"Impossibile accedere al percorso dell'azione di script: \<SCRIPT ACTION URL\> "
 
 #### <a name="error-message"></a>Messaggio di errore
 
@@ -36,7 +36,7 @@ Questo articolo descrive le soluzioni per gli errori che si possono incontrare d
 
 Il servizio HDInsight non è in grado di accedere all'URL dell'azione script fornito come parte della richiesta di creazione del cluster. Il servizio riceve il messaggio di errore precedente quando tenta di accedere all'azione di script.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 - Per un URL HTTP o HTTPS, verificare l'URL tentando di accedervi da una finestra del browser in incognito.
 - Per un URL WASB, assicurarsi che lo script esista nell'account di archiviazione fornito nella richiesta. Assicurarsi anche che la chiave di archiviazione per questo account di archiviazione sia corretta.
@@ -48,17 +48,17 @@ Il servizio HDInsight non è in grado di accedere all'URL dell'azione script for
 
 ### <a name="error"></a>Errore
 
-"Impossibile accedere al percorso dell'azione di script \<:\>SCRIPT_ACTION_URL"
+"Impossibile accedere al percorso dell'azione di script: \<SCRIPT_ACTION_URL\> "
 
 #### <a name="error-message"></a>Messaggio di errore
 
-"L'URI \<dello script specificato\> SCRIPT_URI si trova in ADLS, ma questo cluster non contiene l'entità di archiviazione di data Lake"
+"L'URI dello script specificato \<SCRIPT_URI\> si trova in ADLS, ma questo cluster non ha un'entità di archiviazione di data Lake"
 
 ### <a name="cause"></a>Causa
 
 Il servizio HDInsight non è in grado di accedere all'URL dell'azione script fornito come parte della richiesta di creazione del cluster. Il servizio riceve il messaggio di errore precedente quando tenta di accedere all'azione di script.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Aggiungere l'account Azure Data Lake Storage generazione 1 corrispondente al cluster. Aggiungere inoltre l'entità servizio che accede all'account Data Lake Storage generazione 1 al cluster.
 
@@ -68,13 +68,13 @@ Aggiungere l'account Azure Data Lake Storage generazione 1 corrispondente al clu
 
 ### <a name="error"></a>Errore
 
-"La dimensione della\<macchina\>virtuale ' CUSTOMER_SPECIFIED_VM_SIZE ' specificata nella richiesta non è valida o non è\<supportata\>per il ruolo ' role '. I valori validi sono \<:\>VALID_VM_SIZE_FOR_ROLE. "
+"Le dimensioni della macchina virtuale ' \<CUSTOMER_SPECIFIED_VM_SIZE\> ' specificate nella richiesta non sono valide o non sono supportate per il ruolo ' \<ROLE\> '. I valori validi sono: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
 ### <a name="cause"></a>Causa
 
 La dimensione della macchina virtuale specificata non è consentita per il ruolo. Questo errore può verificarsi perché il valore delle dimensioni della macchina virtuale non funziona come previsto o non è adatto per il ruolo del computer.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Il messaggio di errore elenca i valori validi per le dimensioni della macchina virtuale. Selezionare uno di questi valori e riprovare la richiesta di creazione del cluster.
 
@@ -84,13 +84,13 @@ Il messaggio di errore elenca i valori validi per le dimensioni della macchina v
 
 ### <a name="error"></a>Errore
 
-"VirtualNetworkId non è valido. VirtualNetworkId "\<USER_VIRTUALNETWORKID\>" * "
+"VirtualNetworkId non è valido. VirtualNetworkId " \<USER_VIRTUALNETWORKID\> " * "
 
 ### <a name="cause"></a>Causa
 
 Il valore **VirtualNetworkId** specificato durante la creazione del cluster non è nel formato corretto.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Verificare che i valori di **VirtualNetworkId** e subnet siano nel formato corretto. Per ottenere il valore di **VirtualNetworkId** :
 
@@ -108,13 +108,13 @@ Di seguito è riportato un esempio di ID rete virtuale:
 
 ### <a name="error"></a>Errore
 
-"Distribuzione del cluster non riuscita a causa di un errore nell'azione script personalizzata. Azioni non \<riuscite\>: SCRIPT_NAME, passare all'interfaccia utente di Ambari per eseguire ulteriormente il debug dell'errore. "
+"Distribuzione del cluster non riuscita a causa di un errore nell'azione script personalizzata. Azioni non riuscite: \<SCRIPT_NAME\> , passare all'interfaccia utente di Ambari per eseguire ulteriormente il debug dell'errore ".
 
 ### <a name="cause"></a>Causa
 
-Lo script personalizzato fornito durante la richiesta create cluster viene eseguito dopo che il cluster è stato distribuito correttamente. Questo codice di errore indica che si è verificato un errore durante l'esecuzione dello \<script\>personalizzato denominato SCRIPT_NAME.
+Lo script personalizzato fornito durante la richiesta create cluster viene eseguito dopo che il cluster è stato distribuito correttamente. Questo codice di errore indica che si è verificato un errore durante l'esecuzione dello script personalizzato denominato \<SCRIPT_NAME\> .
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Poiché lo script è lo script personalizzato, è consigliabile risolvere il problema ed eseguire nuovamente lo script, se necessario. Per risolvere gli errori di script, esaminare i log nella cartella/var/lib/Ambari-Agent/*. In alternativa, aprire la pagina **operazioni** nell'interfaccia utente di Ambariri, quindi selezionare l'operazione **run_customscriptaction** per visualizzare i dettagli dell'errore.
 
@@ -124,13 +124,13 @@ Poiché lo script è lo script personalizzato, è consigliabile risolvere il pro
 
 ### <a name="error"></a>Errore
 
-"La \<versione\> \<dello schema del metastore\> META_STORE_TYPE METASTORE_MAJOR_VERSION \<nel\> database database_name non è compatibile con \<la\>versione del cluster CLUSTER_VERSION"
+"La \<META_STORE_TYPE\> versione dello schema del Metastore \<METASTORE_MAJOR_VERSION\> nel database non \<DATABASE_NAME\> è compatibile con la versione del cluster \<CLUSTER_VERSION\> "
 
 ### <a name="cause"></a>Causa
 
 Il Metastore personalizzato è incompatibile con la versione selezionata del cluster HDInsight. Attualmente, i cluster HDInsight 4,0 supportano solo Metastore versione 3,0 e versioni successive, mentre i cluster HDInsight 3,6 non supportano il Metastore versione 3,0 e versioni successive.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Usare solo le versioni del Metastore supportate dalla versione del cluster HDInsight. Se non si specifica un Metastore personalizzato, HDInsight crea internamente un Metastore e quindi lo elimina dopo l'eliminazione del cluster.
 
@@ -146,7 +146,7 @@ Usare solo le versioni del Metastore supportate dalla versione del cluster HDIns
 
 Una regola del firewall nel gruppo di sicurezza di rete (NSG) blocca la comunicazione del cluster con i servizi critici di gestione e integrità di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
@@ -161,13 +161,13 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 
 ### <a name="error"></a>Errore
 
-"L'identità gestita non dispone delle autorizzazioni per l'account di archiviazione. Verificare che il ruolo "proprietario dati BLOB di archiviazione" sia assegnato all'identità gestita per l'account di archiviazione. Archiviazione:/subscriptions/ \<ID\> sottoscrizione/ResourceGroups/\< \> nome gruppo \<\>di risorse/Providers/Microsoft.storage/storageAccounts/nome account di archiviazione, identità gestita \<:/subscriptions/\> ID sottoscrizione\< /resourceGroups//nome\> gruppo \<di risorse/Providers/Microsoft.ManagedIdentity/userAssignedIdentities/nome\>identità gestita dall'utente "
+"L'identità gestita non dispone delle autorizzazioni per l'account di archiviazione. Verificare che il ruolo "proprietario dati BLOB di archiviazione" sia assegnato all'identità gestita per l'account di archiviazione. Archiviazione:/subscriptions/ \<Subscription ID\> /ResourceGroups/ \< Resource Group Name\> /providers/Microsoft.storage/storageAccounts/ \<Storage Account Name\> , identità gestita:/subscriptions/ \<Subscription ID\> /resourceGroups// \< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
 ### <a name="cause"></a>Causa
 
 Non sono state fornite le autorizzazioni necessarie per gestire l'identità. L'identità gestita assegnata dall'utente non ha il ruolo Collaboratore archiviazione BLOB nell'account di archiviazione Azure Data Lake Storage Gen2.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Aprire il portale di Azure.
 1. Passare all'account di archiviazione.
@@ -182,13 +182,13 @@ Per altre informazioni, vedere [configurare le autorizzazioni per l'identità ge
 
 ### <a name="error"></a>Errore
 
-"Regole di sicurezza nel gruppo di sicurezza di rete\</subscriptions/\>SubscriptionId/ResourceGroups/<\> nome del gruppo di risorse Default/Providers/Microsoft.\<Network/networkSecurityGroups/\> nome gruppo di sicurezza\<di\>rete\<configurato con subnet\> /subscriptions/SubscriptionId/ResourceGroups/RG-westeurope-VNET-TomTom-default nome del gruppo di risorse virtualNetworks\</providers\>/\<Microsoft.\> Network//Subnets//Virtual Network Name nome subnet non consente la connettività in ingresso e/o in uscita richiesta. Per altre informazioni, vedere [pianificare una rete virtuale per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)oppure contattare il supporto tecnico. "
+"Le regole di sicurezza nel gruppo di sicurezza di rete/subscriptions/ \<SubscriptionID\> /resourceGroups/<nome del gruppo di risorse \> Default/Providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> configurata con subnet/subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNET-TomTom-Default/Providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /Subnets/non \<Subnet Name\> consente la connettività in ingresso e/o in uscita richiesta. Per altre informazioni, vedere [pianificare una rete virtuale per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)oppure contattare il supporto tecnico. "
 
 ### <a name="cause"></a>Causa
 
 Se i gruppi di sicurezza di rete o le route definite dall'utente (UDR) controllano il traffico in ingresso verso il cluster HDInsight, assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
@@ -208,7 +208,7 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 
 In genere, questo errore viene generato quando si verifica un problema temporaneo o un'interruzione di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Controllare la pagina di [stato di Azure](https://status.azure.com) per eventuali interruzioni di Azure che potrebbero influire sulla distribuzione del cluster. Se non ci sono interruzioni, riprovare la distribuzione del cluster.
 
@@ -224,13 +224,13 @@ Impossibile connettersi all'endpoint di gestione cluster. Riprovare più tardi.
 
 Il servizio HDInsight non è in grado di connettersi al cluster durante il tentativo di creare il cluster
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si usano i gruppi di sicurezza di rete VNet (gruppi) e le route definite dall'utente (UDR) personalizzati, verificare che il cluster sia in grado di comunicare con HDInsight Management Services. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Codice di errore: le distribuzioni non sono riuscite a causa di<Resource URI>una violazione dei criteri:' risorsa ' non è consentita dai criteri. Identificatori di criteri:' [{"policyAssignment": {"Name":<Policy Name> "", "ID": "<Management Group Name> /Providers/Microsoft.Management/managementGroups/Providers/Microsoft. Authorization/<Policy Name>policyAssignments/"}, "policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Codice di errore: le distribuzioni non sono riuscite a causa di una violazione dei criteri:' risorsa ' non <Resource URI> è consentita dai criteri. Identificatori di criteri:' [{"policyAssignment": {"Name": " <Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition":<Policy Definition>
 
 ### <a name="cause"></a>Causa
 
@@ -242,7 +242,7 @@ I criteri seguenti influiscano generalmente sulla creazione del cluster:
 * Criteri che impediscono la creazione di account di archiviazione.
 * Criteri che impediscono l'eliminazione di risorse di rete, ad esempio indirizzi IP o bilanciamenti del carico.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Eliminare o disabilitare l'assegnazione dei criteri di Azure basata sulla sottoscrizione durante la creazione del cluster HDInsight.
 

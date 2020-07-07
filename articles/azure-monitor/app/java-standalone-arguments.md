@@ -4,10 +4,10 @@ description: Application Performance Monitoring per le applicazioni Java in esec
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82508038"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configurazione degli argomenti JVM Java autonomo Agent per monitoraggio di Azure Application Insights
@@ -20,7 +20,7 @@ Configurare i [Servizi app](https://docs.microsoft.com/azure/app-service/configu
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Aggiungere la JVM ARG `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` in un `-jar`punto qualsiasi prima, ad esempio:
+Aggiungere la JVM ARG `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` in un punto qualsiasi prima `-jar` , ad esempio:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
@@ -28,13 +28,13 @@ java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.
 
 ## <a name="spring-boot-via-docker-entry-point"></a>Spring boot tramite il punto di ingresso Docker
 
-Se si usa il modulo *Exec* , aggiungere il parametro `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` all'elenco di parametri in un punto precedente `"-jar"` al parametro, ad esempio:
+Se si usa il modulo *Exec* , aggiungere il parametro `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` all'elenco di parametri in un punto precedente al `"-jar"` parametro, ad esempio:
 
 ```
 ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
 ```
 
-Se si usa il modulo della *Shell* , aggiungere la JVM ARG `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` in un `-jar`punto precedente, ad esempio:
+Se si usa il modulo della *Shell* , aggiungere la JVM ARG `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` in un punto precedente `-jar` , ad esempio:
 
 ```
 ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
@@ -44,7 +44,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -
 
 ### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installato tramite `apt-get` o`yum`
 
-Se Tomcat è stato installato `apt-get` tramite `yum`o, è necessario disporre di un `/etc/tomcat8/tomcat8.conf`file.  Aggiungere questa riga alla fine del file:
+Se Tomcat è stato installato tramite `apt-get` o `yum` , è necessario disporre di un file `/etc/tomcat8/tomcat8.conf` .  Aggiungere questa riga alla fine del file:
 
 ```
 JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
@@ -52,20 +52,20 @@ JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW
 
 ### <a name="tomcat-installed-via-download-and-unzip"></a>Tomcat installato tramite download e decompressione
 
-Se Tomcat è stato installato tramite download e unzip [https://tomcat.apache.org](https://tomcat.apache.org)da, è necessario disporre di un `<tomcat>/bin/catalina.sh`file.  Creare un nuovo file nella stessa directory denominata `<tomcat>/bin/setenv.sh` con il contenuto seguente:
+Se Tomcat è stato installato tramite download e unzip da [https://tomcat.apache.org](https://tomcat.apache.org) , è necessario disporre di un `<tomcat>/bin/catalina.sh` file.  Creare un nuovo file nella stessa directory denominata `<tomcat>/bin/setenv.sh` con il contenuto seguente:
 
 ```
 CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
 ```
 
-Se il file `<tomcat>/bin/setenv.sh` esiste già, modificare il file e aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` a. `CATALINA_OPTS`
+Se il file `<tomcat>/bin/setenv.sh` esiste già, modificare il file e aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` a `CATALINA_OPTS` .
 
 
 ## <a name="tomcat-8-windows"></a>Tomcat 8 (Windows)
 
 ### <a name="running-tomcat-from-the-command-line"></a>Esecuzione di Tomcat dalla riga di comando
 
-Individuare il file `<tomcat>/bin/catalina.bat`.  Creare un nuovo file nella stessa directory denominata `<tomcat>/bin/setenv.bat` con il contenuto seguente:
+Individuare il file `<tomcat>/bin/catalina.bat` .  Creare un nuovo file nella stessa directory denominata `<tomcat>/bin/setenv.bat` con il contenuto seguente:
 
 ```
 set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar
@@ -77,11 +77,11 @@ Le virgolette non sono necessarie, ma se si desidera includerle, il posizionamen
 set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
 ```
 
-Se il file `<tomcat>/bin/setenv.bat` esiste già, è sufficiente modificare il file e `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` aggiungere `CATALINA_OPTS`a.
+Se il file `<tomcat>/bin/setenv.bat` esiste già, è sufficiente modificare il file e aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` a `CATALINA_OPTS` .
 
 ### <a name="running-tomcat-as-a-windows-service"></a>Esecuzione di Tomcat come servizio Windows
 
-Individuare il file `<tomcat>/bin/tomcat8w.exe`.  Eseguire il file eseguibile `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` e aggiungere `Java Options` a sotto `Java` la scheda.
+Individuare il file `<tomcat>/bin/tomcat8w.exe` .  Eseguire il file eseguibile e aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` a `Java Options` sotto la `Java` scheda.
 
 
 ## <a name="jboss-eap-7"></a>JBoss EAP 7
@@ -97,7 +97,7 @@ Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla
 
 ### <a name="domain-server"></a>Server di dominio
 
-Aggiungi `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla esistente `jvm-options` in `JBOSS_HOME/domain/configuration/host.xml`:
+Aggiungi `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla esistente `jvm-options` in `JBOSS_HOME/domain/configuration/host.xml` :
 
 ```xml
 ...
@@ -116,7 +116,7 @@ Aggiungi `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla e
 ...
 ```
 
-Se si eseguono più server gestiti in un singolo host, sarà necessario aggiungere `applicationinsights.agent.id` alla `system-properties` per ogni: `server`
+Se si eseguono più server gestiti in un singolo host, sarà necessario aggiungere `applicationinsights.agent.id` alla `system-properties` per ogni `server` :
 
 ```xml
 ...
@@ -138,7 +138,7 @@ Se si eseguono più server gestiti in un singolo host, sarà necessario aggiunge
 ...
 ```
 
-Il valore `applicationinsights.agent.id` specificato deve essere univoco. Viene usato per creare una sottodirectory nella directory applicationinsights, perché ogni processo JVM necessita di una configurazione applicationinsights locale e di un file di log applicationinsights locale. Inoltre, se si inviano report all'agente di `applicationinsights.properties` raccolta centrale, il file viene condiviso da più server gestiti, pertanto `applicationinsights.agent.id` l'oggetto specificato è necessario `agent.id` per eseguire l'override dell'impostazione nel file condiviso. `applicationinsights.agent.rollup.id`può essere specificato in modo analogo nel `system-properties` server se è necessario eseguire l' `agent.rollup.id` override dell'impostazione per ogni server gestito.
+Il `applicationinsights.agent.id` valore specificato deve essere univoco. Viene usato per creare una sottodirectory nella directory applicationinsights, perché ogni processo JVM necessita di una configurazione applicationinsights locale e di un file di log applicationinsights locale. Inoltre, se si inviano report all'agente di raccolta centrale, il `applicationinsights.properties` file viene condiviso da più server gestiti, pertanto l'oggetto specificato `applicationinsights.agent.id` è necessario per eseguire l'override dell' `agent.id` impostazione nel file condiviso. `applicationinsights.agent.rollup.id`può essere specificato in modo analogo nel server `system-properties` se è necessario eseguire l'override dell' `agent.rollup.id` impostazione per ogni server gestito.
 
 
 ## <a name="jetty-9"></a>Jetty 9
@@ -153,7 +153,7 @@ Aggiungi le righe seguenti a`start.ini`
 
 ## <a name="payara-5"></a>Payara 5
 
-Aggiungi `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla esistente `jvm-options` in `glassfish/domains/domain1/config/domain.xml`:
+Aggiungi `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` alla esistente `jvm-options` in `glassfish/domains/domain1/config/domain.xml` :
 
 ```xml
 ...
@@ -183,7 +183,7 @@ Successivamente, salvare e riavviare il server applicazioni.
 
 ## <a name="openliberty-18"></a>OpenLiberty 18
 
-Creare un nuovo file `jvm.options` nella directory del server (ad esempio `<openliberty>/usr/servers/defaultServer`) e aggiungere la riga seguente:
+Creare un nuovo file `jvm.options` nella directory del server (ad esempio `<openliberty>/usr/servers/defaultServer` ) e aggiungere la riga seguente:
 ```
 -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar
 ```

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232854"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
@@ -29,7 +29,7 @@ Questo documento spiega come usare l'interfaccia utente Web Ambari con un cluste
 
 ## <a name="connectivity"></a>Connettività
 
-L'interfaccia utente Web di Ambariri è disponibile nel cluster `https://CLUSTERNAME.azurehdinsight.net`HDInsight all' `CLUSTERNAME` indirizzo, dove è il nome del cluster.
+L'interfaccia utente Web di Ambariri è disponibile nel cluster HDInsight all'indirizzo `https://CLUSTERNAME.azurehdinsight.net` , dove `CLUSTERNAME` è il nome del cluster.
 
 > [!IMPORTANT]  
 > La connessione ad Ambari su HDInsight richiede HTTPS. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account amministratore specificati quando è stato creato il cluster. Se non vengono richieste le credenziali, verificare le impostazioni di rete per verificare che non sia presente alcun problema di connettività tra il client e i cluster HDInsight di Azure.
@@ -49,7 +49,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 ![Panoramica di Apache Ambari dashboard](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Item |Descrizione |
+|Elemento |Descrizione |
 |---|---|
 |Logo di Ambari|Apre il dashboard, che può essere usato per monitorare il cluster.|
 |Nome cluster # Ops|Visualizza il numero di operazioni Ambari in corso. Selezionando il nome del cluster o **# ops**, viene visualizzato un elenco delle operazioni in background.|
@@ -58,7 +58,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Amministratore|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -70,7 +70,7 @@ L'elenco seguente contiene gli stati di avviso comuni usati da Ambari:
 * **OK**
 * **Avviso**
 * **CRITICO**
-* **SCONOSCIUTO**
+* **UNKNOWN**
 
 Gli avvisi con stato diverso da **OK** determinano la compilazione del campo **# alerts** (N. avvisi) nella parte superiore della pagina con il numero di avvisi. Selezionando questa opzione vengono visualizzati gli avvisi e il relativo stato.
 
@@ -153,7 +153,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 2. Utilizzare il menu **azioni** per selezionare l'azione che si desidera eseguire:
 
-    |Item |Descrizione |
+    |Elemento |Descrizione |
     |---|---|
     |Avvia tutti i componenti|Avviare tutti i componenti nell'host.|
     |Arresta tutti i componenti|Arrestare tutti i componenti nell'host.|
@@ -161,7 +161,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si stanno eseguendo azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Arresto|Arresta dataNode o NodeManagers nell'host.|
-    |Inizia|Avvia dataNode o NodeManagers nell'host.|
+    |Avvia|Avvia dataNode o NodeManagers nell'host.|
     |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|

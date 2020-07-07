@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188158"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
@@ -85,7 +85,7 @@ Il diagramma seguente mostra gli oggetti Spark principali: il programma driver e
 
 I processi Spark usano risorse del ruolo di lavoro, in particolare la memoria, quindi è prassi comune modificare i valori di configurazione di Spark per gli executor del nodo del ruolo di lavoro.
 
-I tre parametri principali che vengono spesso modificati per ottimizzare le configurazioni di Spark per migliorare i requisiti dell'applicazione sono `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Un Executor è un processo avviato per un'applicazione Spark. Viene eseguito nel nodo del ruolo di lavoro ed è responsabile delle attività per l'applicazione. Il numero di nodi del ruolo di lavoro e le dimensioni del nodo di lavoro determinano il numero di esecutori e le dimensioni dell'executor. Questi valori vengono archiviati in `spark-defaults.conf` nei nodi head del cluster.  È possibile modificare questi valori in un cluster in esecuzione selezionando i valori **predefiniti Spark personalizzati** nell'interfaccia utente Web di Ambariri.  Dopo avere apportato le modifiche, nell'interfaccia utente viene chiesto di**riavviare** tutti i servizi interessati.
+I tre parametri principali che vengono spesso modificati per ottimizzare le configurazioni di Spark per migliorare i requisiti dell'applicazione sono `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Un Executor è un processo avviato per un'applicazione Spark. Viene eseguito nel nodo del ruolo di lavoro ed è responsabile delle attività per l'applicazione. Il numero di nodi del ruolo di lavoro e le dimensioni del nodo di lavoro determinano il numero di esecutori e le dimensioni dell'executor. Questi valori vengono archiviati in nei `spark-defaults.conf` nodi head del cluster.  È possibile modificare questi valori in un cluster in esecuzione selezionando i valori **predefiniti Spark personalizzati** nell'interfaccia utente Web di Ambariri.  Dopo avere apportato le modifiche, nell'interfaccia utente viene chiesto di**riavviare** tutti i servizi interessati.
 
 > [!NOTE]  
 > Questi tre parametri di configurazione possono essere configurati a livello di cluster, per tutte le applicazioni in esecuzione nel cluster, oppure specificati per ogni singola applicazione.
@@ -96,13 +96,13 @@ Un'altra fonte di informazioni sulle risorse usate dagli esecutori Spark è l'in
 
 In alternativa, è possibile usare l'API REST Ambari per verificare a livello di codice le impostazioni di configurazione del cluster HDInsight e Spark.  Per altre informazioni, vedere le [informazioni di riferimento dell'API Apache Ambari in GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-A seconda del carico di lavoro di Spark, è possibile determinare che una configurazione non predefinita per Spark può consentire esecuzioni più ottimizzate dei processi Spark.  Eseguire test di benchmark con carichi di lavoro di esempio per convalidare le configurazioni del cluster non predefinite.  Alcuni dei parametri comuni che è possibile provare a modificare sono:
+A seconda del carico di lavoro di Spark, è possibile determinare che una configurazione non predefinita per Spark può consentire esecuzioni più ottimizzate dei processi Spark.  Eseguire test di benchmark con carichi di lavoro di esempio per convalidare tutte le configurazioni cluster non predefinite.  Alcuni dei parametri comuni che è possibile provare a modificare sono:
 
 |Parametro |Descrizione|
 |---|---|
-|--Num-eXecutors|Imposta il numero di esecutori.|
-|--Executor-Core|Imposta il numero di core per ogni Executor. È consigliabile usare executor di dimensioni medie, in quanto parte della memoria disponibile è già usata da altri processi.|
-|--Executor-Memory|Controlla le dimensioni della memoria (dimensioni heap) di ogni Executor in Apache Hadoop YARN ed è necessario lasciare memoria per l'overhead di esecuzione.|
+|--num-executors|Imposta il numero di esecutori.|
+|--executor-cores|Imposta il numero di core per ogni executor. È consigliabile usare executor di dimensioni medie, in quanto parte della memoria disponibile è già usata da altri processi.|
+|--executor-memory|Controlla le dimensioni della memoria (dimensioni heap) di ogni Executor in Apache Hadoop YARN ed è necessario lasciare memoria per l'overhead di esecuzione.|
 
 Ecco un esempio di due nodi del ruolo di lavoro con valori di configurazione diversi:
 

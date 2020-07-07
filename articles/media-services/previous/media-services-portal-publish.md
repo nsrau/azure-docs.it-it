@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176822"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Pubblicare contenuti sul portale di Azure  
@@ -70,7 +70,7 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[A
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Per usare il portale per la pubblicazione di un asset
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da pubblicare.
+2. Selezionare **Impostazioni**  >  **Asset**. Selezionare l'asset da pubblicare.
 3. Fare clic sul pulsante **Pubblica**.
 4. Selezionare il tipo di localizzatore.
 5. Selezionare **Aggiungi**.
@@ -92,7 +92,7 @@ Considerazioni applicabili:
 * Media Player nel portale di Azure esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, selezionare e copiare l'URL e quindi incollarlo in un altro lettore. È ad esempio possibile testare il video in [Azure Media Player](https://aka.ms/azuremediaplayer).
 * L'endpoint di streaming da cui si effettua lo streaming deve essere in esecuzione.  
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: creare una pipeline CI/CD per .NET con Azure DevOps Starter'
-description: Azure DevOps Starter consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app .NET in un servizio di Azure a scelta.
+description: Azure DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app .NET in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -16,10 +16,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233304"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creare una pipeline CI/CD per .NET con Azure DevOps Starter
@@ -30,13 +30,13 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
+DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure selezionata.
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo. 
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova. 
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -84,7 +84,7 @@ DevOps Starter ha creato un repository git in Azure Repos o GitHub. Per visualiz
 
 Nel passaggio precedente, Azure DevOps Starter configurava automaticamente una pipeline di integrazione continua/distribuzione continua completa. Esplorare e personalizzare la pipeline in base alle esigenze. Eseguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps.
 
-1. Nella parte superiore del Dashboard Starter di DevOps selezionare **pipeline di compilazione**. Questo collegamento apre una scheda del browser e la pipeline di compilazione di Azure DevOps per il nuovo progetto.
+1. Selezionare **Pipeline di compilazione** nel dashboard di DevOps Starter. Questo collegamento apre una scheda del browser e la pipeline di compilazione di Azure DevOps per il nuovo progetto.
 
 1. Selezionare i puntini di sospensione (...).  Questa azione apre un menu da cui è possibile avviare diverse attività, ad esempio accodare una nuova compilazione, sospendere una compilazione e modificare la pipeline di compilazione.
 
@@ -106,7 +106,7 @@ Nel riquadro **Cronologia** verrà visualizzato un log di controllo delle modifi
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
 1. Selezionare **Compilazione e versione**, quindi **Versioni**.  
-DevOps Starter crea una pipeline di versione per gestire le distribuzioni in Azure.
+DevOps Starter crea una pipeline di versione per gestire le distribuzioni per Azure.
 
 1.  A sinistra, selezionare i puntini di sospensione (...) accanto alla pipeline di versione e quindi scegliere **Modifica**. La pipeline di versione contiene una pipeline che definisce il processo per la versione.  
 
@@ -126,7 +126,7 @@ DevOps Starter crea una pipeline di versione per gestire le distribuzioni in Azu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

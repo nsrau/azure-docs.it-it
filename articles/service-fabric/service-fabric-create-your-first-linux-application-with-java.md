@@ -4,10 +4,10 @@ description: Informazioni su come creare e distribuire un'applicazione Java Reli
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193565"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux

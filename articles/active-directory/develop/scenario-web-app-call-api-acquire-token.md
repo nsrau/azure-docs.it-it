@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181733"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Un'app Web che chiama le API Web: acquisire un token per l'app
@@ -47,7 +47,7 @@ public class HomeController : Controller
 
 Il `ITokenAcquisition` servizio viene inserito da ASP.NET usando l'inserimento di dipendenze.
 
-Di seguito è riportato il codice semplificato per `HomeController`l'azione di, che ottiene un token da chiamare Microsoft Graph:
+Di seguito è riportato il codice semplificato per l'azione di `HomeController` , che ottiene un token da chiamare Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -76,7 +76,7 @@ Questi passaggi avanzati sono trattati nel capitolo 3 dell'esercitazione [3-weba
 
 Il codice per ASP.NET è simile al codice illustrato per ASP.NET Core:
 
-- Un'azione del controller, protetta da un attributo [autorizzate], estrae l'ID tenant e l'ID `ClaimsPrincipal` utente del membro del controller. (ASP.NET usa `HttpContext.User`).
+- Un'azione del controller, protetta da un attributo [autorizzate], estrae l'ID tenant e l'ID utente del `ClaimsPrincipal` membro del controller. (ASP.NET usa `HttpContext.User` ).
 - Da qui, compila un oggetto MSAL.NET `IConfidentialClientApplication` .
 - Infine, viene chiamato il `AcquireTokenSilent` metodo dell'applicazione client riservata.
 
@@ -84,7 +84,7 @@ Il codice per ASP.NET è simile al codice illustrato per ASP.NET Core:
 
 Nell'esempio Java, il codice che chiama un'API si trova nel metodo getUsersFromGraph in [AuthPageController. Java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Il metodo tenta di chiamare `getAuthResultBySilentFlow`. Se l'utente deve fornire il consenso a più ambiti, il codice elabora `MsalInteractionRequiredException` l'oggetto per richiedere l'intervento dell'utente.
+Il metodo tenta di chiamare `getAuthResultBySilentFlow` . Se l'utente deve fornire il consenso a più ambiti, il codice elabora l' `MsalInteractionRequiredException` oggetto per richiedere l'intervento dell'utente.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")

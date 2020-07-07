@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82165689"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
@@ -45,16 +45,16 @@ Oggi le organizzazioni IT sono modellate in seguito a un ibrido centralizzato, d
 * **Decentralizzata**: ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
 * **Ibrido**: i requisiti di conformità dei controlli di sicurezza complicano ulteriormente questo scenario perché molte organizzazioni implementano entrambi i modelli di distribuzione in parallelo. Ciò comporta in genere una configurazione complessa, costosa e difficile da gestire con gap nel code coverage dei log.
 
-Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere quanto segue per pianificare la distribuzione dell'agente:
+Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere i concetti seguenti per pianificare la distribuzione dell'agente:
 
-* Per raccogliere i dati dagli agenti Windows, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](../../azure-monitor/platform/agent-windows.md), anche quando invia un report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può segnalare fino a quattro aree di lavoro.
-* L'agente Linux non supporta il multihosting e può segnalare solo a una singola area di lavoro.
+* Per raccogliere i dati dagli agenti Windows, è possibile [configurare che ogni agente invii i report a una o più aree di lavoro](../../azure-monitor/platform/agent-windows.md), anche durante l'invio di report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può inviare i report a un massimo di quattro aree di lavoro.
+* L'agente Linux non supporta il multihoming e può inviare i report solo a un'unica area di lavoro.
 
 Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 
 * Ogni gruppo di gestione di Operations Manager può essere [connesso a una sola area di lavoro](../platform/om-agents.md). 
-* I computer Linux che inviano report a un gruppo di gestione devono essere configurati per segnalare direttamente a un'area di lavoro Log Analytics. Se i computer Linux hanno già segnalato direttamente a un'area di lavoro e si desidera monitorarli con Operations Manager, attenersi alla procedura seguente per creare [un report a un gruppo di gestione Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
-* È possibile installare l'agente di Log Analytics Windows nel computer Windows e fare in modo che il report sia Operations Manager integrato con un'area di lavoro e un'area di lavoro diversa.
+* I computer Linux che inviano i report a un gruppo di gestione devono essere configurati perché i report vengano inviati direttamente a un'area di lavoro Log Analytics. Se i computer Linux inviano già i report direttamente a un'area di lavoro e si vuole monitorarli con Operations Manager, attenersi a questa procedura per [inviare i report a un gruppo di gestione di Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
+* È possibile installare l'agente di Log Analytics per Windows nel computer Windows e fare in modo che i report siano inviati sia a Operations Manager con l'integrazione di un'area di lavoro sia a un'area di lavoro diversa.
 
 ## <a name="access-control-overview"></a>Panoramica del controllo di accesso
 
@@ -114,7 +114,7 @@ La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro
 
     Questa è l'impostazione predefinita per tutte le aree di lavoro create prima del 2019 marzo.
 
-* **Usa autorizzazioni per risorse o aree di lavoro**: questa modalità di controllo consente il controllo degli accessi in base È possibile concedere agli utenti l'accesso solo ai dati associati alle risorse che possono visualizzare assegnando `read` l'autorizzazione di Azure. 
+* **Usa autorizzazioni per risorse o aree di lavoro**: questa modalità di controllo consente il controllo degli accessi in base È possibile concedere agli utenti l'accesso solo ai dati associati alle risorse che possono visualizzare assegnando l'autorizzazione di Azure `read` . 
 
     Quando un utente accede all'area di lavoro in modalità di contesto dell'area di lavoro, vengono applicate le autorizzazioni dell'area di lavoro. Quando un utente accede all'area di lavoro in modalità del contesto di risorse, vengono verificate solo le autorizzazioni delle risorse e le autorizzazioni dell'area di lavoro vengono ignorate. Abilitare il controllo degli accessi in base al ruolo per un utente rimuovendo tali autorizzazioni dall'area di lavoro e consentendone la riconoscibilità.
 
@@ -129,7 +129,7 @@ Per informazioni su come modificare la modalità di controllo di accesso nel por
 
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](data-collector-api.md).
 
-Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un LAIngestionRate@microsoft.com messaggio di posta elettronica o aprendo una richiesta di supporto.
+Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un messaggio di posta elettronica LAIngestionRate@microsoft.com o aprendo una richiesta di supporto.
  
 Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
 

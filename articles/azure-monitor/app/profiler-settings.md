@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188927"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agente Profiler aggiornato
-Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
+Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
 
 Se il profiler viene eseguito in una macchina virtuale o in un servizio cloud, è necessario che sia installata la versione 16.0.4 di Windows Diagnostica di Azure (WAD) o versione successiva. È possibile controllare la versione di WAD eseguendo l'accesso alla macchina virtuale e cercando la directory seguente: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Il nome della directory è la versione di WAD installata. L'agente di macchine virtuali di Azure aggiornerà automaticamente WAD quando saranno disponibili nuove versioni.
 
@@ -61,7 +61,7 @@ Questa sezione della pagina Mostra informazioni sulle sessioni di profilatura re
 | | |
 |-|-|
 Attivato da | Come è stata avviata la sessione, da un trigger, da un profilo ora o da un campionamento predefinito. 
-Nome app | Nome dell'applicazione profilata.
+Nome dell'app | Nome dell'applicazione profilata.
 Istanza del computer | Nome del computer in cui è stato eseguito l'agente del profiler.
 Timestamp | Ora di acquisizione del profilo.
 Tracee | Numero di tracce associate a singole richieste.
@@ -78,7 +78,7 @@ Le sezioni seguenti illustrano il funzionamento di questo scenario:
 
 Se l'app Web include già il traffico in ingresso o se si desidera solo generare manualmente il traffico, ignorare questa sezione e procedere al passaggio 2.
 
-1. Nel portale di Application Insights selezionare **Configura** > **test delle prestazioni**. 
+1. Nel portale di Application Insights selezionare **Configura**  >  **test delle prestazioni**. 
 
 1. Per avviare un nuovo test delle prestazioni, selezionare il pulsante **Nuovo**.
 

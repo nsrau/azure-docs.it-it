@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233483"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
@@ -49,7 +49,7 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 Quando una funzionalità è in anteprima, significa che si stanno raccogliendo attivamente commenti e suggerimenti dagli utenti sulla funzionalità. Una funzionalità in anteprima è completa dal punto di vista funzionale, ma è possibile che venga apportata una modifica di rilievo in risposta ai commenti e suggerimenti dei clienti. È consigliabile non far dipendere l'ambiente di produzione da una funzionalità in anteprima.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Come si protegge la connessione tra il gateway di Gestione API e i servizi back-end?
-Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile scegliere:
+Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile:
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca TLS come descritto in [come proteggere i servizi back-end usando l'autenticazione con certificati client in gestione API di Azure](api-management-howto-mutual-certificates.md).
@@ -57,7 +57,7 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
-Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile scegliere:
+Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile:
 
 * Usare la funzione di backup e ripristino di Gestione API. Per altre informazioni, vedere [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](api-management-howto-disaster-recovery-backup-restore.md).
 * Creare una propria funzionalità di backup e ripristino usando l'[API REST di Gestione API](/rest/api/apimanagement/). Usare l'API REST per salvare e ripristinare le entità dall'istanza del servizio desiderata.
@@ -88,7 +88,7 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](/azure/api-management/api-management-policies) (Criteri di Gestione API).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
-Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile scegliere:
+Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
 
 * Ospitare API diverse nello stesso tenant.
 * Ospitare le stesse API in tenant diversi.
@@ -109,7 +109,7 @@ Sì. Vedere i modelli di avvio rapido del [servizio gestione API di Azure](https
 Sì. Questa operazione può essere eseguita tramite PowerShell o eseguendo direttamente l'invio all'API. La convalida della catena di certificati verrà quindi disabilitata e si consentirà l'utilizzo di certificati autofirmati o firmati privatamente per le comunicazioni da Gestione API ai servizi back-end.
 
 #### <a name="powershell-method"></a>Metodo PowerShell ####
-Usare i [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet di PowerShell (per il nuovo [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) back-end) o (per il back-end esistente `-SkipCertificateChainValidation` ) e `True`impostare il parametro su.
+Usare i [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet di PowerShell (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il `-SkipCertificateChainValidation` parametro su `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207514"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con i dischi di Azure nel servizio Azure Kubernetes
@@ -18,13 +18,13 @@ Le applicazioni basate su contenitore hanno spesso necessità di accedere e salv
 > [!NOTE]
 > Un disco di Azure può essere installato solo su un singolo pod per volta. Se è necessario condividere un volume permanente tra più pod, usare i [File di Azure][azure-files-volume].
 
-Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni in AKS][concepts-storage].
+Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Creare un disco di Azure
 
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk*. Nell'esempio seguente viene creato un disco da *20*GiB e viene restituito l'ID del disco dopo la creazione. Se è necessario creare un disco da usare con i contenitori di Windows Server, aggiungere `--os-type windows` il parametro per formattare correttamente il disco.
+A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk*. Nell'esempio seguente viene creato un disco da *20*GiB e viene restituito l'ID del disco dopo la creazione. Se è necessario creare un disco da usare con i contenitori di Windows Server, aggiungere il `--os-type windows` parametro per formattare correttamente il disco.
 
 ```azurecli-interactive
 az disk create \
@@ -59,7 +59,7 @@ L'ID risorsa del disco viene visualizzato dopo aver completato correttamente il 
 
 ## <a name="mount-disk-as-volume"></a>Montare il disco come volume
 
-Per montare il disco di Azure nel pod, configurare il volume nella specifica del contenitore. creare un nuovo file denominato `azure-disk-pod.yaml` con il contenuto seguente. Aggiornare `diskName` con il nome del disco creato nel passaggio precedente e `diskURI` con l'ID del disco visualizzato nell'output del comando di creazione del disco. Se lo si desidera, annotare `mountPath`, che è il percorso in cui il disco di Azure viene montato nel pod. Per i contenitori di Windows Server, specificare un *mountPath* usando la convenzione di percorso di Windows, ad esempio *' d:'*.
+Per montare il disco di Azure nel pod, configurare il volume nella specifica del contenitore. creare un nuovo file denominato `azure-disk-pod.yaml` con il contenuto seguente. Aggiornare `diskName` con il nome del disco creato nel passaggio precedente e `diskURI` con l'ID del disco visualizzato nell'output del comando di creazione del disco. Se lo si desidera, annotare `mountPath`, che è il percorso in cui il disco di Azure viene montato nel pod. Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -123,7 +123,7 @@ Events:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per le procedure consigliate associate, vedere procedure consigliate [per l'archiviazione e i backup in AKS][operator-best-practices-storage].
+Per le procedure consigliate associate, vedere [Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes][operator-best-practices-storage].
 
 Per altre informazioni su come il cluster del servizio Azure Kubernetes interagisce con i dischi di Azure, vedere l'argomento relativo ai [plug-in Kubernetes per i dischi di Azure][kubernetes-disks].
 

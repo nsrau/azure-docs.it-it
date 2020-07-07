@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 601194d3a8cc789c51b8e127001ab2367dceeee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82148225"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
@@ -49,10 +49,10 @@ ms.locfileid: "82148225"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
-Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il Framework del cluster e installare un sistema SAP NetWeaver 7,50 a disponibilità elevata usando [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un sistema SAP NetWeaver 7.50 a disponibilità elevata mediante [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 Nelle configurazioni di esempio, i comandi di installazione e così via. L'istanza di ASC è il numero 00, l'istanza ERS è il numero 01, l'istanza dell'applicazione primaria (PAS) è 02 e l'istanza dell'applicazione (AAS) è 03. Viene usato l'ID del sistema SAP QAS. 
 
-Il livello del database non è illustrato in dettaglio in questo articolo.  
+Il livello del database non è descritto in dettaglio in questo articolo.  
 
 Leggere prima di tutto i documenti e le note SAP seguenti:
 
@@ -84,69 +84,69 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * Documentazione di RHEL specifica di Azure:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341) (Criteri di supporto per cluster RHEL a disponibilità elevata - Macchine virtuali di Microsoft Azure come membri del cluster)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
-* [Applicazioni SAP NetApp su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
+* [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Panoramica
 
-La disponibilità elevata per i servizi SAP NetWeaver Central richiede l'archiviazione condivisa.
+La disponibilità elevata per SAP NetWeaver Central Services richiede l'archiviazione condivisa.
 A tale scopo, in Red Hat Linux finora era necessario compilare un cluster GlusterFS a disponibilità elevata separato. 
 
-A questo punto è possibile ottenere la disponibilità elevata di SAP NetWeaver usando l'archiviazione condivisa, distribuita in Azure NetApp Files. L'uso di Azure NetApp Files per l'archiviazione condivisa Elimina la necessità di un altro [cluster GlusterFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs). Pacemaker è ancora necessario per la disponibilità elevata di SAP NetWeaver Central Services (ASC/SCS).
+È ora possibile ottenere la disponibilità elevata di SAP NetWeaver usando l'archiviazione condivisa, distribuita in Azure NetApp Files. L'uso di Azure NetApp Files per l'archiviazione condivisa Elimina la necessità di un altro [cluster GlusterFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs). Pacemaker è ancora necessario per la disponibilità elevata di SAP Netweaver Central Services (ASCS/SCS).
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del servizio di bilanciamento del carico con IP front-end distinti per (A) SCS e ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del servizio di bilanciamento del carico con IP front-end distinti per (A) SCS e ERS.
 
 ### <a name="ascs"></a>(A)SCS
 
 * Configurazione front-end
   * Indirizzo IP 192.168.14.9
 * Porta probe
-  * Porta 620<strong>&lt;Nr&gt;</strong>
+  * Porta 620<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * 32<strong>&lt;Nr&gt; </strong> TCP
-  * 36<strong>&lt;Nr&gt; </strong> TCP
-  * 39<strong>&lt;Nr&gt; </strong> TCP
-  * 81<strong>&lt;Nr&gt; </strong> TCP
-  * 5<strong>&lt;Nr&gt;</strong>13 TCP
-  * 5<strong>&lt;Nr&gt;</strong>14 TCP
-  * 5<strong>&lt;Nr&gt;</strong>16 TCP
+  * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Configurazione front-end
   * Indirizzo IP 192.168.14.10
 * Porta probe
-  * Porta 621<strong>&lt;Nr&gt;</strong>
+  * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * 32<strong>&lt;Nr&gt; </strong> TCP
-  * 33<strong>&lt;Nr&gt; </strong> TCP
-  * 5<strong>&lt;Nr&gt;</strong>13 TCP
-  * 5<strong>&lt;Nr&gt;</strong>14 TCP
-  * 5<strong>&lt;Nr&gt;</strong>16 TCP
+  * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 * Configurazione back-end
   * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
 
-## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configurazione dell'infrastruttura di Azure NetApp Files 
+## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configurazione dell'infrastruttura Azure NetApp Files 
 
-SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo.  Prima di procedere con l'installazione dell'infrastruttura dei file di Azure NetApp, acquisire familiarità con la [documentazione Azure NetApp files][anf-azure-doc]. Controllare se l'area di Azure selezionata offre Azure NetApp Files. Il collegamento seguente mostra la disponibilità di Azure NetApp Files dall'area di Azure: [Azure NetApp files disponibilità per area di Azure][anf-avail-matrix].
+SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo.  Prima di procedere con la configurazione dell'infrastruttura Azure NetApp Files, acquisire familiarità con la [documentazione di Azure NetApp Files][anf-azure-doc]. Controllare se l'area di Azure selezionata offre Azure NetApp Files. Il collegamento seguente mostra la disponibilità di Azure NetApp Files per area di Azure: [Disponibilità di Azure NetApp Files per area di Azure][anf-avail-matrix].
 
-I file di Azure NetApp sono disponibili in diverse [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Prima di distribuire Azure NetApp Files, richiedere l'onboarding a Azure NetApp Files, seguendo le [istruzioni per la registrazione di file NetApp di Azure][anf-register]. 
+I file di Azure NetApp sono disponibili in diverse [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Prima di distribuire Azure NetApp Files, richiedere l'onboarding in Azure NetApp Files, seguendo le [istruzioni di registrazione per Azure NetApp Files][anf-register]. 
 
-### <a name="deploy-azure-netapp-files-resources"></a>Distribuisci risorse Azure NetApp Files  
+### <a name="deploy-azure-netapp-files-resources"></a>Distribuire le risorse di Azure NetApp Files  
 
-I passaggi presuppongono che sia già stata distribuita la [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Le risorse Azure NetApp Files e le macchine virtuali in cui verranno montate le risorse di Azure NetApp Files devono essere distribuite nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering.  
+I passaggi presuppongono che sia già stata eseguita la distribuzione di [Rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Le risorse di Azure NetApp Files e tutte le macchine virtuali, in cui le risorse di Azure NetApp Files verranno montate, devono essere distribuite nella stessa istanza di Rete virtuale di Azure o in reti virtuali di Azure con peering.  
 
-1. Se non è già stato fatto, richiedere l' [onboarding per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
-2. Creare l'account NetApp nell'area di Azure selezionata seguendo le [istruzioni per la creazione dell'account NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
-3. Configurare Azure NetApp Files pool di capacità seguendo le [istruzioni su come configurare Azure NetApp files pool di capacità](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
-L'architettura di SAP NetWeaver presentata in questo articolo usa il pool di capacità singolo Azure NetApp Files, SKU Premium. È consigliabile Azure NetApp Files SKU Premium per il carico di lavoro dell'applicazione SAP NetWeaver in Azure.  
-4. Delegare una subnet ai file di Azure NetApp come descritto nelle [istruzioni delegare una subnet a Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+1. Se non è già stato fatto, richiedere l'[onboarding in Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+2. Creare l'account NetApp nell'area di Azure selezionata, seguendo le [istruzioni per creare un account NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+3. Configurare il pool di capacità di Azure NetApp Files, seguendo le [istruzioni su come configurare pool di capacità Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+L'architettura di SAP NetWeaver presentata in questo articolo usa un singolo pool di capacità di Azure NetApp Files, SKU Premium. Lo SKU Premium di Azure NetApp Files è consigliabile per il carico di lavoro dell'applicazione SAP NetWeaver in Azure.  
+4. Delegare una subnet ai file di Azure NetApp come descritto nelle [istruzioni per delegare una subnet a Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Distribuire Azure NetApp Files volumi, seguendo le [istruzioni per creare un volume per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuire i volumi nella [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. Tenere presente che le risorse Azure NetApp Files e le macchine virtuali di Azure devono trovarsi nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering. In questo esempio vengono usati due volumi Azure NetApp Files: SAP<b>QAS</b> e transSAP. I percorsi dei file montati nei punti di montaggio corrispondenti sono/usrsap<b>QAS</b>/sapmnt<b>QAS</b><b>,/usrsap QAS/usrsap QAS</b><b>sys e</b>così via.  
+5. Distribuire volumi di Azure NetApp Files, seguendo le [istruzioni per creare un volume per Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuire i volumi nella [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) di Azure NetApp Files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. Le risorse di Azure NetApp Files e le macchine virtuali di Azure devono trovarsi nella stessa istanza di Rete virtuale di Azure o in reti virtuali di Azure con peering. In questo esempio vengono usati due volumi Azure NetApp Files: SAP<b>QAS</b> e transSAP. I percorsi dei file montati nei punti di montaggio corrispondenti sono/usrsap<b>QAS</b>/sapmnt<b>QAS</b><b>,/usrsap QAS/usrsap QAS</b><b>sys e</b>così via.  
 
    1. volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>ASC)
@@ -156,19 +156,19 @@ L'architettura di SAP NetWeaver presentata in questo articolo usa il pool di cap
    6. volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>pas)
    7. volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>AAS)
   
-In questo esempio è stato usato Azure NetApp Files per tutti i file System di SAP NetWeaver per dimostrare come è possibile usare Azure NetApp Files. I file System SAP che non devono essere montati tramite NFS possono anche essere distribuiti come [archiviazione su disco di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . In questo esempio <b>a-e</b> deve essere in Azure NetApp files e <b>f-g</b> (ovvero,/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) può essere distribuito come archiviazione su disco di Azure. 
+In questo esempio è stato usato Azure NetApp Files per tutti i file system di SAP NetWeaver per dimostrare come è possibile usare Azure NetApp Files. I file system SAP che non devono essere montati tramite NFS possono anche essere distribuiti come [archiviazione su disco di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd). In questo esempio <b>a-e</b> deve trovarsi in Azure NetApp Files e <b>f-g</b> (ovvero /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) può essere distribuito come archiviazione su disco di Azure. 
 
 ### <a name="important-considerations"></a>Considerazioni importanti
 
-Quando si prende in considerazione Azure NetApp Files per SAP NetWeaver sull'architettura a disponibilità elevata SUSE, tenere presente le considerazioni seguenti:
+Quando si prende in considerazione Azure NetApp Files per SAP Netweaver sull'architettura a disponibilità elevata SUSE, tenere presenti le considerazioni importanti seguenti:
 
-- Il pool di capacità minimo è 4 TiB. È possibile aumentare le dimensioni del pool di capacità con incrementi di 1 TiB.
-- Il volume minimo è 100 GiB
-- Azure NetApp Files e tutte le macchine virtuali, in cui verranno montati i volumi Azure NetApp Files, devono trovarsi nella stessa rete virtuale di Azure o in [reti virtuali con peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) nella stessa area. Azure NetApp Files l'accesso al peering VNET nella stessa area è ora supportato. L'accesso a NetApp di Azure sul peering globale non è ancora supportato.
-- La rete virtuale selezionata deve avere una subnet, delegata a Azure NetApp Files.
-- Azure NetApp Files offre [criteri di esportazione](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): è possibile controllare i client consentiti, il tipo di accesso (lettura&scrittura, sola lettura e così via). 
-- Azure NetApp Files funzionalità non è ancora in grado di riconoscere la zona. Attualmente Azure NetApp Files funzionalità non viene distribuita in tutte le zone di disponibilità in un'area di Azure. Tenere presente le implicazioni potenziali di latenza in alcune aree di Azure. 
-- Azure NetApp Files volumi possono essere distribuiti come volumi NFSv3 o NFSv 4.1. Entrambi i protocolli sono supportati per il livello applicazione SAP (ASC/ERS, server applicazioni SAP). 
+- La capacità minima del pool è di 4 TiB. È possibile aumentare le dimensioni del pool di capacità con incrementi di 1 TiB.
+- Il volume minimo è di 100 GiB.
+- Azure NetApp Files e tutte le macchine virtuali in cui verranno montati i volumi Azure NetApp Files devono trovarsi nella stessa istanza di Rete virtuale di Azure o in [reti virtuali con peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) nella stessa area. L'accesso ad Azure NetApp Files mediante peering VNET nella stessa area è ora supportato. L'accesso a NetApp di Azure mediante peering globale non è ancora supportato.
+- La rete virtuale selezionata deve avere una subnet delegata ad Azure NetApp Files.
+- Azure NetApp Files offre [criteri di esportazione](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): è possibile controllare i client consentiti, il tipo di accesso, ad esempio lettura e scrittura, sola lettura e così via. 
+- La funzionalità Azure NetApp Files non è ancora in grado di riconoscere la zona. Attualmente la funzionalità Azure NetApp Files non viene distribuita in tutte le zone di disponibilità in un'area di Azure. Tenere presente le implicazioni di latenza potenziali in alcune aree di Azure. 
+- I volumi Azure NetApp Files possono essere distribuiti come volumi NFSv3 o NFSv4.1. Entrambi i protocolli sono supportati per il livello applicazione SAP (server di applicazione SAP, ASCS/ERS). 
 
 ## <a name="setting-up-ascs"></a>Configurazione di (A)SCS
 
@@ -176,94 +176,94 @@ In questo esempio, le risorse sono state distribuite manualmente tramite il [por
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
-Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le macchine virtuali. Successivamente, si creerà un servizio di bilanciamento del carico e si useranno le macchine virtuali nel pool back-end.
+Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le macchine virtuali. Creare quindi un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
-1. Creare un servizio di bilanciamento del carico (interno, standard):  
+1. Creare un bilanciamento del carico (interno, standard).  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 192.168.14.9 per ASC
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
+         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **frontend.QAS.ASCS**
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
          1. Fare clic su OK.
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare il pool back-end
       1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-      1. Immettere il nome del nuovo pool back-end, ad esempio **back-end. QAS**)
+      1. Immettere il nome del nuovo pool back-end, ad esempio **backend.QAS**
       1. Fare clic su Aggiungi una macchina virtuale.
-      1. Selezionare Macchina virtuale. 
-      1. Selezionare le macchine virtuali del cluster (A) SCS e i relativi indirizzi IP.
+      1. Selezionare macchina virtuale. 
+      1. Selezionare le macchine virtuali del cluster (A)SCS e il rispettivo indirizzo IP.
       1. Fare clic su Aggiungi.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
-         1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
+         1. Immettere il nome del nuovo probe di integrità, ad esempio **health.QAS.ASCS**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
          1. Fare clic su OK.
-      1. Porta 621**01** per ASC ERS
-            * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
+      1. Porta 621**01** per ASCS ERS
+            * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **health.QAS.ERS**
    1. Regole di bilanciamento del carico
       1. Regole di bilanciamento del carico per ASC
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
-         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **lb. QAS. ASC**)
-         1. Selezionare l'indirizzo IP front-end per ASC, il pool back-end e il probe di integrità creati in precedenza, ad esempio front- **end. QAS. ASC**, **back-end. QAS** e **Health. QAS. ASC**)
-         1. Selezionare le **porte a disponibilità elevata**
+         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **lb.QAS.ASCS**
+         1. Selezionare l'indirizzo IP front-end per ASCS, il pool back-end e il probe di integrità creati in precedenza, ad esempio **frontend.QAS.ASCS**, **backend.QAS** e **health.QAS.ASCS**
+         1. Selezionare **Porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
-         * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb. QAS. ERS**)
-1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
+         * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb.QAS.ERS**
+1. In alternativa, se lo scenario richiede Load Balancer Basic (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 192.168.14.9 per ASC
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
+         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **frontend.QAS.ASCS**
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
          1. Fare clic su OK.
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare il pool back-end
       1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-      1. Immettere il nome del nuovo pool back-end, ad esempio **back-end. QAS**)
+      1. Immettere il nome del nuovo pool back-end, ad esempio **backend.QAS**
       1. Fare clic su Aggiungi una macchina virtuale.
-      1. Selezionare il set di disponibilità creato in precedenza per ASC 
+      1. Selezionare il set di disponibilità creato in precedenza per ASCS 
       1. Selezionare le macchine virtuali del cluster (A)SCS
       1. Fare clic su OK.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
-         1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
+         1. Immettere il nome del nuovo probe di integrità, ad esempio **health.QAS.ASCS**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
          1. Fare clic su OK.
-      1. Porta 621**01** per ASC ERS
-            * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
+      1. Porta 621**01** per ASCS ERS
+            * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **health.QAS.ERS**
    1. Regole di bilanciamento del carico
       1. TCP 32**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
-         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **lb. QAS. ASC. 3200**)
-         1. Selezionare l'indirizzo IP front-end per ASC, il pool back-end e il probe di integrità creati in precedenza, ad esempio front- **end. QAS. ASC**)
+         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **lb.QAS.ASCS.3200**
+         1. Selezionare l'indirizzo IP front-end per ASCS, il pool back-end e il probe di integrità creati in precedenza, ad esempio **frontend.QAS.ASCS**
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
       1. Porte aggiuntive per ASCS
-         * Ripetere i passaggi precedenti in "d" per le porte**36 00**,**39 00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASC
+         * Ripetere i passaggi precedenti per le porte 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASCS
       1. Porte aggiuntive per ASCS ERS
-         * Ripetere i passaggi precedenti in "d" per le porte 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP per ASC ERS
+         * Ripetere i passaggi precedenti per le porte 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP per ASCS ERS
 
       > [!Note]
-      > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+      > Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
       > [!IMPORTANT]
-      > Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+      > Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-## <a name="disable-id-mapping-if-using-nfsv41"></a>Disabilitare il mapping degli ID (se si usa NFSv 4.1)
+## <a name="disable-id-mapping-if-using-nfsv41"></a>Disabilitare il mapping degli ID (se si usa NFSv4.1)
 
-Le istruzioni riportate in questa sezione sono applicabili solo se si usa Azure NetApp Files volumi con il protocollo NFSv 4.1. Eseguire la configurazione su tutte le macchine virtuali, in cui verranno montati Azure NetApp Files volumi NFSv 4.1.  
+Le istruzioni riportate in questa sezione sono applicabili solo se si usano volumi Azure NetApp Files con il protocollo NFSv4.1. Eseguire la configurazione su tutte le macchine virtuali, in cui verranno montati volumi Azure NetApp Files NFSv4.1.  
 
-1. Verificare l'impostazione del dominio NFS. Verificare che il dominio sia configurato come predefinito Azure NetApp Files dominio, ovvero **`defaultv4iddomain.com`** e che il mapping sia impostato su **nessuno**.  
+1. Verificare l'impostazione del dominio NFS. Verificare che il dominio sia configurato come dominio di Azure NetApp Files predefinito, ad esempio **`defaultv4iddomain.com`** , e che il mapping sia impostato su **nobody** (nessuno).  
 
     > [!IMPORTANT]
-    > Assicurarsi di impostare il dominio NFS in `/etc/idmapd.conf` nella macchina virtuale in modo che corrisponda alla configurazione del dominio predefinito **`defaultv4iddomain.com`** in Azure NetApp Files:. Se si verifica una mancata corrispondenza tra la configurazione del dominio nel client NFS (ovvero la macchina virtuale) e il server NFS, ad esempio la configurazione di Azure NetApp, le autorizzazioni per i file nei volumi NetApp di Azure montate nelle VM verranno visualizzate come `nobody`.  
+    > Verificare di impostare il dominio NFS in `/etc/idmapd.conf` sulla macchina virtuale in modo che corrisponda alla configurazione del dominio predefinito in Azure NetApp Files: **`defaultv4iddomain.com`** . In caso di mancata corrispondenza tra la configurazione del dominio nel client NFS (ovvero la macchina virtuale) e nel server NFS, ad esempio la configurazione di Azure NetApp, le autorizzazioni per i file nei volumi Azure NetApp montati nelle VM verranno visualizzate come `nobody`.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -275,7 +275,7 @@ Le istruzioni riportate in questa sezione sono applicabili solo se si usa Azure 
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verificare `nfs4_disable_idmapping`. Deve essere impostato su **Y**. Per creare la struttura di directory `nfs4_disable_idmapping` in cui si trova, eseguire il comando mount. Non sarà possibile creare manualmente la directory in/sys/Modules, perché l'accesso è riservato per il kernel/i driver.  
+4. **[A]** Verificare `nfs4_disable_idmapping`. Il valore deve essere impostato su **Y**. Per creare la struttura di directory in cui si trova `nfs4_disable_idmapping`, eseguire il comando mount. Non sarà possibile creare manualmente la directory in/sys/modules, perché l'accesso è riservato per il kernel/driver.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -289,7 +289,7 @@ Le istruzioni riportate in questa sezione sono applicabili solo se si usa Azure 
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-   Per ulteriori informazioni su come modificare `nfs4_disable_idmapping` i parametri, https://access.redhat.com/solutions/1749883vedere.
+   Per ulteriori informazioni su come modificare i `nfs4_disable_idmapping` parametri, vedere https://access.redhat.com/solutions/1749883 .
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -321,7 +321,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     192.168.14.10    anftstsapers
     ```
 
-1. **[1]** creare directory SAP nel volume Azure NetApp files.  
+1. **[1]** Creare directory SAP nel volume Azure NetApp Files.  
    Montare temporaneamente il volume Azure NetApp Files in una delle macchine virtuali e creare le directory SAP (percorsi di file).  
 
     ```
@@ -415,7 +415,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    ```
 
    > [!NOTE]
-   > Assicurarsi di associare la versione del protocollo NFS dei volumi di Azure NetApp Files, durante il montaggio dei volumi. Se i volumi Azure NetApp Files vengono creati come volumi NFSv3, utilizzare la configurazione NFSv3 corrispondente. Se i volumi di Azure NetApp Files vengono creati come volumi NFSv 4.1, seguire le istruzioni per disabilitare il mapping degli ID e assicurarsi di usare la configurazione NFSv 4.1 corrispondente. In questo esempio i volumi di Azure NetApp Files sono stati creati come volumi NFSv3.  
+   > Assicurarsi di associare la versione del protocollo NFS dei volumi Azure NetApp Files, durante il montaggio dei volumi. Se i volumi Azure NetApp Files vengono creati come volumi NFSv3, usare la configurazione NFSv3 corrispondente. Se i volumi Azure NetApp Files vengono creati come volumi NFSv4.1, seguire le istruzioni per disabilitare il mapping degli ID e assicurarsi di usare la configurazione NFSv4.1 corrispondente. In questo esempio i volumi Azure NetApp Files sono stati creati come volumi NFSv3.  
 
    Montare le nuove condivisioni
 
@@ -423,7 +423,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo mount -a  
    ```
 
-1. **[A] ** Configurare il file SWAP
+1. **[A]**  Configurare il file SWAP
 
    ```
    sudo vi /etc/waagent.conf
@@ -450,7 +450,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Installazione di SAP NetWeaver ASCS/ERS
 
-1. **[1] ** Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
+1. **[1]**  Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
 
    ```
    sudo pcs node standby anftstsapcl2
@@ -571,14 +571,14 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Se l'installazione non riesce a creare una sottocartella in/usr/SAP/**QAS**/ERS**01**, provare a impostare il proprietario e il gruppo della cartella ERS**01** e riprovare.
+   Se durante l'installazione non viene creata una sottocartella in /usr/sap/**QAS**/ERS**01**, provare a impostare il proprietario e il gruppo della cartella ERS**01** e riprovare.
 
    ```
    sudo chown qaadm /usr/sap/QAS/ERS01
    sudo chgrp sapsys /usr/sap/QAS/ERS01
    ```
 
-1. **[1] ** Adattare i profili di istanza ASCS/SCS e ERS
+1. **[1]**  Adattare i profili di istanza ASCS/SCS e ERS
 
    * Profilo ASCS/SCS
 
@@ -607,7 +607,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    ```
 
 
-1. **[A] ** Configurare keep-alive
+1. **[A]**  Configurare keep-alive
 
    Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
 
@@ -634,7 +634,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Creare le risorse del cluster SAP
 
-   Se si usa l'architettura di Accodamento server 1 (ENSA1), definire le risorse nel modo seguente:
+   Se si usa l'architettura del server di accodamento 1 (ENSA1), definire le risorse nel modo seguente:
 
    ```
    sudo pcs property set maintenance-mode=true
@@ -661,7 +661,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     sudo pcs property set maintenance-mode=false
     ```
 
-   SAP ha introdotto il supporto per l'accodamento del server 2, inclusa la replica, a partire da SAP NW 7,52. A partire dalla piattaforma ABAP 1809, il server di Accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di Accodamento 2.
+   SAP ha introdotto il supporto per il server di accodamento 2, inclusa la replica, a partire da SAP NW 7.52. A partire dalla piattaforma ABAP 1809, il server di accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di accodamento 2.
    Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. el7. x86_64 o versione successiva e definire le risorse come segue:
 
     ```
@@ -754,7 +754,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
    I passaggi seguenti presuppongono che il server applicazioni venga installato in un server diverso dai server ASCS/SCS e HANA. Diversamente, alcuni dei passaggi seguenti non sono necessari, ad esempio la configurazione della risoluzione dei nomi host.  
 
-   Gli elementi seguenti sono preceduti da **[a]** -applicabile sia a pas sia a AAS, **[P]** -applicabile solo a pas o **[S]** -applicabile solo a AAS.  
+   Gli elementi seguenti sono preceduti dall'indicazione **[A]** , applicabile a PAS e AAS, **[P]** , applicabile solo a PAS o **[S]** , applicabile solo a AAS.  
 
 1. **[A]** configurare la risoluzione dei nomi host è possibile usare un server DNS o modificare i/o/o in tutti i nodi. Questo esempio mostra come usare il file /etc/hosts.
    Sostituire l'indirizzo IP e il nome host nei comandi seguenti:  
@@ -868,7 +868,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo mount -a
    ```
 
-1. **[A] ** Configurare il file SWAP
+1. **[A]**  Configurare il file SWAP
  
    ```
    sudo vi /etc/waagent.conf
@@ -891,11 +891,11 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure in Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure in Red Hat Enterprise Linux][sap-hana-ha] . For a list of supported databases, see [SAP Note 1928533][1928533] .
 
 1. Eseguire l'installazione dell'istanza del database SAP
 
-   Installare l'istanza del database di SAP NetWeaver come root usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end del servizio di bilanciamento del carico per il database.
+   Installare l'istanza del database di SAP NetWeaver come radice usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per il database.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst.
 
@@ -925,7 +925,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 
    Aggiornare l'archivio sicuro di SAP HANA in modo che punti al nome virtuale della configurazione della replica di sistema di SAP HANA.
 
-   Eseguire il comando seguente per visualizzare le voci come \< sapsid>adm
+   Eseguire il comando seguente per elencare le voci come \<sapsid> adm
 
    ```
    hdbuserstore List
@@ -942,7 +942,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
      DATABASE: QAS
    ```
 
-   L'output mostra che l'indirizzo IP della voce predefinita fa riferimento alla macchina virtuale e non all'indirizzo IP del bilanciamento del carico. Questa voce deve essere modificata in modo che faccia riferimento al nome host virtuale del bilanciamento del carico. Assicurarsi di usare la stessa porta (**30313** nell'output precedente) e il nome del database (**QAS** nell'output precedente).
+   L'output mostra che l'indirizzo IP della voce predefinita fa riferimento alla macchina virtuale e non all'indirizzo IP del bilanciamento del carico. Questa voce deve essere modificata in modo che faccia riferimento al nome host virtuale del bilanciamento del carico. Verificare di usare la stessa porta (**30313** nell'output precedente) e lo stesso nome del database (**QAS** nell'output precedente).
 
    ```
    su - qasadm
@@ -1089,7 +1089,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   Se si termina solo il server dei messaggi una volta, questo verrà riavviato `sapstart`da. Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
+   Terminando il server messaggi una sola volta, questo verrà riavviato da `sapstart`. Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -1183,7 +1183,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   Se si esegue il comando solo una volta `sapstart` , il processo viene riavviato. Se viene eseguito abbastanza spesso, `sapstart` il processo non verrà riavviato e lo stato della risorsa sarà interrotto. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
+   Se si esegue il comando una sola volta, `sapstart` riavvierà il processo. Se lo si esegue un numero di volte sufficiente, `sapstart` non riavvierà il processo e la risorsa sarà in stato arrestato. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
@@ -1250,9 +1250,9 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per applicazioni SAP guida a più SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Guida al multi-SID per la disponibilità elevata per SAP NW in macchine virtuali di Azure su RHEL per applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [disponibilità elevata e ripristino di emergenza di SAP Hana (istanze large) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha]

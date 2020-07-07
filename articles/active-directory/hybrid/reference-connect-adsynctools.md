@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184011"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncTools
@@ -553,7 +553,7 @@ Funzione interroga la cronologia di esecuzione di AAD Connect ed Esporta tutti g
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "Enter your log file path with file name" #"\<Source_Path\>" $outputPath = Read-Host -Prompt "Enter your out file path with file name" #"\<Out_Path\>"
+$sourcePath = read-host-prompt "immettere il percorso del file di log con nome file" # " \<Source_Path\> " $OutputPath = read-host-prompt "immettere il percorso del file in uscita con il nome file" # " \<Out_Path\> "
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
@@ -1292,7 +1292,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-action"></a>-Action
-Azione
+Action
 
 ```yaml
 Type: String

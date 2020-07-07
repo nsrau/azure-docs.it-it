@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144077"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
@@ -30,17 +30,17 @@ Questo articolo illustra in dettaglio i requisiti e gli scenari supportati per l
 
 ## <a name="microsoft-mobile-applications-support"></a>Supporto delle applicazioni per dispositivi mobili Microsoft
 
-| App | Supporto |
+| App | Supporto tecnico |
 | --- | --- |
 | App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Portale aziendale Intune |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Intune Portale aziendale |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Microsoft Teams |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Office (dispositivi mobili) |![Segno di spunta che significa supporto per questa applicazione][1] |
 | OneNote |![Segno di spunta che significa supporto per questa applicazione][1] |
 | OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Skype for Business Online |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Skype for Business |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
 
@@ -73,7 +73,7 @@ Per ulteriori informazioni, vedere [personalizzazione della pagina di accesso ad
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Usare l'autenticazione moderna con le app di Office
 
-Alcune app di Office con autenticazione moderna abilitate inviano `prompt=login` a Azure ad nella richiesta. Per impostazione predefinita, Azure AD converte la `prompt=login` richiesta in ADFS come `wauth=usernamepassworduri` (chiede ad ADFS di eseguire l'autenticazione U/P) e `wfresh=0` (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste app, modificare il comportamento predefinito del Azure AD.
+Alcune app di Office con autenticazione moderna abilitate inviano `prompt=login` a Azure ad nella richiesta. Per impostazione predefinita, Azure AD converte `prompt=login` la richiesta in ADFS come `wauth=usernamepassworduri` (chiede ad ADFS di eseguire l'autenticazione U/P) e `wfresh=0` (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste app, modificare il comportamento predefinito del Azure AD.
 
 Per aggiornare il comportamento predefinito, impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su *disabled*. Per eseguire questa attività, è possibile usare il cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) , come illustrato nell'esempio seguente:
 

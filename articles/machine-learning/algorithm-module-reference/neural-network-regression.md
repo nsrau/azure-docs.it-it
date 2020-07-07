@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137689"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
@@ -24,7 +24,7 @@ ms.locfileid: "82137689"
   
 ## <a name="module-overview"></a>Panoramica del modulo  
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
   

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160001"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
@@ -105,7 +105,7 @@ Gli errori di backup sono comunemente causati dal fatto che alcuni file sono uti
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Come si rimuove un'intestazione dalla risposta HTTP?
 
-Per rimuovere le intestazioni dalla risposta HTTP, aggiornare il file Web. config del sito. Per altre informazioni, vedere [Rimuovere intestazioni del server standard nei siti Web di Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Per rimuovere le intestazioni dalla risposta HTTP, aggiornare il file di web.config del sito. Per altre informazioni, vedere [Rimuovere intestazioni del server standard nei siti Web di Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>Il servizio app è conforme con lo standard PCI 3.0 e 3.1?
 
@@ -125,7 +125,7 @@ Per altre informazioni sull'utilizzo degli slot di distribuzione, vedere [Config
 
 Per esaminare i log dei processi Web:
 
-1. Accedere al **sito Web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+1. Accedere al **sito Web Kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selezionare il processo Web.
 3. Selezionare il pulsante **Attiva/Disattiva Output**.
 4. Per scaricare il file di output, selezionare il collegamento **Download**.
@@ -141,13 +141,13 @@ Se si utilizza Connessioni ibride per accedere a SQL Server, un aggiornamento di
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 L'eccezione è stata causata da un problema con Gestione connessione ibrida che poi è stato risolto. Assicurarsi di [aggiornare Gestione connessione ibrida](https://go.microsoft.com/fwlink/?LinkID=841308) per risolvere il problema.
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Ricerca per categorie aggiungere una regola di riscrittura URL?
 
-Per aggiungere una regola di riscrittura URL, creare un file Web. config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Understanding URL Rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Per aggiungere una regola di riscrittura URL, creare un file di web.config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Understanding URL Rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Come si controlla il traffico in ingresso nel servizio app?
 

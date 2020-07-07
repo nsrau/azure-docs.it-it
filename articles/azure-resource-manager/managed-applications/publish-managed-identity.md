@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82508131"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Applicazione gestita di Azure con identità gestita
@@ -22,7 +22,7 @@ Informazioni su come configurare un'applicazione gestita in modo che contenga un
 All'applicazione possono essere concessi due tipi di identità:
 
 - Un'**identità assegnata dal sistema** viene associata all'applicazione e viene eliminata in caso di eliminazione dell'app. A un'app può essere associata una sola identità assegnata dal sistema.
-- Un' **identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
+- Un'**identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
 
 ## <a name="how-to-use-managed-identity"></a>Come usare l'identità gestita
 
@@ -46,11 +46,11 @@ Per la creazione di un'applicazione gestita con un'identità gestita è necessar
 }
 ```
 
-Esistono due modi comuni per creare un'applicazione gestita con **identità**: [CreateUIDefinition. JSON](./create-uidefinition-overview.md) e [modelli di Azure Resource Manager](../templates/template-syntax.md). Per gli scenari di creazione singola semplice, CreateUIDefinition deve essere usato per abilitare l'identità gestita, perché offre un'esperienza più completa. Tuttavia, quando si gestiscono sistemi avanzati o complessi che necessitano di distribuzioni di applicazioni gestite o automatizzate, è possibile usare i modelli.
+Esistono due modi comuni per creare un'applicazione gestita con **Identity**: [CreateUIDefinition.jsin](./create-uidefinition-overview.md) e [Azure Resource Manager modelli](../templates/template-syntax.md). Per gli scenari di creazione singola semplice, CreateUIDefinition deve essere usato per abilitare l'identità gestita, perché offre un'esperienza più completa. Tuttavia, quando si gestiscono sistemi avanzati o complessi che necessitano di distribuzioni di applicazioni gestite o automatizzate, è possibile usare i modelli.
 
 ### <a name="using-createuidefinition"></a>Uso di CreateUIDefinition
 
-Un'applicazione gestita può essere configurata con l'identità gestita tramite [CreateUIDefinition. JSON](./create-uidefinition-overview.md). Nella [sezione Outputs](./create-uidefinition-overview.md#outputs)la chiave `managedIdentity` può essere usata per eseguire l'override della proprietà Identity del modello di applicazione gestita. Il muggito di esempio consentirà di abilitare l'identità **assegnata dal sistema** nell'applicazione gestita. È possibile formare oggetti Identity più complessi usando gli elementi CreateUIDefinition per chiedere al consumer gli input. Questi input possono essere usati per costruire applicazioni gestite con **identità assegnata dall'utente**.
+Un'applicazione gestita può essere configurata con l'identità gestita tramite il [CreateUIDefinition.js](./create-uidefinition-overview.md). Nella [sezione Outputs](./create-uidefinition-overview.md#outputs)la chiave `managedIdentity` può essere usata per eseguire l'override della proprietà Identity del modello di applicazione gestita. Il muggito di esempio consentirà di abilitare l'identità **assegnata dal sistema** nell'applicazione gestita. È possibile formare oggetti Identity più complessi usando gli elementi CreateUIDefinition per chiedere al consumer gli input. Questi input possono essere usati per costruire applicazioni gestite con **identità assegnata dall'utente**.
 
 ```json
 "outputs": {
@@ -130,7 +130,7 @@ CreateUIDefinition supporta un [controllo di identità gestito](./microsoft-mana
 
 > [!NOTE]
 > I modelli di applicazione gestita del Marketplace vengono generati automaticamente per i clienti che passano attraverso il portale di Azure creare un'esperienza.
-> Per questi scenari, è `managedIdentity` necessario usare la chiave di output in CreateUIDefinition per abilitare l'identità.
+> Per questi scenari, `managedIdentity` è necessario usare la chiave di output in CreateUIDefinition per abilitare l'identità.
 
 L'identità gestita può anche essere abilitata tramite modelli Azure Resource Manager. Il muggito di esempio consentirà di abilitare l'identità **assegnata dal sistema** nell'applicazione gestita. È possibile formare oggetti Identity più complessi usando Azure Resource Manager parametri di modello per fornire input. Questi input possono essere usati per costruire applicazioni gestite con **identità assegnata dall'utente**.
 
@@ -260,7 +260,7 @@ Quando si collega la distribuzione dell'applicazione gestita a risorse esistenti
 }
 ```
 
-Questo CreateUIDefinition. JSON genera un'esperienza utente di creazione con due campi. Il primo campo consente all'utente di immettere l'ID risorsa di Azure per la risorsa collegata alla distribuzione di applicazioni gestite. Il secondo è che un utente deve immettere l'ID risorsa di Azure **Identity assegnato dall'utente** , che ha accesso alla risorsa di Azure collegata. L'esperienza generata sarà simile alla seguente:
+Questa CreateUIDefinition.jssu genera un'esperienza utente di creazione con due campi. Il primo campo consente all'utente di immettere l'ID risorsa di Azure per la risorsa collegata alla distribuzione di applicazioni gestite. Il secondo è che un utente deve immettere l'ID risorsa di Azure **Identity assegnato dall'utente** , che ha accesso alla risorsa di Azure collegata. L'esperienza generata sarà simile alla seguente:
 
 ![CreateUIDefinition di esempio con due input: un ID risorsa dell'interfaccia di rete e un ID risorsa di identità assegnato dall'utente](./media/publish-managed-identity/network-interface-cuid.png)
 
@@ -327,7 +327,7 @@ Parametri del corpo della richiesta:
 
 Parametro | Obbligatoria | Descrizione
 ---|---|---
-authorizationAudience | *No* | URI ID app della risorsa di destinazione. È anche l' `aud` attestazione (audience) del token emesso. Il valore predefinito è "https://management.azure.com/"
+authorizationAudience | *No* | URI ID app della risorsa di destinazione. È anche l' `aud` attestazione (audience) del token emesso. Il valore predefinito è " https://management.azure.com/ "
 userAssignedIdentities | *No* | Elenco di identità gestite assegnate dall'utente per cui recuperare un token. Se non specificato, `listTokens` restituirà il token per l'identità gestita assegnata dal sistema.
 
 
@@ -360,7 +360,7 @@ access_token | Token di accesso richiesto.
 expires_in | Numero di secondi per cui il token di accesso sarà valido.
 expires_on | Intervallo di tempo in cui il token di accesso scade. Questa operazione viene rappresentata come numero di secondi da Epoch.
 not_before | TimeSpan quando viene applicato il token di accesso. Questa operazione viene rappresentata come numero di secondi da Epoch.
-authorizationAudience | `aud` (Audience) per cui è stato richiesto il token di accesso. Corrisponde a quanto specificato nella `listTokens` richiesta.
+authorizationAudience | `aud`(Audience) per cui è stato richiesto il token di accesso. Corrisponde a quanto specificato nella `listTokens` richiesta.
 resourceId | ID risorsa di Azure per il token emesso. Si tratta dell'ID dell'applicazione gestita o dell'ID identità assegnato dall'utente.
 token_type | Tipo di token.
 

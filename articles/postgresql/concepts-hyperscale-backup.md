@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515443"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -49,7 +49,7 @@ Le impostazioni del firewall e i parametri del server PostgreSQL non vengono con
 > [!IMPORTANT]
 > È necessario aprire una richiesta di supporto per eseguire il ripristino temporizzato del cluster iperscalabile (CITUS).
 
-### <a name="post-restore-tasks"></a>Post-restore tasks
+### <a name="post-restore-tasks"></a>Attività successive al ripristino
 
 Dopo un ripristino da uno dei due meccanismi di ripristino, è necessario eseguire le operazioni seguenti per eseguire il backup e l'esecuzione di utenti e applicazioni:
 

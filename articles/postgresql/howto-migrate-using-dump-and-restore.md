@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: 90a014e44c728c1881c1fd3d9e189554ed8f44da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146338"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
@@ -42,7 +42,7 @@ pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@ser
 Se si include il parametro --no-owner, tutti gli oggetti creati durante il ripristino saranno di proprietà dell'utente specificato con --username. Per altre informazioni, vedere la documentazione ufficiale di PostgreSQL per [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> Se il server PostgreSQL richiede connessioni TLS/SSL (per impostazione predefinita nel database di Azure per i server PostgreSQL), impostare una `PGSSLMODE=require` variabile di ambiente in modo che lo strumento di pg_restore si connetta con TLS. Senza TLS, l'errore può essere letto`FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> Se il server PostgreSQL richiede connessioni TLS/SSL (per impostazione predefinita nel database di Azure per i server PostgreSQL), impostare una variabile di ambiente in `PGSSLMODE=require` modo che lo strumento di pg_restore si connetta con TLS. Senza TLS, l'errore può essere letto`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
 > Nella riga di comando di Windows, eseguire il comando `SET PGSSLMODE=require` prima di eseguire il comando pg_restore. Nella riga di comando di Linux o Bash, eseguire il comando `export PGSSLMODE=require` prima di eseguire il comando pg_restore.
 >

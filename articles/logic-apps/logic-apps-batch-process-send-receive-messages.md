@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144350"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
@@ -37,9 +37,9 @@ In alternativa, [iscriversi per ottenere una sottoscrizione con pagamento in bas
 * Un account di posta elettronica con un [provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md)
 
   > [!IMPORTANT]
-  > Se si vuole usare il connettore Gmail, solo gli account aziendali G-Suite possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account utente Gmail, è possibile usare questo connettore solo con specifici servizi approvati da Google oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Per usare Visual Studio anziché il portale di Azure, assicurarsi di [configurare Visual Studio per l'uso di App per la logica](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -64,7 +64,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **Basato sul conteggio dei messaggi**: rilascia il batch in base al numero di messaggi raccolti dal batch. <br>- **Basato su dimensioni**: rilascia il batch in base alla dimensione totale in byte per tutti i messaggi raccolti dal batch. <br>- **Schedule**: rilascia il batch in base a una pianificazione di ricorrenza, che specifica un intervallo e una frequenza. Nelle opzioni avanzate è anche possibile selezionare un fuso orario e specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
    | **Numero messaggi** | Il numero di messaggi da raccogliere nel batch, ad esempio 10 messaggi. Per un batch è previsto un limite di 8000 messaggi. | 
    | **Dimensioni batch** | Dimensione totale in byte per i messaggi raccolti nel batch, ad esempio 10 MB. Per un batch è prevista una dimensione massima di 80 MB. | 
-   | **Pianificazione** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
+   | **Pianificare** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
    ||| 
 
    > [!NOTE]

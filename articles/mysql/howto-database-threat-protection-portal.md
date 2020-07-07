@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 4936f765052d6993e5a372bde6336e00b19a24f6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509262"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection per Database di Azure per MySQL
@@ -27,7 +27,7 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
-1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com)indirizzo.
+1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com) .
 2. Passare alla pagina di configurazione del Database di Azure per MySQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
 3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
 
@@ -63,5 +63,5 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per MySQL](https://azure.microsoft.com/pricing/details/mysql/)  

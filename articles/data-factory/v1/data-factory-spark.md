@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185592"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
@@ -26,10 +26,10 @@ ms.locfileid: "82185592"
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning attività di esecuzione batch](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Bach Execution Activity](data-factory-azure-ml-batch-execution-activity.md) (Attività di esecuzione batch di Machine Learning)
 > * [Attività Aggiorna risorsa Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -65,12 +65,12 @@ Per creare una data factory, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **nuovo** > **dati e analisi** > **Data Factory**.
+1. Selezionare **Nuovo** > **Dati e analisi** > **Data Factory**.
 
 1. Nel pannello **Nuova data factory** immettere **SparkDF** nel campo **Nome**.
 
    > [!IMPORTANT]
-   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore "Il nome SparkDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteSparkDFdata e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Data Factory - Regole di denominazione](data-factory-naming-rules.md).
+   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore "Il nome SparkDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteSparkDFdata e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Data Factory: Regole di denominazione](data-factory-naming-rules.md).
 
 1. In **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory.
 
@@ -78,10 +78,10 @@ Per creare una data factory, seguire questa procedura:
 
 1. Selezionare la casella di controllo **Aggiungi al dashboard**.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
    > [!IMPORTANT]
-   > Per creare istanze di Data Factory, è necessario essere un membro del ruolo [collaboratore Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
+   > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
 
 1. Nel dashboard del portale di Azure viene visualizzata la data factory creata.
 
@@ -112,7 +112,7 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 #### <a name="create-an-hdinsight-linked-service"></a>Creare un servizio collegato HDInsight
 In questo passaggio viene creato un servizio collegato HDInsight per collegare il cluster Spark HDInsight alla data factory. In questo esempio il cluster HDInsight viene usato per eseguire il programma Spark specificato nell'attività Spark della pipeline.
 
-1. Nell'editor di **Data Factory selezionare** > **nuovo** > **cluster HDInsight**di calcolo.
+1. Nell'editor di **Data Factory selezionare**  >  **nuovo**  >  **cluster HDInsight**di calcolo.
 
     ![Creare un servizio collegato HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
@@ -152,7 +152,7 @@ In questo passaggio viene creato un servizio collegato HDInsight per collegare i
 ### <a name="create-the-output-dataset"></a>Creare il set di dati di output
 Il set di dati di output è ciò su cui si basa la pianificazione (oraria, giornaliera). È quindi necessario specificare nella pipeline un set di dati di output per l'attività Spark, anche se l'attività non genera alcun output. La specifica di un set di dati di input per l'attività è facoltativa.
 
-1. Nell'editor di data factory selezionare **altro** > **nuovo set di dati** > **archiviazione BLOB di Azure**.
+1. Nell'editor di Data Factory fare clic su **Altro** > **Nuovo set di dati** > **Archiviazione BLOB di Azure**.
 
 1. Copiare e incollare il frammento di codice seguente nella finestra Bozza-1. Il frammento JSON definisce un set di dati denominato **OutputDataset**. Specificare anche che i risultati devono essere archiviati nel contenitore BLOB denominato **adfspark** e nella cartella denominata **pyFiles/output**. Come accennato in precedenza, questo set di dati è fittizio. Il programma Spark in questo esempio non genera alcun output. La sezione **availability** specifica che il set di dati di output viene prodotto su base giornaliera.
 
@@ -183,7 +183,7 @@ Il set di dati di output è ciò su cui si basa la pianificazione (oraria, giorn
 ### <a name="create-a-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. La pianificazione è al momento basata sul set di dati di output. È quindi necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Pertanto in questo esempio non viene specificato alcun set di dati di input.
 
-1. Nell'editor di **Data Factory selezionare** > **nuova pipeline**.
+1. Nell'editor di Data Factory selezionare **Altro** > **Nuova pipeline**.
 
 1. Sostituire lo script nella finestra Bozza-1 con lo script seguente:
 
@@ -247,9 +247,9 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 
 ### <a name="verify-the-results"></a>Verificare i risultati
 
-1. Avviare la Jupyter Notebook per il cluster HDInsight Spark andando a `https://CLUSTERNAME.azurehdinsight.net/jupyter`. È anche possibile aprire il dashboard del cluster Spark HDInsight e quindi avviare il notebook di Jupyter.
+1. Avviare la Jupyter Notebook per il cluster HDInsight Spark andando a `https://CLUSTERNAME.azurehdinsight.net/jupyter` . È anche possibile aprire il dashboard del cluster Spark HDInsight e quindi avviare il notebook di Jupyter.
 
-1. Selezionare **nuovo** > **PySpark** per avviare un nuovo notebook.
+1. Selezionare **nuovo**  >  **PySpark** per avviare un nuovo notebook.
 
     ![Nuovo notebook Jupyter](media/data-factory-spark/jupyter-new-book.png)
 

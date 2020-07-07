@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
 ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146942"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informazioni sull'anteprima dell'area perimetrale di Azure

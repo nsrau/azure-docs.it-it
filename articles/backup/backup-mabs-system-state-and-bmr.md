@@ -4,10 +4,10 @@ description: Usare server di Backup di Azure per eseguire il backup dello stato 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192366"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino in bare metal usando server di Backup di Azure
@@ -25,10 +25,10 @@ Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguir
 
 |Backup|Problema|Ripristino dal backup del server di Backup di Azure|Ripristino dal backup dello stato del sistema|Ripristino bare metal|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Dati di file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|S|N|N|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|S|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati persi)|S|N|S<br /><br />BMR, seguito da un ripristino regolare dei dati dei file di cui è stato eseguito il backup|
+|**Dati dei file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|S|N|N|
+|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
+|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|S|
+|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati persi)|S|N|S<br /><br />BMR, seguito da un ripristino regolare dei dati dei file di cui è stato eseguito il backup|
 |**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sito, elenchi, elementi elenco, documenti persi|S|N|N|
 |**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
 |**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Ripristino di emergenza|N|N|N|
@@ -43,18 +43,18 @@ Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguir
 
 ## <a name="how-system-state-backup-works"></a>Funzionamento del backup dello stato del sistema
 
-Quando viene eseguito un backup dello stato del sistema, il server di Backup comunica con Windows Server Backup per richiedere un backup dello stato del sistema del server. Per impostazione predefinita, il server di Backup e Windows Server Backup utilizzano l'unità con più spazio libero. Le informazioni su questa unità vengono salvate nel file *file psdatasourceconfig. XML* .
+Quando viene eseguito un backup dello stato del sistema, il server di Backup comunica con Windows Server Backup per richiedere un backup dello stato del sistema del server. Per impostazione predefinita, il server di Backup e Windows Server Backup utilizzano l'unità con più spazio libero. Le informazioni su questa unità vengono salvate nel file di *PSDataSourceConfig.xml* .
 
 È possibile personalizzare l'unità utilizzata dal server di backup per il backup dello stato del sistema:
 
 1. Nel server protetto, passare a *C:\Programmi\Microsoft Data Protection Manager\MABS\Datasources*.
-1. Aprire il file *file psdatasourceconfig. XML* per la modifica.
-1. Modificare il valore \<FilesToProtect\> per la lettera dell'unità.
+1. Aprire il file di *PSDataSourceConfig.xml* per la modifica.
+1. Modifica il valore \<FilesToProtect\> per la lettera di unità.
 1. Salvare e chiudere il file.
 
 Se un gruppo protezione dati è impostato in modo da proteggere lo stato del sistema del computer, eseguire una verifica di coerenza. Se viene generato un avviso, selezionare **modifica gruppo protezione** dati nell'avviso e quindi completare le pagine della procedura guidata. Esegui quindi un'altra verifica coerenza.
 
-Se il server di protezione è in un cluster, è possibile che un'unità cluster venga selezionata come l'unità con maggiore spazio libero. Se la proprietà di tale unità viene spostata in un altro nodo e viene eseguito un backup dello stato del sistema, l'unità non sarà disponibile e il backup non riuscirà. In questo scenario, modificare *file psdatasourceconfig. XML* in modo che punti a un'unità locale.
+Se il server di protezione è in un cluster, è possibile che un'unità cluster venga selezionata come l'unità con maggiore spazio libero. Se la proprietà di tale unità viene spostata in un altro nodo e viene eseguito un backup dello stato del sistema, l'unità non sarà disponibile e il backup non riuscirà. In questo scenario, modificare *PSDataSourceConfig.xml* in modo che punti a un'unità locale.
 
 Successivamente, Windows Server Backup crea una cartella denominata *WindowsImageBackup* nella radice della cartella Restore. Mentre Windows Server Backup crea il backup, tutti i dati vengono posizionati in questa cartella. Al termine del backup, il file viene trasferito nel computer del server di backup. Tenere presente quanto segue:
 
@@ -97,7 +97,7 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-1. **Distribuire il server di Backup di Azure**. Verificare che il server di Backup sia distribuito correttamente. Per altre informazioni, vedi:
+1. **Distribuire il server di Backup di Azure**. Verificare che il server di Backup sia distribuito correttamente. Per altre informazioni, vedere:
     * [Requisiti di sistema per il server di Backup di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matrice di protezione del server di Backup](backup-mabs-protection-matrix.md)
 
@@ -109,7 +109,7 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 Per eseguire il backup dello stato del sistema e bare metal:
 
-1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare**azioni** > di **protezione** > **Crea gruppo protezione**dati.
+1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare azioni di **protezione**  >  **Actions**  >  **Crea gruppo protezione**dati.
 
 1. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server**, quindi **Avanti**.
 
@@ -233,7 +233,7 @@ Per eseguire il ripristino nel server di backup:
 
 Per eseguire Windows Server Backup:
 
-1. Selezionare **azioni** > **Ripristina** > **il server** > **successivo**.
+1. Selezionare **azioni**  >  **Ripristina**  >  **il server**  >  **successivo**.
 
 1. Selezionare **Un altro server**, selezionare la pagina **Impostazione tipo di percorso** e quindi selezionare **Cartella condivisa remota**. Immettere il percorso della cartella che contiene il punto di ripristino.
 

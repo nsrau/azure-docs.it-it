@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515469"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Convalida della crittografia dei dati per database di Azure per PostgreSQL
@@ -23,7 +23,7 @@ Questo articolo illustra come verificare che la crittografia dei dati tramite la
 
 1. Se si desidera verificare che la chiave del cliente venga utilizzata per la crittografia, attenersi alla seguente procedura:
 
-    * Nella portale di Azure passare al **Azure Key Vault** -> **chiavi**
+    * Nella portale di Azure passare al **Azure Key Vault**  ->  **chiavi**
     * Selezionare la chiave usata per la crittografia del server.
     * Impostare lo stato **della chiave su** **No**.
   

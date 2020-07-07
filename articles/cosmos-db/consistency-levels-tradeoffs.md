@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82191737"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni
@@ -22,7 +22,7 @@ Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Qu
 
 - *Forte*
 - *Obsolescenza associata*
-- *sessione*
+- *Sessione*
 - *Prefisso coerente*
 - *Eventuali*
 
@@ -53,7 +53,7 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 |--|--|--|
 |**Forte**|Minoranza locale|Maggioranza globale|
 |**Decadimento ristretto**|Minoranza locale|Maggioranza locale|
-|**sessione**|Replica singola (usando il token di sessione)|Maggioranza locale|
+|**Sessione**|Replica singola (usando il token di sessione)|Maggioranza locale|
 |**Coerenza del prefisso**|Replica singola|Maggioranza locale|
 |**Eventuali**|Replica singola|Maggioranza locale|
 
@@ -67,10 +67,10 @@ La tabella seguente definisce la relazione tra il modello di coerenza e la durab
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
-|>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
+|>1|Master singolo|Decadimento ristretto|*K*  &  *T*|< 15 minuti|
 |>1|Master singolo|Assoluta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
-|>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
+|>1|Multimaster|Decadimento ristretto|*K*  &  *T*|0|
 
 *K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
 

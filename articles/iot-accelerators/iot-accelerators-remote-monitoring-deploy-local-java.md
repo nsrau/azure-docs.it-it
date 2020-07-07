@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187212"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -41,9 +41,9 @@ Per completare la distribuzione in locale, è necessario che nel computer di svi
 * [Plug-in IntelliJ SBT](https://plugins.jetbrains.com/plugin/5007-sbt)
 * [Plug-in Executor IntelliJ SBT](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node. js V8](https://nodejs.org/)
+* [Node.js V8](https://nodejs.org/)
 
-Node. js V8 è un prerequisito per l'interfaccia della riga di comando per PC usata dagli script per creare risorse di Azure. Non usare Node.js v10.
+Node.js V8 è un prerequisito per l'interfaccia della riga di comando dei PC usata dagli script per creare risorse di Azure. Non usare Node.js v10.
 
 > [!NOTE]
 > L'IDE IntelliJ è disponibile per Windows e Mac.
@@ -98,7 +98,7 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
    Lo script aggiunge anche un set di variabili di ambiente nel computer locale. Il prefisso dei **PC**è il nome di ogni variabile. Queste variabili di ambiente forniscono dettagli che consentono al monitoraggio remoto di leggere i valori di configurazione da una risorsa Azure Key Vault.
 
    > [!TIP]
-   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato ** \<\>\\cartella Home\\\<. PC\>Nome soluzione. env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file **Local\\. env degli script\\\\dei servizi** quando si esegue **Docker-compose**.
+   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato ** \<your home folder\> \\ . PCS \\ \<solution name\> . env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file ** \\ \\ Local \\ . env degli script dei servizi** quando si esegue **Docker-compose**.
 
 1. Chiudere l'ambiente della riga di comando.
 
@@ -109,7 +109,7 @@ Se sono già state create le risorse di Azure necessarie, impostare le variabili
 * **PCS_AAD_APPID**: l'ID applicazione Azure Active Directory (Azure ad).
 * **PCS_AAD_APPSECRET**: il segreto dell'applicazione Azure ad.
 
-I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<estensione\>\\ENV della\\\<soluzione\>Home Folder. PCS** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<your home folder\> \\ estensione PCS \\ \<solution name\> . env** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di Key Vault creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle chiavi devono essere modificate in base alle esigenze.
 
@@ -159,11 +159,11 @@ I passaggi seguenti illustrano come eseguire i microservizi di monitoraggio remo
 
 #### <a name="create-run-configurations"></a>Creare configurazioni di esecuzione
 
-1. Selezionare **Esegui** > **modifiche configurazioni**.
-1. Selezionare **Aggiungi nuova configurazione** > **attività SBT**.
+1. Selezionare **Esegui**  >  **modifiche configurazioni**.
+1. Selezionare **Aggiungi nuova configurazione**  >  **attività SBT**.
 1. Immettere **nome**, quindi immettere **attività** come **Esegui**.
 1. Selezionare la **directory di lavoro** in base al servizio che si desidera eseguire.
-1. Selezionare **applica** > **OK** per salvare le scelte.
+1. Selezionare **applica**  >  **OK** per salvare le scelte.
 1. Creare configurazioni di esecuzione per i servizi Web seguenti:
     * WebService (services\config)
     * WebService (services\device-telemetry)
@@ -176,9 +176,9 @@ Nell'immagine seguente, ad esempio, viene illustrato come aggiungere una configu
 
 #### <a name="create-a-compound-configuration"></a>Creare una configurazione composta
 
-1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo** > **composto**di configurazione.
+1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo**  >  **composto**di configurazione.
 1. Immettere **nome**, quindi selezionare **Aggiungi attività SBT**.
-1. Selezionare **applica** > **OK** per salvare le scelte.
+1. Selezionare **applica**  >  **OK** per salvare le scelte.
 
 Nell'immagine seguente, ad esempio, viene illustrato come aggiungere tutte le attività SBT a una singola configurazione:
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell' `http://localhost:3000/dashboard`indirizzo. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
+Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell'indirizzo `http://localhost:3000/dashboard` . Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire nginx
 
@@ -226,7 +226,7 @@ Per ulteriori informazioni sull'esecuzione di nginx, vedere [Nginx per Windows](
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere al dashboard della soluzione di monitoraggio remoto, `http://localhost:9000` passare a nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, passare a `http://localhost:9000` nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
