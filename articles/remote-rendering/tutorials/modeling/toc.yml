@@ -1,2 +1,4 @@
-- name: Configurazione di materiali basati su PBR (Physically Based Rendering) in Maya
+- name: Configurazione di materiali basati su PBR (Physically Based Rendering) in Autodesk Maya
   href: maya-material-setup.md
+- name: Configurazione di materiali basati su PBR (Physically Based Rendering) in Autodesk 3DSMax
+  href: 3dsmax-material-setup.md

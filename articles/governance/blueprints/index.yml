@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Blueprint
-summary: È possibile semplificare le distribuzioni inserendo gli artefatti, ad esempio i modelli di Resource Manager, i controlli degli accessi in base al ruolo e i criteri in una singola definizione di progetto.
+summary: È possibile semplificare le distribuzioni inserendo gli artefatti, ad esempio i modelli di Azure Resource Manager, i controlli degli accessi in base al ruolo e i criteri in una singola definizione di progetto.
 metadata:
   title: Documentazione di Azure Blueprint
-  description: È possibile semplificare le distribuzioni inserendo gli artefatti, ad esempio i modelli di Resource Manager, i controlli degli accessi in base al ruolo e i criteri in una singola definizione di progetto.
+  description: È possibile semplificare le distribuzioni inserendo gli artefatti, ad esempio i modelli di Azure Resource Manager, i controlli degli accessi in base al ruolo e i criteri in una singola definizione di progetto.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-  ms.translationtype: HT
+  ms.openlocfilehash: 04c99d2428bd3c92187ce9383f51d38a9729d22a
+  ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+  ms.translationtype: 
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85550205"
+  ms.lasthandoff: 07/06/2020
+  ms.locfileid: "85969380"
 landingContent:
 - title: Informazioni su Azure Blueprints
   linkLists:

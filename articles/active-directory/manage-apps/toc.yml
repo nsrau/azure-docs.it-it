@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: Avvi rapidi
   items:
-    - name: Visualizzare le applicazioni aziendali
+    - name: Visualizzare le app
       href: view-applications-portal.md
-    - name: Aggiungere un'app cloud dalla raccolta
+    - name: Aggiungere un'app
       href: add-application-portal.md
+    - name: Configurare un'app
+      href: add-application-portal-configure.md
+    - name: Configurare Single Sign-On
+      href: add-application-portal-setup-sso.md
+    - name: Eliminare un'app
+      href: delete-application-portal.md
 - name: Esercitazioni
   items:
     - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'

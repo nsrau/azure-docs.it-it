@@ -112,6 +112,12 @@
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: .NET (C#) SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+    - name: Interfaccia della riga di comando di Gemelli digitali
+      items:
+        - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+        - name: Pacchetto dell'interfaccia della riga di comando
+          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: DTDL
       items:
         - name: Specifica DTDL v2
@@ -126,12 +132,6 @@
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: Strumenti di Azure
       items:
-        - name: Informazioni di riferimento sull'interfaccia della riga di comando di Azure
-          href: /cli/azure/iot
-        - name: Informazioni di riferimento sull'estensione Azure IoT per l'interfaccia della riga di comando
-          href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
-        - name: Versioni dell'estensione Azure IoT per l'interfaccia della riga di comando
-          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
         - name: Azure Cloud Shell
           href: 'https://shell.azure.com'
         - name: Azure PowerShell

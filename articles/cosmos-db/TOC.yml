@@ -1005,7 +1005,7 @@
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
               href: performance-tips-java.md
-            - name: Async Java SDK v2
+            - name: Risoluzione dei problemi - Async Java SDK v2
               href: troubleshoot-java-async-sdk.md
         - name: Test delle prestazioni - App di esempio
           href: performance-testing.md

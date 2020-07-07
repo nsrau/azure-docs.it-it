@@ -4,13 +4,17 @@
   items:
     - name: Che cos'è il Servizio Migrazione del database di Azure?
       href: dms-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un servizio - Portale
-      href: quickstart-create-data-migration-service-portal.md
-    - name: Creare un servizio in modalità ibrida - Portale
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    - name: Creare un servizio
+      items:
+        - name: Portale
+          href: quickstart-create-data-migration-service-portal.md
+        - name: Modello ARM
+          href: create-dms-resource-manager-template.md
+        - name: In modalità ibrida (portale)
+          href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Concetti
   items:
     - name: Prerequisiti

@@ -146,6 +146,10 @@
       href: preprocess-text.md
     - name: Latent Dirichlet Allocation
       href: latent-dirichlet-allocation.md
+    - name: Assegnare punteggi al modello Vowpal Wabbit
+      href: score-vowpal-wabbit-model.md
+    - name: Eseguire il training del modello Vowpal Wabbit
+      href: train-vowpal-wabbit-model.md
 - name: Visione artificiale
   items:
     - name: Apply Image Transformation

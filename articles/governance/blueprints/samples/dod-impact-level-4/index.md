@@ -1,18 +1,20 @@
 ---
 title: Panoramica dell'esempio di progetto DoD Impact Level 4
 description: Panoramica dell'esempio DoD Impact Level 4. Questo esempio di progetto consente ai clienti di valutare specifici controlli DoD Impact Level 4.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 3b032e1a26c4fb5e97b1c7ab4fff65bc1b046f21
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517253"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800393"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Panoramica dell'esempio di progetto DoD Impact Level 4
 
 L'esempio di progetto Department of Defense Impact Level 4 (DoD IL4) fornisce misure di tutela per la governance tramite [Criteri di Azure](../../../policy/overview.md) che consentono di valutare specifici controlli DoD Impact Level 4. Il progetto aiuta i clienti a distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che deve implementare i controlli DoD Impact Level 4. Per informazioni più aggiornate su quali cloud e servizi di Azure soddisfano l'autorizzazione DoD Impact Level 4, vedere [Servizi di Azure in base all'ambito di controllo FedRAMP e DoD CC SRG](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+> [!NOTE]
+> Questo esempio di progetto è disponibile in Azure per enti pubblici.
 
 ## <a name="control-mapping"></a>Mapping dei controlli
 

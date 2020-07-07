@@ -6,7 +6,7 @@
       href: Overview/overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Con il portale di QnA Maker
       items:
@@ -28,6 +28,8 @@
       href: Quickstarts/batch-testing.md
 - name: Concetti
   items:
+    - name: Pianificare la knowledge base
+      href: Concepts/plan.md
     - name: Risorse di Azure
       href: Concepts/azure-resources.md
     - name: Collaborare con altri utenti

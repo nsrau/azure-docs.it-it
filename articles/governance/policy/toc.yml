@@ -99,6 +99,10 @@
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza per Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guide pratiche
   items:
     - name: Estensione Criteri di Azure per VS Code

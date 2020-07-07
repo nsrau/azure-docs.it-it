@@ -222,6 +222,8 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Modello di hosting
           href: service-fabric-hosting-model.md
+        - name: Argomenti avanzati sul ciclo di vita di attivazione e disattivazione dell'hosting
+          href: service-fabric-hosting-lifecycle.md
         - name: Sicurezza dell'applicazione
           href: service-fabric-application-and-service-security.md
         - name: Stato del servizio
@@ -404,13 +406,13 @@
           href: service-fabric-get-started-containers.md
         - name: Applicazione contenitore Linux
           href: service-fabric-get-started-containers-linux.md
-        - name: 'Applicazione Reliable Services C# su Windows'
+        - name: Applicazione Reliable Services C# su Windows
           href: service-fabric-reliable-services-quick-start.md
         - name: Applicazione Reliable Services Java su Linux
           href: service-fabric-reliable-services-quick-start-java.md
-        - name: 'Applicazione Reliable Services C# su Linux'
+        - name: Applicazione Reliable Services C# su Linux
           href: service-fabric-create-your-first-linux-application-with-csharp.md
-        - name: 'Applicazione Reliable Actors C# su Windows'
+        - name: Applicazione Reliable Actors C# su Windows
           href: service-fabric-reliable-actors-get-started.md
         - name: Applicazione Reliable Actors Java su Linux
           href: service-fabric-create-your-first-linux-application-with-java.md
@@ -454,7 +456,7 @@
                   href: service-fabric-reliable-services-communication-remoting-java.md
                 - name: WCF
                   href: service-fabric-reliable-services-communication-wcf.md
-                - name: 'Comunicazioni sicure - C#'
+                - name: Comunicazioni sicure - C#
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Comunicazioni sicure - Java
                   href: service-fabric-reliable-services-secure-communication-java.md
@@ -561,7 +563,7 @@
           items:
             - name: Introduzione a VS Code
               href: service-fabric-get-started-vs-code.md
-            - name: 'Sviluppare applicazioni C# di Service Fabric con VS Code'
+            - name: Sviluppare applicazioni C# di Service Fabric con VS Code
               href: service-fabric-develop-csharp-applications-with-vs-code.md
             - name: Sviluppare applicazioni Java di Service Fabric con VS Code
               href: service-fabric-develop-java-applications-with-vs-code.md

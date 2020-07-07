@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Errori durante l'eliminazione di risorse di archiviazione classiche
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Disco rigido virtuale non supportato quando si crea una VM in Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Usare la virtualizzazione annidata
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problemi di prestazioni della macchina virtuale

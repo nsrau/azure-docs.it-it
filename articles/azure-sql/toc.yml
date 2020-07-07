@@ -208,14 +208,14 @@
       items:
         - name: Informazioni sul database SQL
           href: database/sql-database-paas-overview.md
+        - name: Novità
+          href: database/doc-changes-updates-release-notes.md?&tabs=single-database
         - name: Database singoli
           href: database/single-database-overview.md
         - name: Pool elastici
           href: database/elastic-pool-overview.md
         - name: Server SQL logici
           href: database/logical-servers.md
-        - name: Note sulla versione
-          href: database/doc-changes-updates-release-notes.md?&tabs=single-database
         - name: Livelli di servizio
           items:
             - name: Senza server
@@ -654,13 +654,13 @@
       items:
         - name: Che cos'è Istanza gestita di SQL?
           href: managed-instance/sql-managed-instance-paas-overview.md
+        - name: Novità
+          href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
         - name: Pool di istanze
           href: managed-instance/instance-pools-overview.md
         - name: Domande frequenti
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-        - name: Note sulla versione
-          href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Avvi rapidi
       href: managed-instance/quickstart-content-reference-guide.md
       items:
@@ -883,92 +883,99 @@
           items:
             - name: Informazioni su una VM di SQL Server
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-            - name: Modifiche della documentazione
+            - name: Novità
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Avvi rapidi
           items:
-            - name: Creare una macchina virtuale SQL - Portale
+            - name: Creare una macchina virtuale SQL
+              items: null
+            - name: Portale
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
-            - name: Creare una macchina virtuale SQL - PowerShell
+            - name: PowerShell
               href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+            - name: Modello ARM
+              href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
         - name: Concetti
           items:
-            - name: Procedure consigliate
-              items:
-                - name: Procedure consigliate per le prestazioni
-                  href: virtual-machines/windows/performance-guidelines-best-practices.md
-                - name: Considerazioni relative alla sicurezza
-                  href: virtual-machines/windows/security-considerations-best-practices.md
-                - name: Modelli di applicazione
-                  href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Continuità aziendale
               items:
-                - name: Opzioni di disponibilità elevata
+                - name: Panoramica
                   href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-                - name: Gruppo di disponibilità AlwaysOn
-                  href: virtual-machines/windows/availability-group-overview.md
                 - name: Backup e ripristino
                   href: virtual-machines/windows/backup-restore.md
-                - name: Backup automatizzato per SQL Server 2014
-                  href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Backup automatizzato per SQL Server 2016+
-                  href: virtual-machines/windows/automated-backup.md
+                - name: Archiviazione di Azure per il backup
+                  href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+                - name: Gruppo di disponibilità AlwaysOn
+                  href: virtual-machines/windows/availability-group-overview.md
+                - name: Istanza del cluster di failover
+                  href: virtual-machines/windows/failover-cluster-instance-overview.md
+            - name: Procedure consigliate
+              items:
+                - name: Prestazioni
+                  href: virtual-machines/windows/performance-guidelines-best-practices.md
+                - name: Sicurezza
+                  href: virtual-machines/windows/security-considerations-best-practices.md
+                - name: Configurazione del cluster
+                  href: virtual-machines/windows/hadr-cluster-best-practices.md
+                - name: Modelli di applicazione
+                  href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Gestione
               items:
                 - name: Host dedicato
                   href: virtual-machines/windows/dedicated-host.md
-                - name: Con il portale di Azure
-                  href: virtual-machines/windows/manage-sql-vm-portal.md
                 - name: Estendere il supporto per SQL 2008 e R2
                   href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
-                - name: Connettersi a una macchina virtuale
-                  href: virtual-machines/windows/ways-to-connect-to-sql.md
-                - name: Configurare l'archiviazione
-                  href: virtual-machines/windows/storage-configuration.md
-                - name: Automatizzare le attività di gestione
-                  items:
-                    - name: Usare l'estensione Agente IaaS di SQL Server
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: Applicazione automatica delle patch
-                      href: virtual-machines/windows/automated-patching.md
-                    - name: Configurare l'integrazione di Azure Key Vault
-                      href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Guide pratiche
           items:
-            - name: Creare una macchina virtuale SQL
+            - name: Connettersi a VM di SQL Server
+              href: virtual-machines/windows/ways-to-connect-to-sql.md
+            - name: Creare una VM di SQL Server
               items:
                 - name: Usare il portale
                   href: virtual-machines/windows/create-sql-vm-portal.md
                 - name: Usare Azure PowerShell
                   href: virtual-machines/windows/create-sql-vm-powershell.md
-            - name: Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL
-              displayName: 'resource provider, registration'
-              items:
-                - name: Macchina virtuale singola
-                  href: virtual-machines/windows/sql-vm-resource-provider-register.md
-                - name: Registrare in blocco più macchine virtuali
-                  href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
             - name: Gestione
               items:
+                - name: Con il portale di Azure
+                  href: virtual-machines/windows/manage-sql-vm-portal.md
                 - name: Modello di licenza
                   displayName: 'ahb, ahub, payg, change, modify, update'
                   href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
                 - name: Edizione
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
-                - name: Versione
-                  displayName: 'change, modify, update'
-                  href: virtual-machines/windows/change-sql-server-version.md
-                - name: Archiviazione di Azure per il backup e il ripristino
-                  href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+                - name: Archiviazione
+                  href: virtual-machines/windows/storage-configuration.md
+                - name: Integrazione di Azure Key Vault
+                  href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL
+                  displayName: 'resource provider, registration'
+                  items:
+                    - name: Macchina virtuale singola
+                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                    - name: Registrare in blocco più macchine virtuali
+                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+                - name: Automatizzare le attività di gestione
+                  items:
+                    - name: Usare l'estensione Agente IaaS di SQL Server
+                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
+                    - name: Applicazione automatica delle patch
+                      href: virtual-machines/windows/automated-patching.md
             - name: Migrazione
               items:
                 - name: Dal database di SQL Server alla macchina virtuale
                   href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
                 - name: VM in una nuova area
                   href: virtual-machines/windows/move-sql-vm-different-region.md
-            - name: Configurare la disponibilità elevata
+            - name: Continuità aziendale
               items:
+                - name: Backup e ripristino
+                  items:
+                    - name: Backup automatizzato (SQL 2016 e versioni successive)
+                      href: virtual-machines/windows/automated-backup.md
+                    - name: Backup automatizzato (SQL 2014)
+                      href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Gruppo di disponibilità AlwaysOn
                   items:
                     - name: Interfaccia della riga di comando delle macchine virtuali di Azure SQL
@@ -989,12 +996,30 @@
                           href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
                         - name: Bilanciamento del carico - Azure PowerShell
                           href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-                - name: Istanza del cluster di failover
+                - name: Istanza del cluster di failover (FCI)
                   items:
-                    - name: Con Spazi di archiviazione diretta
-                      href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
-                    - name: Con condivisione file Premium
-                      href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: Preparare la VM per FCI
+                      href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
+                    - name: Creare un'istanza FCI con
+                      items:
+                        - name: Dischi condivisi di Azure (SQL 2019 e versioni successive)
+                          href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+                        - name: Spazi di archiviazione diretta (Win2016 e versioni successive)
+                          href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+                        - name: Condivisione file Premium (Win2012 e versioni successive)
+                          href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: DNN (Distributed Network Name)
+                      items:
+                        - name: Creare una risorsa DNN per FCI
+                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+                        - name: Interoperabilità delle funzionalità con DNN
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+                        - name: 'Funzionalità di FCI, DNN e SQL Server'
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+                - name: Configurare la connettività
+                  items:
+                    - name: VNN (Virtual Network Name)
+                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: Informazioni di riferimento
           items:
             - name: Azure PowerShell

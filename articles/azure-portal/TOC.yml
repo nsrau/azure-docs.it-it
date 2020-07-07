@@ -8,7 +8,7 @@
       href: azure-portal-quickstart-center.md
     - name: Browser e dispositivi supportati
       href: azure-portal-supported-browsers-devices.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una VM nel portale
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
@@ -43,8 +43,8 @@
       items:
         - name: Creare una richiesta di supporto in Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Caricare file per una richiesta di supporto
-          href: supportability/how-to-use-file-uploader.md
+        - name: Gestire una richiesta di supporto in Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Richiedere aumenti di quota
           items:
             - name: Aumentare i limiti di vCPU di calcolo
