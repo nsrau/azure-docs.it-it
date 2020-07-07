@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050284"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
@@ -35,7 +35,7 @@ MSAL.NET dispone di quattro metodi per fornire le credenziali o le asserzioni al
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Sebbene sia possibile usare l' `WithClientAssertion()` API per acquisire i token per il client riservato, non è consigliabile usarla per impostazione predefinita perché è più avanzata ed è progettata per gestire scenari molto specifici che non sono comuni. L'uso `.WithCertificate()` dell'API consentirà a MSAL.NET di gestire questa impostazione. Questa API offre la possibilità di personalizzare la richiesta di autenticazione, se necessario, ma l'asserzione `.WithCertificate()` predefinita creata da sarà sufficiente per la maggior parte degli scenari di autenticazione. Questa API può essere usata anche come soluzione alternativa in alcuni scenari in cui MSAL.NET non riesce a eseguire l'operazione di firma internamente.
+> Sebbene sia possibile usare l' `WithClientAssertion()` API per acquisire i token per il client riservato, non è consigliabile usarla per impostazione predefinita perché è più avanzata ed è progettata per gestire scenari molto specifici che non sono comuni. L'uso dell' `.WithCertificate()` API consentirà a MSAL.NET di gestire questa impostazione. Questa API offre la possibilità di personalizzare la richiesta di autenticazione, se necessario, ma l'asserzione predefinita creata da `.WithCertificate()` sarà sufficiente per la maggior parte degli scenari di autenticazione. Questa API può essere usata anche come soluzione alternativa in alcuni scenari in cui MSAL.NET non riesce a eseguire l'operazione di firma internamente.
 
 ### <a name="signed-assertions"></a>Asserzioni firmate
 
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Le attestazioni previste da Azure AD sono:
 
-Tipo di attestazione | valore | Descrizione
+Tipo di attestazione | Valore | Descrizione
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
 exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Metodo alternativo
 
-È anche possibile usare [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) per creare l'asserzione. Il codice sarà più elegante, come illustrato nell'esempio seguente:
+È anche possibile usare [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) per creare l'asserzione. Il codice sarà più elegante, come illustrato nell'esempio seguente:
 
 ```csharp
         string GetSignedClientAssertion()

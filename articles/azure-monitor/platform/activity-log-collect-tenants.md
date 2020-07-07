@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
 ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055731"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log attività di Azure in monitoraggio di Azure tra Azure Active Directory tenant (legacy)
@@ -51,7 +51,7 @@ Di seguito sono riportati i requisiti per le risorse di Azure usate in questo sc
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. Nella portale di Azure selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.
+1. Nella portale di Azure selezionare **Crea una risorsa**  >  **Internet delle cose**  >  **Hub eventi**.
 
    ![Nuovo hub eventi nel marketplace](media/collect-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -78,7 +78,7 @@ Per abilitare il flusso del log attività, scegliere uno spazio dei nomi dell'hu
 
 È possibile usare uno spazio dei nomi dell'hub eventi che non si trova nella stessa sottoscrizione dei log di emissione della sottoscrizione, tuttavia le sottoscrizioni devono trovarsi nella stessa istanza di Azure Active Directory. L'utente che configura l'impostazione deve disporre del controllo degli accessi in base al ruolo appropriato per accedere a entrambe le sottoscrizioni. 
 
-1. Nella portale di Azure selezionare **monitoraggio** > **log attività**.
+1. Nella portale di Azure selezionare **monitoraggio**  >  **log attività**.
 3. Fare clic sul pulsante **Esporta** nella parte superiore della pagina.
 
    ![immagine della finestra di monitoraggio di Azure nel riquadro di spostamento](media/collect-activity-logs-subscriptions/activity-log-blade.png)
@@ -116,7 +116,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
 
 ### <a name="create-a-new-blank-logic-app"></a>Creare una nuova app per la logica vuota
 
-1. Nella portale di Azure scegliere **Crea una risorsa** > **integrazione aziendale** > **app**per la logica.
+1. Nella portale di Azure scegliere **Crea una risorsa**  >  **integrazione aziendale**  >  **app**per la logica.
 
     ![Nuova app per la logica nel marketplace](media/collect-activity-logs-subscriptions/marketplace-new-logic-app.png)
 
@@ -129,7 +129,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
    | Nome           | Nome univoco per l'app per la logica. |
    | Subscription   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
    | Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
-   | Percorso       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
+   | Posizione       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
    | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro Log Analytics.  |
 
     
@@ -163,7 +163,7 @@ In Progettazione app per la logica vengono ora mostrati i connettori disponibili
 
 L'output dell'hub eventi contiene un payload JSON con una matrice di record. L'azione [analizza JSON](../../logic-apps/logic-apps-content-type.md) viene utilizzata per estrarre solo la matrice di record da inviare a log Analytics area di lavoro.
 
-1. Fare clic su **nuovo passaggio** > **Aggiungi un'azione**
+1. Fare clic su **nuovo passaggio**  >  **Aggiungi un'azione**
 2. Nella casella di ricerca digitare *analizza json* come filtro. Selezionare l'azione **Operazioni dati - Analizza JSON**.
 
    ![Aggiunta dell'azione di analisi json nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
@@ -275,7 +275,7 @@ L'output dell'hub eventi contiene un payload JSON con una matrice di record. L'a
 ### <a name="add-compose-action"></a>Aggiungere l'azione Componi
 L'azione [Componi](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) accetta l'output JSON e crea un oggetto che può essere usato dall'azione di Log Analytics.
 
-1. Fare clic su **nuovo passaggio** > **Aggiungi un'azione**
+1. Fare clic su **nuovo passaggio**  >  **Aggiungi un'azione**
 2. Digitare *componi* come filtro e quindi selezionare l'azione **Operazioni dati - Componi**.
 
     ![Aggiungere l'azione Componi](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
@@ -286,12 +286,12 @@ L'azione [Componi](../../logic-apps/logic-apps-workflow-actions-triggers.md#comp
 ### <a name="add-log-analytics-send-data-action"></a>Aggiungere l'azione di invio dati di Log Analytics
 L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) accetta l'oggetto dall'azione compose e lo invia a un'area di lavoro di log Analytics.
 
-1. Fare clic su **nuovo passaggio** > **Aggiungi un'azione**
+1. Fare clic su **nuovo passaggio**  >  **Aggiungi un'azione**
 2. Digitare *log analytics* come filtro e quindi selezionare l'azione **Azure Log Analytics Data Collector - Send Data** (Agente di raccolta dati di Azure Log Analytics - Invia dati).
 
    ![Aggiunta dell'azione di invio dati di Log Analytics nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
-3. Immettere un nome per la connessione e incollare **ID area di lavoro** e **Chiave dell'area di lavoro** dell'area di lavoro Log Analytics.  Scegliere **Crea**.
+3. Immettere un nome per la connessione e incollare **ID area di lavoro** e **Chiave dell'area di lavoro** dell'area di lavoro Log Analytics.  Fare clic su **Crea**.
 
    ![Aggiunta della connessione di Log Analytics alle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
@@ -299,7 +299,7 @@ L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.mic
 
     ![Azione di configurazione dell'invio dei dati](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Impostazione        | valore           | Descrizione  |
+   |Impostazione        | Valore           | Descrizione  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corpo della richiesta JSON)  | **Output** dell'azione **Componi** | Recupera i record dal corpo dell'azione Componi. |
    | Nome log personalizzato | AzureActivity | Nome della tabella di log personalizzata da creare nell'area di lavoro Log Analytics per conservare i dati importati. |
@@ -322,7 +322,7 @@ Per informazioni dettagliate su ogni passaggio, fare clic sul nome del passaggio
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Passaggio 5: Visualizzare il log attività di Azure in Log Analytics
 Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per assicurarsi che i dati vengano raccolti come previsto.
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro.
 3.  Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `AzureActivity_CL` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query. Se il log personalizzato non è stato denominato *AzureActivity*, digitare il nome scelto e aggiungere `_CL`.
 

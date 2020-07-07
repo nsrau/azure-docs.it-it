@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246688"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Come trasferire un payload tra il dispositivo e il DPS
 A volte DPS necessita di più dati dai dispositivi per eseguirne correttamente il provisioning nell'hub degli elementi appropriati e che i dati devono essere forniti dal dispositivo. Viceversa, DPS può restituire i dati al dispositivo per semplificare le logiche lato client. 
 
-## <a name="when-to-use-it"></a>Quando utilizzarli
+## <a name="when-to-use-it"></a>Scenari di utilizzo
 Questa funzionalità può essere usata come miglioramento per l' [allocazione personalizzata](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Ad esempio, si desidera allocare i dispositivi in base al modello di dispositivo senza intervento umano. In questo caso, si utilizzerà l' [allocazione personalizzata](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). È possibile configurare il dispositivo in modo che segnali le informazioni del modello come parte della [chiamata del dispositivo Register](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS passerà il payload del dispositivo al webhook di allocazione personalizzato. E la funzione può decidere a quale Hub di tutto il dispositivo andrà a ricevere informazioni sul modello di dispositivo. Analogamente, se il webhook vuole restituire alcuni dati al dispositivo, i dati vengono passati di nuovo come stringa nella risposta del webhook.  
 
 ## <a name="device-sends-data-payload-to-dps"></a>Il dispositivo invia il payload dei dati a DPS
@@ -54,7 +54,7 @@ Se il webhook dei criteri di allocazione personalizzati vuole restituire alcuni 
    ```
 
 ## <a name="sdk-support"></a>Supporto SDK
-Questa funzionalità è disponibile negli [SDK del client](https://docs.microsoft.com/azure/iot-dps/)C, C#, Java e node. js.  
+Questa funzionalità è disponibile in C, C#, JAVA e Node.js [SDK client](https://docs.microsoft.com/azure/iot-dps/).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Sviluppare usando [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) per hub IoT di Azure e il servizio Device Provisioning in hub IoT di Azure

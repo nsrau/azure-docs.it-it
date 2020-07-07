@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154747"
 ---
 # <a name="single-page-applications"></a>Applicazioni a pagina singola
@@ -61,7 +61,7 @@ L'uso di ADAL.js consente di:
 * Aggiornare un token scaduto
 * Richiedere un token di accesso per chiamare una risorsa API Web
 
-Dopo che l'autenticazione ha esito positivo, Azure AD scrive un cookie nel browser dell'utente per stabilire una sessione. Tenere presente che la sessione esiste tra l'utente e Azure AD e non tra l'utente e l'applicazione Web. Quando un token scade, ADAL.js usa questa sessione per ottenere automaticamente un altro token. ADAL.js usa un iFrame nascosto per inviare e ricevere la richiesta tramite il protocollo di concessione implicita OAuth. ADAL. js può anche usare questo stesso meccanismo per ottenere automaticamente i token di accesso per altre risorse dell'API Web chiamate dall'applicazione, purché queste risorse supportino la condivisione di risorse tra le origini (CORS), siano registrate nella directory dell'utente e che l'utente abbia dato il consenso necessario durante l'accesso.
+Dopo che l'autenticazione ha esito positivo, Azure AD scrive un cookie nel browser dell'utente per stabilire una sessione. Tenere presente che la sessione esiste tra l'utente e Azure AD e non tra l'utente e l'applicazione Web. Quando un token scade, ADAL.js usa questa sessione per ottenere automaticamente un altro token. ADAL.js usa un iFrame nascosto per inviare e ricevere la richiesta tramite il protocollo di concessione implicita OAuth. ADAL.js possibile anche usare questo stesso meccanismo per ottenere automaticamente i token di accesso per altre risorse dell'API Web chiamate dall'applicazione, purché queste risorse supportino la condivisione di risorse tra le origini (CORS), siano registrate nella directory dell'utente e che l'utente abbia concesso il consenso richiesto durante l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

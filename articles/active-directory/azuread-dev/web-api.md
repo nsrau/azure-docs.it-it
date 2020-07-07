@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154424"
 ---
 # <a name="web-api"></a>API Web
@@ -56,7 +56,7 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 
 1. Un utente ha già eseguito l'accesso all'applicazione Web, il cui meccanismo di autenticazione è indipendente da Azure AD.
 1. L'applicazione Web richiede un codice di autorizzazione per acquisire un token di accesso, quindi invia una richiesta tramite il browser all'endpoint di autorizzazione di Azure AD, fornendo l'ID applicazione e l'URI di reindirizzamento per l'applicazione Web dopo l'autenticazione riuscita. L'utente accede ad Azure AD.
-1. Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Il consenso si applica sia all'applicazione a tenant singolo che multi-tenant. In un'applicazione a tenant singolo l'amministratore può eseguire il consenso dell'amministratore per acconsentire per conto degli utenti. Questa operazione può essere eseguita usando `Grant Permissions` il pulsante nella [portale di Azure](https://portal.azure.com). 
+1. Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Il consenso si applica sia all'applicazione a tenant singolo che multi-tenant. In un'applicazione a tenant singolo l'amministratore può eseguire il consenso dell'amministratore per acconsentire per conto degli utenti. Questa operazione può essere eseguita usando il `Grant Permissions` pulsante nella [portale di Azure](https://portal.azure.com). 
 1. Quando l'utente concede il consenso, l'applicazione Web riceve il codice di autorizzazione necessario per acquisire un token di accesso.
 1. Usando il codice di autorizzazione emesso da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
 1. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
 ms.openlocfilehash: e16531484505f055c1383aff5adb40518719d98a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80054590"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Risoluzione dei problemi relativi all'estensione della macchina virtuale Log Analytics in Monitoraggio di Azure
@@ -18,8 +18,8 @@ Questo articolo fornisce indicazioni sulla risoluzione di errori che possono ver
 
 Per verificare lo stato dell'estensione eseguire questi passaggi dal portale di Azure.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
-2. Nella portale di Azure fare clic su **tutti i servizi**. Nell'elenco delle risorse digitare **macchine virtuali**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **macchine virtuali**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **macchine virtuali**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Macchine virtuali**.
 3. Nell'elenco delle macchine virtuali trovarla e selezionarla.
 3. Nel pannello della macchina virtuale fare clic su **Extensions** (Estensioni).
 4. Nell'elenco verificare se l'estensione di Log Analytics è abilitata o meno.  Per Linux l'agente viene elencato come **OMSAgentforLinux** mentre per Windows viene elencato come **MicrosoftMonitoringAgent**.

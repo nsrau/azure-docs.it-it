@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062120"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Crittografia dischi di Azure per macchine virtuali e set di scalabilità di macchine virtuali
@@ -27,7 +27,7 @@ Gli articoli seguenti forniscono indicazioni per la crittografia delle macchine 
 - [Panoramica della crittografia dischi di Azure per le macchine virtuali Linux](../../virtual-machines/linux/disk-encryption-overview.md)
 - [Scenari di crittografia dischi di Azure per macchine virtuali Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
-- [Creare e crittografare una VM Linux con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+- [Creare e crittografare una macchina virtuale Linux con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Creare e crittografare una macchina virtuale Linux con il portale di Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
 - [Schema di estensione di crittografia dischi di Azure per Linux](../../virtual-machines/extensions/azure-disk-enc-linux.md)
 - [Creazione e configurazione di un insieme di credenziali delle chiavi per la crittografia dischi di Azure](../../virtual-machines/linux/disk-encryption-key-vault.md)
@@ -64,7 +64,7 @@ Gli articoli seguenti forniscono indicazioni per la crittografia delle macchine 
 - [Crittografia dischi di Azure con scenari di Azure AD nelle VM Windows](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD (versione precedente)](../../virtual-machines/windows/disk-encryption-key-vault-aad.md)
 
-## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
+## <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
 Gli articoli seguenti forniscono indicazioni per la crittografia dei set di scalabilità di macchine virtuali.
 

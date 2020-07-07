@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055908"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
@@ -28,7 +28,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Per la soluzione Stato replica di AD è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato Log Analytics Agent per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
+* Per la soluzione Stato replica di AD è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato Log Analytics Agent per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016 Operations Manager, Operations Manager 2012 R2, nonché da Monitoraggio di Azure.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -41,10 +41,10 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 
 1. Verificare che il computer sia membro del dominio da monitorare con la soluzione Stato replica di Active Directory.
 2. [Connettere il computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md), se non è già connesso.
-3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
+3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE gruppi \System\currentcontrolset\services\healthservice\parameters\management \<ManagementGroupName> \Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
-   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService. exe).
+   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installare soluzione
    > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 

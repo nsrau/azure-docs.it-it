@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055682"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
@@ -43,7 +43,7 @@ Per creare una nuova rete:
 1. Selezionare la scheda **Reti**.
 1. Selezionare  **Aggiungi rete** e quindi immettere il nome e la descrizione della rete. 
 2. Selezionare una o più subnet e quindi **Aggiungi**. 
-3. Selezionare **Salva** per salvare la configurazione. 
+3. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
 
 ### <a name="create-monitoring-rules"></a>Creare le regole di monitoraggio 
@@ -63,7 +63,7 @@ Per creare regole di monitoraggio personalizzate:
 4. Scegliere tra i protocolli ICMP e TCP per l'esecuzione di transazioni sintetiche. 
 5. Se non si vogliono creare eventi di integrità per gli elementi selezionati, deselezionare **Abilita il monitoraggio dello stato sui collegamenti previsti da questa regola**. 
 6. Scegliere le condizioni di monitoraggio. Per impostare soglie personalizzate per la generazione di eventi di integrità, immettere valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la coppia di reti o subnet selezionata, viene generato un evento di integrità. 
-7. Selezionare **Salva** per salvare la configurazione. 
+7. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
 Dopo aver salvato una regola di monitoraggio, è possibile integrarla con Gestione avvisi selezionando **Crea avviso**. Una regola di avviso viene creata automaticamente con la query di ricerca. Altri parametri obbligatori vengono compilati automaticamente. Usando una regola di avviso è possibile ricevere avvisi basati su posta elettronica, oltre a quelli esistenti in Monitoraggio prestazioni rete. Gli avvisi possono anche attivare azioni correttive con i runbook oppure possono essere integrati con le soluzioni esistenti di gestione dei servizi tramite l'uso di webhook. Selezionare **Manage Alert** (Gestisci avviso) per modificare le impostazioni dell'avviso. 
 
@@ -94,7 +94,7 @@ Per scegliere il protocollo, prendere in considerazione le informazioni seguenti
 
 Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
 
-1. Passare a **monitoraggio** >> **Configure** **Network Performance** prestazioni rete Configura> **monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
+1. Passare a **monitoraggio prestazioni rete**   >  **Monitor**   >  **Configura**   >  **monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
 2. Scorrere fino alla sezione **Protocollo** e selezionare il protocollo che si vuole usare. 
 3. Selezionare **Salva** per applicare l'impostazione. 
 

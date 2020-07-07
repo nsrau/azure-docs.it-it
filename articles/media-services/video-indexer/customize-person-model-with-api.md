@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127899"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizzare un modello Persona con l'API Video Indexer
@@ -75,7 +75,7 @@ La risposta fornisce un elenco di tutti i modelli Person nell'account (incluso i
 ]
 ```
 
-È possibile `id` scegliere il modello che si vuole usare per un video usando il valore del modello person per il `personModelId` parametro quando si [carica un video per indicizzare](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [reindicizzare un](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?)video.
+È possibile scegliere il modello che si vuole usare per un video usando il `id` valore del modello person per il `personModelId` parametro quando si [carica un video per indicizzare](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [reindicizzare un](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?)video.
 
 ## <a name="update-a-face"></a>Aggiornare un viso
 
@@ -87,7 +87,7 @@ Il sistema riconosce quindi le occorrenze dello stesso volto negli altri video c
 
 Per aggiornare il volto, usare l'API di [aggiornamento di un viso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) .
 
-I nomi sono univoci per i modelli person, quindi se si assegnano due visi diversi nello stesso modello `name` di persona allo stesso valore di parametro, video Indexer Visualizza i visi come la stessa persona e li converge dopo aver reindicizzato il video.
+I nomi sono univoci per i modelli person, quindi se si assegnano due visi diversi nello stesso modello di persona allo stesso `name` valore di parametro, video Indexer Visualizza i visi come la stessa persona e li converge dopo aver reindicizzato il video.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

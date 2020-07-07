@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282308"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Strumenti di machine learning e data science sulle macchine virtuali di Data Science di Azure
@@ -67,7 +67,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Che cos'è?   |   Interfaccia utente grafica per data mining usando R.   |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento di data mining generale dell'interfaccia utente per R    |
-| Come usarla o eseguirla      | Come strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()`. In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()`. |
+| Come usarla o eseguirla      | Come strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()` . In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()` . |
 | Collegamenti agli esempi      | [Rattle](https://togaware.com/onepager/) |
 | Strumenti correlati      |LightGBM, Weka, XGBoost   |
 
@@ -89,7 +89,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Che cos'è?   |  Raccolta di algoritmi di machine learning per le attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento di apprendimento automatico generale     |
-| Come usarla o eseguirla      | In Windows cercare WEKA nel menu **Start** . In Linux accedere con x2go e quindi passare ad **Applications** > **Development** > **WEKA**. |
+| Come usarla o eseguirla      | In Windows cercare WEKA nel menu **Start** . In Linux accedere con x2go e quindi passare ad **Applications**  >  **Development**  >  **WEKA**. |
 | Collegamenti agli esempi      | [Esempi di Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Strumenti correlati      |LightGBM, Rattle, XGBoost   |
 
@@ -100,7 +100,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Libreria di Machine Learning generale      |
 | Come viene configurata o installata?      |  Installata con supporto GPU   |
-| Come usarla o eseguirla      | Come libreria Python (2,7 e 3,5), pacchetto R e strumento da riga di comando su percorso (`C:\dsvm\tools\xgboost\bin\xgboost.exe` per Windows e `/dsvm/tools/xgboost/xgboost` per Linux)    |
+| Come usarla o eseguirla      | Come libreria Python (2,7 e 3,5), pacchetto R e strumento da riga di comando su percorso ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` per Windows e `/dsvm/tools/xgboost/xgboost` per Linux)    |
 | Collegamenti agli esempi      | Gli esempi sono inclusi nella macchina virtuale, in `/dsvm/tools/xgboost/demo` su Linux e `C:\dsvm\tools\xgboost\demo` su Windows.   |
 | Strumenti correlati      | LightGBM, MXNet   |
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79535783"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni di Analisi di flusso di Azure
@@ -172,7 +172,7 @@ Per il riempimento, è comunque importante eseguire almeno temporaneamente il pr
 |Scenari  |Riavvia solo da ora  |Riavvia dall'ora dell'ultimo arresto |Riavvia da ora + recupero con eventi archiviati|
 |---------|---------|---------|---------|
 |**Dashboarding**   |Crea Gap    |OK per brevi interruzioni    |Usare per un'interruzione prolungata |
-|**Creazione di avvisi**   |Accettabile |OK per brevi interruzioni    |Non necessario |
+|**Invio di avvisi**   |Accettabile |OK per brevi interruzioni    |Non necessario |
 |**App origine evento** |Accettabile |OK per brevi interruzioni    |Usare per un'interruzione prolungata |
 |**Data warehousing**   |Perdita di dati  |Accettabile |Non necessario |
 |**Analisi offline**  |Perdita di dati  |Accettabile |Non necessario|

@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158147"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Piano tariffario | Standard |
 | Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
@@ -68,7 +68,7 @@ Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https:/
 | Piano tariffario | Basic |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| Percorso | Stati Uniti orientali |
+| Posizione | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
 ### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
@@ -80,7 +80,7 @@ Usare il [portale di Azure per creare un processo di analisi di flusso](https://
 | Nome    | Scegliere il nome del processo |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| Percorso | Stati Uniti orientali |
+| Posizione | Stati Uniti orientali |
 | Ambiente di hosting | Cloud |
 | Unità di streaming | 3 |
 
@@ -88,14 +88,14 @@ Usare il [portale di Azure per creare un processo di analisi di flusso](https://
 
 Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azure.com/#create/Microsoft.FunctionApp) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome app    | Scegliere il nome dell'app per le funzioni |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| Sistema operativo | Windows |
+| OS | Windows |
 | Piano di hosting | Piano a consumo |
-| Percorso | Stati Uniti orientali |
+| Posizione | Stati Uniti orientali |
 | Stack di runtime | .NET |
 | Archiviazione | Creare un nuovo gruppo di risorse |
 
@@ -244,7 +244,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Nel portale di Azure passare al processo di analisi di flusso, in **topologia processi** selezionare **input**, scegliere **+ Aggiungi input flusso**, quindi scegliere **Hub eventi**.
 1. Usare le informazioni nella tabella seguente per configurare l'input usando l'hub eventi creato in precedenza, quindi scegliere **Salva**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Alias di input | centraltelemetry |
     | Subscription | Sottoscrizione in uso |
@@ -254,7 +254,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. In **topologia processi**selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
 1. Usare le informazioni nella tabella seguente per configurare l'output, quindi scegliere **Salva**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Alias di output | emailnotification |
     | Subscription | Sottoscrizione in uso |
@@ -314,15 +314,15 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Attivato | Attivato |
+    | Abilitato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Misurazioni | Attivato |
-    | Dispositivi | Disattivato |
-    | Modelli di dispositivo | Disattivato |
+    | Misurazioni | On |
+    | Dispositivi | Off |
+    | Modelli di dispositivo | Off |
 
 ![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
 

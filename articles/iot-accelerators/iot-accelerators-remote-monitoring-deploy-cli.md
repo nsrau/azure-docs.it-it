@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80258295"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
@@ -23,7 +23,7 @@ Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni d
 
 Per distribuire l'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Per eseguire l'interfaccia della riga di comando, è necessario che [Node.js](https://nodejs.org/) sia installato nel computer locale.
 
@@ -68,7 +68,7 @@ La distribuzione di base è orientata verso la presentazione della soluzione. Pe
 
 Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                       | Tipo         | Utilizzo |
+| Conteggio | Risorsa                       | Type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
@@ -103,7 +103,7 @@ Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
 > [!NOTE]
-> È possibile trovare informazioni sui prezzi per questi servizi [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing)all'indirizzo. I dettagli sull'utilizzo e la fatturazione per la sottoscrizione sono reperibili nel [portale di Azure](https://portal.azure.com/).
+> È possibile trovare informazioni sui prezzi per questi servizi all'indirizzo [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing) . I dettagli sull'utilizzo e la fatturazione per la sottoscrizione sono reperibili nel [portale di Azure](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni
 

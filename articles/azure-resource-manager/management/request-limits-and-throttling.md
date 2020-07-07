@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239369"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
@@ -25,7 +25,7 @@ Ogni operazione a livello di sottoscrizione e di tenant è soggetta a limiti di 
 
 La tabella seguente illustra i limiti di limitazione predefiniti per ora.
 
-| Scope | Operazioni | Limite |
+| Scope | Gestione operativa | Limite |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -66,7 +66,7 @@ Per controllare le istanze di macchine virtuali in un set di scalabilità di mac
 
 Il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) limita il numero di richieste alle relative operazioni. La procedura descritta in questo articolo per determinare le richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applica anche al grafico delle risorse. Tuttavia, il grafico risorse imposta il proprio limite e la velocità di reimpostazione. Per ulteriori informazioni, vedere [intestazioni di limitazione delle richieste del grafico delle risorse](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
 
-## <a name="error-code"></a>Codice errore
+## <a name="error-code"></a>Codice di errore
 
 Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste). La risposta include un valore **Retry-After** , che specifica il numero di secondi di attesa dell'applicazione (o di sospensione) prima di inviare la richiesta successiva. Se si invia una richiesta prima che sia trascorso il valore per la ripetizione del tentativo, la richiesta non viene elaborata e viene restituito un nuovo valore per la ripetizione del tentativo.
 

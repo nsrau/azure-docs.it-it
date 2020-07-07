@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056832"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrazione con Identità gestite di Azure
@@ -38,7 +38,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 Per completare l'esercitazione, sono necessari:
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell configurato](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Azure cloud Shell configurata](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Nella [portale di Azure](https://portal.azure.com)selezionare tutte le **risorse** e selezionare l'archivio di configurazione dell'app creato nella Guida introduttiva.
 
-1. Selezionare **controllo di accesso (IAM)**.
+1. Selezionare **Controllo di accesso (IAM)** .
 
 1. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo**.
 
@@ -84,7 +84,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Trovare l'endpoint per l'archivio di configurazione dell'app. Questo URL è elencato nella scheda **chiavi di accesso** per l'archivio nel portale di Azure.
 
-1. Aprire *appsettings.json* e aggiungere lo script seguente. Sostituire * \<service_endpoint>*, incluse le parentesi, con l'URL dell'archivio di configurazione dell'app. 
+1. Aprire *appsettings.json* e aggiungere lo script seguente. Sostituire *\<service_endpoint>* , incluse le parentesi, con l'URL dell'archivio di configurazione dell'app. 
 
     ```json
     "AppConfig": {
@@ -92,13 +92,13 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     }
     ```
 
-1. Aprire *Program.cs*e aggiungere un riferimento agli spazi dei `Azure.Identity` nomi `Microsoft.Azure.Services.AppAuthentication` e:
+1. Aprire *Program.cs*e aggiungere un riferimento agli `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` spazi dei nomi e:
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. Se si vuole accedere solo ai valori archiviati direttamente nella configurazione dell'app, aggiornare `CreateWebHostBuilder` il metodo sostituendo `config.AddAzureAppConfiguration()` il metodo.
+1. Se si vuole accedere solo ai valori archiviati direttamente nella configurazione dell'app, aggiornare il `CreateWebHostBuilder` Metodo sostituendo il `config.AddAzureAppConfiguration()` metodo.
 
     > [!IMPORTANT]
     > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
@@ -133,7 +133,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ```
     ---
 
-1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice crea un nuovo `KeyVaultClient` oggetto usando `AzureServiceTokenProvider` e passa questo riferimento a una chiamata al `UseAzureKeyVault` metodo.
+1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice crea un nuovo oggetto `KeyVaultClient` usando `AzureServiceTokenProvider` e passa questo riferimento a una chiamata al `UseAzureKeyVault` metodo.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -181,7 +181,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ```
     ---
 
-    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà `KeyVaultClient` l'oggetto configurato per l'autenticazione Key Vault e il recupero del valore.
+    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà l'oggetto `KeyVaultClient` configurato per l'autenticazione Key Vault e il recupero del valore.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Per abilitare la distribuzione git locale per l'app con il server di compilazione Kudu [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) , eseguire in cloud Shell.
+Per abilitare la distribuzione git locale per l'app con il server di compilazione Kudu, eseguire [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ Questo comando offre un risultato simile all'output seguente:
 
 ### <a name="deploy-your-project"></a>Distribuire il progetto
 
-Nella _finestra del terminale locale_aggiungere un'area remota di Azure al repository git locale. Sostituire _ \<>URL_ con l'URL del comando git Remote ottenuto dall' [Abilitazione di git locale con Kudu](#enable-local-git-with-kudu).
+Nella _finestra del terminale locale_aggiungere un'area remota di Azure al repository git locale. Sostituire _\<url>_ con l'URL del GIT remoto ottenuto dall' [Abilitazione di git locale con Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -244,7 +244,7 @@ http://<app_name>.azurewebsites.net
 
 Anche i provider di Configurazione app per .NET Framework e Java Spring offrono supporto incorporato per l'identità gestita. Quando si configura uno di questi provider, è possibile usare l'endpoint URL dell'archivio invece della relativa stringa di connessione completa. 
 
-Ad esempio, è possibile aggiornare l'app console di .NET Framework creata nella Guida introduttiva per specificare le impostazioni seguenti nel file *app. config* :
+Ad esempio, è possibile aggiornare l'app console .NET Framework creata nella Guida introduttiva per specificare le impostazioni seguenti nel file di *App.config* :
 
 ```xml
     <configSections>

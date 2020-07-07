@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128769"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
@@ -136,7 +136,7 @@ Questa sezione elenca lo stato di diversi attributi per l'utente attualmente con
 - **WorkplaceJoined:** impostare su "Yes" se Azure ad account registrati sono stati aggiunti al dispositivo nel contesto Ntuser corrente.
 - **WamDefaultSet:** impostare su "Yes" Se viene creato un account WebAccount predefinito WAM per l'utente connesso. Questo campo potrebbe visualizzare un errore se dsreg/status viene eseguito da un prompt dei comandi con privilegi elevati. 
 - **WamDefaultAuthority:** impostare su "Organizations" per Azure ad.
-- **WamDefaultId:** -alwayshttps://login.microsoft.com"" per Azure ad.
+- **WamDefaultId:** -Always " https://login.microsoft.com " per Azure ad.
 - **WamDefaultGUID:** il GUID del provider wam (Azure AD/account Microsoft) per l'account predefinito WAM. 
 
 ### <a name="sample-user-state-output"></a>Output dello stato utente di esempio

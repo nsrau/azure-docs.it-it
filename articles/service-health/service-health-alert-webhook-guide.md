@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062851"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Usare un webhook per configurare le notifiche di integrità per i sistemi di gestione dei problemi
@@ -31,9 +31,9 @@ Se si vuole usare un'integrazione preconfigurata, vedere:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configurare una notifica personalizzata usando il payload del webhook di integrità del servizio
 Per configurare l'integrazione di Webhook personalizzata, è necessario analizzare il payload JSON inviato tramite la notifica sull'integrità del servizio.
 
-Vedere [un payload di esempio](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` del webhook.
+Vedere [un payload di esempio](../azure-monitor/platform/activity-log-alerts-webhook.md) del `ServiceHealth` webhook.
 
-È possibile verificare che si tratta di un avviso di integrità del servizio `context.eventSource == "ServiceHealth"`osservando. Di seguito sono riportate le proprietà più rilevanti:
+È possibile verificare che si tratta di un avviso di integrità del servizio osservando `context.eventSource == "ServiceHealth"` . Di seguito sono riportate le proprietà più rilevanti:
 - **Data. Context. activityLog. status**
 - **Data. Context. activityLog. Level**
 - **Data. Context. activityLog. subscriptionId**
@@ -46,17 +46,17 @@ Vedere [un payload di esempio](../azure-monitor/platform/activity-log-alerts-web
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Creare un collegamento al dashboard di integrità dei servizi per un evento imprevisto
 È possibile creare un collegamento diretto al dashboard per l'integrità dei servizi in un desktop o in un dispositivo mobile generando un URL specifico. Usare il *trackingId* e le prime tre e ultime tre cifre di *SubscriptionId* nel formato seguente:
 
-https<i></i>://app.Azure.com/h/*&lt;trackingId&gt;*/*prime tre e ultime tre cifre di SubscriptionID&gt; &lt;*
+https <i></i> ://app.Azure.com/h/* &lt; trackingId &gt; * / * &lt; prime tre e ultime tre cifre di SubscriptionID &gt; *
 
 Ad esempio, se *SubscriptionId* è Bba14129-E895-429B-8809-278e836ecdb3 e *trackingId* è 0DET-Urb, l'URL di integrità del servizio è:
 
-https<i></i>://app.Azure.com/h/0DET-Urb/bbadb3
+https <i></i> ://app.Azure.com/h/0DET-Urb/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Usare il livello per rilevare la gravità del problema
 Dal più basso al più alto livello di gravità, la proprietà **Level** nel payload può essere *informativa*, *avviso*, *errore*o *critico*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analizzare i servizi interessati per determinare l'ambito dell'evento imprevisto
-Gli avvisi di integrità del servizio possono fornire informazioni sui problemi in più aree e servizi. Per ottenere i dettagli completi, è necessario analizzare il valore di `impactedServices`.
+Gli avvisi di integrità del servizio possono fornire informazioni sui problemi in più aree e servizi. Per ottenere i dettagli completi, è necessario analizzare il valore di `impactedServices` .
 
 Il contenuto all'interno di è una stringa [JSON](https://json.org/) con escape che, quando senza caratteri di escape, contiene un altro oggetto JSON che può essere analizzato regolarmente. Ad esempio:
 
@@ -115,5 +115,5 @@ A tale scopo, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Informazioni sulle [notifiche sull'integrità del servizio](../azure-monitor/platform/service-notifications.md).
-- Altre informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../azure-monitor/platform/service-notifications.md).
+- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055419"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
@@ -147,13 +147,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 Il Management Pack della soluzione Controllo integrità di System Center Operations Manager include una regola denominata *Microsoft System Center Operations Manager Esegui regola di controllo integrità*. Questa regola è responsabile del controllo integrità. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
 
-Per impostazione predefinita, la regola di controllo dello stato di esecuzione di Microsoft System Center Operations Manager è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
+Per impostazione predefinita, la regola di controllo dello stato di esecuzione di Microsoft System Center Operations Manager è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Segui questa procedura.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Abilitare la regola per un server di gestione specifico
 
 1. Nell'area di lavoro **creazione e modifica** della console operatore di Operations Manager, cercare la regola *Microsoft System Center Operations Manager eseguire la regola di controllo integrità* nel riquadro **regole** .
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
-3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **sostituzioni** > **per un oggetto specifico della classe: server di gestione**.
+3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **sostituzioni**  >  **per un oggetto specifico della classe: server di gestione**.
 4.  Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.  Deve trattarsi dello stesso server di gestione configurato in precedenza per l'associazione con l'account RunAs.
 5.  Assicurarsi di modificare il valore di override in **True** per il valore del parametro **Enabled**.<br><br> ![parametro di override](./media/scom-assessment/rule.png)
 
@@ -165,7 +165,7 @@ Per impostazione predefinita, la valutazione è configurata per l'esecuzione ogn
 
 1. Nell'area di lavoro **creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Operations Manager Esegui controllo integrità regola* nella sezione **regole** .
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
-3. Fare clic con il pulsante destro del mouse sulla regola e quindi scegliere **Sostituisci regola** > **per tutti gli oggetti della classe: server di gestione**.
+3. Fare clic con il pulsante destro del mouse sulla regola e quindi scegliere **Sostituisci regola**  >  **per tutti gli oggetti della classe: server di gestione**.
 4. Impostare il parametro **Interval** (Intervallo) sul valore desiderato. Nell'esempio seguente, il valore è impostato su 1440 minuti (un giorno).<br><br> ![parametro interval](./media/scom-assessment/interval.png)<br>  
 
     Se il valore impostato è minore di 1440 minuti, la regola verrà eseguita a intervalli di un giorno. In questo esempio, la regola ignora il valore dell'intervallo e viene eseguita con una frequenza di un giorno.
@@ -180,8 +180,8 @@ A ogni raccomandazione generata viene assegnato un valore di ponderazione che id
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 
 - *Probabilità* che un problema identificato sia causa di problemi. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
-- *Impatto* del problema per l'organizzazione se è effettivamente causa di un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
-- *Lavoro richiesto* per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
+- L' *impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
+- Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
 La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Se ad esempio una raccomandazione nell'area di interesse Disponibilità e continuità aziendale ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
 
@@ -209,7 +209,7 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
+2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
 3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic sulla voce di menu **Riepilogo area di lavoro**.  
 4. Nella pagina **Panoramica** fare clic sul riquadro **Controllo integrità System Center Operations Manager**.
 5. Nella pagina **Controllo integrità System Center Operations Manager** verificare le informazioni di riepilogo in uno dei pannelli dell'area di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
@@ -272,7 +272,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 *Se viene individuato un altro server dopo l'aggiunta della soluzione Controllo integrità di System Center Operations Manager, viene controllata?* Sì, per impostazione predefinita verrà controllato ogni sette giorni a partire dal momento dell'individuazione.
 
-*Qual è il nome del processo che esegue la raccolta dati?* AdvisorAssessment.exe
+*Qual è il nome del processo che esegue la raccolta di dati?* AdvisorAssessment.exe
 
 *Dove viene eseguito il processo AdvisorAssessment.exe?* AdvisorAssessment.exe viene eseguito nel processo HealthService del server di gestione in cui è abilitata la regola di controllo integrità. Con questo processo, l'individuazione dell'intero ambiente avviene tramite la raccolta di dati remoti.
 
@@ -282,7 +282,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 *Come è possibile verificare se sono presenti errori relativi ai prerequisiti?* Se è stato eseguito il controllo integrità e non vengono visualizzati risultati, è probabile che si siano verificati errori per alcuni dei prerequisiti del controllo. Per visualizzare i prerequisiti con errori, è possibile eseguire le query `Operation Solution=SCOMAssessment` e `SCOMAssessmentRecommendation FocusArea=Prerequisites` in Ricerca log.
 
-*Si è verificato `Failed to connect to the SQL Instance (….).` un messaggio di errore nei prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel processo HealthService del server di gestione. Nell'ambito del controllo integrità, il processo prova a connettersi all'istanza di SQL Server in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
+*Si è verificato un `Failed to connect to the SQL Instance (….).` messaggio di errore nei prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel processo HealthService del server di gestione. Nell'ambito del controllo integrità, il processo prova a connettersi all'istanza di SQL Server in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
 
 *Quali tipi di dati vengono raccolti?* Vengono raccolti i tipi di dati seguenti: dati WMI, del Registro di sistema, del log eventi e di Operations Manager tramite Windows PowerShell, query SQL e agente di raccolta di informazioni file.
 

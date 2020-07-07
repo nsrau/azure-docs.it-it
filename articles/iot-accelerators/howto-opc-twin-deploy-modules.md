@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241071"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
@@ -111,9 +111,9 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello `.env` e ottenere il file risultante. Si noti la `hub name` distribuzione della `PCS_IOTHUBREACT_HUB_NAME` variabile nel file risultante `.env` .
+1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il `.env` file risultante. Si noti la distribuzione `hub name` della `PCS_IOTHUBREACT_HUB_NAME` variabile nel file risultante `.env` .
 
-2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e prendere `device id`nota del relativo.
+2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e prendere nota del relativo `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetrale
 
@@ -123,7 +123,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 3. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi.
 
-4. Selezionare **Set Modules** (Configura i moduli).
+4. Selezionare **imposta moduli**.
 
 5. Nella sezione **moduli di distribuzione** della pagina selezionare **Aggiungi** e **IOT Edge modulo.**
 
@@ -182,7 +182,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="quickstart"></a>Avvio rapido
 
-1. Salvare il manifesto di distribuzione precedente in `deployment.json` un file.  
+1. Salvare il manifesto di distribuzione precedente in un `deployment.json` file.  
 
 2. Per applicare la configurazione a un dispositivo IoT Edge usare il comando seguente:
 
@@ -199,7 +199,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   Il parametro ID dispositivo distingue tra maiuscole e minuscole. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   Per il parametro ID dispositivo viene fatta distinzione tra maiuscole e minuscole. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

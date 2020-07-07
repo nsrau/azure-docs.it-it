@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a87646f6195a06cf0a5382cb248efa5516c953f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79531992"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concetti a disponibilità elevata in Database di Azure per MariaDB
@@ -26,7 +26,7 @@ Le modifiche apportate a un server di database del Database di Azure per MariaDB
 
 All'interno di Azure viene usato un gateway per reindirizzare le connessioni alla nuova istanza. Dopo un'interruzione, l'intero processo di failover richiede in genere decine di secondi. Poiché il reindirizzamento viene gestito internamente dal gateway, la stringa di connessione esterna rimane la stessa per le applicazioni client.
 
-## <a name="scaling-up-or-down"></a>Ridimensionamento di un server
+## <a name="scaling-up-or-down"></a>Scalabilità delle prestazioni
 Come avviene per il modello a disponibilità elevata, quando un'istanza di Database di Azure per MariaDB viene ridimensionata verso l'alto o verso il basso, viene creata una nuova istanza del server con le dimensioni specificate. L'archiviazione dati esistente viene scollegata dall'istanza originale e associata alla nuova istanza.
 
 Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata.

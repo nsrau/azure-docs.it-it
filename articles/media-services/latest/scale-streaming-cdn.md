@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128059"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
@@ -35,7 +35,7 @@ Questo argomento illustra l'abilitazione dell'integrazione della rete [CDN](#ena
 
 ## <a name="considerations"></a>Considerazioni
 
-* L' [endpoint](streaming-endpoint-concept.md) `hostname` di streaming e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
+* L' [endpoint di streaming](streaming-endpoint-concept.md) `hostname` e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
 * Se è necessario testare il contenuto con o senza la rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Abilitare l'integrazione della rete CDN di Azure
@@ -58,7 +58,7 @@ L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è impl
 
 ## <a name="determine-if-a-dns-change-was-made"></a>Determinare se è stata apportata una modifica DNS
 
-È possibile determinare se è stata apportata una modifica DNS a un endpoint di streaming (il traffico viene indirizzato alla rete <https://www.digwebinterface.com>CDN di Azure) usando. Se nei risultati vengono visualizzati i nomi di dominio azureedge.net, il traffico viene ora puntato alla rete CDN.
+È possibile determinare se è stata apportata una modifica DNS a un endpoint di streaming (il traffico viene indirizzato alla rete CDN di Azure) usando <https://www.digwebinterface.com> . Se nei risultati vengono visualizzati i nomi di dominio azureedge.net, il traffico viene ora puntato alla rete CDN.
 
 ## <a name="origin-assist-cdn-prefetch"></a>Origine-supporto della rete CDN-prelettura
 
@@ -84,12 +84,12 @@ I vantaggi della funzionalità di *prelettura della rete CDN Origin-Assist* incl
 
 ### <a name="how-it-works"></a>Come funziona
 
-Il supporto della rete `Origin-Assist CDN-Prefetch` CDN per le intestazioni (per lo streaming live e video su richiesta) è disponibile per i clienti che hanno un contratto diretto con la rete CDN Akamai. La funzionalità prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali:
+Il supporto della rete CDN per le `Origin-Assist CDN-Prefetch` intestazioni (per lo streaming live e video su richiesta) è disponibile per i clienti che hanno un contratto diretto con la rete CDN Akamai. La funzionalità prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali:
 
 |Intestazione HTTP|Valori|Mittente|Ricevitore|Scopo|
 | ---- | ---- | ---- | ---- | ----- |
 |`CDN-Origin-Assist-Prefetch-Enabled` | 1 (valore predefinito) o 0 |RETE CDN|Origine|Per indicare che la rete CDN è abilitata per la prelettura.|
-|`CDN-Origin-Assist-Prefetch-Path`| Esempio: <br/>Frammenti (video = 1400000000, Format = MPD-Time-CMAF)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN.|
+|`CDN-Origin-Assist-Prefetch-Path`| Esempio: <br/>Frammenti (video=1400000000,format=mpd-time-cmaf)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN.|
 |`CDN-Origin-Assist-Prefetch-Request`|1 (richiesta di prelettura) o 0 (richiesta normale)|RETE CDN|Origine|Per indicare che la richiesta dalla rete CDN è una prelettura.|
 
 Per visualizzare parte dello scambio di intestazioni in azione, è possibile provare a eseguire la procedura seguente:
@@ -124,7 +124,7 @@ La `Origin-Assist CDN-Prefetch` funzionalità supporta i protocolli di streaming
 
 * Per lo streaming live, cosa accadrebbe ad Origin-Assist se il segmento o il frammento successivo non è ancora disponibile?
 
-    In questo caso, l'origine di servizi multimediali non `CDN-Origin-Assist-Prefetch-Path` fornirà l'intestazione e la rete CDN-la prelettura non verrà eseguita.
+    In questo caso, l'origine di servizi multimediali non fornirà l' `CDN-Origin-Assist-Prefetch-Path` intestazione e la rete CDN-la prelettura non verrà eseguita.
 
 * Come `Origin-Assist CDN-Prefetch` funziona con i filtri manifesto dinamici?
 

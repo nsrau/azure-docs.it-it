@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127972"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Personalizzare un modello di linguaggio con l'API Video Indexer
@@ -105,7 +105,7 @@ La risposta fornisce i metadati sul modello di lingua appena sottoposto a traini
 }
 ```
 
-L'oggetto `id` restituito è un ID univoco usato per distinguere i modelli di linguaggio `languageModelId` , mentre viene usato sia per il [caricamento di un video per](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) l'indicizzazione che per [la reindicizzazione di un'API video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) , nota anche come `linguisticModelId` video Indexer le API di caricamento/reindicizzazione.
+L'oggetto restituito `id` è un ID univoco usato per distinguere i modelli di linguaggio, mentre `languageModelId` viene usato sia per il [caricamento di un video per](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) l'indicizzazione che per [la reindicizzazione di un'API video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) , nota anche come video Indexer le `linguisticModelId` API di caricamento/reindicizzazione.
 
 ## <a name="delete-a-language-model"></a>Eliminare un modello linguistico
 
@@ -161,7 +161,7 @@ Utilizzare la `id` dei file restituiti nella risposta per scaricare il contenuto
 
 ## <a name="update-a-file-from-a-language-model"></a>Aggiornare un file da un modello linguistico
 
-Con l' [aggiornamento di un file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) è possibile aggiornare il nome `enable` e lo stato di un file in un modello di lingua personalizzato nell'account specificato.
+Con l' [aggiornamento di un file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) è possibile aggiornare il nome e `enable` lo stato di un file in un modello di lingua personalizzato nell'account specificato.
 
 ### <a name="response"></a>Risposta
 

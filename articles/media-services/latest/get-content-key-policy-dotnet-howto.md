@@ -13,10 +13,10 @@ ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065969"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Ottenere una chiave di firma dai criteri esistenti
@@ -25,7 +25,7 @@ Uno dei principi chiave nella progettazione della versione 3 delle API è render
 
 L'esempio di questo articolo mostra come usare .NET per ottenere una chiave di firma dai criteri esistenti. 
  
-## <a name="download"></a>Download 
+## <a name="download"></a>Scarica 
 
 Clonare nel computer un repository GitHub contenente l'esempio .NET completo usando il comando seguente:  
 

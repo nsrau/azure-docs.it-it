@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062306"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
@@ -39,7 +39,7 @@ L'unico modo per avere come destinazione registrazioni di notifiche specifiche c
 
 ## <a name="tags"></a>Tag
 
-Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici`_`seguenti:'`@`','`#`','`.`','`:`','`-`',''. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche consiste nell'etichettare le registrazioni con tag che rappresentano le diverse bande, come illustrato nella figura seguente:
+Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici seguenti:' `_` ',' `@` ',' `#` ',' `.` ',' `:` ',' `-` '. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche consiste nell'etichettare le registrazioni con tag che rappresentano le diverse bande, come illustrato nella figura seguente:
 
 ![Cenni preliminari sui tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -69,7 +69,7 @@ Non è necessario eseguire il pre-provisioning di tag e può fare riferimento a 
 
 In questo esempio, Alice è interessata agli aggiornamenti per Beatles e Bob è interessato agli aggiornamenti dei lamenti. Bob è anche interessato ai commenti di Charlie e Charlie è interessato ai gemiti. Quando viene inviata una notifica per il commento di Charlie su Beatles, hub di notifica lo invia a Alice e Bob.
 
-Sebbene sia possibile codificare più problemi nei tag (ad esempio `band_Beatles` , `follows_Charlie`o), i tag sono semplici stringhe e non proprietà con valori. Una registrazione corrisponde solo alla presenza o all'assenza di un tag specifico.
+Sebbene sia possibile codificare più problemi nei tag (ad esempio, `band_Beatles` o `follows_Charlie` ), i tag sono semplici stringhe e non proprietà con valori. Una registrazione corrisponde solo alla presenza o all'assenza di un tag specifico.
 
 Per un'esercitazione completa dettagliata su come usare i tag per l'invio a gruppi di interesse, vedere [Ultime notizie](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -82,7 +82,7 @@ Un altro modo per usare i tag consiste nell'identificare tutti i dispositivi ass
 
 ![Utenti tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Nella figura il messaggio con tag `user_Alice` raggiunge tutti i dispositivi contrassegnati con `user_Alice`.
+Nella figura il messaggio con tag `user_Alice` raggiunge tutti i dispositivi contrassegnati con `user_Alice` .
 
 ## <a name="tag-expressions"></a>Espressioni tag
 
@@ -96,7 +96,7 @@ Si consideri un'applicazione sportiva che invia un promemoria su una partita tra
 
 ![Espressioni tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Le espressioni tag supportano gli operatori booleani comuni `AND` ,`&&`ad esempio `OR` (`||`), ( `NOT` )`!`e (); possono inoltre contenere parentesi. Le espressioni Tag che `OR` usano solo gli operatori possono fare riferimento a 20 Tag; espressione con `AND` operatori ma nessun `OR` operatore può fare riferimento a 10 tag; in caso contrario, le espressioni tag sono limitate a 6 tag.
+Le espressioni tag supportano gli operatori booleani comuni, ad esempio `AND` ( `&&` ), `OR` ( `||` ) e `NOT` ( `!` ); possono anche contenere parentesi. Le espressioni Tag che usano solo `OR` gli operatori possono fare riferimento a 20 tag; l'espressione con `AND` operatori ma nessun `OR` operatore può fare riferimento a 10 tag. in caso contrario, le espressioni di tag sono limitate a 6 tag.
 
 Di seguito è riportato un esempio per l'invio di notifiche con espressioni tag con l'SDK:
 

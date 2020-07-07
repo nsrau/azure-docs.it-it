@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056874"
 ---
 # <a name="import-or-export-configuration-data"></a>Importare o esportare dati di configurazione
@@ -28,7 +28,7 @@ Importare i dati usando l'interfaccia della riga di comando di [portale di Azure
 
 1. Passare all'archivio di configurazione dell'app e selezionare **Importa/Esporta** dal menu **operazioni** .
 
-1. Nella scheda **Importa** selezionare file di **Source service** > **configurazione**del servizio di origine.
+1. Nella scheda **Importa** selezionare file di configurazione del **servizio di origine**  >  **Configuration File**.
 
 1. Selezionare **per lingua** e selezionare il tipo di input desiderato.
 
@@ -52,11 +52,11 @@ Esportare i dati usando il [portale di Azure](https://portal.azure.com) o l'inte
 
 1. Individuare l'archivio di configurazione dell'app e selezionare **Importa/Esporta**.
 
-1. Nella scheda **Esporta** selezionare il**file di configurazione**del **servizio** > di destinazione.
+1. Nella scheda **Esporta** selezionare il file di configurazione del **servizio di destinazione**  >  **Configuration File**.
 
 1. Immettere facoltativamente un **prefisso** e selezionare un' **etichetta** e un punto nel tempo per le chiavi da esportare.
 
-1. Selezionare un **File type** > **separatore**di tipo di file.
+1. Selezionare un **File type**  >  **separatore**di tipo di file.
 
 1. Selezionare **applica** per completare l'esportazione.
 

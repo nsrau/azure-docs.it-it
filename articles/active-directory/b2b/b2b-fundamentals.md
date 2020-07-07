@@ -13,17 +13,17 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050857"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedure consigliate per Azure Active Directory B2B
 Questo articolo contiene indicazioni e procedure consigliate per la collaborazione business-to-business (B2B) in Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partire dal 31 marzo 2021**, Microsoft non supporterà più il riscatto degli inviti creando account Azure ad non gestiti e tenant per gli scenari di collaborazione B2B. In preparazione, si consiglia ai clienti di acconsentire esplicitamente all' [autenticazione del codice di posta elettronica](one-time-passcode.md). Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità di anteprima pubblica e siamo lieti di creare altri modi per collaborare.
+   > **A partire dal 31 marzo 2021** Microsoft non supporterà più il riscatto degli inviti tramite la creazione di account e tenant di Azure AD non gestiti per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
 
 ## <a name="b2b-recommendations"></a>Raccomandazioni B2B
 | Recommendation | Commenti |
@@ -35,7 +35,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la collaborazio
 | Utilizzare la funzionalità di invito bulk (anteprima) per invitare più utenti Guest B2B nello stesso momento | Invitare più utenti guest nell'organizzazione allo stesso tempo usando la funzionalità di anteprima di invito bulk nel portale di Azure. Questa funzionalità consente di caricare un file CSV per creare utenti Guest B2B e inviare inviti in blocco. Vedere [esercitazione per l'invito bulk degli utenti B2B](tutorial-bulk-invite.md). |
 | Applicare i criteri di accesso condizionale per Multi-Factor Authentication (autenticazione a più fattori) | È consigliabile applicare i criteri di autenticazione a più fattori nelle app che si desidera condividere con gli utenti B2B partner. In questo modo, l'autenticazione a più fattori verrà applicata in modo coerente alle app nel tenant, indipendentemente dal fatto che l'organizzazione partner stia usando l'autenticazione a più fattori. Vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md). |
 | Se si applicano criteri di accesso condizionale basato su dispositivo, usare gli elenchi di esclusione per consentire l'accesso agli utenti B2B | Se nell'organizzazione sono abilitati i criteri di accesso condizionale basati su dispositivo, i dispositivi utente Guest B2B verranno bloccati perché non sono gestiti dall'organizzazione. È possibile creare elenchi di esclusione contenenti utenti partner specifici per escluderli dal criterio di accesso condizionale basato su dispositivo. Vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md). |
-| Usare un URL specifico del tenant quando si forniscono collegamenti diretti agli utenti Guest B2B | In alternativa al messaggio di posta elettronica di invito, è possibile assegnare a un guest un collegamento diretto all'app o al portale. Questo collegamento diretto deve essere specifico del tenant, ovvero deve includere un ID tenant o un dominio verificato, in modo che il Guest possa essere autenticato nel tenant, in cui si trova l'app condivisa. Vedere [l'esperienza di riscatto per l'utente Guest](redemption-experience.md). |
+| Usare un URL specifico del tenant quando si forniscono collegamenti diretti agli utenti Guest B2B | In alternativa al messaggio di posta elettronica di invito, è possibile assegnare a un utente guest un collegamento diretto all'app o al portale. Questo collegamento diretto deve essere specifico del tenant, ovvero deve includere un ID tenant o un dominio verificato, in modo che il Guest possa essere autenticato nel tenant, in cui si trova l'app condivisa. Vedere [l'esperienza di riscatto per l'utente Guest](redemption-experience.md). |
 | Quando si sviluppa un'app, usare UserType per determinare l'esperienza utente Guest  | Se si sta sviluppando un'applicazione e si desidera fornire esperienze diverse per gli utenti tenant e gli utenti guest, utilizzare la proprietà UserType. L'attestazione UserType non è attualmente inclusa nel token. Le applicazioni devono usare l'API Microsoft Graph per eseguire una query sulla directory in modo che l'utente ottenga il proprio UserType. |
 | Modificare la proprietà UserType *solo* se la relazione dell'utente con l'organizzazione viene modificata | Sebbene sia possibile utilizzare PowerShell per convertire la proprietà UserType per un utente da membro a Guest (e viceversa), è necessario modificare questa proprietà solo se la relazione dell'utente con l'organizzazione cambia. Vedere [proprietà di un utente Guest B2B](user-properties.md).|
 

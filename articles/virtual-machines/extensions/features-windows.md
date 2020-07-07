@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066845"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
@@ -54,11 +54,11 @@ Per informazioni sui sistemi operativi supportati e sulle istruzioni di installa
 
 #### <a name="supported-agent-versions"></a>Versioni supportate dell'agente
 
-Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedi [questo articolo](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Sistemi operativi supportati
 
-L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
+L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedi [questo articolo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
@@ -355,7 +355,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente guest di Windows, esaminare l'attività quando è in corso il provisioning dell'estensione in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Per altri dettagli, controllare i log effettivi dell'estensione in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Per altri dettagli, vedere i log di estensione effettivi in *C:\WindowsAzure\Logs\Plugins \<extensionName> *
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
@@ -423,7 +423,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
 | Nome estensione | Descrizione | Altre informazioni |
 | --- | --- | --- |
-| Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
+| Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione Script personalizzato per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione di accesso alla VM per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067693"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Stored procedure per la gestione di database di Azure per MySQL
@@ -41,7 +41,7 @@ Le stored procedure seguenti sono disponibili nel database di Azure per MySQL pe
 |-----|-----|-----|-----|
 |*MySQL. az_kill*|processlist_id|N/D|Equivale a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina la connessione associata al processlist_id fornito dopo la terminazione di qualsiasi istruzione che la connessione è in esecuzione.|
 |*MySQL. az_kill_query*|processlist_id|N/D|Equivale a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina l'istruzione attualmente in esecuzione per la connessione. Lascia attiva la connessione.|
-|*MySQL. az_load_timezone*|N/D|N/D|Carica le tabelle del fuso orario per `time_zone` consentire l'impostazione del parametro sui valori denominati, ad esempio "US/Pacific".|
+|*MySQL. az_load_timezone*|N/D|N/D|Carica le tabelle del fuso orario per consentire l' `time_zone` impostazione del parametro sui valori denominati, ad esempio "US/Pacific".|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come configurare [replica dei dati in ingresso](howto-data-in-replication.md)

@@ -8,10 +8,10 @@ ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80057008"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
@@ -29,7 +29,7 @@ La `Microsoft.FeatureManagement` libreria include due filtri funzionalità:
 
 ## <a name="registering-a-feature-filter"></a>Registrazione di un filtro funzionalità
 
-È possibile registrare un filtro funzionalità chiamando il `AddFeatureFilter` metodo, specificando il nome del filtro funzionalità. Il codice seguente, ad esempio, `PercentageFilter`registra:
+È possibile registrare un filtro funzionalità chiamando il `AddFeatureFilter` metodo, specificando il nome del filtro funzionalità. Il codice seguente, ad esempio, registra `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,13 +43,13 @@ public void ConfigureServices(IServiceCollection services)
 
 Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad esempio, `PercentageFilter` attiva una funzionalità basata su una percentuale. Dispone di un'impostazione che definisce la percentuale da usare.
 
-È possibile configurare queste impostazioni per i flag di funzionalità definiti nella configurazione app Azure. Ad esempio, seguire questa procedura `PercentageFilter` per abilitare il flag funzionalità per il 50% delle richieste a un'app Web:
+È possibile configurare queste impostazioni per i flag di funzionalità definiti nella configurazione app Azure. Ad esempio, seguire questa procedura per `PercentageFilter` abilitare il flag funzionalità per il 50% delle richieste a un'app Web:
 
 1. Per creare un'app Web con un flag funzionalità, seguire le istruzioni riportate nella [Guida introduttiva: aggiungere flag funzionalità a un'app ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) .
 
 1. Nella portale di Azure passare all'archivio di configurazione e fare clic su **Gestione funzionalità**.
 
-1. Fare clic sul menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Fare clic su **Edit**.
+1. Fare clic sul menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Fare clic su **Modifica**.
 
     > [!div class="mx-imgBorder"]
     > ![Modifica flag funzionalità beta](./media/edit-beta-feature-flag.png)
@@ -80,7 +80,7 @@ Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad ese
 
 ## <a name="feature-filters-in-action"></a>Filtri delle funzionalità in azione
 
-Per visualizzare gli effetti di questo flag di funzionalità, avviare l'applicazione e fare clic sul pulsante **Aggiorna** nel browser più volte. Si noterà che l'elemento *beta* viene visualizzato sulla barra degli strumenti circa il 50% del tempo. Il resto del tempo è nascosto perché `PercentageFilter` disattiva la funzionalità *beta* per un subset di richieste. Il video seguente mostra questo comportamento in azione.
+Per visualizzare gli effetti di questo flag di funzionalità, avviare l'applicazione e fare clic sul pulsante **Aggiorna** nel browser più volte. Si noterà che l'elemento *beta* viene visualizzato sulla barra degli strumenti circa il 50% del tempo. Il resto del tempo è nascosto perché `PercentageFilter` Disattiva la funzionalità *beta* per un subset di richieste. Il video seguente mostra questo comportamento in azione.
 
 > [!div class="mx-imgBorder"]
 > ![PercentageFilter in azione](./media/feature-flags-percentagefilter.gif)
