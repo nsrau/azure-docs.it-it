@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430630"
 ---
 # <a name="initializer-codepackages"></a>CodePackage dell'inizializzatore
@@ -21,7 +21,7 @@ Prima di procedere con questo articolo, è consigliabile acquisire familiarità 
 > [!NOTE]
 > I CodePackage degli inizializzatori non sono attualmente supportati per i servizi scritti utilizzando il modello di programmazione [Reliable Services][reliable-services-link] .
  
-## <a name="semantics"></a>Semantics
+## <a name="semantics"></a>Semantica
 
 È prevista l'esecuzione di un CodePackage dell'inizializzatore per **completare correttamente (codice di uscita 0)**. Un CodePackage inizializzatore non riuscito viene riavviato fino a quando non viene completato correttamente. Sono consentiti più CodePackage dell'inizializzatore e **successful completion**vengono eseguiti in modo sequenziale, in modo **sequenziale**, **in un ordine specificato** prima dell'inizio dell'esecuzione di altri CodePackage in ServicePackage.
 
@@ -52,7 +52,7 @@ Viene ora esaminato un esempio completo con i CodePackage di inizializzatori.
 >
 > Questo esempio fa riferimento a mcr.microsoft.com/windows/nanoserver:1809. I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Il ServiceManifest. XML seguente si basa sul frammento di ServiceManifest descritto in precedenza. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* sono codepackages che rappresentano i contenitori. Al momento dell'attivazione, *InitCodePackage0* viene eseguito per primo. Registra un messaggio in un file e viene chiuso. Viene quindi eseguito *InitCodePackage1* , che registra anche un messaggio in un file e viene chiuso. Infine, il *WorkloadCodePackage* avvia l'esecuzione. Registra inoltre un messaggio in un file, restituisce il contenuto del file in **stdout** e quindi esegue il ping per sempre.
+Il ServiceManifest.xml seguente si basa sul frammento di ServiceManifest descritto in precedenza. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* sono codepackages che rappresentano i contenitori. Al momento dell'attivazione, *InitCodePackage0* viene eseguito per primo. Registra un messaggio in un file e viene chiuso. Viene quindi eseguito *InitCodePackage1* , che registra anche un messaggio in un file e viene chiuso. Infine, il *WorkloadCodePackage* avvia l'esecuzione. Registra inoltre un messaggio in un file, restituisce il contenuto del file in **stdout** e quindi esegue il ping per sempre.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ Il ServiceManifest. XML seguente si basa sul frammento di ServiceManifest descri
 </ServiceManifest>
 ```
 
-Nel file ApplicationManifest. XML seguente viene descritta un'applicazione basata su ServiceManifest. XML descritto in precedenza. Si noti che specifica lo stesso montaggio del **volume** per tutti i contenitori, ad esempio **C:\WorkspaceOnHost** viene montato in **C:\WorkspaceOnContainer** in tutti e tre i contenitori. Il risultato finale è che tutti i contenitori scrivono nello stesso file di log nell'ordine in cui sono attivati.
+Il ApplicationManifest.xml seguente descrive un'applicazione basata sul ServiceManifest.xml descritto in precedenza. Si noti che specifica lo stesso montaggio del **volume** per tutti i contenitori, ad esempio **C:\WorkspaceOnHost** viene montato in **C:\WorkspaceOnContainer** in tutti e tre i contenitori. Il risultato finale è che tutti i contenitori scrivono nello stesso file di log nell'ordine in cui sono attivati.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

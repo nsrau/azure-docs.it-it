@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415681"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurare il supporto di identità gestite in un cluster di Service Fabric esistente
@@ -40,7 +40,7 @@ Per abilitare il servizio token di identità gestito in un cluster esistente, è
 ]
 ```
 
-Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice `forceRestart` seguente è l'impostazione essenziale per abilitare il riavvio. Per i parametri rimanenti, usare i valori descritti di seguito o usare i valori personalizzati esistenti già specificati per la risorsa cluster. Le impostazioni personalizzate per i criteri di aggiornamento dell'infrastruttura (' upgradeDescription ') possono essere visualizzate nel portale di Azure selezionando l'opzione ' aggiornamenti dell'infrastruttura ' nella risorsa Service Fabric o in resources.azure.com. Le opzioni predefinite per i criteri di aggiornamento (' upgradeDescription ') non sono visualizzabili da PowerShell o da resources.azure.com. Per ulteriori informazioni, vedere [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
+Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice seguente `forceRestart` è l'impostazione essenziale per abilitare il riavvio. Per i parametri rimanenti, usare i valori descritti di seguito o usare i valori personalizzati esistenti già specificati per la risorsa cluster. Le impostazioni personalizzate per i criteri di aggiornamento dell'infrastruttura (' upgradeDescription ') possono essere visualizzate nel portale di Azure selezionando l'opzione ' aggiornamenti dell'infrastruttura ' nella risorsa Service Fabric o in resources.azure.com. Le opzioni predefinite per i criteri di aggiornamento (' upgradeDescription ') non sono visualizzabili da PowerShell o da resources.azure.com. Per ulteriori informazioni, vedere [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
 
 ```json
 "upgradeDescription": {

@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430552"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Protezione di un servizio collegato con collegamenti privati 
@@ -23,20 +23,20 @@ In questo articolo si apprenderà come proteggere un servizio collegato in sinap
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: si usa Azure Data Lake generazione 2 come archivio dati di *origine* . Se non si ha un account di archiviazione, vedere [creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per i passaggi necessari per crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
+* **Account di archiviazione di Azure**: usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per informazioni su come crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
 
 ![Account di archiviazione protetto](./media/secure-storage-account.png)
 
 ## <a name="create-a-linked-service-with-private-links"></a>Creare un servizio collegato con collegamenti privati
 
-In Azure sinapsi Analytics un servizio collegato è il punto in cui si definiscono le informazioni di connessione ad altri servizi. In questa sezione verranno aggiunti Azure sinapsi Analytics e Azure Data Lake generazione 2 come servizi collegati.
+In Azure Synapse Analytics si usano i servizi collegati per definire le informazioni di connessione ad altri servizi. In questa sezione Azure Synapse Analytics e Azure Data Lake Gen 2 verranno aggiunti come servizi collegati.
 
 1. Aprire Azure sinapsi studio e passare alla scheda **Gestisci** .
-1. In **connessioni esterne**selezionare **servizi collegati**.
-1. Per aggiungere un servizio collegato, fare clic su **nuovo**.
-1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e fare clic su **continua**.
+1. In **Connessioni esterne** selezionare **Servizi collegati**.
+1. Per aggiungere un servizio collegato, fare clic su **Nuovo**.
+1. Selezionare il riquadro Azure Data Lake Storage Gen2 nell'elenco e fare clic su **Continua**.
 1. Assicurarsi di abilitare la **creazione interattiva**. L'abilitazione potrebbe richiedere circa 1 minuto. 
-1. Immettere le credenziali di autenticazione. La chiave dell'account, l'entità servizio e l'identità gestita sono i tipi di autenticazione attualmente supportati. Fare clic su Test connessione per verificare che le credenziali siano corrette.
+1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Fare clic su Test connessione per verificare che le credenziali siano corrette.
 1. Selezionare **Test connessione**. l'operazione non riesce perché l'account di archiviazione non consente l'accesso al suo interno senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
 1. Selezionare **Create** (Crea) al termine.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461702"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
@@ -100,10 +100,10 @@ Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitiga
 
 | Threat | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
 | --- | --- | --- |
-| Spoofing | Autenticazione | Richiede connessioni HTTPS. |
+| Spoofing | Authentication | Richiede connessioni HTTPS. |
 | Manomissione | Integrità | Convalidare i certificati TLS/SSL. |
 | Ripudio | Non ripudio | Abilitazione del [monitoraggio e diagnostica](/azure/architecture/best-practices/monitoring) di Azure. |
-| Diffusione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
+| Divulgazione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
 | Denial of Service | Disponibilità | Monitorare le metriche delle prestazioni per le potenziali condizioni di Denial of service. Implementare i filtri di connessione. |
 | Elevazione dei privilegi | Autorizzazione | Usare [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
@@ -145,7 +145,7 @@ Usare [Azure Application Insights](https://azure.microsoft.com/documentation/ser
 Application Insights include strumenti estensivi per l'interazione con i dati raccolti dal servizio stesso. Application Insights archivia questi dati in un repository comune. Può sfruttare le funzionalità condivise, ad esempio gli avvisi, i dashboard e l'analisi approfondita con il linguaggio di query kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Eseguire test di penetrazione della sicurezza
-La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Eseguire [test di penetrazione](pen-testing.md) in una parte standard del processo di compilazione e distribuzione. Pianificare test di sicurezza e analisi delle vulnerabilità regolari sulle applicazioni distribuite e monitorare le porte aperte, gli endpoint e gli attacchi.
+La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Eseguire [test di penetrazione](pen-testing.md) in una parte standard del processo di compilazione e distribuzione. Pianificare test di sicurezza e analisi delle vulnerabilità periodici sulle applicazioni distribuite, monitorando eventuali porte aperte, endpoint e attacchi.
 
 Il test fuzzy è un metodo per individuare gli errori del programma (errori del codice) fornendo dati di input in formato non valido alle interfacce di programma (punti di ingresso) che analizzano e utilizzano questi dati. Il rilevamento dei rischi per la [sicurezza di Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) è uno strumento basato sul cloud che è possibile usare per cercare bug e altre vulnerabilità di sicurezza nel software prima di distribuirlo in Azure. Lo strumento è progettato per rilevare le vulnerabilità prima di distribuire il software, in modo da non dover applicare patch a un bug, gestire arresti anomali o rispondere a un attacco dopo il rilascio del software.
 

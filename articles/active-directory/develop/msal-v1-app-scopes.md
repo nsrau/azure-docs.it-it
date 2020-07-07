@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536183"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accettano i token v 1.0
@@ -25,7 +25,7 @@ Le autorizzazioni di OAuth2 sono ambiti di autorizzazione che un'applicazione di
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Per acquisire i token per ambiti specifici di un'applicazione v 1.0, ad esempio l'API Microsoft Graph, ovvero https://graph.microsoft.com)creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
+Per acquisire i token per ambiti specifici di un'applicazione v 1.0, ad esempio l'API Microsoft Graph, ovvero https://graph.microsoft.com) creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
 
 Ad esempio, per accedere per conto dell'utente a un'API Web v1.0 dove l'URI dell'ID app è `ResourceId`:
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Per leggere e scrivere con MSAL.NET Azure AD usando l'API Microsoft Graph (https:\//Graph.Microsoft.com/), è necessario creare un elenco di ambiti, come illustrato negli esempi seguenti:
+Per leggere e scrivere con MSAL.NET Azure AD usando l'API Microsoft Graph (https: \/ /Graph.Microsoft.com/), è necessario creare un elenco di ambiti, come illustrato negli esempi seguenti:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Per scrivere l'ambito corrispondente all'API Azure Resource Manager (https:\//Management.Core.Windows.NET/), è necessario richiedere l'ambito seguente (prendere nota delle due barre):
+Per scrivere l'ambito corrispondente all'API Azure Resource Manager (https: \/ /Management.Core.Windows.NET/), è necessario richiedere l'ambito seguente (prendere nota delle due barre):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -65,7 +65,7 @@ La logica usata da Azure AD è la seguente:
 
 - Per l'endpoint ADAL (Azure AD v 1.0) con un token di accesso v 1.0 (l'unico possibile), AUD = Resource
 - Per l'endpoint MSAL (Microsoft Identity Platform (v 2.0)) che richiede un token di accesso per una risorsa che accetta i token v 2.0,`aud=resource.AppId`
-- Per MSAL (endpoint v 2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v 1.0 (ovvero il caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa. Se, pertanto, HTTPS\/:/database.Windows.NET prevede un pubblico di "https:\//database.Windows.NET/", è necessario richiedere un ambito di "https:\//database.Windows.NET//.default". Vedere anche il problema [di GitHub #747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- Per MSAL (endpoint v 2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v 1.0 (ovvero il caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa. Se, pertanto, https: \/ /database.Windows.NET prevede un pubblico di "https: \/ /database.Windows.NET/", è necessario richiedere un ambito di "https: \/ /database.Windows.NET//.default". Vedere anche il problema [di GitHub #747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0
 

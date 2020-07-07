@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415342"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiare dati da ServiceNow usando Azure Data Factory
@@ -27,14 +27,14 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore ServiceNow è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da ServiceNow a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,10 +49,10 @@ Per il servizio collegato ServiceNow sono supportate le proprietà seguenti:
 | type | La proprietà type deve essere impostata su **ServiceNow**. | Sì |
 | endpoint | Endpoint del server ServiceNow (`http://<instance>.service-now.com`).  | Sì |
 | authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono **Basic**, **OAuth2** | Sì |
-| nomeutente | Nome utente usato per la connessione al server di ServiceNow per l'autenticazione di base e OAuth2.  | Sì |
-| password | Password corrispondente al nome utente per l'autenticazione di base e OAuth2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| username | Nome utente usato per la connessione al server di ServiceNow per l'autenticazione di base e OAuth2.  | Sì |
+| password | Password corrispondente al nome utente per l'autenticazione di base e OAuth2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | clientId | ID client per l'autenticazione OAuth2.  | No |
-| clientSecret | Segreto client per l'autenticazione OAuth2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| clientSecret | Segreto client per l'autenticazione OAuth2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
@@ -124,7 +124,7 @@ Tenere presente quanto segue quando si specifica lo schema e la colonna per Serv
 - **Colonna:** il nome di colonna per il valore effettivo nello schema `Actual` è `[column name]_value`, mentre il valore visualizzato nello schema `Display` è `[column name]_display_value`. Si noti il nome della colonna deve essere mappato allo schema usato nella query.
 
 **Query di esempio:** 
- `SELECT col_value FROM Actual.alm_asset` o 
+ `SELECT col_value FROM Actual.alm_asset` O 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Esempio:**
@@ -170,9 +170,9 @@ Se la query include un filtro, usare lo schema "Actual" che offre prestazioni di
 
 L'indice di tabella di ServiceNow può essere utile per migliorare le prestazioni delle query. Vedere [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html) (Creare un indice di tabella).
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

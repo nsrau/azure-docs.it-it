@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683723"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
@@ -416,7 +416,7 @@ Si tratta di un passaggio facoltativo. Può essere ignorato se si usa un client 
    > La chiave deve contenere la stringa `ssh-rsa`. In aggiunta, il contenuto della chiave deve essere una singola riga di testo.
    >  
 
-6. Avviare PuTTY. Nel riquadro **categoria** selezionare **connessione** > **SSH** > **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
+6. Avviare PuTTY. Nel riquadro **categoria** selezionare **connessione**  >  **SSH**  >  **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
 
    ![Schermata della pagina di impostazione della chiave privata](./media/oracle-golden-gate/setprivatekey.png)
 
@@ -439,7 +439,7 @@ Per installare Oracle Golden Gate seguire questa procedura:
    $ ./runInstaller
    ```
 
-2. Selezionare 'Oracle GoldenGate for Oracle Database 12c'. Selezionare quindi **Next** (Avanti) per continuare.
+2. Selezionare 'Oracle GoldenGate for Oracle Database 12c'. Quindi selezionare **Avanti** per continuare.
 
    ![Screenshot della pagina Select Installation Option (Selezionare l'opzione di installazione) del programma di installazione](./media/oracle-golden-gate/golden_gate_install_01.png)
 
@@ -781,7 +781,7 @@ La replica è iniziata ed è possibile testarla inserendo nuovi record nelle tab
 
 ### <a name="view-job-status-and-troubleshooting"></a>Visualizzare lo stato del processo e le informazioni di risoluzione dei problemi
 
-#### <a name="view-reports"></a>Visualizzazione di report
+#### <a name="view-reports"></a>Visualizzare i report
 Per visualizzare i report in myVM1, eseguire questi comandi:
 
   ```bash

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81457978"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Crittografia dei dati per il server singolo database di Azure per PostgreSQL usando il portale di Azure
@@ -41,7 +41,7 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Impostare le autorizzazioni appropriate per le operazioni chiave
 
-1. In Key Vault selezionare **criteri** > di accesso**Aggiungi criteri di accesso**.
+1. In Key Vault selezionare **criteri di accesso**  >  **Aggiungi criteri di accesso**.
 
    ![Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -67,9 +67,9 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso della crittografia dei dati per i server di ripristino o di replica
 
-Dopo che il server singolo di database di Azure per PostgreSQL è stato crittografato con una chiave gestita del cliente archiviata in Key Vault, viene crittografata anche qualsiasi copia appena creata del server. Questa nuova copia può essere eseguita tramite un'operazione di ripristino locale o geografica oppure tramite un'operazione di replica (locale/tra aree). Per un server PostgreSQL crittografato, è quindi possibile usare la procedura seguente per creare un server ripristinato crittografato.
+Una volta crittografato il server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente archiviata in Key Vault, viene crittografata anche qualsiasi nuova copia creata del server. Questa nuova copia può essere eseguita tramite un'operazione di ripristino locale o geografica oppure tramite un'operazione di replica (locale/tra aree). Per un server PostgreSQL crittografato, è quindi possibile usare la procedura seguente per creare un server ripristinato crittografato.
 
-1. Nel server selezionare **Panoramica** > **ripristino**.
+1. Nel server selezionare **Panoramica**  >  **ripristino**.
 
    ![Screenshot del database di Azure per PostgreSQL con panoramica e ripristino evidenziati](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ Dopo che il server singolo di database di Azure per PostgreSQL è stato crittogr
 
    ![Screenshot del database di Azure per PostgreSQL, con stato inaccessibile evidenziato](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare > **chiave di riconvalida** **crittografia dati**.
+3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare **Data Encryption**  >  **chiave di riconvalida**crittografia dati.
 
    > [!NOTE]
    > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key**, che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.

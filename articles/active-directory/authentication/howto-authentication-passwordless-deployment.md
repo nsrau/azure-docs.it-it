@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451432"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
@@ -82,7 +82,7 @@ I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuz
 
 Gli utenti registrano il proprio metodo con password come parte del flusso di registrazione di Azure Multifactor Authentication. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
 
-### <a name="licensing"></a>Gestione licenze 
+### <a name="licensing"></a>Gestione delle licenze 
 Non sono previsti costi aggiuntivi per l'autenticazione senza password, sebbene alcuni prerequisiti possano richiedere una sottoscrizione Premium. Per informazioni dettagliate sulle funzionalità e sulle licenze nella [pagina Azure Active Directory Licensing](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Sviluppare un piano
@@ -101,7 +101,7 @@ Nella tabella seguente vengono illustrati i casi d'uso da implementare durante i
 | **Sicurezza** | L'accesso al metodo di autenticazione appropriato viene controllato tramite le assegnazioni di utenti e gruppi. <br> Solo gli utenti autorizzati possono usare l'accesso senza password. |
 | **Prestazioni** | Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate <br> Il tempo di accesso viene misurato per facilitarne l'uso. |
 | **Esperienza utente** | Gli utenti sono consapevoli della compatibilità con i dispositivi mobili. <br> Gli utenti possono configurare l'accesso senza password dell'app Authenticator. |
-| **Supporto tecnico** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
+| **Supporto** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
@@ -118,7 +118,7 @@ Le comunicazioni agli utenti finali devono includere le seguenti informazioni:
 - [Registrazione nell'app Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Accesso con il telefono](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft fornisce [modelli di comunicazione](https://aka.ms/mfatemplates)di autenticazione a più fattori, [modelli di comunicazione](https://www.microsoft.com/download/details.aspx?id=56768)self-service per la reimpostazione della password (SSPR) e documentazione per l' [utente finale](../user-help/security-info-setup-signin.md) per facilitare la stesura delle comunicazioni. È possibile inviare utenti a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) per la registrazione diretta selezionando i collegamenti **info di sicurezza** nella pagina.
+Microsoft fornisce [modelli di comunicazione](https://aka.ms/mfatemplates)di autenticazione a più fattori, [modelli di comunicazione](https://www.microsoft.com/download/details.aspx?id=56768)self-service per la reimpostazione della password (SSPR) e documentazione per l' [utente finale](../user-help/security-info-setup-signin.md) per facilitare la stesura delle comunicazioni. È possibile indirizzare gli utenti a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) in modo che eseguano la registrazione direttamente selezionando i collegamenti alle **informazioni di sicurezza** nella pagina.
 
 ### <a name="plan-to-pilot"></a>Pianificare il progetto pilota
 
@@ -172,7 +172,7 @@ Per un elenco completo dei requisiti, vedere [abilitare la chiave di sicurezza s
 Le chiavi di sicurezza consentono l'accesso alle risorse ed è necessario pianificare la gestione di tali dispositivi fisici.
 
 1. **Distribuzione**delle chiavi: pianificare il provisioning delle chiavi per l'organizzazione. È possibile disporre di un processo di provisioning centralizzato o consentire agli utenti finali di acquistare chiavi compatibili con FIDO 2,0.
-1. **Attivazione chiave**: gli utenti finali devono attivare autonomamente la chiave di sicurezza. Gli utenti finali registrano le chiavi [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) di sicurezza in e abilitano il secondo fattore (PIN o biometrico) al primo utilizzo.
+1. **Attivazione chiave**: gli utenti finali devono attivare autonomamente la chiave di sicurezza. Gli utenti finali registrano le chiavi di sicurezza in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e abilitano il secondo fattore (PIN o biometrico) al primo utilizzo.
 1. **Disabilitazione di una chiave**: mentre la funzionalità chiave di sicurezza si trova nella fase di anteprima, non è possibile che un amministratore rimuova una chiave da un account utente. L'utente deve rimuoverlo. Se un tasto viene smarrito o rubato:
    1. Rimuovere l'utente da qualsiasi gruppo abilitato per l'autenticazione senza password.
    1. Verificare che la chiave sia stata rimossa come metodo di autenticazione.
@@ -228,14 +228,14 @@ Nella tabella seguente vengono forniti alcuni esempi di scenari di Reporting tip
 
 **Azure ad mantiene la maggior parte dei dati di controllo per 30 giorni** e rende disponibili i dati tramite il portale di amministrazione di Azure o l'API da scaricare nei sistemi di analisi. Se è necessario un periodo di conservazione più lungo, esportare e utilizzare i log in uno strumento SIEM, ad esempio [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o Sumo Logic. [Scopri di più sulla visualizzazione dei report di accesso e utilizzo](../reports-monitoring/overview-reports.md).
 
-Gli utenti possono registrare e gestire le proprie credenziali passando a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Questo collegamento indirizza gli utenti all'esperienza di gestione delle credenziali dell'utente finale abilitata tramite l'esperienza di registrazione combinata di SSPR/autenticazione a più fattori. Azure AD registra la registrazione dei dispositivi di sicurezza FIDO2 e modifica i metodi di autenticazione da parte di un utente.
+Gli utenti possono registrare e gestire le proprie credenziali passando a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Questo collegamento indirizza gli utenti all'esperienza di gestione delle credenziali dell'utente finale abilitata tramite l'esperienza di registrazione combinata di SSPR/autenticazione a più fattori. Azure AD registra la registrazione dei dispositivi di sicurezza FIDO2 e modifica i metodi di autenticazione da parte di un utente.
 
 ### <a name="plan-security"></a>Pianificare la sicurezza
 Come parte di questo piano di implementazione, Microsoft consiglia di abilitare l'autenticazione senza password per tutti gli account amministratore con privilegi.
 
 Quando gli utenti abilitano o disabilitano l'account su una chiave di sicurezza o reimpostano il secondo fattore per la chiave di sicurezza nei computer Windows 10, viene aggiunta una voce al registro di sicurezza e sono inclusi gli ID evento seguenti: *4670* e *5382*.
 
-### <a name="plan-testing"></a>Test del piano
+### <a name="plan-testing"></a>Panificare i test
 
 In ogni fase della distribuzione quando si verificano scenari e adozione, assicurarsi che i risultati siano quelli previsti.
 
@@ -324,7 +324,7 @@ Seguire i passaggi descritti nell'articolo [abilitare la chiave di sicurezza sen
 | **Messaggio di errore**: è stato rilevato che il browser o il sistema operativo non supporta le chiavi di sicurezza FIDO2. | I dispositivi di sicurezza FIDO2 con password possono essere registrati solo nei browser supportati (Microsoft Edge, Firefox versione 67) in Windows 10 versione 1809 o successiva. |
 | **Messaggio di errore**: per i criteri aziendali è necessario usare un metodo diverso per eseguire l'accesso. | Nel tenant sono abilitate le chiavi di sicurezza non sicure. |
 | L'utente non è in grado di gestire la chiave di sicurezza in Windows 10 versione 1809 | La versione 1809 richiede l'uso del software di gestione delle chiavi di sicurezza fornito dal fornitore della chiave FIDO2. Per assistenza, contattare il fornitore. |
-| Credo che la chiave di sicurezza FIDO2 potrebbe essere difettosa, come è possibile testarla. | Passare a [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), immettere le credenziali per un account di test, inserire la chiave di sicurezza sospetta, **+** Selezionare il pulsante nella parte superiore destra della schermata, fare clic su Crea e seguire il processo di creazione. Se questo scenario ha esito negativo, il dispositivo potrebbe essere difettoso. |
+| Credo che la chiave di sicurezza FIDO2 potrebbe essere difettosa, come è possibile testarla. | Passare a [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/) , immettere le credenziali per un account di test, inserire la chiave di sicurezza sospetta, selezionare il **+** pulsante nella parte superiore destra della schermata, fare clic su Crea e seguire il processo di creazione. Se questo scenario ha esito negativo, il dispositivo potrebbe essere difettoso. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

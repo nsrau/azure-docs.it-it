@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682634"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modello di risorsa dell'applicazione Service Fabric
@@ -50,7 +50,7 @@ Per distribuire un'applicazione da un modello di Gestione risorse, è necessario
 
 ### <a name="configure-your-storage-account"></a>Configurare l'account di archiviazione
 
-Dopo aver creato l'account di archiviazione, si crea un contenitore BLOB in cui le applicazioni possono essere preparate per la gestione temporanea. Nella portale di Azure passare all'account di archiviazione di Azure in cui si desidera archiviare le applicazioni. Selezionare **BLOB** > **Aggiungi contenitore**. 
+Dopo aver creato l'account di archiviazione, si crea un contenitore BLOB in cui le applicazioni possono essere preparate per la gestione temporanea. Nella portale di Azure passare all'account di archiviazione di Azure in cui si desidera archiviare le applicazioni. Selezionare **BLOB**  >  **Aggiungi contenitore**. 
 
 Le risorse del cluster possono essere protette impostando il livello di accesso pubblico su **privato**. È possibile concedere l'accesso in diversi modi:
 
@@ -71,7 +71,7 @@ In questa esercitazione viene usata l' [applicazione di voto di esempio](https:/
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **votante** , quindi selezionare **pacchetto**.
 
    ![Applicazione pacchetto][PackageApplication]  
-1. Passare alla directory *.\Service-Fabric-DotNet-quickstart\Voting\pkg\Debug* Comprimere il contenuto in un file denominato *voter. zip*. Il file *ApplicationManifest. XML* deve trovarsi nella radice del file zip.
+1. Passare alla directory *.\Service-Fabric-DotNet-quickstart\Voting\pkg\Debug* Zippare il contenuto in un file denominato *Voting.zip*. Il file di *ApplicationManifest.xml* deve trovarsi nella radice del file zip.
 
    ![Applicazione zip][ZipApplication]  
 1. Rinominare il file per modificare l'estensione da zip a *. sfpkg*.
@@ -84,10 +84,10 @@ A questo punto, l'applicazione è in fase di gestione temporanea ed è possibile
 
 ### <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
 
-Nell'applicazione di esempio sono contenuti [Azure Resource Manager modelli](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) che è possibile utilizzare per distribuire l'applicazione. I nomi dei file di modello sono *UserApp. JSON* e *UserApp. Parameters. JSON*.
+Nell'applicazione di esempio sono contenuti [Azure Resource Manager modelli](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) che è possibile utilizzare per distribuire l'applicazione. I nomi dei file di modello vengono *UserApp.jsin* e *UserApp.Parameters.js*.
 
 > [!NOTE]
-> Il file *UserApp. Parameters. JSON* deve essere aggiornato con il nome del cluster.
+> Il *UserApp.Parameters.jsnel* file deve essere aggiornato con il nome del cluster.
 >
 >
 
@@ -95,11 +95,11 @@ Nell'applicazione di esempio sono contenuti [Azure Resource Manager modelli](htt
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nome del cluster in cui si sta eseguendo la distribuzione | SF-cluster123                                                |                                                              |
 | application            | Nome dell'applicazione                 | Voto                                                       |
-| applicationTypeName    | Nome del tipo di applicazione           | VotingType                                                   | Deve corrispondere a ApplicationManifest. XML                 |
-| applicationTypeVersion | Versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ApplicationManifest. XML                 |
+| applicationTypeName    | Nome del tipo di applicazione           | VotingType                                                   | Deve corrispondere ApplicationManifest.xml                 |
+| applicationTypeVersion | Versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere ApplicationManifest.xml                 |
 | serviceName            | Nome del servizio         | Voto ~ VotingWeb                                             | Deve essere nel formato ApplicationName ~ ServiceType            |
-| serviceTypeName        | Nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere a ServiceManifest. XML                 |
-| appPackageUrl          | URL di archiviazione BLOB dell'applicazione     | https:\//servicefabricapps.blob.Core.Windows.NET/Apps/voting.sfpkg | L'URL del pacchetto dell'applicazione nell'archivio BLOB (la procedura per impostare l'URL è descritto più avanti in questo articolo) |
+| serviceTypeName        | Nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere ServiceManifest.xml                 |
+| appPackageUrl          | URL di archiviazione BLOB dell'applicazione     | https: \/ /servicefabricapps.blob.Core.Windows.NET/Apps/voting.sfpkg | L'URL del pacchetto dell'applicazione nell'archivio BLOB (la procedura per impostare l'URL è descritto più avanti in questo articolo) |
 
 ```json
 {
@@ -140,7 +140,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 È possibile aggiornare un'applicazione che è già stata distribuita in un cluster Service Fabric per uno dei seguenti motivi:
 
-* Un nuovo servizio viene aggiunto all'applicazione. Quando un servizio viene aggiunto all'applicazione, è necessario aggiungere una definizione del servizio ai file *Service-manifest. XML* e *Application-Manifest. XML* . Per riflettere una nuova versione di un'applicazione, è necessario anche modificare la versione del tipo di applicazione da 1.0.0 a 1.0.1 in [UserApp. Parameters. JSON](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* Un nuovo servizio viene aggiunto all'applicazione. È necessario aggiungere una definizione del servizio a *service-manifest.xml* e *application-manifest.xml* file quando un servizio viene aggiunto all'applicazione. Per riflettere una nuova versione di un'applicazione, è necessario modificare anche la versione del tipo di applicazione da 1.0.0 a 1.0.1 in [UserApp.Parameters.js](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json)in:
 
     ```json
     "applicationTypeVersion": {
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
     }
     ```
 
-* All'applicazione viene aggiunta una nuova versione di un servizio esistente. Gli esempi includono modifiche al codice dell'applicazione e aggiornamenti alla versione e al nome del tipo di app. Per questo aggiornamento, aggiornare UserApp. Parameters. JSON come segue:
+* All'applicazione viene aggiunta una nuova versione di un servizio esistente. Gli esempi includono modifiche al codice dell'applicazione e aggiornamenti alla versione e al nome del tipo di app. Per questo aggiornamento, aggiornare UserApp.Parameters.jsin modo analogo al seguente:
 
     ```json
      "applicationTypeVersion": {

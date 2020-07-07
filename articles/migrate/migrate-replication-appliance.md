@@ -4,10 +4,10 @@ description: Informazioni sull'appliance di replica di Azure Migrate per la migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535214"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
@@ -26,7 +26,7 @@ L'appliance di replica viene distribuita quando si configura la migrazione basat
 
 ## <a name="appliance-deployment"></a>Distribuzione dell'appliance
 
-**Utilizzato per** | **Dettagli**
+**Usata per** | **Dettagli**
 --- |  ---
 **Migrazione basata su agente di macchine virtuali VMware** | Scaricare il modello OVA dall'hub Azure Migrate e importare in server vCenter per creare la macchina virtuale dell'appliance.
 **Migrazione basata su Agente computer fisico** | Se non si dispone di un'infrastruttura VMware o se non è possibile creare una VM VMware usando un modello OVA, scaricare un programma di installazione software dall'hub Azure Migrate ed eseguirlo per configurare il computer dell'appliance.
@@ -51,14 +51,14 @@ Spazio libero su disco (cache) | 600 GB
 Spazio libero su disco (disco di conservazione) | 600 GB
 **Impostazioni software** |
 Sistema operativo | Windows Server 2016 o Windows Server 2012 R2
-Licenza | L'Appliance viene fornita con una licenza di valutazione di Windows Server 2016, valida per 180 giorni.<br/><br/> Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
+Licenza | L'Appliance viene fornita con una licenza di valutazione di Windows Server 2016, valida per 180 giorni.<br/><br/> Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
 Impostazioni locali del sistema operativo | Inglese (en-us)
 TLS | TLS 1,2 deve essere abilitato.
 .NET Framework | Nel computer deve essere installato .NET Framework 4,6 o versione successiva (con crittografia avanzata abilitata.
 MySQL | MySQL deve essere installato nell'appliance.<br/> MySQL deve essere installato. È possibile eseguire l'installazione manualmente oppure Site Recovery possibile installarla durante la distribuzione dell'appliance.
 Altre app | Non eseguire altre app nell'appliance di replica.
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Impostazioni di rete** |
 Tipo di indirizzo IP | Statico
@@ -88,7 +88,7 @@ Il dispositivo di replica deve accedere a questi URL nel cloud pubblico di Azure
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.NET <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | L'installazione dell'appliance richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | L'installazione dell'appliance richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
 
 
@@ -105,12 +105,12 @@ L'appliance di replica deve accedere a questi URL in Azure per enti pubblici.
 https:\//management.usgovcloudapi.net | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.NET <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | Per la configurazione dell'appliance con OVA è necessario l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità per Azure Active Directory.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | Per la configurazione dell'appliance con OVA è necessario l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità per Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
 
 ## <a name="port-access"></a>Accesso alla porta
 
-**Dispositivo** | **Connessione**
+**Dispositivo** | **Connection**
 --- | ---
 VM | Il servizio Mobility in esecuzione nelle VM comunica con l'appliance di replica locale (server di configurazione) sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
 Appliance di replica | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
@@ -129,9 +129,9 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
     - Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia ad archiviazione di Azure tramite la porta 443 in uscita.
 5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![Architettura](./media/migrate-replication-appliance/architecture.png)
 
-## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
+## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
 
 L'Appliance viene aggiornata manualmente dall'hub Azure Migrate. Si consiglia di eseguire sempre la versione più recente.
 

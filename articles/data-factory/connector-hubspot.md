@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415215"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiare dati da HubSpot tramite Azure Data Factory (anteprima)
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore HubSpot è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 
@@ -38,7 +38,7 @@ Questo connettore HubSpot è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -52,9 +52,9 @@ Per il servizio collegato di HubSpot sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Hubspot** | Sì |
 | clientId | ID client associato all'applicazione HubSpot. Informazioni su come creare un'app in HubSpot da [qui](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Sì |
-| clientSecret | Segreto client associato all'applicazione HubSpot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Informazioni su come ottenere un token di accesso con l'ID client e il segreto da [qui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| clientSecret | Segreto client associato all'applicazione HubSpot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Informazioni su come ottenere un token di accesso con l'ID client e il segreto da [qui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
@@ -158,9 +158,9 @@ Per copiare dati da HubSpot, impostare il tipo di origine nell'attività di copi
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

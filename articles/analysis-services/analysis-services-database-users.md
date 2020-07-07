@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454204"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
@@ -27,7 +27,7 @@ Le autorizzazioni di ruoli includono:
 
 Quando si crea un progetto di modello tabulare, è possibile creare ruoli e aggiungere utenti o gruppi a tali ruoli usando Gestione ruoli in Visual Studio con Analysis Services progetti. Quando si esegue la distribuzione in un server, usare SQL Server Management Studio (SSMS), [Analysis Services cmdlet di PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)o TMSL ( [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) per aggiungere o rimuovere ruoli e membri utente.
 
-Quando si aggiunge un **gruppo**di sicurezza `obj:groupid@tenantid`, utilizzare.
+Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Per aggiungere o gestire ruoli e utenti in Visual Studio  
   
@@ -51,7 +51,7 @@ Quando si aggiunge un **gruppo**di sicurezza `obj:groupid@tenantid`, utilizzare.
   
 5.  Se il ruolo che si sta creando dispone delle autorizzazioni Lettura o Lettura ed elaborazione, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic sulla scheda **Filtri di riga**, quindi selezionare una tabella, quindi scegliere il campo **Filtro DAX** e quindi digitare una formula DAX.
   
-6.  Fare clic su **membri** > **Aggiungi esterno**.  
+6.  Fare clic su **membri**  >  **Aggiungi esterno**.  
   
 8.  In **Aggiungi membro esterno** immettere gli utenti o i gruppi nel tenant di Azure AD dall'indirizzo e-mail. Dopo avere fatto clic su OK e avere chiuso Gestione ruoli, i ruoli e i membri del ruolo vengono visualizzati in Esplora modelli tabulari. 
  
@@ -64,7 +64,7 @@ Quando si aggiunge un **gruppo**di sicurezza `obj:groupid@tenantid`, utilizzare.
 
 Per aggiungere ruoli e utenti a un database modello distribuito, è necessario connettersi al server come amministratore del server o già in un ruolo del database con autorizzazioni di amministratore.
 
-1. In Explorer oggetto, fare clic con il pulsante destro del mouse su **ruoli** > **nuovo ruolo**.
+1. In Explorer oggetto, fare clic con il pulsante destro del mouse su **ruoli**  >  **nuovo ruolo**.
 
 2. In **Crea ruolo** immettere il nome di un ruolo e una descrizione.
 

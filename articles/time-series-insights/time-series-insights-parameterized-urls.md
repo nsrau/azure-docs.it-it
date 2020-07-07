@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417002"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
@@ -29,7 +29,7 @@ Esplora Time Series Insights supporta i parametri di query URL per specificare l
 
 ## <a name="environment-id"></a>ID di ambiente
 
-Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione. Si tratta di un componente del FQDN di accesso ai dati, che è possibile trovare nell'angolo superiore destro della panoramica dell'ambiente nella portale di Azure. È tutto ciò che precede `env.timeseries.azure.com`.
+Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione. Si tratta di un componente del FQDN di accesso ai dati, che è possibile trovare nell'angolo superiore destro della panoramica dell'ambiente nella portale di Azure. È tutto ciò che precede `env.timeseries.azure.com` .
 
 Un parametro ID di ambiente di esempio è `?environmentId=10000000-0000-0000-0000-100000000108`.
 
@@ -49,7 +49,7 @@ Per i valori assoluti, usare i parametri `from=<integer>` e `to=<integer>`.
 
 ### <a name="relative-time-values"></a>Valori relativi
 
-Per un valore di ora relativa, `relativeMillis=<value>`usare, dove *value* è in millisecondi JavaScript dal timestamp più recente ricevuto dall'API.
+Per un valore di ora relativa, usare `relativeMillis=<value>` , dove *value* è in millisecondi JavaScript dal timestamp più recente ricevuto dall'API.
 
 `&relativeMillis=3600000` ad esempio visualizza gli ultimi 60 minuti di dati.
 
@@ -82,14 +82,14 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 
 * La `multiChartStack=<true/false>` coppia chiave-valore consente lo stacking nel grafico.
 * La `multiChartSameScale=<true/false>` coppia chiave-valore Abilita la stessa scala dell'asse Y in tutti i termini all'interno di un parametro facoltativo.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` Consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`Consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
 * Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
 
 | Coppie | Descrizione |
 | --- | --- |
-| `multiChartStack=false` | `true`è abilitata per impostazione predefinita `false` , quindi passa allo stack. |
-| `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  `false` Per impostazione predefinita, il passaggio `true` Abilita questa funzionalità. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità passando l'intero desiderato per **timeBucketSize**.  |
+| `multiChartStack=false` | `true`è abilitata per impostazione predefinita, quindi passa `false` allo stack. |
+| `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  `false`Per impostazione predefinita, `true` il passaggio Abilita questa funzionalità. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità passando l'intero desiderato per **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. |
 
 > [!NOTE]

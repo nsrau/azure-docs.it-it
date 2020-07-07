@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432060"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Key Vault
@@ -55,11 +55,11 @@ L'intestazione "Authorization" è il token di accesso richiesto con ogni chiamat
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Al token manca la risorsa corretta associata. 
 
-Quando si richiede un token di accesso dall'endpoint OAUTH di Azure, è obbligatorio un parametro denominato "Resource". Il valore è importante per il provider di token perché consente di definire l'ambito del token per l'utilizzo previsto. La risorsa per **tutti** i token per accedere a una Key Vault è *https\/:/Vault.keyvault.NET* (senza barra finale).
+Quando si richiede un token di accesso dall'endpoint OAUTH di Azure, è obbligatorio un parametro denominato "Resource". Il valore è importante per il provider di token perché consente di definire l'ambito del token per l'utilizzo previsto. La risorsa per **tutti** i token per accedere a una Key Vault è *https: \/ /Vault.keyvault.NET* (senza barra finale).
 
 ### <a name="the-token-is-expired"></a>Il token è scaduto
 
-I token sono con codifica Base64 e i valori possono essere decodificati in siti Web, ad [http://jwt.calebb.net](http://jwt.calebb.net)esempio. Il token precedente è stato decodificato:
+I token sono con codifica Base64 e i valori possono essere decodificati in siti Web, ad esempio [http://jwt.calebb.net](http://jwt.calebb.net) . Il token precedente è stato decodificato:
 
 ```
     {
@@ -89,7 +89,7 @@ I token sono con codifica Base64 e i valori possono essere decodificati in siti 
 
 In questo token è possibile vedere molte parti importanti:
 
-- AUD (audience): risorsa del token. Si noti che questo <https://vault.azure.net>è. Questo token non funzionerà per tutte le risorse che non corrispondono in modo esplicito a questo valore, ad esempio Graph.
+- AUD (audience): risorsa del token. Si noti che questo è <https://vault.azure.net> . Questo token non funzionerà per tutte le risorse che non corrispondono in modo esplicito a questo valore, ad esempio Graph.
 - IAT (rilasciato a): numero di cicli dall'inizio dell'epoca in cui è stato emesso il token.
 - NBF (not before): numero di cicli trascorsi dall'inizio dell'epoca in cui questo token diventa valido.
 - Exp (scadenza): numero di cicli trascorsi dall'inizio dell'epoca in cui questo token scade.
@@ -100,7 +100,7 @@ In questo token è possibile vedere molte parti importanti:
 
 ### <a name="troubleshooting-401"></a>Risoluzione dei problemi 401
 
-401S deve essere analizzato dal punto di generazione del token, prima che la richiesta venga effettuata all'insieme di credenziali delle chiavi. Il codice viene in genere usato per richiedere il token. Una volta ricevuto, il token viene passato nella richiesta Key Vault. Se il codice viene eseguito localmente, è possibile usare Fiddler per acquisire la richiesta/risposta a `https://login.microsoftonline.com`. Una richiesta ha un aspetto simile al seguente:
+401S deve essere analizzato dal punto di generazione del token, prima che la richiesta venga effettuata all'insieme di credenziali delle chiavi. Il codice viene in genere usato per richiedere il token. Una volta ricevuto, il token viene passato nella richiesta Key Vault. Se il codice viene eseguito localmente, è possibile usare Fiddler per acquisire la richiesta/risposta a `https://login.microsoftonline.com` . Una richiesta ha un aspetto simile al seguente:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1

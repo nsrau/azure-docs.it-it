@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417125"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure 
@@ -34,8 +34,8 @@ Questo articolo fornisce le informazioni seguenti su entrambi gli approcci:
 > * Prestazioni 
 > * Resilienza della copia
 > * Sicurezza di rete
-> * Architettura della soluzione di alto livello 
-> * Procedure consigliate per l'implementazione  
+> * Architettura di alto livello della soluzione 
+> * Procedure consigliate dell'implementazione  
 
 ## <a name="performance"></a>Prestazioni
 
@@ -53,7 +53,7 @@ Per ulteriori informazioni, vedere la [Guida alle prestazioni dell'attività di 
 
 ## <a name="resilience"></a>Resilienza
 
-In Data Factory modalità DistCp è possibile utilizzare parametri della riga di comando DistCp diversi, ad esempio `-i`ignorare gli errori o `-update`scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse, per diversi livelli di resilienza.
+In Data Factory modalità DistCp è possibile utilizzare parametri della riga di comando DistCp diversi, ad esempio `-i` ignorare gli errori o `-update` scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse, per diversi livelli di resilienza.
 
 In Data Factory modalità runtime di integrazione nativa, in una singola esecuzione dell'attività di copia, Data Factory dispone di un meccanismo di ripetizione dei tentativi incorporato. Può gestire un certo livello di errori temporanei negli archivi dati o nella rete sottostante. 
 
@@ -61,7 +61,7 @@ Quando si esegue la copia binaria dalla HDFS locale all'archiviazione BLOB e da 
 
 ## <a name="network-security"></a>Sicurezza di rete 
 
-Per impostazione predefinita, Data Factory trasferisce i dati dalla HDFS locale all'archiviazione BLOB o Azure Data Lake Storage Gen2 tramite una connessione crittografata sul protocollo HTTPS. HTTPS fornisce la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-Middle. 
+Per impostazione predefinita, Data Factory trasferisce i dati dalla HDFS locale all'archiviazione BLOB o Azure Data Lake Storage Gen2 tramite una connessione crittografata sul protocollo HTTPS. Il protocollo HTTPS offre la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-middle. 
 
 In alternativa, se non si vuole trasferire i dati attraverso la rete Internet pubblica, per una maggiore sicurezza è possibile trasferire i dati tramite un collegamento di peering privato tramite ExpressRoute. 
 
@@ -87,11 +87,11 @@ Questa immagine illustra la migrazione dei dati tramite un collegamento privato:
 - È anche possibile aumentare la scalabilità orizzontale associando fino a quattro nodi VM con un singolo runtime di integrazione self-hosted. Un processo di copia singolo in esecuzione su un runtime di integrazione self-hosted suddivide automaticamente il set di file e usa tutti i nodi VM per copiare i file in parallelo. Per la disponibilità elevata, è consigliabile iniziare con due nodi VM per evitare uno scenario a singolo punto di errore durante la migrazione dei dati.
 - Quando si usa questa architettura, la migrazione iniziale dei dati dello snapshot e la migrazione dei dati Delta sono disponibili.
 
-## <a name="implementation-best-practices"></a>Procedure consigliate per l'implementazione
+## <a name="implementation-best-practices"></a>Procedure consigliate dell'implementazione
 
 Quando si implementa la migrazione dei dati, è consigliabile seguire queste procedure consigliate.
 
-### <a name="authentication-and-credential-management"></a>Autenticazione e gestione delle credenziali 
+### <a name="authentication-and-credential-management"></a>Gestione dell'autenticazione e delle credenziali 
 
 - Per eseguire l'autenticazione a HDFS, è possibile usare [Windows (Kerberos) o Anonymous](https://docs.microsoft.com/azure/data-factory/connector-hdfs#linked-service-properties). 
 - Sono supportati più tipi di autenticazione per la connessione all'archivio BLOB di Azure.  Si consiglia vivamente [di usare identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Basati su un'identità Data Factory gestita automaticamente in Azure Active Directory (Azure AD), le identità gestite consentono di configurare pipeline senza fornire credenziali nella definizione del servizio collegato. In alternativa, è possibile eseguire l'autenticazione nell'archiviazione BLOB usando un' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), una [firma di accesso condiviso](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)o una [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
@@ -108,9 +108,9 @@ Se uno dei processi di copia ha esito negativo a causa di problemi temporanei de
 
 ### <a name="delta-data-migration"></a>Migrazione dei dati Delta 
 
-In Data Factory modalità DistCp, è possibile usare il parametro `-update`della riga di comando DistCp, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per la migrazione dei dati Delta.
+In Data Factory modalità DistCp, è possibile usare il parametro della riga di comando DistCp `-update` , scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per la migrazione dei dati Delta.
 
-In Data Factory modalità di integrazione nativa, il modo più efficiente per identificare i file nuovi o modificati da HDFS consiste nell'usare una convenzione di denominazione partizionata in base al tempo. Quando i dati in HDFS sono stati partizionati in tempo con le informazioni relative all'intervallo di tempo nel nome del file o della cartella (ad esempio, */yyyy/mm/DD/file.csv*), la pipeline può identificare facilmente i file e le cartelle da copiare in modo incrementale.
+In Data Factory modalità di integrazione nativa, il modo più efficiente per identificare i file nuovi o modificati da HDFS consiste nell'usare una convenzione di denominazione partizionata in base al tempo. Quando i dati in HDFS sono stati partizionati in tempo con le informazioni relative all'intervallo di tempo nel nome del file o della cartella (ad esempio, */yyyy/mm/dd/file.csv*), la pipeline può identificare facilmente i file e le cartelle da copiare in modo incrementale.
 
 In alternativa, se i dati in HDFS non sono partizionati in base al tempo, Data Factory possibile identificare i file nuovi o modificati usando il valore **LastModifiedDate** . Data Factory analizza tutti i file da HDFS e copia solo i file nuovi e aggiornati con un timestamp dell'Ultima modifica maggiore di un valore impostato. 
 
@@ -136,21 +136,21 @@ Ecco il prezzo stimato in base ai presupposti seguenti:
 ![Tabella che mostra i calcoli dei prezzi](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
 
 > [!NOTE]
-> Questo è un esempio di prezzo ipotetico. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
+> Si tratta di un esempio di prezzo ipotetico. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
 > Il prezzo di una VM Windows di Azure (con il runtime di integrazione self-hosted installato) non è incluso.
 
-### <a name="additional-references"></a>Altri riferimenti
+### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Connettore HDFS](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Connettore di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guida all'ottimizzazione delle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- [Guida alle prestazioni delle attività di copia e all'ottimizzazione](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerazioni relative alla sicurezza per lo spostamento dei dati](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [Copiare un file in modo incrementale in base a un nome file con partizionamento temporale](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copia i file nuovi e modificati in base a LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Copiare i file nuovi e modificati in base a LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [Pagina dei prezzi di Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Passaggi successivi

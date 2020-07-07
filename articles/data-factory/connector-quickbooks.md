@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: e2c9da9c1a37b087a31d1910094f51a39288c192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416699"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima)
@@ -31,7 +31,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore QuickBooks è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da QuickBooks Online a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -40,7 +40,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 
 Al momento questo connettore supporta solo la versione 1.0a, quindi è necessario usare un account sviluppatore con app create prima del 17 luglio 2017.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -56,9 +56,9 @@ Per il servizio collegato QuickBooks sono supportate le proprietà seguenti:
 | endpoint | Endpoint del server QuickBooks Online, ovvero quickbooks.api.intuit.com  | Sì |
 | companyId | ID azienda dell'azienda QuickBooks da autorizzare. Per informazioni su come trovare l'ID dell'azienda, vedere [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) (Come è possibile trovare l'ID dell'azienda?). | Sì |
 | consumerKey | Chiave utente per l'autenticazione OAuth 1.0. | Sì |
-| consumerSecret | Segreto utente per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| accessToken | Token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| accessTokenSecret | Segreto del token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| consumerSecret | Segreto utente per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| accessToken | Token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| accessTokenSecret | Segreto del token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 
 **Esempio:**
@@ -166,9 +166,9 @@ Per copiare dati da QuickBooks Online, impostare il tipo di origine nell'attivit
 
 L'attività di copia in Azure Data Factory non può copiare dati direttamente da Quickbooks Desktop. Per copiare dati da Quickbooks Desktop, esportare i dati di Quickbooks in un file di valori delimitati da virgole (con estensione csv) e quindi caricare il file in Archiviazione BLOB di Azure. A questo punto, è possibile usare Data Factory per copiare i dati nel sink di propria scelta.
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416947"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
@@ -38,7 +38,7 @@ La differenza tra questo connettore HTTP, il [connettore REST](connector-rest.md
 
 Questo connettore HTTP è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un'origine HTTP in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -72,7 +72,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 | url | URL di base del server Web. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
 
@@ -120,8 +120,8 @@ Per usare l'autenticazione ClientCertificate, impostare la proprietà **authenti
 Se si usa **certThumbprint** per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, concedere l'autorizzazione di lettura al runtime di integrazione self-hosted:
 
 1. Aprire Microsoft Management Console (MMC). Aggiungere lo snap-in **Certificati** con **Computer locale** come destinazione.
-2. Espandere **Certificates** > **Personal**, quindi selezionare **Certificates**.
-3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività** > **Gestisci chiavi private**.
+2. Espandere **Certificates**  >  **Personal**, quindi selezionare **Certificates**.
+3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività**  >  **Gestisci chiavi private**.
 3. Nella scheda **Sicurezza** aggiungere l'account utente in cui è in esecuzione il servizio host di Integration Runtime (DIAHostService), con l'accesso in lettura al certificato.
 
 **Esempio 1: uso di certThumbprint**
@@ -170,7 +170,7 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
@@ -179,7 +179,7 @@ Le proprietà seguenti sono supportate per HTTP in `location` impostazioni nel s
 | Proprietà    | Descrizione                                                  | Obbligatoria |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | La proprietà Type `location` nel set di dati deve essere impostata su **HttpServerLocation**. | Sì      |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service][relative URL specified in dataset]` .   | No       |
 
 > [!NOTE]
 > Le dimensioni del payload della richiesta HTTP supportate sono circa 500 KB. Se le dimensioni del payload da passare all'endpoint Web sono maggiori di 500 KB, provare a inviare in batch il payload in blocchi più piccoli.
@@ -229,7 +229,7 @@ Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni 
 | addtionalHeaders         | Intestazioni richiesta HTTP aggiuntive.                             | No       |
 | requestBody              | Corpo della richiesta HTTP.                               | No       |
 | httpRequestTimeout           | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**. | No       |
-| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
+| maxConcurrentConnections | Numero di connessioni simultanee per connettersi alla risorsa di archiviazione. Valore da specificare solo quando si vuole limitare la connessione simultanea all'archivio dati. | No       |
 
 **Esempio:**
 
@@ -272,16 +272,16 @@ Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
-## <a name="legacy-models"></a>Modelli legacy
+## <a name="legacy-models"></a>Modalità legacy
 
 >[!NOTE]
->I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nelle sezioni precedenti in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
+>I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. In futuro, è consigliabile usare il nuovo modello citato nelle sezioni precedenti, tenendo presente che l'interfaccia utente di creazione di Azure Data Factory è passata alla generazione del nuovo modello.
 
-### <a name="legacy-dataset-model"></a>Modello DataSet legacy
+### <a name="legacy-dataset-model"></a>Modello di set di dati legacy
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

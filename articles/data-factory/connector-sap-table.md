@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
 ms.openlocfilehash: d96b2b1f8465132549c59ac5555adf99e7758a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415229"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da una tabella SAP. Per altre informazioni, vedere [Cenni preliminari sull'attività di copia](copy-activity-overview.md).
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da una tabella SAP. Per altre informazioni, vedere [Panoramica dell'attività di copia](copy-activity-overview.md).
 
 >[!TIP]
->Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con informazioni dettagliate introduttive, comparsing e linee guida.
+>Per informazioni sul supporto generale di Azure Data Factory sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con sezioni di introduzione, confronto e istruzioni dettagliate.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Questo connettore della tabella SAP è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da una tabella SAP in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) .
@@ -85,12 +85,12 @@ Per il servizio collegato SAP BW Hub aperto sono supportate le proprietà seguen
 | `clientId` | ID del client nel sistema SAP.<br/>Valore consentito: numero decimale A tre cifre rappresentato come stringa. | Sì |
 | `language` | Linguaggio utilizzato dal sistema SAP.<br/>Il valore predefinito è `EN`.| No |
 | `userName` | Nome dell'utente che ha accesso al server SAP. | Sì |
-| `password` | La password dell'utente. Contrassegnare questo campo con `SecureString` il tipo per archiviarlo in modo sicuro in data factory oppure [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| `sncMode` | Indicatore di attivazione di SNC per accedere al server SAP in cui si trova la tabella.<br/>Usare se si vuole usare SNC per connettersi al server SAP.<br/>I valori consentiti sono `0` (disattivato, valore `1` predefinito) o (on). | No |
-| `sncMyName` | Nome della SNC dell'Initiator per accedere al server SAP in cui si trova la tabella.<br/>Si applica `sncMode` quando è on. | No |
-| `sncPartnerName` | Nome della SNC del partner di comunicazione per accedere al server SAP in cui si trova la tabella.<br/>Si applica `sncMode` quando è on. | No |
-| `sncLibraryPath` | Libreria del prodotto di sicurezza esterna per accedere al server SAP in cui si trova la tabella.<br/>Si applica `sncMode` quando è on. | No |
-| `sncQop` | Qualità SNC del livello di protezione da applicare.<br/>Si applica `sncMode` quando è on. <br/>I `1` valori consentiti sono ( `2` Authentication), ( `3` integrità), ( `8` privacy), ( `9` impostazione predefinita), (Maximum). | No |
+| `password` | La password dell'utente. Contrassegnare questo campo con il `SecureString` tipo per archiviarlo in modo sicuro in data factory oppure [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| `sncMode` | Indicatore di attivazione di SNC per accedere al server SAP in cui si trova la tabella.<br/>Usare se si vuole usare SNC per connettersi al server SAP.<br/>I valori consentiti sono `0` (disattivato, valore predefinito) o `1` (on). | No |
+| `sncMyName` | Nome della SNC dell'Initiator per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
+| `sncPartnerName` | Nome della SNC del partner di comunicazione per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
+| `sncLibraryPath` | Libreria del prodotto di sicurezza esterna per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
+| `sncQop` | Qualità SNC del livello di protezione da applicare.<br/>Si applica quando `sncMode` è on. <br/>I valori consentiti sono `1` (Authentication), `2` (integrità), `3` (privacy), `8` (impostazione predefinita), `9` (Maximum). | No |
 | `connectVia` | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Un runtime di integrazione self-hosted è obbligatorio, come indicato in precedenza in [prerequisiti](#prerequisites). |Sì |
 
 **Esempio 1: connettersi a un server applicazioni SAP**
@@ -177,7 +177,7 @@ Per il servizio collegato SAP BW Hub aperto sono supportate le proprietà seguen
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md). Nella sezione seguente viene fornito un elenco delle proprietà supportate dal set di dati della tabella SAP.
+Per un elenco completo delle sezioni e delle proprietà per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md). La sezione seguente presenta un elenco delle proprietà supportate dal set di dati della tabella SAP.
 
 Per copiare dati da e verso il SAP BW servizio collegato Hub aperto, sono supportate le proprietà seguenti:
 
@@ -219,21 +219,21 @@ Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 | `rowCount`                         | Numero di righe da recuperare.                              | No       |
 | `rfcTableFields`                   | Campi (colonne) da copiare dalla tabella SAP. Ad esempio: `column0, column1`. | No       |
 | `rfcTableOptions`                  | Opzioni per filtrare le righe in una tabella SAP. Ad esempio: `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
-| `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile `/SAPDS/RFC_READ_TABLE2`a, ovvero l'interfaccia predefinita utilizzata da data factory. | No       |
-| `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt`(valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345`)</li><li>`PartitionOnCalendarYear`(4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth`(6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
+| `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2` , ovvero l'interfaccia predefinita utilizzata da data factory. | No       |
+| `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt`(valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345` )</li><li>`PartitionOnCalendarYear`(4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth`(6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
 | `partitionColumnName`              | Nome della colonna utilizzata per partizionare i dati.                | No       |
 | `partitionUpperBound`              | Valore massimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. | No       |
-| `partitionLowerBound`              | Valore minimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. (Nota: `partitionLowerBound` non può essere "0" se l'opzione `PartitionOnInt`di partizione è) | No       |
+| `partitionLowerBound`              | Valore minimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. (Nota: `partitionLowerBound` non può essere "0" se l'opzione di partizione è `PartitionOnInt` ) | No       |
 | `maxPartitionsNumber`              | Numero massimo di partizioni in cui dividere i dati.     | No       |
 
 >[!TIP]
->Se la tabella SAP include un volume elevato di dati, ad esempio diversi miliardi di righe, `partitionOption` usare `partitionSetting` e per suddividere i dati in partizioni più piccole. In questo caso, i dati vengono letti per partizione e ogni partizione di dati viene recuperata dal server SAP tramite una singola chiamata RFC.<br/>
+>Se la tabella SAP include un volume elevato di dati, ad esempio diversi miliardi di righe, usare `partitionOption` e `partitionSetting` per suddividere i dati in partizioni più piccole. In questo caso, i dati vengono letti per partizione e ogni partizione di dati viene recuperata dal server SAP tramite una singola chiamata RFC.<br/>
 <br/>
->`partitionOption` Come `partitionOnInt` esempio, il numero di righe in ogni partizione viene calcolato con la formula seguente: (numero totale di righe comprese tra `partitionUpperBound` e `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
+>`partitionOption`Come `partitionOnInt` esempio, il numero di righe in ogni partizione viene calcolato con la formula seguente: (numero totale di righe comprese tra `partitionUpperBound` e `partitionLowerBound` )/ `maxPartitionsNumber` .<br/>
 <br/>
->Per caricare le partizioni di dati in parallelo per velocizzare la copia, il grado di parallelismo è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una parte di dati dalla tabella SAP. Si consiglia vivamente di `maxPartitionsNumber` creare un multiplo del valore della `parallelCopies` proprietà. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
+>Per caricare le partizioni di dati in parallelo per velocizzare la copia, il grado di parallelismo è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si imposta `parallelCopies` su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una parte di dati dalla tabella SAP. Si consiglia vivamente di creare `maxPartitionsNumber` un multiplo del valore della `parallelCopies` Proprietà. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
-In `rfcTableOptions`è possibile utilizzare gli operatori di query SAP comuni seguenti per filtrare le righe:
+In `rfcTableOptions` è possibile utilizzare gli operatori di query SAP comuni seguenti per filtrare le righe:
 
 | Operatore | Descrizione |
 | :------- | :------- |
@@ -300,11 +300,11 @@ Quando si copiano dati da una tabella SAP, vengono usati i mapping seguenti tra 
 | `N`Numerico | `String` |
 | `X`(Binario e non elaborato) | `String` |
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Azure Data Factory, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

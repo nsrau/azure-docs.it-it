@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81481847"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
@@ -54,7 +54,7 @@ Azure offre molte funzionalità che consentono di risolvere i principali problem
   * Ruoli di lavoro che in genere elaborano i dati nel back-end di un'applicazione.
   * Ruoli Web che solitamente fungono da front-end per le applicazioni.
 
-**Archiviazione**
+**Storage**
 
 Gestione dei dati, ad esempio il database SQL di Azure o i servizi di archiviazione di Azure, ad esempio il servizio tabelle, che fornisce servizi per l'archiviazione di grandi quantità di dati non strutturati e il servizio BLOB, che fornisce servizi per archiviare grandi quantità di dati di testo o binari non strutturati quali video, audio e immagini.
 

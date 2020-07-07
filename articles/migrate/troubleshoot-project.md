@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
 ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535401"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Risolvere i problemi relativi ai progetti di Azure Migrate
@@ -19,11 +19,11 @@ Questo articolo consente di risolvere i problemi durante la creazione e la gesti
 
 ## <a name="how-to-add-new-project"></a>Come aggiungere un nuovo progetto
 
-È possibile avere più progetti Azure Migrate in una sottoscrizione. [Informazioni su come](how-to-add-tool-first-time.md) creare un progetto per la prima volta o [aggiungere altri](create-manage-projects.md#create-additional-projects) progetti.
+È possibile che una sottoscrizione contenga più progetti Azure Migrate. [Informazioni su come](how-to-add-tool-first-time.md) creare un progetto per la prima volta o [aggiungere altri](create-manage-projects.md#create-additional-projects) progetti.
 
 ## <a name="what-azure-permissions-are-needed"></a>Quali sono le autorizzazioni di Azure necessarie?
 
-Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
+Per creare un progetto Azure Migrate, è necessario disporre dell'autorizzazione di collaboratore o proprietario a livello di sottoscrizione.
 
 ## <a name="cant-find-a-project"></a>Impossibile trovare un progetto
 

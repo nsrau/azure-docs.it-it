@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417879"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
@@ -53,23 +53,23 @@ Un'attività webhook può controllare l'esecuzione delle pipeline tramite il cod
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 **name** | Nome dell'attività del webhook. | string | Sì |
 **type** | Deve essere impostato su "webhook". | string | Sì |
 **Metodo** | Metodo dell'API REST per l'endpoint di destinazione. | Stringa. Il tipo supportato è "POST". | Sì |
 **url** | Endpoint e percorso di destinazione. | Stringa o espressione con il valore **ResultType** di una stringa. | Sì |
-**intestazioni** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che imposta il linguaggio e il tipo in `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`una richiesta:. | Stringa o espressione con il valore **ResultType** di una stringa. | Sì. È `Content-Type` necessaria un' `"headers":{ "Content-Type":"application/json"}` intestazione come. |
+**intestazioni** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che imposta il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Stringa o espressione con il valore **ResultType** di una stringa. | Sì. `Content-Type`È necessaria un'intestazione come `"headers":{ "Content-Type":"application/json"}` . |
 **body** | Rappresenta il payload inviato all'endpoint. | JSON valido o espressione con valore **RESULTTYPE** JSON. Vedere [schema del payload della richiesta](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) per lo schema del payload della richiesta. | Sì |
 **autenticazione** | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa o espressione con il valore **ResultType** di una stringa. | No |
-**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *HH*:*mm*:*SS*. | Stringa | No |
+**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *HH*:*mm*:*SS*. | string | No |
 **Segnala stato del callback** | Consente a un utente di segnalare lo stato di errore di un'attività webhook. | Boolean | No |
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Un'attività webhook supporta i tipi di autenticazione seguenti.
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà di **autenticazione** .
 
@@ -148,6 +148,6 @@ Vedere le seguenti attività del flusso di controllo supportate da Data Factory:
 - [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

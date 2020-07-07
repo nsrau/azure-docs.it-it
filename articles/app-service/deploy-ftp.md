@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81532585"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
@@ -29,7 +29,7 @@ L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazio
 
     ![Selezionare l'app.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selezionare**Dashboard**del **centro** > di distribuzione**FTP** > .
+3. Selezionare Dashboard del **centro di distribuzione**  >  **FTP**  >  **Dashboard**.
 
     ![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -42,11 +42,11 @@ Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenz
 È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
 
 > [!NOTE]
-> L'autenticazione a un endpoint FTP/FTPS usando le credenziali a livello di utente richiede un nome utente nel formato seguente: 
+> L'autenticazione a un endpoint FTP/FTPS con le credenziali a livello di utente richiede un nome utente nel formato seguente:  
 >
 >`<app-name>\<user-name>`
 >
-> Poiché le credenziali a livello di utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint dell'app corretto.
+> Poiché le credenziali a livello di utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint corretto dell'app.
 >
 
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
@@ -69,7 +69,7 @@ Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenz
 
 Per una maggiore sicurezza, è consigliabile consentire il protocollo FTP solo su TLS/SSL. È anche possibile disabilitare FTP e FTPS se non si usa la distribuzione FTP.
 
-Nella pagina delle risorse dell'app, in [portale di Azure](https://portal.azure.com), selezionare **configurazione** > **Impostazioni generali** dal dispositivo di spostamento a sinistra.
+Nella pagina delle risorse dell'app, in [portale di Azure](https://portal.azure.com), selezionare **configurazione**  >  **Impostazioni generali** dal dispositivo di spostamento a sinistra.
 
 Per disabilitare l'FTP non crittografato, selezionare **FTPS solo** nello **stato FTP**. Per disabilitare completamente FTP e FTPS, selezionare **disattivato**. Al termine fare clic su **Salva**. Se si usa **solo FTPS**, è necessario applicare TLS 1,2 o versione successiva passando al pannello delle **Impostazioni TLS/SSL** dell'app Web. TLS 1.0 e 1.1 non sono supportati con **Solo FTPS**.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418219"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiare dati da Impala usando Azure Data Factory
@@ -28,10 +28,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore Impala è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
-È possibile copiare dati da Impala in qualsiasi archivio dati sink supportato. Per un elenco di archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) .
+È possibile copiare dati da Impala in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Data Factory fornisce un driver predefinito per abilitare la connettività. Non è pertanto necessario installare manualmente un driver per usare questo connettore.
 
@@ -55,14 +55,14 @@ Per il servizio collegato Impala sono supportate le proprietà seguenti.
 | host | Indirizzo IP o nome host del server Impala (ovvero, 192.168.222.160).  | Sì |
 | port | Porta TCP che il server Impala usa per l'ascolto delle connessioni client. Il valore predefinito è 21050.  | No |
 | authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono **Anonymous**, **SASLUsername** e **UsernameAndPassword**. | Sì |
-| nomeutente | Nome utente usato per accedere al server Impala. Quando si usa SASLUsername, il valore predefinito è Anonymous.  | No |
-| password | La password che corrisponde al nome utente quando si usa UsernameAndPassword. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| username | Nome utente usato per accedere al server Impala. Quando si usa SASLUsername, il valore predefinito è Anonymous.  | No |
+| password | La password che corrisponde al nome utente quando si usa UsernameAndPassword. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifica se le connessioni al server vengono crittografate utilizzando TLS. Il valore predefinito è **false**.  | No |
 | trustedCertPath | Percorso completo del file con estensione PEM contenente i certificati CA attendibili utilizzati per verificare il server quando si esegue la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS in Integration Runtime indipendenti. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è **false**.  | No |
 | allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato TLS/SSL emesso dall'autorità di certificazione corrisponda al nome host del server quando si esegue la connessione tramite TLS. Il valore predefinito è **false**.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è **false**.  | No |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -91,7 +91,7 @@ Per il servizio collegato Impala sono supportate le proprietà seguenti.
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . Questa sezione presenta un elenco delle proprietà supportate dal set di dati Impala.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Impala.
 
 Per copiare dati da Impala, impostare la proprietà type del set di dati su **ImpalaObject**. Sono supportate le proprietà seguenti:
 
@@ -100,7 +100,7 @@ Per copiare dati da Impala, impostare la proprietà type del set di dati su **Im
 | type | La proprietà Type del set di dati deve essere impostata su: **ImpalaObject** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per garantire la compatibilità con le versioni precedenti. Per i nuovi carichi di lavoro, usare `schema` e `table`. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -125,7 +125,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="impala-as-a-source-type"></a>Impala come tipo di origine
 
-Per copiare dati da Impala, impostare il tipo di origine nell'attività di copia su **ImpalaSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati da Impala, impostare il tipo di origine nell'attività di copia su **ImpalaSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -164,9 +164,9 @@ Per copiare dati da Impala, impostare il tipo di origine nell'attività di copia
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

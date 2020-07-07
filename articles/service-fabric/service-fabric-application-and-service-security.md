@@ -4,10 +4,10 @@ description: Panoramica su come eseguire in sicurezza applicazioni di microservi
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461430"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
@@ -20,7 +20,7 @@ Questo articolo non è una guida alla sicurezza dei microservizi, poiché online
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 È spesso necessario che le risorse e le API esposte da un servizio vengano limitate a determinati client o utenti attendibili. ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  mentre l'autorizzazione è il processo che rende le API o i servizi disponibili per alcuni utenti autenticati, ma non per altri.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Il primo passaggio del processo decisionale relativo all'attendibilità a livello di API è l'autenticazione, ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  In scenari di microservizi, l'autenticazione viene in genere gestita centralmente. Se si usa un gateway API, tuttavia, è possibile [scaricare l'autenticazione](/azure/architecture/patterns/gateway-offloading) sul gateway. Se si usa questo approccio, accertarsi che i singoli servizi non possano essere raggiunti direttamente (senza il gateway API), a meno che non siano stati configurati strumenti di sicurezza aggiuntivi per l'autenticazione dei messaggi, indipendentemente dal fatto che provengano o meno dal gateway.
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 

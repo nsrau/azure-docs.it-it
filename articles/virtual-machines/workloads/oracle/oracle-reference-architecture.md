@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683483"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
@@ -154,7 +154,7 @@ Il partizionamento orizzontale Oracle è costituito principalmente dai component
 
 - **Database di partizionamento** : i database di partizione sono i database Oracle. Ogni database viene replicato con Oracle Data Guard in una configurazione di Service Broker con failover a avvio rapido (FSFO) abilitato. Non è necessario configurare il failover e la replica di Data Guard in ogni partizione. Questa configurazione viene configurata e distribuita automaticamente quando viene creato il database condiviso. Se una determinata partizione ha esito negativo, la condivisione Oracle esegue automaticamente il failover delle connessioni del database dal database primario a quello standby.
 
-È possibile distribuire e gestire i database partizionati Oracle con due interfacce: l'interfaccia utente grafica di controllo cloud di Oracle `GDSCTL` Enterprise Manager e/o l'utilità della riga di comando. È anche possibile monitorare le diverse partizioni per la disponibilità e le prestazioni usando il controllo cloud. Il `GDSCTL DEPLOY` comando crea automaticamente le partizioni e i rispettivi listener. Inoltre, questo comando distribuisce automaticamente la configurazione di replica usata per la disponibilità elevata a livello di partizione specificata dall'amministratore.
+È possibile distribuire e gestire i database partizionati Oracle con due interfacce: l'interfaccia utente grafica di controllo cloud di Oracle Enterprise Manager e/o l' `GDSCTL` utilità della riga di comando. È anche possibile monitorare le diverse partizioni per la disponibilità e le prestazioni usando il controllo cloud. Il `GDSCTL DEPLOY` comando crea automaticamente le partizioni e i rispettivi listener. Inoltre, questo comando distribuisce automaticamente la configurazione di replica usata per la disponibilità elevata a livello di partizione specificata dall'amministratore.
 
 Esistono diversi modi per partizionare un database:
 

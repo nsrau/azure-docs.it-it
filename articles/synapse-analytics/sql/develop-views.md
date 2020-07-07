@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428654"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Viste T-SQL con sinapsi SQL
@@ -79,7 +79,7 @@ Le visualizzazioni in sinapsi SQL vengono archiviate solo come metadati. Di cons
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri suggerimenti sullo sviluppo, vedere la [Panoramica sullo sviluppo di sinapsi SQL](develop-overview.md).
+Per altri suggerimenti sullo sviluppo, vedere [Synapse SQL pool development overview](develop-overview.md) (Panoramica sullo sviluppo per il pool Synapse SQL).
 
 
 

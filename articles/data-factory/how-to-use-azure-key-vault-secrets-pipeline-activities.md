@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417084"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usare i segreti di Azure Key Vault nelle attività della pipeline
@@ -49,12 +49,12 @@ Questa funzionalità si basa sull'identità gestita data factory.  Scopri come f
 
 4. Nella pipeline Data Factory aggiungere una nuova attività Web e configurarla come indicato di seguito.  
 
-    |Proprietà  |valore  |
+    |Proprietà  |Valore  |
     |---------|---------|
     |Output sicuro     |True         |
     |URL     |[Valore dell'URI del segreto]? API-Version = 7.0         |
     |Metodo     |GET         |
-    |Autenticazione     |Identità del servizio gestita         |
+    |Authentication     |MSI         |
     |Risorsa        |https://vault.azure.net       |
 
     ![Attività Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
@@ -63,9 +63,9 @@ Questa funzionalità si basa sull'identità gestita data factory.  Scopri come f
     > È necessario aggiungere **? API-Version = 7.0** alla fine dell'URI del segreto.  
 
     > [!CAUTION]
-    > Impostare l'opzione di output sicuro su true per impedire che il valore del segreto venga registrato come testo normale.  Qualsiasi altra attività che utilizza questo valore deve avere l'opzione di input sicuro impostata su true.
+    > Impostare l'opzione di output sicuro su true per impedire che il valore del segreto venga registrato come testo normale.  In qualsiasi ulteriore attività in cui viene usato questo valore, l'opzione Input sicuro deve essere impostata su true.
 
-5. Per usare il valore in un'altra attività, usare l'espressione ** @activitydi codice seguente (' Web1'). output. value**.
+5. Per usare il valore in un'altra attività, usare l'espressione di codice seguente ** @activity (' Web1'). output. value**.
 
     ![Espressione codice](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

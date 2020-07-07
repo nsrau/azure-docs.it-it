@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
 ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416446"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure 
@@ -24,14 +24,14 @@ ms.locfileid: "81416446"
 
 Azure Data Factory offre un meccanismo efficiente, affidabile ed economico per eseguire la migrazione dei dati su larga scala da un server Netezza locale all'account di archiviazione di Azure o a Azure SQL Data Warehouse database. 
 
-Questo articolo fornisce le informazioni seguenti per gli sviluppatori e gli sviluppatori di dati:
+In questo articolo vengono fornite le seguenti informazioni per i data engineer e gli sviluppatori:
 
 > [!div class="checklist"]
 > * Prestazioni 
 > * Resilienza della copia
 > * Sicurezza di rete
-> * Architettura della soluzione di alto livello 
-> * Procedure consigliate per l'implementazione  
+> * Architettura di alto livello della soluzione 
+> * Procedure consigliate dell'implementazione  
 
 ## <a name="performance"></a>Prestazioni
 
@@ -57,7 +57,7 @@ Con Azure Data Factory attività di copia, quando si copiano dati tra gli archiv
 
 ## <a name="network-security"></a>Sicurezza di rete 
 
-Per impostazione predefinita, Azure Data Factory trasferisce i dati dal server Netezza locale a un account di archiviazione di Azure o a Azure SQL Data Warehouse database usando una connessione crittografata su Hypertext Transfer Protocol Secure (HTTPS). HTTPS fornisce la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-Middle.
+Per impostazione predefinita, Azure Data Factory trasferisce i dati dal server Netezza locale a un account di archiviazione di Azure o a Azure SQL Data Warehouse database usando una connessione crittografata su Hypertext Transfer Protocol Secure (HTTPS). Il protocollo HTTPS offre la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-middle.
 
 In alternativa, se non si vuole trasferire i dati attraverso la rete Internet pubblica, è possibile ottenere una maggiore sicurezza trasferendo i dati tramite un collegamento di peering privato tramite Azure Express route. 
 
@@ -115,7 +115,7 @@ Il diagramma precedente può essere interpretato nel modo seguente:
    
    - È anche possibile usare l' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) o [l'autenticazione SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
 
-- Quando non si usano identità gestite per le risorse di Azure, è consigliabile [archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per semplificare la gestione e la rotazione centralizzate delle chiavi senza dover modificare Azure Data Factory servizi collegati. Questa è anche una delle [procedure consigliate per ci/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Quando non si usano identità gestite per le risorse di Azure, è consigliabile [archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per semplificare la gestione e la rotazione centralizzate delle chiavi senza dover modificare Azure Data Factory servizi collegati. Questa è anche una delle [procedure consigliate per CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
 ### <a name="migrate-initial-snapshot-data"></a>Eseguire la migrazione dei dati dello snapshot iniziale 
 
@@ -157,7 +157,7 @@ Se non può essere caricato in Azure entro due ore e la capacità del nodo IR in
 
 È possibile monitorare l'utilizzo della CPU e della memoria nel computer IR indipendente ed essere pronti per la scalabilità verticale della macchina o per la scalabilità orizzontale in più computer quando si nota che la CPU e la memoria sono completamente utilizzate. 
 
-Quando si verificano errori di limitazione, come indicato dall'attività di copia Azure Data Factory, ridurre la concorrenza o `parallelCopies` l'impostazione in Azure Data Factory oppure provare ad aumentare la larghezza di banda o le operazioni di i/o al secondo (IOPS) per la rete e gli archivi dati. 
+Quando si verificano errori di limitazione, come indicato dall'attività di copia Azure Data Factory, ridurre la concorrenza o l' `parallelCopies` impostazione in Azure Data Factory oppure provare ad aumentare la larghezza di banda o le operazioni di i/o al secondo (IOPS) per la rete e gli archivi dati. 
 
 
 ### <a name="estimate-your-pricing"></a>Stima dei prezzi 
@@ -187,7 +187,7 @@ In base ai presupposti precedenti, il prezzo stimato è il seguente:
 > [!NOTE]
 > I prezzi indicati nella tabella precedente sono ipotetici. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente. Il prezzo per il computer Windows (con il runtime di integrazione self-hosted installato) non è incluso. 
 
-### <a name="additional-references"></a>Altri riferimenti
+### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 
@@ -197,7 +197,7 @@ Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Connettore di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Connettore Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [Guida all'ottimizzazione delle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- [Guida alle prestazioni delle attività di copia e all'ottimizzazione](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerazioni relative alla sicurezza per lo spostamento dei dati](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)

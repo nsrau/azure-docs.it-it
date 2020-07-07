@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419307"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
@@ -29,7 +29,7 @@ ms.locfileid: "81419307"
 L'uso di Azure SQL Data Warehouse è ora più semplice dell'uso di **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione di dati basato su cloud completamente gestito, che può essere usato per popolare un'istanza di SQL Data Warehouse con i dati del sistema esistente e che consente di risparmiare tempo prezioso durante la valutazione di SQL Data Warehouse e la creazione di soluzioni di analisi. Di seguito sono elencati i vantaggi principali del caricamento di dati in Azure SQL Data Warehouse mediante Azure Data Factory:
 
 * **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
-* **Supporto completo per archivi dati**: supporto integrato per una vasta gamma di archivi dati locali e basati su cloud.
+* **Supporto per gli archivi dati avanzati**: supporto incorporato per un set completo di archivi dati locali e basati sul cloud.
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute e la presenza di un servizio globale garantisce che i dati non superino mai il confine geografico.
 * **Prestazioni ineguagliabili tramite Polybase**: Polybase rappresenta il modo più efficiente per spostare dati in Azure SQL Data Warehouse. Mediante la funzionalità di gestione temporanea dei BLOB è possibile ottenere velocità di carico elevate da tutti i tipi di archivi dati oltre all'archivio BLOB di Azure, supportato da Polybase per impostazione predefinita.
 

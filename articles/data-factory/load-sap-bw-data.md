@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415847"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
@@ -81,7 +81,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
    ![Configurare SAP BW filtro Hub aperto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. Nella pagina **archivio dati di destinazione** selezionare **+ Crea nuova connessione** > **Azure Data Lake storage Gen2** > **continua**.
+7. Nella pagina **archivio dati di destinazione** selezionare **+ Crea nuova connessione**  >  **Azure Data Lake storage Gen2**  >  **continua**.
 
 8. Nella pagina **specifica Azure Data Lake storage connessione** seguire questa procedura per creare una connessione.
 
@@ -165,7 +165,7 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
 
    - **HighWatermarkBlobDirectory**: specificare il percorso della cartella nel contenitore in cui archiviare il valore del limite massimo.
 
-   - **HighWatermarkBlobName**: specificare il nome del BLOB per archiviare il valore del limite massimo, `requestIdCache.txt`ad esempio. Nell'archivio BLOB passare al percorso corrispondente di HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, ad esempio *container/Path/requestIdCache. txt*. Creare un BLOB con il contenuto 0.
+   - **HighWatermarkBlobName**: specificare il nome del BLOB per archiviare il valore del limite massimo, ad esempio `requestIdCache.txt` . Nell'archivio BLOB passare al percorso corrispondente di HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, ad esempio *contenitore/percorso/requestIdCache.txt*. Creare un BLOB con il contenuto 0.
 
       ![Contenuto BLOB](media/load-sap-bw-data/blob.png)
 
@@ -194,7 +194,7 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
 
       4. Selezionare **Salva**. Quindi, copiare il valore dell' **URL http post** da usare nella pipeline Data Factory.
 
-4. Dopo aver fornito i parametri della pipeline di data factory, selezionare **debug** > **fine** per richiamare un'esecuzione per convalidare la configurazione. In alternativa, selezionare **pubblica** per pubblicare tutte le modifiche e quindi selezionare **Aggiungi trigger** per eseguire un'esecuzione.
+4. Dopo aver fornito i parametri della pipeline di data factory, selezionare **debug**  >  **fine** per richiamare un'esecuzione per convalidare la configurazione. In alternativa, selezionare **pubblica** per pubblicare tutte le modifiche e quindi selezionare **Aggiungi trigger** per eseguire un'esecuzione.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW configurazioni di destinazione dell'hub aperto
 

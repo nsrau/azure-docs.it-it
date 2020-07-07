@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: ac4753da1405fe6b8cd209bb4899192e9f317aa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428706"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Schemi definiti dall'utente all'interno di sinapsi SQL
@@ -122,4 +122,4 @@ Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruol
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri suggerimenti sullo sviluppo, vedere la [Panoramica sullo sviluppo di sinapsi SQL](develop-overview.md).
+Per altri suggerimenti sullo sviluppo, vedere [Synapse SQL pool development overview](develop-overview.md) (Panoramica sullo sviluppo per il pool Synapse SQL).

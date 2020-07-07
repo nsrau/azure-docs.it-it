@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455363"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
@@ -150,7 +150,7 @@ AZF2 rappresenta un'appliance virtuale di Azure contenente le regole seguenti:
 ## <a name="network-security-groups-nsgs"></a>Gruppi di sicurezza di rete (NGS)
 In questo scenario i gruppi di sicurezza di rete non vengono usati. È tuttavia possibile applicare i gruppi di sicurezza di rete a ogni subnet per limitare il traffico in ingresso e in uscita. È ad esempio possibile applicare le seguenti regole per gruppi di sicurezza di rete alla subnet del firewall esterno.
 
-**In ingresso**
+**Incoming**
 
 * Consentire tutto il traffico TCP da Internet alla porta 80 in qualsiasi macchina virtuale della subnet.
 * Rifiutare il resto del traffico da Internet.

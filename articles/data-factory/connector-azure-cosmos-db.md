@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415376"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Cosmos DB (API SQL) utilizzando Azure Data Factory
@@ -37,8 +37,8 @@ In questo articolo viene illustrato come usare l'attività di copia in Azure Dat
 
 Questo connettore Azure Cosmos DB (API SQL) è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Mapping del flusso di dati](concepts-data-flow-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 Per l'attività di copia, questo connettore Azure Cosmos DB (API SQL) supporta:
@@ -152,7 +152,7 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal
 
 Per copiare dati da Azure Cosmos DB (API SQL), impostare il tipo **source** nell'attività di copia su **DocumentDbCollectionSource**. 
 
-Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -204,14 +204,14 @@ Quando si copiano dati da Cosmos DB, a meno che non si desideri [esportare docum
 
 Per copiare dati in Azure Cosmos DB (API SQL), impostare il tipo **sink** nell'attività di copia su **DocumentDbCollectionSink**. 
 
-Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **CosmosDbSqlApiSink**. |Sì |
 | writeBehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **upsert** consiste nella sostituzione del documento se esiste già un documento con lo stesso ID. In caso contrario, il documento viene inserito.<br /><br />**Nota**: Data Factory genera automaticamente un ID per un documento se non è specificato nel documento originale o tramite il mapping di colonna. È quindi necessario assicurarsi che il documento contenga un ID in modo che **upsert** funzioni come previsto. |No<br />(il valore predefinito è **insert**) |
 | writeBatchSize | Data Factory usa la [libreria dell'executor bulk di Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) per scrivere dati in Azure Cosmos DB. La proprietà **writeBatchSize** controlla la dimensione dei documenti forniti da ADF alla libreria. È possibile provare ad aumentare il valore per **writeBatchSize** per migliorare le prestazioni e a ridurre il valore se le dimensioni dei documenti diventano grandi. Vedere i suggerimenti di seguito. |No<br />(il valore predefinito è **10.000**) |
-| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio Cosmos DB ur per l'ottimizzazione delle prestazioni di copia e consigli. Se si è interessati a questo comportamento, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
+| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio Cosmos DB ur per l'ottimizzazione delle prestazioni di copia e consigli. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 >[!TIP]
 >Per importare documenti JSON così come sono, vedere la sezione [importare o esportare documenti JSON](#import-and-export-json-documents) . per eseguire la copia da dati a forma di tabulazione, vedere [eseguire la migrazione da un database relazionale a un Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
@@ -257,15 +257,15 @@ Se si usa l'origine del tipo "DocumentDbCollectionSink", è ancora supportata co
 
 Per copiare dati da Azure Cosmos DB a sink tabulare o invertiti, fare riferimento al [mapping dello schema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
+## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
-Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere e scrivere nelle raccolte in Cosmos DB. Per ulteriori informazioni, vedere trasformazione [origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) in mapping di flussi di dati.
+Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere e scrivere nelle raccolte in Cosmos DB. Per altre informazioni, vedere la [trasformazione origine](data-flow-source.md) e la [trasformazione sink](data-flow-sink.md) nei flussi di dati per mapping.
 
 ### <a name="source-transformation"></a>Trasformazione origine
 
 Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **Opzioni di origine** della trasformazione origine. 
 
-**Includi colonne di sistema:** Se true, ```id``` ```_ts```, e altre colonne di sistema verranno incluse nei metadati del flusso di dati da CosmosDB. Quando si aggiornano le raccolte, è importante includerlo in modo che sia possibile acquisire l'ID di riga esistente.
+**Includi colonne di sistema:** Se true, ```id``` , ```_ts``` e altre colonne di sistema verranno incluse nei metadati del flusso di dati da CosmosDB. Quando si aggiornano le raccolte, è importante includerlo in modo che sia possibile acquisire l'ID di riga esistente.
 
 **Dimensioni pagina:** Numero di documenti per pagina del risultato della query. Il valore predefinito è "-1" che usa la pagina dinamica del servizio fino a 1000.
 
@@ -285,17 +285,17 @@ Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **O
 
 **Barra rovesciata con Escape:** Se si usano le barre rovesciate per eseguire il escape dei caratteri nel file JSON, scegliere questa opzione.
 
-### <a name="sink-transformation"></a>Sink-trasformazione
+### <a name="sink-transformation"></a>Trasformazione sink
 
 Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **Impostazioni** della trasformazione sink.
 
-**Metodo di aggiornamento:** Determina quali operazioni sono consentite nella destinazione del database. Per impostazione predefinita, vengono consentiti solo gli inserimenti. Per aggiornare, Upsert o eliminare righe, è necessaria una trasformazione alter-Row per contrassegnare le righe per tali azioni. Per gli aggiornamenti, Upsert ed eliminazioni, è necessario impostare una colonna chiave o colonne per determinare la riga da modificare.
+**Update method** (Metodo di aggiornamento): determina le operazioni consentite nella destinazione del database. Per impostazione predefinita, sono consentiti solo gli inserimenti. Per eseguire operazioni di aggiornamento, upsert o eliminazione di righe, è necessaria una trasformazione alter-row che applichi alle righe i tag corrispondenti alle azioni. Per le operazioni di aggiornamento, upsert ed eliminazione è necessario impostare una o più colonne chiave per determinare quale riga modificare.
 
 **Azione di raccolta:** Determina se ricreare la raccolta di destinazione prima della scrittura.
 * None: nessuna azione verrà eseguita nella raccolta.
 * Ricrea: la raccolta viene eliminata e ricreata
 
-**Dimensioni batch**: controlla il numero di righe scritte in ogni bucket. Dimensioni di batch più grandi migliorano la compressione e l'ottimizzazione della memoria, ma rischiano le eccezioni di memoria durante la memorizzazione nella cache dei dati.
+**Dimensioni batch**: controlla il numero di righe scritte in ogni bucket. Dimensioni batch più grandi migliorano l'ottimizzazione della compressione e della memoria, ma rischiano di causare eccezioni di memoria insufficiente durante la memorizzazione nella cache dei dati.
 
 **Chiave di partizione:** Immettere una stringa che rappresenta la chiave di partizione per la raccolta. Esempio: ```/movies/title```
 
@@ -303,9 +303,9 @@ Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **I
 
 **Budget della velocità effettiva di scrittura:** Intero che rappresenta il numero di ur da allocare al processo Spark di inserimento bulk. Questo numero è esterno alla velocità effettiva totale allocata per la raccolta.
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 ## <a name="import-and-export-json-documents"></a>Importare ed esportare documenti JSON
 

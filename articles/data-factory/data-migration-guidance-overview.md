@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416437"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Usare Azure Data Factory per migrare i dati dal data Lake o da data warehouse ad Azure
@@ -52,7 +52,7 @@ Quando si sceglie un approccio di migrazione online e offline, sono necessarie t
 
 Si supponga, ad esempio, di pianificare l'uso di Azure Data Factory per completare la migrazione dei dati entro due settimane (la *finestra di migrazione*). Si noti la linea di taglio rosa/blu nella tabella seguente. La cella rosa più bassa per una determinata colonna Mostra le dimensioni dei dati e l'associazione della larghezza di banda di rete la cui finestra di migrazione è più vicina a ma meno di due settimane. (Qualsiasi associazione di dimensioni/larghezza di banda in una cella blu ha una finestra di migrazione in linea di più di due settimane). 
 
-![online e offline](media/data-migration-guidance-overview/online-offline.png) questa tabella consente di determinare se è possibile soddisfare la finestra di migrazione desiderata tramite la migrazione in linea (Azure Data Factory) in base alle dimensioni dei dati e alla larghezza di banda di rete disponibile. Se la finestra di migrazione in linea è più di due settimane, è consigliabile usare la migrazione offline.
+![online e offline ](media/data-migration-guidance-overview/online-offline.png) questa tabella consente di determinare se è possibile soddisfare la finestra di migrazione desiderata tramite la migrazione in linea (Azure Data Factory) in base alle dimensioni dei dati e alla larghezza di banda di rete disponibile. Se la finestra di migrazione in linea è più di due settimane, è consigliabile usare la migrazione offline.
 
 > [!NOTE]
 > Grazie alla migrazione online, è possibile eseguire il caricamento dei dati cronologici e i feed incrementali end-to-end tramite un singolo strumento.  Con questo approccio, i dati possono essere mantenuti sincronizzati tra l'archivio esistente e il nuovo archivio durante l'intera finestra di migrazione. Ciò significa che è possibile ricompilare la logica ETL nel nuovo archivio con i dati aggiornati.

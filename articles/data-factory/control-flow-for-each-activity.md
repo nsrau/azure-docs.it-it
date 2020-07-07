@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417187"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
@@ -492,7 +492,7 @@ Di seguito vengono descritte alcune limitazioni dell'attività ForEach con le so
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
-- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
