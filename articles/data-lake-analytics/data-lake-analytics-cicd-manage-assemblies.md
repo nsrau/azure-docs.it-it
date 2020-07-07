@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71315857"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Procedure consigliate per la gestione di assembly U-SQL in una pipeline di CI/CD
@@ -30,12 +30,12 @@ Per gestire il codice sorgente degli assembly C# e gli script U-SQL DDL di regis
 Un progetto di database U-SQL può fare riferimento a un progetto libreria di classi (per l'applicazione U-SQL). È possibile creare gli assembly registrati nel database U-SQL usando il codice sorgente C# di riferimento da questo progetto libreria di classi (per l'applicazione U-SQL).
 
 Seguire questi passaggi per creare progetti e aggiungere riferimenti.
-1. Creare una libreria di classi per il progetto di applicazione U-SQL selezionando **file** > **nuovo** > **progetto**. Il progetto è sotto il nodo **Azure Data Lake > U-SQL**.
+1. Creare una libreria di classi per il progetto di applicazione U-SQL selezionando **file**  >  **nuovo**  >  **progetto**. Il progetto è sotto il nodo **Azure Data Lake > U-SQL**.
 
    ![Strumenti Data Lake per Visual Studio - Creare il progetto libreria di classi C#](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 1. Aggiungere il codice C# definito dall'utente nel progetto libreria di classi (per l'applicazione U-SQL).
 
-1. Creare un progetto U-SQL selezionando **file** > **nuovo** > **progetto**. Il progetto si trova sotto il **Azure Data Lake** > nodo**U-SQL** .
+1. Creare un progetto U-SQL selezionando **file**  >  **nuovo**  >  **progetto**. Il progetto si trova sotto il **Azure Data Lake**  >  nodo**U-SQL** .
 
    ![Strumenti Data Lake per Visual Studio - Creare il progetto di database U-SQL](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 1. Aggiungere un riferimento al progetto libreria di classi C# per il progetto di database U-SQL.
@@ -54,7 +54,7 @@ Seguire questi passaggi per creare progetti e aggiungere riferimenti.
 
 7. Aggiungere eventuali **dipendenze gestite** e **file aggiuntivi**. Quando si aggiungono file, lo strumento usa il percorso relativo per assicurarsi di poter trovare gli assembly sul computer locale e sul computer di compilazione in un momento successivo.
 
-_DeployTempDirectory nella parte inferiore della finestra dell'editor è una variabile predefinita che punta lo strumento alla cartella di output di compilazione. ** \@** Nella cartella di output della compilazione ogni assembly dispone di una sottocartella il cui nome fa riferimento a quello dell'assembly. Tutte le DLL e i file aggiuntivi si trovano in quella sottocartella.
+** \@ _DeployTempDirectory** nella parte inferiore della finestra dell'editor è una variabile predefinita che punta lo strumento alla cartella di output di compilazione. Nella cartella di output della compilazione ogni assembly dispone di una sottocartella il cui nome fa riferimento a quello dell'assembly. Tutte le DLL e i file aggiuntivi si trovano in quella sottocartella.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilare un progetto di database U-SQL
 

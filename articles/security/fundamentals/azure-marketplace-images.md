@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80548663"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
@@ -41,9 +41,9 @@ Eseguire sempre un rilevamento delle vulnerabilità di sicurezza sull'immagine p
 | Sicurezza                                                     | Includere le versioni più recenti delle librerie obbligatorie: </br> - OpenSSL v1.0 o versioni successive </br> - Python 2.5 o versioni successive (si consiglia Python 2.6 o versioni successive) </br> - Pacchetto pyasn1 per Python, se non già installato </br> - d.OpenSSL v 1.0 o versioni successive                                                                |
 | Sicurezza                                                     | Cancella le voci della cronologia Bash/Shell.                                                                                                                                                                                                                                             |
 | Rete                                                   | Includere il server SSH per impostazione predefinita. Impostare SSH Keep Alive sulla configurazione sshd con l'opzione seguente: ClientAliveInterval 180.                                                                                                                                                        |
-| Rete                                                   | Rimuovere qualsiasi configurazione di rete personalizzata dall'immagine. Eliminare il. conf. conf: `rm /etc/resolv.conf`.                                                                                                                                                                                |
+| Rete                                                   | Rimuovere qualsiasi configurazione di rete personalizzata dall'immagine. Eliminare il. conf. conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Distribuzione                                                   | Installare la versione più recente dell'agente Linux di Azure.</br> -Installare usando il pacchetto RPM o deb.  </br> - È possibile anche usare il processo di installazione manuale, ma è consigliabile e preferibile usare i pacchetti di installazione. </br> - Se si esegue l'installazione manuale dell'agente dal repository GitHub, copiare prima il file `waagent` in `/usr/sbin` ed eseguirlo (come radice): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Il file di configurazione dell'agente viene inserito in `/etc/waagent.conf`. |
-| Distribuzione                                                   | Assicurarsi che il supporto tecnico di Azure possa fornire ai partner l'output della console seriale quando necessario e fornire un timeout adeguato per il montaggio del disco del sistema operativo dall'archiviazione cloud. Aggiungere i parametri seguenti alla riga di avvio del kernel image `console=ttyS0 earlyprintk=ttyS0 rootdelay=300`:. |
+| Distribuzione                                                   | Assicurarsi che il supporto tecnico di Azure possa fornire ai partner l'output della console seriale quando necessario e fornire un timeout adeguato per il montaggio del disco del sistema operativo dall'archiviazione cloud. Aggiungere i parametri seguenti alla riga di avvio del kernel image: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Distribuzione                                                   | Nessuna partizione swap nel disco del sistema operativo. Lo swap può essere richiesto per la creazione del disco delle risorse locali dall'agente Linux.         |
 | Distribuzione                                                   | Creare una singola partizione radice per il disco del sistema operativo.      |
 | Distribuzione                                                   | Solo sistema operativo a 64 bit.                                                                                                                                                                                                                                                          |

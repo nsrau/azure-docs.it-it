@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192417"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
@@ -94,9 +94,9 @@ Le istanze large di SAP in Azure HANA (Type I) possono trovarsi in uno stato non
 #### <a name="execution-steps"></a>Passaggi di esecuzione
 
 
-*   Eseguire `multipath -ll` il comando.
+*   Eseguire il `multipath -ll` comando.
 *   Ottenere l'ID LUN la cui dimensione è approssimativamente 50G o usare il comando:`fdisk -l | grep mapper`
-*   Aggiorna `/etc/default/grub_installdevice` il file con `/dev/mapper/<LUN ID>`la riga. Esempio:/dev/mapper/3600a09803830372f483f495242534a56
+*   Aggiorna il `/etc/default/grub_installdevice` file con la riga `/dev/mapper/<LUN ID>` . Esempio:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >L'ID LUN varia da server a server.
 
@@ -119,7 +119,7 @@ blacklist edac_core
 
 
 ### <a name="kernel-parameters"></a>Parametri del kernel
-   Verificare che siano state applicate le `transparent_hugepage`impostazioni `numa_balancing`corrette `processor.max_cstate`per `ignore_ce` , `intel_idle.max_cstate` , e.
+   Verificare che siano state applicate le impostazioni corrette per `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` .
 
 * intel_idle. max_cstate = 1
 * processore. max_cstate = 1

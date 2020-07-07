@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533990"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
@@ -29,7 +29,7 @@ Oltre al cloud Microsoft nel mondo, Microsoft Authentication Library (MSAL) cons
 Incluso il cloud globale, Azure Active Directory (Azure AD) viene distribuito nei cloud nazionali seguenti:  
 
 - Azure Government
-- 21Vianet per Azure Cina
+- Azure Cina 21Vianet
 - Azure Germania
 
 Questa guida illustra come accedere agli account aziendali e dell'Istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph nell'ambiente [cloud di Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/) .
@@ -66,7 +66,7 @@ Le esercitazioni seguenti illustrano come compilare un'app Web MVC .NET Core 2,2
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Per abilitare l'applicazione MSAL. js per i cloud sovrani:
+Per abilitare l'applicazione MSAL.js per i cloud sovrani:
 
 ### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 
@@ -77,7 +77,7 @@ Per abilitare l'applicazione MSAL. js per i cloud sovrani:
 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 1. Passare alla pagina [registrazioni app](https://aka.ms/ra/ff) della piattaforma Microsoft Identity per sviluppatori.
 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
-1. In **tipi di account supportati**selezionare **account in qualsiasi directory dell'organizzazione**.
+1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
 1. Nella sezione **URI di reindirizzamento** selezionare la piattaforma **Web** e impostare il valore sull'URL dell'applicazione in base al server Web. Vedere le sezioni successive per istruzioni su come impostare e ottenere l'URL di reindirizzamento in Visual Studio e nel nodo.
 1. Selezionare **Registra**.
 1. Nella pagina **Panoramica ** dell'app prendere nota del valore del campo **ID applicazione (client)**.
@@ -89,7 +89,7 @@ Per abilitare l'applicazione MSAL. js per i cloud sovrani:
 
 - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) per un server Web locale, ad esempio node.
 
-  o
+  oppure
 
 - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 
@@ -123,9 +123,9 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 Nel codice:
 
 - `Enter_the_Application_Id_here`è il valore ID dell'applicazione **(client)** per l'applicazione registrata.
-- `Enter_the_Tenant_Info_Here`è impostato su una delle opzioni seguenti:
+- `Enter_the_Tenant_Info_Here` è impostato su una delle opzioni seguenti:
     - Se l'applicazione supporta gli **account in questa directory aziendale**, sostituire questo valore con l'ID tenant o il nome del tenant (ad esempio, contoso.Microsoft.com).
-    - Se l'applicazione supporta gli **account in qualsiasi directory organizzativa**, sostituire questo valore `organizations`con.
+    - Se l'applicazione supporta gli **account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations` .
 
     Per trovare gli endpoint di autenticazione per tutti i cloud nazionali, vedere [Azure ad endpoint di autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
@@ -184,7 +184,7 @@ Di seguito è riportato un esempio di un endpoint Graph con ambito:
 
 ## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-È possibile usare MSAL per iOS e macOS per acquisire i token nei cloud nazionali, ma è necessaria una configurazione aggiuntiva `MSALPublicClientApplication`durante la creazione.
+È possibile usare MSAL per iOS e macOS per acquisire i token nei cloud nazionali, ma è necessaria una configurazione aggiuntiva durante la creazione `MSALPublicClientApplication` .
 
 Ad esempio, se si vuole che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale (in questo governo degli Stati Uniti), è possibile scrivere:
 
@@ -207,7 +207,7 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-È possibile usare MSAL per iOS e macOS per acquisire i token nei cloud nazionali, ma è necessaria una configurazione aggiuntiva `MSALPublicClientApplication`durante la creazione.
+È possibile usare MSAL per iOS e macOS per acquisire i token nei cloud nazionali, ma è necessaria una configurazione aggiuntiva durante la creazione `MSALPublicClientApplication` .
 
 Ad esempio, se si vuole che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale (in questo governo degli Stati Uniti), è possibile scrivere:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Altre informazioni su:
 
 - [Autenticazione nei cloud nazionali](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [21Vianet per Azure Cina](https://docs.microsoft.com/azure/china/)
+- [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/)
+- [Azure Cina (21Vianet)](https://docs.microsoft.com/azure/china/)
 - [Azure Germania](https://docs.microsoft.com/azure/germany/)

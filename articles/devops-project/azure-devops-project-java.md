@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: creare una pipeline CI/CD per Java-Azure DevOps Starter'
-description: DevOps Starter consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
+description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,15 +14,15 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 1afd9361149fbcaaf88a9cc10c62953d703f8204
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232667"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurare una pipeline CI/CD per un'app Java con Azure DevOps Starter
 
-In questa Guida introduttiva si usa l'esperienza di avvio semplificata di Azure DevOps per configurare una pipeline di integrazione continua e recapito continuo (CD) per l'app Java in Azure Pipelines. È possibile usare Azure DevOps Starter per configurare tutti gli elementi necessari per lo sviluppo, la distribuzione e il monitoraggio dell'app. 
+In questa Guida introduttiva si usa l'esperienza di avvio semplificata di Azure DevOps per configurare una pipeline di integrazione continua e recapito continuo (CD) per l'app Java in Azure Pipelines. È possibile usare Azure DevOps Starter per configurare tutti gli elementi necessari per lo sviluppo, la distribuzione e il monitoraggio di un'app. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,13 +31,13 @@ In questa Guida introduttiva si usa l'esperienza di avvio semplificata di Azure 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
+DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure nella sottoscrizione di Azure selezionata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova.
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -64,7 +64,7 @@ DevOps Starter ha configurato automaticamente un trigger di compilazione e rilas
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 
-DevOps Starter crea un repository git in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
+DevOps Starter crea un repository GIT in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
 1. Nella parte sinistra del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository Git appena creato.
 
@@ -77,14 +77,14 @@ DevOps Starter crea un repository git in Azure Repos o GitHub. Per visualizzare 
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 
-1. Nel browser passare al dashboard iniziale di DevOps.   
+1. Nel browser passare al dashboard di DevOps Starter.   
 Verrà visualizzata una compilazione in corso. Le modifiche appena apportate vengono compilate e distribuite automaticamente con una pipeline CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 
- Nel passaggio precedente, DevOps Starter configurava automaticamente una pipeline di integrazione continua/distribuzione continua completa. Esplorare e personalizzare la pipeline in base alle esigenze. Eseguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione.
+ Nel passaggio precedente DevOps Starter ha configurato automaticamente una pipeline CI/CD completa. Esplorare e personalizzare la pipeline in base alle esigenze. Eseguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione.
 
-1. Nella parte superiore del Dashboard Starter di DevOps selezionare **pipeline di compilazione**. Questo collegamento apre una scheda del browser e la pipeline di compilazione per il nuovo progetto.
+1. Selezionare **Pipeline di compilazione** nel dashboard di DevOps Starter. Questo collegamento apre una scheda del browser e la pipeline di compilazione per il nuovo progetto.
 
 1. Puntare al campo **stato** , quindi selezionare i puntini di sospensione (...). Questa azione apre un menu in cui è possibile avviare diverse attività, ad esempio l'accodamento di una nuova compilazione, la sospensione di una compilazione e la modifica della pipeline di compilazione.
 
@@ -124,7 +124,7 @@ Nel riquadro **Cronologia** verrà visualizzato un log di controllo delle modifi
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate. Usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

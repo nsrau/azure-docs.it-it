@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545962"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell 
@@ -31,7 +31,7 @@ In questo articolo con procedure sono illustrate le operazioni più comuni del s
 
 In questo articolo con procedure viene illustrato come creare un nuovo account di archiviazione di Azure in un nuovo gruppo di risorse in modo da semplificarne la rimozione al termine della procedura. Se lo si preferisce, è possibile usare un account di archiviazione esistente.
 
-Per gli esempi sono necessari AZ `Az.Storage (1.1.0 or greater)` PowerShell `Az.Resources (1.2.0 or greater)`modules e. In una finestra di PowerShell eseguire `Get-Module -ListAvailable Az*` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+Per gli esempi sono necessari AZ PowerShell modules `Az.Storage (1.1.0 or greater)` e `Az.Resources (1.2.0 or greater)` . In una finestra di PowerShell eseguire `Get-Module -ListAvailable Az*` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Se si usa questa funzionalità di Azure da PowerShell, è necessario che sia installato il modulo `Az`. La versione corrente di `AzTable` non è compatibile con il modulo AzureRM precedente.
@@ -40,7 +40,7 @@ Per gli esempi sono necessari AZ `Az.Storage (1.1.0 or greater)` PowerShell `Az.
 Dopo l'installazione o l'aggiornamento di Azure PowerShell, è necessario installare il modulo **AzTable**, che include i comandi per la gestione delle entità. Per installare questo modulo, eseguire PowerShell come amministratore e usare il comando **Install-Module**.
 
 > [!IMPORTANT]
-> Per motivi di compatibilità dei nomi dei moduli è ancora in corso la pubblicazione dello stesso `AzureRmStorageTables` modulo con il vecchio nome in PowerShell Gallery. In questo documento verrà fatto riferimento solo al nuovo nome.
+> Per motivi di compatibilità dei nomi dei moduli è ancora in corso la pubblicazione dello stesso modulo con il vecchio nome `AzureRmStorageTables` in PowerShell Gallery. In questo documento verrà fatto riferimento solo al nuovo nome.
 
 ```powershell
 Install-Module AzTable
@@ -138,7 +138,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se per questa esercitazione sono stati creati un nuovo gruppo di risorse e un account di archiviazione, è possibile rimuovere tutti gli asset creati rimuovendo il gruppo di risorse. Questo comando elimina tutte le risorse contenute nel gruppo di risorse e il gruppo stesso.
 

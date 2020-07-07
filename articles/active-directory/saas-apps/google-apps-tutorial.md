@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b025d98c230bc82b86a736785fb8e6581ec4519c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 091129d1fbca4141e9841af6a9991d44a6663801
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864437"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799191"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Google Cloud (G Suite) Connector
 
@@ -129,20 +129,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: 
 
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
-
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
 1. Nella sezione **Configurazione SAML di base**, per eseguire la configurazione per **Google Cloud Platform**, seguire questa procedura:
 
@@ -150,19 +149,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
     
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: 
     
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Google Cloud (G Suite) Connector non fornisce il valore di ID entità/Identificatore nella configurazione dell'accesso Single Sign-On, di conseguenza quando si deseleziona l'opzione **domain specific issuer** (certificazione specifica del dominio), il valore di Identificatore sarà `google.com`. Se si seleziona l'opzione **domain specific issuer** (certificazione specifica del dominio), il valore sarà `google.com/a/<yourdomainname.com>`. Per selezionare/deselezionare l'opzione **domain specific issuer** (certificazione specifica del dominio), è necessario passare alla sezione **Configurare l'accesso Single Sign-On di Google Cloud (G Suite) Connector**, descritta più avanti nell'esercitazione. Per altre informazioni, contattare il [team di supporto clienti di Google Cloud (G Suite) Connector](https://www.google.com/contact/).

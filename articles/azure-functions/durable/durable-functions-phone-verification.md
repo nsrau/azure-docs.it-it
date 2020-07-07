@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335755"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
@@ -45,7 +45,7 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `CurrentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta `Task.WhenAny`a.
+> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `CurrentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,7 @@ Di seguito è riportato il codice che implementa la funzione:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta `context.df.Task.any`a.
+> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `context.df.Task.any` .
 
 ---
 
@@ -83,7 +83,7 @@ La funzione **E4_SendSmsChallenge** usa l'associazione Twilio per inviare il mes
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> Per eseguire il codice di esempio `Microsoft.Azure.WebJobs.Extensions.Twilio` , sarà necessario installare il pacchetto NuGet.
+> `Microsoft.Azure.WebJobs.Extensions.Twilio`Per eseguire il codice di esempio, sarà necessario installare il pacchetto NuGet.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -120,7 +120,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 La funzione dell'agente di orchestrazione riceve il numero di telefono indicato e invia immediatamente un messaggio SMS con un codice di verifica di 4 cifre generato casualmente &mdash; ad esempio *2168*. La funzione attende quindi 90 secondi per ricevere una risposta.
 
-Per rispondere con il codice, è possibile usare [ `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) all'interno di un'altra funzione o richiamare il webhook http post **sendEventUrl** a cui si fa riferimento nella `{eventName}` risposta 202 precedente, sostituendo con `SmsChallengeResponse`il nome dell'evento:
+Per rispondere con il codice, è possibile usare [ `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) all'interno di un'altra funzione o richiamare il webhook http post **sendEventUrl** a cui si fa riferimento nella risposta 202 precedente, sostituendo `{eventName}` con il nome dell'evento `SmsChallengeResponse` :
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -156,7 +156,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio sono state illustrate alcune delle funzionalità avanzate di Durable Functions, in `WaitForExternalEvent` particolare `CreateTimer` le API e. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
+In questo esempio sono state illustrate alcune delle funzionalità avanzate di Durable Functions, in particolare le `WaitForExternalEvent` `CreateTimer` API e. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
 
 > [!div class="nextstepaction"]
 > [Passare al primo articolo della serie](durable-functions-bindings.md)

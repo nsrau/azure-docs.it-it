@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80436930"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
@@ -41,7 +41,7 @@ Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i
 
 [Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md) elenca i limiti correnti per gli account di archiviazione di Azure. Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, l'applicazione può essere creata per usare più account di archiviazione e quindi partizionare gli oggetti dati tra tali account.
 
-[Analisi archiviazione di Azure](../../storage/storage-analytics.md) fornisce le metriche per tutti i servizi di archiviazione e portale di Azure può essere configurato per raccogliere le metriche da visualizzare tramite i grafici. È possibile creare avvisi per inviare una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
+[Analisi archiviazione di Azure](../../storage/storage-analytics.md)   fornisce le metriche per tutti i servizi di archiviazione e portale di Azure può essere configurato per raccogliere le metriche da visualizzare tramite i grafici. È possibile creare avvisi per inviare una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
 Archiviazione di Azure offre l' [eliminazione temporanea per gli oggetti BLOB](../../storage/blobs/storage-blob-soft-delete.md) che consentono di ripristinare i dati quando vengono accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione.
 
@@ -76,7 +76,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md)
 - [Obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../../storage/blobs/scalability-targets.md)
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../../storage/common/storage-performance-checklist.md)
-- [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
+- [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorare un account di archiviazione nel portale di Azure](../../storage/common/storage-monitor-storage-account.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -94,11 +94,11 @@ Azure Data Lake Storage Gen2 è l'offerta di archiviazione più recente. Tale ve
 
 Azure Data Lake Store Gen2 è compilato sulla base di  [Archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md) e consente di interfacciarsi con i dati usando paradigmi di file system e di archiviazioni di oggetti. Le funzionalità di  [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), ad esempio la semantica dei file system, la sicurezza a livello di file e la scalabilità, vengono combinate con un'archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza e un SDK/ecosistema di strumenti di grandi dimensioni derivati da  [Archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 offre non solo tutte le qualità dell'archiviazione di oggetti, ma anche i vantaggi di un'interfaccia di file system ottimizzata per i carichi di lavoro di analisi.
 
-Una funzionalità fondamentale di data Lake storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../../storage/data-lake-storage/namespace.md)al servizio di archiviazione BLOB, che consente di organizzare gli oggetti e i file in una gerarchia di directory per l'accesso ai dati ad alte prestazioni.La struttura gerarchica consente che operazioni quali la ridenominazione o l'eliminazione di una directory siano singole operazioni atomiche sui metadati della directory anziché operazioni di enumerazione ed elaborazione di tutti gli oggetti che condividono il prefisso del nome della directory.
+Una funzionalità fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../../storage/data-lake-storage/namespace.md)   al servizio di archiviazione BLOB, che consente di organizzare gli oggetti e i file in una gerarchia di directory per l'accesso ai dati ad alte prestazioni.La struttura gerarchica consente che operazioni quali la ridenominazione o l'eliminazione di una directory siano singole operazioni atomiche sui metadati della directory anziché operazioni di enumerazione ed elaborazione di tutti gli oggetti che condividono il prefisso del nome della directory.
 
 In passato, le analisi basate sul cloud imponevano il raggiungimento di un compromesso tra prestazioni, gestione e sicurezza. Le funzionalità principale di Azure Data Lake Storage (ADLS) Gen2 sono le seguenti:
 
-- **Accesso compatibile con Hadoop**: Azure Data Lake Storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un  [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver](../../storage/data-lake-storage/abfs-driver.md) ABFS è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
+- **Accesso compatibile con Hadoop**: Azure Data Lake Storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un  [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver ABFS](../../storage/data-lake-storage/abfs-driver.md)   è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
 
 - **Un superset di autorizzazioni POSIX**: il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
 
@@ -109,8 +109,8 @@ In passato, le analisi basate sul cloud imponevano il raggiungimento di un compr
 - **Driver ottimizzato**: il driver ABFS (Azure BLOB Filesystem) è  [ottimizzato in modo specifico](../../storage/data-lake-storage/abfs-driver.md) per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
 
 Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati seguenti.
-- `abfs:///`: consente di accedere all'istanza di Data Lake Storage per il cluster.
-- `abfs://file_system@account_name.dfs.core.windows.net`: usato durante la comunicazione con un'istanza di Data Lake Storage non predefinito.
+- `abfs:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Usato durante la comunicazione con un'istanza di Data Lake Storage non predefinita.
 
 Per altre informazioni, vedere gli articoli seguenti:
 

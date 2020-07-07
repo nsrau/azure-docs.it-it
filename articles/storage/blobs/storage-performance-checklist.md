@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473943"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
@@ -131,7 +131,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 
 Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva.  L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.  
 
-### <a name="location"></a>Percorso
+### <a name="location"></a>Posizione
 
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.  
 
@@ -236,7 +236,7 @@ Archiviazione di Azure offre una serie di soluzioni per la copia e lo trasferime
 
 ### <a name="blob-copy-apis"></a>API per la copia di BLOB
 
-Per copiare i BLOB tra gli account di archiviazione, usare l'operazione [put block from URL](/rest/api/storageservices/put-block-from-url) . Questa operazione copia i dati in modo sincrono da qualsiasi origine URL in un BLOB in blocchi. L'uso `Put Block from URL` dell'operazione può ridurre significativamente la larghezza di banda necessaria quando si esegue la migrazione dei dati tra gli account di archiviazione. Poiché l'operazione di copia viene eseguita sul lato del servizio, non è necessario scaricare e caricare nuovamente i dati.
+Per copiare i BLOB tra gli account di archiviazione, usare l'operazione [put block from URL](/rest/api/storageservices/put-block-from-url) . Questa operazione copia i dati in modo sincrono da qualsiasi origine URL in un BLOB in blocchi. L'uso dell' `Put Block from URL` operazione può ridurre significativamente la larghezza di banda necessaria quando si esegue la migrazione dei dati tra gli account di archiviazione. Poiché l'operazione di copia viene eseguita sul lato del servizio, non è necessario scaricare e caricare nuovamente i dati.
 
 Per copiare i dati all'interno dello stesso account di archiviazione, usare l'operazione [Copy Blob](/rest/api/storageservices/Copy-Blob) . La copia dei dati all'interno dello stesso account di archiviazione viene in genere completata rapidamente.  
 

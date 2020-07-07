@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195095"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
@@ -22,7 +22,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Lo schema URI per l'archiviazione primaria dei cluster. Lo schema è `wasb://` per l'archiviazione BLOB di Azure `abfs://` , per Azure Data Lake storage Gen2 `adl://` o per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI `wasbs://`è.  Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
+* Lo schema URI per l'archiviazione primaria dei cluster. Lo schema è `wasb://` per l'archiviazione BLOB di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI è `wasbs://` .  Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Avviare un notebook di Apache Zeppelin
 
@@ -33,7 +33,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Creare un nuovo notebook. Dal riquadro intestazione passare a **notebook** > **Crea nuova nota**.
+2. Creare un nuovo notebook. Dal riquadro intestazione passare a **notebook**  >  **Crea nuova nota**.
 
     ![Creare un nuovo notebook Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Creare un nuovo notebook Zeppelin")
 
@@ -43,7 +43,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 
     ![Stato di notebook Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Stato di notebook Zeppelin")
 
-4. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di `hvac.csv`esempio,, viene copiato nell'account di archiviazione `\HdiSamples\SensorSampleData\hvac`associato in.
+4. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di esempio, `hvac.csv` , viene copiato nell'account di archiviazione associato in `\HdiSamples\SensorSampleData\hvac` .
 
     Nel paragrafo vuoto creato per impostazione predefinita del nuovo notebook, incollare il frammento di codice riportato di seguito.
 
@@ -93,7 +93,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 
     ![Eseguire un'istruzione SQL Spark usando notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Eseguire un'istruzione SQL Spark usando notebook1")
 
-7. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il frammento di codice successivo Mostra come definire una `Temp`variabile,, nella query con i valori possibili con cui si vuole eseguire una query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
+7. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il frammento di codice successivo Mostra come definire una variabile, `Temp` , nella query con i valori possibili con cui si vuole eseguire una query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
 
     ```sql
     %sql  
@@ -125,7 +125,7 @@ In questo articolo si vedrà come usare il pacchetto [Spark-CSV](https://search.
 
     ![Modifica Settings1 dell'interprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifica Settings1 dell'interprete")
 
-3. Passare alla chiave `livy.spark.jars.packages`e impostarne il valore nel formato `group:id:version`. Se si vuole usare il pacchetto [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), è quindi necessario impostare il valore della chiave su `com.databricks:spark-csv_2.10:1.4.0`.
+3. Passare alla chiave `livy.spark.jars.packages` e impostarne il valore nel formato `group:id:version` . Se si vuole usare il pacchetto [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), è quindi necessario impostare il valore della chiave su `com.databricks:spark-csv_2.10:1.4.0`.
 
     ![Modifica settings2 dell'interprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modifica settings2 dell'interprete")
 
@@ -153,9 +153,9 @@ Questa azione Salva il notebook come file JSON nel percorso di download.
 
 ## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Usare `Shiro` per configurare l'accesso agli interpreti Zeppelin nei cluster Enterprise Security Package (ESP)
 
-Come indicato in precedenza, `%sh` l'interprete non è supportato da HDInsight 4,0 e versioni successive. Inoltre, dal `%sh` momento che l'interprete introduce potenziali problemi di sicurezza, ad esempio le tabulazioni di accesso usando i comandi della shell, è stato rimosso anche dai cluster ESP HDInsight 3,6. Significa `%sh` che l'interprete non è disponibile quando si fa clic su **Crea nuova nota** o nell'interfaccia utente dell'interprete per impostazione predefinita.
+Come indicato in precedenza, l' `%sh` interprete non è supportato da HDInsight 4,0 e versioni successive. Inoltre, dal momento che `%sh` l'interprete introduce potenziali problemi di sicurezza, ad esempio le tabulazioni di accesso usando i comandi della shell, è stato rimosso anche dai cluster ESP HDInsight 3,6. Significa che `%sh` l'interprete non è disponibile quando si fa clic su **Crea nuova nota** o nell'interfaccia utente dell'interprete per impostazione predefinita.
 
-Gli utenti con privilegi di dominio `Shiro.ini` possono usare il file per controllare l'accesso all'interfaccia utente dell'interprete. Solo questi utenti possono creare nuovi `%sh` interpreti e impostare le autorizzazioni per ogni `%sh` nuovo interprete. Per controllare l'accesso tramite `shiro.ini` il file, attenersi alla procedura seguente:
+Gli utenti con privilegi di dominio possono usare il `Shiro.ini` file per controllare l'accesso all'interfaccia utente dell'interprete. Solo questi utenti possono creare nuovi `%sh` interpreti e impostare le autorizzazioni per ogni nuovo `%sh` interprete. Per controllare l'accesso tramite il `shiro.ini` file, attenersi alla procedura seguente:
 
 1. Definire un nuovo ruolo utilizzando un nome di gruppo di dominio esistente. Nell'esempio seguente `adminGroupName` è un gruppo di utenti con privilegi in AAD. Non usare caratteri speciali o spazi vuoti nel nome del gruppo. I caratteri dopo `=` forniscono le autorizzazioni per questo ruolo. `*`indica che il gruppo dispone delle autorizzazioni complete.
 
@@ -164,7 +164,7 @@ Gli utenti con privilegi di dominio `Shiro.ini` possono usare il file per contro
     adminGroupName = *
     ```
 
-2. Aggiungere il nuovo ruolo per l'accesso agli interpreti Zeppelin. Nell'esempio seguente, a tutti gli utenti `adminGroupName` di viene concesso l'accesso agli interpreti Zeppelin e può creare nuovi interpreti. È possibile inserire più ruoli tra parentesi quadre `roles[]`, separate da virgole. Quindi, gli utenti che dispongono delle autorizzazioni necessarie possono accedere agli interpreti Zeppelin.
+2. Aggiungere il nuovo ruolo per l'accesso agli interpreti Zeppelin. Nell'esempio seguente, a tutti gli utenti di `adminGroupName` viene concesso l'accesso agli interpreti Zeppelin e può creare nuovi interpreti. È possibile inserire più ruoli tra parentesi quadre `roles[]` , separate da virgole. Quindi, gli utenti che dispongono delle autorizzazioni necessarie possono accedere agli interpreti Zeppelin.
 
     ```
     [urls]
@@ -191,9 +191,9 @@ In tal caso, prima di iniziare a eseguire i processi da un notebook Zeppelin è 
 
 ### <a name="validate-service"></a>Convalida servizio
 
-Per convalidare il servizio da Ambari, `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` passare a dove clustername è il nome del cluster.
+Per convalidare il servizio da Ambari, passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` dove clustername è il nome del cluster.
 
-Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al nodo head. Passare dall'utente allo Zeppelin usando `sudo su zeppelin`il comando. Comandi di stato:
+Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al nodo head. Passare dall'utente allo Zeppelin usando il comando `sudo su zeppelin` . Comandi di stato:
 
 |Comando |Descrizione |
 |---|---|
@@ -203,20 +203,20 @@ Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al no
 
 ### <a name="log-locations"></a>Percorsi di log
 
-|Servizio |Path |
+|Service |Percorso |
 |---|---|
 |Zeppelin-server|/usr/hdp/current/zeppelin-server/|
 |Log del server|/var/log/zeppelin|
-|Interprete della configurazione `Shiro`,, site. XML, log4j|/usr/HDP/Current/Zeppelin-server/conf o/etc/Zeppelin/conf|
+|Interprete della configurazione, `Shiro` , site.xml, log4j|/usr/HDP/Current/Zeppelin-server/conf o/etc/Zeppelin/conf|
 |Directory PID|/var/run/zeppelin|
 
 ### <a name="enable-debug-logging"></a>Abilitazione della registrazione di debug
 
 1. Passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` dove clustername è il nome del cluster.
 
-1. Passare a **configs** > **Advanced Zeppelin-log4j-Properties** > **log4j_properties_content**.
+1. Passare a **configs**  >  **Advanced Zeppelin-log4j-Properties**  >  **log4j_properties_content**.
 
-1. Modificare `log4j.appender.dailyfile.Threshold = INFO` in `log4j.appender.dailyfile.Threshold = DEBUG`.
+1. Modificare `log4j.appender.dailyfile.Threshold = INFO` in `log4j.appender.dailyfile.Threshold = DEBUG` .
 
 1. Aggiungere `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
 
@@ -224,6 +224,6 @@ Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al no
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

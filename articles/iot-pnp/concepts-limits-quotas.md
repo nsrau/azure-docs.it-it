@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80518178"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limiti, quote e limitazioni dell'anteprima Plug and Play
@@ -22,14 +22,14 @@ In questo articolo vengono illustrati i limiti, le quote e le limitazioni specif
 
 Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un hub Internet delle cose:
 
-| Limiti, restrizioni e limitazioni | valore | Note |
+| Limiti, restrizioni e limitazioni | Valore | Note |
 |-----|-----|-----|
 | Numero di modelli di funzionalità del dispositivo (DCMs) o interfacce che possono essere registrate per hub | 1500 ||
 | Numero massimo di interfacce che è possibile registrare per ogni dispositivo | 40 ||
 | Numero massimo di DCMs che possono essere registrati per ogni dispositivo | 1 ||
 | Dimensioni massime del file di interfaccia/DCM | 512 KB ||
 | Dimensione massima del nome di un'interfaccia | 256 caratteri ||
-| Dimensione massima del nome di una proprietà  | 64 byte, 7 livelli di profondità (e il primo livello è riservato per `$iotin`) | Caratteri consentiti: a-z, A-Z, 0-9 (non come primo carattere) e carattere di sottolineatura. |
+| Dimensione massima del nome di una proprietà  | 64 byte, 7 livelli di profondità (e il primo livello è riservato per `$iotin` ) | Caratteri consentiti: a-z, A-Z, 0-9 (non come primo carattere) e carattere di sottolineatura. |
 | Dimensioni massime di un valore di proprietà | 512 byte ||
 | Dimensione massima del nome di un comando | 100 byte ||
 | Dimensioni del dispositivo gemello | Uguale ai [limiti dell'hub](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) Internet ||
@@ -39,7 +39,7 @@ Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un hub Int
 
 Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un repository di modelli:
 
-| Limiti, restrizioni e limitazioni | valore |
+| Limiti, restrizioni e limitazioni | Valore |
 |-----|-----|
 | Numero di repository del modello aziendale per ogni tenant di Azure Active Directory | 1 |
 | Numero di chiavi di autorizzazione per repository di modelli | 10  |

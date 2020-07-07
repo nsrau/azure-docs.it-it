@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100152"
 ---
 # <a name="common-issues"></a>Problemi comuni
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * Se le comunicazioni da modulo a modulo, assicurarsi di effettuare la chiamata sulla porta **4438** e il nome del modulo corrisponde a quello distribuito. 
 
-  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l' **https://eventgridmodule:4438**URL deve essere. Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
+  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l'URL deve essere **https://eventgridmodule:4438** . Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
     
 * Se è un modulo diverso da Internet, assicurarsi che la porta della griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio
 
@@ -64,7 +64,7 @@ sudo docker logs eventgridmodule
 
 * Se le comunicazioni da modulo a modulo, assicurarsi di effettuare la chiamata sulla porta **5888** e il nome del modulo corrisponde a quello distribuito. 
 
-  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l' **http://eventgridmodule:5888**URL deve essere. Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
+  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l'URL deve essere **http://eventgridmodule:5888** . Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
     
 * Se è un modulo diverso da Internet, assicurarsi che la porta della griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio
 
@@ -84,7 +84,7 @@ sudo docker logs eventgridmodule
 
 Per impostazione predefinita, il modulo di griglia di eventi è configurato per autenticare i client con il certificato emesso dal daemon di sicurezza IoT Edge. Verificare che il client stia presentando un certificato radicato in questa catena.
 
-**IoTSecurity** La classe IoTSecurity [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) in Mostra come recuperare i certificati da IOT Edge daemon di sicurezza e usarli per configurare le chiamate in uscita.
+La classe **IoTSecurity** in [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) Mostra come recuperare i certificati da IOT Edge daemon di sicurezza e usarli per configurare le chiamate in uscita.
 
 Se si tratta di un ambiente non di produzione, è possibile disattivare l'autenticazione client. Per informazioni dettagliate su come eseguire questa operazione, vedere [sicurezza e autenticazione](security-authentication.md) .
 
@@ -108,4 +108,4 @@ I motivi tipici sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Segnalare eventuali problemi, suggerimenti con l'uso di griglia di eventi [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)su IOT Edge all'indirizzo.
+Segnalare eventuali problemi, suggerimenti con l'uso di griglia di eventi su IoT Edge all'indirizzo [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

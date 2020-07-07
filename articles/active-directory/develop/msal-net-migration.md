@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533973"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
@@ -59,7 +59,7 @@ In MSAL.NET è anche possibile accedere alle risorse v1.0. Per informazioni dett
 
 - ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) come rappresentazione della connessione al Servizio token di sicurezza (STS) o al server di autorizzazione, tramite un'autorità. Al contrario, MSAL.NET è basato sulle [applicazioni client](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Fornisce due classi distinte: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Acquisizione di token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione (`AcquireTokenAsync` e `AcquireTokenSilentAsync` per adal.NET, and `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET) ma con parametri diversi. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
+- Acquisizione di token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione ( `AcquireTokenAsync` e `AcquireTokenSilentAsync` per adal.NET, and `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET) ma con parametri diversi. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount invece di IUser
 
@@ -120,7 +120,7 @@ Ecco le concessioni supportate in ADAL.NET e MSAL.NET per le applicazioni deskto
 
 Concedi | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interactive (Interattivo) | [Autenticazione interattiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisizione dei token in modo interattivo in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
+Interattività | [Autenticazione interattiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisizione dei token in modo interattivo in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Autenticazione integrata di Windows | [Autenticazione integrata di Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication)
 Nome utente/password | [Acquisizione di token con nome utente e password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Autenticazione con nome utente e password](msal-authentication-flows.md#usernamepassword)
 Flusso di codice del dispositivo | [Profilo di dispositivo per i dispositivi senza Web browser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flusso del codice del dispositivo](msal-authentication-flows.md#device-code)
@@ -165,15 +165,15 @@ Le autorizzazioni OAuth2 sono ambiti di autorizzazione che l'applicazione dell'A
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Per acquisire i token per un'applicazione che accetta i token v 1.0, ad esempio l'API Microsoft Graph, ovvero https://graph.microsoft.com)è necessario creare `scopes` concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
+Per acquisire i token per un'applicazione che accetta i token v 1.0, ad esempio l'API Microsoft Graph, ovvero è https://graph.microsoft.com) necessario creare `scopes` concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
 
-Ad esempio, per accedere a nel nome dell'utente un'API Web v 1.0 che corrisponde `ResourceId`all'URI ID app, è necessario usare:
+Ad esempio, per accedere a nel nome dell'utente un'API Web v 1.0 che corrisponde all'URI ID app `ResourceId` , è necessario usare:
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Per leggere e scrivere con MSAL.NET Azure Active Directory usando l'API Microsoft Graph (https://graph.microsoft.com/), è necessario creare un elenco di ambiti come nel frammento di codice seguente:
+Per leggere e scrivere con MSAL.NET Azure Active Directory usando l'API Microsoft Graph ( https://graph.microsoft.com/) , è necessario creare un elenco di ambiti come nel frammento di codice seguente:
 
 ```csharp
 ResourceId = "https://graph.microsoft.com/";
@@ -221,7 +221,7 @@ Alcune soluzioni di questo tipo sono state usate in scenari come:
 
 MSAL.NET non espone i token di aggiornamento per motivi di sicurezza: MSAL gestisce automaticamente i token di aggiornamento.
 
-Fortunatamente, MSAL.NET dispone ora di un'API che consente di eseguire la migrazione dei `IConfidentialClientApplication`token di aggiornamento precedenti (acquisiti con adal) in:
+Fortunatamente, MSAL.NET dispone ora di un'API che consente di eseguire la migrazione dei token di aggiornamento precedenti (acquisiti con ADAL) in `IConfidentialClientApplication` :
 
 ```csharp
 /// <summary>

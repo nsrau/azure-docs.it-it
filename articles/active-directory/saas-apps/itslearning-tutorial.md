@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67099540"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Esercitazione: Integrazione di Azure Active Directory con itslearning
 
@@ -107,11 +107,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con itslearning, seguire qu
 
     a. Nella casella di testo **URL di accesso** digitare l'URL:
     
-    | |
-    |--|
-    | `https://www.itslearning.com/index.aspx`|
-    | `https://us1.itslearning.com/index.aspx`|
-    | |
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare l'URL: `urn:mace:saml2v2.no:services:com.itslearning`
 

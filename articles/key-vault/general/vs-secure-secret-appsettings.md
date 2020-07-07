@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: bcacd5d2ed9e325383ec7ae75002ae0a6213111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429759"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
@@ -22,7 +22,7 @@ ms.locfileid: "81429759"
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come salvare in modo sicuro le impostazioni di configurazione dell'applicazione segrete per le applicazioni Azure.
 
-Tradizionalmente tutte le impostazioni di configurazione dell'applicazione Web vengono salvate nei file di configurazione, ad esempio Web. config. Questa procedura consente di archiviare le impostazioni segrete, ad esempio le credenziali cloud, per sistemi di controllo del codice sorgente pubblici come GitHub. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
+Tradizionalmente tutte le impostazioni di configurazione dell'applicazione Web vengono salvate nei file di configurazione, ad esempio Web.config. Questa procedura consente di archiviare le impostazioni segrete, ad esempio le credenziali cloud, per sistemi di controllo del codice sorgente pubblici come GitHub. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
 
 Per assicurarsi che il processo di sviluppo sia sicuro, gli strumenti e le librerie del Framework vengono creati per salvare le impostazioni del segreto dell'applicazione in modo sicuro con una modifica minima o senza codice sorgente.
 
@@ -151,7 +151,7 @@ Seguire le istruzioni nella sezione su ASP.NET Core per configurare un Key Vault
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Definire Key Vault generatore di configurazione in Web. config. Inserire questa sezione prima della sezione *appSettings* . Sostituire *vaultName* in modo che sia il nome del Key Vault, se il Key Vault si trova in Azure pubblico, o l'URI completo, se si usa un sovereign cloud.
+2. Definire Key Vault generatore di configurazione in Web.config. Inserire questa sezione prima della sezione *appSettings* . Sostituire *vaultName* in modo che sia il nome del Key Vault, se il Key Vault si trova in Azure pubblico, o l'URI completo, se si usa un sovereign cloud.
 
     ```xml
     <configSections>

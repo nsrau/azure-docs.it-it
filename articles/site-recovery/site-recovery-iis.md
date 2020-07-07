@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478282"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
@@ -63,13 +63,13 @@ Scenario | In un sito secondario | In Azure
 Hyper-V | Sì | Sì
 VMware | Sì | Sì
 Server fisico | No | Sì
-Azure|N/D|Sì
+Azure|ND|Sì
 
 ## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
 
 Per avviare la replica di tutte le macchine virtuali Web farm basate su IIS in Azure, seguire le istruzioni descritte in [Esecuzione di un failover di test in Azure con Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **calcolo e rete impostazioni** > **IP di destinazione**.
+Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **calcolo e rete impostazioni**  >  **IP di destinazione**.
 
 ![Screenshot che illustra come impostare l'indirizzo IP di destinazione nel riquadro Calcolo e rete di Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

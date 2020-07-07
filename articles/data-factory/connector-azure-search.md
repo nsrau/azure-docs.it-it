@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418236"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiare dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
@@ -32,7 +32,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da qualsiasi archivio dati di origine supportato nell'indice di ricerca. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,7 +46,7 @@ Per il servizio collegato di Azure ricerca cognitiva sono supportate le propriet
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureSearch** | Sì |
 | url | URL per il servizio di ricerca. | Sì |
-| Key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| Key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 
 | Tipo di dati ricerca cognitiva di Azure | Supportato in Azure ricerca cognitiva sink |
 | ---------------------- | ------------------------------ |
-| Stringa | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

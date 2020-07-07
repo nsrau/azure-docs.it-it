@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232309"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
@@ -31,7 +31,7 @@ Privileged Identity Management (PIM) consente di stabilire quando si verificano 
 
 I messaggi di posta elettronica inviati da Privileged Identity Management per Azure AD e i ruoli delle risorse di Azure hanno l'indirizzo di posta elettronica del mittente seguente:
 
-- Indirizzo di posta elettronica: **Azure-\@noreply Microsoft.com**
+- Indirizzo di posta elettronica: **Azure-noreply \@ Microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
 Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
@@ -51,7 +51,7 @@ I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD va
 | Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
 | --- | --- | --- | --- |
 | Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
-| Amministratore della sicurezza</br>(Attivato/Idoneo) | No | Sì* | Sì |
+| Amministratore della protezione</br>(Attivato/Idoneo) | No | Sì* | Sì |
 | Amministratore globale</br>(Attivato/Idoneo) | No | Sì* | Sì |
 
 \* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
