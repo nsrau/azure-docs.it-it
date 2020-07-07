@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
 ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583649"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
-[Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) offre reti private e sicure per le risorse di Azure e locali. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale.
+In [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) sono disponibili funzionalità per implementare una rete sicura e privata per le risorse locali e di Azure. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale.
 
 Questo articolo illustra come usare il comando [AZ container create][az-container-create] nell'interfaccia della riga di comando di Azure per distribuire gruppi di contenitori in una nuova rete virtuale o in una rete virtuale esistente. 
 
@@ -40,7 +40,7 @@ Dopo aver distribuito il primo gruppo di contenitori con questo metodo, è possi
 
 ### <a name="example"></a>Esempio
 
-Il comando [AZ container create][az-container-create] seguente specifica le impostazioni per una nuova rete virtuale e una nuova subnet. Specificare il nome di un gruppo di risorse creato in un'area in cui sono [disponibili](container-instances-region-availability.md#availability---virtual-network-deployment)le distribuzioni dei gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo server Web Node. js che funge da pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
+Il comando [AZ container create][az-container-create] seguente specifica le impostazioni per una nuova rete virtuale e una nuova subnet. Specificare il nome di un gruppo di risorse creato in un'area in cui sono [disponibili](container-instances-region-availability.md#availability---virtual-network-deployment)le distribuzioni dei gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo Node.js server Web che serve una pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
 
 ```azurecli
 az container create \
@@ -170,7 +170,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Distribuire il gruppo di contenitori con il comando [AZ container create][az-container-create] , specificando il nome del file `--file` YAML per il parametro:
+Distribuire il gruppo di contenitori con il comando [AZ container create][az-container-create] , specificando il nome del file YAML per il `--file` parametro:
 
 ```azurecli
 az container create --resource-group myResourceGroup \
@@ -201,7 +201,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete. Lo script presuppone che il gruppo di risorse contenga una singola rete virtuale con un singolo profilo di rete.
 
-Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il `aci-vnet` nome suggerito in precedenza, aggiornare il nome della rete virtuale. Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
+Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il nome suggerito in precedenza, aggiornare il nome della rete virtuale `aci-vnet` . Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
 
 > [!WARNING]
 > Questo script elimina le risorse. Elimina la rete virtuale e tutte le subnet contenute. Verificare che non sia più necessaria *alcuna* risorsa nella rete virtuale, ad esempio le subnet che contiene, prima di eseguire lo script. Dopo l'eliminazione, **tali risorse non sono recuperabili**.

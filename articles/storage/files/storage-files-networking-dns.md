@@ -3,16 +3,16 @@ title: Configurazione dell'inoltro DNS per File di Azure | Microsoft Docs
 description: Panoramica delle opzioni di rete per File di Azure.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35dfbcb274721049f2160719222ca89038c93356
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80069554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509966"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurazione dell'inoltro DNS per File di Azure
 File di Azure consente di creare endpoint privati per gli account di archiviazione contenenti condivisioni file. Oltre che per molte applicazioni diverse, gli endpoint privati sono particolarmente utili per connettersi alle condivisioni file di Azure dalla rete locale tramite una connessione VPN o ExpressRoute con peering privato. 

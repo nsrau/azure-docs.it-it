@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 469019eb1e90654d1953156337593d5de99b46c0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796681"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare Apache Pig con Apache Ambari in Azure HDInsight
@@ -89,4 +89,4 @@ Il numero di riduttori viene calcolato in base al parametro `pig.exec.reducers.b
 * [API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Ottimizzare i cluster](./hdinsight-changing-configs-via-ambari.md)
 * [Ottimizzare Apache HBase](./optimize-hbase-ambari.md)
-* [Ottimizza Apache Hive](./optimize-hive-ambari.md)
+* [Ottimizzare Apache Hive](./optimize-hive-ambari.md)

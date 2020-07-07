@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82591653"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in monitoraggio di Azure
@@ -76,7 +76,7 @@ Per un'esercitazione sulle query di log che introduce il linguaggio e le funzion
 
 
 ## <a name="what-is-log-analytics"></a>Cos'è Log Analytics?
-Log Analytics è lo strumento principale nell'portale di Azure per la scrittura di query di log e l'analisi interattiva dei risultati. Anche se una query di log viene utilizzata altrove in Monitoraggio di Azure, normalmente la query viene prima scritta e testata usando Log Analytics.
+Log Analytics è lo strumento principale nel portale di Azure per scrivere query di log e analizzarne i risultati in modo interattivo. Anche se una query di log viene utilizzata altrove in Monitoraggio di Azure, normalmente la query viene prima scritta e testata usando Log Analytics.
 
 È possibile avviare Log Analytics da diverse posizioni nell'portale di Azure. L'ambito dei dati disponibili per Log Analytics è determinato dalla modalità di avvio. Per altri dettagli, vedere [ambito della query](scope.md) .
 
@@ -100,5 +100,5 @@ Oltre a lavorare in modo interattivo con le query di log e i relativi risultati 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esaminare un' [esercitazione sull'uso di log Analytics nel portale di Azure](get-started-portal.md).
-- Esaminare un' [esercitazione sulla scrittura di query](get-started-queries.md).
+- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](get-started-portal.md).
+- Seguire un'[esercitazione sulla scrittura di query](get-started-queries.md).

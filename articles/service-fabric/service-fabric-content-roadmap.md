@@ -4,28 +4,28 @@ description: Informazioni sui concetti di base e sulle aree principali di Azure 
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791851"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
 
-## <a name="core-concepts"></a>Concetti principali
+## <a name="core-concepts"></a>Concetti di base
 Gli articoli [Panoramica della terminologia di Service Fabric](service-fabric-technical-overview.md), [Modellare un'applicazione in Service Fabric](service-fabric-application-model.md) e [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) permettono di approfondire altri concetti e descrizioni, ma questo articolo contiene le nozioni di base.
 
 ### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Fase di progettazione: tipo di servizio, pacchetto del servizio e manifesto, tipo di applicazione, pacchetto dell'applicazione e manifesto
-Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Questa operazione è definita in un file ServiceManifest. XML. Il tipo di servizio è costituito dalle impostazioni di configurazione del servizio e del codice eseguibile, caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
+Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Questa operazione è definita in un file di ServiceManifest.xml. Il tipo di servizio è costituito dalle impostazioni di configurazione del servizio e del codice eseguibile, caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
 
 Il pacchetto del servizio è una directory del disco contenente il file ServiceManifest.xml del tipo di servizio, che fa riferimento al codice, ai dati statici e ai pacchetti di configurazione del tipo di servizio. Ad esempio, un pacchetto del servizio può fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
 
-Il tipo di applicazione è il nome o la versione assegnata a una raccolta di tipi di servizio. Questa operazione è definita in un file ApplicationManifest. XML.
+Il tipo di applicazione è il nome o la versione assegnata a una raccolta di tipi di servizio. Questa operazione è definita in un file di ApplicationManifest.xml.
 
 ![Tipi di applicazioni di Service Fabric e tipi di servizio][cluster-imagestore-apptypes]
 
-Il pacchetto dell'applicazione è una directory del disco che contiene il file ApplicationManifest. XML del tipo di applicazione, che fa riferimento ai pacchetti del servizio per ogni tipo di servizio che costituisce il tipo di applicazione. Ad esempio, un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può contenere un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.  
+Il pacchetto dell'applicazione è una directory del disco contenente il file di ApplicationManifest.xml del tipo di applicazione, che fa riferimento ai pacchetti del servizio per ogni tipo di servizio che costituisce il tipo di applicazione. Ad esempio, un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può contenere un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.  
 
 I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Da questo tipo di applicazione è quindi possibile creare un'applicazione denominata che viene eseguita all'interno del cluster. Dopo aver creato un'applicazione denominata, è possibile creare un servizio denominato da uno dei tipi di servizio del tipo di applicazione. 
 
@@ -143,7 +143,7 @@ Periodicamente vengono rilasciate nuove versioni del runtime di Service Fabric. 
 
 Un cluster di Service Fabric è una risorsa di proprietà dell'utente parzialmente gestita da Microsoft. Microsoft è responsabile dell'applicazione delle patch al sistema operativo sottostante e dell'implementazione degli aggiornamenti dell'infrastruttura sul cluster. È possibile configurare il cluster per ricevere gli aggiornamenti automatici dell'infrastruttura quando Microsoft rilascia una nuova versione oppure scegliere di selezionare la versione supportata dell'infrastruttura che si vuole. Gli aggiornamenti di infrastruttura e configurazione possono essere configurati tramite il portale di Azure o Resource Manager. Per altre informazioni, vedere [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md). 
 
-Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è responsabili dell'applicazione delle patch al sistema operativo sottostante e dell'avvio degli aggiornamenti dell'infrastruttura. Se il cluster è in grado [https://www.microsoft.com/download](https://www.microsoft.com/download)di connettersi a, è possibile impostare il cluster per scaricare ed eseguire automaticamente il provisioning del nuovo pacchetto di Runtime Service Fabric. Quindi si avvierà l'aggiornamento. Se il cluster non può [https://www.microsoft.com/download](https://www.microsoft.com/download)accedere, è possibile scaricare manualmente il nuovo pacchetto di runtime da un computer connesso a Internet e quindi avviare l'aggiornamento. Per altre informazioni, vedere [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
+Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è responsabili dell'applicazione delle patch al sistema operativo sottostante e dell'avvio degli aggiornamenti dell'infrastruttura. Se il cluster è in grado di connettersi a [https://www.microsoft.com/download](https://www.microsoft.com/download) , è possibile impostare il cluster per scaricare ed eseguire automaticamente il provisioning del nuovo pacchetto di runtime Service Fabric. Quindi si avvierà l'aggiornamento. Se il cluster non può accedere [https://www.microsoft.com/download](https://www.microsoft.com/download) , è possibile scaricare manualmente il nuovo pacchetto di runtime da un computer connesso a Internet e quindi avviare l'aggiornamento. Per altre informazioni, vedere [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
 
 ## <a name="health-monitoring"></a>Monitoraggio dell’integrità
 In Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche, come i nodi cluster e le repliche dei servizi. Il modello di integrità usa i reporter di integrità, costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli autori del servizio devono pensare in anticipo all'integrità e a come [progettare i report sull'integrità](service-fabric-report-health.md#design-health-reporting). È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi quando il servizio sarà in esecuzione su vasta scala in produzione.

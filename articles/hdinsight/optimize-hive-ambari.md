@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796369"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare Apache Hive con Apache Ambari in Azure HDInsight
@@ -82,7 +82,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
 
 1. Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è false. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
 
-1. Per limitare il numero di processi da eseguire in parallelo, modificare la `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
+1. Per limitare il numero di processi da eseguire in parallelo, modificare la `hive.exec.parallel.thread.number` Proprietà. Il valore predefinito è 8.
 
     ![Visualizzazione di Apache Hive Exec Parallel](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
 
@@ -100,7 +100,7 @@ Hive elabora i dati una riga alla volta. Con la vettorializzazione Hive elabora 
 
 Per impostazione predefinita, Hive segue un set di regole per trovare un piano di esecuzione della query ottimale. L'ottimizzazione basata sui costi valuta più piani per l'esecuzione di una query. E assegna un costo a ogni piano, quindi determina il piano più economico per l'esecuzione di una query.
 
-Per abilitare la**configurazione**di base di base, passare a > **Impostazioni** di configurazione di **hive** > e trovare **Abilita ottimizzazione basata sui costi**, quindi impostare l'interruttore **su**attivato.
+Per abilitare la configurazione di base di base, passare a impostazioni di configurazione di **hive**  >  **Configs**  >  **Settings** e trovare **Abilita ottimizzazione basata sui costi**, quindi impostare l'interruttore **su**attivato.
 
 ![Ottimizzatore basato sui costi di HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -132,7 +132,7 @@ I processi Hadoop presentano in genere colli di bottiglia a causa dell'I/O. La c
 
 I tipi di compressione disponibili sono:
 
-| Format | Strumento | Algoritmo | Estensione nome del file | Divisibile |
+| Formato | Strumento | Algoritmo | Estensione nome del file | Divisibile |
 | --- | --- | --- | --- | --- |
 | Gzip | Gzip | DEFLATE | `.gz` | No |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Sì |
@@ -152,7 +152,7 @@ Come regola generale, la possibilità di suddividere il metodo di compressione �
 
 1. Per aggiungere un'impostazione personalizzata:
 
-    a. Passare a **hive** > **configs** > **Advanced** > **Custom hive-site**.
+    a. Passare a **hive**  >  **configs**  >  **Advanced**  >  **Custom hive-site**.
 
     b. Selezionare **Aggiungi proprietà** nella parte inferiore del riquadro Custom hive-site.
 
@@ -233,7 +233,7 @@ Il tipo di join predefinito in Hive è un *join casuale*. In Hive speciali mappe
 
 Raccomandazioni aggiuntive per ottimizzare il motore di esecuzione Hive:
 
-| Impostazione | Consigliato | Impostazione predefinita di HDInsight |
+| Impostazione | Implementazione consigliata | Impostazione predefinita di HDInsight |
 | --- | --- | --- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = più sicuro, più lento; false = più veloce | false |
 | `tez.am.resource.memory.mb` | limite superiore di 4 GB per la maggior parte | Ottimizzazione automatica |

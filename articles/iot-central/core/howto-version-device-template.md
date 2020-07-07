@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583660"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
@@ -30,7 +30,7 @@ Prima che un operatore possa usarlo, è necessario pubblicare tutte le modifiche
 
 ## <a name="versioning-rules"></a>Regole di controllo delle versioni
 
-In questa sezione vengono riepilogate le regole di controllo delle versioni applicabili ai modelli di dispositivo. Sia DCMs che interfacce hanno numeri di versione. Il frammento di codice seguente mostra il DCM per un dispositivo sensore ambientale. Il DCM dispone di due interfacce: **DeviceInformation** e **EnvironmentalSensor**. È possibile visualizzare i numeri di versione alla fine dei`@id` campi. Per visualizzare queste informazioni nell'interfaccia utente di IoT Central, selezionare **Visualizza identità** nell'editor modello di dispositivo.
+In questa sezione vengono riepilogate le regole di controllo delle versioni applicabili ai modelli di dispositivo. Sia DCMs che interfacce hanno numeri di versione. Il frammento di codice seguente mostra il DCM per un dispositivo sensore ambientale. Il DCM dispone di due interfacce: **DeviceInformation** e **EnvironmentalSensor**. È possibile visualizzare i numeri di versione alla fine dei `@id` campi. Per visualizzare queste informazioni nell'interfaccia utente di IoT Central, selezionare **Visualizza identità** nell'editor modello di dispositivo.
 
 ```json
 {
@@ -105,7 +105,7 @@ Per eseguire la versione di un modello di dispositivo:
 1. Passare alla pagina **modelli di dispositivo** .
 1. Selezionare il modello di dispositivo che si sta provando a eseguire la versione.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina e assegnare al modello un nuovo nome. IoT Central suggerisce un nuovo nome, che è possibile modificare.
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 1. A questo punto il modello di dispositivo è in modalità bozza. È possibile osservare che le interfacce sono ancora bloccate. Versione delle interfacce che si desidera modificare.
 
 ## <a name="version-an-interface"></a>Versione di un'interfaccia
@@ -118,7 +118,7 @@ Per eseguire la versione di un'interfaccia:
 1. Selezionare il modello di dispositivo in modalità bozza.
 1. Selezionare l'interfaccia in modalità pubblicata che si desidera modificare.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina Interface (interfaccia).
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 1. Ora l'interfaccia è in modalità bozza. È possibile aggiungere o modificare le funzionalità dell'interfaccia senza suddividere le personalizzazioni e le visualizzazioni esistenti.
 
 ## <a name="migrate-a-device-across-versions"></a>Eseguire la migrazione di un dispositivo tra le versioni

@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594815"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
@@ -194,28 +194,28 @@ _**Figura 1:** Impostare i parametri di Azure Resource Manager di disponibilità
   I modelli creano:
 
   * **Macchine virtuali**:
-    * Macchine virtuali del server applicazioni SAP: \<SIDSistemaSAP\>-di-\<Numero\>
-    * Macchine virtuali del cluster ASCS/SCS: \<SIDSistemaSAP\>-ascs-\<Numero\>
-    * Cluster DBMS: \<SIDSistemaSAP\>-db-\<Numero\>
+    * Macchine virtuali del server applicazioni SAP: \<SAPSystemSID\> -di-\<Number\>
+    * Macchine virtuali del cluster ASC/SCS: \<SAPSystemSID\> -ASC-\<Number\>
+    * Cluster DBMS: \<SAPSystemSID\> -DB-\<Number\>
 
   * **Schede di rete per tutte le macchine virtuali, con gli indirizzi IP associati**:
-    * \<SIDSistemaSAP\>-nic-di-\<Numero\>
-    * \<SIDSistemaSAP\>-nic-ascs-\<Numero\>
-    * \<SIDSistemaSAP\>-nic-db-\<Numero\>
+    * \<SAPSystemSID\>-NIC-di-\<Number\>
+    * \<SAPSystemSID\>-NIC-ASC-\<Number\>
+    * \<SAPSystemSID\>-NIC-DB-\<Number\>
 
   * **Account di archiviazione di Azure (solo dischi non gestiti)**:
 
   * **Gruppi di disponibilità** per:
-    * Macchine virtuali del server applicazioni SAP: \<SIDSistemaSAP\>-avset-di
-    * Macchine virtuali del cluster SAP ASCS/SCS: \<SIDSistemaSAP\>-avset-ascs
-    * Macchine virtuali del cluster DBMS: \<SIDSistemaSAP\>-avset-db
+    * Macchine virtuali del server applicazioni SAP: \<SAPSystemSID\> -avset-di
+    * Macchine virtuali del cluster SAP ASC/SCS: \<SAPSystemSID\> -avset-ASC
+    * Macchine virtuali del cluster DBMS: \<SAPSystemSID\> -avset-DB
 
   * **Servizio di bilanciamento del carico interno di Azure**:
-    * Con tutte le porte per l'istanza di ASCS/SCS e l'indirizzo IP \<SIDSistemaSAP\>-lb-ascs
-    * Con tutte le porte per l'istanza di SQL Server DBMS e l'indirizzo IP \<SIDSistemaSAP\>-lb-db
+    * Con tutte le porte per l'istanza di ASC/SCS e l'indirizzo IP \<SAPSystemSID\> -lb-ASC
+    * Con tutte le porte per il SQL Server DBMS e l'indirizzo IP \<SAPSystemSID\> -LB-DB
 
-  * **Gruppo di sicurezza**di \<rete\>: sidsistemasap-NSG-ASC-0  
-    * Con una porta Remote Desktop Protocol (RDP) esterna aperta alla macchina virtuale \<SIDSistemaSAP\>-ascs-0
+  * **Gruppo di sicurezza di rete**: \<SAPSystemSID\> -NSG-ASC-0  
+    * Con una porta Open External Remote Desktop Protocol (RDP) alla \<SAPSystemSID\> macchina virtuale-ASC-0
 
 > [!NOTE]
 > Tutti gli indirizzi IP delle schede di rete e i servizi di bilanciamento del carico interno di Azure sono dinamici per impostazione predefinita. Impostarli come indirizzi IP statici. Questo argomento verrà illustrato più avanti nell'articolo.
@@ -286,11 +286,11 @@ Per creare un nuovo cluster a più SID, è necessario distribuire i tre modelli 
 
 * [Modello di ASCS/SCS](#ASCS-SCS-template)
 * [Modello di database](#database-template)
-* [Modello di server applicazioni](#application-servers-template)
+* [Modello dei server applicazioni](#application-servers-template)
 
 Le sezioni seguenti includono informazioni dettagliate sui modelli e sui parametri che è necessario fornire nei modelli.
 
-### <a name="ascsscs-template"></a><a name="ASCS-SCS-template"></a>Modello ASC/SCS
+### <a name="ascsscs-template"></a><a name="ASCS-SCS-template"></a> Modello di ASCS/SCS
 
 Il modello di ASCS/SCS distribuisce due macchine virtuali che possono essere usate per creare un cluster di failover di Windows che ospita più istanze di ASCS/SCS.
 
@@ -300,12 +300,12 @@ Per configurare il modello a più SID di ASCS/SCS, nel [modello a più SID di AS
 - **Stack Type**: selezionare il tipo di stack del sistema SAP. A seconda del tipo di stack, Azure Load Balancer dispone di un indirizzo IP (solo ABAP o Java) o due indirizzi IP (ABAP+Java) privati per ogni sistema SAP.
 - **OS Type**: selezionare il sistema operativo delle macchine virtuali.
 - **SAP System Count**: selezionare il numero di sistemi SAP da installare in questo cluster.
-- **System Availability**: selezionare **HA**.
+- **Disponibilità del sistema**: Selezionare **HA**.
 - **Admin Username e Admin Password**: Creare un nuovo utente che può essere usato per accedere alla macchina.
-- **New Or Existing Subnet**: impostare un valore per scegliere se creare una nuova rete virtuale e una nuova subnet o usare una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **esistente**.
-- **ID subnet**: se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente:
+- **New Or Existing Subnet**: impostare un valore per scegliere se creare una nuova rete virtuale e una nuova subnet o usare una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **existing**.
+- **ID subnet**: se si vuole distribuire la macchina virtuale in una VNet esistente a cui è stata definita una subnet, assegnare alla macchina virtuale il nome ID della subnet specifica. L'ID in genere è simile al seguente:
 
-  /subscriptions/\<ID sottoscrizione\>/resourceGroups/\<nome gruppo risorse\>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale\>/subnets/\<nome subnet\>
+  /Subscriptions/ \<subscription id\> /ResourceGroups/ \<resource group name\> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name\> /Subnets/\<subnet name\>
 
 Il modello distribuisce un'istanza di Azure Load Balancer che supporta più sistemi SAP:
 
@@ -318,7 +318,7 @@ Il bilanciamento del carico contiene 1 indirizzo VIP (2 per Linux), 1 indirizzo 
 
 #### <a name="sap-ascsscs-ports"></a><a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a> Porte di SAP ASCS/SCS
 L'elenco seguente contiene tutte le regole di bilanciamento del carico (dove x è il numero del sistema SAP, ad esempio, 1, 2, 3...):
-- Porte specifiche di Windows per ogni sistema SAP 445, 5985
+- Porte specifiche di Windows per ogni sistema SAP: 445, 5985
 - Porte ASCS (numero di istanza x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
 - Porte SCS (numero di istanza x1): 32x1, 33x1, 39x1, 81x1, 5x113, 5x114, 5x116
 - Porte ASCS ERS in Linux (numero di istanza x2): 33x2, 5x213, 5x214, 5x216
@@ -328,7 +328,7 @@ Il servizio di bilanciamento del carico viene configurato per l'uso delle porte 
 - Porta probe del servizio di bilanciamento del carico interno ASCS/SCS: 620x0
 - Porta probe del servizio di bilanciamento del carico interno ERS (solo Linux): 621x2
 
-### <a name="database-template"></a><a name="database-template"></a>Modello di database
+### <a name="database-template"></a><a name="database-template"></a> Modello di database
 
 Il modello di database distribuisce una o due macchine virtuali che è possibile usare per installare il sistema di gestione di database relazionali (RDBMS) per un sistema SAP. Se, ad esempio, si distribuisce un modello ASCS/SCS per 5 sistemi SAP, è necessario distribuire questo modello cinque volte.
 
@@ -341,11 +341,11 @@ Per configurare il modello a più SID di database nel [modello a più SID di dat
   * **HANA**: il servizio di bilanciamento del carico carica le porte di bilanciamento 35015 e 35017. Assicurarsi di installare SAP HANA con il numero di istanza **50**.
   Il servizio bilanciamento del carico usa la porta probe 62550.
 - **Sap System Size**: imposta il numero di SAPS indicato dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
-- **System Availability**: selezionare **HA**.
+- **Disponibilità del sistema**: Selezionare **HA**.
 - **Admin Username e Admin Password**: Creare un nuovo utente che può essere usato per accedere alla macchina.
-- **Subnet Id**: immettere l'ID della subnet usata durante la distribuzione del modello di ASCS/SCS o l'ID della subnet creata come parte della distribuzione del modello di ASCS/SCS.
+- **ID subnet**: immettere l'ID della subnet usata durante la distribuzione del modello ASC/SCS o l'ID della subnet creata come parte della distribuzione del modello ASC/SCS.
 
-### <a name="application-servers-template"></a><a name="application-servers-template"></a>Modello di server applicazioni
+### <a name="application-servers-template"></a><a name="application-servers-template"></a> Modello dei server applicazioni
 
 Il modello dei server applicazioni consente di distribuire due o più macchine virtuali che possono essere usate come istanze del server applicazioni SAP per un sistema SAP. Se, ad esempio, si distribuisce un modello ASCS/SCS per 5 sistemi SAP, è necessario distribuire questo modello cinque volte.
 
@@ -354,9 +354,9 @@ Per configurare il modello a più SID dei server applicazioni nel [modello a pi�
   -  **Sap System Id**: immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
   -  **Tipo di sistema**operativo: selezionare il sistema operativo delle macchine virtuali.
   -  **Sap System Size**: il numero di SAPS indicato dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
-  -  **System Availability**: selezionare **HA**.
+  -  **Disponibilità del sistema**: Selezionare **HA**.
   -  **Admin Username e Admin Password**: Creare un nuovo utente che può essere usato per accedere alla macchina.
-  -  **Subnet Id**: immettere l'ID della subnet usata durante la distribuzione del modello di ASCS/SCS o l'ID della subnet creata come parte della distribuzione del modello di ASCS/SCS.
+  -  **ID subnet**: immettere l'ID della subnet usata durante la distribuzione del modello ASC/SCS o l'ID della subnet creata come parte della distribuzione del modello ASC/SCS.
 
 
 ## <a name="azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a>Rete virtuale di Azure
@@ -367,7 +367,7 @@ In questo esempio lo spazio degli indirizzi dell'istanza di Rete virtuale di Azu
 >
 >
 
-## <a name="dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a>Indirizzi IP DNS
+## <a name="dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> Indirizzi IP DNS
 
 Per impostare gli indirizzi IP DNS necessari, attenersi alla procedura seguente:
 
@@ -393,7 +393,7 @@ Nell'esempio il servizio DNS viene installato e configurato in queste macchine v
 | Primo server DNS |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Secondo server DNS |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-## <a name="host-names-and-static-ip-addresses-for-the-sap-ascsscs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>Nomi host e indirizzi IP statici per l'istanza in cluster di SAP ASC/SCS e l'istanza cluster di DBMS
+## <a name="host-names-and-static-ip-addresses-for-the-sap-ascsscs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Nomi host e indirizzi IP statici per l'istanza in cluster di SAP ASCS/SCS e l'istanza in cluster di DBMS
 
 Per una distribuzione locale, sono necessari questi nomi host e indirizzi IP riservati:
 
@@ -410,7 +410,7 @@ Quando si crea il cluster, creare i nomi host virtuali pr1-ascs-vir e pr1-dbms-v
 ## <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Impostare gli indirizzi IP statici per le macchine virtuali SAP
 Dopo avere distribuito le macchine virtuali da usare nel cluster, è necessario impostare gli indirizzi IP statici per tutte le macchine virtuali. Eseguire questa operazione nella configurazione di Rete virtuale di Azure e non nel sistema operativo guest.
 
-1. Nella portale di Azure selezionare **gruppo** > di risorse**scheda** > di rete**Impostazioni** > **indirizzo IP**.
+1. Nel portale di Azure selezionare **Gruppo di risorse** > **Scheda di rete** > **Impostazioni** > **Indirizzo IP**.
 2. Nel riquadro **Indirizzi IP** in **Assegnazione** selezionare **Statica**. Nella casella **Indirizzo IP** immettere l'indirizzo IP da usare.
 
    > [!NOTE]
@@ -437,7 +437,7 @@ In questo esempio vengono usate le macchine virtuali e gli indirizzi IP statici 
 | Primo nodo del cluster per l'istanza di DBMS |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
 | Secondo nodo del cluster per l'istanza di DBMS |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-## <a name="set-a-static-ip-address-for-the-azure-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>Impostare un indirizzo IP statico per il servizio di bilanciamento del carico interno di Azure
+## <a name="set-a-static-ip-address-for-the-azure-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Impostare un indirizzo IP statico per il servizio di bilanciamento del carico interno di Azure
 
 Il modello di Azure Resource Manager per SAP crea un servizio di bilanciamento del carico interno di Azure usato per il cluster dell'istanza di SAP ASCS/SCS e per il cluster DBMS.
 
@@ -479,37 +479,37 @@ Per creare gli endpoint di bilanciamento del carico interno obbligatori, creare 
 
 | Servizio/nome regola di bilanciamento del carico | Numeri porte predefinite | Porte concrete per (istanza ASCS con l'istanza numero 00) (ERS con 10) |
 | --- | --- | --- |
-| Server di accodamento/ *lbrule3200* |32\<NumeroIstanza\> |3200 |
-| Server messaggi ABAP/ *lbrule3600* |36\<NumeroIstanza\> |3600 |
-| Messaggio ABAP interno/ *lbrule3900* |39\<NumeroIstanza\> |3900 |
-| HTTP server messaggi/ *Lbrule8100* |81\<NumeroIstanza\> |8100 |
-| SAP Start Service ASCS HTTP/ *Lbrule50013* |5\<NumeroIstanza\>13 |50013 |
-| SAP Start Service ASCS HTTPS / *Lbrule50014* |5\<NumeroIstanza\>14 |50014 |
-| Replica di accodamento/ *Lbrule50016* |5\<NumeroIstanza\>16 |50016 |
-| SAP Start Service ERS HTTP *Lbrule51013* |5\<NumeroIstanza\>13 |51013 |
-| SAP Start Service ERS HTTP *Lbrule51014* |5\<NumeroIstanza\>14 |51014 |
+| Server di Accodamento/ *lbrule3200* |32\<InstanceNumber\> |3200 |
+| Server messaggi ABAP/ *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Messaggio ABAP interno/ *lbrule3900* |39\<InstanceNumber\> |3900 |
+| HTTP Server messaggi/ *Lbrule8100* |81\<InstanceNumber\> |8100 |
+| SAP Start Service ASC HTTP/ *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
+| SAP Start Service ASC HTTPS/ *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
+| Replica di Accodamento/ *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
+| SAP Start Service ERS HTTP *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
+| SAP Start Service ERS HTTP *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
 | Gestione remota Windows (WinRM) *Lbrule5985* | |5985 |
-| Condivisione file *Lbrule445* | |445 |
+| *Lbrule445* condivisione file | |445 |
 
-**Tabella 1:** numeri di porta delle istanze di SAP NetWeaver ABAP ASCS
+**Tabella 1:** Numeri di porta delle istanze di SAP NetWeaver ABAP ASCS
 
 Creare quindi questi endpoint di bilanciamento del carico per le porte SCS di SAP NetWeaver Java:
 
 | Servizio/nome regola di bilanciamento del carico | Numeri porte predefinite | Porte concrete per (istanza SCS con numero di istanza 01) (ERS con 11) |
 | --- | --- | --- |
-| Server di accodamento/ *lbrule3201* |32\<NumeroIstanza\> |3201 |
-| Server gateway/ *lbrule3301* |33\<NumeroIstanza\> |3301 |
-| Server messaggi Java/ *lbrule3900* |39\<NumeroIstanza\> |3901 |
-| HTTP server messaggi/ *Lbrule8101* |81\<NumeroIstanza\> |8101 |
-| SAP Start Service SCS HTTP/ *Lbrule50113* |5\<NumeroIstanza\>13 |50113 |
-| SAP Start Service SCS HTTPS/ *Lbrule50114* |5\<NumeroIstanza\>14 |50114 |
-| Replica di accodamento/ *Lbrule50116* |5\<NumeroIstanza\>16 |50116 |
-| SAP Start Service ERS HTTP *Lbrule51113* |5\<NumeroIstanza\>13 |51113 |
-| SAP Start Service ERS HTTP *Lbrule51114* |5\<NumeroIstanza\>14 |51114 |
+| Server di Accodamento/ *lbrule3201* |32\<InstanceNumber\> |3201 |
+| Server gateway/ *lbrule3301* |33\<InstanceNumber\> |3301 |
+| Server messaggi Java/ *lbrule3900* |39\<InstanceNumber\> |3901 |
+| HTTP Server messaggi/ *Lbrule8101* |81\<InstanceNumber\> |8101 |
+| SAP Start Service SCS HTTP/ *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
+| SAP Start Service SCS HTTPS/ *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
+| Replica di Accodamento/ *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
+| SAP Start Service ERS HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
+| SAP Start Service ERS HTTP *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
 | WinRM *Lbrule5985* | |5985 |
-| Condivisione file *Lbrule445* | |445 |
+| *Lbrule445* condivisione file | |445 |
 
-**Tabella 2:** numeri di porta delle istanze di SAP NetWeaver Java SCS
+**Tabella 2:** Numeri di porta delle istanze di SAP NetWeaver Java SCS
 
 ![Figura 5: Regole di bilanciamento del carico predefinite di ASCS/SCS per il servizio di bilanciamento del carico interno di Azure][sap-ha-guide-figure-3004]
 
@@ -521,7 +521,7 @@ Impostare l'indirizzo IP del servizio di bilanciamento del carico pr1-lb-dbms su
 
 Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiare i nomi e i valori di queste porte rispetto ai valori predefiniti.
 
-1. Nella portale di Azure selezionare > **Load Balancing Rules** ** \<\>** le regole di bilanciamento del carico del servizio di bilanciamento del carico SID-lb-ASC.
+1. Nella portale di Azure selezionare le regole di bilanciamento del carico del servizio di bilanciamento del carico di ** \<SID\> ASC**  >  **Load Balancing Rules**.
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
    * Nome
@@ -643,7 +643,7 @@ La configurazione di un cluster Windows Server Failover Cluster per un'istanza d
    _**Figura 17:** Immettere il nome host del secondo nodo del cluster_
 
    > [!IMPORTANT]
-   > Assicurarsi che la casella di controllo **Aggiungi tutte le risorse di archiviazione idonee al cluster***non* sia selezionata.  
+   > Assicurarsi che la casella **di controllo Aggiungi tutte le archiviazioni idonee al cluster** *non* sia selezionata.  
    >
    >
 
@@ -665,7 +665,7 @@ La configurazione di un controllo di condivisione file del cluster prevede quest
 - Creare una condivisione file.
 - Impostare il quorum del controllo di condivisione file in Gestione cluster di failover.
 
-#### <a name="create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a>Creare una condivisione file
+#### <a name="create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Creare una condivisione file
 
 1. Selezionare un controllo di condivisione file invece di un disco quorum. SIOS DataKeeper supporta questa opzione.
 
@@ -744,7 +744,7 @@ Dopo aver installato correttamente il cluster di failover Windows, sarà necessa
 
 Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma forniscono anche un failover abbastanza rapido in condizioni di errore reali in un software SAP o in un nodo o un errore di VM.
 
-### <a name="install-sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>Installare l'edizione del cluster di indicizzazione del cluster per il disco di condivisione del cluster SAP ASC/SCS
+### <a name="install-sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Installare SIOS DataKeeper Cluster Edition per il disco di condivisione del cluster SAP ASCS/SCS
 
 Ora è disponibile una configurazione funzionante di Windows Server Failover Clustering in Azure. Per installare un'istanza di SAP ASCS/SCS, è necessaria una risorsa disco condiviso. Non è possibile creare le risorse del disco condiviso necessarie in Azure. SIOS DataKeeper Cluster Edition è una soluzione di terze parti che è possibile usare per creare le risorse disco condiviso.
 

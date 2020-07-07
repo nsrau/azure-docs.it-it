@@ -14,13 +14,13 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584311"
 ---
-# <a name="application-model"></a>Modello di applicazione
+# <a name="application-model"></a>Modello applicativo
 
 Le applicazioni possono accedere agli utenti stessi o delegare l'accesso a un provider di identità. In questo argomento vengono illustrati i passaggi necessari per registrare un'applicazione con la piattaforma di identità Microsoft.
 
@@ -76,11 +76,11 @@ In questo flusso di provisioning:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri argomenti relativi alle nozioni di base sull'autenticazione e sull'autorizzazione:
+Per altri argomenti relativi alle informazioni di base su autenticazione e autorizzazione:
 
-* Vedere [autenticazione e autorizzazione](authentication-vs-authorization.md) per informazioni sui concetti di base di autenticazione e autorizzazione nella piattaforma di identità Microsoft.
-* Vedere [token di sicurezza](security-tokens.md) per informazioni sull'uso di token di accesso, token di aggiornamento e token ID nell'autenticazione e nell'autorizzazione.
-* Vedere [flusso di accesso all'app](app-sign-in-flow.md) per informazioni sul flusso di accesso di app Web, desktop e per dispositivi mobili nella piattaforma di identità Microsoft.
+* Vedere [Confronto tra autenticazione e autorizzazione](authentication-vs-authorization.md) per informazioni sulle nozioni di base di autenticazione e autorizzazione in Microsoft Identity Platform.
+* Vedere [Token di sicurezza](security-tokens.md) per informazioni su come vengono usati i token di accesso, i token di aggiornamento e i token ID nell'autenticazione e nell'autorizzazione.
+* Per informazioni sul flusso di accesso alle app Web, desktop e per dispositivi mobili con Microsoft Identity Platform, vedere [Flusso di accesso alle app](app-sign-in-flow.md).
 
 Per ulteriori informazioni sul modello di applicazione:
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
 ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791052"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
@@ -28,7 +28,7 @@ Nelle tabelle di questa sezione sono elencati i codici di errore dell' [evento L
 
 Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](https://docs.microsoft.com/azure/event-grid/) per un evento Live, è possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
 
-| Codice risultato | Descrizione |
+| Codice di risultato | Descrizione |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | L'URL di inserimento non è corretto. |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | L'indirizzo IP del codificatore non è presente nell'elenco di indirizzi IP consentiti configurato. |
@@ -46,7 +46,7 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](https://do
 
 È possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) .
 
-|Codice risultato|Descrizione|
+|Codice di risultato|Descrizione|
 |---|---|
 |MPE_RTMP_SESSION_IDLE_TIMEOUT|La sessione RTMP è scaduta dopo un periodo di inattività per il limite di tempo consentito.|
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|Il timestamp dal codificatore RTMP per FLVTag audio o video non è valido.|

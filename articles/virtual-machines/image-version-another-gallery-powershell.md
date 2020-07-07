@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796928"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Copiare un'immagine da un'altra raccolta
@@ -39,7 +39,7 @@ Sono necessarie informazioni della definizione dell'immagine di origine, in modo
 
 Elenca le informazioni sulle raccolte, le definizioni di immagini e le versioni di immagine esistenti usando il cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) .
 
-I risultati sono nel formato `gallery\image definition\image version`.
+I risultati sono nel formato `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-Quando si hanno tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine usando [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). In questo `1.0.0` esempio viene recuperata la versione dell'immagine, della `myImageDefinition` definizione, nella raccolta di `myGallery` origine, nel gruppo di `myResourceGroup` risorse.
+Quando si hanno tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine usando [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). In questo esempio viene recuperata la `1.0.0` versione dell'immagine, della `myImageDefinition` definizione, nella raccolta di `myGallery` origine, nel gruppo di `myResourceGroup` risorse.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -121,11 +121,11 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione dell'immagine
+## <a name="create-the-image-version"></a>Creare la versione di immagine
 
 Creare una versione dell'immagine usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). È necessario passare l'ID dell'immagine di origine nel `--managed-image` parametro per creare la versione dell'immagine nella raccolta di destinazione. 
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 In questo esempio, la raccolta di destinazione è denominata *myDestinationGallery*, nel gruppo di risorse *myDestinationRG* , nella località *Stati Uniti occidentali* . La versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e 2 repliche nell'area *Stati Uniti occidentali* . 
 
@@ -154,9 +154,9 @@ $job.State
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare l'immagine nell'archiviazione Premiun mediante un'aggiunta `-StorageAccountType Premium_LRS`o l' [archiviazione con ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) della `-StorageAccountType Standard_ZRS` zona aggiungendo quando si crea la versione dell'immagine.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `-StorageAccountType Standard_ZRS`.
 >
 
 

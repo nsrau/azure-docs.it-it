@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594730"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
@@ -45,7 +45,7 @@ L'estensione dello script personalizzata per Linux verrà eseguita nell'estensio
 È possibile servirsi dell'estensione per usare le credenziali di Archiviazione BLOB di Azure, in modo da accedere alle risorse di archiviazione BLOB di Azure. In alternativa, lo script può trovarsi in qualsiasi posizione, purché la macchina virtuale possa eseguire il routing a tale endpoint, ad esempio GitHub, il file server interno e così via.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Se lo script si trova ad esempio in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
@@ -106,7 +106,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 ```
 
 >[!NOTE]
-> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
+> La proprietà managedIdentity **non deve** essere usata insieme alle proprietà storageAccountName o storageAccountKey
 
 ### <a name="property-values"></a>Valori delle proprietà
 
@@ -117,13 +117,13 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | Python MyPythonScript.py \<My-param1> | string |
+| commandToExecute (es.) | MyPythonScript.py Python\<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (esempio) | false | boolean |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
-| managedIdentity (ad esempio) | {} o {"ClientID": "31b403aa-C364-4240-a7ff-d85fb6cd7232"} o {"objectId": "12dd289c-0583-46e5-B9B4-115d5c19ef4b"} | JSON (oggetto) |
+| managedIdentity (es.) | { } o { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } o { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | Oggetto JSON |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 * `apiVersion`: La apiVersion più aggiornata è reperibile usando [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente`az provider list -o json`
@@ -134,7 +134,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 * `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
-* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file
+* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download dei file
   * `clientId`: (facoltativo, stringa) ID client dell'identità gestita
   * `objectId`: (facoltativo, stringa) ID oggetto dell'identità gestita
 
@@ -210,13 +210,13 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
 
 ####  <a name="property-managedidentity"></a>Proprietà: managedIdentity
 > [!NOTE]
-> Questa proprietà **deve** essere specificata solo in impostazioni protette.
+> Questa proprietà **deve** essere specificata solo nelle impostazioni protette.
 
-CustomScript (versione 2,1 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
+CustomScript (versione 2,1 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di Archiviazione di Azure senza che l'utente debba passare segreti come i token di firma di accesso condiviso o le chiavi dell'account di archiviazione.
 
-Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o al set di scalabilità di macchine virtuali in cui verrà eseguito CustomScript e [concedere al contenitore o al BLOB di Archiviazione di Azure l'accesso all'identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
-Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
+Per usare l'identità assegnata dal sistema nella macchina virtuale o nel set di scalabilità di macchine virtuali di destinazione, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
 
 > Esempio:
 >
@@ -228,7 +228,7 @@ Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazi
 > }
 > ```
 
-Per usare l'identità assegnata dall'utente nella macchina virtuale/VMSS di destinazione, configurare il campo "managedidentity" con l'ID client o l'ID oggetto dell'identità gestita.
+Per usare l'identità assegnata dall'utente nella macchina virtuale o nel set di scalabilità di macchine virtuali di destinazione, configurare il campo "managedidentity" con l'ID client o l'ID oggetto dell'identità gestita.
 
 > Esempi:
 >
@@ -248,7 +248,7 @@ Per usare l'identità assegnata dall'utente nella macchina virtuale/VMSS di dest
 > ```
 
 > [!NOTE]
-> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
+> La proprietà managedIdentity **non deve** essere usata insieme alle proprietà storageAccountName o storageAccountKey
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione di script personalizzata durante la distribuzione di un modello di Azure Resource Manager. Un modello di esempio che include l'estensione script personalizzata è disponibile su [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -448,7 +448,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 * L'estensione che esegue il download del file e il relativo risultato.
 * Il comando in esecuzione e il relativo risultato.
 
-È anche possibile recuperare lo stato di esecuzione dell'estensione script personalizzata, inclusi gli argomenti effettivi passati `commandToExecute` come usando l'interfaccia della riga di comando di Azure:
+È anche possibile recuperare lo stato di esecuzione dell'estensione script personalizzata, inclusi gli argomenti effettivi passati come usando l'interfaccia della riga `commandToExecute` di comando di Azure:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM

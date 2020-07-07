@@ -4,10 +4,10 @@ description: Informazioni su come proteggere i valori dei segreti in un'applicaz
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583245"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gestire i segreti crittografati nelle applicazioni di Service Fabric
@@ -45,7 +45,7 @@ Specificare una [variabile di ambiente][environment-variables-link] crittografat
 </CodePackage>
 ```
 
-I segreti devono anche essere inclusi nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest. XML** e includere l'identificazione personale del certificato desiderato.
+I segreti devono anche essere inclusi nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest.xml** e includere l'identificazione digitale del certificato desiderato.
 
 ```xml
 <ApplicationManifest … >

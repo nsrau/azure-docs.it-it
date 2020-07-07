@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796603"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Eseguire la migrazione da un'immagine gestita a una versione di immagine usando l'interfaccia della riga di comando di Azure
@@ -36,15 +36,15 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine
 
-Poiché le immagini gestite sono sempre immagini generalizzate, sarà necessario creare una definizione di immagine `--os-state generalized` usando per un'immagine generalizzata.
+Poiché le immagini gestite sono sempre immagini generalizzate, sarà necessario creare una definizione di immagine usando `--os-state generalized` per un'immagine generalizzata.
 
-I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. 
+I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
-Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
-Creare una definizione di immagine nella raccolta usando [AZ sig Image-Definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un'immagine del sistema operativo Linux [generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows `--os-type Windows`, usare. 
+In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un'immagine del sistema operativo Linux [generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -62,7 +62,7 @@ az sig image-definition create \
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione dell'immagine
+## <a name="create-the-image-version"></a>Creare la versione di immagine
 
 Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [AZ Image List](/cli/azure/image?view#az-image-list) per ottenere gli ID per le immagini. 
 
@@ -70,7 +70,7 @@ Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/im
 az image list --query "[].[name, id]" -o tsv
 ```
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2* usando l'archiviazione con ridondanza della zona. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
 
@@ -90,7 +90,7 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
 > È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
 >

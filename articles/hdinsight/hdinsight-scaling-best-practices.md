@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592061"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
@@ -35,7 +35,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
-|[INTERFACCIA della riga di comando di Azure classico](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
+|[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
 ![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -119,14 +119,14 @@ Per evitare che i processi in esecuzione abbiano esito negativo durante un'opera
 
 Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile usare l' **interfaccia utente**di Yarn gestione risorse, seguendo questa procedura:
 
-1. Dal [portale di Azure](https://portal.azure.com/)selezionare il cluster.  Il cluster viene aperto in una nuova pagina del portale.
-2. Dalla visualizzazione principale passare a **cluster Dashboards** > **Ambari Home**. Immettere le credenziali del cluster.
+1. Selezionare il proprio cluster nel [portale di Azure](https://portal.azure.com/).  Il cluster viene aperto in una nuova pagina del portale.
+2. Dalla visualizzazione principale passare a **cluster Dashboards**  >  **Ambari Home**. Immettere le credenziali del cluster.
 3. Dall'interfaccia utente di Ambariri selezionare **Yarn** nell'elenco dei servizi nel menu a sinistra.  
 4. Dalla pagina YARN selezionare **collegamenti rapidi** e passare il puntatore del mouse sul nodo head attivo, quindi selezionare **Gestione risorse interfaccia utente**.
 
     ![Collegamenti rapidi di Apache Ambari Gestione risorse interfaccia utente](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-È possibile accedere direttamente all'interfaccia utente di `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`gestione risorse con.
+È possibile accedere direttamente all'interfaccia utente di Gestione risorse con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Verrà visualizzato un elenco dei processi, insieme allo stato corrente di ognuno. Nello screenshot c'è un processo attualmente in esecuzione:
 
@@ -148,7 +148,7 @@ yarn application -kill "application_1499348398273_0003"
 
 Quando si ridimensiona un cluster, HDInsight usa le interfacce di gestione Apache Ambari per rimuovere prima le autorizzazioni dei nodi di lavoro aggiuntivi. I nodi replicano i blocchi HDFS in altri nodi del ruolo di lavoro online. Successivamente, HDInsight ridimensiona il cluster in modo sicuro. HDFS passa alla modalità provvisoria durante l'operazione di ridimensionamento. Al termine del ridimensionamento, HDFS dovrebbe uscire. In alcuni casi, tuttavia, HDFS viene bloccato in modalità sicura durante un'operazione di ridimensionamento a causa del blocco di file in fase di replica.
 
-Per impostazione predefinita, HDFS è configurato con `dfs.replication` l'impostazione 1, che controlla il numero di copie di ogni blocco di file disponibili. Ogni copia di un blocco di file è archiviata in un nodo diverso del cluster.
+Per impostazione predefinita, HDFS è configurato con l' `dfs.replication` impostazione 1, che controlla il numero di copie di ogni blocco di file disponibili. Ogni copia di un blocco di file è archiviata in un nodo diverso del cluster.
 
 Quando il numero previsto di copie di blocco non è disponibile, HDFS entra in modalità sicura e Ambari genera avvisi. HDFS può attivare la modalità provvisoria per un'operazione di ridimensionamento. Il cluster potrebbe bloccarsi in modalità provvisoria se il numero di nodi necessario non viene rilevato per la replica.
 
@@ -187,7 +187,7 @@ L'arresto dei processi hive prima del ridimensionamento consente di ridurre al m
 
 Se sono rimasti file temporanei di Hive, è possibile pulire questi file manualmente prima della riduzione per evitare la modalità sicura.
 
-1. Verificare quale percorso viene usato per i file temporanei hive esaminando la `hive.exec.scratchdir` proprietà di configurazione. Questo parametro è impostato in `/etc/hive/conf/hive-site.xml`:
+1. Verificare quale percorso viene usato per i file temporanei hive esaminando la `hive.exec.scratchdir` proprietà di configurazione. Questo parametro è impostato in `/etc/hive/conf/hive-site.xml` :
 
     ```xml
     <property>
@@ -198,7 +198,7 @@ Se sono rimasti file temporanei di Hive, è possibile pulire questi file manualm
 
 1. Arrestare i servizi Hive e assicurarsi che tutte le query e i processi siano stati completati.
 
-1. Elencare il contenuto della directory dei file temporanei `hdfs://mycluster/tmp/hive/` trovata sopra per verificare se contiene file:
+1. Elencare il contenuto della directory dei file temporanei trovata sopra `hdfs://mycluster/tmp/hive/` per verificare se contiene file:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -262,7 +262,7 @@ I server di area vengono bilanciati automaticamente entro pochi minuti dopo il c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ridimensionare automaticamente i cluster Azure HDInsight](hdinsight-autoscale-clusters.md)
+* [Dimensionare automaticamente i cluster Azure HDInsight](hdinsight-autoscale-clusters.md)
 
 Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 

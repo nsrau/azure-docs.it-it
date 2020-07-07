@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594798"
 ---
 # <a name="scaling-hpc-applications"></a>Ridimensionamento di applicazioni HPC
@@ -37,7 +37,7 @@ Clang è un compilatore C, C++ e Objective-C che gestisce la pre-elaborazione, l
 
 ### <a name="flang"></a>FLANG
 
-Il compilatore della flangia è una recente aggiunta a AOCC Suite (aggiunta il 2018 aprile) ed è attualmente in versione non definitiva per gli sviluppatori da scaricare e testare. In base a Fortran 2008, AMD estende la versione GitHub della flangiahttps://github.com/flang-compiler/flang)(. Il compilatore della flangia supporta tutte le opzioni del compilatore Clang e un numero aggiuntivo di opzioni del compilatore specifiche della flangia.
+Il compilatore della flangia è una recente aggiunta a AOCC Suite (aggiunta il 2018 aprile) ed è attualmente in versione non definitiva per gli sviluppatori da scaricare e testare. In base a Fortran 2008, AMD estende la versione GitHub della flangia ( https://github.com/flang-compiler/flang) . Il compilatore della flangia supporta tutte le opzioni del compilatore Clang e un numero aggiuntivo di opzioni del compilatore specifiche della flangia.
 
 ### <a name="dragonegg"></a>DragonEgg
 

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592010"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -154,7 +154,7 @@ L'oggetto `MpnsService` specifica un metodo `send` che è possibile usare per in
 
 - **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 - **Payload** : il payload XML del messaggio.
-- **TargetName** `toast` per le notifiche di tipo avviso -  popup. `token` per le notifiche di tipo riquadro.
+- **TargetName**  -  `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
 - **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](https://msdn.microsoft.com/library/hh221551.aspx) .
 - **Options** : intestazioni delle richieste facoltative.
 - **Callback** : la funzione di richiamata.

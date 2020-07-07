@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117166"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963853"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Esercitazione: Attivare un processo di Batch usando Funzioni di Azure
 
@@ -55,7 +55,7 @@ In questa sezione si userà Batch Explorer per creare il pool e il processo di B
 Verranno ora creati i contenitori BLOB in cui archiviare i file di input e output per il processo OCR di Batch.
 
 1. Accedere a Storage Explorer con le credenziali di Azure.
-1. Usando l'account di archiviazione collegato all'account Batch, creare due contenitori BLOB (uno per i file di input e uno per i file di output) seguendo i passaggi in [Creare un contenitore BLOB](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Usando l'account di archiviazione collegato all'account Batch, creare due contenitori BLOB (uno per i file di input e uno per i file di output) seguendo i passaggi in [Creare un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 In questo esempio il contenitore di input è denominato `input` e in esso vengono inizialmente caricati per l'elaborazione tutti i documenti senza OCR. Il contenitore di output è denominato `output` e in esso il processo di Batch scrive i documenti elaborati con OCR.  
     * In questo esempio, il contenitore di input sarà denominato `input` e il contenitore di output `output`.  
@@ -68,7 +68,7 @@ Creare una firma di accesso condiviso per il contenitore di output in Storage Ex
 
 In questa sezione si creerà la funzione di Azure che attiva il processo OCR di Batch ogni volta che viene caricato un file nel contenitore di input.
 
-1. Seguire i passaggi in [Creare una funzione attivata dall'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) per creare una funzione.
+1. Seguire i passaggi in [Creare una funzione attivata dall'archiviazione BLOB di Azure](../azure-functions/functions-create-storage-blob-triggered-function.md) per creare una funzione.
     1. Quando viene richiesto un account di archiviazione, usare lo stesso account di archiviazione collegato all'account Batch.
     1. Per **Stack di runtime** scegliere .NET. La funzione verrà scritta in C# per sfruttare Batch .NET SDK.
 1. Una volta creata la funzione attivata dal BLOB, usare [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) e [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) da GitHub nella funzione.
@@ -111,4 +111,4 @@ In questa esercitazione si è appreso come:
 
 * Per altri esempi di uso dell'API .NET per pianificare ed elaborare i carichi di lavoro di Batch, vedere gli [esempi su GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Per informazioni su altri trigger di Funzioni di Azure che è possibile usare per eseguire i carichi di lavoro di Batch, vedere la [documentazione di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Per informazioni su altri trigger di Funzioni di Azure che è possibile usare per eseguire i carichi di lavoro di Batch, vedere la [documentazione di Funzioni di Azure](../azure-functions/functions-triggers-bindings.md).

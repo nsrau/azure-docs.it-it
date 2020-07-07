@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253937"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513256"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 
@@ -44,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](htt
 * *Database SQL di Azure*. Usare il database come archivio dati *sink*. Se non si ha un database nel database SQL di Azure, vedere [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2019.
 * *[Azure SDK per .NET](/dotnet/azure/dotnet-tools)* .
-* *Applicazione Azure Active Directory*. Se non si dispone di un'applicazione Azure Active Directory, vedere la sezione [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dell'articolo [Procedura: Usare il portale per creare un'applicazione Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copiare i valori seguenti per l'uso nei passaggi successivi: **ID applicazione (client)** , **chiave di autenticazione** e **ID della directory (tenant)** . Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo.
+* *Applicazione Azure Active Directory*. Se non si dispone di un'applicazione Azure Active Directory, vedere la sezione [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) dell'articolo [Procedura: Usare il portale per creare un'applicazione Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copiare i valori seguenti per l'uso nei passaggi successivi: **ID applicazione (client)** , **chiave di autenticazione** e **ID della directory (tenant)** . Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
 
