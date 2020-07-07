@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73044761"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a un Apache Hadoop sandbox, un emulatore in una macchina virtuale
@@ -44,14 +44,14 @@ Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nell
 
     ![avvio normale di VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Aprire un Web browser e passare all'URL visualizzato (in genere `http://127.0.0.1:8888`).
+1. Aprire un Web browser e passare all'URL visualizzato (in genere `http://127.0.0.1:8888` ).
 
 ## <a name="set-sandbox-passwords"></a>Impostare le password Sandbox
 
 1. Dal passaggio **introduttivo** della pagina di Sandbox di Hortonworks, selezionare **View Advanced Options** (Visualizza opzioni avanzate). Utilizzare le informazioni in questa pagina per accedere alla sandbox con SSH. Utilizzare il nome e la password forniti.
 
    > [!NOTE]
-   > Se non è installato un client SSH, è possibile usare il protocollo SSH basato sul Web fornito dalla macchina virtuale all'indirizzo **http://localhost:4200/**.
+   > Se non è installato un client SSH, è possibile usare il protocollo SSH basato sul Web fornito dalla macchina virtuale all'indirizzo **http://localhost:4200/** .
 
     Al primo collegamento tramite SSH viene richiesto di cambiare la password per l'account radice. Immettere una nuova password da usare quando si accede tramite SSH.
 

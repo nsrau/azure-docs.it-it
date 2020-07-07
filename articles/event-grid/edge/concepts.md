@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992548"
 ---
 # <a name="event-grid-concepts"></a>Concetti relativi a Griglia di eventi
 
 Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima.
 
@@ -50,7 +50,7 @@ Vedere la [documentazione sull'API REST](api.md) per informazioni su come gestir
 
 ## <a name="event-handlers"></a>Gestori eventi
 
-Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue ulteriori operazioni per elaborare l'evento. Griglia di eventi supporta diversi tipi di gestori. È possibile usare un servizio di Azure supportato o il proprio webhook come gestore. A seconda del tipo di gestore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento. Se il gestore dell'evento di destinazione è un webhook HTTP, l'evento viene ritentato quando il gestore restituisce un `200 – OK`codice di stato. Per l'Hub Edge, se l'evento viene recapitato senza alcuna eccezione, viene considerato riuscito.
+Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue ulteriori operazioni per elaborare l'evento. Griglia di eventi supporta diversi tipi di gestori. È possibile usare un servizio di Azure supportato o il proprio webhook come gestore. A seconda del tipo di gestore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento. Se il gestore dell'evento di destinazione è un webhook HTTP, l'evento viene ritentato quando il gestore restituisce un codice di stato `200 – OK` . Per l'Hub Edge, se l'evento viene recapitato senza alcuna eccezione, viene considerato riuscito.
 
 ## <a name="security"></a>Sicurezza
 

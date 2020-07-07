@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057553"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
@@ -70,7 +70,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versione dell'API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
-|type|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
+|tipo|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione.
 |performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
@@ -233,7 +233,7 @@ Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnosti
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 
-L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento SAS al file ZIP di output è disponibile in un file di testo denominato *zipfilename*_saslink.txt presente nella cartella **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versione>**. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
+L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento di firma di accesso condiviso al file zip di output è disponibile all'interno di un file di testo denominato *zipfilename*_saslink.txt nella cartella **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Per facilitare il lavoro del tecnico del supporto responsabile del ticket, Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica.
 
@@ -255,4 +255,4 @@ Per visualizzare il report, estrarre il file con estensione zip e aprire il file
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).

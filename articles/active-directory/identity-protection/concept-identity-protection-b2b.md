@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72881317"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identity Protection e utenti B2B
@@ -53,4 +53,4 @@ Escludendo gli utenti B2B dai criteri di accesso condizionale basati sul rischio
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-- [Che cos'è Azure AD collaborazione B2B?](../b2b/what-is-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](../b2b/what-is-b2b.md)

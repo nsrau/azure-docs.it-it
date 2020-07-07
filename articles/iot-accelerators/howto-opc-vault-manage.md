@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71203663"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gestire il servizio certificati dell'insieme di credenziali OPC
@@ -25,11 +25,11 @@ Dopo aver distribuito l'insieme di credenziali OPC, è necessario creare il cert
 > [!IMPORTANT]
 > Il ruolo di amministratore è necessario per creare o rinnovare il certificato della CA emittente.
 
-1. Aprire il servizio certificati all' `https://myResourceGroup-app.azurewebsites.net`indirizzo ed accedere.
+1. Aprire il servizio certificati all'indirizzo `https://myResourceGroup-app.azurewebsites.net` ed accedere.
 2. Passare a **gruppi di certificati**.
 3. È presente un gruppo di certificati predefinito. Selezionare **Modifica**.
 4. In **Modifica dettagli gruppo di certificati**è possibile modificare il nome del soggetto e la durata dei certificati dell'autorità di certificazione e dell'applicazione. L'oggetto e le durate devono essere impostati solo una volta prima dell'emissione del primo certificato CA. Le modifiche di durata durante le operazioni potrebbero causare una durata incoerente dei certificati emessi e dei CRL.
-5. Immettere un oggetto valido, `CN=My CA Root, O=MyCompany, OU=MyDepartment`ad esempio.<br>
+5. Immettere un oggetto valido, ad esempio `CN=My CA Root, O=MyCompany, OU=MyDepartment` .<br>
    > [!IMPORTANT]
    > Se si modifica l'oggetto, è necessario rinnovare il certificato dell'autorità emittente oppure il servizio non riuscirà a firmare i certificati dell'applicazione. L'oggetto della configurazione viene controllato rispetto al soggetto del certificato dell'autorità emittente attiva. Se gli oggetti non corrispondono, la firma del certificato viene rifiutata.
 6. Selezionare **Salva**.
@@ -51,7 +51,7 @@ Nel flusso di lavoro seguente tutte le richieste di certificati negli stati elim
 > [!IMPORTANT]
 > Il ruolo di amministratore è necessario per rinnovare l'elenco CRL dell'emittente.
 
-1. Aprire il servizio certificati all' `https://myResourceGroup.azurewebsites.net`indirizzo ed accedere.
+1. Aprire il servizio certificati all'indirizzo `https://myResourceGroup.azurewebsites.net` ed accedere.
 2. Passare alla pagina **gruppi di certificati** .
 3. Selezionare **Dettagli**. Verranno visualizzate le informazioni del certificato e del CRL correnti.
 4. Selezionare **Aggiorna elenco di REVOCHE CRL (CRL)** per emettere un CRL aggiornato per tutti i certificati dell'autorità emittente attivo nell'archivio dell'insieme di credenziali OPC.
@@ -66,8 +66,8 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 ### <a name="add-user"></a>Add User
 
 1. Aprire il portale di Azure.
-2. Passare a **Azure Active Directory** > **applicazioni aziendali**.
-3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione `resourceGroupName-service`predefinita, il).
+2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
+3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
 5. Selezionare **Aggiungi utente**.
 6. Consente di selezionare o invitare l'utente per l'assegnazione a un ruolo specifico.
@@ -75,11 +75,11 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 8. Selezionare **assegna**.
 9. Per gli utenti con ruolo di amministratore o responsabile approvazione, continuare ad aggiungere Azure Key Vault criteri di accesso.
 
-### <a name="remove-user"></a>Rimuovi utente
+### <a name="remove-user"></a>Rimuovere un utente
 
 1. Aprire il portale di Azure.
-2. Passare a **Azure Active Directory** > **applicazioni aziendali**.
-3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione `resourceGroupName-service`predefinita, il).
+2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
+3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
 5. Selezionare un utente con un ruolo da rimuovere, quindi selezionare **Rimuovi**.
 6. Per rimuovere gli utenti dal ruolo amministratore o responsabile approvazione, rimuoverli anche dai criteri di Azure Key Vault.
@@ -93,8 +93,8 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo responsabile approvazione, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
 1. Aprire il portale di Azure.
-2. Passare all'insieme di credenziali `resourceGroupName`OPC, usato durante la distribuzione.
-3. Passare alla Key Vault `resourceGroupName-xxxxx`.
+2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
+3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
 5. Selezionare **Aggiungi nuova**.
 6. Ignorare il modello. Non esiste un modello che soddisfi i requisiti.
@@ -107,8 +107,8 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo di amministratore, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
 1. Aprire il portale di Azure.
-2. Passare all'insieme di credenziali `resourceGroupName`OPC, usato durante la distribuzione.
-3. Passare alla Key Vault `resourceGroupName-xxxxx`.
+2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
+3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
 5. Selezionare **Aggiungi nuova**.
 6. Ignorare il modello. Non esiste un modello che soddisfi i requisiti.
@@ -121,8 +121,8 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Rimuovere i criteri di accesso utente dal Azure Key Vault
 
 1. Aprire il portale di Azure.
-2. Passare all'insieme di credenziali `resourceGroupName`OPC, usato durante la distribuzione.
-3. Passare alla Key Vault `resourceGroupName-xxxxx`.
+2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
+3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
 5. Trovare l'utente da rimuovere e selezionare **Elimina**.
 

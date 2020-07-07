@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
 ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72328707"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Usare identità gestite per le risorse di Azure in Azure Cloud Shell

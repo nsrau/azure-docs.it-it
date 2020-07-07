@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
 ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73512730"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminare un progetto di Azure Migrate
@@ -24,9 +24,9 @@ Prima di eliminare un progetto:
 
 - Quando si elimina un progetto, il progetto e i metadati del computer individuati vengono eliminati.
 - Se è stata collegata un'area di lavoro Log Analytics allo strumento Server assessment per l'analisi delle dipendenze, decidere se si desidera eliminare l'area di lavoro. 
-    - L'area di lavoro non viene eliminata automaticamente. Eliminarlo manualmente.
+    - L'area di lavoro non viene eliminata automaticamente. Eliminarla manualmente.
     - Verificare l'utilizzo di un'area di lavoro prima di eliminarla. È possibile utilizzare la stessa area di lavoro Log Analytics per più scenari.
-    - Prima di eliminare il progetto, è possibile trovare un collegamento all'area di lavoro in **Azure migrate-Servers** > **Azure migrate-server Assessment**, nell' **area di lavoro di OMS**.
+    - Prima di eliminare il progetto, è possibile trovare un collegamento all'area di lavoro in **Azure migrate-Servers**  >  **Azure migrate-server Assessment**, nell' **area di lavoro di OMS**.
     - Per eliminare un'area di lavoro dopo l'eliminazione di un progetto, trovare l'area di lavoro nel gruppo di risorse pertinente e seguire [queste istruzioni](../azure-monitor/platform/delete-workspace.md).
 
 
@@ -51,7 +51,7 @@ In queste tabelle vengono riepilogate le risorse create per l'individuazione, la
 
 ### <a name="vmwarephysical-server"></a>VMware/server fisico
 
-**Risorsa** | **Type**
+**Risorsa** | **Tipo**
 --- | ---
 "Appliancename" KV | Insieme di credenziali delle chiavi
 Sito "appliancename" | Microsoft. OffAzure/VMwareSites
@@ -67,7 +67,7 @@ migrateapplisbns16041 | Spazio dei nomi del bus di servizio
 
 ### <a name="hyper-v-vm"></a>Macchina virtuale Hyper-V 
 
-**Risorsa** | **Type**
+**Risorsa** | **Tipo**
 --- | ---
 ProjectName | Microsoft. migrate/migrateprojects
 Progetto "NomeProgetto" | Microsoft. migrate/assessmentProjects

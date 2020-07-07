@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73161201"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "73161201"
 
 Il plug-in Single Sign-On (SSO) di Azure Active Directory (Azure AD) consente ai clienti di Microsoft Azure AD di usare l'account aziendale o dell'istituto di istruzione per accedere ai prodotti basati sui server Atlassian Jira e Confluence. Implementa l'accesso Single Sign-On basato su SAML 2.0.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando gli utenti vogliono accedere all'applicazione Atlassian Jira o Confluence, nella pagina di accesso viene visualizzato il pulsante **Accedi con Azure AD**. Dopo aver fatto clic sul pulsante, viene chiesto loro di accedere tramite la pagina di accesso dell'organizzazione ad Azure Active Directory (ovvero usando l'account aziendale o dell'istituto di istruzione).
 
@@ -95,7 +95,7 @@ Per installare il plug-in, seguire questa procedura:
 
 2. Passare alla console di amministrazione di Jira/Confluence e selezionare **Add-ons** (Componenti aggiuntivi).
 
-3. Dall'area download Microsoft, scaricare il plug-in Microsoft [SAML SSO per JIRA](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO plug-in per la convergenza](https://www.microsoft.com/download/details.aspx?id=56503).
+3. Dall'area download Microsoft, scaricare il plug-in Microsoft [SAML SSO per JIRA](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO plug-in per la convergenza](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Nei risultati della ricerca viene visualizzata la versione appropriata del plug-in.
 
@@ -113,11 +113,11 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Metadata URL** (URL dei metadati): URL per ottenere i metadati di federazione da Azure Active Directory.
 
-* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come dominio https://*\<: porta>*/.
+* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /.
 
-* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come dominio https://*\<: porta>*/plugins/servlet/SAML/auth.
+* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come dominio https://*\<: porta>*/plugins/servlet/SAML/auth.
+* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
 * **IdP Entity ID** (ID entità provider di identità): l'ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 

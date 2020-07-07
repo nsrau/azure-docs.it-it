@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176916"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelli di applicazione in Gestione API di Azure
@@ -84,7 +84,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |--------------|----------|-----------------|  
 |`Paging`|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
 |`Applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni visibili all'utente corrente.|  
-|`CategoryName`|stringa|La categoria dell'applicazione.|  
+|`CategoryName`|string|La categoria dell'applicazione.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176799"
 ---
 # <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
@@ -33,7 +33,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Modelli del portale per sviluppatori  
   
 -   [API](api-management-api-templates.md)  
-    -   [Elenco API](api-management-api-templates.md#APIList)  
+    -   [Elenco delle API](api-management-api-templates.md#APIList)  
     -   [Operazione](api-management-api-templates.md#Product)  
     -   [Esempi di codice](api-management-api-templates.md#CodeSamples)  
         -   [CURL](api-management-api-templates.md#Curl)  
@@ -54,12 +54,12 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
     -   [Elenco di problemi](api-management-issue-templates.md#IssueList)  
 -   [Profilo utente](api-management-user-profile-templates.md)  
     -   [Profilo](api-management-user-profile-templates.md#Profile)  
-    -   [Abbonamenti](api-management-user-profile-templates.md#Subscriptions)  
+    -   [Sottoscrizioni](api-management-user-profile-templates.md#Subscriptions)  
     -   [Applicazioni](api-management-user-profile-templates.md#Applications)  
     -   [Aggiornare le informazioni sull'account](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Pagine](api-management-page-templates.md)  
     -   [Accedi](api-management-page-templates.md#SignIn)  
-    -   [Iscrizione](api-management-page-templates.md#SignUp)  
+    -   [Registrati](api-management-page-templates.md#SignUp)  
     -   [Pagina non trovata](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Passaggi successivi  

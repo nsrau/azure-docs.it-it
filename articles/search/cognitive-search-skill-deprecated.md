@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792027"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Competenze cognitive deprecate in Azure ricerca cognitiva
@@ -34,7 +34,7 @@ Questo documento descrive le competenze cognitive considerate deprecate. Usare l
 
 15 febbraio 2019
 
-### <a name="recommendations"></a>Indicazioni 
+### <a name="recommendations"></a>Consigli 
 
 Usare invece [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Fornisce la maggior parte delle funzionalità di NamedEntityRecognitionSkill, ma di qualità più elevata. Include anche informazioni più dettagliate nei campi dell'output complesso.
 
@@ -149,4 +149,4 @@ Per eseguire la migrazione alla [competenza di riconoscimento entità](cognitive
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Competenza di riconoscimento entità](cognitive-search-skill-entity-recognition.md)
++ [Competenza riconoscimento entità](cognitive-search-skill-entity-recognition.md)

@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212388"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
@@ -31,7 +31,7 @@ Il supporto in batch è stato progettato per supportare processi a lunga esecuzi
 
 ## <a name="import"></a>Importa
 
-### <a name="set-up"></a>Configurare
+### <a name="set-up"></a>Configurazione
 In questa sezione si presuppone che siano presenti le entità seguenti:
 
 - Un hub di notifica sottoposto a provisioning.
@@ -115,7 +115,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-Oltre agli URL di input e di output, in questo esempio viene `NotificationHubJob` creato un oggetto che `JobType` contiene un oggetto, che può essere uno dei tipi seguenti:
+Oltre agli URL di input e di output, in questo esempio viene creato un `NotificationHubJob` oggetto che contiene un `JobType` oggetto, che può essere uno dei tipi seguenti:
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
@@ -128,7 +128,7 @@ Al termine del processo è possibile esaminare i risultati, verificando i file s
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Questi file includono l'elenco delle operazioni riuscite e non riuscite del batch. Il formato del file `.cvs`è, in cui ogni riga ha il numero di riga del file di input originale e l'output dell'operazione, in genere la descrizione della registrazione creata o aggiornata.
+Questi file includono l'elenco delle operazioni riuscite e non riuscite del batch. Il formato del file è `.cvs` , in cui ogni riga ha il numero di riga del file di input originale e l'output dell'operazione, in genere la descrizione della registrazione creata o aggiornata.
 
 ### <a name="full-sample-code"></a>Codice di esempio completo
 Il codice di esempio seguente importa le registrazioni in un hub di notifica.
@@ -261,7 +261,7 @@ namespace ConsoleApplication1
 }
 ```
 
-## <a name="export"></a>Export
+## <a name="export"></a>Esportazione
 L'esportazione della registrazione è analoga all'importazione, con le differenze seguenti:
 
 - È necessario solo l'URL di output.

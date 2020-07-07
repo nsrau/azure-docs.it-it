@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992145"
 ---
 # <a name="module-twin-json-schema"></a>Schema JSON del modulo gemello
@@ -25,9 +25,9 @@ Griglia di eventi su IoT Edge si integra con l'ecosistema IoT Edge e supporta la
 
 ## <a name="desired-properties-json"></a>Proprietà desiderate JSON
 
-* Il valore di ogni coppia chiave-valore nella sezione argomenti ha esattamente lo stesso schema JSON usato per `Topic.Properties` nell'API durante la creazione di argomenti.
-* Il valore di ogni coppia chiave-valore nella sezione **EventSubscriptions** ha esattamente lo stesso schema JSON usato per `EventSubscription.Properties` nell'API durante la creazione di argomenti.
-* Per eliminare un argomento, impostarne il valore `null` su nelle proprietà desiderate.
+* Il valore di ogni coppia chiave-valore nella sezione argomenti ha esattamente lo stesso schema JSON usato per nell' `Topic.Properties` API durante la creazione di argomenti.
+* Il valore di ogni coppia chiave-valore nella sezione **EventSubscriptions** ha esattamente lo stesso schema JSON usato per nell' `EventSubscription.Properties` API durante la creazione di argomenti.
+* Per eliminare un argomento, impostarne il valore su `null` nelle proprietà desiderate.
 * L'eliminazione delle sottoscrizioni di eventi tramite le proprietà desiderate non è supportata.
 
 ```json

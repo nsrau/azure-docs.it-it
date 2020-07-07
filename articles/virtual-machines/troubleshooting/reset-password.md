@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71153563"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Come reimpostare la password di Linux locale nelle VM di Azure
@@ -33,9 +33,9 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
 > [!NOTE]
 > I passaggi seguenti non si applicano alla macchina virtuale con disco non gestito.
 
-1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi alporre il disco a una VM di risoluzione dei problemi. Per altre informazioni, vedere [risolvere i problemi di una VM Windows connettendo il disco del sistema operativo a una VM di ripristino usando il portale di Azure](troubleshoot-recovery-disks-portal-linux.md).
+1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi alporre il disco a una VM di risoluzione dei problemi. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando il portale Azure](troubleshoot-recovery-disks-portal-linux.md).
 
-2. Connettersi alla macchina virtuale per la risoluzione dei problemi usando Desktop remoto.
+2. Connettersi alla VM per la risoluzione dei problemi usando Desktop remoto.
 
 3.  Eseguire il comando SSH seguente nella macchina virtuale per la risoluzione dei problemi per diventare un utente con privilegi avanzati.
 
@@ -101,9 +101,9 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
     umount /tempmount
     ```
 
-11. In portale di Azure scollegare il disco dalla macchina virtuale per la risoluzione dei problemi.
+11. Nel portale di Azure scollegare il disco dalla VM per la risoluzione dei problemi.
 
-12. [Modificare il disco del sistema operativo per la macchina virtuale interessata](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
+12. [Modificare il disco del sistema operativo per la VM interessata](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

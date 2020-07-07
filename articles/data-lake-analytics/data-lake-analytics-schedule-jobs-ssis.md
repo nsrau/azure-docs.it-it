@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672904"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
@@ -93,7 +93,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
     
     Per creare questa connessione file:
 
-   1. Scegliere ** \<nuova connessione... >** nell'impostazione FileConnection.
+   1. Scegliere **\<New Connection...>** nell'impostazione FileConnection.
    2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
 
        ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -106,7 +106,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 3. Impostare **AzureDataLakeAnalyticsConnection** sull'account Azure Data Lake Analytics a cui inviare i processi. Altre informazioni sul componente di [gestione delle connessioni di Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Impostare altre configurazioni per i processi. [Ulteriori informazioni](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Impostare altre configurazioni per i processi. [Altre informazioni](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Usare **Espressioni** per impostare in modo dinamico il nome del processo U-SQL:
 

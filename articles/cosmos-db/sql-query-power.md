@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71349643"
 ---
 # <a name="power-azure-cosmos-db"></a>POTENZA (Azure Cosmos DB)
@@ -52,5 +52,5 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

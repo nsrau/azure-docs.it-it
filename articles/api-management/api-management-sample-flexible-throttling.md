@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71066764"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitazione avanzata delle richieste con Gestione API di Azure
@@ -30,7 +30,7 @@ Finora le funzionalità di limitazione della frequenza avevano come ambito una s
 ## <a name="custom-key-based-throttling"></a>Limitazione basata su chiave personalizzata
 
 > [!NOTE]
-> I `rate-limit-by-key` criteri `quota-by-key` e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
+> I `rate-limit-by-key` `quota-by-key` criteri e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
 
 I nuovi criteri [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) e [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che vengono usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
 
